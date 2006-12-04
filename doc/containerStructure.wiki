@@ -1,0 +1,1095 @@
+{anchor:Index}
+| *editContainers* |  	[#editContainers.DnsAddMasterAddressDataContainer] \\  	[#editContainers.DnsAddressMatchListDataContainer] \\  	[#editContainers.DnsAddressMatchListForServiceDataContainer] \\  	[#editContainers.DnsAllowNotifyForServiceDataContainer] \\  	[#editContainers.DnsAllowNotifyForZoneDataContainer] \\  	[#editContainers.DnsAllowQueryForServiceDataContainer] \\  	[#editContainers.DnsAllowQueryForZoneDataContainer] \\  	[#editContainers.DnsAllowRecursionForServiceDataContainer] \\  	[#editContainers.DnsAllowTransferForServiceDataContainer] \\  	[#editContainers.DnsAllowTransferForZoneDataContainer] \\  	[#editContainers.DnsAllowUpdateForZoneDataContainer] \\  	[#editContainers.DnsBlackholeForServiceDataContainer] \\  	[#editContainers.DnsConfigurationDataContainer] \\  	[#editContainers.DnsForwardZoneDataContainer] \\  	[#editContainers.DnsForwarderDataContainer] \\  	[#editContainers.DnsForwardersForServiceDataContainer] \\  	[#editContainers.DnsHintZoneDataContainer] \\  	[#editContainers.DnsMasterDataContainer] \\  	[#editContainers.DnsMasterZoneDataContainer] \\  	[#editContainers.DnsMastersForServiceDataContainer] \\  	[#editContainers.DnsResourceRecordDataContainer] \\  	[#editContainers.DnsResourceRecordListContainer] \\  	[#editContainers.DnsResourceRecordListItemContainer] \\  	[#editContainers.DnsReverseZoneDataContainer] \\  	[#editContainers.DnsServiceOperationsDataContainer] \\  	[#editContainers.DnsServiceTracingDataContainer] \\  	[#editContainers.DnsSlaveZoneDataContainer] \\  	[#editContainers.DnsSoaContainer] \\  	[#editContainers.DnsStubZoneDataContainer] \\  	[#editContainers.DnsTTLDataContainer] \\  	[#editContainers.DnsZoneDataContainer] \\  	[#editContainers.DnsZoneTracingContainer] \\  |
+| *wizardContainers* |  	[#wizardContainers.DnsAddressMatchListWizardPage1DataContainer] \\  	[#wizardContainers.DnsAddressMatchListWizardSummaryDataContainer] \\  	[#wizardContainers.DnsForwardZoneWizardPage1DataContainer] \\  	[#wizardContainers.DnsForwardZoneWizardSummaryDataContainer] \\  	[#wizardContainers.DnsMasterZoneWizardPage1DataContainer] \\  	[#wizardContainers.DnsMasterZoneWizardSummaryDataContainer] \\  	[#wizardContainers.DnsMastersWizardPage1DataContainer] \\  	[#wizardContainers.DnsMastersWizardSummaryDataContainer] \\  	[#wizardContainers.DnsResourceRecordForReverseZoneWizardDataContainer] \\  	[#wizardContainers.DnsResourceRecordWizardPage1DataContainer] \\  	[#wizardContainers.DnsResourceRecordWizardPage2TypeMxDataContainer] \\  	[#wizardContainers.DnsResourceRecordWizardPage2TypeOtherDataContainer] \\  	[#wizardContainers.DnsResourceRecordWizardSummaryDataContainer] \\  	[#wizardContainers.DnsReverseZoneWizardPage1DataContainer] \\  	[#wizardContainers.DnsReverseZoneWizardSummaryDataContainer] \\  	[#wizardContainers.DnsSlaveZoneWizardPage1DataContainer] \\  	[#wizardContainers.DnsSlaveZoneWizardSummaryDataContainer] \\  	[#wizardContainers.DnsStubZoneWizardPage1DataContainer] \\  	[#wizardContainers.DnsStubZoneWizardSummaryDataContainer] \\  |
+
+
+[#Index]
+{anchor:editContainers.DnsAddMasterAddressDataContainer}
+{panel:title=editContainers.DnsAddMasterAddressDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for the fields needed to add Master IP Addresses \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | --- \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| masters | UNSIGNED_INT16 | LIST_WITH_MULTISELECT | Linux_DnsSetting.get_Forwarders \\ | --- | -masters, Optional,Default is noDefaultValue, Duplicates allowed |
+| removeMasterEntry | ACTION | BUTTON | userdefined \\ | Userdefined | -removeMasterEntry, Optional,Default is noDefaultValue, Duplicates allowed |
+| newMasterEntry | STRING | TEXTFIELD | userdefined \\ | Userdefined | -newMasterEntry, Optional,Default is noDefaultValue, Duplicates allowed |
+| addNewMasterEntry | ACTION | BUTTON | userdefined \\ | Userdefined | -addNewMasterEntry, Optional,Default is noDefaultValue, Duplicates allowed |
+| addPredefinedMaster | ACTION | BUTTON | userdefined \\ | Userdefined | -addPredefinedMaster, Optional,Default is noDefaultValue, Duplicates allowed |
+| predefinedMasters | UNSIGNED_INT16 | LIST_WITH_MULTISELECT | userdefined \\ | Userdefined | -predefinedMasters, Optional,Default is noDefaultValue, Duplicates allowed |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsAddressMatchListDataContainer}
+{panel:title=editContainers.DnsAddressMatchListDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for a AddressMatchList (Baseclass for specific ACLs) \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchList |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | --- \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| AddressList | UNSIGNED_INT16 | LIST_WITH_MULTISELECT | Linux_DnsAddressMatchList.get_AddressList \\ | --- | -addressList, Optional,Default is noDefaultValue |
+| removeAddress | ACTION | BUTTON | userdefined \\ | Userdefined | -removeAddress, Optional,Default is noDefaultValue |
+| userAddresses | UNSIGNED_INT16 | LIST_WITH_MULTISELECT | userdefined \\ | Userdefined | -userAddresses, Optional,Default is noDefaultValue |
+| newAddress | STRING | TEXTFIELD | userdefined \\ | Userdefined | -newAddress, Optional,Default is noDefaultValue |
+| addPredefinedAddress | ACTION | BUTTON | userdefined \\ | Userdefined | -addPredefinedAddress, Optional,Default is noDefaultValue |
+| addNewAddress | ACTION | BUTTON | userdefined \\ | Userdefined | -addNewAddress, Optional,Default is noDefaultValue |
+| addressUp | ACTION | BUTTON | userdefined \\ | Userdefined | -addressUp, Optional,Default is noDefaultValue |
+| addressDown | ACTION | BUTTON | userdefined \\ | Userdefined | -addressDown, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsAddressMatchListForServiceDataContainer}
+{panel:title=editContainers.DnsAddressMatchListForServiceDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | userdefined AddressMatchList \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchList |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | DELETE, MODIFY \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | LABEL | Linux_DnsAddressMatchList.get_Name \\ | Readonly | -matchListName, Optional,Default is noDefaultValue, Used for selection |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsAddressMatchListDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsAllowNotifyForServiceDataContainer}
+{panel:title=editContainers.DnsAllowNotifyForServiceDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Datacontainer for allow Notify of the service \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | X |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsAddressMatchListDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsAllowNotifyForZoneDataContainer}
+{panel:title=editContainers.DnsAllowNotifyForZoneDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Datacontainer for AllowNotify of a Zone \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| useGlobalAddressMatchList | ACTION | BUTTON | userdefined \\ | Userdefined | -useGlobalAddressMatchList, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsAddressMatchListDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsAllowQueryForServiceDataContainer}
+{panel:title=editContainers.DnsAllowQueryForServiceDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Datacontainer for allow Query of the service \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | X |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsAddressMatchListDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsAllowQueryForZoneDataContainer}
+{panel:title=editContainers.DnsAllowQueryForZoneDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Datacontainer for allowQuery of a zone \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| useGlobalAddressMatchList | ACTION | BUTTON | userdefined \\ | Userdefined | -useGlobalAddressMatchList, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsAddressMatchListDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsAllowRecursionForServiceDataContainer}
+{panel:title=editContainers.DnsAllowRecursionForServiceDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Datacontainer for allow Recursion of the service \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | X |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsAddressMatchListDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsAllowTransferForServiceDataContainer}
+{panel:title=editContainers.DnsAllowTransferForServiceDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Datacontainer for AllowTransfer of the service \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | X |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsAddressMatchListDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsAllowTransferForZoneDataContainer}
+{panel:title=editContainers.DnsAllowTransferForZoneDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Datacontainer for allowTransfer of a zone \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| useGlobalAddressMatchList | ACTION | BUTTON | userdefined \\ | Userdefined | -useGlobalAddressMatchList, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsAddressMatchListDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsAllowUpdateForZoneDataContainer}
+{panel:title=editContainers.DnsAllowUpdateForZoneDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Datacontainer for allow Update of a zone \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | X |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsAddressMatchListDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsBlackholeForServiceDataContainer}
+{panel:title=editContainers.DnsBlackholeForServiceDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Datacontainer of Blackhole ACL for the service \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | X |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsAddressMatchListDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsConfigurationDataContainer}
+{panel:title=editContainers.DnsConfigurationDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for DNSService Configuration \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsServiceConfiguration |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| ConfigurationFile | STRING | TEXTFIELD | Linux_DnsConfiguration.get_ConfigurationFile \\ | --- | -configurationFile, Optional,no default |
+| ConfigurationDirectory | STRING | TEXTFIELD | Linux_DnsSetting.get_ConfigurationDirectory \\ | --- | -configurationDirectory, Optional,no default |
+| PortNumber | UNSIGNED_INT32 | TEXTFIELD | Linux_DnsSetting.get_PortNumber \\ | --- | -portNumber, Optional,no default |
+| removeDirectory | ACTION | BUTTON | userdefined \\ | Userdefined | -removeDirectory, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsForwardZoneDataContainer}
+{panel:title=editContainers.DnsForwardZoneDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for DNS ForwardZones \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwardZone |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | DELETE, MODIFY \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| useGlobalForwarders | ACTION | BUTTON | userdefined \\ | Userdefined | -useGlobalForwarders, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsZoneDataContainer] \\ | |
+| Extends | [#editContainers.DnsForwarderDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsForwarderDataContainer}
+{panel:title=editContainers.DnsForwarderDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for the fields needed to define a forwarder \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | --- \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Forward | UNSIGNED_INT8 | RADIOBUTTON | Linux_DnsSetting.get_Forward \\ | --- | -forward, Optional,Default is noDefaultValue, Duplicates allowed |
+| Forwarders | UNSIGNED_INT16 | LIST_WITH_MULTISELECT | Linux_DnsSetting.get_Forwarders \\ | --- | -forwarders, Optional,Default is noDefaultValue, Duplicates allowed |
+| removeForwarder | ACTION | BUTTON | userdefined \\ | Userdefined | -removeForwarder, Optional,Default is noDefaultValue, Duplicates allowed |
+| newForwarder | STRING | TEXTFIELD | userdefined \\ | Userdefined | -newForwarder, Optional,Default is noDefaultValue, Duplicates allowed |
+| addForwarder | ACTION | BUTTON | userdefined \\ | Userdefined | -addForwarder, Optional,Default is noDefaultValue, Duplicates allowed |
+| newForwarderType | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -newForwarderType, Optional,Default is noDefaultValue, Duplicates allowed |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsForwardersForServiceDataContainer}
+{panel:title=editContainers.DnsForwardersForServiceDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | X |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsForwarderDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsHintZoneDataContainer}
+{panel:title=editContainers.DnsHintZoneDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for DNSHintZones \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsHintZone |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | DELETE, MODIFY \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| ZoneFile | STRING | TEXTFIELD | Linux_DnsHintZone.get_ZoneFile \\ | --- | -zoneFile, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsZoneDataContainer] \\ | |
+| Extends | [#editContainers.DnsTTLDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsMasterDataContainer}
+{panel:title=editContainers.DnsMasterDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | --- \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasters |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | --- \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Linux_DnsMaster.get_Name \\ | --- | -name, Optional,no default |
+| MasterElementType | STRING | TEXTFIELD | Linux_DnsMaster.get_MasterElementType \\ | --- | -masterElementType, Optional,no default |
+| MasterElement | STRING | TEXTFIELD | Linux_DnsMaster.get_MasterElement \\ | --- | -masterElement, Optional,no default |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsMasterZoneDataContainer}
+{panel:title=editContainers.DnsMasterZoneDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for DNS MasterZones \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasterZone |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | DELETE, MODIFY \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| ZoneFile | STRING | TEXTFIELD | Linux_DnsMasterZone.get_ZoneFile \\ | --- | -zoneFile, Optional,Default is noDefaultValue |
+| useGlobalForwarders | ACTION | BUTTON | userdefined \\ | Userdefined | -useGlobalForwarders, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsZoneDataContainer] \\ | |
+| Extends | [#editContainers.DnsForwarderDataContainer] \\ | |
+| Extends | [#editContainers.DnsTTLDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsMastersForServiceDataContainer}
+{panel:title=editContainers.DnsMastersForServiceDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | userdefined Masters \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasters |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | DELETE, MODIFY \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | LABEL | Linux_DnsMaster.get_Name \\ | Readonly | -mastersName, Optional,Default is noDefaultValue, Used for selection |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsAddMasterAddressDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsResourceRecordDataContainer}
+{panel:title=editContainers.DnsResourceRecordDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for ResourceRecords \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | DELETE, MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Name \\ | --- | -recordName, Optional,Default is noDefaultValue |
+| Type | UNSIGNED_INT16 | COMBOBOX | Type \\ | --- | -recordType, Optional,Default is noDefaultValue |
+| Family | UNSIGNED_INT8 | COMBOBOX | Family \\ | --- | -recordFamily, Optional,Default is noDefaultValue |
+| Value | STRING | LABEL | Value \\ | --- | -recordValue, Optional,Default is noDefaultValue |
+| Priority | STRING | LABEL | Value \\ | --- | -mxPriority, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsTTLDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsResourceRecordListContainer}
+{panel:title=editContainers.DnsResourceRecordListContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container with a List of ResourceRecords \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| selectAll | BOOLEAN | CHECKBOX_WITH_CLICKEVENT | userdefined \\ | Userdefined | Not used for Commandline |
+| delete | ACTION | BUTTON | userdefined \\ | Userdefined | Not used for Commandline |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#editContainers.DnsResourceRecordListItemContainer] | Rolename: resourceRecords, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsResourceRecordListItemContainer}
+{panel:title=editContainers.DnsResourceRecordListItemContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | One ResourceRecord in a List of Records \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Name \\ | --- | -resourceRecordName, Required, Used for selection |
+| TTL | STRING | TEXTFIELD | Linux_DnsSetting.get_TTL \\ | --- | -ttl, Optional,Default is noDefaultValue |
+| TTLUnit | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -ttlUnit, Optional,Default is noDefaultValue |
+| removeTTL | ACTION | BUTTON | userdefined \\ | Userdefined | -removeTTL, Optional,Default is noDefaultValue |
+| Family | UNSIGNED_INT8 | COMBOBOX | Family \\ | --- | -family, Optional,Default is noDefaultValue |
+| Type | UNSIGNED_INT16 | COMBOBOX | Type \\ | --- | -type, Required, Used for selection |
+| Value | STRING | TEXTFIELD | Value \\ | --- | -value, Required, Used for selection |
+| deleteRecord | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | Not used for Commandline |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsReverseZoneDataContainer}
+{panel:title=editContainers.DnsReverseZoneDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for DNS Reverse Zones \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsReverseZoneWrapper |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | DELETE, MODIFY \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| ZoneFile | STRING | TEXTFIELD | Linux_DnsMasterZone.get_ZoneFile \\ | --- | -zoneFile, Optional,Default is noDefaultValue |
+| useGlobalForwarders | ACTION | BUTTON | userdefined \\ | Userdefined | -useGlobalForwarders, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsZoneDataContainer] \\ | |
+| Extends | [#editContainers.DnsForwarderDataContainer] \\ | |
+| Extends | [#editContainers.DnsTTLDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsServiceOperationsDataContainer}
+{panel:title=editContainers.DnsServiceOperationsDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for Operations within DNS Service \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsService |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| RunAsRoot | BOOLEAN | CHECKBOX | RunAsRoot \\ | Readonly | -asRoot, Optional,Default is noDefaultValue |
+| restart | ACTION | BUTTON | userdefined \\ | Userdefined | -restart, Optional,Default is noDefaultValue |
+| start | ACTION | BUTTON | startService \\ | --- | -start, Optional,Default is noDefaultValue |
+| stop | ACTION | BUTTON | stopService \\ | --- | -stop, Optional,Default is noDefaultValue |
+| Status | STRING | LABEL | Linux_DnsService.get_Status \\ | Readonly | -status, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsServiceTracingDataContainer}
+{panel:title=editContainers.DnsServiceTracingDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for Tracing the DNService \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | --- \\ |
+| *CustomLayouter* \\ | --- |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#editContainers.DnsAllowNotifyForServiceDataContainer] | Rolename: allowNotifyAcl, Type: SINGLE |
+| Link | [#editContainers.DnsAllowQueryForServiceDataContainer] | Rolename: allowQueryAcl, Type: SINGLE |
+| Link | [#editContainers.DnsAllowTransferForServiceDataContainer] | Rolename: allowTransferAcl, Type: SINGLE |
+| Link | [#editContainers.DnsAllowRecursionForServiceDataContainer] | Rolename: allowRecursionAcl, Type: SINGLE |
+| Link | [#editContainers.DnsBlackholeForServiceDataContainer] | Rolename: blackholeAcl, Type: SINGLE |
+| Link | [#editContainers.DnsConfigurationDataContainer] | Rolename: configuration, Type: SINGLE |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsSlaveZoneDataContainer}
+{panel:title=editContainers.DnsSlaveZoneDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for DNS SlaveZones \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsSlaveZone |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | DELETE, MODIFY \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| ZoneFile | STRING | TEXTFIELD | Linux_DnsSlaveZone.get_ZoneFile \\ | --- | -zoneFile, Optional,Default is noDefaultValue |
+| useGlobalForwarders | ACTION | BUTTON | userdefined \\ | Userdefined | -useGlobalForwarders, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsZoneDataContainer] \\ | |
+| Extends | [#editContainers.DnsForwarderDataContainer] \\ | |
+| Extends | [#editContainers.DnsAddMasterAddressDataContainer] \\ | |
+| Extends | [#editContainers.DnsTTLDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsSoaContainer}
+{panel:title=editContainers.DnsSoaContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasterZone |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | MODIFY \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Server | STRING | TEXTFIELD | Linux_DnsMasterZone.get_Server \\ | --- | -server, Optional,no default |
+| Contact | STRING | TEXTFIELD | Linux_DnsMasterZone.get_Contact \\ | --- | -contact, Optional,no default |
+| SerialNumber | STRING | TEXTFIELD | Linux_DnsMasterZone.get_SerialNumber \\ | --- | -serialNumber, Optional,Default is noDefaultValue |
+| Refresh | UNSIGNED_INT32 | TEXTFIELD | Linux_DnsMasterZone.get_Refresh \\ | --- | -refresh, Optional,no default |
+| Retry | UNSIGNED_INT32 | TEXTFIELD | Linux_DnsMasterZone.get_Retry \\ | --- | -retry, Optional,no default |
+| Expire | UNSIGNED_INT32 | TEXTFIELD | Linux_DnsMasterZone.get_Expire \\ | --- | -expire, Optional,no default |
+| NegativeCachingTTL | STRING | TEXTFIELD | Linux_DnsMasterZone.get_NegativeCachingTTL \\ | --- | -negativeCachingTTL, Optional,Default is noDefaultValue |
+| TTLUnit | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -ttlUnit, Optional,Default is noDefaultValue |
+| setSerialNumber | ACTION | BUTTON | userdefined \\ | Userdefined | -setSerialNumber, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsStubZoneDataContainer}
+{panel:title=editContainers.DnsStubZoneDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsStubZone |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | DELETE, MODIFY \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| ZoneFile | STRING | TEXTFIELD | Linux_DnsStubZone.get_ZoneFile \\ | --- | -zoneFile, Optional,no default |
+| useGlobalForwarders | ACTION | BUTTON | userdefined \\ | Userdefined | -useGlobalForwarders, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsForwarderDataContainer] \\ | |
+| Extends | [#editContainers.DnsZoneDataContainer] \\ | |
+| Extends | [#editContainers.DnsAddMasterAddressDataContainer] \\ | |
+| Extends | [#editContainers.DnsTTLDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsTTLDataContainer}
+{panel:title=editContainers.DnsTTLDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for the fields needed to define TTL \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | --- \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| TTL | STRING | TEXTFIELD | Linux_DnsSetting.get_TTL \\ | --- | -ttl, Optional,Default is noDefaultValue |
+| TTLUnit | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -ttlUnit, Optional,Default is noDefaultValue |
+| removeTTL | ACTION | BUTTON | userdefined \\ | Userdefined | -removeTTL, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsZoneDataContainer}
+{panel:title=editContainers.DnsZoneDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Baseclass Container for alle Zones \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | --- \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | LABEL | Linux_DnsZone.get_Name \\ | --- | -zoneName, Optional,Default is noDefaultValue, Used for selection |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:editContainers.DnsZoneTracingContainer}
+{panel:title=editContainers.DnsZoneTracingContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Container for Tracing a Zone \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.edit |
+| *Actions* | --- \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Linux_DnsZone.get_Name \\ | Readonly | -zoneName, Optional,Default is noDefaultValue, Used for selection |
+| ResourceRecordFile | STRING | TEXTFIELD | Linux_DnsZone.get_ResourceRecordFile \\ | Readonly | -resourceRecordFile, Optional,Default is noDefaultValue |
+| Contact | STRING | TEXTFIELD | Contact \\ | Readonly | -contact, Optional,Default is noDefaultValue |
+| Expire | UNSIGNED_INT32 | TEXTFIELD | Expire \\ | Readonly | -expire, Optional,Default is noDefaultValue |
+| Server | STRING | TEXTFIELD | Server \\ | Readonly | -servername, Optional,Default is noDefaultValue |
+| SerialNumber | STRING | TEXTFIELD | Linux_DnsMasterZone.get_SerialNumber \\ | Readonly | -serialNumber, Optional,Default is noDefaultValue |
+| Retry | UNSIGNED_INT32 | TEXTFIELD | Linux_DnsMasterZone.get_Retry \\ | Readonly | -retry, Optional,Default is noDefaultValue |
+| Forward | UNSIGNED_INT16 | TEXTFIELD | Linux_DnsSetting.get_Forward \\ | Readonly | -forward, Optional,Default is noDefaultValue |
+| Forwarders | STRING | TEXTFIELD | Linux_DnsSetting.get_Forwarders \\ | Readonly | -forwarders, Optional,Default is noDefaultValue |
+| masterAddresses | STRING | TEXTFIELD | userdefined \\ | Readonly, Userdefined | Not used for Commandline |
+| TTL | DOUBLE | TEXTFIELD | Linux_DnsSetting.get_TTL \\ | Readonly | Not used for Commandline |
+| TTLUnit | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Readonly | Not used for Commandline |
+| NegativeCaching_TTL | DOUBLE | TEXTFIELD |  \\ | Readonly | Not used for Commandline |
+| NegativeCaching_TTLUnit | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Readonly, Userdefined | Not used for Commandline |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#editContainers.DnsAllowNotifyForZoneDataContainer] | Rolename: allowNotifyAcl, Type: SINGLE |
+| Link | [#editContainers.DnsAllowQueryForZoneDataContainer] | Rolename: allowQueryAcl, Type: SINGLE |
+| Link | [#editContainers.DnsAllowTransferForZoneDataContainer] | Rolename: allowTransferAcl, Type: SINGLE |
+| Link | [#editContainers.DnsAllowUpdateForZoneDataContainer] | Rolename: allowUpdateAcl, Type: SINGLE |
+| Link | [#editContainers.DnsResourceRecordDataContainer] | Rolename: resourceRecords, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsAddressMatchListWizardPage1DataContainer}
+{panel:title=wizardContainers.DnsAddressMatchListWizardPage1DataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Page 1 of AddressMatchList-Wizard \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchList |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | MODIFY, WIZARD \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Linux_DnsAddressMatchList.get_Name \\ | --- | -matchListName, Required |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsAddressMatchListDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsAddressMatchListWizardSummaryDataContainer}
+{panel:title=wizardContainers.DnsAddressMatchListWizardSummaryDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Summary of AddressMatchList-Wizard \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchList |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | CREATE, MODIFY, WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Linux_DnsAddressMatchList.get_Name \\ | Readonly | -name, Optional,Default is noDefaultValue |
+| AddressList | UNSIGNED_INT16 | LIST | Linux_DnsAddressMatchList.get_AddressList \\ | Readonly | -addressList, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsForwardZoneWizardPage1DataContainer}
+{panel:title=wizardContainers.DnsForwardZoneWizardPage1DataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Main Page of wizard for forward zones \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasterZone |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | MODIFY, WIZARD \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Name \\ | Userdefined | -zoneName, Required |
+| useGlobalForwarders | ACTION | BUTTON | userdefined \\ | Userdefined | -useGlobalForwarders, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsForwarderDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsForwardZoneWizardSummaryDataContainer}
+{panel:title=wizardContainers.DnsForwardZoneWizardSummaryDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Overview of wizard for forward zones \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasterZone |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | CREATE, WIZARD \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Server \\ | Readonly, Userdefined | -name, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsForwarderDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsMasterZoneWizardPage1DataContainer}
+{panel:title=wizardContainers.DnsMasterZoneWizardPage1DataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Main Page of the MasterzoneWizard \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasterZone |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | MODIFY, WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Name \\ | Userdefined | -zoneName, Required |
+| Server | STRING | TEXTFIELD | Server \\ | Userdefined | -server, Required |
+| IpAdress | STRING | TEXTFIELD | userdefined \\ | Userdefined | -ip, Required |
+| Contact | STRING | TEXTFIELD | Contact \\ | Userdefined | -contact, Required |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsMasterZoneWizardSummaryDataContainer}
+{panel:title=wizardContainers.DnsMasterZoneWizardSummaryDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Overview of the DNSMasterzoneWizard \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasterZone |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | CREATE, WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | LABEL | Name \\ | Readonly, Userdefined | Not used for Commandline |
+| Server | STRING | LABEL | Server \\ | Readonly, Userdefined | Not used for Commandline |
+| IpAdress | STRING | LABEL | userdefined \\ | Readonly, Userdefined | Not used for Commandline |
+| Contact | STRING | LABEL | Contact \\ | Readonly, Userdefined | -contact, Required |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsMastersWizardPage1DataContainer}
+{panel:title=wizardContainers.DnsMastersWizardPage1DataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Page 1 of AddressMatchList-Wizard \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMaster |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | MODIFY, WIZARD \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Linux_DnsMaster.get_Name \\ | --- | -mastersName, Required |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsAddMasterAddressDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsMastersWizardSummaryDataContainer}
+{panel:title=wizardContainers.DnsMastersWizardSummaryDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Summary of AddressMatchList-Wizard \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMaster |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | CREATE, MODIFY, WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Linux_DnsMaster.get_Name \\ | Readonly | -name, Optional,Default is noDefaultValue |
+| AddressList | UNSIGNED_INT16 | LIST | Linux_DnsMaster.get_AddressList \\ | Readonly | -addressList, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsResourceRecordForReverseZoneWizardDataContainer}
+{panel:title=wizardContainers.DnsResourceRecordForReverseZoneWizardDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | ResourceRecord within the ReverseZone Wizard (on the Overview page) \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | --- \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | LABEL | Name \\ | Readonly | -name, Required, Used for selection |
+| Type | STRING | LABEL | Type \\ | Readonly | -type, Required, Used for selection |
+| Value | STRING | LABEL | Value \\ | Readonly | -value, Required, Used for selection |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsResourceRecordWizardPage1DataContainer}
+{panel:title=wizardContainers.DnsResourceRecordWizardPage1DataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Main page of resourceRecord Wizard \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | WIZARD \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Type | UNSIGNED_INT16 | COMBOBOX | Type \\ | Userdefined | -type, Required |
+| Name | STRING | TEXTFIELD | Name \\ | Userdefined | -recordName, Required |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsResourceRecordWizardPage2TypeMxDataContainer}
+{panel:title=wizardContainers.DnsResourceRecordWizardPage2TypeMxDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Page 2 of ResourceRecord-Wizard for defining MX-typed Records \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | MODIFY, WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Value | STRING | TEXTFIELD | Value \\ | Userdefined | -recordValue, Required, Duplicates allowed |
+| Priority | STRING | TEXTFIELD |  \\ | Userdefined | -priority, Optional,Default is noDefaultValue |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsResourceRecordWizardPage2TypeOtherDataContainer}
+{panel:title=wizardContainers.DnsResourceRecordWizardPage2TypeOtherDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Page 2 of ResourceRecord-Wizard for defining Records with Type other than MX \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | MODIFY, WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Value | STRING | TEXTFIELD | Value \\ | Userdefined | -recordValue, Required, Duplicates allowed |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsResourceRecordWizardSummaryDataContainer}
+{panel:title=wizardContainers.DnsResourceRecordWizardSummaryDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Overview of the ResourceRecords wizard \\ |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | CREATE, WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Name \\ | Readonly, Userdefined | Not used for Commandline |
+| Type | STRING | TEXTFIELD | Type \\ | Readonly, Userdefined | Not used for Commandline |
+| Value | STRING | TEXTFIELD | Value \\ | Readonly, Userdefined | Not used for Commandline |
+| Priority | STRING | TEXTFIELD |  \\ | Readonly, Userdefined | -priority, Optional,Default is noDefaultValue, Duplicates allowed |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsReverseZoneWizardPage1DataContainer}
+{panel:title=wizardContainers.DnsReverseZoneWizardPage1DataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Page 1 of ReverseZone-Wizard \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | MODIFY, WIZARD \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| ipAddress | STRING | TEXTFIELD | userdefined \\ | Userdefined | -ipAddress, Required, Duplicates allowed |
+| resourceRecordUsed | UNSIGNED_INT16 | LIST_WITH_MULTISELECT | userdefined \\ | Userdefined | Not used for Commandline |
+| removeResourceRecord | ACTION | BUTTON | userdefined \\ | Userdefined | Not used for Commandline |
+| resourceRecordNotUsed | UNSIGNED_INT16 | LIST_WITH_MULTISELECT | userdefined \\ | Userdefined | -resourceRecordToUse, Optional,Default is noDefaultValue |
+| addResourceRecord | ACTION | BUTTON | userdefined \\ | Userdefined | -addResourceRecord, Optional,Default is noDefaultValue |
+| addAllResourceRecords | ACTION | BUTTON | userdefined \\ | Userdefined | -addAllResourceRecords, Optional,Default is noDefaultValue |
+| removeAllResourceRecords | ACTION | BUTTON | userdefined \\ | Userdefined | Not used for Commandline |
+| ipPresets | UNSIGNED_INT16 | COMBOBOX_WITH_ONCHANGEEVENT | userdefined \\ | Userdefined | Not used for Commandline |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsReverseZoneWizardSummaryDataContainer}
+{panel:title=wizardContainers.DnsReverseZoneWizardSummaryDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Summary of ReverseZone-Wizard \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | CREATE, MODIFY, WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| name | STRING | TEXTFIELD | userdefined \\ | Readonly, Userdefined | -zoneName, Optional,Default is noDefaultValue |
+| ResourceRecordFile | STRING | TEXTFIELD | Linux_DnsZone.get_ResourceRecordFile \\ | Readonly | -resourceRecordFile, Optional,Default is noDefaultValue |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Link | [#wizardContainers.DnsResourceRecordForReverseZoneWizardDataContainer] | Rolename: resourceRecords, Type: LIST |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsSlaveZoneWizardPage1DataContainer}
+{panel:title=wizardContainers.DnsSlaveZoneWizardPage1DataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Page 1 of SlaveZone-Wizard \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | MODIFY, WIZARD \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Name \\ | Userdefined | -zoneName, Required |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsAddMasterAddressDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsSlaveZoneWizardSummaryDataContainer}
+{panel:title=wizardContainers.DnsSlaveZoneWizardSummaryDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Summary-Page of SlaveZone-Wizard \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | CREATE, MODIFY, WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Name \\ | Readonly, Userdefined | -name, Required |
+| IpAdressses | UNSIGNED_INT16 | LIST | userdefined \\ | Readonly, Userdefined | -ip, Required |
+
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsStubZoneWizardPage1DataContainer}
+{panel:title=wizardContainers.DnsStubZoneWizardPage1DataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Page 1 of SlaveZone-Wizard \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | MODIFY, WIZARD \\ |
+| *CustomLayouter* \\ | X |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Name \\ | Userdefined | -zoneName, Required |
+
+*Relations*
+| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
+| Extends | [#editContainers.DnsAddMasterAddressDataContainer] \\ | |
+{panel}
+
+	
+
+[#Index]
+{anchor:wizardContainers.DnsStubZoneWizardSummaryDataContainer}
+{panel:title=wizardContainers.DnsStubZoneWizardSummaryDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* | Summary-Page of SlaveZone-Wizard \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
+| *Actions* | CREATE, MODIFY, WIZARD \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| Name | STRING | TEXTFIELD | Name \\ | Readonly, Userdefined | -name, Required |
+| IpAdressses | UNSIGNED_INT16 | LIST | userdefined \\ | Readonly, Userdefined | -ip, Required |
+
+{panel}

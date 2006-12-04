@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ *  samba-config.xml
+ *
+ * (C) Copyright IBM Corp. 2005
+ *
+ * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+ * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
+ * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
+ *
+ * You can obtain a current copy of the Common Public License from
+ * http://www.opensource.org/licenses/cpl1.0.php
+ *
+ * Author:     Michael.Bauschert@de.ibm.com
+ *
+ * Contributors: 
+ *
+ */
+-->
+<tasklauncherconfig xmlns="http://sblim.org/wbemsmt/tasklauncher/tasklauncherconfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sblim.org/wbemsmt/tasklauncher/tasklauncherconfig ../../wbemsmt-commons/commons-bl/conf/tasklauncher-config.xsd">
+	<treeconfig name="DNS" filename="dnsTree.xml" slpServicename="other:dns" classForServerTaskLookup="org.sblim.wbemsmt.dns.lookup.LookupServerTask">
+		<fcoPackage name="org.sblim.wbemsmt.dns.bl.fco"/>
+		<resourceBundle name="messages"/>
+		<resourceBundle name="messagesDns"/>
+	</treeconfig>
+</tasklauncherconfig>

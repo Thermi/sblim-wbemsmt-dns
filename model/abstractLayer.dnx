@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xtools2_universal_type_manager-->
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.ibm.com/xtools/1.5.0/Notation" xmlns:uml="http://www.eclipse.org/uml2/1.0.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.0/Umlnotation" xmi:id="_WnONgI5uEdqWoI0e6MYGVw" type="Class" name="abstractLayer.dnx">
+  <children xmi:id="_5GVGAI5uEdqWoI0e6MYGVw" sourceEdges="_8PFmsI5uEdqWoI0e6MYGVw _9FVSMI5uEdqWoI0e6MYGVw _KNe0MI5vEdqWoI0e6MYGVw" targetEdges="_Dc2N8I5vEdqWoI0e6MYGVw">
+    <children xmi:id="_5GbMoI5uEdqWoI0e6MYGVw" type="ImageCompartment">
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+      <layoutConstraint xmi:type="notation:Size" xmi:id="_5GbMoY5uEdqWoI0e6MYGVw" width="1320" height="1320"/>
+    </children>
+    <children xmi:id="_5GbMoo5uEdqWoI0e6MYGVw" type="Stereotype">
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <children xmi:id="_5GbMo45uEdqWoI0e6MYGVw" type="Name">
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <children xmi:id="_5GbMpI5uEdqWoI0e6MYGVw" type="AttributeCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_5GbMpY5uEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <children xmi:id="_5GbMpo5uEdqWoI0e6MYGVw" type="OperationCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_5GbMp45uEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <children xmi:id="_5GbMqI5uEdqWoI0e6MYGVw" visible="false" type="SignalCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_5GbMqY5uEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <children xmi:id="_5GnZ4I5uEdqWoI0e6MYGVw" visible="false" type="StructureCompartment">
+      <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_5GnZ4Y5uEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_5GVGAY5uEdqWoI0e6MYGVw" showStereotype="Label"/>
+    <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5GVGAo5uEdqWoI0e6MYGVw" x="28302" y="-21942"/>
+  </children>
+  <children xmi:id="_8J1TQI5uEdqWoI0e6MYGVw" sourceEdges="_9FnmFY5uEdqWoI0e6MYGVw _-WOSUI5uEdqWoI0e6MYGVw" targetEdges="_8PFmsI5uEdqWoI0e6MYGVw">
+    <children xmi:id="_8J1TQ45uEdqWoI0e6MYGVw" type="ImageCompartment">
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+      <layoutConstraint xmi:type="notation:Size" xmi:id="_8J1TRI5uEdqWoI0e6MYGVw" width="1320" height="1320"/>
+    </children>
+    <children xmi:id="_8J1TRY5uEdqWoI0e6MYGVw" type="Stereotype">
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <children xmi:id="_8J1TRo5uEdqWoI0e6MYGVw" type="Name">
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <children xmi:id="_8J1TR45uEdqWoI0e6MYGVw" type="AttributeCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_8J1TSI5uEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <children xmi:id="_8J1TSY5uEdqWoI0e6MYGVw" type="OperationCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_8J1TSo5uEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <children xmi:id="_8J1TS45uEdqWoI0e6MYGVw" visible="false" type="SignalCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_8J1TTI5uEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <children xmi:id="_8J1TTY5uEdqWoI0e6MYGVw" visible="false" type="StructureCompartment">
+      <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_8J1TTo5uEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_8J1TQY5uEdqWoI0e6MYGVw" showStereotype="Label"/>
+    <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8J1TQo5uEdqWoI0e6MYGVw" x="40386" y="-19716"/>
+  </children>
+  <children xmi:id="_9DCMII5uEdqWoI0e6MYGVw" sourceEdges="_9FtssY5uEdqWoI0e6MYGVw" targetEdges="_9FVSMI5uEdqWoI0e6MYGVw _9FnmFY5uEdqWoI0e6MYGVw _9FtssY5uEdqWoI0e6MYGVw _-WUY8I5uEdqWoI0e6MYGVw _Dc2N6I5vEdqWoI0e6MYGVw">
+    <children xmi:id="_9DCMI45uEdqWoI0e6MYGVw" type="ImageCompartment">
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+      <layoutConstraint xmi:type="notation:Size" xmi:id="_9DCMJI5uEdqWoI0e6MYGVw" width="1320" height="1320"/>
+    </children>
+    <children xmi:id="_9DCMJY5uEdqWoI0e6MYGVw" type="Stereotype">
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <children xmi:id="_9DCMJo5uEdqWoI0e6MYGVw" type="Name">
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <children xmi:id="_9DCMJ45uEdqWoI0e6MYGVw" type="AttributeCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9DCMKI5uEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <children xmi:id="_9DCMKY5uEdqWoI0e6MYGVw" type="OperationCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9DCMKo5uEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <children xmi:id="_9DCMK45uEdqWoI0e6MYGVw" visible="false" type="SignalCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9DCMLI5uEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <children xmi:id="_9DCMLY5uEdqWoI0e6MYGVw" visible="false" type="StructureCompartment">
+      <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_9DCMLo5uEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_9DCMIY5uEdqWoI0e6MYGVw" showStereotype="Label"/>
+    <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9DCMIo5uEdqWoI0e6MYGVw" x="12084" y="-6996"/>
+  </children>
+  <children xmi:id="_-TK-UI5uEdqWoI0e6MYGVw" sourceEdges="_-WUY8I5uEdqWoI0e6MYGVw" targetEdges="_-WOSUI5uEdqWoI0e6MYGVw _KN98ZI5vEdqWoI0e6MYGVw">
+    <children xmi:id="_-TK-U45uEdqWoI0e6MYGVw" type="ImageCompartment">
+      <element xmi:type="uml:Interface" href="vizref:///#jsrctype^vcore.target=uml2.Interface^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+      <layoutConstraint xmi:type="notation:Size" xmi:id="_-TK-VI5uEdqWoI0e6MYGVw" width="530" height="530"/>
+    </children>
+    <children xmi:id="_-TK-VY5uEdqWoI0e6MYGVw" type="Stereotype">
+      <element xmi:type="uml:Interface" href="vizref:///#jsrctype^vcore.target=uml2.Interface^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <children xmi:id="_-TK-Vo5uEdqWoI0e6MYGVw" type="Kind">
+      <element xmi:type="uml:Interface" href="vizref:///#jsrctype^vcore.target=uml2.Interface^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <children xmi:id="_-TK-V45uEdqWoI0e6MYGVw" type="Name">
+      <element xmi:type="uml:Interface" href="vizref:///#jsrctype^vcore.target=uml2.Interface^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <children xmi:id="_-TK-WI5uEdqWoI0e6MYGVw" type="AttributeCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_-TK-WY5uEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Interface" href="vizref:///#jsrctype^vcore.target=uml2.Interface^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <children xmi:id="_-TK-Wo5uEdqWoI0e6MYGVw" type="OperationCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_-TK-W45uEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Interface" href="vizref:///#jsrctype^vcore.target=uml2.Interface^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <children xmi:id="_-TRE8I5uEdqWoI0e6MYGVw" visible="false" type="SignalCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_-TRE8Y5uEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Interface" href="vizref:///#jsrctype^vcore.target=uml2.Interface^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLClassifierStyle" xmi:id="_-TK-UY5uEdqWoI0e6MYGVw" showStereotype="Label" useClassifierShape="true"/>
+    <element xmi:type="uml:Interface" href="vizref:///#jsrctype^vcore.target=uml2.Interface^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-TK-Uo5uEdqWoI0e6MYGVw" x="29256" y="-3498"/>
+  </children>
+  <children xmi:id="_DbCQAI5vEdqWoI0e6MYGVw" sourceEdges="_Dc2N4I5vEdqWoI0e6MYGVw _Dc2N6I5vEdqWoI0e6MYGVw _Dc2N8I5vEdqWoI0e6MYGVw _KNroiI5vEdqWoI0e6MYGVw" targetEdges="_Dc2N4I5vEdqWoI0e6MYGVw">
+    <children xmi:id="_DbCQA45vEdqWoI0e6MYGVw" type="ImageCompartment">
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+      <layoutConstraint xmi:type="notation:Size" xmi:id="_DbCQBI5vEdqWoI0e6MYGVw" width="1320" height="1320"/>
+    </children>
+    <children xmi:id="_DbCQBY5vEdqWoI0e6MYGVw" type="Stereotype">
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <children xmi:id="_DbCQBo5vEdqWoI0e6MYGVw" type="Name">
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <children xmi:id="_DbCQB45vEdqWoI0e6MYGVw" type="AttributeCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_DbCQCI5vEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <children xmi:id="_DbCQCY5vEdqWoI0e6MYGVw" type="OperationCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_DbCQCo5vEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <children xmi:id="_DbIWoI5vEdqWoI0e6MYGVw" visible="false" type="SignalCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_DbIWoY5vEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <children xmi:id="_DbIWoo5vEdqWoI0e6MYGVw" visible="false" type="StructureCompartment">
+      <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_DbIWo45vEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_DbCQAY5vEdqWoI0e6MYGVw" showStereotype="Label"/>
+    <element xmi:type="uml:Class" href="vizref:///#jsrctype^vcore.target=uml2.Class^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DbCQAo5vEdqWoI0e6MYGVw" x="12084" y="-19716"/>
+  </children>
+  <children xmi:id="_KLw88I5vEdqWoI0e6MYGVw" sourceEdges="_KN98ZI5vEdqWoI0e6MYGVw" targetEdges="_KNe0MI5vEdqWoI0e6MYGVw _KNroiI5vEdqWoI0e6MYGVw">
+    <children xmi:id="_KLw8845vEdqWoI0e6MYGVw" type="ImageCompartment">
+      <element xmi:type="uml:Interface" href="vizref:///#jsrctype^vcore.target=uml2.Interface^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+      <layoutConstraint xmi:type="notation:Size" xmi:id="_KLw89I5vEdqWoI0e6MYGVw" width="530" height="530"/>
+    </children>
+    <children xmi:id="_KLw89Y5vEdqWoI0e6MYGVw" type="Stereotype">
+      <element xmi:type="uml:Interface" href="vizref:///#jsrctype^vcore.target=uml2.Interface^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <children xmi:id="_KLw89o5vEdqWoI0e6MYGVw" type="Kind">
+      <element xmi:type="uml:Interface" href="vizref:///#jsrctype^vcore.target=uml2.Interface^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <children xmi:id="_KLw8945vEdqWoI0e6MYGVw" type="Name">
+      <element xmi:type="uml:Interface" href="vizref:///#jsrctype^vcore.target=uml2.Interface^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <children xmi:id="_KLw8-I5vEdqWoI0e6MYGVw" type="AttributeCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_KLw8-Y5vEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Interface" href="vizref:///#jsrctype^vcore.target=uml2.Interface^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <children xmi:id="_KLw8-o5vEdqWoI0e6MYGVw" type="OperationCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_KLw8-45vEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Interface" href="vizref:///#jsrctype^vcore.target=uml2.Interface^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <children xmi:id="_KLw8_I5vEdqWoI0e6MYGVw" visible="false" type="SignalCompartment">
+      <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_KLw8_Y5vEdqWoI0e6MYGVw"/>
+      <element xmi:type="uml:Interface" href="vizref:///#jsrctype^vcore.target=uml2.Interface^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLClassifierStyle" xmi:id="_KLw88Y5vEdqWoI0e6MYGVw" showStereotype="Label" useClassifierShape="true"/>
+    <element xmi:type="uml:Interface" href="vizref:///#jsrctype^vcore.target=uml2.Interface^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KLw88o5vEdqWoI0e6MYGVw" x="37524" y="-4134"/>
+  </children>
+  <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_WnONgY5uEdqWoI0e6MYGVw"/>
+  <edges xmi:id="_8PFmsI5uEdqWoI0e6MYGVw" source="_5GVGAI5uEdqWoI0e6MYGVw" target="_8J1TQI5uEdqWoI0e6MYGVw">
+    <children xmi:id="_8PFms45uEdqWoI0e6MYGVw" type="NameLabel">
+      <children xmi:id="_8PFmtY5uEdqWoI0e6MYGVw" type="Stereotype">
+        <element xmi:type="uml:Generalization" href="vizref:///#jgen^vcore.target=uml2.Generalization[jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <children xmi:id="_8PFmto5uEdqWoI0e6MYGVw" type="Name">
+        <element xmi:type="uml:Generalization" href="vizref:///#jgen^vcore.target=uml2.Generalization[jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <element xmi:type="uml:Generalization" href="vizref:///#jgen^vcore.target=uml2.Generalization[jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_8PFmtI5uEdqWoI0e6MYGVw" y="-185"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_8PFmsY5uEdqWoI0e6MYGVw" showStereotype="Text"/>
+    <element xmi:type="uml:Generalization" href="vizref:///#jgen^vcore.target=uml2.Generalization[jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8PFmso5uEdqWoI0e6MYGVw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_9FVSMI5uEdqWoI0e6MYGVw" source="_5GVGAI5uEdqWoI0e6MYGVw" target="_9DCMII5uEdqWoI0e6MYGVw">
+    <children xmi:id="_9FnmEI5uEdqWoI0e6MYGVw" type="KindLabel">
+      <children xmi:id="_9FnmEo5uEdqWoI0e6MYGVw" type="Stereotype">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <children xmi:id="_9FnmFI5uEdqWoI0e6MYGVw" type="Kind">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <children xmi:id="_9FnmE45uEdqWoI0e6MYGVw" type="Name">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_9FnmEY5uEdqWoI0e6MYGVw" y="-185"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_9FVSMY5uEdqWoI0e6MYGVw" showStereotype="Text"/>
+    <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9FVSMo5uEdqWoI0e6MYGVw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_9FnmFY5uEdqWoI0e6MYGVw" source="_8J1TQI5uEdqWoI0e6MYGVw" target="_9DCMII5uEdqWoI0e6MYGVw">
+    <children xmi:id="_9FnmGI5uEdqWoI0e6MYGVw" type="KindLabel">
+      <children xmi:id="_9FnmGo5uEdqWoI0e6MYGVw" type="Stereotype">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <children xmi:id="_9FtssI5uEdqWoI0e6MYGVw" type="Kind">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <children xmi:id="_9FnmG45uEdqWoI0e6MYGVw" type="Name">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_9FnmGY5uEdqWoI0e6MYGVw" y="-185"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_9FnmFo5uEdqWoI0e6MYGVw" showStereotype="Text"/>
+    <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9FnmF45uEdqWoI0e6MYGVw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_9FtssY5uEdqWoI0e6MYGVw" source="_9DCMII5uEdqWoI0e6MYGVw" target="_9DCMII5uEdqWoI0e6MYGVw">
+    <children xmi:id="_9FtstI5uEdqWoI0e6MYGVw" type="KindLabel">
+      <children xmi:id="_9Ftsto5uEdqWoI0e6MYGVw" type="Stereotype">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <children xmi:id="_9FtsuI5uEdqWoI0e6MYGVw" type="Kind">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <children xmi:id="_9Ftst45uEdqWoI0e6MYGVw" type="Name">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_9FtstY5uEdqWoI0e6MYGVw" y="-185"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_9Ftsso5uEdqWoI0e6MYGVw" showStereotype="Text"/>
+    <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9Ftss45uEdqWoI0e6MYGVw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_-WOSUI5uEdqWoI0e6MYGVw" source="_8J1TQI5uEdqWoI0e6MYGVw" target="_-TK-UI5uEdqWoI0e6MYGVw">
+    <children xmi:id="_-WOSU45uEdqWoI0e6MYGVw" type="KindLabel">
+      <children xmi:id="_-WOSVY5uEdqWoI0e6MYGVw" type="Stereotype">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <children xmi:id="_-WOSV45uEdqWoI0e6MYGVw" type="Kind">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <children xmi:id="_-WOSVo5uEdqWoI0e6MYGVw" type="Name">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_-WOSVI5uEdqWoI0e6MYGVw" y="-185"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_-WOSUY5uEdqWoI0e6MYGVw" showStereotype="Text"/>
+    <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=AbstractBaseCimAdapter[jcu^name=AbstractBaseCimAdapter.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-WOSUo5uEdqWoI0e6MYGVw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_-WUY8I5uEdqWoI0e6MYGVw" source="_-TK-UI5uEdqWoI0e6MYGVw" target="_9DCMII5uEdqWoI0e6MYGVw">
+    <children xmi:id="_-WUY845uEdqWoI0e6MYGVw" type="KindLabel">
+      <children xmi:id="_-WUY9Y5uEdqWoI0e6MYGVw" type="Stereotype">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <children xmi:id="_-WUY945uEdqWoI0e6MYGVw" type="Kind">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <children xmi:id="_-WUY9o5uEdqWoI0e6MYGVw" type="Name">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_-WUY9I5uEdqWoI0e6MYGVw" y="-185"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_-WUY8Y5uEdqWoI0e6MYGVw" showStereotype="Text"/>
+    <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-WUY8o5uEdqWoI0e6MYGVw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_Dc2N4I5vEdqWoI0e6MYGVw" source="_DbCQAI5vEdqWoI0e6MYGVw" target="_DbCQAI5vEdqWoI0e6MYGVw">
+    <children xmi:id="_Dc2N445vEdqWoI0e6MYGVw" type="KindLabel">
+      <children xmi:id="_Dc2N5Y5vEdqWoI0e6MYGVw" type="Stereotype">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+      </children>
+      <children xmi:id="_Dc2N545vEdqWoI0e6MYGVw" type="Kind">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+      </children>
+      <children xmi:id="_Dc2N5o5vEdqWoI0e6MYGVw" type="Name">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+      </children>
+      <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Dc2N5I5vEdqWoI0e6MYGVw" y="-185"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_Dc2N4Y5vEdqWoI0e6MYGVw" showStereotype="Text"/>
+    <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Dc2N4o5vEdqWoI0e6MYGVw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_Dc2N6I5vEdqWoI0e6MYGVw" source="_DbCQAI5vEdqWoI0e6MYGVw" target="_9DCMII5uEdqWoI0e6MYGVw">
+    <children xmi:id="_Dc2N645vEdqWoI0e6MYGVw" type="KindLabel">
+      <children xmi:id="_Dc2N7Y5vEdqWoI0e6MYGVw" type="Stereotype">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <children xmi:id="_Dc2N745vEdqWoI0e6MYGVw" type="Kind">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <children xmi:id="_Dc2N7o5vEdqWoI0e6MYGVw" type="Name">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Dc2N7I5vEdqWoI0e6MYGVw" y="-185"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_Dc2N6Y5vEdqWoI0e6MYGVw" showStereotype="Text"/>
+    <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=CimObjectKey[jcu^name=CimObjectKey.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Dc2N6o5vEdqWoI0e6MYGVw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_Dc2N8I5vEdqWoI0e6MYGVw" source="_DbCQAI5vEdqWoI0e6MYGVw" target="_5GVGAI5uEdqWoI0e6MYGVw">
+    <children xmi:id="_Dc2N845vEdqWoI0e6MYGVw" type="KindLabel">
+      <children xmi:id="_Dc2N9Y5vEdqWoI0e6MYGVw" type="Stereotype">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+      </children>
+      <children xmi:id="_Dc2N945vEdqWoI0e6MYGVw" type="Kind">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+      </children>
+      <children xmi:id="_Dc2N9o5vEdqWoI0e6MYGVw" type="Name">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+      </children>
+      <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Dc2N9I5vEdqWoI0e6MYGVw" y="-185"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_Dc2N8Y5vEdqWoI0e6MYGVw" showStereotype="Text"/>
+    <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Dc2N8o5vEdqWoI0e6MYGVw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_KNe0MI5vEdqWoI0e6MYGVw" source="_5GVGAI5uEdqWoI0e6MYGVw" target="_KLw88I5vEdqWoI0e6MYGVw">
+    <children xmi:id="_KNe0M45vEdqWoI0e6MYGVw" type="KindLabel">
+      <children xmi:id="_KNe0NY5vEdqWoI0e6MYGVw" type="Stereotype">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+      </children>
+      <children xmi:id="_KNk60Y5vEdqWoI0e6MYGVw" type="Kind">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+      </children>
+      <children xmi:id="_KNk60I5vEdqWoI0e6MYGVw" type="Name">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+      </children>
+      <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_KNe0NI5vEdqWoI0e6MYGVw" y="-185"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_KNe0MY5vEdqWoI0e6MYGVw" showStereotype="Text"/>
+    <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapter[jcu^name=DnsCimAdapter.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KNe0Mo5vEdqWoI0e6MYGVw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_KNroiI5vEdqWoI0e6MYGVw" source="_DbCQAI5vEdqWoI0e6MYGVw" target="_KLw88I5vEdqWoI0e6MYGVw">
+    <children xmi:id="_KNroi45vEdqWoI0e6MYGVw" type="KindLabel">
+      <children xmi:id="_KNxvII5vEdqWoI0e6MYGVw" type="Stereotype">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+      </children>
+      <children xmi:id="_KNxvIo5vEdqWoI0e6MYGVw" type="Kind">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+      </children>
+      <children xmi:id="_KNxvIY5vEdqWoI0e6MYGVw" type="Name">
+        <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+      </children>
+      <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_KNrojI5vEdqWoI0e6MYGVw" y="-185"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_KNroiY5vEdqWoI0e6MYGVw" showStereotype="Text"/>
+    <element xmi:type="uml:Usage" href="vizref:///#jdep^vcore.target=uml2.Usage[jsrctype^name=DnsCimAdapterTest[jcu^name=DnsCimAdapterTest.java[jpack^name=org.sblim.wbemsmt.dns.bl.test[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KNroio5vEdqWoI0e6MYGVw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_KN98ZI5vEdqWoI0e6MYGVw" source="_KLw88I5vEdqWoI0e6MYGVw" target="_-TK-UI5uEdqWoI0e6MYGVw">
+    <children xmi:id="_KN98Z45vEdqWoI0e6MYGVw" type="NameLabel">
+      <children xmi:id="_KN98aY5vEdqWoI0e6MYGVw" type="Stereotype">
+        <element xmi:type="uml:Generalization" href="vizref:///#jgen^vcore.target=uml2.Generalization[jsrctype^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <children xmi:id="_KN98ao5vEdqWoI0e6MYGVw" type="Name">
+        <element xmi:type="uml:Generalization" href="vizref:///#jgen^vcore.target=uml2.Generalization[jsrctype^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      </children>
+      <element xmi:type="uml:Generalization" href="vizref:///#jgen^vcore.target=uml2.Generalization[jsrctype^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_KN98aI5vEdqWoI0e6MYGVw" y="-185"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_KN98ZY5vEdqWoI0e6MYGVw" showStereotype="Text"/>
+    <element xmi:type="uml:Generalization" href="vizref:///#jgen^vcore.target=uml2.Generalization[jsrctype^name=DnsResourceRecordDataContainer[jcu^name=DnsResourceRecordDataContainer.java[jpack^name=org.sblim.wbemsmt.dns.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-dns-bl2]]]]][jsrctype^name=DataContainer[jcu^name=DataContainer.java[jpack^name=org.sblim.wbemsmt.bl.adapter[jsrcroot^srcfolder=java[project^vcore.target=uml2.Model^id=wbemsmt-tools-bl]]]]]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KN98Zo5vEdqWoI0e6MYGVw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+</notation:Diagram>
