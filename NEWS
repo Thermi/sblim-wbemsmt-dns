@@ -1,0 +1,13 @@
+Changes in 0.2.3-1 :
+==============================================================================
+
+- #1609091  wbemsmt-dns: Consolidation of cvs module
+- #1609068  wbemsmt-dns: JSF EUI and Commandline support
+
+
+Changes in 0.2.2-1 : (Distributed packages - which are removed from CVS)
+==============================================================================
+
+- #1572076  Missing Validation Messages
+- #1412716  cannot delete DNS Resource Record
+- #1574472  Cleanup for client projects

@@ -17,7 +17,7 @@ License:        Common Public License
 Url:            http://sblim.sourceforge.net/
 Group:          Development/Libraries/Java
 Vendor:         IBM
-Summary:        WBEM-SMT DNS client components
+Summary:        Provides a wbemmsmt-based task that provides support to configure DNS
 SOURCE0:        %{name}-%{version}-src.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
 BuildArch:      noarch
@@ -43,11 +43,11 @@ Requires: jakarta-commons-lang >= 2.0
 ###############################################################################
 
 %description
-This package of the WBEM-SMT project contains all client parts for the DNS 
-task. This includes
-- Business Logic code
-- Command Line Interface
-- JSF based application
+This module provides the wbemmsmt-based task that provides the support to
+configure DNS zones, resource records and address match lists.  It contains
+the generated data containers, the generated first class objects and the 
+business logic for the DNS app. It also contains the generated cli interface 
+for the DNS task.
 
 ###############################################################################
 
@@ -124,3 +124,22 @@ fi
 %{_javadir}/sblim-wbemsmt/%{name}-%{version}.jar
 %{_bindir}/sblim-wbemsmt-dns-cli.sh
 %attr(444,root,tomcat) %config(noreplace) %{_sysconfdir}/sblim-wbemsmt/tasklauncher.d/dns-task-config.xml
+
+###############################################################################
+%changelog
+* Mon Dec 4 2006 Wolfgang Taphorn <taphorn@de.ibm.com> 0.2.3-1
+  - Consolidation of the different cvs modules
+  - Inclusion of fixes for the following bug entries:
+    o 1609091  wbemsmt-dns: Consolidation of cvs module
+    o 1609068  wbemsmt-dns: JSF EUI and Commandline support
+    
+
+* Tue Oct 17 2006 Wolfgang Taphorn <taphorn@de.ibm.com> 0.2.2-1
+  Changelog information out of the distributed cvs modules
+  - Inclusion of fixes for the following bug entries:
+    o 1572076  Missing Validation Messages
+    o 1412716  cannot delete DNS Resource Record
+    o 1574472  Cleanup for client projects    
+    
+* Fir Oct 28 2006 Wolfgang Taphorn <taphorn@de.ibm.com> 0.1.1-1
+  - Initial upload of distributed CVS modules
