@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/wbemsmt-commons"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/sf-wbemsmt-commons"/>
 	<classpathentry kind="var" path="JAR_REPO/commons-cli/commons-cli/1.0/commons-cli-1.0.jar"/>
 	<classpathentry kind="var" path="JAR_REPO/commons-lang/commons-lang/2.1/commons-lang-2.1.jar"/>
 	<classpathentry kind="var" path="JAR_REPO/myfaces/myfaces-api/1.1.4/myfaces-api-1.1.4.jar"/>

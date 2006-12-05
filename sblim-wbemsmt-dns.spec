@@ -145,5 +145,5 @@ fi
     o 1412716  cannot delete DNS Resource Record
     o 1574472  Cleanup for client projects    
     
-* Fir Oct 28 2006 Wolfgang Taphorn <taphorn@de.ibm.com> 0.1.1-1
+* Fri Oct 28 2005 Wolfgang Taphorn <taphorn@de.ibm.com> 0.1.1-1
   - Initial upload of distributed CVS modules
