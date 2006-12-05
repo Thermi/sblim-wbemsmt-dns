@@ -142,6 +142,8 @@
                       COPYING,
                       NEWS,
                       README,
+                      MultipleHostsSupport,
+                      TroubleShooting,
           	          sblim-wbemsmt-dns.spec"
             excludes="**/.ant-targets-build.xml, 
           	          ${dir.compile.output}/**, 
@@ -172,7 +174,9 @@
                         ChangeLog,
                         COPYING,
                         NEWS,
-                        README"
+                        README,
+                        MultipleHostsSupport,
+                        TroubleShooting"
               excludes="${dir.compile.output}/**, ${dir.package.output}, ${dir.release.output}/**"
               prefix="sblim-${ant.project.name}"/>
         </tar>
