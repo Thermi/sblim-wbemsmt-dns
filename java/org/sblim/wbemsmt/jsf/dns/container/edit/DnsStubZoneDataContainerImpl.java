@@ -56,8 +56,9 @@ public class DnsStubZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 		}	
 	
 	public DnsStubZoneDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsStubZoneDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsStubZoneDataContainer.caption");
+				
 				
     			
     				layouter = new DnsStubZoneDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

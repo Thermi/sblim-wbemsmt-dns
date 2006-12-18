@@ -40,8 +40,9 @@ public class DnsResourceRecordDataContainerImpl extends org.sblim.wbemsmt.tools.
 		
 	
 	public DnsResourceRecordDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsResourceRecordDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsResourceRecordDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_TTL());

@@ -33,8 +33,9 @@ public class DnsZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBa
 		
 	
 	public DnsZoneDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsZoneDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsZoneDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());

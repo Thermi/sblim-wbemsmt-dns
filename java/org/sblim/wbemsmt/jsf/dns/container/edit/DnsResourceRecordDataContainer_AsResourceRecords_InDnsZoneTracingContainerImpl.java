@@ -79,7 +79,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 			//setFooter(getInputFieldContainer(),"#{localeManager.bundle['dns'].DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl_footerText}","DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl.footerText");
 			//setFooter(getInputFieldContainer(),"DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl.footerText");
 			String binding = "#{" +  bindingPrefix + "resourceRecords["+ index +"].footerText}";
-			setFooter(getInputFieldContainer(),"DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainer.footerText",binding);
+			setFooter(getOuterPanel(),"DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainer.footerText",binding);
 		}
 		adapter.initContainer(this);
 	}

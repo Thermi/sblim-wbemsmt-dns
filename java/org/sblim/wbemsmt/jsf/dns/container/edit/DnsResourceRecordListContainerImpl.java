@@ -41,8 +41,9 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 		}	
 	
 	public DnsResourceRecordListContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsResourceRecordListContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsResourceRecordListContainer.caption");
+				
 				
     			
     				layouter = new DnsResourceRecordListContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

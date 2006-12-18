@@ -79,7 +79,7 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 			//setFooter(getInputFieldContainer(),"#{localeManager.bundle['dns'].DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl_footerText}","DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl.footerText");
 			//setFooter(getInputFieldContainer(),"DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl.footerText");
 			String binding = "#{" +  bindingPrefix + "resourceRecords["+ index +"].footerText}";
-			setFooter(getInputFieldContainer(),"DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainer.footerText",binding);
+			setFooter(getOuterPanel(),"DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainer.footerText",binding);
 		}
 		adapter.initContainer(this);
 	}

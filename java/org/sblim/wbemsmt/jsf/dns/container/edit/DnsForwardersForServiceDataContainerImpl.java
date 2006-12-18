@@ -44,8 +44,9 @@ public class DnsForwardersForServiceDataContainerImpl extends org.sblim.wbemsmt.
 		}	
 	
 	public DnsForwardersForServiceDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsForwardersForServiceDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsForwardersForServiceDataContainer.caption");
+				
 				
     			
     				layouter = new DnsForwardersForServiceDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

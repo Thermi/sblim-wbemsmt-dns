@@ -47,8 +47,9 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends org.sblim.wbemsmt.to
 		}	
 	
 	public DnsAllowNotifyForZoneDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsAllowNotifyForZoneDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsAllowNotifyForZoneDataContainer.caption");
+				
 				
     			
     				layouter = new DnsAllowNotifyForZoneDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

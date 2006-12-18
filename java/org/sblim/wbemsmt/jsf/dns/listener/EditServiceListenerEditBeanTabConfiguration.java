@@ -164,9 +164,7 @@ public class EditServiceListenerEditBeanTabConfiguration extends EditBean {
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer1.getInputFieldContainer());
 				containerPanel.setWidth("100%");
-				containerPanel.setStyle("border-width:1px;border-color=#99CCFF;margin-bottom:10px");
-				//containerPanel.setStyleClass("outerTable");
-
+    			
 				//update the child objects
 								
             	    			
@@ -212,9 +210,7 @@ public class EditServiceListenerEditBeanTabConfiguration extends EditBean {
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer2.getInputFieldContainer());
 				containerPanel.setWidth("100%");
-				containerPanel.setStyle("border-width:1px;border-color=#99CCFF;margin-bottom:10px");
-				//containerPanel.setStyleClass("outerTable");
-
+    			
 				//update the child objects
 								
             	    			

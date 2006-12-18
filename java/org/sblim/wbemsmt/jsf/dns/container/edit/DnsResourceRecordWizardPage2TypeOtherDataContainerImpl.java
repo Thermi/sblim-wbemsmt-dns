@@ -33,8 +33,9 @@ public class DnsResourceRecordWizardPage2TypeOtherDataContainerImpl extends org.
 		
 	
 	public DnsResourceRecordWizardPage2TypeOtherDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsResourceRecordWizardPage2TypeOtherDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsResourceRecordWizardPage2TypeOtherDataContainer.caption","DnsResourceRecordWizardPage2TypeOtherDataContainer.subTitle");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Value());

@@ -38,8 +38,9 @@ public class DnsAddMasterAddressDataContainerImpl extends org.sblim.wbemsmt.tool
 		
 	
 	public DnsAddMasterAddressDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsAddMasterAddressDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsAddMasterAddressDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Masters());

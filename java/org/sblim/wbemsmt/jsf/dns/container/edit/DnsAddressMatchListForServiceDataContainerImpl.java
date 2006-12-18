@@ -47,8 +47,9 @@ public class DnsAddressMatchListForServiceDataContainerImpl extends org.sblim.wb
 		}	
 	
 	public DnsAddressMatchListForServiceDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsAddressMatchListForServiceDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsAddressMatchListForServiceDataContainer.caption");
+				
 				
     			
     				layouter = new DnsAddressMatchListForServiceDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

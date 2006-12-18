@@ -35,8 +35,9 @@ public class DnsMasterDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 		
 	
 	public DnsMasterDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsMasterDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsMasterDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());

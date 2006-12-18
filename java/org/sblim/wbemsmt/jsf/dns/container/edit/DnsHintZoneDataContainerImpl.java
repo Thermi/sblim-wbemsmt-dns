@@ -43,8 +43,9 @@ public class DnsHintZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 		}	
 	
 	public DnsHintZoneDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsHintZoneDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsHintZoneDataContainer.caption");
+				
 				
     			
     				layouter = new DnsHintZoneDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

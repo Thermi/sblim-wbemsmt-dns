@@ -38,8 +38,9 @@ public class DnsForwarderDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 		
 	
 	public DnsForwarderDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsForwarderDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsForwarderDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Forward());

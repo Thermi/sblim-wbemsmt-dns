@@ -42,7 +42,7 @@ public class CreateStubZoneWizard extends CliWizardBase implements IPageWizardAd
 	
 	public CreateStubZoneWizard(final org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter) {
 		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault()));
-		this.container = new org.sblim.wbemsmt.dns.wizard.CreateStubZoneWizardContainer (new org.sblim.wbemsmt.dns.wizard.CreateStubZoneWizardContainerPanels()
+		this.container = new org.sblim.wbemsmt.dns.wizard.CreateStubZoneWizardContainer (adapter, new org.sblim.wbemsmt.dns.wizard.CreateStubZoneWizardContainerPanels()
  			{
             					public Object getMain()  throws WbemSmtException {
 					DataContainer dc = new org.sblim.wbemsmt.cli.dns.container.wizard.DnsStubZoneWizardPage1DataContainerImpl(adapter);

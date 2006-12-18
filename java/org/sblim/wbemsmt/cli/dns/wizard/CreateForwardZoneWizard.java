@@ -42,7 +42,7 @@ public class CreateForwardZoneWizard extends CliWizardBase implements IPageWizar
 	
 	public CreateForwardZoneWizard(final org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter) {
 		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault()));
-		this.container = new org.sblim.wbemsmt.dns.wizard.CreateForwardZoneWizardContainer (new org.sblim.wbemsmt.dns.wizard.CreateForwardZoneWizardContainerPanels()
+		this.container = new org.sblim.wbemsmt.dns.wizard.CreateForwardZoneWizardContainer (adapter, new org.sblim.wbemsmt.dns.wizard.CreateForwardZoneWizardContainerPanels()
  			{
             					public Object getMain()  throws WbemSmtException {
 					DataContainer dc = new org.sblim.wbemsmt.cli.dns.container.wizard.DnsForwardZoneWizardPage1DataContainerImpl(adapter);

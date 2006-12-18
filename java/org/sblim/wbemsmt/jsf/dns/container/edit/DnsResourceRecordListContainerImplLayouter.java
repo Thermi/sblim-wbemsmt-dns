@@ -30,13 +30,13 @@ public class DnsResourceRecordListContainerImplLayouter extends DnsLayouter {
 
 	public void layout(HtmlPanelGrid parent, DnsResourceRecordListContainerImpl container, WbemSmtResourceBundle bundle) {
 		
-		parent.setColumns(1);
-		
-		if (container.getResourceRecords().size() > 0)
-		{
-			HtmlPanelGrid recordGrid = ((MultiLineBasePanel)container.getResourceRecords().get(0)).getInputFieldContainer();
-			parent.getChildren().add(recordGrid);
+//		if (container.getResourceRecords().size() > 0)
+//		{
+			MultiLineBasePanel multiLineBasePanel = ((MultiLineBasePanel)container.getResourceRecords().get(0));
+			HtmlPanelGrid recordGrid = multiLineBasePanel.getInputFieldContainer();
+			//parent.getChildren().add(recordGrid);
 			
+			recordGrid.getChildren().add(getDummyLabel());
 			recordGrid.getChildren().add(getDummyLabel());
 			recordGrid.getChildren().add(getDummyLabel());
 			recordGrid.getChildren().add(getDummyLabel());
@@ -45,16 +45,21 @@ public class DnsResourceRecordListContainerImplLayouter extends DnsLayouter {
 			recordGrid.getChildren().add(getDummyLabel());
 			addComponent(recordGrid, (LabeledJSFInputComponent) container.get_usr_SelectAll());
 			
-			HtmlPanelGrid buttonGrid = super.createTable(2,"0","0");
-			buttonGrid.setColumnClasses("fill100,fill0");
-			buttonGrid.getChildren().add(getDummyLabel());
-			buttonGrid.getChildren().add(((LabeledJSFInputComponent)container.get_usr_Delete()).getComponent());
-			parent.getChildren().add(buttonGrid);
-		}
-		else
-		{
-			parent.getChildren().add(super.getLabelWithBoundValue("DNS", "no.resource.records.found"));
-		}
+			recordGrid.getChildren().add(getDummyLabel());
+			recordGrid.getChildren().add(getDummyLabel());
+			recordGrid.getChildren().add(getDummyLabel());
+			recordGrid.getChildren().add(getDummyLabel());
+			recordGrid.getChildren().add(getDummyLabel());
+			recordGrid.getChildren().add(getDummyLabel());
+			recordGrid.getChildren().add(getDummyLabel());
+			recordGrid.getChildren().add(((LabeledJSFInputComponent)container.get_usr_Delete()).getComponent());
+			
+			multiLineBasePanel.updateRows(container.getResourceRecords().size(),2);
+//		}
+//		else
+//		{
+//			parent.getChildren().add(super.getLabelWithBoundValue("DNS", "no.resource.records.found"));
+//		}
 		
 	}
 

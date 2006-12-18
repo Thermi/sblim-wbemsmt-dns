@@ -119,9 +119,7 @@ public class EditForwardZoneListenerEditBeanFieldTab extends EditBean {
 			
 			UIComponentBase addToThis = panel;
 			
-							//HtmlForm form = (HtmlForm) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlForm.COMPONENT_TYPE);
-				//panel.getChildren().add(form);
-				//addToThis = form;
+							panel.setStyleClass("editPanelNoTabs");
 						TaskLauncherTreeNodeSelector selector = null;
 			//CimObjectKey key = null;
 			HtmlPanelGrid containerPanel = null;
@@ -151,9 +149,8 @@ public class EditForwardZoneListenerEditBeanFieldTab extends EditBean {
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer1.getInputFieldContainer());
 				containerPanel.setWidth("100%");
-				containerPanel.setStyle("border-width:1px;border-color=#99CCFF;margin-bottom:10px");
-				//containerPanel.setStyleClass("outerTable");
-
+    			    				containerPanel.setStyleClass("editPanelNoTabsOnlyContainers");
+    			
 				//update the child objects
 								
             	    			

@@ -40,8 +40,9 @@ public class DnsResourceRecordListItemContainerImpl extends org.sblim.wbemsmt.to
 		
 	
 	public DnsResourceRecordListItemContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsResourceRecordListItemContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsResourceRecordListItemContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());

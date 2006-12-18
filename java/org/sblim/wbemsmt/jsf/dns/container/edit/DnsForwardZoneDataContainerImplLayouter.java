@@ -31,8 +31,6 @@ public class DnsForwardZoneDataContainerImplLayouter extends DnsLayouter {
 	;	
 	
 	public void layout(HtmlPanelGrid panelForCustomLayout, DnsForwardZoneDataContainerImpl container, WbemSmtResourceBundle bundle) {
-		panelForCustomLayout.setColumns(2);
-		
 		addComponent(panelForCustomLayout,(LabeledJSFInputComponent) container.get_Name());
 
 		new ForwarderLayouter().addForwarder(panelForCustomLayout,container,DEFAULT_PANEL_WIDTH, true, (LabeledJSFInputComponent) container.get_usr_UseGlobalForwarders());

@@ -38,8 +38,9 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 		
 	
 	public DnsServiceTracingDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsServiceTracingDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsServiceTracingDataContainer.caption");
+				
 				String childBindingPrefix = null;
 				
     				childBindingPrefix = this.bindingPrefix + "allowNotifyAcl.";

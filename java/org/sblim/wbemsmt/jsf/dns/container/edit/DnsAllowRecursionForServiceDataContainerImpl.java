@@ -46,8 +46,9 @@ public class DnsAllowRecursionForServiceDataContainerImpl extends org.sblim.wbem
 		}	
 	
 	public DnsAllowRecursionForServiceDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsAllowRecursionForServiceDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsAllowRecursionForServiceDataContainer.caption");
+				
 				
     			
     				layouter = new DnsAllowRecursionForServiceDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

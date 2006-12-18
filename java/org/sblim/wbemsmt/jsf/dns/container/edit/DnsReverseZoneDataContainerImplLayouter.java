@@ -32,8 +32,6 @@ public class DnsReverseZoneDataContainerImplLayouter extends DnsLayouter {
 	;
 
 	public void layout(HtmlPanelGrid panelForCustomLayout, DnsReverseZoneDataContainerImpl container, WbemSmtResourceBundle bundle) {
-		panelForCustomLayout.setColumns(2);
-		
 		addComponent(panelForCustomLayout,(LabeledJSFInputComponent) container.get_Name());
 		addComponent(panelForCustomLayout,(LabeledJSFInputComponent) container.get_ZoneFile());
 		

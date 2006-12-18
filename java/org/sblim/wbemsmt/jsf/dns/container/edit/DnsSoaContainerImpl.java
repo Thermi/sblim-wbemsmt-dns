@@ -47,8 +47,9 @@ public class DnsSoaContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePan
 		}	
 	
 	public DnsSoaContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsSoaContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsSoaContainer.caption");
+				
 				
     			
     				layouter = new DnsSoaContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

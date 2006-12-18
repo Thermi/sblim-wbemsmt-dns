@@ -32,8 +32,6 @@ public class DnsMasterZoneDataContainerImplLayouter extends DnsLayouter {
 	;
 
 	public void layout(HtmlPanelGrid panelForCustomLayout, DnsMasterZoneDataContainerImpl container, WbemSmtResourceBundle bundle) {
-		panelForCustomLayout.setColumns(2);
-		
 		addComponent(panelForCustomLayout,(LabeledJSFInputComponent) container.get_Name());
 		addComponent(panelForCustomLayout,(LabeledJSFInputComponent) container.get_ZoneFile());
 

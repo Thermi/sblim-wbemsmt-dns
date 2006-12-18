@@ -35,8 +35,9 @@ public class DnsTTLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
 		
 	
 	public DnsTTLDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsTTLDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsTTLDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_TTL());

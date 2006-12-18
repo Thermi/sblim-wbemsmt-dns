@@ -51,8 +51,9 @@ public class DnsZoneTracingContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edi
 		
 	
 	public DnsZoneTracingContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsZoneTracingContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsZoneTracingContainer.caption");
+				
 				String childBindingPrefix = null;
 				
     				childBindingPrefix = this.bindingPrefix + "allowNotifyAcl.";

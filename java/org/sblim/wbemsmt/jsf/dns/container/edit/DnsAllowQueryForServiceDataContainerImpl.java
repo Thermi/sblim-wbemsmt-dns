@@ -46,8 +46,9 @@ public class DnsAllowQueryForServiceDataContainerImpl extends org.sblim.wbemsmt.
 		}	
 	
 	public DnsAllowQueryForServiceDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsAllowQueryForServiceDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsAllowQueryForServiceDataContainer.caption");
+				
 				
     			
     				layouter = new DnsAllowQueryForServiceDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

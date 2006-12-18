@@ -50,8 +50,9 @@ public class DnsReverseZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 		}	
 	
 	public DnsReverseZoneDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsReverseZoneDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsReverseZoneDataContainer.caption");
+				
 				
     			
     				layouter = new DnsReverseZoneDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

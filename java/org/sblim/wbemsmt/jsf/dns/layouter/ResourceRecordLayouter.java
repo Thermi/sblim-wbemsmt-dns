@@ -45,8 +45,8 @@ public class ResourceRecordLayouter extends DnsLayouter {
 		panelForCustomLayout.getChildren().add(super.getDummyLabel());
 
 		//labels for Records
-		panelForCustomLayout.getChildren().add(((LabeledJSFInputComponent) container.get_usr_ResourceRecordNotUsed()).getLabel());
-		panelForCustomLayout.getChildren().add(((LabeledJSFInputComponent) container.get_usr_ResourceRecordUsed()).getLabel());
+		panelForCustomLayout.getChildren().add(((LabeledJSFInputComponent) container.get_usr_ResourceRecordNotUsed()).getLabelPanel());
+		panelForCustomLayout.getChildren().add(((LabeledJSFInputComponent) container.get_usr_ResourceRecordUsed()).getLabelPanel());
 		
 		//fields for Records
 		LabeledJSFInputComponent addButton = (LabeledJSFInputComponent) container.get_usr_AddResourceRecord();

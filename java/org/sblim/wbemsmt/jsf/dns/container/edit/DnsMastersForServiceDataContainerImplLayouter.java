@@ -30,8 +30,6 @@ public class DnsMastersForServiceDataContainerImplLayouter extends DnsLayouter {
 	;
 
 	public void layout(HtmlPanelGrid panelForCustomLayout, DnsMastersForServiceDataContainerImpl container, WbemSmtResourceBundle bundle) {
-		panelForCustomLayout.setColumns(2);
-		
 		new MasterAddressesLayouter().addMasterAddress(panelForCustomLayout,container,DEFAULT_PANEL_WIDTH,null,false);
 	}
 

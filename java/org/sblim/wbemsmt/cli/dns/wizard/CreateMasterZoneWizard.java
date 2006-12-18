@@ -42,7 +42,7 @@ public class CreateMasterZoneWizard extends CliWizardBase implements IPageWizard
 	
 	public CreateMasterZoneWizard(final org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter) {
 		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault()));
-		this.container = new org.sblim.wbemsmt.dns.wizard.CreateMasterZoneWizardContainer (new org.sblim.wbemsmt.dns.wizard.CreateMasterZoneWizardContainerPanels()
+		this.container = new org.sblim.wbemsmt.dns.wizard.CreateMasterZoneWizardContainer (adapter, new org.sblim.wbemsmt.dns.wizard.CreateMasterZoneWizardContainerPanels()
  			{
             					public Object getMain()  throws WbemSmtException {
 					DataContainer dc = new org.sblim.wbemsmt.cli.dns.container.wizard.DnsMasterZoneWizardPage1DataContainerImpl(adapter);

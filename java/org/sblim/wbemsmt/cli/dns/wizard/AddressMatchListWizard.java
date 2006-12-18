@@ -42,7 +42,7 @@ public class AddressMatchListWizard extends CliWizardBase implements IPageWizard
 	
 	public AddressMatchListWizard(final org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter) {
 		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault()));
-		this.container = new org.sblim.wbemsmt.dns.wizard.AddressMatchListWizardContainer (new org.sblim.wbemsmt.dns.wizard.AddressMatchListWizardContainerPanels()
+		this.container = new org.sblim.wbemsmt.dns.wizard.AddressMatchListWizardContainer (adapter, new org.sblim.wbemsmt.dns.wizard.AddressMatchListWizardContainerPanels()
  			{
             					public Object getPage1()  throws WbemSmtException {
 					DataContainer dc = new org.sblim.wbemsmt.cli.dns.container.wizard.DnsAddressMatchListWizardPage1DataContainerImpl(adapter);

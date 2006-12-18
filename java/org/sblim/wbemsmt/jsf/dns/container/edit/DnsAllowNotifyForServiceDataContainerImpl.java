@@ -46,8 +46,9 @@ public class DnsAllowNotifyForServiceDataContainerImpl extends org.sblim.wbemsmt
 		}	
 	
 	public DnsAllowNotifyForServiceDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsAllowNotifyForServiceDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsAllowNotifyForServiceDataContainer.caption");
+				
 				
     			
     				layouter = new DnsAllowNotifyForServiceDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

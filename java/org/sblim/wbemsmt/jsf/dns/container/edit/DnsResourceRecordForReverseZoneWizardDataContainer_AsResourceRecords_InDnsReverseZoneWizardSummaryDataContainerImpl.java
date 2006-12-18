@@ -64,7 +64,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecord
 			//setFooter(getInputFieldContainer(),"#{localeManager.bundle['dns'].DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl_footerText}","DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl.footerText");
 			//setFooter(getInputFieldContainer(),"DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl.footerText");
 			String binding = "#{" +  bindingPrefix + "resourceRecords["+ index +"].footerText}";
-			setFooter(getInputFieldContainer(),"DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainer.footerText",binding);
+			setFooter(getOuterPanel(),"DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainer.footerText",binding);
 		}
 		adapter.initContainer(this);
 	}

@@ -30,7 +30,6 @@ public class DnsForwardersForServiceDataContainerImplLayouter extends DnsLayoute
 	;	
 	
 	public void layout(HtmlPanelGrid panelForCustomLayout, DnsForwardersForServiceDataContainerImpl container, WbemSmtResourceBundle bundle) {
-		panelForCustomLayout.setColumns(2);
 		new ForwarderLayouter().addForwarder(panelForCustomLayout,container,DEFAULT_PANEL_WIDTH, false, null);
 	}
 

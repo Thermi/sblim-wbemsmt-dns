@@ -50,8 +50,9 @@ public class DnsMasterZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 		}	
 	
 	public DnsMasterZoneDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsMasterZoneDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsMasterZoneDataContainer.caption");
+				
 				
     			
     				layouter = new DnsMasterZoneDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

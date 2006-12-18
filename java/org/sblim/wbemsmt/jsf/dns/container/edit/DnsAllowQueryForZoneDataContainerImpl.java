@@ -47,8 +47,9 @@ public class DnsAllowQueryForZoneDataContainerImpl extends org.sblim.wbemsmt.too
 		}	
 	
 	public DnsAllowQueryForZoneDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsAllowQueryForZoneDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsAllowQueryForZoneDataContainer.caption");
+				
 				
     			
     				layouter = new DnsAllowQueryForZoneDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

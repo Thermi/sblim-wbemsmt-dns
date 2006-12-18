@@ -56,8 +56,9 @@ public class DnsSlaveZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 		}	
 	
 	public DnsSlaveZoneDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsSlaveZoneDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsSlaveZoneDataContainer.caption");
+				
 				
     			
     				layouter = new DnsSlaveZoneDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

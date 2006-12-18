@@ -46,8 +46,9 @@ public class DnsBlackholeForServiceDataContainerImpl extends org.sblim.wbemsmt.t
 		}	
 	
 	public DnsBlackholeForServiceDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsBlackholeForServiceDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsBlackholeForServiceDataContainer.caption");
+				
 				
     			
     				layouter = new DnsBlackholeForServiceDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

@@ -51,10 +51,15 @@ public class DnsACLLayouter extends DnsLayouter{
 	protected void layoutImpl(HtmlPanelGrid panelForCustomLayout, DnsAddressMatchListDataContainer container, LabeledJSFInputComponent name, WbemSmtResourceBundle bundle, LabeledJSFInputComponent useGlobal) {
 		
 		//first col is holding the input field, second the used addresses
-		panelForCustomLayout.setColumns(2);
-		panelForCustomLayout.setCellpadding("0");
-		panelForCustomLayout.setCellspacing("0");
-		panelForCustomLayout.setWidth("80%");
+
+		HtmlPanelGrid grid = createTable(2, "0", "5");
+		panelForCustomLayout.getChildren().add(grid);
+		
+		grid.setColumns(2);
+		grid.setCellpadding("0");
+		grid.setCellspacing("0");
+		grid.setWidth("80%");
+		grid.setColumnClasses("topAlignment,topAlignment");
 		
 		HtmlInputText newAddressTextField = (HtmlInputText) ((LabeledJSFInputComponent) container.get_usr_NewAddress()).getComponent();
 		newAddressTextField.setStyle(DnsACLLayouter.DEFAULT_PANEL_WIDTH);
@@ -83,20 +88,20 @@ public class DnsACLLayouter extends DnsLayouter{
 		//add one dummy row
 		HtmlOutputText label = getLabel("<br>");
 		label.setEscape(false);
-		panelForCustomLayout.getChildren().add(label);
-		panelForCustomLayout.getChildren().add(getDummyLabel());
+		grid.getChildren().add(label);
+		grid.getChildren().add(getDummyLabel());
 
 		//row 1 (optional with Name of AddressList
 		if (name != null)
 		{
-			panelForCustomLayout.getChildren().add(((LabeledJSFInputComponent) name).getLabel());
-			panelForCustomLayout.getChildren().add(getDummyLabel());
-			panelForCustomLayout.getChildren().add(((LabeledJSFInputComponent) name).getComponent());
-			panelForCustomLayout.getChildren().add(getDummyLabel());
+			grid.getChildren().add(((LabeledJSFInputComponent) name).getLabelPanel());
+			grid.getChildren().add(getDummyLabel());
+			grid.getChildren().add(((LabeledJSFInputComponent) name).getComponent());
+			grid.getChildren().add(getDummyLabel());
 			label = getLabel("<br>");
 			label.setEscape(false);
-			panelForCustomLayout.getChildren().add(label);
-			panelForCustomLayout.getChildren().add(getDummyLabel());
+			grid.getChildren().add(label);
+			grid.getChildren().add(getDummyLabel());
 		}
 
 		HtmlPanelGrid inputGrid = (HtmlPanelGrid) super.create(HtmlPanelGrid.COMPONENT_TYPE);
@@ -104,25 +109,21 @@ public class DnsACLLayouter extends DnsLayouter{
 		inputGrid.setCellspacing("0");
 		inputGrid.setColumns(1);
 
-		inputGrid.getChildren().add(((LabeledJSFInputComponent) container.get_usr_NewAddress()).getLabel());
+		inputGrid.getChildren().add(((LabeledJSFInputComponent) container.get_usr_NewAddress()).getLabelPanel());
 		inputGrid.getChildren().add(newAddressTextField);
 		inputGrid.getChildren().add(addNewButton);
 		label = getLabel("<br>");
 		label.setEscape(false);
 		inputGrid.getChildren().add(label);
-		inputGrid.getChildren().add(((LabeledJSFInputComponent) container.get_usr_UserAddresses()).getLabel());
+		inputGrid.getChildren().add(((LabeledJSFInputComponent) container.get_usr_UserAddresses()).getLabelPanel());
 		inputGrid.getChildren().add(notUsedAddresses);
 		inputGrid.getChildren().add(addPredefinedButton);
-
-		label = getLabel("<br><br><br>");
-		label.setEscape(false);
 
 		HtmlPanelGrid upDownGrid = (HtmlPanelGrid) super.create(HtmlPanelGrid.COMPONENT_TYPE);
 		upDownGrid.setColumns(1);
 		upDownGrid.setCellpadding("0");
 		upDownGrid.setCellspacing("0");
 		upDownGrid.getChildren().add(upButton);
-		upDownGrid.getChildren().add(label);
 		upDownGrid.getChildren().add(downButton);
 
 		
@@ -130,8 +131,9 @@ public class DnsACLLayouter extends DnsLayouter{
 		usedAddressesGrid.setColumns(2);
 		usedAddressesGrid.setCellpadding("0");
 		usedAddressesGrid.setCellspacing("0");
+		usedAddressesGrid.setColumnClasses("topAlignment,topAlignment");
 		
-		usedAddressesGrid.getChildren().add(((LabeledJSFInputComponent) container.get_AddressList()).getLabel());
+		usedAddressesGrid.getChildren().add(((LabeledJSFInputComponent) container.get_AddressList()).getLabelPanel());
 		usedAddressesGrid.getChildren().add(getDummyLabel());
 		
 		usedAddressesGrid.getChildren().add(usedAddresses);
@@ -141,18 +143,18 @@ public class DnsACLLayouter extends DnsLayouter{
 		usedAddressesGrid.getChildren().add(getDummyLabel());
 
 		//add the grids to the outer grid
-		panelForCustomLayout.getChildren().add(inputGrid);
-		panelForCustomLayout.getChildren().add(usedAddressesGrid);
+		grid.getChildren().add(inputGrid);
+		grid.getChildren().add(usedAddressesGrid);
 		
 		
 		if (useGlobal != null)
 		{
 			label = getLabel("<br>");
 			label.setEscape(false);			
-			panelForCustomLayout.getChildren().add(label);
-			panelForCustomLayout.getChildren().add(getDummyLabel());
-			panelForCustomLayout.getChildren().add(useGlobal.getComponent());
-			panelForCustomLayout.getChildren().add(getDummyLabel());
+			grid.getChildren().add(label);
+			grid.getChildren().add(getDummyLabel());
+			grid.getChildren().add(useGlobal.getComponent());
+			grid.getChildren().add(getDummyLabel());
 		}		
 		
 		

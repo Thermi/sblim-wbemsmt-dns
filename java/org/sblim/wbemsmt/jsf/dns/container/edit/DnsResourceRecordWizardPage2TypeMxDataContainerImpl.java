@@ -34,8 +34,9 @@ public class DnsResourceRecordWizardPage2TypeMxDataContainerImpl extends org.sbl
 		
 	
 	public DnsResourceRecordWizardPage2TypeMxDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsResourceRecordWizardPage2TypeMxDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsResourceRecordWizardPage2TypeMxDataContainer.caption","DnsResourceRecordWizardPage2TypeMxDataContainer.subTitle");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Value());

@@ -42,7 +42,7 @@ public class CreateResourceRecordWizard extends CliWizardBase implements IPageWi
 	
 	public CreateResourceRecordWizard(final org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter) {
 		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault()));
-		this.container = new org.sblim.wbemsmt.dns.wizard.CreateResourceRecordWizardContainer (new org.sblim.wbemsmt.dns.wizard.CreateResourceRecordWizardContainerPanels()
+		this.container = new org.sblim.wbemsmt.dns.wizard.CreateResourceRecordWizardContainer (adapter, new org.sblim.wbemsmt.dns.wizard.CreateResourceRecordWizardContainerPanels()
  			{
             					public Object getMain()  throws WbemSmtException {
 					DataContainer dc = new org.sblim.wbemsmt.cli.dns.container.wizard.DnsResourceRecordWizardPage1DataContainerImpl(adapter);

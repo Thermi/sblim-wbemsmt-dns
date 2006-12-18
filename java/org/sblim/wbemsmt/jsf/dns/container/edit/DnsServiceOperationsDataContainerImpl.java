@@ -37,8 +37,9 @@ public class DnsServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.too
 		
 	
 	public DnsServiceOperationsDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsServiceOperationsDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsServiceOperationsDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_RunAsRoot());

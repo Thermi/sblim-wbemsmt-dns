@@ -35,8 +35,9 @@ public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends org.
 		
 	
 	public DnsResourceRecordForReverseZoneWizardDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsResourceRecordForReverseZoneWizardDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsResourceRecordForReverseZoneWizardDataContainer.caption");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());

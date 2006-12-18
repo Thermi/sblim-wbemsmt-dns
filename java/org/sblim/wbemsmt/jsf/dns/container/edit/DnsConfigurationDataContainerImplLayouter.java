@@ -42,7 +42,7 @@ public class DnsConfigurationDataContainerImplLayouter extends DnsLayouter {
 		directoryGrid.getChildren().add(directoryButton.getComponent());
 		
 		
-		parent.getChildren().add(directory.getLabel());
+		parent.getChildren().add(directory.getLabelPanel());
 		parent.getChildren().add(directoryGrid);
 		
 		

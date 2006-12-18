@@ -32,8 +32,6 @@ public class DnsSoaContainerImplLayouter extends DnsLayouter {
 
 	public void layout(HtmlPanelGrid panelForCustomLayout, DnsSoaContainerImpl container, WbemSmtResourceBundle bundle) {
 
-		panelForCustomLayout.setColumns(2);
-		
 		addComponent(panelForCustomLayout,(LabeledJSFInputComponent) container.get_Server());
 		addComponent(panelForCustomLayout,(LabeledJSFInputComponent) container.get_Contact());
 
@@ -44,7 +42,7 @@ public class DnsSoaContainerImplLayouter extends DnsLayouter {
 		grid.getChildren().add(serialNumber.getComponent());
 		grid.getChildren().add(serialNumberButton.getComponent());
 		
-		panelForCustomLayout.getChildren().add(serialNumber.getLabel());
+		panelForCustomLayout.getChildren().add(serialNumber.getLabelPanel());
 		panelForCustomLayout.getChildren().add(grid);
 		addComponent(panelForCustomLayout,(LabeledJSFInputComponent) container.get_Refresh());
 		addComponent(panelForCustomLayout,(LabeledJSFInputComponent) container.get_Retry());

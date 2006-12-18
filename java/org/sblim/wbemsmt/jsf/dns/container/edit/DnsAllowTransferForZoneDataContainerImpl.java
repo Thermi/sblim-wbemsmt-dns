@@ -47,8 +47,9 @@ public class DnsAllowTransferForZoneDataContainerImpl extends org.sblim.wbemsmt.
 		}	
 	
 	public DnsAllowTransferForZoneDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsAllowTransferForZoneDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsAllowTransferForZoneDataContainer.caption");
+				
 				
     			
     				layouter = new DnsAllowTransferForZoneDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

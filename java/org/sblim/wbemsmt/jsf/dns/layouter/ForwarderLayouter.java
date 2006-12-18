@@ -49,9 +49,14 @@ public class ForwarderLayouter extends DnsLayouter {
 
 		addComponent(panelForCustomLayout,(LabeledJSFInputComponent) container.get_Forward());
 		
+		HtmlPanelGrid forwardersGrid = createTable(2, "0", "5");
+		forwardersGrid.setColumnClasses("topAlignment,topAlignment");
+		panelForCustomLayout.getChildren().add(forwardersGrid);
+		
+		
 		//labels for Forwarders
-		panelForCustomLayout.getChildren().add(((LabeledJSFInputComponent) container.get_usr_NewForwarder()).getLabel());
-		panelForCustomLayout.getChildren().add(((LabeledJSFInputComponent) container.get_Forwarders()).getLabel());
+		forwardersGrid.getChildren().add(((LabeledJSFInputComponent) container.get_usr_NewForwarder()).getLabelPanel());
+		forwardersGrid.getChildren().add(((LabeledJSFInputComponent) container.get_Forwarders()).getLabelPanel());
 		
 		//fields for Forwarders
 		LabeledJSFInputComponent addButton = (LabeledJSFInputComponent) container.get_usr_AddForwarder();
@@ -67,24 +72,21 @@ public class ForwarderLayouter extends DnsLayouter {
 		usedAddresses.setStyle(width);
 		newAddress.setStyle(width);
 
-		panelForCustomLayout.getChildren().add(newAddress);
-		panelForCustomLayout.getChildren().add(usedAddresses);
+		forwardersGrid.getChildren().add(newAddress);
+		forwardersGrid.getChildren().add(usedAddresses);
 
-		panelForCustomLayout.getChildren().add(addButton.getComponent());
-		panelForCustomLayout.getChildren().add(removeButton.getComponent());
+		forwardersGrid.getChildren().add(addButton.getComponent());
+		forwardersGrid.getChildren().add(removeButton.getComponent());
 
 		if (useGlobal != null)
 		{
 			HtmlOutputText label = getLabel("<br>");
 			label.setEscape(false);			
-			panelForCustomLayout.getChildren().add(label);
-			panelForCustomLayout.getChildren().add(getDummyLabel());
-			panelForCustomLayout.getChildren().add(useGlobal.getComponent());
-			panelForCustomLayout.getChildren().add(getDummyLabel());
-			
+			forwardersGrid.getChildren().add(label);
+			forwardersGrid.getChildren().add(getDummyLabel());
+			forwardersGrid.getChildren().add(useGlobal.getComponent());
+			forwardersGrid.getChildren().add(getDummyLabel());
 		}
-		
-		
 	}
 
 	public void addForwarderForSummary(HtmlPanelGrid panelForCustomLayout, DnsForwarderDataContainer container, String width) {

@@ -31,8 +31,6 @@ public class DnsHintZoneDataContainerImplLayouter extends DnsLayouter {
 	;	
 	
 	public void layout(HtmlPanelGrid panelForCustomLayout, DnsHintZoneDataContainerImpl container, WbemSmtResourceBundle bundle) {
-		panelForCustomLayout.setColumns(2);
-		
 		addComponent(panelForCustomLayout,(LabeledJSFInputComponent) container.get_Name());
 		new TTLLayouter().addTTL(panelForCustomLayout,container,DEFAULT_PANEL_WIDTH);
 	}

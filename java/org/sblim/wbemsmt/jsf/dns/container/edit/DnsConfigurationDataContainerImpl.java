@@ -42,8 +42,9 @@ public class DnsConfigurationDataContainerImpl extends org.sblim.wbemsmt.tools.j
 		}	
 	
 	public DnsConfigurationDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsConfigurationDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsConfigurationDataContainer.caption");
+				
 				
     			
     				layouter = new DnsConfigurationDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

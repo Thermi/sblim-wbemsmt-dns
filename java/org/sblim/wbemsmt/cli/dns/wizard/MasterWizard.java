@@ -42,7 +42,7 @@ public class MasterWizard extends CliWizardBase implements IPageWizardAdapter {
 	
 	public MasterWizard(final org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter) {
 		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault()));
-		this.container = new org.sblim.wbemsmt.dns.wizard.MasterWizardContainer (new org.sblim.wbemsmt.dns.wizard.MasterWizardContainerPanels()
+		this.container = new org.sblim.wbemsmt.dns.wizard.MasterWizardContainer (adapter, new org.sblim.wbemsmt.dns.wizard.MasterWizardContainerPanels()
  			{
             					public Object getPage1()  throws WbemSmtException {
 					DataContainer dc = new org.sblim.wbemsmt.cli.dns.container.wizard.DnsMastersWizardPage1DataContainerImpl(adapter);

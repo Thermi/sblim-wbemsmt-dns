@@ -80,7 +80,7 @@ public class MasterAddressesLayouter extends DnsLayouter {
 		//row 1 (optional with Name of Masters)
 		if (nameForMasters != null)
 		{
-			panelForCustomLayout.getChildren().add(((LabeledJSFInputComponent) nameForMasters).getLabel());
+			panelForCustomLayout.getChildren().add(((LabeledJSFInputComponent) nameForMasters).getLabelPanel());
 			panelForCustomLayout.getChildren().add(getDummyLabel());
 			panelForCustomLayout.getChildren().add(((LabeledJSFInputComponent) nameForMasters).getComponent());
 			panelForCustomLayout.getChildren().add(getDummyLabel());
@@ -95,13 +95,13 @@ public class MasterAddressesLayouter extends DnsLayouter {
 		inputGrid.setCellspacing("0");
 		inputGrid.setColumns(1);
 
-		inputGrid.getChildren().add(((LabeledJSFInputComponent) container.get_usr_NewMasterEntry()).getLabel());
+		inputGrid.getChildren().add(((LabeledJSFInputComponent) container.get_usr_NewMasterEntry()).getLabelPanel());
 		inputGrid.getChildren().add(newAddressTextField);
 		inputGrid.getChildren().add(addNewButton);
 		label = getLabel("<br>");
 		label.setEscape(false);
 		inputGrid.getChildren().add(label);
-		inputGrid.getChildren().add(((LabeledJSFInputComponent) container.get_usr_PredefinedMasters()).getLabel());
+		inputGrid.getChildren().add(((LabeledJSFInputComponent) container.get_usr_PredefinedMasters()).getLabelPanel());
 		inputGrid.getChildren().add(notUsedAddresses);
 		inputGrid.getChildren().add(addPredefinedButton);
 
@@ -110,7 +110,7 @@ public class MasterAddressesLayouter extends DnsLayouter {
 		usedAddressesGrid.setCellpadding("0");
 		usedAddressesGrid.setCellspacing("0");
 
-		usedAddressesGrid.getChildren().add(((LabeledJSFInputComponent) container.get_Masters()).getLabel());
+		usedAddressesGrid.getChildren().add(((LabeledJSFInputComponent) container.get_Masters()).getLabelPanel());
 		usedAddressesGrid.getChildren().add(usedAddresses);
 		usedAddressesGrid.getChildren().add(removeButton);
 

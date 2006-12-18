@@ -42,7 +42,7 @@ public class CreateReverseZoneWizard extends CliWizardBase implements IPageWizar
 	
 	public CreateReverseZoneWizard(final org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter) {
 		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault()));
-		this.container = new org.sblim.wbemsmt.dns.wizard.CreateReverseZoneWizardContainer (new org.sblim.wbemsmt.dns.wizard.CreateReverseZoneWizardContainerPanels()
+		this.container = new org.sblim.wbemsmt.dns.wizard.CreateReverseZoneWizardContainer (adapter, new org.sblim.wbemsmt.dns.wizard.CreateReverseZoneWizardContainerPanels()
  			{
             					public Object getMain()  throws WbemSmtException {
 					DataContainer dc = new org.sblim.wbemsmt.cli.dns.container.wizard.DnsReverseZoneWizardPage1DataContainerImpl(adapter);

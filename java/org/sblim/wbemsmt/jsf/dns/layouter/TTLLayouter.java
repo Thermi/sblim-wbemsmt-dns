@@ -72,7 +72,7 @@ public class TTLLayouter extends DnsLayouter {
 			compGrid.getChildren().add(((LabeledJSFInputComponent)removeTTL).getComponent());
 		}
 		
-		parent.getChildren().add(((LabeledJSFInputComponent)get_TTL).getLabel());
+		parent.getChildren().add(((LabeledJSFInputComponent)get_TTL).getLabelPanel());
 		parent.getChildren().add(compGrid);
 	}
 

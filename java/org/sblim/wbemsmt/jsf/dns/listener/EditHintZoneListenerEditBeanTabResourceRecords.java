@@ -83,6 +83,10 @@ public class EditHintZoneListenerEditBeanTabResourceRecords extends EditBean {
                     				org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl child = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl(adapter1,bindingPrefix, i,grid);
                     				currentEditContainer1.getResourceRecords().add(child);
                     			}
+                    			if (count > 0) {
+                					((MultiLineBasePanel)currentEditContainer1.getResourceRecords().get(0)).updateRows(count);
+                				}
+								
                             	    							adapter1.updateControls(currentEditContainer1);
     						} catch (Exception e) {
     							throw new ObjectSaveException("Canot update Model after saving data",e);
@@ -140,9 +144,7 @@ public class EditHintZoneListenerEditBeanTabResourceRecords extends EditBean {
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer1.getInputFieldContainer());
 				containerPanel.setWidth("100%");
-				containerPanel.setStyle("border-width:1px;border-color=#99CCFF;margin-bottom:10px");
-				//containerPanel.setStyleClass("outerTable");
-
+    			
 				//update the child objects
 								
             	    			count = adapter1.count(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer.class);
@@ -152,6 +154,9 @@ public class EditHintZoneListenerEditBeanTabResourceRecords extends EditBean {
     				org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl child = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl(adapter1,bindingPrefix, i,grid);
     				currentEditContainer1.getResourceRecords().add(child);
     			}
+    			if (count > 0) {
+					((MultiLineBasePanel)currentEditContainer1.getResourceRecords().get(0)).updateRows(count);
+				}
             	    			
 				
     			adapter1.updateControls(currentEditContainer1);
@@ -165,8 +170,7 @@ public class EditHintZoneListenerEditBeanTabResourceRecords extends EditBean {
 				//add the childs with occurence list
             						
     			if (currentEditContainer1.getResourceRecords().size() > 0) {
-    				HtmlPanelGrid childPanel = ((MultiLineBasePanel)currentEditContainer1.getResourceRecords().get(0)).getInputFieldContainer();
-					childPanel.setStyleClass("multiLineChildTable");
+    				HtmlPanelGrid childPanel = ((MultiLineBasePanel)currentEditContainer1.getResourceRecords().get(0)).getOuterPanel();
 					childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("editResourceRecordsChild_resourceRecords"));
     				childEditFields.getChildren().add(childPanel); 	
     			}

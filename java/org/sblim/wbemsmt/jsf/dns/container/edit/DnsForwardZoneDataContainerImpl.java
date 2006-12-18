@@ -46,8 +46,9 @@ public class DnsForwardZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 		}	
 	
 	public DnsForwardZoneDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsForwardZoneDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsForwardZoneDataContainer.caption");
+				
 				
     			
     				layouter = new DnsForwardZoneDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

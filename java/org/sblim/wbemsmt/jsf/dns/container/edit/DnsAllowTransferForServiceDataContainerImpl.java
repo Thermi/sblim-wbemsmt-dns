@@ -46,8 +46,9 @@ public class DnsAllowTransferForServiceDataContainerImpl extends org.sblim.wbems
 		}	
 	
 	public DnsAllowTransferForServiceDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsAllowTransferForServiceDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsAllowTransferForServiceDataContainer.caption");
+				
 				
     			
     				layouter = new DnsAllowTransferForServiceDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

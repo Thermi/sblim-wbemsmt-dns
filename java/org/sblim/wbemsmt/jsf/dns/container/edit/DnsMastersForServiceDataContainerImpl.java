@@ -45,8 +45,9 @@ public class DnsMastersForServiceDataContainerImpl extends org.sblim.wbemsmt.too
 		}	
 	
 	public DnsMastersForServiceDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsMastersForServiceDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsMastersForServiceDataContainer.caption");
+				
 				
     			
     				layouter = new DnsMastersForServiceDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

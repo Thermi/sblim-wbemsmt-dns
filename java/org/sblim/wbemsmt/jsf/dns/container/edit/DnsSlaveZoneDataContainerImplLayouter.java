@@ -33,8 +33,6 @@ public class DnsSlaveZoneDataContainerImplLayouter extends DnsLayouter {
 	;
 
 	public void layout(HtmlPanelGrid panelForCustomLayout, DnsSlaveZoneDataContainerImpl container, WbemSmtResourceBundle bundle) {
-		panelForCustomLayout.setColumns(2);
-		
 		addComponent(panelForCustomLayout,(LabeledJSFInputComponent) container.get_Name());
 		addComponent(panelForCustomLayout,(LabeledJSFInputComponent) container.get_ZoneFile());
 //		addComponent(panelForCustomLayout,(LabeledJSFInputComponent) container.get_SecurityKeyForMaster());
