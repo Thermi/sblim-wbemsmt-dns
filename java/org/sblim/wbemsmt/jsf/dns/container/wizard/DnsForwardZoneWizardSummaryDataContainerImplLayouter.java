@@ -30,8 +30,6 @@ public class DnsForwardZoneWizardSummaryDataContainerImplLayouter extends DnsLay
 	
 	public void layout(HtmlPanelGrid parent, DnsForwardZoneWizardSummaryDataContainerImpl container, WbemSmtResourceBundle bundle) {
 
-		parent.setColumns(2);
-		
 		addComponent(parent, (LabeledJSFInputComponent) container.get_usr_Name());
 		new ForwarderLayouter().addForwarderForSummary(parent, container, DEFAULT_PANEL_WIDTH);
 		

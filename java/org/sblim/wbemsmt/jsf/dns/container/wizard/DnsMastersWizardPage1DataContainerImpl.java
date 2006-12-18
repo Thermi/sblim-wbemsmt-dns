@@ -45,8 +45,9 @@ public class DnsMastersWizardPage1DataContainerImpl extends org.sblim.wbemsmt.to
 		}	
 	
 	public DnsMastersWizardPage1DataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsMastersWizardPage1DataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsMastersWizardPage1DataContainer.caption","DnsMastersWizardPage1DataContainer.subTitle");
+				
 				
     			
     				layouter = new DnsMastersWizardPage1DataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

@@ -45,8 +45,9 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
 		}	
 	
 	public DnsForwardZoneWizardSummaryDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsForwardZoneWizardSummaryDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsForwardZoneWizardSummaryDataContainer.caption","DnsForwardZoneWizardSummaryDataContainer.subTitle");
+				
 				
     			
     				layouter = new DnsForwardZoneWizardSummaryDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

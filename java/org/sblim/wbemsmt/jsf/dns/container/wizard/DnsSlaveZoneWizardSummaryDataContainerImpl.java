@@ -34,8 +34,9 @@ public class DnsSlaveZoneWizardSummaryDataContainerImpl extends org.sblim.wbemsm
 		
 	
 	public DnsSlaveZoneWizardSummaryDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsSlaveZoneWizardSummaryDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsSlaveZoneWizardSummaryDataContainer.caption","DnsSlaveZoneWizardSummaryDataContainer.subTitle");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Name());

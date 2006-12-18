@@ -30,7 +30,7 @@ public class DnsResourceRecordWizardPage1DataContainerImplLayouter extends
 
 	public void layout(HtmlPanelGrid parent, DnsResourceRecordWizardPage1DataContainerImpl panel1, WbemSmtResourceBundle bundle) {
 		
-		parent.setColumns(2);
+		//parent.setColumns(2);
 		
 		addComponent(parent, (LabeledJSFInputComponent) panel1.get_usr_Name());
 		addComponent(parent, (LabeledJSFInputComponent) panel1.get_usr_Type());

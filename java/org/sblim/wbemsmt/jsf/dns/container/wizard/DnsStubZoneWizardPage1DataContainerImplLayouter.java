@@ -30,7 +30,7 @@ public class DnsStubZoneWizardPage1DataContainerImplLayouter extends DnsLayouter
 	
 	public void layout(HtmlPanelGrid panelForCustomLayout, DnsStubZoneWizardPage1DataContainerImpl container, WbemSmtResourceBundle bundle) {
 		
-		panelForCustomLayout.setColumns(2);
+		//panelForCustomLayout.setColumns(2);
 		
 		addComponent(panelForCustomLayout,(LabeledJSFInputComponent) container.get_usr_Name());
 		new MasterAddressesLayouter().addMasterAddress(panelForCustomLayout,container,DEFAULT_PANEL_WIDTH,null, true);

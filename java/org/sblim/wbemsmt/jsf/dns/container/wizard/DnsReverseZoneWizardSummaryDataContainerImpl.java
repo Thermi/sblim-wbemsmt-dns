@@ -35,8 +35,9 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
 		
 	
 	public DnsReverseZoneWizardSummaryDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsReverseZoneWizardSummaryDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsReverseZoneWizardSummaryDataContainer.caption","DnsReverseZoneWizardSummaryDataContainer.subTitle");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Name());

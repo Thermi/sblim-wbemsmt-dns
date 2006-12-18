@@ -33,7 +33,7 @@ public class DnsForwardZoneWizardPage1DataContainerImplLayouter extends
 	
 	public void layout(HtmlPanelGrid parent, DnsForwardZoneWizardPage1DataContainerImpl container, WbemSmtResourceBundle bundle) {
 		
-		parent.setColumns(2);
+		//parent.setColumns(2);
 		
 		addComponent(parent, (LabeledJSFInputComponent) container.get_usr_Name());
 		new ForwarderLayouter().addForwarder(parent, container, DEFAULT_PANEL_WIDTH, true, (LabeledJSFInputComponent) container.get_usr_UseGlobalForwarders());

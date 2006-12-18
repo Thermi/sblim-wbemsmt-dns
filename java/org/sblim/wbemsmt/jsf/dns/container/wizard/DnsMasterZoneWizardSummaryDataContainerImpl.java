@@ -36,8 +36,9 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends org.sblim.wbems
 		
 	
 	public DnsMasterZoneWizardSummaryDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsMasterZoneWizardSummaryDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsMasterZoneWizardSummaryDataContainer.caption","DnsMasterZoneWizardSummaryDataContainer.subTitle");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Name());

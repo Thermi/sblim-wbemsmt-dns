@@ -49,9 +49,9 @@ public class CreateStubZoneWizard extends JSFWizardBase implements IPageWizardAd
 	final org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter;
 	
 	public CreateStubZoneWizard(final org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter) {
-		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale()));
+		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale()),"CreateStubZoneWizard.title");
 		this.adapter = adapter;
-		this.container = new org.sblim.wbemsmt.dns.wizard.CreateStubZoneWizardContainer (new org.sblim.wbemsmt.dns.wizard.CreateStubZoneWizardContainerPanels()
+		this.container = new org.sblim.wbemsmt.dns.wizard.CreateStubZoneWizardContainer (adapter,new org.sblim.wbemsmt.dns.wizard.CreateStubZoneWizardContainerPanels()
  			{
             						//update the child objects
     				
@@ -77,7 +77,7 @@ public class CreateStubZoneWizard extends JSFWizardBase implements IPageWizardAd
             				//add the childs with occurence list
                         	            				panel1.getChildPanel().getChildren().add(childEditFields);
 							
-															panel1.getLayouter().layout(panel1.getInputFieldContainer(), panel1 ,bundle);
+															panel1.getLayouter().layout(panel1.getPanelForCustomLayout(), panel1 ,bundle);
 							
         					return panel1;
 						}
@@ -159,6 +159,9 @@ public class CreateStubZoneWizard extends JSFWizardBase implements IPageWizardAd
    {
      //do nothing
    }
+
+   
+   //Workaround for a bug within myFaces - Everytime a new panel is created the childs are created also
    
 	public void countAndCreateChilds(DataContainer dataContainer) throws UpdateControlsException {
             						if (dataContainer instanceof org.sblim.wbemsmt.jsf.dns.container.wizard.DnsStubZoneWizardPage1DataContainerImpl)
@@ -200,4 +203,9 @@ public class CreateStubZoneWizard extends JSFWizardBase implements IPageWizardAd
 						}
     				}
             		}   
+	
+	public String getFinishText()
+	{
+		return bundle.getString("CreateStubZoneWizard.finishText",bundle.getString("wizard.finishText"));
+	}
 }

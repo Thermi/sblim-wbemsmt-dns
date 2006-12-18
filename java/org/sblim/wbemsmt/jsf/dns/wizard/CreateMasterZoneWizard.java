@@ -49,9 +49,9 @@ public class CreateMasterZoneWizard extends JSFWizardBase implements IPageWizard
 	final org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter;
 	
 	public CreateMasterZoneWizard(final org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter) {
-		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale()));
+		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale()),"CreateMasterZoneWizard.title");
 		this.adapter = adapter;
-		this.container = new org.sblim.wbemsmt.dns.wizard.CreateMasterZoneWizardContainer (new org.sblim.wbemsmt.dns.wizard.CreateMasterZoneWizardContainerPanels()
+		this.container = new org.sblim.wbemsmt.dns.wizard.CreateMasterZoneWizardContainer (adapter,new org.sblim.wbemsmt.dns.wizard.CreateMasterZoneWizardContainerPanels()
  			{
             						//update the child objects
     				
@@ -158,6 +158,9 @@ public class CreateMasterZoneWizard extends JSFWizardBase implements IPageWizard
    {
      //do nothing
    }
+
+   
+   //Workaround for a bug within myFaces - Everytime a new panel is created the childs are created also
    
 	public void countAndCreateChilds(DataContainer dataContainer) throws UpdateControlsException {
             						if (dataContainer instanceof org.sblim.wbemsmt.jsf.dns.container.wizard.DnsMasterZoneWizardPage1DataContainerImpl)
@@ -199,4 +202,9 @@ public class CreateMasterZoneWizard extends JSFWizardBase implements IPageWizard
 						}
     				}
             		}   
+	
+	public String getFinishText()
+	{
+		return bundle.getString("CreateMasterZoneWizard.finishText",bundle.getString("wizard.finishText"));
+	}
 }

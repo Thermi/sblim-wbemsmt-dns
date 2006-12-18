@@ -45,8 +45,9 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt.t
 		}	
 	
 	public DnsStubZoneWizardPage1DataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsStubZoneWizardPage1DataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsStubZoneWizardPage1DataContainer.caption","DnsStubZoneWizardPage1DataContainer.subTitle");
+				
 				
     			
     				layouter = new DnsStubZoneWizardPage1DataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

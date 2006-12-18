@@ -34,8 +34,9 @@ public class DnsMastersWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.
 		
 	
 	public DnsMastersWizardSummaryDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsMastersWizardSummaryDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsMastersWizardSummaryDataContainer.caption","DnsMastersWizardSummaryDataContainer.subTitle");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());

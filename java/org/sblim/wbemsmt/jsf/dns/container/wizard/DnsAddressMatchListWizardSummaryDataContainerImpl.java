@@ -34,8 +34,9 @@ public class DnsAddressMatchListWizardSummaryDataContainerImpl extends org.sblim
 		
 	
 	public DnsAddressMatchListWizardSummaryDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsAddressMatchListWizardSummaryDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsAddressMatchListWizardSummaryDataContainer.caption","DnsAddressMatchListWizardSummaryDataContainer.subTitle");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());

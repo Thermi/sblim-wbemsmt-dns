@@ -36,8 +36,9 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends org.sblim.w
 		
 	
 	public DnsResourceRecordWizardSummaryDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsResourceRecordWizardSummaryDataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsResourceRecordWizardSummaryDataContainer.caption","DnsResourceRecordWizardSummaryDataContainer.subTitle");
+				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Name());

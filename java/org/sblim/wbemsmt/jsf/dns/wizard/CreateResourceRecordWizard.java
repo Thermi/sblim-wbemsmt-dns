@@ -51,9 +51,9 @@ public class CreateResourceRecordWizard extends JSFWizardBase implements IPageWi
 	final org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter;
 	
 	public CreateResourceRecordWizard(final org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter) {
-		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale()));
+		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale()),"CreateResourceRecordWizard.title");
 		this.adapter = adapter;
-		this.container = new org.sblim.wbemsmt.dns.wizard.CreateResourceRecordWizardContainer (new org.sblim.wbemsmt.dns.wizard.CreateResourceRecordWizardContainerPanels()
+		this.container = new org.sblim.wbemsmt.dns.wizard.CreateResourceRecordWizardContainer (adapter,new org.sblim.wbemsmt.dns.wizard.CreateResourceRecordWizardContainerPanels()
  			{
             						//update the child objects
     				
@@ -79,7 +79,7 @@ public class CreateResourceRecordWizard extends JSFWizardBase implements IPageWi
             				//add the childs with occurence list
                         	            				panel1.getChildPanel().getChildren().add(childEditFields);
 							
-															panel1.getLayouter().layout(panel1.getInputFieldContainer(), panel1 ,bundle);
+															panel1.getLayouter().layout(panel1.getPanelForCustomLayout(), panel1 ,bundle);
 							
         					return panel1;
 						}
@@ -225,6 +225,9 @@ public class CreateResourceRecordWizard extends JSFWizardBase implements IPageWi
    {
      //do nothing
    }
+
+   
+   //Workaround for a bug within myFaces - Everytime a new panel is created the childs are created also
    
 	public void countAndCreateChilds(DataContainer dataContainer) throws UpdateControlsException {
             						if (dataContainer instanceof org.sblim.wbemsmt.jsf.dns.container.wizard.DnsResourceRecordWizardPage1DataContainerImpl)
@@ -304,4 +307,9 @@ public class CreateResourceRecordWizard extends JSFWizardBase implements IPageWi
 						}
     				}
             		}   
+	
+	public String getFinishText()
+	{
+		return bundle.getString("CreateResourceRecordWizard.finishText",bundle.getString("wizard.finishText"));
+	}
 }

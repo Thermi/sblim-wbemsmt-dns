@@ -49,9 +49,9 @@ public class CreateReverseZoneWizard extends JSFWizardBase implements IPageWizar
 	final org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter;
 	
 	public CreateReverseZoneWizard(final org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter) {
-		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale()));
+		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale()),"CreateReverseZoneWizard.title");
 		this.adapter = adapter;
-		this.container = new org.sblim.wbemsmt.dns.wizard.CreateReverseZoneWizardContainer (new org.sblim.wbemsmt.dns.wizard.CreateReverseZoneWizardContainerPanels()
+		this.container = new org.sblim.wbemsmt.dns.wizard.CreateReverseZoneWizardContainer (adapter,new org.sblim.wbemsmt.dns.wizard.CreateReverseZoneWizardContainerPanels()
  			{
             						//update the child objects
     				
@@ -77,7 +77,7 @@ public class CreateReverseZoneWizard extends JSFWizardBase implements IPageWizar
             				//add the childs with occurence list
                         	            				panel1.getChildPanel().getChildren().add(childEditFields);
 							
-															panel1.getLayouter().layout(panel1.getInputFieldContainer(), panel1 ,bundle);
+															panel1.getLayouter().layout(panel1.getPanelForCustomLayout(), panel1 ,bundle);
 							
         					return panel1;
 						}
@@ -108,6 +108,11 @@ public class CreateReverseZoneWizard extends JSFWizardBase implements IPageWizar
                                 	org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl child = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl(adapter,binding, i,grid);
                                 	panel2.getResourceRecords().add(child);
                                 }
+                                if (count > 0)
+                                {
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).updateRows(count);
+                                }
+								
                                 					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
@@ -118,8 +123,7 @@ public class CreateReverseZoneWizard extends JSFWizardBase implements IPageWizar
             				//add the childs with occurence list
                         	            					
                 			if (panel2.getResourceRecords().size() > 0) {
-                				HtmlPanelGrid childPanel = ((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).getInputFieldContainer();
-            					childPanel.setStyleClass("childTable");
+                				HtmlPanelGrid childPanel = ((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).getOuterPanel();
             					childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("summaryChild_resourceRecords"));
                 				childEditFields.getChildren().add(childPanel); 	
                 			}
@@ -174,6 +178,9 @@ public class CreateReverseZoneWizard extends JSFWizardBase implements IPageWizar
    {
      //do nothing
    }
+
+   
+   //Workaround for a bug within myFaces - Everytime a new panel is created the childs are created also
    
 	public void countAndCreateChilds(DataContainer dataContainer) throws UpdateControlsException {
             						if (dataContainer instanceof org.sblim.wbemsmt.jsf.dns.container.wizard.DnsReverseZoneWizardPage1DataContainerImpl)
@@ -210,6 +217,12 @@ public class CreateReverseZoneWizard extends JSFWizardBase implements IPageWizar
                                 	org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl child = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl(adapter,binding, i,grid);
                                 	panel2.getResourceRecords().add(child);
                                 }
+								
+                                if (count > 0)
+                                {
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).updateRows(count);
+                                }
+								
                                 					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
@@ -217,8 +230,7 @@ public class CreateReverseZoneWizard extends JSFWizardBase implements IPageWizar
             				//add the childs with occurence list
                         	            					
                 			if (panel2.getResourceRecords().size() > 0) {
-                				HtmlPanelGrid childPanel = ((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).getInputFieldContainer();
-            					childPanel.setStyleClass("childTable");
+                				HtmlPanelGrid childPanel = ((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).getOuterPanel();
             					childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("summaryChild_resourceRecords"));
                 				childEditFields.getChildren().add(childPanel); 	
                 			}
@@ -231,4 +243,9 @@ public class CreateReverseZoneWizard extends JSFWizardBase implements IPageWizar
 						}
     				}
             		}   
+	
+	public String getFinishText()
+	{
+		return bundle.getString("CreateReverseZoneWizard.finishText",bundle.getString("wizard.finishText"));
+	}
 }

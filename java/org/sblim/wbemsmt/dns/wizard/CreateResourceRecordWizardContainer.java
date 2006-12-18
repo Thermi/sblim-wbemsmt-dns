@@ -28,10 +28,12 @@ import java.util.HashMap;
 import java.util.Vector;
 import java.util.logging.Logger;
 
+import org.sblim.wbemsmt.tools.wizard.WizardStepList;
 import org.sblim.wbemsmt.tools.wizard.container.AbstractWizardContainerBase;
 import org.sblim.wbemsmt.tools.wizard.container.IWizardContainer;
 import org.sblim.wbemsmt.exception.WbemSmtException;
-
+import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
+	
 	public class CreateResourceRecordWizardContainer extends AbstractWizardContainerBase implements IWizardContainer {
 
 	org.sblim.wbemsmt.tools.wizard.WizardContainerUtil util = new CreateResourceRecordWizardContainerUtil();
@@ -44,10 +46,11 @@ import org.sblim.wbemsmt.exception.WbemSmtException;
     
 	private final CreateResourceRecordWizardContainerPanels panels;
 	
-	public CreateResourceRecordWizardContainer(CreateResourceRecordWizardContainerPanels panels) {
-		super();
+	public CreateResourceRecordWizardContainer(AbstractBaseCimAdapter adapter, CreateResourceRecordWizardContainerPanels panels) {
+		super(adapter);
 		this.panels = panels;
 		hmPages = new HashMap();
+		stepList = new WizardStepList();
 	}
 	
 	public void initWizardContainer() throws WbemSmtException {
@@ -57,13 +60,15 @@ import org.sblim.wbemsmt.exception.WbemSmtException;
             		hmPages.put(WIZARD_PANEL_OVERVIEW,panels.getOverview()); 
             		hmPages.put(WIZARD_PANEL_TYPEMX,panels.getTypeMx()); 
             		hmPages.put(WIZARD_PANEL_TYPEOTHER,panels.getTypeOther()); 
-        	}
+        		util.addInitialWizardSteps(this,stepList,hmPages);
+	}
 	
 	public String getNextWizardPageName()
 	{
-		return util.getNextPanel(getCurrentPageName(),hmPages);
+		String nextPanelName = util.getNextPanel(getCurrentPageName(),hmPages);
+		util.updateWizardStepList(nextPanelName,stepList);
+		return nextPanelName;
 	}
-	
 	
 	public boolean isLast(String pageName) {
     			if (pageName.equals(WIZARD_PANEL_OVERVIEW)) {

@@ -47,8 +47,9 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
 		}	
 	
 	public DnsAddressMatchListWizardPage1DataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsAddressMatchListWizardPage1DataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsAddressMatchListWizardPage1DataContainer.caption","DnsAddressMatchListWizardPage1DataContainer.subTitle");
+				
 				
     			
     				layouter = new DnsAddressMatchListWizardPage1DataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

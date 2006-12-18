@@ -19,12 +19,16 @@
   */
 package org.sblim.wbemsmt.dns.wizard;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.sblim.wbem.cim.UnsignedInt16;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardPage1DataContainer;
 import org.sblim.wbemsmt.dns.bl.wrapper.ResourceRecord;
 import org.sblim.wbemsmt.tools.wizard.WizardContainerUtil;
+import org.sblim.wbemsmt.tools.wizard.WizardStep;
+import org.sblim.wbemsmt.tools.wizard.WizardStepList;
+import org.sblim.wbemsmt.tools.wizard.container.IWizardContainer;
 
 public class CreateResourceRecordWizardContainerUtil extends
 		WizardContainerUtil {
@@ -68,4 +72,28 @@ public class CreateResourceRecordWizardContainerUtil extends
 		
 		return super.getNextPanelDefault(currentPageName,panelNames);
 	}
+	
+	public void addInitialWizardSteps(IWizardContainer wizardContainer, WizardStepList stepList, HashMap hmPages) {
+
+		stepList.addWizardStep(new WizardStep(wizardContainer, CreateResourceRecordWizardContainer.WIZARD_PANEL_MAIN));
+		stepList.addWizardStep(new WizardStep(wizardContainer, "type",wizardContainer.getAdapter(),"recordWizard.step.recordType"));
+		stepList.addWizardStep(new WizardStep(wizardContainer, 2,CreateResourceRecordWizardContainer.WIZARD_PANEL_TYPEMX));
+		stepList.addWizardStep(new WizardStep(wizardContainer, 2,CreateResourceRecordWizardContainer.WIZARD_PANEL_TYPEOTHER));
+		stepList.addWizardStep(new WizardStep(wizardContainer, CreateResourceRecordWizardContainer.WIZARD_PANEL_OVERVIEW));
+
+	}
+
+	public void updateWizardStepList(String newPageName, WizardStepList stepList) {
+		if (CreateResourceRecordWizardContainer.WIZARD_PANEL_TYPEMX.equals(newPageName))
+		{
+			stepList.getWizardStep(CreateResourceRecordWizardContainer.WIZARD_PANEL_TYPEOTHER).setVisited(false);
+		}
+		else if (CreateResourceRecordWizardContainer.WIZARD_PANEL_TYPEOTHER.equals(newPageName))
+		{
+			stepList.getWizardStep(CreateResourceRecordWizardContainer.WIZARD_PANEL_TYPEMX).setVisited(false);
+		}
+	}
+	
+	
+	
 }

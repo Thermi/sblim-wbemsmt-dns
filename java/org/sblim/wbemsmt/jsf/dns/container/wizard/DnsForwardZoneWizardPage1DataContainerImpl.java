@@ -46,8 +46,9 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
 		}	
 	
 	public DnsForwardZoneWizardPage1DataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsForwardZoneWizardPage1DataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsForwardZoneWizardPage1DataContainer.caption","DnsForwardZoneWizardPage1DataContainer.subTitle");
+				
 				
     			
     				layouter = new DnsForwardZoneWizardPage1DataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

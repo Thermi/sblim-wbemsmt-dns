@@ -19,9 +19,12 @@
   */
 package org.sblim.wbemsmt.dns.wizard;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.sblim.wbemsmt.tools.wizard.WizardContainerUtil;
+import org.sblim.wbemsmt.tools.wizard.WizardStepList;
+import org.sblim.wbemsmt.tools.wizard.container.IWizardContainer;
 
 public class CreateSlaveZoneWizardContainerUtil extends WizardContainerUtil {
 
@@ -36,4 +39,9 @@ public class CreateSlaveZoneWizardContainerUtil extends WizardContainerUtil {
 	public String getNextPanel(String currentPageName, Map hmPages) {
 		return super.getNextPanelDefault(currentPageName,panelNames);
 	}
+	
+	public void addInitialWizardSteps(IWizardContainer wizardContainer, WizardStepList stepList, HashMap hmPages) {
+		super.addInitialWizardStepsDefault(wizardContainer, stepList, panelNames);
+	}
+	
 }

@@ -40,8 +40,9 @@ public class DnsResourceRecordWizardPage1DataContainerImpl extends org.sblim.wbe
 		}	
 	
 	public DnsResourceRecordWizardPage1DataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsResourceRecordWizardPage1DataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsResourceRecordWizardPage1DataContainer.caption","DnsResourceRecordWizardPage1DataContainer.subTitle");
+				
 				
     			
     				layouter = new DnsResourceRecordWizardPage1DataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);

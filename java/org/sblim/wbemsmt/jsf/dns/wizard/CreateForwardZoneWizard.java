@@ -49,9 +49,9 @@ public class CreateForwardZoneWizard extends JSFWizardBase implements IPageWizar
 	final org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter;
 	
 	public CreateForwardZoneWizard(final org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter) {
-		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale()));
+		super(adapter,ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale()),"CreateForwardZoneWizard.title");
 		this.adapter = adapter;
-		this.container = new org.sblim.wbemsmt.dns.wizard.CreateForwardZoneWizardContainer (new org.sblim.wbemsmt.dns.wizard.CreateForwardZoneWizardContainerPanels()
+		this.container = new org.sblim.wbemsmt.dns.wizard.CreateForwardZoneWizardContainer (adapter,new org.sblim.wbemsmt.dns.wizard.CreateForwardZoneWizardContainerPanels()
  			{
             						//update the child objects
     				
@@ -77,7 +77,7 @@ public class CreateForwardZoneWizard extends JSFWizardBase implements IPageWizar
             				//add the childs with occurence list
                         	            				panel1.getChildPanel().getChildren().add(childEditFields);
 							
-															panel1.getLayouter().layout(panel1.getInputFieldContainer(), panel1 ,bundle);
+															panel1.getLayouter().layout(panel1.getPanelForCustomLayout(), panel1 ,bundle);
 							
         					return panel1;
 						}
@@ -110,7 +110,7 @@ public class CreateForwardZoneWizard extends JSFWizardBase implements IPageWizar
             				//add the childs with occurence list
                         	            				panel2.getChildPanel().getChildren().add(childEditFields);
 							
-															panel2.getLayouter().layout(panel2.getInputFieldContainer(), panel2 ,bundle);
+															panel2.getLayouter().layout(panel2.getPanelForCustomLayout(), panel2 ,bundle);
 							
         					return panel2;
 						}
@@ -160,6 +160,9 @@ public class CreateForwardZoneWizard extends JSFWizardBase implements IPageWizar
    {
      //do nothing
    }
+
+   
+   //Workaround for a bug within myFaces - Everytime a new panel is created the childs are created also
    
 	public void countAndCreateChilds(DataContainer dataContainer) throws UpdateControlsException {
             						if (dataContainer instanceof org.sblim.wbemsmt.jsf.dns.container.wizard.DnsForwardZoneWizardPage1DataContainerImpl)
@@ -201,4 +204,9 @@ public class CreateForwardZoneWizard extends JSFWizardBase implements IPageWizar
 						}
     				}
             		}   
+	
+	public String getFinishText()
+	{
+		return bundle.getString("CreateForwardZoneWizard.finishText",bundle.getString("wizard.finishText"));
+	}
 }

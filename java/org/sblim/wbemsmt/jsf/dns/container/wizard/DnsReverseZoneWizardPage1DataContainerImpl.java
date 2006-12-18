@@ -46,8 +46,9 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
 		}	
 	
 	public DnsReverseZoneWizardPage1DataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
-		super(adapter,bindingPrefix, "DnsReverseZoneWizardPage1DataContainer.caption");
-		
+
+				super(adapter,bindingPrefix, "DnsReverseZoneWizardPage1DataContainer.caption","DnsReverseZoneWizardPage1DataContainer.subTitle");
+				
 				
     			
     				layouter = new DnsReverseZoneWizardPage1DataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
