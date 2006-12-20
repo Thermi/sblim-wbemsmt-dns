@@ -20,7 +20,9 @@
 package org.sblim.wbemsmt.dns.bl.validator;
 
 import org.sblim.wbem.cim.UnsignedInt16;
+import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.wrapper.ResourceRecord;
 import org.sblim.wbemsmt.dns.bl.wrapper.Zone;
@@ -80,8 +82,8 @@ public class ResourceRecordValidator  extends Validator {
 							  valueString
 							))
 				{
-					String msg = adapter.getBundle().getString("validator.resourceRecordExists",new Object[]{nameField.getConvertedControlValue(),typeString,valueField.getConvertedControlValue()});
-					result.addError(msg,nameField);
+					String msg = adapter.getBundle().getString(DnsErrCodes.MSG_RECORD_EXISTS, "validator.resourceRecordExists",new Object[]{nameField.getConvertedControlValue(),typeString,valueField.getConvertedControlValue()});
+					result.addMessage(new Message(DnsErrCodes.MSG_RECORD_EXISTS,Message.ERROR,msg,nameField));
 					return;
 				}
 			}
@@ -98,8 +100,8 @@ public class ResourceRecordValidator  extends Validator {
 
 		if (StringUtil.containsWhitespaces(name))
 		{
-			String msg = adapter.getBundle().getString("validator.name.has.whitespace",new Object[]{nameField.getLabelText(),name});
-			result.addError(msg,new LabeledBaseInputComponentIf[]{nameField});
+			String msg = adapter.getBundle().getString(DnsErrCodes.RECORD_NAME_HAS_WHITESPACE,"validator.name.has.whitespace",new Object[]{nameField.getLabelText(),name});
+			result.addMessage(new Message(DnsErrCodes.RECORD_NAME_HAS_WHITESPACE,Message.ERROR, msg,new LabeledBaseInputComponentIf[]{nameField}));
 			return false;
 		}
 		
@@ -113,8 +115,8 @@ public class ResourceRecordValidator  extends Validator {
 		{
 			if (isIp(adapter,null,nameField, name) || ! isIp(adapter,null,valueField, value))
 			{
-				String msg = adapter.getBundle().getString("validator.format.record.type.a",new Object[]{nameField.getLabelText(),valueField.getLabelText()});
-				result.addError(msg,new LabeledBaseInputComponentIf[]{nameField,valueField});
+				String msg = adapter.getBundle().getString(DnsErrCodes.TYPE_A,"validator.format.record.type.a",new Object[]{nameField.getLabelText(),valueField.getLabelText()});
+				result.addMessage(new Message(DnsErrCodes.TYPE_A,Message.ERROR, msg,new LabeledBaseInputComponentIf[]{nameField,valueField}));
 				return false;
 			}
 		}
@@ -122,8 +124,8 @@ public class ResourceRecordValidator  extends Validator {
 		{
 			if (isIp(adapter,null,nameField, name) || isIp(adapter,null,valueField, value))
 			{
-				String msg = adapter.getBundle().getString("validator.format.record.type.cname",new Object[]{nameField.getLabelText(),valueField.getLabelText()});
-				result.addError(msg,new LabeledBaseInputComponentIf[]{nameField,valueField});
+				String msg = adapter.getBundle().getString(DnsErrCodes.TYPE_CNAME,"validator.format.record.type.cname",new Object[]{nameField.getLabelText(),valueField.getLabelText()});
+				result.addMessage(new Message(DnsErrCodes.TYPE_CNAME,Message.ERROR, msg,new LabeledBaseInputComponentIf[]{nameField,valueField}));
 				return false;
 			}
 		}
@@ -131,8 +133,8 @@ public class ResourceRecordValidator  extends Validator {
 		{
 			if (isIp(adapter,null,nameField, name) || isIp(adapter,null,valueField, value))
 			{
-				String msg = adapter.getBundle().getString("validator.format.record.type.mx",new Object[]{nameField.getLabelText(),valueField.getLabelText()});
-				result.addError(msg,new LabeledBaseInputComponentIf[]{nameField,valueField});
+				String msg = adapter.getBundle().getString(DnsErrCodes.TYPE_MX,"validator.format.record.type.mx",new Object[]{nameField.getLabelText(),valueField.getLabelText()});
+				result.addMessage(new Message(DnsErrCodes.TYPE_MX,Message.ERROR, msg,new LabeledBaseInputComponentIf[]{nameField,valueField}));
 				return false;
 			}
 		}
@@ -140,8 +142,8 @@ public class ResourceRecordValidator  extends Validator {
 		{
 			if (!value.endsWith(".") || value.startsWith(".") || !hasIpValues(adapter,result, nameField, name))
 			{
-				String msg = adapter.getBundle().getString("validator.format.record.type.ptr",new Object[]{nameField.getLabelText(),valueField.getLabelText()});
-				result.addError(msg,new LabeledBaseInputComponentIf[]{nameField,valueField});
+				String msg = adapter.getBundle().getString(DnsErrCodes.TYPE_PTR,"validator.format.record.type.ptr",new Object[]{nameField.getLabelText(),valueField.getLabelText()});
+				result.addMessage(new Message(DnsErrCodes.TYPE_PTR,Message.ERROR, msg,new LabeledBaseInputComponentIf[]{nameField,valueField}));
 				return false;
 			}
 		}
@@ -151,8 +153,8 @@ public class ResourceRecordValidator  extends Validator {
 				
 				) 
 			{
-				String msg = adapter.getBundle().getString("validator.format.record.type.ns",new Object[]{nameField.getLabelText(),valueField.getLabelText()});
-				result.addError(msg,new LabeledBaseInputComponentIf[]{nameField,valueField});
+				String msg = adapter.getBundle().getString(DnsErrCodes.TYPE_NS,"validator.format.record.type.ns",new Object[]{nameField.getLabelText(),valueField.getLabelText()});
+				result.addMessage(new Message(DnsErrCodes.TYPE_NS,Message.ERROR, msg,new LabeledBaseInputComponentIf[]{nameField,valueField}));
 				return false;
 			}
 		}

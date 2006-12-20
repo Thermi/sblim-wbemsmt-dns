@@ -19,7 +19,9 @@
   */
 package org.sblim.wbemsmt.dns.bl.validator;
 
+import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.exception.ValidationException;
 import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
@@ -47,8 +49,8 @@ public class MasterAddressesSetValidator  extends Validator {
 		
 		if (component.getValues() == null || component.getValues().length == 0)
 		{
-			String msg = adapter.getBundle().getString("validator.noMasterAddresses",new Object[]{component.getLabelText()});
-			result.addError(msg,component);
+			String msg = adapter.getBundle().getString(DnsErrCodes.MSG_NO_MASTER_ADDRESSES, "validator.noMasterAddresses",new Object[]{component.getLabelText()});
+			result.addMessage(new Message(DnsErrCodes.MSG_NO_MASTER_ADDRESSES, Message.ERROR,msg,component));
 			return;
 		}
 	}

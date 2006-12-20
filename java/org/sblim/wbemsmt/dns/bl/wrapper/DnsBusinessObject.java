@@ -39,12 +39,47 @@ import org.sblim.wbem.cim.UnsignedInt32;
 import org.sblim.wbem.cim.UnsignedInt8;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
+import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
-import org.sblim.wbemsmt.dns.bl.container.edit.*;
-import org.sblim.wbemsmt.dns.bl.fco.*;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsForwarderDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsSoaContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsTTLDataContainer;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchList;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchListHelper;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowNotifyForZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowNotifyForZoneHelper;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowQueryForZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowQueryForZoneHelper;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowTransferForZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowTransferForZoneHelper;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowUpdateForZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowUpdateForZoneHelper;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwarders;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwardersForService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwardersForZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwardersForZoneHelper;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwardersHelper;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasterZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasters;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMastersForZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMastersForZoneHelper;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMastersHelper;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecordHelper;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecordsForZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecordsForZoneHelper;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsServiceSettingData;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsSlaveZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsZone;
 import org.sblim.wbemsmt.dns.bl.resourcerecord.ResourceRecordHandler;
 import org.sblim.wbemsmt.dns.bl.wrapper.list.ForwarderList;
 import org.sblim.wbemsmt.exception.ModelLoadException;
@@ -139,7 +174,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 					else
 					{
 						list = MessageList.init(container);
-						list.addWarning(adapter.getBundle().getString("value.not.added.to.forwarder",new Object[]{newForwarder}));
+						list.addMessage(new Message(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_FWD,Message.WARNING, adapter.getBundle().getString("value.not.added.to.forwarder",new Object[]{newForwarder})));
 					}
 					container.get_usr_NewForwarder().setControlValue("");
 				}
@@ -704,7 +739,8 @@ public abstract class DnsBusinessObject extends DnsObject {
 				contact = contact.substring(0,indexOfAt).replaceAll("\\.", "\\\\.") + contact.substring(indexOfAt);
 			}
 			contact = contact.replaceAll("@", ".");
-			messageList.addWarning(adapter.getBundle().getString("contact.converted",new Object[]{contactField.getLabelText(), contact}));
+			String msg = adapter.getBundle().getString(DnsErrCodes.MSG_CONTACT_CONVERTED,"contact.converted",new Object[]{contactField.getLabelText(), contact});
+			messageList.addMessage(new Message(DnsErrCodes.MSG_CONTACT_CONVERTED,Message.WARNING, msg));
 		}
 		return contact;
 	}

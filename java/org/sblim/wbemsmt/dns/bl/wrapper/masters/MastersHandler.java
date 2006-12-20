@@ -8,9 +8,11 @@ import java.util.logging.Logger;
 import org.apache.commons.lang.StringUtils;
 import org.sblim.wbem.cim.UnsignedInt16;
 import org.sblim.wbem.cim.UnsignedInt8;
+import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
+import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsAddMasterAddressDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsMastersForServiceDataContainer;
@@ -239,7 +241,9 @@ public class MastersHandler {
 							}
 							else
 							{
-								list.addWarning(adapter.getBundle().getString("value.not.added.to.ip",new Object[]{newAddress}));
+								String msg = adapter.getBundle().getString(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_IP,"value.not.added.to.ip",new Object[]{newAddress});
+								list.addMessage(new Message(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_IP,Message.WARNING,msg));
+								
 							}
 						}
 						else
@@ -252,14 +256,16 @@ public class MastersHandler {
 					}
 					else
 					{
-						list.addWarning(adapter.getBundle().getString("value.not.added.to.ip",new Object[]{newAddress}));
+						String msg = adapter.getBundle().getString(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_IP,"value.not.added.to.ip",new Object[]{newAddress});
+						list.addMessage(new Message(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_IP,Message.WARNING,msg));
 					}
 					container.get_usr_NewMasterEntry().setControlValue("");
 					updateIpAddressList(container);
 				}
 				else
 				{
-					list.addWarning(adapter.getBundle().getString("value.not.added.to.ip.empty.ip",new Object[]{container.get_usr_NewMasterEntry().getLabelText()}));
+					String msg = adapter.getBundle().getString(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_IP_EMPTY_IP,"value.not.added.to.ip.empty.ip",new Object[]{container.get_usr_NewMasterEntry().getLabelText()});
+					list.addMessage(new Message(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_IP_EMPTY_IP,Message.WARNING,msg));
 				}
 			}
 			else if (adapter.getUpdateTrigger() == container.get_usr_AddPredefinedMaster())
@@ -281,7 +287,8 @@ public class MastersHandler {
 					}
 					else
 					{
-						list.addWarning(adapter.getBundle().getString("value.not.added.to.master",new Object[]{predefinedMasterItem.getIp()}));
+						String msg = adapter.getBundle().getString(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_MASTER,"value.not.added.to.master",new Object[]{predefinedMasterItem.getIp()});
+						list.addMessage(new Message(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_MASTER,Message.WARNING,msg));
 					}
 					updateIpAddressList(container);
 				}

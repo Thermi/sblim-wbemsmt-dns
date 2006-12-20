@@ -25,7 +25,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.sblim.wbem.cim.UnsignedInt16;
+import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListContainer;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer;
@@ -89,8 +91,8 @@ public class ResourceRecordListValidator  extends Validator {
 						Double.parseDouble(ttl);
 					}
 				} catch (NumberFormatException e) {
-					String msg = container.getAdapter().getBundle().getString("cannot.convert.ttl",new Object[]{ttl,ttlField.getLabelText(),DnsCimAdapter.NOT_SET});
-					result.addError(msg,ttlField);
+					String msg = container.getAdapter().getBundle().getString(DnsErrCodes.MSG_CANNOT_CONVERT_TTL,"cannot.convert.ttl",new Object[]{ttl,ttlField.getLabelText(),DnsCimAdapter.NOT_SET});
+					result.addMessage(new Message(DnsErrCodes.MSG_CANNOT_CONVERT_TTL,Message.ERROR,msg,ttlField));
 				}
 				
 				
@@ -113,8 +115,8 @@ public class ResourceRecordListValidator  extends Validator {
 					List fieldsFromMap = (List) keys.get(key);
 					fields.addAll(fieldsFromMap);
 					
-					String msg = adapter.getBundle().getString("record.exist.more.than.one.time",new Object[]{nameField.getLabelText(),typeField.getLabelText(), valueField.getLabelText(),name,type,value});
-					result.addError(msg,(LabeledBaseInputComponentIf[]) fields.toArray(new LabeledBaseInputComponentIf[fields.size()]));
+					String msg = adapter.getBundle().getString(DnsErrCodes.MSG_RECORD_EXISTS_MORE_THAN_ONCE,"record.exist.more.than.one.time",new Object[]{nameField.getLabelText(),typeField.getLabelText(), valueField.getLabelText(),name,type,value});
+					result.addMessage(new Message(DnsErrCodes.MSG_RECORD_EXISTS_MORE_THAN_ONCE, Message.ERROR, msg,(LabeledBaseInputComponentIf[]) fields.toArray(new LabeledBaseInputComponentIf[fields.size()])));
 				}
 				keys.put(key,fields);
 			}

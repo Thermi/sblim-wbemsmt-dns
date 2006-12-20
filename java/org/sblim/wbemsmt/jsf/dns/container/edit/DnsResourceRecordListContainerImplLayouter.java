@@ -30,8 +30,8 @@ public class DnsResourceRecordListContainerImplLayouter extends DnsLayouter {
 
 	public void layout(HtmlPanelGrid parent, DnsResourceRecordListContainerImpl container, WbemSmtResourceBundle bundle) {
 		
-//		if (container.getResourceRecords().size() > 0)
-//		{
+		if (container.getResourceRecords().size() > 0)
+		{
 			MultiLineBasePanel multiLineBasePanel = ((MultiLineBasePanel)container.getResourceRecords().get(0));
 			HtmlPanelGrid recordGrid = multiLineBasePanel.getInputFieldContainer();
 			//parent.getChildren().add(recordGrid);
@@ -55,11 +55,11 @@ public class DnsResourceRecordListContainerImplLayouter extends DnsLayouter {
 			recordGrid.getChildren().add(((LabeledJSFInputComponent)container.get_usr_Delete()).getComponent());
 			
 			multiLineBasePanel.updateRows(container.getResourceRecords().size(),2);
-//		}
-//		else
-//		{
-//			parent.getChildren().add(super.getLabelWithBoundValue("DNS", "no.resource.records.found"));
-//		}
+		}
+		else
+		{
+			parent.getChildren().add(super.getLabelWithBoundValue("DNS", "no.resource.records.found"));
+		}
 		
 	}
 

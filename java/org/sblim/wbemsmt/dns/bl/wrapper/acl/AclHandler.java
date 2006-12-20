@@ -31,9 +31,11 @@ import org.sblim.wbem.cim.CIMObjectPath;
 import org.sblim.wbem.cim.UnsignedInt16;
 import org.sblim.wbem.cim.UnsignedInt8;
 import org.sblim.wbem.client.CIMClient;
+import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
+import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListDataContainer;
 import org.sblim.wbemsmt.dns.bl.fco.*;
@@ -369,7 +371,9 @@ public class AclHandler extends DnsObject {
 								if (!found)
 								{
 									list = MessageList.init(container);
-									list.addWarning(adapter.getBundle().getString("value.not.added.to.acl",new Object[]{userEnteredAddress}));
+									String msg = adapter.getBundle().getString(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_ACL,"value.not.added.to.acl",new Object[]{container.get_usr_NewAddress()});
+									list.addMessage(new Message(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_ACL,Message.WARNING,msg,container.get_usr_NewAddress()));
+
 								}
 							}
 						}
@@ -515,7 +519,8 @@ public class AclHandler extends DnsObject {
 		else
 		{
 			MessageList list = MessageList.init(container);
-			list.addWarning(adapter.getBundle().getString("value.not.added.to.acl",new Object[]{addressToAdd}));
+			String msg = adapter.getBundle().getString(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_ACL,"value.not.added.to.acl",new Object[]{addressToAdd});
+			list.addMessage(new Message(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_ACL,Message.WARNING,msg));
 		}
 	}
 

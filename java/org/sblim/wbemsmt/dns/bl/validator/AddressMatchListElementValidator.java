@@ -26,7 +26,10 @@
 package org.sblim.wbemsmt.dns.bl.validator;
 
 import org.apache.commons.lang.StringUtils;
+import org.sblim.wbemsmt.bl.MessageNumber;
+import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.wrapper.AddressMatchList;
 import org.sblim.wbemsmt.exception.ModelLoadException;
@@ -102,10 +105,10 @@ public class AddressMatchListElementValidator  extends Validator {
 								int mask = Integer.parseInt(ipNetMask);
 								if (mask > 255)
 								{
-									addError(result, adapter.getBundle().getString("AddressMatchListElementValidator.netMaskLargerThan255"));
+									addError(DnsErrCodes.MSG_NETMASK_LARGER_255,result, adapter.getBundle().getString(DnsErrCodes.MSG_NETMASK_LARGER_255,"AddressMatchListElementValidator.netMaskLargerThan255"));
 								}
 							} catch (NumberFormatException e) {
-								addError( result, adapter.getBundle().getString("AddressMatchListElementValidator.netMaskNoInt"));
+								addError(DnsErrCodes.MSG_NETMASK_NO_INT, result, adapter.getBundle().getString(DnsErrCodes.MSG_NETMASK_NO_INT, "AddressMatchListElementValidator.netMaskNoInt"));
 							}
 						}
 						else
@@ -125,17 +128,18 @@ public class AddressMatchListElementValidator  extends Validator {
 		}
 	}
 	
-	private void addError(MessageList list, String msg)
+	private void addError(MessageNumber messageNumber, MessageList list, String msg)
 	{
 		if (!headerAdded)
 		{
 			addHeader(list);
 		}
-		list.addError(msg,component);
+		list.addMessage(new Message(messageNumber,Message.ERROR, msg,component));
 	}
 
 	private void addHeader(MessageList list) {
-		list.addError(adapter.getBundle().getString("AddressMatchListElementValidator.wrongSyntax"));
+		String msg = adapter.getBundle().getString("AddressMatchListElementValidator.wrongSyntax");
+		list.addMessage(new Message(DnsErrCodes.MSG_WRONGS_SYNTAX,Message.ERROR, msg,component));
 		headerAdded = true;
 	}
 

@@ -20,7 +20,9 @@
 package org.sblim.wbemsmt.dns.bl.validator;
 
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
+import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.filter.DnsZoneNameFilter;
 import org.sblim.wbemsmt.exception.ValidationException;
 import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
@@ -49,8 +51,8 @@ public class ReverseZoneNameValidator  extends Validator {
 		
 		if (!filter.accept((String)component.getConvertedControlValue()))
 		{
-			String msg = adapter.getBundle().getString("validator.nameForReverseZone",new Object[]{component.getConvertedControlValue()});
-			result.addError(msg,component);
+			String msg = adapter.getBundle().getString(DnsErrCodes.MSG_REVERSE_ZONE_NAME, "validator.nameForReverseZone",new Object[]{component.getConvertedControlValue()});
+			result.addMessage(new Message(DnsErrCodes.MSG_REVERSE_ZONE_NAME, Message.ERROR, msg,component));
 		}
 		
 	}

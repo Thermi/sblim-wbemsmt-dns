@@ -19,7 +19,9 @@
   */
 package org.sblim.wbemsmt.dns.bl.validator;
 
+import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.wrapper.ResourceRecord;
 import org.sblim.wbemsmt.dns.bl.wrapper.list.ResourceRecordList;
@@ -59,8 +61,8 @@ public class ReverseZoneIpValidator extends Validator {
 			{
 				if (!record.getFco().get_Value().startsWith(enteredIp))
 				{
-					String msg = adapter.getBundle().getString("validator.reverseZoneIp",new Object[]{enteredIp,record.getFco().get_Name(),record.getFco().get_Value()});
-					result.addError(msg,ipAddressField);
+					String msg = adapter.getBundle().getString(DnsErrCodes.MSG_REVERSE_ZONE_IP, "validator.reverseZoneIp",new Object[]{enteredIp,record.getFco().get_Name(),record.getFco().get_Value()});
+					result.addMessage(new Message(DnsErrCodes.MSG_REVERSE_ZONE_IP,Message.ERROR, msg,ipAddressField));
 				}
 			}
 			

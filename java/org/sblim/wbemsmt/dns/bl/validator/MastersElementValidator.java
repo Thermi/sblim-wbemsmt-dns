@@ -23,7 +23,10 @@
 package org.sblim.wbemsmt.dns.bl.validator;
 
 import org.apache.commons.lang.StringUtils;
+import org.sblim.wbemsmt.bl.MessageNumber;
+import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.wrapper.Masters;
 import org.sblim.wbemsmt.exception.ModelLoadException;
@@ -78,7 +81,7 @@ public class MastersElementValidator  extends Validator {
 			int indexOfPort = value.indexOf("port");
 			if (indexOfKey > -1 && indexOfPort > -1 && indexOfKey < indexOfPort)
 			{
-				addError(result, adapter.getBundle().getString("MastersElementValidator.wrongSyntax"));
+				addError(DnsErrCodes.MSG_WRONG_SYNTAX, result, adapter.getBundle().getString("MastersElementValidator.wrongSyntax"));
 				return;
 			}
 			else
@@ -88,7 +91,7 @@ public class MastersElementValidator  extends Validator {
 					String portString = value.substring(indexOfPort,indexOfKey > -1 ? indexOfKey : value.length()).trim();
 					if (portString.endsWith("port"))
 					{
-						addError(result, adapter.getBundle().getString("MastersElementValidator.wrongSyntax"));
+						addError(DnsErrCodes.MSG_WRONG_SYNTAX, result, adapter.getBundle().getString("MastersElementValidator.wrongSyntax"));
 						return;
 					}
 					else
@@ -98,7 +101,7 @@ public class MastersElementValidator  extends Validator {
 					try {
 						Integer.parseInt(portString);
 					} catch (NumberFormatException e) {
-						addError(result, adapter.getBundle().getString("MastersElementValidator.portIsNoNumber", new Object[]{portString}));
+						addError(DnsErrCodes.MSG_PORT_NO_NUMBER, result, adapter.getBundle().getString("MastersElementValidator.portIsNoNumber", new Object[]{portString}));
 						return;
 					}
 				}
@@ -109,9 +112,9 @@ public class MastersElementValidator  extends Validator {
 		}
 	}
 	
-	private void addError(MessageList list, String msg)
+	private void addError(MessageNumber messageNumber, MessageList list, String msg)
 	{
-		list.addError(msg,component);
+		list.addMessage(new Message(messageNumber,Message.ERROR,msg,component));
 	}
 
 	public boolean isPredefinedMaster() {

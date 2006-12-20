@@ -22,7 +22,9 @@ package org.sblim.wbemsmt.dns.bl.validator;
 import java.util.Iterator;
 import java.util.List;
 
+import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.wrapper.Zone;
 import org.sblim.wbemsmt.exception.ModelLoadException;
@@ -57,8 +59,8 @@ public class ZoneNameValidator  extends Validator {
 				Zone zone = (Zone) iter.next();
 				if (zone.getName().equals(component.getConvertedControlValue()))
 				{
-					String msg = adapter.getBundle().getString("validator.zoneExists",new Object[]{component.getConvertedControlValue()});
-					result.addError(msg,component);
+					String msg = adapter.getBundle().getString(DnsErrCodes.MSG_REVERSE_ZONE_EXISTS,"validator.zoneExists",new Object[]{component.getConvertedControlValue()});
+					result.addMessage(new Message(DnsErrCodes.MSG_REVERSE_ZONE_EXISTS, Message.ERROR, msg,component));
 					return;
 				}
 			}

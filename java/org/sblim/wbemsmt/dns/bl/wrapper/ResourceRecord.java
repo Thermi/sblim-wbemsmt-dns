@@ -28,8 +28,10 @@ import org.sblim.wbem.cim.UnsignedInt16;
 import org.sblim.wbem.cim.UnsignedInt8;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
+import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer;
@@ -300,7 +302,9 @@ public class ResourceRecord extends DnsBusinessObject {
 			}
 		}
 		logger.warning("ResourceRecord-Type " + type + " is not supported.");
-		MessageList.init(container).addWarning(container.getAdapter().getBundle().getString("record.type.not.supported",new Object[]{type}));
+		String msg = container.getAdapter().getBundle().getString(DnsErrCodes.MSG_RECORD_TYPE_NOT_SUPPORTED,"record.type.not.supported",new Object[]{type});
+		MessageList.init(container).addMessage(new Message(DnsErrCodes.MSG_RECORD_TYPE_NOT_SUPPORTED,Message.WARNING, msg));
+		
 		return TYPE_UNKNOWN; 
 	}
 	

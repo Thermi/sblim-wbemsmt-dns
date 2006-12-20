@@ -25,8 +25,10 @@ import java.util.List;
 import org.sblim.wbem.cim.UnsignedInt32;
 import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
+import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
+import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForServiceDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryForServiceDataContainer;
@@ -455,56 +457,56 @@ public class Service extends DnsBusinessObject {
 		{
 			if (start)
 			{
-				MessageList.init(container).addInfo(adapter.getBundle().getString("start.executed"));
+				MessageList.init(container).addMessage(new Message(DnsErrCodes.MSG_START_EXECUTED,Message.SUCCESS, adapter.getBundle().getString("start.executed")));
 			}
 			else
 			{
-				MessageList.init(container).addInfo(adapter.getBundle().getString("stop.executed"));
+				MessageList.init(container).addMessage(new Message(DnsErrCodes.MSG_START_EXECUTED,Message.SUCCESS, adapter.getBundle().getString("stop.executed")));
 			}
 		}
 		else if (iRc == RC_NOT_SUPPORTED)
 		{
 			if (start)
 			{
-				MessageList.init(container).addError(adapter.getBundle().getString("start.not.executed")
+				MessageList.init(container).addMessage(new Message(DnsErrCodes.MSG_START_NOT_EXECUTED,Message.ERROR, adapter.getBundle().getString(DnsErrCodes.MSG_START_NOT_EXECUTED,"start.not.executed")
 						+ " - " + adapter.getBundle().getString("not.supported")
-						+ " RC: " + iRc);
+						+ " RC: " + iRc));
 			}
 			else
 			{
-				MessageList.init(container).addError(adapter.getBundle().getString("stop.not.executed")
+				MessageList.init(container).addMessage(new Message(DnsErrCodes.MSG_STOP_NOT_EXECUTED,Message.ERROR,adapter.getBundle().getString(DnsErrCodes.MSG_STOP_NOT_EXECUTED,"stop.not.executed")
 						+ " - " + adapter.getBundle().getString("not.supported")
-						+ " RC: " + iRc);
+						+ " RC: " + iRc));
 			}
 		}
 		else if (iRc == RC_STATE_ALREADY_EXISTS)
 		{
 			if (start)
 			{
-				MessageList.init(container).addWarning(adapter.getBundle().getString("start.not.executed")
+				MessageList.init(container).addMessage(new Message(DnsErrCodes.MSG_START_NOT_EXECUTED,Message.WARNING,adapter.getBundle().getString(DnsErrCodes.MSG_START_NOT_EXECUTED,"start.not.executed")
 						+ " - " + adapter.getBundle().getString("already.started")
 						+ " RC: " + iRc
-				);
+				));
 			}
 			else
 			{
-				MessageList.init(container).addWarning(adapter.getBundle().getString("stop.not.executed")
+				MessageList.init(container).addMessage(new Message(DnsErrCodes.MSG_STOP_NOT_EXECUTED,Message.WARNING,adapter.getBundle().getString(DnsErrCodes.MSG_STOP_NOT_EXECUTED,"stop.not.executed")
 						+ " - " + adapter.getBundle().getString("already.started")
 						+ " RC: " + iRc
-						);
+						));
 			}
 		}
 		else
 		{
 			if (start)
 			{
-				MessageList.init(container).addError(adapter.getBundle().getString("start.not.executed")
-						+ " RC: " + iRc);
+				MessageList.init(container).addMessage(new Message(DnsErrCodes.MSG_START_NOT_EXECUTED,Message.ERROR,adapter.getBundle().getString(DnsErrCodes.MSG_START_NOT_EXECUTED,"start.not.executed")
+						+ " RC: " + iRc));
 			}
 			else
 			{
-				MessageList.init(container).addError(adapter.getBundle().getString("stop.not.executed")
-						+ " RC: " + iRc);
+				MessageList.init(container).addMessage(new Message(DnsErrCodes.MSG_STOP_NOT_EXECUTED,Message.ERROR,adapter.getBundle().getString(DnsErrCodes.MSG_STOP_NOT_EXECUTED,"stop.not.executed")
+						+ " RC: " + iRc));
 			}
 		}
 		
