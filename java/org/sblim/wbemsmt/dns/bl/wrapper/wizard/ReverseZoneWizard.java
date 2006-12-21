@@ -26,6 +26,7 @@ import java.util.Vector;
 
 import org.sblim.wbem.cim.UnsignedInt16;
 import org.sblim.wbem.cim.UnsignedInt8;
+import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
@@ -293,6 +294,7 @@ public class ReverseZoneWizard extends DnsWizard {
 		createForwarders(zone);
 		
 		adapter.setMarkedForReload();
+		container.setKey(new CimObjectKey(zone));
 		
 
 	}

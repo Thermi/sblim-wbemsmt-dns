@@ -22,6 +22,7 @@ package org.sblim.wbemsmt.dns.bl.wrapper.wizard;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsAddressMatchListWizardPage1DataContainer;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsAddressMatchListWizardSummaryDataContainer;
@@ -67,6 +68,11 @@ public class AddressMatchListWizard extends DnsWizard {
 	{
 		aclHandler.create(AclHandler.IDX_USER ,NameFactory.createName(Linux_DnsAddressMatchListsForService.class,(String) page1.get_Name().getConvertedControlValue()));
 		adapter.setMarkedForReload();
+		try {
+			container.setKey(new CimObjectKey(aclHandler.getAcl(AclHandler.IDX_USER)));
+		} catch (ModelLoadException e) {
+			throw new ObjectSaveException(e);
+		}
 	}
 
 	public void updateControls(DnsAddressMatchListWizardPage1DataContainer container) throws UpdateControlsException {

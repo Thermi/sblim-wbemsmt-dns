@@ -21,6 +21,7 @@ package org.sblim.wbemsmt.dns.bl.wrapper.wizard;
 
 
 import org.sblim.wbem.cim.UnsignedInt8;
+import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
@@ -98,6 +99,8 @@ public class MasterZoneWizard extends DnsWizard {
 				throw new ObjectSaveException(e);
 			}
 		}
+		
+		container.setKey(new CimObjectKey(zone));
 		
 		adapter.setMarkedForReload();
 	
