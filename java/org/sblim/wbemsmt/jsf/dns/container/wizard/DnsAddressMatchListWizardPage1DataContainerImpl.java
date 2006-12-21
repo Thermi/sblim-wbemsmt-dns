@@ -76,6 +76,7 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.multiplevalue.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_AddressList = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_AddressList;
     	}
@@ -96,6 +97,7 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_RemoveAddress = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_RemoveAddress;
     	}
@@ -116,6 +118,7 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.multiplevalue.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_usr_UserAddresses = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_UserAddresses;
     	}
@@ -136,6 +139,7 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_NewAddress = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_NewAddress;
     	}
@@ -156,6 +160,7 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_AddPredefinedAddress = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_AddPredefinedAddress;
     	}
@@ -176,6 +181,7 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_AddNewAddress = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_AddNewAddress;
     	}
@@ -196,6 +202,7 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_AddressUp = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_AddressUp;
     	}
@@ -216,6 +223,7 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_AddressDown = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_AddressDown;
     	}
@@ -236,6 +244,8 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+								ic_Name.setRequired(true);
+				;
     		}
     		return ic_Name;
     	}

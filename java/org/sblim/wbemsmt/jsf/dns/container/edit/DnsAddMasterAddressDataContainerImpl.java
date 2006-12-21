@@ -72,6 +72,7 @@ public class DnsAddMasterAddressDataContainerImpl extends org.sblim.wbemsmt.tool
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.multiplevalue.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_Masters = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Masters;
     	}
@@ -92,6 +93,7 @@ public class DnsAddMasterAddressDataContainerImpl extends org.sblim.wbemsmt.tool
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_RemoveMasterEntry = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_RemoveMasterEntry;
     	}
@@ -112,6 +114,7 @@ public class DnsAddMasterAddressDataContainerImpl extends org.sblim.wbemsmt.tool
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_NewMasterEntry = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_NewMasterEntry;
     	}
@@ -132,6 +135,7 @@ public class DnsAddMasterAddressDataContainerImpl extends org.sblim.wbemsmt.tool
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_AddNewMasterEntry = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_AddNewMasterEntry;
     	}
@@ -152,6 +156,7 @@ public class DnsAddMasterAddressDataContainerImpl extends org.sblim.wbemsmt.tool
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_AddPredefinedMaster = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_AddPredefinedMaster;
     	}
@@ -172,6 +177,7 @@ public class DnsAddMasterAddressDataContainerImpl extends org.sblim.wbemsmt.tool
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.multiplevalue.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_usr_PredefinedMasters = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_PredefinedMasters;
     	}

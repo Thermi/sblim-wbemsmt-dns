@@ -68,6 +68,7 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends org.sblim.wbems
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_usr_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_Name;
     	}
@@ -88,6 +89,7 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends org.sblim.wbems
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_usr_Server = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_Server;
     	}
@@ -108,6 +110,7 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends org.sblim.wbems
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_usr_IpAdress = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_IpAdress;
     	}
@@ -128,6 +131,7 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends org.sblim.wbems
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_usr_Contact = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_Contact;
     	}

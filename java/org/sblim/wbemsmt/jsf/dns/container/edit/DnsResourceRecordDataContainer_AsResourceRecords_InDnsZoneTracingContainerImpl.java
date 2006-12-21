@@ -52,7 +52,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 	public DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix,int index, HtmlPanelGrid grid) throws InitContainerException {
 	    super(adapter,
 			  bindingPrefix, // the prefix for binding values
-			  "#{" +  bindingPrefix + "resourceRecords["+ index +"].titleText}", // binding for Title
+			  "#{" +  bindingPrefix + "resourceRecords["+ index +"]", // binding for Title
 			  "DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainer.caption", //Key for title
 			  8,grid);
 		this.index = index;
@@ -102,6 +102,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_TTL = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_TTL;
     	}
@@ -122,6 +123,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_TTLUnit;
     	}
@@ -142,6 +144,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_RemoveTTL;
     	}
@@ -162,6 +165,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Name;
     	}
@@ -182,6 +186,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_Type = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Type;
     	}
@@ -202,6 +207,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt8StringConverter();
 				boolean readOnly = false;
     			ic_Family = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Family;
     	}
@@ -222,6 +228,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Value = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Value;
     	}
@@ -242,6 +249,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Priority = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Priority;
     	}

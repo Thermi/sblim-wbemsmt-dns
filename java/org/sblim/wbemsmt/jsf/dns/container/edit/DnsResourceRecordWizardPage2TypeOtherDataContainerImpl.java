@@ -62,6 +62,8 @@ public class DnsResourceRecordWizardPage2TypeOtherDataContainerImpl extends org.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_Value = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+								ic_usr_Value.setRequired(true);
+				;
     		}
     		return ic_usr_Value;
     	}

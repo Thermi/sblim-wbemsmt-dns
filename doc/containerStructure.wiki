@@ -924,7 +924,7 @@
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
 | Value | STRING | TEXTFIELD | Value \\ | Userdefined | -recordValue, Required, Duplicates allowed |
-| Priority | STRING | TEXTFIELD |  \\ | Userdefined | -priority, Optional,Default is noDefaultValue |
+| Priority | STRING | TEXTFIELD |  \\ | Userdefined | -priority, Required |
 
 {panel}
 

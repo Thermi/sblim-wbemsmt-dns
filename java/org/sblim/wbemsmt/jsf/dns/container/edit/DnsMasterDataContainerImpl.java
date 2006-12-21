@@ -66,6 +66,7 @@ public class DnsMasterDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Name;
     	}
@@ -86,6 +87,7 @@ public class DnsMasterDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_MasterElementType = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_MasterElementType;
     	}
@@ -106,6 +108,7 @@ public class DnsMasterDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_MasterElement = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_MasterElement;
     	}

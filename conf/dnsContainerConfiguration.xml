@@ -97,16 +97,16 @@
 		</cd:container>
 		<cd:container adapterId="dns" name="DnsMasterZoneWizardPage1DataContainer" packageId="wizardContainers" description="Main Page of the MasterzoneWizard" canCreate="false" canModify="true" canDelete="false" isWizard="true" implPackageId="dnsWizardContainerImplementation" customLayouter="false">
 			<cd:fcoRelation fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" fcoName="Linux_DnsMasterZone" description=""/>
-			<cd:field name="Name" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false">
+			<cd:field name="Name" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false" required="true">
 				<cmd:option required="true" long="zoneName" comment="" defaultValue="noDefaultValue" usedForSelection="false" duplicateOK="false"/>
 			</cd:field>
-			<cd:field name="Server" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Server" description="" readOnly="false">
-				<cmd:option required="true" long="server" comment="" defaultValue="noDefaultValue"/>
+			<cd:field name="Server" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Server" description="" readOnly="false" required="true">
+				<cmd:option required="true" long="server" comment="" defaultValue="noDefaultValue" usedForSelection="false" duplicateOK="false"/>
 			</cd:field>
-			<cd:field name="IpAdress" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="userdefined" description="" readOnly="false">
-				<cmd:option required="true" long="ip" comment="" defaultValue="noDefaultValue"/>
+			<cd:field name="IpAdress" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="userdefined" description="" readOnly="false" required="true">
+				<cmd:option required="true" long="ip" comment="" defaultValue="noDefaultValue" usedForSelection="false" duplicateOK="false"/>
 			</cd:field>
-			<cd:field name="Contact" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Contact" description="" readOnly="false">
+			<cd:field name="Contact" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Contact" description="" readOnly="false" required="true">
 				<cmd:option required="true" long="contact" comment="Admin email" defaultValue="noDefaultValue" duplicateOK="false" usedForSelection="false"/>
 			</cd:field>
 		</cd:container>
@@ -121,10 +121,10 @@
 		</cd:container>
 		<cd:container adapterId="dns" name="DnsResourceRecordWizardPage1DataContainer" packageId="wizardContainers" description="Main page of resourceRecord Wizard" canCreate="false" canModify="false" canDelete="false" isWizard="true" implPackageId="dnsWizardContainerImplementation" customLayouter="true">
 			<cd:fcoRelation fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" fcoName="Linux_DnsResourceRecord" description=""/>
-			<cd:field name="Type" userDefined="true" dataType="UNSIGNED_INT16" uiType="COMBOBOX" fcoFieldName="Type" description="" readOnly="false">
+			<cd:field name="Type" userDefined="true" dataType="UNSIGNED_INT16" uiType="COMBOBOX" fcoFieldName="Type" description="" readOnly="false" required="true">
 				<cmd:option required="true" long="type" comment="" defaultValue="noDefaultValue" usedForSelection="false" duplicateOK="false"/>
 			</cd:field>
-			<cd:field name="Name" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false">
+			<cd:field name="Name" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false" required="true">
 				<cmd:option required="true" long="recordName" comment="" defaultValue="noDefaultValue" duplicateOK="false" usedForSelection="false"/>
 			</cd:field>
 			
@@ -251,7 +251,7 @@
 		<cd:container adapterId="dns" name="DnsForwardZoneWizardPage1DataContainer" packageId="wizardContainers" description="Main Page of wizard for forward zones" canCreate="false" canModify="true" canDelete="false" isWizard="true" implPackageId="dnsWizardContainerImplementation" customLayouter="true">
 			<cd:extends container="DnsForwarderDataContainer" packageId="editContainers"/>
 			<cd:fcoRelation fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" fcoName="Linux_DnsMasterZone" description=""/>
-			<cd:field name="Name" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false">
+			<cd:field name="Name" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false" required="true">
 				<cmd:option required="true" long="zoneName" comment="" defaultValue="noDefaultValue" usedForSelection="false" duplicateOK="false"/>
 			</cd:field>
 			<cd:field name="useGlobalForwarders" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
@@ -268,7 +268,7 @@
 		<cd:container name="DnsAddressMatchListWizardPage1DataContainer" packageId="wizardContainers" implPackageId="dnsWizardContainerImplementation" adapterId="dns" canCreate="false" canDelete="false" canModify="true" isWizard="true" description="Page 1 of AddressMatchList-Wizard" customLayouter="true">
 			<cd:extends container="DnsAddressMatchListDataContainer" packageId="editContainers"/>
 			<cd:fcoRelation fcoName="Linux_DnsAddressMatchList" fcoPackageId="org.sblim.wbemsmt.dns.bl.fco"/>
-			<cd:field name="Name" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsAddressMatchList.get_Name" description="" readOnly="false">
+			<cd:field name="Name" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsAddressMatchList.get_Name" description="" readOnly="false" required="true">
 				<cmd:option long="matchListName" required="true" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue"/>
 			</cd:field>
 		</cd:container>
@@ -284,7 +284,7 @@
 		<cd:container name="DnsMastersWizardPage1DataContainer" packageId="wizardContainers" implPackageId="dnsWizardContainerImplementation" adapterId="dns" canCreate="false" canDelete="false" canModify="true" isWizard="true" description="Page 1 of AddressMatchList-Wizard" customLayouter="true">
 			<cd:extends container="DnsAddMasterAddressDataContainer" packageId="editContainers"/>
 			<cd:fcoRelation fcoName="Linux_DnsMaster" fcoPackageId="org.sblim.wbemsmt.dns.bl.fco"/>
-			<cd:field name="Name" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsMaster.get_Name" description="" readOnly="false">
+			<cd:field name="Name" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsMaster.get_Name" description="" readOnly="false" required="true">
 				<cmd:option long="mastersName" required="true" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue"/>
 			</cd:field>
 		</cd:container>
@@ -311,7 +311,7 @@
 		</cd:container>
 		<cd:container implPackageId="dnsWizardContainerImplementation" name="DnsSlaveZoneWizardPage1DataContainer" packageId="wizardContainers" adapterId="dns" description="Page 1 of SlaveZone-Wizard" canCreate="false" canModify="true" canDelete="false" isWizard="true" customLayouter="true">
 			<cd:extends container="DnsAddMasterAddressDataContainer" packageId="editContainers"/>
-			<cd:field name="Name" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false">
+			<cd:field name="Name" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false" required="true">
 				<cmd:option required="true" long="zoneName" comment="" defaultValue="noDefaultValue" usedForSelection="false" duplicateOK="false"/>
 			</cd:field>
 		</cd:container>
@@ -325,7 +325,7 @@
 		</cd:container>
 		<cd:container implPackageId="dnsWizardContainerImplementation" name="DnsStubZoneWizardPage1DataContainer" packageId="wizardContainers" adapterId="dns" description="Page 1 of SlaveZone-Wizard" canCreate="false" canModify="true" canDelete="false" isWizard="true" customLayouter="true">
 			<cd:extends container="DnsAddMasterAddressDataContainer" packageId="editContainers"/>
-			<cd:field name="Name" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false">
+			<cd:field name="Name" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false" required="true">
 				<cmd:option required="true" long="zoneName" comment="" defaultValue="noDefaultValue" usedForSelection="false" duplicateOK="false"/>
 			</cd:field>
 		</cd:container>
@@ -473,15 +473,15 @@
 			<cd:link linkedContainer="DnsResourceRecordForReverseZoneWizardDataContainer" linkedPackage="wizardContainers" occurrence="LIST" role="resourceRecords" description=""/>
 		</cd:container>
 		<cd:container implPackageId="dnsEditContainerImplementation" name="DnsResourceRecordWizardPage2TypeMxDataContainer" packageId="wizardContainers" adapterId="dns" description="Page 2 of ResourceRecord-Wizard for defining MX-typed Records" canCreate="false" canModify="true" canDelete="false" isWizard="true" customLayouter="false">
-			<cd:field name="Value" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Value" description="" readOnly="false">
+			<cd:field name="Value" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Value" description="" readOnly="false" required="true">
 				<cmd:option required="true" long="recordValue" comment="" defaultValue="noDefaultValue" duplicateOK="true" usedForSelection="false"/>
 			</cd:field>
-			<cd:field name="Priority" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="" description="" readOnly="false">
-				<cmd:option required="false" long="priority" comment="" defaultValue="noDefaultValue" duplicateOK="false" usedForSelection="false"/>
+			<cd:field name="Priority" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="" description="" readOnly="false" required="true">
+				<cmd:option required="true" long="priority" comment="" defaultValue="noDefaultValue" duplicateOK="false" usedForSelection="false"/>
 			</cd:field>
 		</cd:container>
 		<cd:container implPackageId="dnsEditContainerImplementation" name="DnsResourceRecordWizardPage2TypeOtherDataContainer" packageId="wizardContainers" adapterId="dns" description="Page 2 of ResourceRecord-Wizard for defining Records with Type other than MX" canCreate="false" canModify="true" canDelete="false" isWizard="true" customLayouter="false">
-			<cd:field name="Value" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Value" description="" readOnly="false">
+			<cd:field name="Value" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Value" description="" readOnly="false" required="true">
 				<cmd:option required="true" long="recordValue" comment="" defaultValue="noDefaultValue" duplicateOK="true" usedForSelection="false"/>
 			</cd:field>
 		</cd:container>
@@ -504,7 +504,7 @@
 		</cd:container>
 		<cd:container implPackageId="dnsEditContainerImplementation" name="DnsResourceRecordListItemContainer" packageId="editContainers" adapterId="dns" description="One ResourceRecord in a List of Records" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="false">
 			<cd:fcoRelation fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" fcoName="Linux_DnsResourceRecord" description=""/>
-			<cd:field name="Name" userDefined="false" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false">
+			<cd:field name="Name" userDefined="false" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false" required="true">
 				<cmd:option required="true" long="resourceRecordName" comment="" defaultValue="noDefaultValue" usedForSelection="true" duplicateOK="false"/>
 			</cd:field>
 			<cd:field name="TTL" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsSetting.get_TTL" description="" readOnly="false">
@@ -519,10 +519,10 @@
 			<cd:field name="Family" userDefined="false" dataType="UNSIGNED_INT8" uiType="COMBOBOX" fcoFieldName="Family" description="" readOnly="false">
 				<cmd:option required="false" long="family" comment="" defaultValue="noDefaultValue" duplicateOK="false" usedForSelection="false"/>
 			</cd:field>
-			<cd:field name="Type" userDefined="false" dataType="UNSIGNED_INT16" uiType="COMBOBOX" fcoFieldName="Type" description="" readOnly="false">
+			<cd:field name="Type" userDefined="false" dataType="UNSIGNED_INT16" uiType="COMBOBOX" fcoFieldName="Type" description="" readOnly="false" required="true">
 				<cmd:option required="true" long="type" comment="" defaultValue="noDefaultValue" usedForSelection="true" duplicateOK="false"/>
 			</cd:field>
-			<cd:field name="Value" userDefined="false" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Value" description="" readOnly="false">
+			<cd:field name="Value" userDefined="false" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Value" description="" readOnly="false" required="true">
 				<cmd:option required="true" long="value" comment="" defaultValue="noDefaultValue" usedForSelection="true" duplicateOK="false"/>
 			</cd:field>
 			<cd:field name="deleteRecord" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="false"/>

@@ -47,7 +47,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecord
 	public DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix,int index, HtmlPanelGrid grid) throws InitContainerException {
 	    super(adapter,
 			  bindingPrefix, // the prefix for binding values
-			  "#{" +  bindingPrefix + "resourceRecords["+ index +"].titleText}", // binding for Title
+			  "#{" +  bindingPrefix + "resourceRecords["+ index +"]", // binding for Title
 			  "DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainer.caption", //Key for title
 			  3,grid);
 		this.index = index;
@@ -87,6 +87,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecord
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Name;
     	}
@@ -107,6 +108,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecord
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_Type = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Type;
     	}
@@ -127,6 +129,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecord
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_Value = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Value;
     	}

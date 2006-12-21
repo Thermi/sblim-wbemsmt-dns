@@ -71,6 +71,7 @@ public class DnsConfigurationDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_ConfigurationFile = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_ConfigurationFile;
     	}
@@ -91,6 +92,7 @@ public class DnsConfigurationDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_ConfigurationDirectory = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_ConfigurationDirectory;
     	}
@@ -111,6 +113,7 @@ public class DnsConfigurationDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt32StringConverter();
 				boolean readOnly = false;
     			ic_PortNumber = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_PortNumber;
     	}
@@ -131,6 +134,7 @@ public class DnsConfigurationDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_RemoveDirectory = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_RemoveDirectory;
     	}

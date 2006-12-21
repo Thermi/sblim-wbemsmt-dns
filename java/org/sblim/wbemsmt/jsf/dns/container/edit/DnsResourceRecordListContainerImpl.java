@@ -70,6 +70,7 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_SelectAll = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxActionComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_SelectAll;
     	}
@@ -90,6 +91,7 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_Delete = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_Delete;
     	}

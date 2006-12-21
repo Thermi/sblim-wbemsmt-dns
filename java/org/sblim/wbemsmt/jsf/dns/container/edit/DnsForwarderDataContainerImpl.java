@@ -72,6 +72,7 @@ public class DnsForwarderDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt8StringConverter();
 				boolean readOnly = false;
     			ic_Forward = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Forward;
     	}
@@ -92,6 +93,7 @@ public class DnsForwarderDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.multiplevalue.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_Forwarders = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Forwarders;
     	}
@@ -112,6 +114,7 @@ public class DnsForwarderDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_RemoveForwarder = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_RemoveForwarder;
     	}
@@ -132,6 +135,7 @@ public class DnsForwarderDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_NewForwarder = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_NewForwarder;
     	}
@@ -152,6 +156,7 @@ public class DnsForwarderDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_AddForwarder = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_AddForwarder;
     	}
@@ -172,6 +177,7 @@ public class DnsForwarderDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_usr_NewForwarderType = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_NewForwarderType;
     	}

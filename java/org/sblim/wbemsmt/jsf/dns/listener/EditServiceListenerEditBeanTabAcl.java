@@ -234,6 +234,8 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 			HtmlPanelGrid childEditFields = null;
 						panel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);			
 			panel.setWidth("100%");
+			panel.setCellspacing("0");
+			panel.setCellpadding("0");
 			
 			UIComponentBase addToThis = panel;
 			
@@ -266,6 +268,8 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer1.getInputFieldContainer());
 				containerPanel.setWidth("100%");
+    			containerPanel.setCellspacing("0");
+    			containerPanel.setCellpadding("0");
     			
 				//update the child objects
 								
@@ -287,6 +291,7 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				
             						currentEditContainer1.getLayouter().layout(currentEditContainer1.getInputFieldContainer(),currentEditContainer1 ,bundle);
             					
+				addFooter(panel);
 				
 			
 								
@@ -312,6 +317,8 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer2.getInputFieldContainer());
 				containerPanel.setWidth("100%");
+    			containerPanel.setCellspacing("0");
+    			containerPanel.setCellpadding("0");
     			
 				//update the child objects
 								
@@ -333,6 +340,7 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				
             						currentEditContainer2.getLayouter().layout(currentEditContainer2.getInputFieldContainer(),currentEditContainer2 ,bundle);
             					
+				addFooter(panel);
 				
 			
 								
@@ -358,6 +366,8 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer3.getInputFieldContainer());
 				containerPanel.setWidth("100%");
+    			containerPanel.setCellspacing("0");
+    			containerPanel.setCellpadding("0");
     			
 				//update the child objects
 								
@@ -379,6 +389,7 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				
             						currentEditContainer3.getLayouter().layout(currentEditContainer3.getInputFieldContainer(),currentEditContainer3 ,bundle);
             					
+				addFooter(panel);
 				
 			
 								
@@ -404,6 +415,8 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer4.getInputFieldContainer());
 				containerPanel.setWidth("100%");
+    			containerPanel.setCellspacing("0");
+    			containerPanel.setCellpadding("0");
     			
 				//update the child objects
 								
@@ -425,6 +438,7 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				
             						currentEditContainer4.getLayouter().layout(currentEditContainer4.getInputFieldContainer(),currentEditContainer4 ,bundle);
             					
+				addFooter(panel);
 				
 			
 								
@@ -450,6 +464,8 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer5.getInputFieldContainer());
 				containerPanel.setWidth("100%");
+    			containerPanel.setCellspacing("0");
+    			containerPanel.setCellpadding("0");
     			
 				//update the child objects
 								
@@ -471,6 +487,7 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				
             						currentEditContainer5.getLayouter().layout(currentEditContainer5.getInputFieldContainer(),currentEditContainer5 ,bundle);
             					
+				addFooter(panel);
 				
 			
 						//Creating no OK/Cancel-Button because saving single Tabs is disabled (EditAction.saveSinglePanels)

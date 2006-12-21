@@ -69,6 +69,8 @@ public class DnsResourceRecordWizardPage1DataContainerImpl extends org.sblim.wbe
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_usr_Type = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
+								ic_usr_Type.setRequired(true);
+				;
     		}
     		return ic_usr_Type;
     	}
@@ -89,6 +91,8 @@ public class DnsResourceRecordWizardPage1DataContainerImpl extends org.sblim.wbe
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+								ic_usr_Name.setRequired(true);
+				;
     		}
     		return ic_usr_Name;
     	}

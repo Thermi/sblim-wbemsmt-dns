@@ -65,6 +65,7 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_usr_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_Name;
     	}
@@ -85,6 +86,7 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
     			ic_ResourceRecordFile = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_ResourceRecordFile;
     	}

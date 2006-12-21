@@ -87,7 +87,7 @@ public class CreateDnsResourceRecord extends CimCommand implements ContainerUpda
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_priority = new OptionDefinition("priority",null,"DnsResourceRecordWizardPage2TypeMxDataContainer.Priority.argValue",false,false,"DnsResourceRecordWizardPage2TypeMxDataContainer.Priority.argDescription");
+		public static final OptionDefinition KEY_priority = new OptionDefinition("priority",null,"DnsResourceRecordWizardPage2TypeMxDataContainer.Priority.argValue",true,false,"DnsResourceRecordWizardPage2TypeMxDataContainer.Priority.argDescription");
 			/**
 		 * 
 		 */

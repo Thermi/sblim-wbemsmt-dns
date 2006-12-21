@@ -68,6 +68,8 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+								ic_usr_Name.setRequired(true);
+				;
     		}
     		return ic_usr_Name;
     	}
@@ -88,6 +90,8 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_Server = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+								ic_usr_Server.setRequired(true);
+				;
     		}
     		return ic_usr_Server;
     	}
@@ -108,6 +112,8 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_IpAdress = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+								ic_usr_IpAdress.setRequired(true);
+				;
     		}
     		return ic_usr_IpAdress;
     	}
@@ -128,6 +134,8 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_Contact = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+								ic_usr_Contact.setRequired(true);
+				;
     		}
     		return ic_usr_Contact;
     	}

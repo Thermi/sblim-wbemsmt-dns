@@ -52,7 +52,7 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 	public DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix,int index, HtmlPanelGrid grid) throws InitContainerException {
 	    super(adapter,
 			  bindingPrefix, // the prefix for binding values
-			  "#{" +  bindingPrefix + "resourceRecords["+ index +"].titleText}", // binding for Title
+			  "#{" +  bindingPrefix + "resourceRecords["+ index +"]", // binding for Title
 			  "DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainer.caption", //Key for title
 			  8,grid);
 		this.index = index;
@@ -102,6 +102,8 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+								ic_Name.setRequired(true);
+				;
     		}
     		return ic_Name;
     	}
@@ -122,6 +124,7 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_TTL = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_TTL;
     	}
@@ -142,6 +145,7 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_TTLUnit;
     	}
@@ -162,6 +166,7 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_RemoveTTL;
     	}
@@ -182,6 +187,7 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt8StringConverter();
 				boolean readOnly = false;
     			ic_Family = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_Family;
     	}
@@ -202,6 +208,8 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
     			ic_Type = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
+								ic_Type.setRequired(true);
+				;
     		}
     		return ic_Type;
     	}
@@ -222,6 +230,8 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_Value = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+								ic_Value.setRequired(true);
+				;
     		}
     		return ic_Value;
     	}
@@ -242,6 +252,7 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
     			ic_usr_DeleteRecord = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
     		}
     		return ic_usr_DeleteRecord;
     	}

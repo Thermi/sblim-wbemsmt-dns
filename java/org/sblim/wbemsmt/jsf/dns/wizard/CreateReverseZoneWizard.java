@@ -107,10 +107,12 @@ public class CreateReverseZoneWizard extends JSFWizardBase implements IPageWizar
                                 	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).getInputFieldContainer();
                                 	org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl child = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl(adapter,binding, i,grid);
                                 	panel2.getResourceRecords().add(child);
+									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0));									
                                 }
                                 if (count > 0)
                                 {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).updateRows(count);
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).setList(panel2.getResourceRecords());
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).updateRows();
                                 }
 								
                                 					
@@ -216,11 +218,14 @@ public class CreateReverseZoneWizard extends JSFWizardBase implements IPageWizar
                                 	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).getInputFieldContainer();
                                 	org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl child = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl(adapter,binding, i,grid);
                                 	panel2.getResourceRecords().add(child);
+									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0));
+									
                                 }
 								
                                 if (count > 0)
                                 {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).updateRows(count);
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).setList(panel2.getResourceRecords());
+                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).updateRows();
                                 }
 								
                                 					
