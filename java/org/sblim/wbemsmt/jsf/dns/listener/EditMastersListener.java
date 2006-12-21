@@ -36,6 +36,7 @@ import org.sblim.wbemsmt.tools.beans.BeanNameConstants;
 import org.sblim.wbemsmt.tools.jsf.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.WbemSmtException;
+import org.sblim.wbemsmt.webapp.jsf.ObjectActionControllerBean;
 
 public class EditMastersListener extends TaskLauncherContextMenuEventListenerImpl implements EditListener {
 
@@ -53,7 +54,7 @@ public class EditMastersListener extends TaskLauncherContextMenuEventListenerImp
 			FacesContext fc = FacesContext.getCurrentInstance();
 			Locale locale = LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale();
         	bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},locale);
-            final IObjectActionController oac = (IObjectActionController)BeanNameConstants.OBJECT_ACTION_CONTROLLER.asValueBinding(fc).getValue(fc);
+            final ObjectActionControllerBean oac = (ObjectActionControllerBean)BeanNameConstants.OBJECT_ACTION_CONTROLLER.asValueBinding(fc).getValue(fc);
 			EditBean bean = null;
 			
 
