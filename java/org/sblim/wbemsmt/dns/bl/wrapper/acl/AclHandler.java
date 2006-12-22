@@ -54,6 +54,8 @@ import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 
 public class AclHandler extends DnsObject {
 
+	private static final String CANNOT_LOAD_OBJECTS_FOR_TYPE = "Cannot load objects for Type ";
+
 	private final AssociatedObjectsLoader loader;
 
 	private final Linux_DnsZone zone;
@@ -93,7 +95,7 @@ public class AclHandler extends DnsObject {
 			List associatedObjects = loader.load(index);
 			if (associatedObjects == null)
 			{
-				throw new ModelLoadException("Cannot load objects for Type " + index);
+				throw new ModelLoadException(CANNOT_LOAD_OBJECTS_FOR_TYPE + index);
 			}
 			
 			if (associatedObjects.size() == 0 || associatedObjects.get(0) instanceof CIMObjectPath )
@@ -151,7 +153,18 @@ public class AclHandler extends DnsObject {
 	public void resetAcls() throws ModelLoadException {
 
 		for (int i = 0; i < acl.length; i++) {
-			resetAcl(i);
+			try {
+				resetAcl(i);
+			} catch (ModelLoadException e) {
+				if (e.getMessage().startsWith(CANNOT_LOAD_OBJECTS_FOR_TYPE))
+				{
+					//thats okay - not all objects do have all types of acls
+				}
+				else
+				{
+					throw e;
+				}
+			}
 		}
 		
 	}
