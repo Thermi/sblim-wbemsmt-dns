@@ -1,5 +1,5 @@
 /** 
-  * DeleteAddressMatchListListener.java
+  * Ignore.java
   *
 
  
@@ -30,11 +30,11 @@ import org.sblim.wbemsmt.bl.tree.TaskLauncherTreeNodeEvent;
 import org.sblim.wbemsmt.tools.runtime.RuntimeUtil;
 import org.sblim.wbemsmt.exception.WbemSmtException;
 
-public class DeleteAddressMatchListListener extends TaskLauncherContextMenuEventListenerImpl implements org.sblim.wbemsmt.tasklauncher.event.DeleteListener {
+public class Ignore extends TaskLauncherContextMenuEventListenerImpl implements org.sblim.wbemsmt.tasklauncher.event.DeleteListener {
 
-	String jsfListener = "org.sblim.wbemsmt.jsf.dns.listener.DeleteAddressMatchListListener";
-	String swingListener = "org.sblim.wbemsmt.jswing.dns.listener.DeleteAddressMatchListListener";
-	//String cmdListener = "org.sblim.wbemsmt.cli.dns.DeleteAddressMatchListListener";
+	String jsfListener = "org.sblim.wbemsmt.jsf.dns.listener.Ignore";
+	String swingListener = "org.sblim.wbemsmt.jswing.dns.listener.Ignore";
+	//String cmdListener = "org.sblim.wbemsmt.cli.dns.Ignore";
 	
 	public String processEvent(TaskLauncherTreeNodeEvent event) throws WbemSmtException {
 		

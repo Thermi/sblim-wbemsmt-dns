@@ -30,7 +30,7 @@ import org.sblim.wbemsmt.bl.tree.TaskLauncherTreeNodeEvent;
 import org.sblim.wbemsmt.tools.runtime.RuntimeUtil;
 import org.sblim.wbemsmt.exception.WbemSmtException;
 
-public class CreateReverseZoneListener extends TaskLauncherContextMenuEventListenerImpl {
+public class CreateReverseZoneListener extends TaskLauncherContextMenuEventListenerImpl implements org.sblim.wbemsmt.tasklauncher.event.CreateListener {
 
 	String jsfListener = "org.sblim.wbemsmt.jsf.dns.listener.CreateReverseZoneListener";
 	String swingListener = "org.sblim.wbemsmt.jswing.dns.listener.CreateReverseZoneListener";

@@ -30,7 +30,7 @@ import org.sblim.wbemsmt.bl.tree.TaskLauncherTreeNodeEvent;
 import org.sblim.wbemsmt.tools.runtime.RuntimeUtil;
 import org.sblim.wbemsmt.exception.WbemSmtException;
 
-public class CreateStubZoneListener extends TaskLauncherContextMenuEventListenerImpl {
+public class CreateStubZoneListener extends TaskLauncherContextMenuEventListenerImpl implements org.sblim.wbemsmt.tasklauncher.event.CreateListener {
 
 	String jsfListener = "org.sblim.wbemsmt.jsf.dns.listener.CreateStubZoneListener";
 	String swingListener = "org.sblim.wbemsmt.jswing.dns.listener.CreateStubZoneListener";

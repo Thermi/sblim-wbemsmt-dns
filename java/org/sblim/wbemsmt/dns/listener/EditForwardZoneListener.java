@@ -30,7 +30,7 @@ import org.sblim.wbemsmt.bl.tree.TaskLauncherTreeNodeEvent;
 import org.sblim.wbemsmt.tools.runtime.RuntimeUtil;
 import org.sblim.wbemsmt.exception.WbemSmtException;
 
-public class EditForwardZoneListener extends TaskLauncherContextMenuEventListenerImpl {
+public class EditForwardZoneListener extends TaskLauncherContextMenuEventListenerImpl implements org.sblim.wbemsmt.tasklauncher.event.EditListener {
 
 	String jsfListener = "org.sblim.wbemsmt.jsf.dns.listener.EditForwardZoneListener";
 	String swingListener = "org.sblim.wbemsmt.jswing.dns.listener.EditForwardZoneListener";

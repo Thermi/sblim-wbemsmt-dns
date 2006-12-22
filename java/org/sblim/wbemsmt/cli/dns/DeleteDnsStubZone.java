@@ -145,8 +145,16 @@ public class DeleteDnsStubZone extends CimCommand {
 			
 			dc.trace(System.out);
 			
-			adapter.delete();
-			System.out.println("\n" + bundle.getString("deleted",new Object[]{bundle.getString("DnsStubZoneDataContainer.caption")}));
+			if (getConfirmation())
+			{
+    			adapter.delete();
+    			System.out.println("\n" + bundle.getString("deleted",new Object[]{bundle.getString("DnsStubZoneDataContainer.caption")}));
+			}
+			else
+			{
+    			System.out.println("\n" + bundle.getString("not.deleted",new Object[]{bundle.getString("DnsStubZoneDataContainer.caption")}));
+			}
+			
 		
 		}
 		catch (Exception e)

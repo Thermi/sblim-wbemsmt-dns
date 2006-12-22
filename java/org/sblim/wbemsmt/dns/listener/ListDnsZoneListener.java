@@ -30,7 +30,7 @@ import org.sblim.wbemsmt.bl.tree.TaskLauncherTreeNodeEvent;
 import org.sblim.wbemsmt.tools.runtime.RuntimeUtil;
 import org.sblim.wbemsmt.exception.WbemSmtException;
 
-public class ListDnsZoneListener extends TaskLauncherContextMenuEventListenerImpl {
+public class ListDnsZoneListener extends TaskLauncherContextMenuEventListenerImpl implements org.sblim.wbemsmt.tasklauncher.event.ListListener {
 
 	String jsfListener = "org.sblim.wbemsmt.jsf.dns.listener.ListDnsZoneListener";
 	String swingListener = "org.sblim.wbemsmt.jswing.dns.listener.ListDnsZoneListener";

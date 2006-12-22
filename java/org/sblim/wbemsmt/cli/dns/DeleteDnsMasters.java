@@ -145,8 +145,16 @@ public class DeleteDnsMasters extends CimCommand {
 			
 			dc.trace(System.out);
 			
-			adapter.delete();
-			System.out.println("\n" + bundle.getString("deleted",new Object[]{bundle.getString("DnsMastersForServiceDataContainer.caption")}));
+			if (getConfirmation())
+			{
+    			adapter.delete();
+    			System.out.println("\n" + bundle.getString("deleted",new Object[]{bundle.getString("DnsMastersForServiceDataContainer.caption")}));
+			}
+			else
+			{
+    			System.out.println("\n" + bundle.getString("not.deleted",new Object[]{bundle.getString("DnsMastersForServiceDataContainer.caption")}));
+			}
+			
 		
 		}
 		catch (Exception e)

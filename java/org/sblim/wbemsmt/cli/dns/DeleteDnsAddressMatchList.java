@@ -145,8 +145,16 @@ public class DeleteDnsAddressMatchList extends CimCommand {
 			
 			dc.trace(System.out);
 			
-			adapter.delete();
-			System.out.println("\n" + bundle.getString("deleted",new Object[]{bundle.getString("DnsAddressMatchListForServiceDataContainer.caption")}));
+			if (getConfirmation())
+			{
+    			adapter.delete();
+    			System.out.println("\n" + bundle.getString("deleted",new Object[]{bundle.getString("DnsAddressMatchListForServiceDataContainer.caption")}));
+			}
+			else
+			{
+    			System.out.println("\n" + bundle.getString("not.deleted",new Object[]{bundle.getString("DnsAddressMatchListForServiceDataContainer.caption")}));
+			}
+			
 		
 		}
 		catch (Exception e)

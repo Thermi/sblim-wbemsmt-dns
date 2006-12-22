@@ -27,9 +27,11 @@ package org.sblim.wbemsmt.jsf.dns.listener;
 import javax.faces.context.FacesContext;
 
 import org.sblim.wbemsmt.tasklauncher.event.TaskLauncherContextMenuEventListenerImpl;
+import org.sblim.wbemsmt.tools.beans.BeanNameConstants;
 import org.sblim.wbemsmt.bl.adapter.CimAdapterFactory;
 import org.sblim.wbemsmt.bl.adapter.TaskLauncherTreeNodeSelector;
 import org.sblim.wbemsmt.bl.tree.ITaskLauncherTreeNode;
+import org.sblim.wbemsmt.bl.tree.ITreeSelector;
 import org.sblim.wbemsmt.bl.tree.TaskLauncherTreeNodeEvent;
 
 
@@ -50,6 +52,8 @@ public class DeleteAddressMatchListListener extends TaskLauncherContextMenuEvent
 				
 								adapter.delete();
 				adapter.reload();
+				ITreeSelector treeSelectorBean = (ITreeSelector)BeanNameConstants.TREE_SELECTOR.getBoundValue(FacesContext.getCurrentInstance());
+				treeSelectorBean.setSelectedTaskLauncherTreeNode(null);
 								
 				return "start";
 	}

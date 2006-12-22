@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.ModelUpdateException;
 import org.sblim.wbemsmt.exception.ObjectDeletionException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
+import org.sblim.wbemsmt.tools.input.ActionComponent;
 
 public class ResourceRecordHandler {
 	private DnsCimAdapter adapter;
@@ -149,6 +150,9 @@ public class ResourceRecordHandler {
 		container.get_usr_Delete().getProperties().setReadOnly(!enabled);
 		container.get_usr_SelectAll().getProperties().setReadOnly(!enabled);
 	
+		((ActionComponent)container.get_usr_Delete()).setNeedConfirmation(true);
+		((ActionComponent)container.get_usr_Delete()).setShowWait(true);
+		
 		adapter.updateControls(container.getResourceRecords(), zone.getResourceRecords().getFCOs());
 	}
 
