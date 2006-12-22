@@ -20,7 +20,6 @@
 package org.sblim.wbemsmt.dns.bl.wrapper.wizard;
 
 import org.sblim.wbem.cim.UnsignedInt8;
-import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsStubZoneWizardPage1DataContainer;
@@ -107,7 +106,7 @@ public class StubZoneWizard extends DnsWizard {
 		createForwarders(fco);
 
 		adapter.setMarkedForReload();
-		container.setKey(new CimObjectKey(fco));
+		adapter.setPathOfTreeNode(fco.getCimObjectPath());
 		
 		//cleaup
 		try {

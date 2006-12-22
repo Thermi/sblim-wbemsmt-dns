@@ -20,7 +20,6 @@
 package org.sblim.wbemsmt.dns.bl.wrapper.wizard;
 
 import org.sblim.wbem.cim.UnsignedInt8;
-import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardPage1DataContainer;
@@ -70,7 +69,7 @@ public class ForwardZoneWizard extends DnsWizard {
 			zone.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
 			zone = (Linux_DnsForwardZone) FcoHelper.create(zone,adapter.getCimClient());
 			adapter.setMarkedForReload();
-			container.setKey(new CimObjectKey(zone));
+			adapter.setPathOfTreeNode(zone.getCimObjectPath());
 
 			Linux_DnsForwarders forwardersFco = new Linux_DnsForwarders();
 			forwardersFco.set_Name(NameFactory.createName(Linux_DnsForwardersForZone.class, zone.get_Name()));

@@ -70,7 +70,7 @@ public class ResourceRecordWizard extends DnsWizard {
 		container.setKey(new CimObjectKey(record));
 		
 		adapter.setMarkedForReload();
-		container.setKey(new CimObjectKey(adapter.getSelectedZone().getLinux_DnsZone()));
+		adapter.setPathOfTreeNode(adapter.getSelectedZone().getLinux_DnsZone().getCimObjectPath());
 	}
 
 	public LabeledBaseInputComponentIf getNameField() {

@@ -21,7 +21,6 @@ package org.sblim.wbemsmt.dns.bl.wrapper.wizard;
 
 import java.util.Vector;
 
-import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
 import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
@@ -97,7 +96,7 @@ public class MastersWizard extends DnsWizard {
 			}
 	
 			adapter.setMarkedForReload();
-			container.setKey(new CimObjectKey(masters));
+			adapter.setPathOfTreeNode(masters.getCimObjectPath());
 			
 			//cleaup
 			mastersHandler.getPredefinedItems().setReloadFromServer(true);
