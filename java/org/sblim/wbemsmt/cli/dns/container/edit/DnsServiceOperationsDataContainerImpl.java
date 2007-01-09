@@ -79,7 +79,7 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
     		{
 				String label = bundle.getString("DnsServiceOperationsDataContainer.restart");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_Restart = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_Restart = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_Restart;
     	}
@@ -95,7 +95,7 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
     		{
 				String label = bundle.getString("DnsServiceOperationsDataContainer.start");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_invoke_Start = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_invoke_Start = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_invoke_Start;
     	}
@@ -111,7 +111,7 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
     		{
 				String label = bundle.getString("DnsServiceOperationsDataContainer.stop");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_invoke_Stop = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_invoke_Stop = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_invoke_Stop;
     	}

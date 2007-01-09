@@ -82,7 +82,7 @@ public class DnsAddressMatchListDataContainerImpl extends BaseDataContainer impl
     		{
 				String label = bundle.getString("DnsAddressMatchListDataContainer.removeAddress");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_RemoveAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_RemoveAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_RemoveAddress;
     	}
@@ -130,7 +130,7 @@ public class DnsAddressMatchListDataContainerImpl extends BaseDataContainer impl
     		{
 				String label = bundle.getString("DnsAddressMatchListDataContainer.addPredefinedAddress");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddPredefinedAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddPredefinedAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddPredefinedAddress;
     	}
@@ -146,7 +146,7 @@ public class DnsAddressMatchListDataContainerImpl extends BaseDataContainer impl
     		{
 				String label = bundle.getString("DnsAddressMatchListDataContainer.addNewAddress");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddNewAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddNewAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddNewAddress;
     	}
@@ -162,7 +162,7 @@ public class DnsAddressMatchListDataContainerImpl extends BaseDataContainer impl
     		{
 				String label = bundle.getString("DnsAddressMatchListDataContainer.addressUp");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddressUp = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddressUp = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddressUp;
     	}
@@ -178,7 +178,7 @@ public class DnsAddressMatchListDataContainerImpl extends BaseDataContainer impl
     		{
 				String label = bundle.getString("DnsAddressMatchListDataContainer.addressDown");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddressDown = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddressDown = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddressDown;
     	}

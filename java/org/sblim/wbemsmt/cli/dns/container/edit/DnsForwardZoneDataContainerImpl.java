@@ -114,7 +114,7 @@ public class DnsForwardZoneDataContainerImpl extends BaseDataContainer implement
     		{
 				String label = bundle.getString("DnsForwardZoneDataContainer.removeForwarder");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_RemoveForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_RemoveForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_RemoveForwarder;
     	}
@@ -146,7 +146,7 @@ public class DnsForwardZoneDataContainerImpl extends BaseDataContainer implement
     		{
 				String label = bundle.getString("DnsForwardZoneDataContainer.addForwarder");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddForwarder;
     	}
@@ -178,7 +178,7 @@ public class DnsForwardZoneDataContainerImpl extends BaseDataContainer implement
     		{
 				String label = bundle.getString("DnsForwardZoneDataContainer.useGlobalForwarders");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_UseGlobalForwarders = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_UseGlobalForwarders = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_UseGlobalForwarders;
     	}

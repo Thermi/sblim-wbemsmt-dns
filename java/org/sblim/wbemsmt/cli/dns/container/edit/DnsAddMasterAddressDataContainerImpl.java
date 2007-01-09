@@ -80,7 +80,7 @@ public class DnsAddMasterAddressDataContainerImpl extends BaseDataContainer impl
     		{
 				String label = bundle.getString("DnsAddMasterAddressDataContainer.removeMasterEntry");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_RemoveMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_RemoveMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_RemoveMasterEntry;
     	}
@@ -112,7 +112,7 @@ public class DnsAddMasterAddressDataContainerImpl extends BaseDataContainer impl
     		{
 				String label = bundle.getString("DnsAddMasterAddressDataContainer.addNewMasterEntry");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddNewMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddNewMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddNewMasterEntry;
     	}
@@ -128,7 +128,7 @@ public class DnsAddMasterAddressDataContainerImpl extends BaseDataContainer impl
     		{
 				String label = bundle.getString("DnsAddMasterAddressDataContainer.addPredefinedMaster");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddPredefinedMaster = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddPredefinedMaster = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddPredefinedMaster;
     	}

@@ -61,7 +61,7 @@ public class DnsResourceRecordListContainerImpl extends BaseDataContainer implem
     		{
 				String label = bundle.getString("DnsResourceRecordListContainer.selectAll");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
-    			ic_usr_SelectAll = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_SelectAll = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_SelectAll;
     	}
@@ -77,7 +77,7 @@ public class DnsResourceRecordListContainerImpl extends BaseDataContainer implem
     		{
 				String label = bundle.getString("DnsResourceRecordListContainer.delete");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_Delete = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_Delete = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_Delete;
     	}

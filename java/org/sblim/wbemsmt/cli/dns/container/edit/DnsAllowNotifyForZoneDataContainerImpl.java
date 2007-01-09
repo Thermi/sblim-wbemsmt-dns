@@ -83,7 +83,7 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer im
     		{
 				String label = bundle.getString("DnsAllowNotifyForZoneDataContainer.removeAddress");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_RemoveAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_RemoveAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_RemoveAddress;
     	}
@@ -131,7 +131,7 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer im
     		{
 				String label = bundle.getString("DnsAllowNotifyForZoneDataContainer.addPredefinedAddress");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddPredefinedAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddPredefinedAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddPredefinedAddress;
     	}
@@ -147,7 +147,7 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer im
     		{
 				String label = bundle.getString("DnsAllowNotifyForZoneDataContainer.addNewAddress");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddNewAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddNewAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddNewAddress;
     	}
@@ -163,7 +163,7 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer im
     		{
 				String label = bundle.getString("DnsAllowNotifyForZoneDataContainer.addressUp");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddressUp = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddressUp = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddressUp;
     	}
@@ -179,7 +179,7 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer im
     		{
 				String label = bundle.getString("DnsAllowNotifyForZoneDataContainer.addressDown");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddressDown = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddressDown = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddressDown;
     	}
@@ -195,7 +195,7 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer im
     		{
 				String label = bundle.getString("DnsAllowNotifyForZoneDataContainer.useGlobalAddressMatchList");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_UseGlobalAddressMatchList = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_UseGlobalAddressMatchList = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_UseGlobalAddressMatchList;
     	}

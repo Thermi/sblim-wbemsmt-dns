@@ -97,7 +97,7 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends BaseDataContai
     		{
 				String label = bundle.getString("DnsForwardZoneWizardSummaryDataContainer.removeForwarder");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_RemoveForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_RemoveForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_RemoveForwarder;
     	}
@@ -129,7 +129,7 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends BaseDataContai
     		{
 				String label = bundle.getString("DnsForwardZoneWizardSummaryDataContainer.addForwarder");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddForwarder;
     	}

@@ -81,7 +81,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
     		{
 				String label = bundle.getString("DnsStubZoneWizardPage1DataContainer.removeMasterEntry");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_RemoveMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_RemoveMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_RemoveMasterEntry;
     	}
@@ -113,7 +113,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
     		{
 				String label = bundle.getString("DnsStubZoneWizardPage1DataContainer.addNewMasterEntry");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddNewMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddNewMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddNewMasterEntry;
     	}
@@ -129,7 +129,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
     		{
 				String label = bundle.getString("DnsStubZoneWizardPage1DataContainer.addPredefinedMaster");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddPredefinedMaster = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddPredefinedMaster = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddPredefinedMaster;
     	}

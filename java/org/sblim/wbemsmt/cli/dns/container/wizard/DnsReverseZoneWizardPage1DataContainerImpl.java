@@ -98,7 +98,7 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends BaseDataContaine
     		{
 				String label = bundle.getString("DnsReverseZoneWizardPage1DataContainer.removeResourceRecord");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_RemoveResourceRecord = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_RemoveResourceRecord = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_RemoveResourceRecord;
     	}
@@ -130,7 +130,7 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends BaseDataContaine
     		{
 				String label = bundle.getString("DnsReverseZoneWizardPage1DataContainer.addResourceRecord");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddResourceRecord = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddResourceRecord = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddResourceRecord;
     	}
@@ -146,7 +146,7 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends BaseDataContaine
     		{
 				String label = bundle.getString("DnsReverseZoneWizardPage1DataContainer.addAllResourceRecords");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddAllResourceRecords = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddAllResourceRecords = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddAllResourceRecords;
     	}
@@ -162,7 +162,7 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends BaseDataContaine
     		{
 				String label = bundle.getString("DnsReverseZoneWizardPage1DataContainer.removeAllResourceRecords");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_RemoveAllResourceRecords = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_RemoveAllResourceRecords = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_RemoveAllResourceRecords;
     	}

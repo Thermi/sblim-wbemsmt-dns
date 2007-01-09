@@ -195,7 +195,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements org.sblim.
     		{
 				String label = bundle.getString("DnsSoaContainer.setSerialNumber");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_SetSerialNumber = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_SetSerialNumber = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_SetSerialNumber;
     	}

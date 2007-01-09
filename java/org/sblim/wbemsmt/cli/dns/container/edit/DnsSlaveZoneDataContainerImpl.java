@@ -124,7 +124,7 @@ public class DnsSlaveZoneDataContainerImpl extends BaseDataContainer implements 
     		{
 				String label = bundle.getString("DnsSlaveZoneDataContainer.removeForwarder");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_RemoveForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_RemoveForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_RemoveForwarder;
     	}
@@ -156,7 +156,7 @@ public class DnsSlaveZoneDataContainerImpl extends BaseDataContainer implements 
     		{
 				String label = bundle.getString("DnsSlaveZoneDataContainer.addForwarder");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddForwarder;
     	}
@@ -204,7 +204,7 @@ public class DnsSlaveZoneDataContainerImpl extends BaseDataContainer implements 
     		{
 				String label = bundle.getString("DnsSlaveZoneDataContainer.removeMasterEntry");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_RemoveMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_RemoveMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_RemoveMasterEntry;
     	}
@@ -236,7 +236,7 @@ public class DnsSlaveZoneDataContainerImpl extends BaseDataContainer implements 
     		{
 				String label = bundle.getString("DnsSlaveZoneDataContainer.addNewMasterEntry");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddNewMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddNewMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddNewMasterEntry;
     	}
@@ -252,7 +252,7 @@ public class DnsSlaveZoneDataContainerImpl extends BaseDataContainer implements 
     		{
 				String label = bundle.getString("DnsSlaveZoneDataContainer.addPredefinedMaster");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_AddPredefinedMaster = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_AddPredefinedMaster = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_AddPredefinedMaster;
     	}
@@ -316,7 +316,7 @@ public class DnsSlaveZoneDataContainerImpl extends BaseDataContainer implements 
     		{
 				String label = bundle.getString("DnsSlaveZoneDataContainer.removeTTL");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_RemoveTTL;
     	}
@@ -348,7 +348,7 @@ public class DnsSlaveZoneDataContainerImpl extends BaseDataContainer implements 
     		{
 				String label = bundle.getString("DnsSlaveZoneDataContainer.useGlobalForwarders");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_UseGlobalForwarders = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    			ic_usr_UseGlobalForwarders = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
     		return ic_usr_UseGlobalForwarders;
     	}
