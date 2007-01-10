@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.dns.bl.wrapper.list.ForwarderList;
 import org.sblim.wbemsmt.dns.bl.wrapper.list.ResourceRecordList;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
+import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 
@@ -181,6 +182,15 @@ public class ForwardZone extends DnsBusinessObject implements Zone {
 
 	public void updateSerialNumber(DnsSoaContainer container) {
 		//do nothing - a ForwardZone has no SerialNumber
+	}
+
+	public MessageList revert(DnsForwardZoneDataContainer container) throws ObjectRevertException {
+		try {
+			fco = (Linux_DnsForwardZone) FcoHelper.reload(fco, adapter.getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
 	}
 
 }

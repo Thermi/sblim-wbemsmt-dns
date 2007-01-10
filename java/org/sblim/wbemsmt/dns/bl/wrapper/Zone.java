@@ -13,6 +13,7 @@ import org.sblim.wbemsmt.dns.bl.wrapper.list.ResourceRecordList;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
 import org.sblim.wbemsmt.exception.ObjectDeletionException;
+import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 
@@ -53,4 +54,6 @@ public interface Zone {
 	 * @throws ModelUpdateException
 	 */
 	public void resetTTL(DnsSoaContainer container);
+	public MessageList revert(DnsResourceRecordListContainer container) throws ObjectRevertException ;
+	public MessageList revert(DnsResourceRecordListItemContainer container, Linux_DnsResourceRecord fco) throws ObjectRevertException;
 }

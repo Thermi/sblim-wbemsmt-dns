@@ -45,6 +45,7 @@ import org.sblim.wbemsmt.dns.bl.wrapper.list.ResourceRecordList;
 import org.sblim.wbemsmt.dns.bl.wrapper.masters.MastersHandler;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
+import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 
@@ -242,6 +243,24 @@ public class SlaveZone extends MasterZone implements Zone {
 	
 	public void updateSerialNumber(DnsSoaContainer container) {
 		//do nothing - a slave zone is having no SOA record
+	}
+
+	public MessageList revert(DnsSlaveZoneDataContainer container) throws ObjectRevertException {
+		try {
+			fco = (Linux_DnsSlaveZone) FcoHelper.reload(fco, adapter.getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	public MessageList revert(DnsAllowNotifyForZoneDataContainer container) throws ObjectRevertException {
+		try {
+			aclHandler.resetAcl(AclHandler.IDX_NOTIFY);
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
 	}
 	
 }

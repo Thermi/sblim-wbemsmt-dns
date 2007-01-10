@@ -508,5 +508,40 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
        {
 	       super.reload();
        }
+	   
+    	public String revert() throws ObjectRevertException
+    	{
+    	        
+    					adapter1 .revert(currentEditContainer1 );
+    		    
+    					adapter2 .revert(currentEditContainer2 );
+    		    
+    					adapter3 .revert(currentEditContainer3 );
+    		    
+    					adapter4 .revert(currentEditContainer4 );
+    		    
+    					adapter5 .revert(currentEditContainer5 );
+    		
+			try
+			{
+    	        
+    					adapter1 .updateControls(currentEditContainer1 );
+			    
+    					adapter2 .updateControls(currentEditContainer2 );
+			    
+    					adapter3 .updateControls(currentEditContainer3 );
+			    
+    					adapter4 .updateControls(currentEditContainer4 );
+			    
+    					adapter5 .updateControls(currentEditContainer5 );
+						} catch (UpdateControlsException e)
+			{
+				throw new ObjectRevertException("Cannot updateControls after Reverting the changes",e);
+			}
+			
+			
+			return EditBean.PAGE_EDIT;
+    	}
+	   
 		
 }

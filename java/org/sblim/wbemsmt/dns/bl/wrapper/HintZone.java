@@ -33,6 +33,8 @@ import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsZone;
 import org.sblim.wbemsmt.dns.bl.resourcerecord.ResourceRecordHandler;
 import org.sblim.wbemsmt.dns.bl.wrapper.list.ResourceRecordList;
+import org.sblim.wbemsmt.exception.ModelLoadException;
+import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 
@@ -126,6 +128,15 @@ public class HintZone extends ForwardZone implements Zone {
 			fco.set_TTL(null);
 			updateTTLDataContainer(adapter,fco.get_TTL(), container.get_TTL(),container.get_usr_TTLUnit());
 		} 
+	}
+
+	public MessageList revert(DnsHintZoneDataContainer container) throws ObjectRevertException {
+		try {
+			fco = (Linux_DnsHintZone) FcoHelper.reload(fco, adapter.getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
 	}
 	
 }

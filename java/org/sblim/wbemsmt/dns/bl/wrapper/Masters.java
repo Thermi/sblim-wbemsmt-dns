@@ -42,12 +42,13 @@ import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
 import org.sblim.wbemsmt.exception.ObjectCreationException;
 import org.sblim.wbemsmt.exception.ObjectDeletionException;
+import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 
 public class Masters extends DnsBusinessObject {
 
-	private final Linux_DnsMasters fco;
+	private Linux_DnsMasters fco;
 	private MastersHandler mastersHandler = null;
 	private MastersNaming mastersNaming = new MastersNaming();
 	/**
@@ -127,5 +128,16 @@ public class Masters extends DnsBusinessObject {
 			throw new ObjectDeletionException(getFco(),e);
 		}
 		
+	}
+
+	public MessageList revert(DnsMastersForServiceDataContainer container) throws ObjectRevertException {
+		try {
+			fco = (Linux_DnsMasters) FcoHelper.reload(fco, adapter.getCimClient());
+			updateName(mastersNaming.getDisplayString(fco.getCimInstance()));
+			mastersHandler = new MastersHandler(adapter,fco,true, null);
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
 	}
 }

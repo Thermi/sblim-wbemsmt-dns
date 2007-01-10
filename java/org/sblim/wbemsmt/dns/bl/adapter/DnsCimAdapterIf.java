@@ -31,7 +31,7 @@ import org.sblim.wbemsmt.bl.adapter.*;
 	 * This is the interface containing all Methods
 	 **/
 
-public interface DnsCimAdapterIf extends DnsCimAdapterCountIf, DnsCimAdapterCreateIf, DnsCimAdapterDeleteIf, DnsCimAdapterInstallValidatorsIf, DnsCimAdapterSaveIf, DnsCimAdapterUpdateControlsIf, DnsCimAdapterUpdateModelIf
+public interface DnsCimAdapterIf extends DnsCimAdapterCountIf, DnsCimAdapterCreateIf, DnsCimAdapterDeleteIf, DnsCimAdapterInstallValidatorsIf, DnsCimAdapterSaveIf, DnsCimAdapterRevertIf, DnsCimAdapterUpdateControlsIf, DnsCimAdapterUpdateModelIf
 {
 
 	public static final String[] RESOURCE_BUNDLE_NAMES = new String[]{"messages","messagesDns"};
@@ -76,10 +76,45 @@ public interface DnsCimAdapterIf extends DnsCimAdapterCountIf, DnsCimAdapterCrea
 	public MessageList saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsSoaContainer container)  throws org.sblim.wbemsmt.exception.ObjectSaveException;
 	public MessageList saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsStubZoneDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectSaveException;
 	
-	//1
+	/** 
+	 * Save-Methods for Lists
+	 **/
 	public MessageList saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer container, org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord fco)  throws org.sblim.wbemsmt.exception.ObjectSaveException;
 	public MessageList saveImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer container, org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord fco)  throws org.sblim.wbemsmt.exception.ObjectSaveException;
-		
+	
+	/** 
+	 * Revert-Methods
+	 **/
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListForServiceDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForServiceDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForZoneDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryForServiceDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryForZoneDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowRecursionForServiceDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowTransferForServiceDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowTransferForZoneDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowUpdateForZoneDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsBlackholeForServiceDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsConfigurationDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardZoneDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardersForServiceDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsHintZoneDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsMasterZoneDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsMastersForServiceDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsReverseZoneDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceOperationsDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsSlaveZoneDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsSoaContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	public MessageList revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsStubZoneDataContainer container)  throws org.sblim.wbemsmt.exception.ObjectRevertException;
+	
+	/** 
+	 * Revert-Methods for Lists
+	 **/
+	
+	
 	/** 
 	 * UpdateModel-Methods
 	 **/

@@ -40,6 +40,7 @@ import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecordsForZone;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecordsForZoneHelper;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ObjectDeletionException;
+import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.util.StringTokenizer;
 
@@ -306,6 +307,15 @@ public class ResourceRecord extends DnsBusinessObject {
 		MessageList.init(container).addMessage(new Message(DnsErrCodes.MSG_RECORD_TYPE_NOT_SUPPORTED,Message.WARNING, msg));
 		
 		return TYPE_UNKNOWN; 
+	}
+
+	public MessageList revert(DnsResourceRecordDataContainer container) throws ObjectRevertException {
+		try {
+			fco = (Linux_DnsResourceRecord) FcoHelper.reload(fco, adapter.getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
 	}
 	
 

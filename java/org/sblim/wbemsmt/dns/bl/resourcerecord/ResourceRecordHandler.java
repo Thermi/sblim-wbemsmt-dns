@@ -35,6 +35,7 @@ import org.sblim.wbemsmt.dns.bl.wrapper.ResourceRecord;
 import org.sblim.wbemsmt.dns.bl.wrapper.Zone;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
 import org.sblim.wbemsmt.exception.ObjectDeletionException;
+import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 import org.sblim.wbemsmt.tools.input.ActionComponent;
@@ -158,6 +159,10 @@ public class ResourceRecordHandler {
 
 	public MessageList save(DnsResourceRecordListContainer container) throws ObjectSaveException {
 		return adapter.save(container.getResourceRecords(), zone.getResourceRecords().getFCOs());
+	}
+
+	public MessageList revert(DnsResourceRecordListContainer container) throws ObjectRevertException {
+		return adapter.revert(container.getResourceRecords(), zone.getResourceRecords().getFCOs());
 	}
 
 	public MessageList save(DnsResourceRecordListItemContainer container, Linux_DnsResourceRecord fco) throws ObjectSaveException {

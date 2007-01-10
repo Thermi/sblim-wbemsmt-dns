@@ -96,8 +96,8 @@ public class EditMasterZoneListener extends TaskLauncherContextMenuEventListener
         		bundleKey = "tab.TabResourceRecords";
         		tabbedPane.addTab("TabResourceRecords",bundleKey,bean.getPanel());
     		    			
-							boolean createOKCancelButtons = ! false && true;
-    			tabbedPane.create(createOKCancelButtons);
+							boolean createOKRevertButtons = ! false && true;
+    			tabbedPane.create(createOKRevertButtons);
 				oac.setCurrentEditor(tabbedPane.getPanel());
     			oac.setSelectedTabIndex(0);
 				oac.setTabbedPane(tabbedPane);
@@ -106,9 +106,28 @@ public class EditMasterZoneListener extends TaskLauncherContextMenuEventListener
 			return "editPage";		
 	}
 	
-	public String cancel()
+	public String revert()
 	{
-		return EditBean.PAGE_START;
+		boolean foundErrors = false;
+
+		//stop if the first editBean reports errors
+		for (int i=0; i < editBeans.size() && !foundErrors; i++)
+		{
+			try
+			{
+    			EditBean bean = (EditBean)editBeans.get(i);
+    			bean.revert();
+			}
+			catch (Exception e)
+			{
+				logger.log(Level.SEVERE,"Cannot Revert",e);
+				org.sblim.wbemsmt.tools.jsf.JsfUtil.handleException(e);
+				return EditBean.PAGE_EDIT;
+			}
+		}
+		//do a reload if that is necessary
+		EditBean.reloadAdapters(editBeans);
+		return EditBean.PAGE_EDIT;
 	}
 	
 	public String save()

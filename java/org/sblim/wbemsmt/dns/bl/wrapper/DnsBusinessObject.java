@@ -86,6 +86,7 @@ import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
 import org.sblim.wbemsmt.exception.ObjectCreationException;
 import org.sblim.wbemsmt.exception.ObjectDeletionException;
+import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 import org.sblim.wbemsmt.exception.ValidationException;
@@ -722,8 +723,21 @@ public abstract class DnsBusinessObject extends DnsObject {
 		return 	resourceRecordHandler.save(container,fco);
 	}
 
+	public MessageList revert(DnsResourceRecordListItemContainer container, Linux_DnsResourceRecord fco) throws ObjectRevertException {
+		try {
+			fco = (Linux_DnsResourceRecord) FcoHelper.reload(fco, container.getAdapter().getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
 	public MessageList save(DnsResourceRecordListContainer container) throws ObjectSaveException {
 		return 	resourceRecordHandler.save(container);
+	}
+
+	public MessageList revert(DnsResourceRecordListContainer container) throws ObjectRevertException {
+		return 	resourceRecordHandler.revert(container);
 	}
 
 	public String checkContact(LabeledBaseInputComponentIf contactField, MessageList messageList) {

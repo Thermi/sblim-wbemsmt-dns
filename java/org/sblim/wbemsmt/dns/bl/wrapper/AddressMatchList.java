@@ -44,6 +44,7 @@ import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
 import org.sblim.wbemsmt.exception.ObjectCreationException;
 import org.sblim.wbemsmt.exception.ObjectDeletionException;
+import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 
@@ -53,7 +54,7 @@ public class AddressMatchList extends DnsBusinessObject {
 	 * Handler for acls
 	 */
 	AclHandler aclHandler = null;
-	private final Linux_DnsAddressMatchList fco;
+	private Linux_DnsAddressMatchList fco;
 	private AddressMatchListNaming addressMatchListNaming = new AddressMatchListNaming();
 	/**
 	 * @throws ModelLoadException 
@@ -164,6 +165,16 @@ public class AddressMatchList extends DnsBusinessObject {
 	
 	private void updateName(Object value) {
 		this.fco.getCimInstance().setProperty(Linux_DnsAddressMatchList.CIM_PROPERTY_NAME,CIMPropertyBuilder.createVaue(value, CIMDataType.STRING));
+	}
+
+	public MessageList revert(DnsAddressMatchListForServiceDataContainer container) throws ObjectRevertException {
+		try {
+			fco = (Linux_DnsAddressMatchList) FcoHelper.reload(fco, adapter.getCimClient());
+			aclHandler.resetAcl(AclHandler.IDX_USER);
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
 	}
 	
 }

@@ -58,6 +58,7 @@ import org.sblim.wbemsmt.dns.bl.wrapper.list.StubZoneList;
 import org.sblim.wbemsmt.exception.InitContainerException;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
+import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 
@@ -608,6 +609,80 @@ public class Service extends DnsBusinessObject {
 		}
 		
 	}
+
+	public MessageList revert(DnsAllowNotifyForServiceDataContainer container) throws ObjectRevertException {
+		try {
+			aclHandler.resetAcl(AclHandler.IDX_NOTIFY);
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	public MessageList revert(DnsAllowQueryForServiceDataContainer container) throws ObjectRevertException {
+		try {
+			aclHandler.resetAcl(AclHandler.IDX_QUERY);
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	public MessageList revert(DnsAllowRecursionForServiceDataContainer container) throws ObjectRevertException {
+		try {
+			aclHandler.resetAcl(AclHandler.IDX_RECURSION);
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	public MessageList revert(DnsAllowTransferForServiceDataContainer container) throws ObjectRevertException {
+		try {
+			aclHandler.resetAcl(AclHandler.IDX_TRANSFER);
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	public MessageList revert(DnsBlackholeForServiceDataContainer container) throws ObjectRevertException {
+		try {
+			aclHandler.resetAcl(AclHandler.IDX_BLACKHOLE);
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	public MessageList revert(DnsConfigurationDataContainer container) throws ObjectRevertException {
+		configuration = null;
+		try {
+			fco = (Linux_DnsService) FcoHelper.reload(fco, adapter.getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	public MessageList revert(DnsServiceOperationsDataContainer container) throws ObjectRevertException {
+		configuration = null;
+		try {
+			fco = (Linux_DnsService) FcoHelper.reload(fco, adapter.getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	public MessageList revert(DnsForwardersForServiceDataContainer container) {
+		forwarderList = null;
+		setting = null;
+		configuration = null;
+		return null;
+	}
+
+
 
 	
 }

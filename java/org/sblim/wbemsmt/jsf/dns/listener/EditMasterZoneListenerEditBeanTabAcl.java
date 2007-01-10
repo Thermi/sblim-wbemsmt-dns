@@ -342,5 +342,32 @@ public class EditMasterZoneListenerEditBeanTabAcl extends EditBean {
        {
 	       super.reload();
        }
+	   
+    	public String revert() throws ObjectRevertException
+    	{
+    	        
+    					adapter1 .revert(currentEditContainer1 );
+    		    
+    					adapter2 .revert(currentEditContainer2 );
+    		    
+    					adapter3 .revert(currentEditContainer3 );
+    		
+			try
+			{
+    	        
+    					adapter1 .updateControls(currentEditContainer1 );
+			    
+    					adapter2 .updateControls(currentEditContainer2 );
+			    
+    					adapter3 .updateControls(currentEditContainer3 );
+						} catch (UpdateControlsException e)
+			{
+				throw new ObjectRevertException("Cannot updateControls after Reverting the changes",e);
+			}
+			
+			
+			return EditBean.PAGE_EDIT;
+    	}
+	   
 		
 }

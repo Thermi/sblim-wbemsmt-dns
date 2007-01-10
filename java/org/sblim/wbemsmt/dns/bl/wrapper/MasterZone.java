@@ -46,6 +46,7 @@ import org.sblim.wbemsmt.dns.bl.wrapper.list.ForwarderList;
 import org.sblim.wbemsmt.dns.bl.wrapper.list.ResourceRecordList;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ModelUpdateException;
+import org.sblim.wbemsmt.exception.ObjectRevertException;
 import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 
@@ -304,6 +305,51 @@ public class MasterZone extends DnsBusinessObject implements Zone {
 	public void updateSerialNumber(DnsSoaContainer container) {
 		super.setValues(fco, container, MessageList.init(container));
 		super.updateSerialNumber(fco,container);
+	}
+
+	public MessageList revert(DnsAllowQueryForZoneDataContainer container) throws ObjectRevertException {
+		try {
+			aclHandler.resetAcl(AclHandler.IDX_QUERY);
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	public MessageList revert(DnsAllowTransferForZoneDataContainer container) throws ObjectRevertException {
+		try {
+			aclHandler.resetAcl(AclHandler.IDX_TRANSFER);
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	public MessageList revert(DnsAllowUpdateForZoneDataContainer container) throws ObjectRevertException {
+		try {
+			aclHandler.resetAcl(AclHandler.IDX_UPDATE);
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	public MessageList revert(DnsMasterZoneDataContainer container) throws ObjectRevertException {
+		try {
+			fco = (Linux_DnsMasterZone) FcoHelper.reload(fco, adapter.getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
+	}
+
+	public MessageList revert(DnsSoaContainer container) throws ObjectRevertException {
+		try {
+			fco = (Linux_DnsMasterZone) FcoHelper.reload(fco, adapter.getCimClient());
+		} catch (ModelLoadException e) {
+			throw new ObjectRevertException(e);
+		}
+		return null;
 	}
 	
 }

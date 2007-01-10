@@ -169,7 +169,7 @@ public class AclHandler extends DnsObject {
 		
 	}
 
-	private void resetAcl(int idx) throws ModelLoadException {
+	public void resetAcl(int idx) throws ModelLoadException {
 		acl[idx] = null;
 		acl[idx] = getAcl(idx);
 		usedAddressTypes[idx] = usedAddresses[idx] = notUsedAddresses[idx] = null;

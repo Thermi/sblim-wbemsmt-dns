@@ -68,6 +68,7 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 	DnsCimAdapterUpdateControlsIf updateControlsDeletegatee = null;
 	DnsCimAdapterUpdateModelIf updateModelDelegatee = null;
 	DnsCimAdapterSaveIf saveDelegatee = null;
+	DnsCimAdapterRevertIf revertDelegatee = null;
 	DnsCimAdapterDeleteIf deleteDelegatee = null;
 	DnsCimAdapterCountIf countDelegatee = null;
 	DnsCimAdapterInstallValidatorsIf installValidatorsDelegatee = null;
@@ -895,6 +896,10 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 
 	public SaveDelegatee getSaveDelegatee() {
 		return saveDelegatee;
+	}
+
+	public RevertDelegatee getRevertDelegatee() {
+		return revertDelegatee;
 	}
 
 	public DeleteDelegatee getDeleteDelegatee() {
