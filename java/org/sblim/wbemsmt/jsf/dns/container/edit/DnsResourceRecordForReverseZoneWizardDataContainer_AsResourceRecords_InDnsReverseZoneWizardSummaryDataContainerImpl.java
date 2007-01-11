@@ -28,15 +28,24 @@ import javax.faces.component.html.HtmlPanelGrid;
 
 import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
+import org.sblim.wbemsmt.tools.input.*;
 import org.sblim.wbemsmt.exception.*;
 
 	
 public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Type;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Value;
-    	
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Type;
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Value;
+		
+	private static String[] orientationOfColumnAsCss = new String[]{
+    				"left",
+    				"left",
+    				"left",
+    		
+	};
+	
+	
 	
 	private final int index;
 	
@@ -75,6 +84,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecord
 		* DataType STRING
 		* UIType LABEL
 		* ReadOnly true
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name() {
@@ -88,6 +98,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecord
 				boolean readOnly = true;
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_Name).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_Name;
     	}
@@ -96,6 +107,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecord
 		* DataType STRING
 		* UIType LABEL
 		* ReadOnly true
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Type() {
@@ -109,6 +121,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecord
 				boolean readOnly = true;
     			ic_Type = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_Type).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_Type;
     	}
@@ -117,6 +130,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecord
 		* DataType STRING
 		* UIType LABEL
 		* ReadOnly true
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Value() {
@@ -130,6 +144,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecord
 				boolean readOnly = true;
     			ic_Value = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_Value).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_Value;
     	}
@@ -157,5 +172,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecord
 		return new String[]{"messages","messagesDns"};
 	}
 	
-
+	protected String getOrientationOfColumnAsCss(int column) {
+		return orientationOfColumnAsCss[column];
+	}
 }

@@ -28,20 +28,34 @@ import javax.faces.component.html.HtmlPanelGrid;
 
 import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
+import org.sblim.wbemsmt.tools.input.*;
 import org.sblim.wbemsmt.exception.*;
 
 	
 public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_TTL;
-    		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_TTLUnit;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_RemoveTTL;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
-    		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_Type;
-    		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_Family;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Value;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Priority;
-    	
+			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_TTLUnit;
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_RemoveTTL;
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
+			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_Type;
+			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_Family;
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Value;
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Priority;
+		
+	private static String[] orientationOfColumnAsCss = new String[]{
+    				"left",
+    				"left",
+    				"left",
+    				"left",
+    				"left",
+    				"left",
+    				"left",
+    				"left",
+    		
+	};
+	
+	
 	
 	private final int index;
 	
@@ -90,6 +104,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 		* DataType STRING
 		* UIType TEXTFIELD
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_TTL() {
@@ -103,6 +118,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				boolean readOnly = false;
     			ic_TTL = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)ic_TTL).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_TTL;
     	}
@@ -111,6 +127,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 		* DataType UNSIGNED_INT16
 		* UIType COMBOBOX
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_TTLUnit() {
@@ -124,6 +141,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				boolean readOnly = false;
     			ic_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)ic_usr_TTLUnit).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_usr_TTLUnit;
     	}
@@ -132,6 +150,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 		* DataType ACTION
 		* UIType BUTTON
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveTTL() {
@@ -145,6 +164,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				boolean readOnly = false;
     			ic_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent)ic_usr_RemoveTTL).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_usr_RemoveTTL;
     	}
@@ -153,6 +173,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 		* DataType STRING
 		* UIType TEXTFIELD
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name() {
@@ -166,6 +187,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				boolean readOnly = false;
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)ic_Name).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_Name;
     	}
@@ -174,6 +196,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 		* DataType UNSIGNED_INT16
 		* UIType COMBOBOX
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_Type() {
@@ -187,6 +210,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				boolean readOnly = false;
     			ic_Type = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)ic_Type).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_Type;
     	}
@@ -195,6 +219,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 		* DataType UNSIGNED_INT8
 		* UIType COMBOBOX
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_Family() {
@@ -208,6 +233,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				boolean readOnly = false;
     			ic_Family = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)ic_Family).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_Family;
     	}
@@ -216,6 +242,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 		* DataType STRING
 		* UIType LABEL
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Value() {
@@ -229,6 +256,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				boolean readOnly = false;
     			ic_Value = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_Value).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_Value;
     	}
@@ -237,6 +265,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 		* DataType STRING
 		* UIType LABEL
 		* ReadOnly false
+		* Orientation LEFT
 		*/
 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Priority() {
@@ -250,6 +279,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				boolean readOnly = false;
     			ic_Priority = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_Priority).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
     		return ic_Priority;
     	}
@@ -297,5 +327,7 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 		return new String[]{"messages","messagesDns"};
 	}
 	
-
+	protected String getOrientationOfColumnAsCss(int column) {
+		return orientationOfColumnAsCss[column];
+	}
 }

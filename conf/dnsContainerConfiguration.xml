@@ -507,7 +507,7 @@
 			<cd:field name="Name" userDefined="false" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false" required="true">
 				<cmd:option required="true" long="resourceRecordName" comment="" defaultValue="noDefaultValue" usedForSelection="true" duplicateOK="false"/>
 			</cd:field>
-			<cd:field name="TTL" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsSetting.get_TTL" description="" readOnly="false">
+			<cd:field name="TTL" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsSetting.get_TTL" description="" readOnly="false" orientation="LEFT" required="false">
 				<cmd:option long="ttl" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" duplicateOK="false"/>
 			</cd:field>
 			<cd:field name="TTLUnit" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="userdefined" description="" readOnly="false">
