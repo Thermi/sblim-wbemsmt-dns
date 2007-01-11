@@ -111,6 +111,7 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 		updateControlsDeletegatee = new DnsCimAdapterUpdateControlsDelegatee(this);
 		updateModelDelegatee = new DnsCimAdapterUpdateModelDelegatee(this);
 		saveDelegatee = new DnsCimAdapterSaveDelegatee(this);
+		revertDelegatee = new DnsCimAdapterRevertDelegatee(this);
 		deleteDelegatee = new DnsCimAdapterDeleteDelegatee(this);
 		countDelegatee = new DnsCimAdapterCountDelegatee(this);
 		installValidatorsDelegatee = new DnsCimAdapterInstallValidatorsDelegatee(this);
