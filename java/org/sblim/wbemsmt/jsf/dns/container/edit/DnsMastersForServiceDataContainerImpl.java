@@ -25,6 +25,7 @@
 package org.sblim.wbemsmt.jsf.dns.container.edit;
 
 import org.sblim.wbemsmt.exception.*;
+import java.util.*;
 
 public class DnsMastersForServiceDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsMastersForServiceDataContainer {
 
@@ -242,6 +243,34 @@ public class DnsMastersForServiceDataContainerImpl extends org.sblim.wbemsmt.too
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesDns"};
+	}
+
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_Masters());
+    				fields.add(get_usr_RemoveMasterEntry());
+    				fields.add(get_usr_NewMasterEntry());
+    				fields.add(get_usr_AddNewMasterEntry());
+    				fields.add(get_usr_AddPredefinedMaster());
+    				fields.add(get_usr_PredefinedMasters());
+    				fields.add(get_Name());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
 	}
 
 	

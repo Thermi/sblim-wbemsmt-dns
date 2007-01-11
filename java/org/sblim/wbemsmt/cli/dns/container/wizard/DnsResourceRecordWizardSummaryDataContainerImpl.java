@@ -166,4 +166,29 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends BaseDataCon
 			
 	}
 	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_usr_Name());
+    				fields.add(get_usr_Type());
+    				fields.add(get_usr_Value());
+    				fields.add(get_usr_Priority());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
+	}
+	
 }

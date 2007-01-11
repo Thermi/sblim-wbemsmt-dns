@@ -26,6 +26,7 @@ package org.sblim.wbemsmt.jsf.dns.container.edit;
 
 import javax.faces.component.html.HtmlPanelGrid;
 
+import java.util.*;
 import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
 import org.sblim.wbemsmt.tools.input.*;
@@ -333,4 +334,34 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 	protected String getOrientationOfColumnAsCss(int column) {
 		return orientationOfColumnAsCss[column];
 	}
+	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_Name());
+    				fields.add(get_TTL());
+    				fields.add(get_usr_TTLUnit());
+    				fields.add(get_usr_RemoveTTL());
+    				fields.add(get_Family());
+    				fields.add(get_Type());
+    				fields.add(get_Value());
+    				fields.add(get_usr_DeleteRecord());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
+	}
+	
 }

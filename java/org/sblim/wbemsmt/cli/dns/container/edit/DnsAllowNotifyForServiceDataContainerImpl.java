@@ -229,4 +229,33 @@ public class DnsAllowNotifyForServiceDataContainerImpl extends BaseDataContainer
 			
 	}
 	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_AddressList());
+    				fields.add(get_usr_RemoveAddress());
+    				fields.add(get_usr_UserAddresses());
+    				fields.add(get_usr_NewAddress());
+    				fields.add(get_usr_AddPredefinedAddress());
+    				fields.add(get_usr_AddNewAddress());
+    				fields.add(get_usr_AddressUp());
+    				fields.add(get_usr_AddressDown());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
+	}
+	
 }

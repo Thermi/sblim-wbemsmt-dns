@@ -439,4 +439,43 @@ public class DnsSlaveZoneDataContainerImpl extends BaseDataContainer implements 
 			
 	}
 	
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_Name());
+    				fields.add(get_Forward());
+    				fields.add(get_Forwarders());
+    				fields.add(get_usr_RemoveForwarder());
+    				fields.add(get_usr_NewForwarder());
+    				fields.add(get_usr_AddForwarder());
+    				fields.add(get_usr_NewForwarderType());
+    				fields.add(get_Masters());
+    				fields.add(get_usr_RemoveMasterEntry());
+    				fields.add(get_usr_NewMasterEntry());
+    				fields.add(get_usr_AddNewMasterEntry());
+    				fields.add(get_usr_AddPredefinedMaster());
+    				fields.add(get_usr_PredefinedMasters());
+    				fields.add(get_TTL());
+    				fields.add(get_usr_TTLUnit());
+    				fields.add(get_usr_RemoveTTL());
+    				fields.add(get_ZoneFile());
+    				fields.add(get_usr_UseGlobalForwarders());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
+	}
+	
 }

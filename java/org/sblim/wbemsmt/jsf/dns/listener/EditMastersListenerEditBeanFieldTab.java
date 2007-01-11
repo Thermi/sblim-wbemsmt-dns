@@ -176,7 +176,7 @@ public class EditMastersListenerEditBeanFieldTab extends EditBean {
 				
             						currentEditContainer1.getLayouter().layout(currentEditContainer1.getInputFieldContainer(),currentEditContainer1 ,bundle);
             					
-				addFooter(panel);
+				addFooter(panel,"objectActionController.editBeans['fieldTab'].");
 				
 			
 						addOKRevert(addToThis,"objectActionController.editBeans['fieldTab'].");

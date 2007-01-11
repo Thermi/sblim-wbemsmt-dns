@@ -25,6 +25,7 @@
 package org.sblim.wbemsmt.jsf.dns.container.edit;
 
 import org.sblim.wbemsmt.exception.*;
+import java.util.*;
 
 public class DnsResourceRecordWizardPage2TypeOtherDataContainerImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardPage2TypeOtherDataContainer {
 
@@ -81,6 +82,28 @@ public class DnsResourceRecordWizardPage2TypeOtherDataContainerImpl extends org.
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesDns"};
+	}
+
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_usr_Value());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
 	}
 
 	

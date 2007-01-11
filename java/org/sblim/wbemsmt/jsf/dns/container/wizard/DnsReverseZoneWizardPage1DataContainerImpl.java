@@ -25,6 +25,7 @@
 package org.sblim.wbemsmt.jsf.dns.container.wizard;
 
 import org.sblim.wbemsmt.exception.*;
+import java.util.*;
 
 public class DnsReverseZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardPage1DataContainer {
 
@@ -268,6 +269,35 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesDns"};
+	}
+
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_usr_IpAddress());
+    				fields.add(get_usr_ResourceRecordUsed());
+    				fields.add(get_usr_RemoveResourceRecord());
+    				fields.add(get_usr_ResourceRecordNotUsed());
+    				fields.add(get_usr_AddResourceRecord());
+    				fields.add(get_usr_AddAllResourceRecords());
+    				fields.add(get_usr_RemoveAllResourceRecords());
+    				fields.add(get_usr_IpPresets());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
 	}
 
 	

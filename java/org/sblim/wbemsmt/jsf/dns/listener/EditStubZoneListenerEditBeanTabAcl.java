@@ -257,7 +257,7 @@ public class EditStubZoneListenerEditBeanTabAcl extends EditBean {
 				
             						currentEditContainer1.getLayouter().layout(currentEditContainer1.getInputFieldContainer(),currentEditContainer1 ,bundle);
             					
-				addFooter(panel);
+				addFooter(panel,"objectActionController.editBeans['TabAcl'].");
 				
 			
 								
@@ -306,7 +306,7 @@ public class EditStubZoneListenerEditBeanTabAcl extends EditBean {
 				
             						currentEditContainer2.getLayouter().layout(currentEditContainer2.getInputFieldContainer(),currentEditContainer2 ,bundle);
             					
-				addFooter(panel);
+				addFooter(panel,"objectActionController.editBeans['TabAcl'].");
 				
 			
 								
@@ -355,7 +355,7 @@ public class EditStubZoneListenerEditBeanTabAcl extends EditBean {
 				
             						currentEditContainer3.getLayouter().layout(currentEditContainer3.getInputFieldContainer(),currentEditContainer3 ,bundle);
             					
-				addFooter(panel);
+				addFooter(panel,"objectActionController.editBeans['TabAcl'].");
 				
 			
 								
@@ -404,7 +404,7 @@ public class EditStubZoneListenerEditBeanTabAcl extends EditBean {
 				
             						currentEditContainer4.getLayouter().layout(currentEditContainer4.getInputFieldContainer(),currentEditContainer4 ,bundle);
             					
-				addFooter(panel);
+				addFooter(panel,"objectActionController.editBeans['TabAcl'].");
 				
 			
 						//Creating no OK/Cancel-Button because saving single Tabs is disabled (EditAction.saveSinglePanels)

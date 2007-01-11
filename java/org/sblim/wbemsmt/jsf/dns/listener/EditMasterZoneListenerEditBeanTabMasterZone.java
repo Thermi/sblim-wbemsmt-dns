@@ -155,7 +155,7 @@ public class EditMasterZoneListenerEditBeanTabMasterZone extends EditBean {
 				
             						currentEditContainer1.getLayouter().layout(currentEditContainer1.getInputFieldContainer(),currentEditContainer1 ,bundle);
             					
-				addFooter(panel);
+				addFooter(panel,"objectActionController.editBeans['TabMasterZone'].");
 				
 			
 						//Creating no OK/Cancel-Button because saving single Tabs is disabled (EditAction.saveSinglePanels)

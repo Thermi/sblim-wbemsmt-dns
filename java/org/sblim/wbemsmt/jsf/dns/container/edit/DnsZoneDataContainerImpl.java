@@ -25,6 +25,7 @@
 package org.sblim.wbemsmt.jsf.dns.container.edit;
 
 import org.sblim.wbemsmt.exception.*;
+import java.util.*;
 
 public class DnsZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneDataContainer {
 
@@ -80,6 +81,28 @@ public class DnsZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBa
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesDns"};
+	}
+
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_Name());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
 	}
 
 	

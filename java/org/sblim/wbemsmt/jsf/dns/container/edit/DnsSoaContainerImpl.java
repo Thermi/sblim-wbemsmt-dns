@@ -25,6 +25,7 @@
 package org.sblim.wbemsmt.jsf.dns.container.edit;
 
 import org.sblim.wbemsmt.exception.*;
+import java.util.*;
 
 public class DnsSoaContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsSoaContainer {
 
@@ -294,6 +295,36 @@ public class DnsSoaContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePan
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesDns"};
+	}
+
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List getFields()
+	{
+		List fields = new ArrayList();
+    				fields.add(get_Server());
+    				fields.add(get_Contact());
+    				fields.add(get_SerialNumber());
+    				fields.add(get_Refresh());
+    				fields.add(get_Retry());
+    				fields.add(get_Expire());
+    				fields.add(get_NegativeCachingTTL());
+    				fields.add(get_usr_TTLUnit());
+    				fields.add(get_usr_SetSerialNumber());
+    			return fields;
+	}
+
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List getChildContainers()
+	{
+		List childs = new ArrayList();
+    	    			return childs;
+	
 	}
 
 	
