@@ -29,84 +29,12 @@ public interface DnsAllowTransferForZoneDataContainer extends org.sblim.wbemsmt.
 	/** 
 	 * Constants for Fields and Roles
 	 **/
-			public static final String FIELD_ADDRESSLIST = "AddressList" ;
-			public static final String FIELD_USR_REMOVEADDRESS = "usr_RemoveAddress" ;
-			public static final String FIELD_USR_USERADDRESSES = "usr_UserAddresses" ;
-			public static final String FIELD_USR_NEWADDRESS = "usr_NewAddress" ;
-			public static final String FIELD_USR_ADDPREDEFINEDADDRESS = "usr_AddPredefinedAddress" ;
-			public static final String FIELD_USR_ADDNEWADDRESS = "usr_AddNewAddress" ;
-			public static final String FIELD_USR_ADDRESSUP = "usr_AddressUp" ;
-			public static final String FIELD_USR_ADDRESSDOWN = "usr_AddressDown" ;
 			public static final String FIELD_USR_USEGLOBALADDRESSMATCHLIST = "usr_UseGlobalAddressMatchList" ;
 		
 	
 	/** 
 	 * Defined Fields
 	 **/
-			
-		/**
-		* <br>
-		* DataType UNSIGNED_INT16<br>
-		* UIType LIST_WITH_MULTISELECT<br>
-		* Relation to FCO: Linux_DnsAddressMatchList.get_AddressList<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_AddressList();
-			
-		/**
-		* <br>
-		* DataType ACTION<br>
-		* UIType BUTTON<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveAddress();
-			
-		/**
-		* <br>
-		* DataType UNSIGNED_INT16<br>
-		* UIType LIST_WITH_MULTISELECT<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_UserAddresses();
-			
-		/**
-		* <br>
-		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_NewAddress();
-			
-		/**
-		* Add the Adress selected in the userAddresses-ListBox<br>
-		* DataType ACTION<br>
-		* UIType BUTTON<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddPredefinedAddress();
-			
-		/**
-		* Add the Adress entered in the textField for a new Address<br>
-		* DataType ACTION<br>
-		* UIType BUTTON<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddNewAddress();
-			
-		/**
-		* <br>
-		* DataType ACTION<br>
-		* UIType BUTTON<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddressUp();
-			
-		/**
-		* <br>
-		* DataType ACTION<br>
-		* UIType BUTTON<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddressDown();
 			
 		/**
 		* <br>

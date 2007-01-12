@@ -29,16 +29,6 @@ public interface DnsReverseZoneDataContainer extends org.sblim.wbemsmt.dns.bl.co
 	/** 
 	 * Constants for Fields and Roles
 	 **/
-			public static final String FIELD_NAME = "Name" ;
-			public static final String FIELD_FORWARD = "Forward" ;
-			public static final String FIELD_FORWARDERS = "Forwarders" ;
-			public static final String FIELD_USR_REMOVEFORWARDER = "usr_RemoveForwarder" ;
-			public static final String FIELD_USR_NEWFORWARDER = "usr_NewForwarder" ;
-			public static final String FIELD_USR_ADDFORWARDER = "usr_AddForwarder" ;
-			public static final String FIELD_USR_NEWFORWARDERTYPE = "usr_NewForwarderType" ;
-			public static final String FIELD_TTL = "TTL" ;
-			public static final String FIELD_USR_TTLUNIT = "usr_TTLUnit" ;
-			public static final String FIELD_USR_REMOVETTL = "usr_RemoveTTL" ;
 			public static final String FIELD_ZONEFILE = "ZoneFile" ;
 			public static final String FIELD_USR_USEGLOBALFORWARDERS = "usr_UseGlobalForwarders" ;
 		
@@ -46,86 +36,6 @@ public interface DnsReverseZoneDataContainer extends org.sblim.wbemsmt.dns.bl.co
 	/** 
 	 * Defined Fields
 	 **/
-			
-		/**
-		* <br>
-		* DataType STRING<br>
-		* UIType LABEL<br>
-		* Relation to FCO: Linux_DnsZone.get_Name<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name();
-			
-		/**
-		* <br>
-		* DataType UNSIGNED_INT8<br>
-		* UIType RADIOBUTTON<br>
-		* Relation to FCO: Linux_DnsSetting.get_Forward<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_Forward();
-			
-		/**
-		* <br>
-		* DataType UNSIGNED_INT16<br>
-		* UIType LIST_WITH_MULTISELECT<br>
-		* Relation to FCO: Linux_DnsSetting.get_Forwarders<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_Forwarders();
-			
-		/**
-		* <br>
-		* DataType ACTION<br>
-		* UIType BUTTON<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveForwarder();
-			
-		/**
-		* <br>
-		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_NewForwarder();
-			
-		/**
-		* <br>
-		* DataType ACTION<br>
-		* UIType BUTTON<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddForwarder();
-			
-		/**
-		* <br>
-		* DataType UNSIGNED_INT16<br>
-		* UIType COMBOBOX<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_NewForwarderType();
-			
-		/**
-		* <br>
-		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
-		* Relation to FCO: Linux_DnsSetting.get_TTL<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_TTL();
-			
-		/**
-		* <br>
-		* DataType UNSIGNED_INT16<br>
-		* UIType COMBOBOX<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_TTLUnit();
-			
-		/**
-		* <br>
-		* DataType ACTION<br>
-		* UIType BUTTON<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveTTL();
 			
 		/**
 		* <br>
