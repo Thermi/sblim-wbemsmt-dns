@@ -25,6 +25,7 @@ import javax.faces.component.html.HtmlPanelGrid;
 import javax.faces.component.html.HtmlSelectManyListbox;
 
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsForwarderDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardSummaryDataContainer;
 import org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent;
 
 public class ForwarderLayouter extends DnsLayouter {
@@ -66,8 +67,8 @@ public class ForwarderLayouter extends DnsLayouter {
 		removeButton.addStyleSheetElement(width);
 
 		
-		HtmlSelectManyListbox usedAddresses = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_Forwarders()).getComponent();
-		HtmlInputText newAddress = (HtmlInputText) ((LabeledJSFInputComponent) container.get_usr_NewForwarder()).getComponent();
+		HtmlSelectManyListbox usedAddresses = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_Forwarders()).getComponentPanel();
+		HtmlInputText newAddress = (HtmlInputText) ((LabeledJSFInputComponent) container.get_usr_NewForwarder()).getComponentPanel();
 
 		usedAddresses.setStyle(width);
 		newAddress.setStyle(width);
@@ -75,8 +76,8 @@ public class ForwarderLayouter extends DnsLayouter {
 		forwardersGrid.getChildren().add(newAddress);
 		forwardersGrid.getChildren().add(usedAddresses);
 
-		forwardersGrid.getChildren().add(addButton.getComponent());
-		forwardersGrid.getChildren().add(removeButton.getComponent());
+		forwardersGrid.getChildren().add(addButton.getComponentPanel());
+		forwardersGrid.getChildren().add(removeButton.getComponentPanel());
 
 		if (useGlobal != null)
 		{
@@ -84,12 +85,12 @@ public class ForwarderLayouter extends DnsLayouter {
 			label.setEscape(false);			
 			forwardersGrid.getChildren().add(label);
 			forwardersGrid.getChildren().add(getDummyLabel());
-			forwardersGrid.getChildren().add(useGlobal.getComponent());
+			forwardersGrid.getChildren().add(useGlobal.getComponentPanel());
 			forwardersGrid.getChildren().add(getDummyLabel());
 		}
 	}
 
-	public void addForwarderForSummary(HtmlPanelGrid panelForCustomLayout, DnsForwarderDataContainer container, String width) {
+	public void addForwarderForSummary(HtmlPanelGrid panelForCustomLayout, DnsForwardZoneWizardSummaryDataContainer container, String width) {
 
 
 		

@@ -40,7 +40,7 @@ public interface DnsMastersWizardSummaryDataContainer extends org.sblim.wbemsmt.
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Linux_DnsMaster.get_Name<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name();

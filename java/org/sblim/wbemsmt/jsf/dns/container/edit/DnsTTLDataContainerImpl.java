@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.dns.container.edit;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class DnsTTLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsTTLDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_TTL;
@@ -137,6 +141,8 @@ public class DnsTTLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
 		return new String[]{"messages","messagesDns"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -159,6 +165,17 @@ public class DnsTTLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsTTLDataContainerImpl source = (DnsTTLDataContainerImpl)sourceContainer;
+	
+    	    		get_TTL().setValue(source.get_TTL().getValue());
+		    		get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
+		    		get_usr_RemoveTTL().setValue(source.get_usr_RemoveTTL().getValue());
+				
+    	    	
 	}
 
 	

@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class DnsAllowNotifyForServiceDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForServiceDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
@@ -229,6 +234,8 @@ public class DnsAllowNotifyForServiceDataContainerImpl extends BaseDataContainer
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -258,4 +265,19 @@ public class DnsAllowNotifyForServiceDataContainerImpl extends BaseDataContainer
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsAllowNotifyForServiceDataContainerImpl source = (DnsAllowNotifyForServiceDataContainerImpl)sourceContainer;
+	
+    	    		get_AddressList().setValue(source.get_AddressList().getValue());
+		    		get_usr_RemoveAddress().setValue(source.get_usr_RemoveAddress().getValue());
+		    		get_usr_UserAddresses().setValue(source.get_usr_UserAddresses().getValue());
+		    		get_usr_NewAddress().setValue(source.get_usr_NewAddress().getValue());
+		    		get_usr_AddPredefinedAddress().setValue(source.get_usr_AddPredefinedAddress().getValue());
+		    		get_usr_AddNewAddress().setValue(source.get_usr_AddNewAddress().getValue());
+		    		get_usr_AddressUp().setValue(source.get_usr_AddressUp().getValue());
+		    		get_usr_AddressDown().setValue(source.get_usr_AddressDown().getValue());
+				
+    	    	
+	}
 }

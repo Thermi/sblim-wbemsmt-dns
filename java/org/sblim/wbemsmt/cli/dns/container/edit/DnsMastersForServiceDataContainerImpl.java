@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class DnsMastersForServiceDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsMastersForServiceDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
@@ -217,6 +222,8 @@ public class DnsMastersForServiceDataContainerImpl extends BaseDataContainer imp
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -245,4 +252,18 @@ public class DnsMastersForServiceDataContainerImpl extends BaseDataContainer imp
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsMastersForServiceDataContainerImpl source = (DnsMastersForServiceDataContainerImpl)sourceContainer;
+	
+    	    		get_Masters().setValue(source.get_Masters().getValue());
+		    		get_usr_RemoveMasterEntry().setValue(source.get_usr_RemoveMasterEntry().getValue());
+		    		get_usr_NewMasterEntry().setValue(source.get_usr_NewMasterEntry().getValue());
+		    		get_usr_AddNewMasterEntry().setValue(source.get_usr_AddNewMasterEntry().getValue());
+		    		get_usr_AddPredefinedMaster().setValue(source.get_usr_AddPredefinedMaster().getValue());
+		    		get_usr_PredefinedMasters().setValue(source.get_usr_PredefinedMasters().getValue());
+		    		get_Name().setValue(source.get_Name().getValue());
+				
+    	    	
+	}
 }

@@ -40,7 +40,7 @@ public interface DnsAddressMatchListWizardSummaryDataContainer extends org.sblim
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Linux_DnsAddressMatchList.get_Name<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name();

@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.dns.container.edit;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class DnsConfigurationDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsConfigurationDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_ConfigurationFile;
@@ -167,6 +171,8 @@ public class DnsConfigurationDataContainerImpl extends org.sblim.wbemsmt.tools.j
 		return new String[]{"messages","messagesDns"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -190,6 +196,18 @@ public class DnsConfigurationDataContainerImpl extends org.sblim.wbemsmt.tools.j
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsConfigurationDataContainerImpl source = (DnsConfigurationDataContainerImpl)sourceContainer;
+	
+    	    		get_ConfigurationFile().setValue(source.get_ConfigurationFile().getValue());
+		    		get_ConfigurationDirectory().setValue(source.get_ConfigurationDirectory().getValue());
+		    		get_PortNumber().setValue(source.get_PortNumber().getValue());
+		    		get_usr_RemoveDirectory().setValue(source.get_usr_RemoveDirectory().getValue());
+				
+    	    	
 	}
 
 	

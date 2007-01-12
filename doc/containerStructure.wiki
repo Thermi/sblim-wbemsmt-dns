@@ -740,7 +740,7 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| Name | STRING | TEXTFIELD | Linux_DnsAddressMatchList.get_Name \\ | Readonly | -name, Optional,Default is noDefaultValue |
+| Name | STRING | LABEL | Linux_DnsAddressMatchList.get_Name \\ | Readonly | -name, Optional,Default is noDefaultValue |
 | AddressList | UNSIGNED_INT16 | LIST | Linux_DnsAddressMatchList.get_AddressList \\ | Readonly | -addressList, Optional,Default is noDefaultValue |
 
 {panel}
@@ -781,11 +781,10 @@
 | *CustomLayouter* \\ | X |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| Name | STRING | TEXTFIELD | Server \\ | Readonly, Userdefined | -name, Optional,Default is noDefaultValue |
+| Name | STRING | LABEL | Server \\ | Readonly, Userdefined | -name, Optional,Default is noDefaultValue |
+| Forward | STRING | LABEL | Linux_DnsSetting.get_Forward \\ | Readonly | -forward, Optional,Default is noDefaultValue, Duplicates allowed |
+| Forwarders | UNSIGNED_INT16 | LIST | Linux_DnsSetting.get_Forwarders \\ | Readonly | -forwarders, Optional,Default is noDefaultValue, Duplicates allowed |
 
-*Relations*
-| *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
-| Extends | [#editContainers.DnsForwarderDataContainer] \\ | |
 {panel}
 
 	
@@ -865,7 +864,7 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| Name | STRING | TEXTFIELD | Linux_DnsMaster.get_Name \\ | Readonly | -name, Optional,Default is noDefaultValue |
+| Name | STRING | LABEL | Linux_DnsMaster.get_Name \\ | Readonly | -name, Optional,Default is noDefaultValue |
 | AddressList | UNSIGNED_INT16 | LIST | Linux_DnsMaster.get_AddressList \\ | Readonly | -addressList, Optional,Default is noDefaultValue |
 
 {panel}
@@ -960,10 +959,10 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| Name | STRING | TEXTFIELD | Name \\ | Readonly, Userdefined | Not used for Commandline |
-| Type | STRING | TEXTFIELD | Type \\ | Readonly, Userdefined | Not used for Commandline |
-| Value | STRING | TEXTFIELD | Value \\ | Readonly, Userdefined | Not used for Commandline |
-| Priority | STRING | TEXTFIELD |  \\ | Readonly, Userdefined | -priority, Optional,Default is noDefaultValue, Duplicates allowed |
+| Name | STRING | LABEL | Name \\ | Readonly, Userdefined | Not used for Commandline |
+| Type | STRING | LABEL | Type \\ | Readonly, Userdefined | Not used for Commandline |
+| Value | STRING | LABEL | Value \\ | Readonly, Userdefined | Not used for Commandline |
+| Priority | STRING | LABEL |  \\ | Readonly, Userdefined | -priority, Optional,Default is noDefaultValue, Duplicates allowed |
 
 {panel}
 
@@ -1006,8 +1005,8 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| name | STRING | TEXTFIELD | userdefined \\ | Readonly, Userdefined | -zoneName, Optional,Default is noDefaultValue |
-| ResourceRecordFile | STRING | TEXTFIELD | Linux_DnsZone.get_ResourceRecordFile \\ | Readonly | -resourceRecordFile, Optional,Default is noDefaultValue |
+| name | STRING | LABEL | userdefined \\ | Readonly, Userdefined | -zoneName, Optional,Default is noDefaultValue |
+| ResourceRecordFile | STRING | LABEL | Linux_DnsZone.get_ResourceRecordFile \\ | Readonly | -resourceRecordFile, Optional,Default is noDefaultValue |
 
 *Relations*
 | *RelationType&nbsp;* | *&nbsp;related DataContainer* \\ | *&nbsp;Additional Information* \\ |
@@ -1049,8 +1048,8 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| Name | STRING | TEXTFIELD | Name \\ | Readonly, Userdefined | -name, Required |
-| IpAdressses | UNSIGNED_INT16 | LIST | userdefined \\ | Readonly, Userdefined | -ip, Required |
+| Name | STRING | LABEL | Name \\ | Readonly, Userdefined | -name, Optional,Default is noDefaultValue |
+| IpAdressses | UNSIGNED_INT16 | LIST | userdefined \\ | Readonly, Userdefined | -ip, Optional,Default is noDefaultValue |
 
 {panel}
 
@@ -1089,7 +1088,7 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| Name | STRING | TEXTFIELD | Name \\ | Readonly, Userdefined | -name, Required |
-| IpAdressses | UNSIGNED_INT16 | LIST | userdefined \\ | Readonly, Userdefined | -ip, Required |
+| Name | STRING | LABEL | Name \\ | Readonly, Userdefined | -name, Optional,Default is noDefaultValue |
+| IpAdressses | UNSIGNED_INT16 | LIST | userdefined \\ | Readonly, Userdefined | -ip, Optional,Default is noDefaultValue |
 
 {panel}

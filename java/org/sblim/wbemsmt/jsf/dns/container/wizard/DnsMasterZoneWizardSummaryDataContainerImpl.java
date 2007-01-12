@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.dns.container.wizard;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class DnsMasterZoneWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardSummaryDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Name;
@@ -164,6 +168,8 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends org.sblim.wbems
 		return new String[]{"messages","messagesDns"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -187,6 +193,18 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends org.sblim.wbems
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsMasterZoneWizardSummaryDataContainerImpl source = (DnsMasterZoneWizardSummaryDataContainerImpl)sourceContainer;
+	
+    	    		get_usr_Name().setValue(source.get_usr_Name().getValue());
+		    		get_usr_Server().setValue(source.get_usr_Server().getValue());
+		    		get_usr_IpAdress().setValue(source.get_usr_IpAdress().getValue());
+		    		get_usr_Contact().setValue(source.get_usr_Contact().getValue());
+				
+    	    	
 	}
 
 	

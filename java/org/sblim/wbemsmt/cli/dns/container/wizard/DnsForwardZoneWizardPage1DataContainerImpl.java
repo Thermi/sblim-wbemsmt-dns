@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class DnsForwardZoneWizardPage1DataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardPage1DataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
@@ -239,6 +244,8 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends BaseDataContaine
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -268,4 +275,19 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends BaseDataContaine
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsForwardZoneWizardPage1DataContainerImpl source = (DnsForwardZoneWizardPage1DataContainerImpl)sourceContainer;
+	
+    	    		get_Forward().setValue(source.get_Forward().getValue());
+		    		get_Forwarders().setValue(source.get_Forwarders().getValue());
+		    		get_usr_RemoveForwarder().setValue(source.get_usr_RemoveForwarder().getValue());
+		    		get_usr_NewForwarder().setValue(source.get_usr_NewForwarder().getValue());
+		    		get_usr_AddForwarder().setValue(source.get_usr_AddForwarder().getValue());
+		    		get_usr_NewForwarderType().setValue(source.get_usr_NewForwarderType().getValue());
+		    		get_usr_Name().setValue(source.get_usr_Name().getValue());
+		    		get_usr_UseGlobalForwarders().setValue(source.get_usr_UseGlobalForwarders().getValue());
+				
+    	    	
+	}
 }

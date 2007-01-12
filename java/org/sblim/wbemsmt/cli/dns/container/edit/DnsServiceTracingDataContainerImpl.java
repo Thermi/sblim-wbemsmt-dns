@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class DnsServiceTracingDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceTracingDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
@@ -186,6 +191,8 @@ public class DnsServiceTracingDataContainerImpl extends BaseDataContainer implem
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -213,4 +220,17 @@ public class DnsServiceTracingDataContainerImpl extends BaseDataContainer implem
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsServiceTracingDataContainerImpl source = (DnsServiceTracingDataContainerImpl)sourceContainer;
+	
+    			
+    	    	    		getAllowNotifyAcl().copyFrom(source.getAllowNotifyAcl());
+		    		getAllowQueryAcl().copyFrom(source.getAllowQueryAcl());
+		    		getAllowTransferAcl().copyFrom(source.getAllowTransferAcl());
+		    		getAllowRecursionAcl().copyFrom(source.getAllowRecursionAcl());
+		    		getBlackholeAcl().copyFrom(source.getBlackholeAcl());
+		    		getConfiguration().copyFrom(source.getConfiguration());
+		
+	}
 }

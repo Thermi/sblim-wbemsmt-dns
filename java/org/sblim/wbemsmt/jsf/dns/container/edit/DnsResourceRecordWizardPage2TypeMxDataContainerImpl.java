@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.dns.container.edit;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class DnsResourceRecordWizardPage2TypeMxDataContainerImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardPage2TypeMxDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Value;
@@ -112,6 +116,8 @@ public class DnsResourceRecordWizardPage2TypeMxDataContainerImpl extends org.sbl
 		return new String[]{"messages","messagesDns"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -133,6 +139,16 @@ public class DnsResourceRecordWizardPage2TypeMxDataContainerImpl extends org.sbl
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsResourceRecordWizardPage2TypeMxDataContainerImpl source = (DnsResourceRecordWizardPage2TypeMxDataContainerImpl)sourceContainer;
+	
+    	    		get_usr_Value().setValue(source.get_usr_Value().getValue());
+		    		get_usr_Priority().setValue(source.get_usr_Priority().getValue());
+				
+    	    	
 	}
 
 	

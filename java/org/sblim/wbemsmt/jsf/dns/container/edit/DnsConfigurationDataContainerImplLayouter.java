@@ -38,8 +38,8 @@ public class DnsConfigurationDataContainerImplLayouter extends DnsLayouter {
 		LabeledJSFInputComponent directoryButton = ((LabeledJSFInputComponent) container.get_usr_RemoveDirectory());
 
 		HtmlPanelGrid directoryGrid = createTable(2, "0", "0");
-		directoryGrid.getChildren().add(directory.getComponent());
-		directoryGrid.getChildren().add(directoryButton.getComponent());
+		directoryGrid.getChildren().add(directory.getComponentPanel());
+		directoryGrid.getChildren().add(directoryButton.getComponentPanel());
 		
 		
 		parent.getChildren().add(directory.getLabelPanel());

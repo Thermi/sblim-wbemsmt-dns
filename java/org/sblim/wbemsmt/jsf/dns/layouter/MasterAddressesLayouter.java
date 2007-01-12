@@ -53,22 +53,22 @@ public class MasterAddressesLayouter extends DnsLayouter {
 
 		
 		
-		HtmlInputText newAddressTextField = (HtmlInputText) ((LabeledJSFInputComponent) container.get_usr_NewMasterEntry()).getComponent();
+		HtmlInputText newAddressTextField = (HtmlInputText) ((LabeledJSFInputComponent) container.get_usr_NewMasterEntry()).getComponentPanel();
 		newAddressTextField.setStyle(width);
 		
-		HtmlCommandButton addNewButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_AddNewMasterEntry()).getComponent();
+		HtmlCommandButton addNewButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_AddNewMasterEntry()).getComponentPanel();
 		addNewButton.setStyle(width);
 		
-		HtmlSelectManyListbox usedAddresses = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_Masters()).getComponent();
+		HtmlSelectManyListbox usedAddresses = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_Masters()).getComponentPanel();
 		usedAddresses.setStyle(width);
 		
-		HtmlCommandButton addPredefinedButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_AddPredefinedMaster()).getComponent();
+		HtmlCommandButton addPredefinedButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_AddPredefinedMaster()).getComponentPanel();
 		addPredefinedButton.setStyle(width);
 		
-		HtmlCommandButton removeButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_RemoveMasterEntry()).getComponent();
+		HtmlCommandButton removeButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_RemoveMasterEntry()).getComponentPanel();
 		removeButton.setStyle(width);
 
-		HtmlSelectManyListbox notUsedAddresses = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_usr_PredefinedMasters()).getComponent();
+		HtmlSelectManyListbox notUsedAddresses = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_usr_PredefinedMasters()).getComponentPanel();
 		notUsedAddresses.setStyle(width);
 		
 		//add one dummy row
@@ -82,7 +82,7 @@ public class MasterAddressesLayouter extends DnsLayouter {
 		{
 			panelForCustomLayout.getChildren().add(((LabeledJSFInputComponent) nameForMasters).getLabelPanel());
 			panelForCustomLayout.getChildren().add(getDummyLabel());
-			panelForCustomLayout.getChildren().add(((LabeledJSFInputComponent) nameForMasters).getComponent());
+			panelForCustomLayout.getChildren().add(((LabeledJSFInputComponent) nameForMasters).getComponentPanel());
 			panelForCustomLayout.getChildren().add(getDummyLabel());
 			label = getLabel("<br>");
 			label.setEscape(false);

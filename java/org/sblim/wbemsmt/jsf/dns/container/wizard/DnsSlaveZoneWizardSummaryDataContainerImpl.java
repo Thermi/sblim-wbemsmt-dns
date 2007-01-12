@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.dns.container.wizard;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class DnsSlaveZoneWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsSlaveZoneWizardSummaryDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Name;
@@ -51,7 +55,7 @@ public class DnsSlaveZoneWizardSummaryDataContainerImpl extends org.sblim.wbemsm
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -64,7 +68,7 @@ public class DnsSlaveZoneWizardSummaryDataContainerImpl extends org.sblim.wbemsm
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
-    			ic_usr_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+    			ic_usr_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
     		return ic_usr_Name;
@@ -110,6 +114,8 @@ public class DnsSlaveZoneWizardSummaryDataContainerImpl extends org.sblim.wbemsm
 		return new String[]{"messages","messagesDns"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -131,6 +137,16 @@ public class DnsSlaveZoneWizardSummaryDataContainerImpl extends org.sblim.wbemsm
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsSlaveZoneWizardSummaryDataContainerImpl source = (DnsSlaveZoneWizardSummaryDataContainerImpl)sourceContainer;
+	
+    	    		get_usr_Name().setValue(source.get_usr_Name().getValue());
+		    		get_usr_IpAdressses().setValue(source.get_usr_IpAdressses().getValue());
+				
+    	    	
 	}
 
 	

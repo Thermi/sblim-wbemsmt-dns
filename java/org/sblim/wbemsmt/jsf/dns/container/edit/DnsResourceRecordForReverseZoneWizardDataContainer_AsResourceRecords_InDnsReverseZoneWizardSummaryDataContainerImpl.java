@@ -27,10 +27,14 @@ package org.sblim.wbemsmt.jsf.dns.container.edit;
 import javax.faces.component.html.HtmlPanelGrid;
 
 import java.util.*;
-import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
 import org.sblim.wbemsmt.tools.input.*;
 import org.sblim.wbemsmt.exception.*;
+
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 
 	
 public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer {
@@ -177,6 +181,9 @@ public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecord
 		return orientationOfColumnAsCss[column];
 	}
 	
+
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -200,5 +207,18 @@ public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecord
     	    			return childs;
 	
 	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl source = (DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl)sourceContainer;
+	
+    	    		get_Name().setValue(source.get_Name().getValue());
+		    		get_Type().setValue(source.get_Type().getValue());
+		    		get_Value().setValue(source.get_Value().getValue());
+				
+    	    	
+	}
+	
+	
 	
 }

@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
@@ -144,6 +149,8 @@ public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends Base
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -168,4 +175,14 @@ public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends Base
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsResourceRecordForReverseZoneWizardDataContainerImpl source = (DnsResourceRecordForReverseZoneWizardDataContainerImpl)sourceContainer;
+	
+    	    		get_Name().setValue(source.get_Name().getValue());
+		    		get_Type().setValue(source.get_Type().getValue());
+		    		get_Value().setValue(source.get_Value().getValue());
+				
+    	    	
+	}
 }

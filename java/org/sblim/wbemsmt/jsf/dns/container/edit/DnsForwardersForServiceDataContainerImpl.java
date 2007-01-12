@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.dns.container.edit;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class DnsForwardersForServiceDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardersForServiceDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_Forward;
@@ -219,6 +223,8 @@ public class DnsForwardersForServiceDataContainerImpl extends org.sblim.wbemsmt.
 		return new String[]{"messages","messagesDns"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -244,6 +250,20 @@ public class DnsForwardersForServiceDataContainerImpl extends org.sblim.wbemsmt.
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsForwardersForServiceDataContainerImpl source = (DnsForwardersForServiceDataContainerImpl)sourceContainer;
+	
+    	    		get_Forward().setValue(source.get_Forward().getValue());
+		    		get_Forwarders().setValue(source.get_Forwarders().getValue());
+		    		get_usr_RemoveForwarder().setValue(source.get_usr_RemoveForwarder().getValue());
+		    		get_usr_NewForwarder().setValue(source.get_usr_NewForwarder().getValue());
+		    		get_usr_AddForwarder().setValue(source.get_usr_AddForwarder().getValue());
+		    		get_usr_NewForwarderType().setValue(source.get_usr_NewForwarderType().getValue());
+				
+    	    	
 	}
 
 	

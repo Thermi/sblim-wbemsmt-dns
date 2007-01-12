@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceOperationsDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
@@ -173,6 +178,8 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -199,4 +206,16 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsServiceOperationsDataContainerImpl source = (DnsServiceOperationsDataContainerImpl)sourceContainer;
+	
+    	    		get_RunAsRoot().setValue(source.get_RunAsRoot().getValue());
+		    		get_usr_Restart().setValue(source.get_usr_Restart().getValue());
+		    		get_invoke_Start().setValue(source.get_invoke_Start().getValue());
+		    		get_invoke_Stop().setValue(source.get_invoke_Stop().getValue());
+		    		get_Status().setValue(source.get_Status().getValue());
+				
+    	    	
+	}
 }

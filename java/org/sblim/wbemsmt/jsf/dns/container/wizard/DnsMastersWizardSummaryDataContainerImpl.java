@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.dns.container.wizard;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class DnsMastersWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsMastersWizardSummaryDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
@@ -51,7 +55,7 @@ public class DnsMastersWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -64,7 +68,7 @@ public class DnsMastersWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
-    			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+    			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
     		return ic_Name;
@@ -110,6 +114,8 @@ public class DnsMastersWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.
 		return new String[]{"messages","messagesDns"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -131,6 +137,16 @@ public class DnsMastersWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsMastersWizardSummaryDataContainerImpl source = (DnsMastersWizardSummaryDataContainerImpl)sourceContainer;
+	
+    	    		get_Name().setValue(source.get_Name().getValue());
+		    		get_AddressList().setValue(source.get_AddressList().getValue());
+				
+    	    	
 	}
 
 	

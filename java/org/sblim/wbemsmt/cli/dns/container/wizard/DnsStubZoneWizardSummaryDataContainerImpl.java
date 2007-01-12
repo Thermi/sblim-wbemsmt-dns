@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class DnsStubZoneWizardSummaryDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsStubZoneWizardSummaryDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
@@ -51,7 +56,7 @@ public class DnsStubZoneWizardSummaryDataContainerImpl extends BaseDataContainer
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -122,6 +127,8 @@ public class DnsStubZoneWizardSummaryDataContainerImpl extends BaseDataContainer
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -145,4 +152,13 @@ public class DnsStubZoneWizardSummaryDataContainerImpl extends BaseDataContainer
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsStubZoneWizardSummaryDataContainerImpl source = (DnsStubZoneWizardSummaryDataContainerImpl)sourceContainer;
+	
+    	    		get_usr_Name().setValue(source.get_usr_Name().getValue());
+		    		get_usr_IpAdressses().setValue(source.get_usr_IpAdressses().getValue());
+				
+    	    	
+	}
 }

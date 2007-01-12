@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.dns.container.edit;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class DnsSoaContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsSoaContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Server;
@@ -297,6 +301,8 @@ public class DnsSoaContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePan
 		return new String[]{"messages","messagesDns"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -325,6 +331,23 @@ public class DnsSoaContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePan
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsSoaContainerImpl source = (DnsSoaContainerImpl)sourceContainer;
+	
+    	    		get_Server().setValue(source.get_Server().getValue());
+		    		get_Contact().setValue(source.get_Contact().getValue());
+		    		get_SerialNumber().setValue(source.get_SerialNumber().getValue());
+		    		get_Refresh().setValue(source.get_Refresh().getValue());
+		    		get_Retry().setValue(source.get_Retry().getValue());
+		    		get_Expire().setValue(source.get_Expire().getValue());
+		    		get_NegativeCachingTTL().setValue(source.get_NegativeCachingTTL().getValue());
+		    		get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
+		    		get_usr_SetSerialNumber().setValue(source.get_usr_SetSerialNumber().getValue());
+				
+    	    	
 	}
 
 	

@@ -27,10 +27,14 @@ package org.sblim.wbemsmt.jsf.dns.container.edit;
 import javax.faces.component.html.HtmlPanelGrid;
 
 import java.util.*;
-import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
 import org.sblim.wbemsmt.tools.input.*;
 import org.sblim.wbemsmt.exception.*;
+
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 
 	
 public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer {
@@ -332,6 +336,9 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 		return orientationOfColumnAsCss[column];
 	}
 	
+
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -360,5 +367,23 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
     	    			return childs;
 	
 	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl source = (DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl)sourceContainer;
+	
+    	    		get_TTL().setValue(source.get_TTL().getValue());
+		    		get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
+		    		get_usr_RemoveTTL().setValue(source.get_usr_RemoveTTL().getValue());
+		    		get_Name().setValue(source.get_Name().getValue());
+		    		get_Type().setValue(source.get_Type().getValue());
+		    		get_Family().setValue(source.get_Family().getValue());
+		    		get_Value().setValue(source.get_Value().getValue());
+		    		get_Priority().setValue(source.get_Priority().getValue());
+				
+    	    	
+	}
+	
+	
 	
 }

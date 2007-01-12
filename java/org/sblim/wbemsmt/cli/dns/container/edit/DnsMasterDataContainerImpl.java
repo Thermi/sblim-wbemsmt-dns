@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class DnsMasterDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsMasterDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
@@ -144,6 +149,8 @@ public class DnsMasterDataContainerImpl extends BaseDataContainer implements org
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -168,4 +175,14 @@ public class DnsMasterDataContainerImpl extends BaseDataContainer implements org
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsMasterDataContainerImpl source = (DnsMasterDataContainerImpl)sourceContainer;
+	
+    	    		get_Name().setValue(source.get_Name().getValue());
+		    		get_MasterElementType().setValue(source.get_MasterElementType().getValue());
+		    		get_MasterElement().setValue(source.get_MasterElement().getValue());
+				
+    	    	
+	}
 }

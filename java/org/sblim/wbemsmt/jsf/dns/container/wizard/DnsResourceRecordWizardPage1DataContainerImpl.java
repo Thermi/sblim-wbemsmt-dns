@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.dns.container.wizard;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class DnsResourceRecordWizardPage1DataContainerImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardPage1DataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_Type;
@@ -117,6 +121,8 @@ public class DnsResourceRecordWizardPage1DataContainerImpl extends org.sblim.wbe
 		return new String[]{"messages","messagesDns"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -138,6 +144,16 @@ public class DnsResourceRecordWizardPage1DataContainerImpl extends org.sblim.wbe
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsResourceRecordWizardPage1DataContainerImpl source = (DnsResourceRecordWizardPage1DataContainerImpl)sourceContainer;
+	
+    	    		get_usr_Type().setValue(source.get_usr_Type().getValue());
+		    		get_usr_Name().setValue(source.get_usr_Name().getValue());
+				
+    	    	
 	}
 
 	

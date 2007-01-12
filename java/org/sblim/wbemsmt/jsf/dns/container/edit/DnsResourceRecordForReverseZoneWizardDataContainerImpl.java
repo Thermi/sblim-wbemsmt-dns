@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.dns.container.edit;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
@@ -137,6 +141,8 @@ public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends org.
 		return new String[]{"messages","messagesDns"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -159,6 +165,17 @@ public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends org.
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsResourceRecordForReverseZoneWizardDataContainerImpl source = (DnsResourceRecordForReverseZoneWizardDataContainerImpl)sourceContainer;
+	
+    	    		get_Name().setValue(source.get_Name().getValue());
+		    		get_Type().setValue(source.get_Type().getValue());
+		    		get_Value().setValue(source.get_Value().getValue());
+				
+    	    	
 	}
 
 	

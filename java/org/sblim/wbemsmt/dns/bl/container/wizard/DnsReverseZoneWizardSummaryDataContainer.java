@@ -41,7 +41,7 @@ public interface DnsReverseZoneWizardSummaryDataContainer extends org.sblim.wbem
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: userdefined<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Name();
@@ -49,7 +49,7 @@ public interface DnsReverseZoneWizardSummaryDataContainer extends org.sblim.wbem
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Linux_DnsZone.get_ResourceRecordFile<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_ResourceRecordFile();

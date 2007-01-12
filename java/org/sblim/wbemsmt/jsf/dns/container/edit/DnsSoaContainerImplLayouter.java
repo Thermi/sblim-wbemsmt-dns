@@ -39,8 +39,8 @@ public class DnsSoaContainerImplLayouter extends DnsLayouter {
 		LabeledJSFInputComponent serialNumberButton = ((LabeledJSFInputComponent) container.get_usr_SetSerialNumber());
 		
 		HtmlPanelGrid grid = createTable(2, "0", "0");
-		grid.getChildren().add(serialNumber.getComponent());
-		grid.getChildren().add(serialNumberButton.getComponent());
+		grid.getChildren().add(serialNumber.getComponentPanel());
+		grid.getChildren().add(serialNumberButton.getComponentPanel());
 		
 		panelForCustomLayout.getChildren().add(serialNumber.getLabelPanel());
 		panelForCustomLayout.getChildren().add(grid);

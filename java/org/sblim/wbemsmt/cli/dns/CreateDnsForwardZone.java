@@ -313,15 +313,9 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
 	
 	private void setCommandLineValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardSummaryDataContainer dc) throws WbemSmtException {
 		//set the values
-																	setMultiValue(adapter.getBundle(),cmd,dc.get_Forward(),KEY_forward);
-																						setMultiValue(adapter.getBundle(),cmd,dc.get_Forwarders(),KEY_forwarders);
-																															setValue(cmd,dc.get_usr_NewForwarder(),KEY_newForwarder);
-																																											setMultiValue(adapter.getBundle(),cmd,dc.get_usr_NewForwarderType(),KEY_newForwarderType);
-									
+				
 		//The Buttons
-    																												if (!pressButton(cmd,adapter,dc,dc.get_usr_RemoveForwarder(),KEY_removeForwarder)) return;
-																									if (!pressButton(cmd,adapter,dc,dc.get_usr_AddForwarder(),KEY_addForwarder)) return;
-																		
+    			
 	}	
 
 	}

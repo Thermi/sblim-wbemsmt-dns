@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class DnsForwardersForServiceDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardersForServiceDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
@@ -200,6 +205,8 @@ public class DnsForwardersForServiceDataContainerImpl extends BaseDataContainer 
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -227,4 +234,17 @@ public class DnsForwardersForServiceDataContainerImpl extends BaseDataContainer 
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsForwardersForServiceDataContainerImpl source = (DnsForwardersForServiceDataContainerImpl)sourceContainer;
+	
+    	    		get_Forward().setValue(source.get_Forward().getValue());
+		    		get_Forwarders().setValue(source.get_Forwarders().getValue());
+		    		get_usr_RemoveForwarder().setValue(source.get_usr_RemoveForwarder().getValue());
+		    		get_usr_NewForwarder().setValue(source.get_usr_NewForwarder().getValue());
+		    		get_usr_AddForwarder().setValue(source.get_usr_AddForwarder().getValue());
+		    		get_usr_NewForwarderType().setValue(source.get_usr_NewForwarderType().getValue());
+				
+    	    	
+	}
 }

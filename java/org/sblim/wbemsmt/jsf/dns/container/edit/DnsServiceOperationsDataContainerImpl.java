@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.dns.container.edit;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class DnsServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceOperationsDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_RunAsRoot;
@@ -191,6 +195,8 @@ public class DnsServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.too
 		return new String[]{"messages","messagesDns"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -215,6 +221,19 @@ public class DnsServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.too
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsServiceOperationsDataContainerImpl source = (DnsServiceOperationsDataContainerImpl)sourceContainer;
+	
+    	    		get_RunAsRoot().setValue(source.get_RunAsRoot().getValue());
+		    		get_usr_Restart().setValue(source.get_usr_Restart().getValue());
+		    		get_invoke_Start().setValue(source.get_invoke_Start().getValue());
+		    		get_invoke_Stop().setValue(source.get_invoke_Stop().getValue());
+		    		get_Status().setValue(source.get_Status().getValue());
+				
+    	    	
 	}
 
 	

@@ -40,7 +40,7 @@ public interface DnsSlaveZoneWizardSummaryDataContainer extends org.sblim.wbemsm
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Name<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Name();

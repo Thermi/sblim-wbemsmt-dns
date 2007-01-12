@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class DnsReverseZoneDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsReverseZoneDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
@@ -322,6 +327,8 @@ public class DnsReverseZoneDataContainerImpl extends BaseDataContainer implement
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -355,4 +362,23 @@ public class DnsReverseZoneDataContainerImpl extends BaseDataContainer implement
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsReverseZoneDataContainerImpl source = (DnsReverseZoneDataContainerImpl)sourceContainer;
+	
+    	    		get_Name().setValue(source.get_Name().getValue());
+		    		get_Forward().setValue(source.get_Forward().getValue());
+		    		get_Forwarders().setValue(source.get_Forwarders().getValue());
+		    		get_usr_RemoveForwarder().setValue(source.get_usr_RemoveForwarder().getValue());
+		    		get_usr_NewForwarder().setValue(source.get_usr_NewForwarder().getValue());
+		    		get_usr_AddForwarder().setValue(source.get_usr_AddForwarder().getValue());
+		    		get_usr_NewForwarderType().setValue(source.get_usr_NewForwarderType().getValue());
+		    		get_TTL().setValue(source.get_TTL().getValue());
+		    		get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
+		    		get_usr_RemoveTTL().setValue(source.get_usr_RemoveTTL().getValue());
+		    		get_ZoneFile().setValue(source.get_ZoneFile().getValue());
+		    		get_usr_UseGlobalForwarders().setValue(source.get_usr_UseGlobalForwarders().getValue());
+				
+    	    	
+	}
 }

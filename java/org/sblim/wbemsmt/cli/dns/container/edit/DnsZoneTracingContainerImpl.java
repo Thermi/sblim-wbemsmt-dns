@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class DnsZoneTracingContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneTracingContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
@@ -478,6 +483,8 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -518,4 +525,40 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsZoneTracingContainerImpl source = (DnsZoneTracingContainerImpl)sourceContainer;
+	
+    	    		get_Name().setValue(source.get_Name().getValue());
+		    		get_ResourceRecordFile().setValue(source.get_ResourceRecordFile().getValue());
+		    		get_Contact().setValue(source.get_Contact().getValue());
+		    		get_Expire().setValue(source.get_Expire().getValue());
+		    		get_Server().setValue(source.get_Server().getValue());
+		    		get_SerialNumber().setValue(source.get_SerialNumber().getValue());
+		    		get_Retry().setValue(source.get_Retry().getValue());
+		    		get_Forward().setValue(source.get_Forward().getValue());
+		    		get_Forwarders().setValue(source.get_Forwarders().getValue());
+		    		get_usr_MasterAddresses().setValue(source.get_usr_MasterAddresses().getValue());
+		    		get_TTL().setValue(source.get_TTL().getValue());
+		    		get_TTLUnit().setValue(source.get_TTLUnit().getValue());
+		    		get_NegativeCaching_TTL().setValue(source.get_NegativeCaching_TTL().getValue());
+		    		get_usr_NegativeCaching_TTLUnit().setValue(source.get_usr_NegativeCaching_TTLUnit().getValue());
+				
+    	    		List targetListForResourceRecords = (List) getResourceRecords();
+    		List sourceListForResourceRecords = (List) source.getResourceRecords();
+    		if (sourceListForResourceRecords.size() != targetListForResourceRecords.size())
+    		{
+    			throw new IllegalArgumentException("The Lists are not from same size. Source is " + sourceListForResourceRecords.size() + " and target is " + targetListForResourceRecords.size() );
+    		}
+			for (int ii=0; ii < sourceListForResourceRecords.size(); ii++)
+			{
+				((DataContainer) targetListForResourceRecords.get(ii)).copyFrom(((DataContainer) sourceListForResourceRecords.get(ii)));
+			}
+			
+    	    	    		getAllowNotifyAcl().copyFrom(source.getAllowNotifyAcl());
+		    		getAllowQueryAcl().copyFrom(source.getAllowQueryAcl());
+		    		getAllowTransferAcl().copyFrom(source.getAllowTransferAcl());
+		    		getAllowUpdateAcl().copyFrom(source.getAllowUpdateAcl());
+		
+	}
 }

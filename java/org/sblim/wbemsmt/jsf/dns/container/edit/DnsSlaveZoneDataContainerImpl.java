@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.dns.container.edit;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class DnsSlaveZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsSlaveZoneDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
@@ -531,6 +535,8 @@ public class DnsSlaveZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 		return new String[]{"messages","messagesDns"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -568,6 +574,32 @@ public class DnsSlaveZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsSlaveZoneDataContainerImpl source = (DnsSlaveZoneDataContainerImpl)sourceContainer;
+	
+    	    		get_Name().setValue(source.get_Name().getValue());
+		    		get_Forward().setValue(source.get_Forward().getValue());
+		    		get_Forwarders().setValue(source.get_Forwarders().getValue());
+		    		get_usr_RemoveForwarder().setValue(source.get_usr_RemoveForwarder().getValue());
+		    		get_usr_NewForwarder().setValue(source.get_usr_NewForwarder().getValue());
+		    		get_usr_AddForwarder().setValue(source.get_usr_AddForwarder().getValue());
+		    		get_usr_NewForwarderType().setValue(source.get_usr_NewForwarderType().getValue());
+		    		get_Masters().setValue(source.get_Masters().getValue());
+		    		get_usr_RemoveMasterEntry().setValue(source.get_usr_RemoveMasterEntry().getValue());
+		    		get_usr_NewMasterEntry().setValue(source.get_usr_NewMasterEntry().getValue());
+		    		get_usr_AddNewMasterEntry().setValue(source.get_usr_AddNewMasterEntry().getValue());
+		    		get_usr_AddPredefinedMaster().setValue(source.get_usr_AddPredefinedMaster().getValue());
+		    		get_usr_PredefinedMasters().setValue(source.get_usr_PredefinedMasters().getValue());
+		    		get_TTL().setValue(source.get_TTL().getValue());
+		    		get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
+		    		get_usr_RemoveTTL().setValue(source.get_usr_RemoveTTL().getValue());
+		    		get_ZoneFile().setValue(source.get_ZoneFile().getValue());
+		    		get_usr_UseGlobalForwarders().setValue(source.get_usr_UseGlobalForwarders().getValue());
+				
+    	    	
 	}
 
 	

@@ -52,7 +52,7 @@ public class DnsResourceRecordListContainerImplLayouter extends DnsLayouter {
 			recordGrid.getChildren().add(getDummyLabel());
 			recordGrid.getChildren().add(getDummyLabel());
 			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(((LabeledJSFInputComponent)container.get_usr_Delete()).getComponent());
+			recordGrid.getChildren().add(((LabeledJSFInputComponent)container.get_usr_Delete()).getComponentPanel());
 			
 			multiLineBasePanel.updateRows(2);
 		}

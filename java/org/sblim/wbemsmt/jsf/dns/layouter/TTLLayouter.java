@@ -65,11 +65,11 @@ public class TTLLayouter extends DnsLayouter {
 		
 		HtmlPanelGrid compGrid = (HtmlPanelGrid) createTable(removeTTL == null ? 2 : 3, "0", "0");
 		
-		compGrid.getChildren().add(((LabeledJSFInputComponent)get_TTL).getComponent());
-		compGrid.getChildren().add(((LabeledJSFInputComponent)get_usr_TTLUnit).getComponent());
+		compGrid.getChildren().add(((LabeledJSFInputComponent)get_TTL).getComponentPanel());
+		compGrid.getChildren().add(((LabeledJSFInputComponent)get_usr_TTLUnit).getComponentPanel());
 		if (removeTTL != null)
 		{
-			compGrid.getChildren().add(((LabeledJSFInputComponent)removeTTL).getComponent());
+			compGrid.getChildren().add(((LabeledJSFInputComponent)removeTTL).getComponentPanel());
 		}
 		
 		parent.getChildren().add(((LabeledJSFInputComponent)get_TTL).getLabelPanel());

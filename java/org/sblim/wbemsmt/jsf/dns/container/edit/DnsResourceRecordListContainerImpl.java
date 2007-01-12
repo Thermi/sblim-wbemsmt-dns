@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.dns.container.edit;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_SelectAll;
@@ -126,6 +130,8 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 		return new String[]{"messages","messagesDns"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -148,6 +154,27 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
     	    		childs.addAll(getResourceRecords());
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsResourceRecordListContainerImpl source = (DnsResourceRecordListContainerImpl)sourceContainer;
+	
+    	    		get_usr_SelectAll().setValue(source.get_usr_SelectAll().getValue());
+		    		get_usr_Delete().setValue(source.get_usr_Delete().getValue());
+				
+    	    		List targetListForResourceRecords = (List) getResourceRecords();
+    		List sourceListForResourceRecords = (List) source.getResourceRecords();
+    		if (sourceListForResourceRecords.size() != targetListForResourceRecords.size())
+    		{
+    			throw new IllegalArgumentException("The Lists are not from same size. Source is " + sourceListForResourceRecords.size() + " and target is " + targetListForResourceRecords.size() );
+    		}
+			for (int ii=0; ii < sourceListForResourceRecords.size(); ii++)
+			{
+				((DataContainer) targetListForResourceRecords.get(ii)).copyFrom(((DataContainer) sourceListForResourceRecords.get(ii)));
+			}
+			
+    	    	
 	}
 
 	

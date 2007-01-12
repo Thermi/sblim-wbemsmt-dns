@@ -60,8 +60,8 @@ public class ResourceRecordLayouter extends DnsLayouter {
 		removeAllButton.addStyleSheetElement(width);
 
 		
-		HtmlSelectManyListbox notUsedRecords = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_usr_ResourceRecordNotUsed()).getComponent();
-		HtmlSelectManyListbox usedRecords = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_usr_ResourceRecordUsed()).getComponent();
+		HtmlSelectManyListbox notUsedRecords = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_usr_ResourceRecordNotUsed()).getComponentPanel();
+		HtmlSelectManyListbox usedRecords = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_usr_ResourceRecordUsed()).getComponentPanel();
 
 		notUsedRecords.setStyle(width);
 		usedRecords.setStyle(width);
@@ -69,11 +69,11 @@ public class ResourceRecordLayouter extends DnsLayouter {
 		panelForCustomLayout.getChildren().add(notUsedRecords);
 		panelForCustomLayout.getChildren().add(usedRecords);
 
-		panelForCustomLayout.getChildren().add(addButton.getComponent());
-		panelForCustomLayout.getChildren().add(removeButton.getComponent());
+		panelForCustomLayout.getChildren().add(addButton.getComponentPanel());
+		panelForCustomLayout.getChildren().add(removeButton.getComponentPanel());
 	
-		panelForCustomLayout.getChildren().add(addAllButton.getComponent());
-		panelForCustomLayout.getChildren().add(removeAllButton.getComponent());
+		panelForCustomLayout.getChildren().add(addAllButton.getComponentPanel());
+		panelForCustomLayout.getChildren().add(removeAllButton.getComponentPanel());
 	}
 
 	public void addForwarderForSummary(HtmlPanelGrid panelForCustomLayout, DnsForwarderDataContainer container, String width) {

@@ -61,28 +61,28 @@ public class DnsACLLayouter extends DnsLayouter{
 		grid.setWidth("80%");
 		grid.setColumnClasses("topAlignment,topAlignment");
 		
-		HtmlInputText newAddressTextField = (HtmlInputText) ((LabeledJSFInputComponent) container.get_usr_NewAddress()).getComponent();
+		HtmlInputText newAddressTextField = (HtmlInputText) ((LabeledJSFInputComponent) container.get_usr_NewAddress()).getComponentPanel();
 		newAddressTextField.setStyle(DnsACLLayouter.DEFAULT_PANEL_WIDTH);
 		
-		HtmlCommandButton addNewButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_AddNewAddress()).getComponent();
+		HtmlCommandButton addNewButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_AddNewAddress()).getComponentPanel();
 		addNewButton.setStyle(DnsACLLayouter.DEFAULT_PANEL_WIDTH);
 		
-		HtmlSelectManyListbox usedAddresses = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_AddressList()).getComponent();
+		HtmlSelectManyListbox usedAddresses = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_AddressList()).getComponentPanel();
 		usedAddresses.setStyle(DnsACLLayouter.DEFAULT_PANEL_WIDTH);
 		
-		HtmlCommandButton addPredefinedButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_AddPredefinedAddress()).getComponent();
+		HtmlCommandButton addPredefinedButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_AddPredefinedAddress()).getComponentPanel();
 		addPredefinedButton.setStyle(DnsACLLayouter.DEFAULT_PANEL_WIDTH);
 		
-		HtmlCommandButton removeButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_RemoveAddress()).getComponent();
+		HtmlCommandButton removeButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_RemoveAddress()).getComponentPanel();
 		removeButton.setStyle(DnsACLLayouter.DEFAULT_PANEL_WIDTH);
 
-		HtmlCommandButton upButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_AddressUp()).getComponent();
+		HtmlCommandButton upButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_AddressUp()).getComponentPanel();
 		upButton.setStyle("width:60px");
 
-		HtmlCommandButton downButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_AddressDown()).getComponent();
+		HtmlCommandButton downButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_AddressDown()).getComponentPanel();
 		downButton.setStyle("width:60px");
 
-		HtmlSelectManyListbox notUsedAddresses = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_usr_UserAddresses()).getComponent();
+		HtmlSelectManyListbox notUsedAddresses = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_usr_UserAddresses()).getComponentPanel();
 		notUsedAddresses.setStyle(DnsACLLayouter.DEFAULT_PANEL_WIDTH);
 		
 		//add one dummy row
@@ -96,7 +96,7 @@ public class DnsACLLayouter extends DnsLayouter{
 		{
 			grid.getChildren().add(((LabeledJSFInputComponent) name).getLabelPanel());
 			grid.getChildren().add(getDummyLabel());
-			grid.getChildren().add(((LabeledJSFInputComponent) name).getComponent());
+			grid.getChildren().add(((LabeledJSFInputComponent) name).getComponentPanel());
 			grid.getChildren().add(getDummyLabel());
 			label = getLabel("<br>");
 			label.setEscape(false);
@@ -153,7 +153,7 @@ public class DnsACLLayouter extends DnsLayouter{
 			label.setEscape(false);			
 			grid.getChildren().add(label);
 			grid.getChildren().add(getDummyLabel());
-			grid.getChildren().add(useGlobal.getComponent());
+			grid.getChildren().add(useGlobal.getComponentPanel());
 			grid.getChildren().add(getDummyLabel());
 		}		
 		

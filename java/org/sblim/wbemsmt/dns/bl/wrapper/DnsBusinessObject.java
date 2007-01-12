@@ -52,6 +52,7 @@ import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListContainer;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsSoaContainer;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsTTLDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardSummaryDataContainer;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchList;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchListHelper;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowNotifyForZone;
@@ -677,6 +678,18 @@ public abstract class DnsBusinessObject extends DnsObject {
 		else
 		{
 			container.get_Forward().setControlValue(new UnsignedInt8((short)forward.intValue()));
+		}
+	}
+
+	public void setForwarder(DnsForwardZoneWizardSummaryDataContainer container, UnsignedInt8 forward) {
+		
+		if (forward == null || forward.intValue() == Linux_DnsServiceSettingData.FORWARD_UNKNOWN)
+		{
+			container.get_Forward().setControlValue(Linux_DnsServiceSettingData.CIM_VALUEMAP_FORWARD[Linux_DnsServiceSettingData.FORWARD_UNKNOWN]);
+		}
+		else
+		{
+			container.get_Forward().setControlValue(Linux_DnsServiceSettingData.CIM_VALUEMAP_FORWARD[forward.intValue()]);
 		}
 	}
 

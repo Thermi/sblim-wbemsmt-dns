@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class DnsReverseZoneWizardPage1DataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardPage1DataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
@@ -234,6 +239,8 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends BaseDataContaine
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -263,4 +270,19 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends BaseDataContaine
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsReverseZoneWizardPage1DataContainerImpl source = (DnsReverseZoneWizardPage1DataContainerImpl)sourceContainer;
+	
+    	    		get_usr_IpAddress().setValue(source.get_usr_IpAddress().getValue());
+		    		get_usr_ResourceRecordUsed().setValue(source.get_usr_ResourceRecordUsed().getValue());
+		    		get_usr_RemoveResourceRecord().setValue(source.get_usr_RemoveResourceRecord().getValue());
+		    		get_usr_ResourceRecordNotUsed().setValue(source.get_usr_ResourceRecordNotUsed().getValue());
+		    		get_usr_AddResourceRecord().setValue(source.get_usr_AddResourceRecord().getValue());
+		    		get_usr_AddAllResourceRecords().setValue(source.get_usr_AddAllResourceRecords().getValue());
+		    		get_usr_RemoveAllResourceRecords().setValue(source.get_usr_RemoveAllResourceRecords().getValue());
+		    		get_usr_IpPresets().setValue(source.get_usr_IpPresets().getValue());
+				
+    	    	
+	}
 }

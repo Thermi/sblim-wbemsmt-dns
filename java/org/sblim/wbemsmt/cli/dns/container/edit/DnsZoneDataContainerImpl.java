@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class DnsZoneDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
@@ -100,6 +105,8 @@ public class DnsZoneDataContainerImpl extends BaseDataContainer implements org.s
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -122,4 +129,12 @@ public class DnsZoneDataContainerImpl extends BaseDataContainer implements org.s
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsZoneDataContainerImpl source = (DnsZoneDataContainerImpl)sourceContainer;
+	
+    	    		get_Name().setValue(source.get_Name().getValue());
+				
+    	    	
+	}
 }

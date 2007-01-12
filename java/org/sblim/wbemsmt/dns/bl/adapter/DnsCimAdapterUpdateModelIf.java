@@ -54,7 +54,6 @@ public interface DnsCimAdapterUpdateModelIf extends UpdateModelDelegatee
 	public void updateModelImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsConfigurationDataContainer container) throws org.sblim.wbemsmt.exception.ModelUpdateException;
 	public void updateModelImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardZoneDataContainer container) throws org.sblim.wbemsmt.exception.ModelUpdateException;
 	public void updateModelImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardPage1DataContainer container) throws org.sblim.wbemsmt.exception.ModelUpdateException;
-	public void updateModelImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardSummaryDataContainer container) throws org.sblim.wbemsmt.exception.ModelUpdateException;
 	public void updateModelImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsForwarderDataContainer container) throws org.sblim.wbemsmt.exception.ModelUpdateException;
 	public void updateModelImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardersForServiceDataContainer container) throws org.sblim.wbemsmt.exception.ModelUpdateException;
 	public void updateModelImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsHintZoneDataContainer container) throws org.sblim.wbemsmt.exception.ModelUpdateException;

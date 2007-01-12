@@ -34,6 +34,11 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
+
 public class DnsResourceRecordWizardSummaryDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardSummaryDataContainer {
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
@@ -53,7 +58,7 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends BaseDataCon
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -69,7 +74,7 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends BaseDataCon
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -85,7 +90,7 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends BaseDataCon
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -101,7 +106,7 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends BaseDataCon
 			/**
 		* 
 		* DataType STRING
-		* UIType TEXTFIELD
+		* UIType LABEL
 		* ReadOnly true
 		*/
 
@@ -166,6 +171,8 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends BaseDataCon
 			
 	}
 	
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -191,4 +198,15 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends BaseDataCon
 	
 	}
 	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsResourceRecordWizardSummaryDataContainerImpl source = (DnsResourceRecordWizardSummaryDataContainerImpl)sourceContainer;
+	
+    	    		get_usr_Name().setValue(source.get_usr_Name().getValue());
+		    		get_usr_Type().setValue(source.get_usr_Type().getValue());
+		    		get_usr_Value().setValue(source.get_usr_Value().getValue());
+		    		get_usr_Priority().setValue(source.get_usr_Priority().getValue());
+				
+    	    	
+	}
 }

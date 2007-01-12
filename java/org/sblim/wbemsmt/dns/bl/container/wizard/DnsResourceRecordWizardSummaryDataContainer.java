@@ -42,7 +42,7 @@ public interface DnsResourceRecordWizardSummaryDataContainer extends org.sblim.w
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Name<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Name();
@@ -50,7 +50,7 @@ public interface DnsResourceRecordWizardSummaryDataContainer extends org.sblim.w
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Type<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Type();
@@ -58,7 +58,7 @@ public interface DnsResourceRecordWizardSummaryDataContainer extends org.sblim.w
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: Value<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Value();
@@ -66,7 +66,7 @@ public interface DnsResourceRecordWizardSummaryDataContainer extends org.sblim.w
 		/**
 		* <br>
 		* DataType STRING<br>
-		* UIType TEXTFIELD<br>
+		* UIType LABEL<br>
 		* Relation to FCO: <br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Priority();

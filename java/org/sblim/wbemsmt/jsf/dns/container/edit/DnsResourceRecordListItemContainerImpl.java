@@ -27,6 +27,10 @@ package org.sblim.wbemsmt.jsf.dns.container.edit;
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
 
+
+
+import org.sblim.wbemsmt.bl.adapter.DataContainer;
+
 public class DnsResourceRecordListItemContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
@@ -275,6 +279,8 @@ public class DnsResourceRecordListItemContainerImpl extends org.sblim.wbemsmt.to
 		return new String[]{"messages","messagesDns"};
 	}
 
+	
+ 
 	/**
 	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
 	 * @return
@@ -302,6 +308,22 @@ public class DnsResourceRecordListItemContainerImpl extends org.sblim.wbemsmt.to
 		List childs = new ArrayList();
     	    			return childs;
 	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer)
+	{
+		DnsResourceRecordListItemContainerImpl source = (DnsResourceRecordListItemContainerImpl)sourceContainer;
+	
+    	    		get_Name().setValue(source.get_Name().getValue());
+		    		get_TTL().setValue(source.get_TTL().getValue());
+		    		get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
+		    		get_usr_RemoveTTL().setValue(source.get_usr_RemoveTTL().getValue());
+		    		get_Family().setValue(source.get_Family().getValue());
+		    		get_Type().setValue(source.get_Type().getValue());
+		    		get_Value().setValue(source.get_Value().getValue());
+		    		get_usr_DeleteRecord().setValue(source.get_usr_DeleteRecord().getValue());
+				
+    	    	
 	}
 
 	
