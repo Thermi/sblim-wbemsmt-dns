@@ -19,11 +19,8 @@
   */
 package org.sblim.wbemsmt.jsf.dns.layouter;
 
-import javax.faces.component.html.HtmlCommandButton;
-import javax.faces.component.html.HtmlInputText;
 import javax.faces.component.html.HtmlOutputText;
 import javax.faces.component.html.HtmlPanelGrid;
-import javax.faces.component.html.HtmlSelectManyListbox;
 
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsAddMasterAddressDataContainer;
 import org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent;
@@ -53,23 +50,23 @@ public class MasterAddressesLayouter extends DnsLayouter {
 
 		
 		
-		HtmlInputText newAddressTextField = (HtmlInputText) ((LabeledJSFInputComponent) container.get_usr_NewMasterEntry()).getComponentPanel();
-		newAddressTextField.setStyle(width);
+		LabeledJSFInputComponent newAddressTextField = (LabeledJSFInputComponent) container.get_usr_NewMasterEntry();
+		newAddressTextField.addStyleSheetElement(width);
 		
-		HtmlCommandButton addNewButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_AddNewMasterEntry()).getComponentPanel();
-		addNewButton.setStyle(width);
+		LabeledJSFInputComponent addNewButton = (LabeledJSFInputComponent) container.get_usr_AddNewMasterEntry();
+		addNewButton.addStyleSheetElement(width);
 		
-		HtmlSelectManyListbox usedAddresses = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_Masters()).getComponentPanel();
-		usedAddresses.setStyle(width);
+		LabeledJSFInputComponent usedAddresses = (LabeledJSFInputComponent) container.get_Masters();
+		usedAddresses.addStyleSheetElement(width);
 		
-		HtmlCommandButton addPredefinedButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_AddPredefinedMaster()).getComponentPanel();
-		addPredefinedButton.setStyle(width);
+		LabeledJSFInputComponent addPredefinedButton = (LabeledJSFInputComponent) container.get_usr_AddPredefinedMaster();
+		addPredefinedButton.addStyleSheetElement(width);
 		
-		HtmlCommandButton removeButton = (HtmlCommandButton) ((LabeledJSFInputComponent) container.get_usr_RemoveMasterEntry()).getComponentPanel();
-		removeButton.setStyle(width);
+		LabeledJSFInputComponent removeButton = (LabeledJSFInputComponent) container.get_usr_RemoveMasterEntry();
+		removeButton.addStyleSheetElement(width);
 
-		HtmlSelectManyListbox notUsedAddresses = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_usr_PredefinedMasters()).getComponentPanel();
-		notUsedAddresses.setStyle(width);
+		LabeledJSFInputComponent notUsedAddresses = (LabeledJSFInputComponent) container.get_usr_PredefinedMasters();
+		notUsedAddresses.addStyleSheetElement(width);
 		
 		//add one dummy row
 		HtmlOutputText label = getLabel("<br>");
@@ -96,14 +93,14 @@ public class MasterAddressesLayouter extends DnsLayouter {
 		inputGrid.setColumns(1);
 
 		inputGrid.getChildren().add(((LabeledJSFInputComponent) container.get_usr_NewMasterEntry()).getLabelPanel());
-		inputGrid.getChildren().add(newAddressTextField);
-		inputGrid.getChildren().add(addNewButton);
+		inputGrid.getChildren().add(newAddressTextField.getComponentPanel());
+		inputGrid.getChildren().add(addNewButton.getComponentPanel());
 		label = getLabel("<br>");
 		label.setEscape(false);
 		inputGrid.getChildren().add(label);
 		inputGrid.getChildren().add(((LabeledJSFInputComponent) container.get_usr_PredefinedMasters()).getLabelPanel());
-		inputGrid.getChildren().add(notUsedAddresses);
-		inputGrid.getChildren().add(addPredefinedButton);
+		inputGrid.getChildren().add(notUsedAddresses.getComponentPanel());
+		inputGrid.getChildren().add(addPredefinedButton.getComponentPanel());
 
 		HtmlPanelGrid usedAddressesGrid = (HtmlPanelGrid) super.create(HtmlPanelGrid.COMPONENT_TYPE);
 		usedAddressesGrid.setColumns(1);
@@ -111,8 +108,8 @@ public class MasterAddressesLayouter extends DnsLayouter {
 		usedAddressesGrid.setCellspacing("0");
 
 		usedAddressesGrid.getChildren().add(((LabeledJSFInputComponent) container.get_Masters()).getLabelPanel());
-		usedAddressesGrid.getChildren().add(usedAddresses);
-		usedAddressesGrid.getChildren().add(removeButton);
+		usedAddressesGrid.getChildren().add(usedAddresses.getComponentPanel());
+		usedAddressesGrid.getChildren().add(removeButton.getComponentPanel());
 
 		//add the grids to the outer grid
 		panelForCustomLayout.getChildren().add(inputGrid);

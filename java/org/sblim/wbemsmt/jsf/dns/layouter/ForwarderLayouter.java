@@ -19,10 +19,8 @@
   */
 package org.sblim.wbemsmt.jsf.dns.layouter;
 
-import javax.faces.component.html.HtmlInputText;
 import javax.faces.component.html.HtmlOutputText;
 import javax.faces.component.html.HtmlPanelGrid;
-import javax.faces.component.html.HtmlSelectManyListbox;
 
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsForwarderDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardSummaryDataContainer;
@@ -67,14 +65,14 @@ public class ForwarderLayouter extends DnsLayouter {
 		removeButton.addStyleSheetElement(width);
 
 		
-		HtmlSelectManyListbox usedAddresses = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_Forwarders()).getComponentPanel();
-		HtmlInputText newAddress = (HtmlInputText) ((LabeledJSFInputComponent) container.get_usr_NewForwarder()).getComponentPanel();
+		LabeledJSFInputComponent usedAddresses = (LabeledJSFInputComponent) container.get_Forwarders();
+		LabeledJSFInputComponent newAddress = (LabeledJSFInputComponent) container.get_usr_NewForwarder();
 
-		usedAddresses.setStyle(width);
-		newAddress.setStyle(width);
+		usedAddresses.addStyleSheetElement(width);
+		newAddress.addStyleSheetElement(width);
 
-		forwardersGrid.getChildren().add(newAddress);
-		forwardersGrid.getChildren().add(usedAddresses);
+		forwardersGrid.getChildren().add(newAddress.getComponentPanel());
+		forwardersGrid.getChildren().add(usedAddresses.getComponentPanel());
 
 		forwardersGrid.getChildren().add(addButton.getComponentPanel());
 		forwardersGrid.getChildren().add(removeButton.getComponentPanel());

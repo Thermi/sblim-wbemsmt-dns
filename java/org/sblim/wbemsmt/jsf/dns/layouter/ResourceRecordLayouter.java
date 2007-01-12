@@ -21,7 +21,6 @@ package org.sblim.wbemsmt.jsf.dns.layouter;
 
 import javax.faces.component.html.HtmlOutputText;
 import javax.faces.component.html.HtmlPanelGrid;
-import javax.faces.component.html.HtmlSelectManyListbox;
 
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsForwarderDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardPage1DataContainer;
@@ -60,14 +59,14 @@ public class ResourceRecordLayouter extends DnsLayouter {
 		removeAllButton.addStyleSheetElement(width);
 
 		
-		HtmlSelectManyListbox notUsedRecords = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_usr_ResourceRecordNotUsed()).getComponentPanel();
-		HtmlSelectManyListbox usedRecords = (HtmlSelectManyListbox) ((LabeledJSFInputComponent) container.get_usr_ResourceRecordUsed()).getComponentPanel();
+		LabeledJSFInputComponent notUsedRecords = (LabeledJSFInputComponent) container.get_usr_ResourceRecordNotUsed();
+		LabeledJSFInputComponent usedRecords = (LabeledJSFInputComponent) container.get_usr_ResourceRecordUsed();
 
-		notUsedRecords.setStyle(width);
-		usedRecords.setStyle(width);
+		notUsedRecords.addStyleSheetElement(width);
+		usedRecords.addStyleSheetElement(width);
 
-		panelForCustomLayout.getChildren().add(notUsedRecords);
-		panelForCustomLayout.getChildren().add(usedRecords);
+		panelForCustomLayout.getChildren().add(notUsedRecords.getComponentPanel());
+		panelForCustomLayout.getChildren().add(usedRecords.getComponentPanel());
 
 		panelForCustomLayout.getChildren().add(addButton.getComponentPanel());
 		panelForCustomLayout.getChildren().add(removeButton.getComponentPanel());
