@@ -30,6 +30,8 @@ public class ForwarderLayouter extends DnsLayouter {
 
 	public void addForwarder(HtmlPanelGrid panelForCustomLayout, DnsForwarderDataContainer container, String width, boolean addHeader, LabeledJSFInputComponent useGlobal) {
 
+		
+		String widthButtons = "width:160px";
 
 		if (addHeader)
 		{
@@ -61,15 +63,15 @@ public class ForwarderLayouter extends DnsLayouter {
 		LabeledJSFInputComponent addButton = (LabeledJSFInputComponent) container.get_usr_AddForwarder();
 		LabeledJSFInputComponent removeButton = (LabeledJSFInputComponent) container.get_usr_RemoveForwarder();
 		
-		addButton.addStyleSheetElement(width);
-		removeButton.addStyleSheetElement(width);
+		addButton.addStyleSheetElement(widthButtons);
+		removeButton.addStyleSheetElement(widthButtons);
 
 		
 		LabeledJSFInputComponent usedAddresses = (LabeledJSFInputComponent) container.get_Forwarders();
 		LabeledJSFInputComponent newAddress = (LabeledJSFInputComponent) container.get_usr_NewForwarder();
 
-		usedAddresses.addStyleSheetElement(width);
-		newAddress.addStyleSheetElement(width);
+		usedAddresses.addStyleSheetElement(widthButtons);
+		newAddress.addStyleSheetElement(widthButtons);
 
 		forwardersGrid.getChildren().add(newAddress.getComponentPanel());
 		forwardersGrid.getChildren().add(usedAddresses.getComponentPanel());
@@ -79,6 +81,8 @@ public class ForwarderLayouter extends DnsLayouter {
 
 		if (useGlobal != null)
 		{
+			useGlobal.addStyleSheetElement(widthButtons);
+			
 			HtmlOutputText label = getLabel("<br>");
 			label.setEscape(false);			
 			forwardersGrid.getChildren().add(label);

@@ -28,8 +28,8 @@ import org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle;
 
 public class DnsACLLayouter extends DnsLayouter{
 
-	;
-
+	String widthButtons = "width:200px";
+	
 	/**
 	 * 
 	 */
@@ -59,19 +59,19 @@ public class DnsACLLayouter extends DnsLayouter{
 		grid.setColumnClasses("topAlignment,topAlignment");
 		
 			LabeledJSFInputComponent newAddressTextField = (LabeledJSFInputComponent) container.get_usr_NewAddress();
-		newAddressTextField.addStyleSheetElement(DnsACLLayouter.DEFAULT_PANEL_WIDTH);
+		newAddressTextField.addStyleSheetElement(widthButtons);
 		
 		LabeledJSFInputComponent addNewButton = (LabeledJSFInputComponent) container.get_usr_AddNewAddress();
-		addNewButton.addStyleSheetElement(DnsACLLayouter.DEFAULT_PANEL_WIDTH);
+		addNewButton.addStyleSheetElement(widthButtons);
 		
 		LabeledJSFInputComponent usedAddresses = (LabeledJSFInputComponent) container.get_AddressList();
-		usedAddresses.addStyleSheetElement(DnsACLLayouter.DEFAULT_PANEL_WIDTH);
+		usedAddresses.addStyleSheetElement(widthButtons);
 		
 		LabeledJSFInputComponent addPredefinedButton = (LabeledJSFInputComponent) container.get_usr_AddPredefinedAddress();
-		addPredefinedButton.addStyleSheetElement(DnsACLLayouter.DEFAULT_PANEL_WIDTH);
+		addPredefinedButton.addStyleSheetElement(widthButtons);
 		
 		LabeledJSFInputComponent removeButton = (LabeledJSFInputComponent) container.get_usr_RemoveAddress();
-		removeButton.addStyleSheetElement(DnsACLLayouter.DEFAULT_PANEL_WIDTH);
+		removeButton.addStyleSheetElement(widthButtons);
 
 		LabeledJSFInputComponent upButton = (LabeledJSFInputComponent) container.get_usr_AddressUp();
 		upButton.addStyleSheetElement("width:60px");
@@ -80,7 +80,7 @@ public class DnsACLLayouter extends DnsLayouter{
 		downButton.addStyleSheetElement("width:60px");
 
 		LabeledJSFInputComponent notUsedAddresses = (LabeledJSFInputComponent) container.get_usr_UserAddresses();
-		notUsedAddresses.addStyleSheetElement(DnsACLLayouter.DEFAULT_PANEL_WIDTH);
+		notUsedAddresses.addStyleSheetElement(widthButtons);
 
 		//add one dummy row
 		HtmlOutputText label = getLabel("<br>");
@@ -146,6 +146,8 @@ public class DnsACLLayouter extends DnsLayouter{
 		
 		if (useGlobal != null)
 		{
+			useGlobal.addStyleSheetElement(widthButtons);
+			
 			label = getLabel("<br>");
 			label.setEscape(false);			
 			grid.getChildren().add(label);
