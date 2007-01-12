@@ -207,4 +207,10 @@ public class CreateMasterZoneWizard extends JSFWizardBase implements IPageWizard
 	{
 		return bundle.getString("CreateMasterZoneWizard.finishText",bundle.getString("wizard.finishText"));
 	}
+	
+	public String getJavaScriptWaitStatement()
+	{
+		String text = bundle.getString("CreateMasterZoneWizard.createWaitText",bundle.getString("wizard.createWaitText"));
+		return org.sblim.wbemsmt.tools.jsf.JavascriptUtil.getShowWaitCall(text);
+	}
 }

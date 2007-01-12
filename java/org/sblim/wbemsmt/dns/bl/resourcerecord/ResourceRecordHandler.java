@@ -153,6 +153,7 @@ public class ResourceRecordHandler {
 	
 		((ActionComponent)container.get_usr_Delete()).setNeedConfirmation(true);
 		((ActionComponent)container.get_usr_Delete()).setShowWait(true);
+		((ActionComponent)container.get_usr_Delete()).setWaitText(container.getAdapter().getBundle().getString("deleting.records"));
 		
 		adapter.updateControls(container.getResourceRecords(), zone.getResourceRecords().getFCOs());
 	}

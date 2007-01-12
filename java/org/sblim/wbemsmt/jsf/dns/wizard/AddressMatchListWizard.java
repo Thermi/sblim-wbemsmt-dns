@@ -208,4 +208,10 @@ public class AddressMatchListWizard extends JSFWizardBase implements IPageWizard
 	{
 		return bundle.getString("AddressMatchListWizard.finishText",bundle.getString("wizard.finishText"));
 	}
+	
+	public String getJavaScriptWaitStatement()
+	{
+		String text = bundle.getString("AddressMatchListWizard.createWaitText",bundle.getString("wizard.createWaitText"));
+		return org.sblim.wbemsmt.tools.jsf.JavascriptUtil.getShowWaitCall(text);
+	}
 }

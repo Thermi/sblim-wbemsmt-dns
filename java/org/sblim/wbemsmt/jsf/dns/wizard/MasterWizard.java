@@ -208,4 +208,10 @@ public class MasterWizard extends JSFWizardBase implements IPageWizardAdapter {
 	{
 		return bundle.getString("MasterWizard.finishText",bundle.getString("wizard.finishText"));
 	}
+	
+	public String getJavaScriptWaitStatement()
+	{
+		String text = bundle.getString("MasterWizard.createWaitText",bundle.getString("wizard.createWaitText"));
+		return org.sblim.wbemsmt.tools.jsf.JavascriptUtil.getShowWaitCall(text);
+	}
 }

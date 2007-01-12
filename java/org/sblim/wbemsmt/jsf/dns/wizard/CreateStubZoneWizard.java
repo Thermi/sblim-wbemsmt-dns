@@ -208,4 +208,10 @@ public class CreateStubZoneWizard extends JSFWizardBase implements IPageWizardAd
 	{
 		return bundle.getString("CreateStubZoneWizard.finishText",bundle.getString("wizard.finishText"));
 	}
+	
+	public String getJavaScriptWaitStatement()
+	{
+		String text = bundle.getString("CreateStubZoneWizard.createWaitText",bundle.getString("wizard.createWaitText"));
+		return org.sblim.wbemsmt.tools.jsf.JavascriptUtil.getShowWaitCall(text);
+	}
 }

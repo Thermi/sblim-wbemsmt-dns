@@ -209,4 +209,10 @@ public class CreateForwardZoneWizard extends JSFWizardBase implements IPageWizar
 	{
 		return bundle.getString("CreateForwardZoneWizard.finishText",bundle.getString("wizard.finishText"));
 	}
+	
+	public String getJavaScriptWaitStatement()
+	{
+		String text = bundle.getString("CreateForwardZoneWizard.createWaitText",bundle.getString("wizard.createWaitText"));
+		return org.sblim.wbemsmt.tools.jsf.JavascriptUtil.getShowWaitCall(text);
+	}
 }
