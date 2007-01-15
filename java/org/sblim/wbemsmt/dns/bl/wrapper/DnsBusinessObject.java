@@ -176,7 +176,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 					else
 					{
 						list = MessageList.init(container);
-						list.addMessage(new Message(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_FWD,Message.WARNING, adapter.getBundle().getString("value.not.added.to.forwarder",new Object[]{newForwarder})));
+						list.addMessage(Message.create(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_FWD,Message.WARNING, adapter.getBundle(),"value.not.added.to.forwarder",new Object[]{newForwarder}));
 					}
 					container.get_usr_NewForwarder().setControlValue("");
 				}
