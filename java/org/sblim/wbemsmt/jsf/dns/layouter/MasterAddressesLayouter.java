@@ -19,6 +19,7 @@
   */
 package org.sblim.wbemsmt.jsf.dns.layouter;
 
+import javax.faces.component.html.HtmlOutputLabel;
 import javax.faces.component.html.HtmlOutputText;
 import javax.faces.component.html.HtmlPanelGrid;
 
@@ -29,9 +30,19 @@ public class MasterAddressesLayouter extends DnsLayouter {
 
 	public void addMasterAddress(HtmlPanelGrid panelForCustomLayout, DnsAddMasterAddressDataContainer container, String width, LabeledJSFInputComponent nameForMasters, boolean addHeader ) {
 		
+		
+		//overwrite the width
+		width = "width:150px";
+		
+		HtmlPanelGrid  outerTable = panelForCustomLayout;
+		int cols = panelForCustomLayout.getColumns();
+		
+		panelForCustomLayout  = createTable(2, "0", "0");
+		
 		panelForCustomLayout.setCellpadding("0");
 		panelForCustomLayout.setCellspacing("0");
-		panelForCustomLayout.setWidth("80%");
+		panelForCustomLayout.setWidth("20%");
+		panelForCustomLayout.setColumnClasses("topAlignment,topAlignment");
 
 		if (addHeader)
 		{
@@ -114,6 +125,16 @@ public class MasterAddressesLayouter extends DnsLayouter {
 		//add the grids to the outer grid
 		panelForCustomLayout.getChildren().add(inputGrid);
 		panelForCustomLayout.getChildren().add(usedAddressesGrid);
+
+		//we created a new Table - add the old table
+		//and add some dummy columns if there is more than one column
+		outerTable.getChildren().add(panelForCustomLayout);
+		for (int i=0; i < cols-1; i++)
+		{
+			outerTable.getChildren().add(create(HtmlOutputLabel.COMPONENT_TYPE));
+		}
+		
+
 
 	}
 
