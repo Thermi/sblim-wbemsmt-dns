@@ -473,6 +473,7 @@
 | *CustomLayouter* \\ | --- |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| deleteRecord | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | Not used for Commandline |
 | Name | STRING | TEXTFIELD | Name \\ | --- | -resourceRecordName, Required, Used for selection |
 | TTL | STRING | TEXTFIELD | Linux_DnsSetting.get_TTL \\ | --- | -ttl, Optional,Default is noDefaultValue |
 | TTLUnit | UNSIGNED_INT16 | COMBOBOX | userdefined \\ | Userdefined | -ttlUnit, Optional,Default is noDefaultValue |
@@ -480,7 +481,6 @@
 | Family | UNSIGNED_INT8 | COMBOBOX | Family \\ | --- | -family, Optional,Default is noDefaultValue |
 | Type | UNSIGNED_INT16 | COMBOBOX | Type \\ | --- | -type, Required, Used for selection |
 | Value | STRING | TEXTFIELD | Value \\ | --- | -value, Required, Used for selection |
-| deleteRecord | BOOLEAN | CHECKBOX | userdefined \\ | Userdefined | Not used for Commandline |
 
 {panel}
 

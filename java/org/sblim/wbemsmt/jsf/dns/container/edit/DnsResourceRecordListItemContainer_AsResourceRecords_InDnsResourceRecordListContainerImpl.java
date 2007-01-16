@@ -39,6 +39,7 @@ import org.sblim.wbemsmt.bl.adapter.DataContainer;
 	
 public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer {
 
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_DeleteRecord;
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_TTL;
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_TTLUnit;
@@ -46,7 +47,6 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_Family;
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_Type;
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Value;
-			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_DeleteRecord;
 		
 	private static String[] orientationOfColumnAsCss = new String[]{
     				"left",
@@ -76,6 +76,8 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 			  8,grid);
 		this.index = index;
 		addComponents(new LabeledJSFInputComponent[]{
+					(LabeledJSFInputComponent)get_usr_DeleteRecord(),
+			
 					(LabeledJSFInputComponent)get_Name(),
 			
 					(LabeledJSFInputComponent)get_TTL(),
@@ -90,8 +92,6 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 			
 					(LabeledJSFInputComponent)get_Value(),
 			
-					(LabeledJSFInputComponent)get_usr_DeleteRecord(),
-			
 				});
 		if (first)
 		{
@@ -104,6 +104,29 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 	}
 	
 
+			/**
+		* 
+		* DataType BOOLEAN
+		* UIType CHECKBOX
+		* ReadOnly false
+		* Orientation LEFT
+		*/
+
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_DeleteRecord() {
+    		if (ic_usr_DeleteRecord == null)
+    		{
+				String label = bundle.getString("DnsResourceRecordListItemContainer.deleteRecord");
+				String binding = bindingPrefix + "resourceRecords["+ index +"]._usr_DeleteRecord.item";
+				logger.fine("Using binding " + binding);
+				DataContainer parent = this;
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+				boolean readOnly = false;
+    			ic_usr_DeleteRecord = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				;
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_usr_DeleteRecord).setOrientation( LabeledBaseInputComponentIf.LEFT );
+    		}
+    		return ic_usr_DeleteRecord;
+    	}
 			/**
 		* 
 		* DataType STRING
@@ -268,35 +291,16 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
     		}
     		return ic_Value;
     	}
-			/**
-		* 
-		* DataType BOOLEAN
-		* UIType CHECKBOX
-		* ReadOnly false
-		* Orientation LEFT
-		*/
-
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_DeleteRecord() {
-    		if (ic_usr_DeleteRecord == null)
-    		{
-				String label = bundle.getString("DnsResourceRecordListItemContainer.deleteRecord");
-				String binding = bindingPrefix + "resourceRecords["+ index +"]._usr_DeleteRecord.item";
-				logger.fine("Using binding " + binding);
-				DataContainer parent = this;
-				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-				boolean readOnly = false;
-    			ic_usr_DeleteRecord = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
-				;
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_usr_DeleteRecord).setOrientation( LabeledBaseInputComponentIf.LEFT );
-    		}
-    		return ic_usr_DeleteRecord;
-    	}
 		
 	
 		
 	public void reload()
 	{
 		super.reload();
+	    		if (ic_usr_DeleteRecord != null)
+    		{
+				ic_usr_DeleteRecord.setLabelText(bundle.getString("DnsResourceRecordListItemContainer.deleteRecord"));
+    		}
 	    		if (ic_Name != null)
     		{
 				ic_Name.setLabelText(bundle.getString("DnsResourceRecordListItemContainer.Name"));
@@ -325,10 +329,6 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
     		{
 				ic_Value.setLabelText(bundle.getString("DnsResourceRecordListItemContainer.Value"));
     		}
-	    		if (ic_usr_DeleteRecord != null)
-    		{
-				ic_usr_DeleteRecord.setLabelText(bundle.getString("DnsResourceRecordListItemContainer.deleteRecord"));
-    		}
 		}
 
 	public String[] getResourceBundleNames() {
@@ -349,6 +349,7 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 	public List getFields()
 	{
 		List fields = new ArrayList();
+    				fields.add(get_usr_DeleteRecord());
     				fields.add(get_Name());
     				fields.add(get_TTL());
     				fields.add(get_usr_TTLUnit());
@@ -356,7 +357,6 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
     				fields.add(get_Family());
     				fields.add(get_Type());
     				fields.add(get_Value());
-    				fields.add(get_usr_DeleteRecord());
     			return fields;
 	}
 
@@ -375,14 +375,14 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 	{
 		DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl source = (DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl)sourceContainer;
 	
-    	    		get_Name().setValue(source.get_Name().getValue());
+    	    		get_usr_DeleteRecord().setValue(source.get_usr_DeleteRecord().getValue());
+		    		get_Name().setValue(source.get_Name().getValue());
 		    		get_TTL().setValue(source.get_TTL().getValue());
 		    		get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
 		    		get_usr_RemoveTTL().setValue(source.get_usr_RemoveTTL().getValue());
 		    		get_Family().setValue(source.get_Family().getValue());
 		    		get_Type().setValue(source.get_Type().getValue());
 		    		get_Value().setValue(source.get_Value().getValue());
-		    		get_usr_DeleteRecord().setValue(source.get_usr_DeleteRecord().getValue());
 				
     	    	
 	}

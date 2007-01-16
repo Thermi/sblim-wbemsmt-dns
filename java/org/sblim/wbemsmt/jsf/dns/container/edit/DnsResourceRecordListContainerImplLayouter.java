@@ -19,6 +19,7 @@
   */
 package org.sblim.wbemsmt.jsf.dns.container.edit;
 
+import javax.faces.component.html.HtmlOutputText;
 import javax.faces.component.html.HtmlPanelGrid;
 
 import org.sblim.wbemsmt.jsf.dns.layouter.DnsLayouter;
@@ -34,27 +35,25 @@ public class DnsResourceRecordListContainerImplLayouter extends DnsLayouter {
 		{
 			MultiLineBasePanel multiLineBasePanel = ((MultiLineBasePanel)container.getResourceRecords().get(0));
 			HtmlPanelGrid recordGrid = multiLineBasePanel.getInputFieldContainer();
-			//parent.getChildren().add(recordGrid);
+
+			HtmlOutputText label = getLabel("<br>");
+			label.setEscape(false);
+			HtmlPanelGrid grid = createTable(1, "0", "0");
+
+			addComponent(grid, (LabeledJSFInputComponent) container.get_usr_SelectAll());
+			grid.getChildren().add(label);
+			grid.getChildren().add(((LabeledJSFInputComponent)container.get_usr_Delete()).getComponentPanel());
+
+			recordGrid.getChildren().add(grid);
+			recordGrid.getChildren().add(getDummyLabel());
+			recordGrid.getChildren().add(getDummyLabel());
+			recordGrid.getChildren().add(getDummyLabel());
+			recordGrid.getChildren().add(getDummyLabel());
+			recordGrid.getChildren().add(getDummyLabel());
+			recordGrid.getChildren().add(getDummyLabel());
+			recordGrid.getChildren().add(getDummyLabel());
 			
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
-			addComponent(recordGrid, (LabeledJSFInputComponent) container.get_usr_SelectAll());
-			
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(((LabeledJSFInputComponent)container.get_usr_Delete()).getComponentPanel());
-			
-			multiLineBasePanel.updateRows(2);
+			multiLineBasePanel.updateRows(0);
 		}
 		else
 		{

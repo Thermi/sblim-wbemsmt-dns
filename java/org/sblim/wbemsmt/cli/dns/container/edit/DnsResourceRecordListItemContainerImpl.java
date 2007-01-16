@@ -43,14 +43,14 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
 
 	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
-			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
+			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_DeleteRecord;
+    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_TTL;
     		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_TTLUnit;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_RemoveTTL;
     		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_Family;
     		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_Type;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Value;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_DeleteRecord;
     	
 		
 	public DnsResourceRecordListItemContainerImpl(AbstractBaseCimAdapter adapter) throws InitContainerException {
@@ -59,6 +59,22 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
     			adapter.initContainer(this);
 	}
 
+			/**
+		* 
+		* DataType BOOLEAN
+		* UIType CHECKBOX
+		* ReadOnly false
+		*/
+
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_DeleteRecord() {
+    		if (ic_usr_DeleteRecord == null)
+    		{
+				String label = bundle.getString("DnsResourceRecordListItemContainer.deleteRecord");
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
+    			ic_usr_DeleteRecord = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+    		}
+    		return ic_usr_DeleteRecord;
+    	}
 			/**
 		* 
 		* DataType STRING
@@ -171,22 +187,6 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
     		}
     		return ic_Value;
     	}
-			/**
-		* 
-		* DataType BOOLEAN
-		* UIType CHECKBOX
-		* ReadOnly false
-		*/
-
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_DeleteRecord() {
-    		if (ic_usr_DeleteRecord == null)
-    		{
-				String label = bundle.getString("DnsResourceRecordListItemContainer.deleteRecord");
-				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
-    			ic_usr_DeleteRecord = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
-    		}
-    		return ic_usr_DeleteRecord;
-    	}
 		
 	
 		
@@ -205,6 +205,11 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
 	
 		if (showInstance(listOptions))
 		{
+						if (get_usr_DeleteRecord().isVisible())
+			{
+				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_DeleteRecord()).getValue();
+				printStream.println(get_usr_DeleteRecord().getLabelText() + ": " + value);
+			}
 						if (get_Name().isVisible())
 			{
 				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
@@ -235,11 +240,6 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
 				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Value()).getValue();
 				printStream.println(get_Value().getLabelText() + ": " + value);
 			}
-						if (get_usr_DeleteRecord().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_DeleteRecord()).getValue();
-				printStream.println(get_usr_DeleteRecord().getLabelText() + ": " + value);
-			}
 					}
 
 		if (showChilds(listOptions))
@@ -263,6 +263,7 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
 	public List getFields()
 	{
 		List fields = new ArrayList();
+    				fields.add(get_usr_DeleteRecord());
     				fields.add(get_Name());
     				fields.add(get_TTL());
     				fields.add(get_usr_TTLUnit());
@@ -270,7 +271,6 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
     				fields.add(get_Family());
     				fields.add(get_Type());
     				fields.add(get_Value());
-    				fields.add(get_usr_DeleteRecord());
     			return fields;
 	}
 
@@ -289,14 +289,14 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
 	{
 		DnsResourceRecordListItemContainerImpl source = (DnsResourceRecordListItemContainerImpl)sourceContainer;
 	
-    	    		get_Name().setValue(source.get_Name().getValue());
+    	    		get_usr_DeleteRecord().setValue(source.get_usr_DeleteRecord().getValue());
+		    		get_Name().setValue(source.get_Name().getValue());
 		    		get_TTL().setValue(source.get_TTL().getValue());
 		    		get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
 		    		get_usr_RemoveTTL().setValue(source.get_usr_RemoveTTL().getValue());
 		    		get_Family().setValue(source.get_Family().getValue());
 		    		get_Type().setValue(source.get_Type().getValue());
 		    		get_Value().setValue(source.get_Value().getValue());
-		    		get_usr_DeleteRecord().setValue(source.get_usr_DeleteRecord().getValue());
 				
     	    	
 	}

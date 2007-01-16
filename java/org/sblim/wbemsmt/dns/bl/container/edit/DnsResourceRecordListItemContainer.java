@@ -29,6 +29,7 @@ public interface DnsResourceRecordListItemContainer extends org.sblim.wbemsmt.bl
 	/** 
 	 * Constants for Fields and Roles
 	 **/
+			public static final String FIELD_USR_DELETERECORD = "usr_DeleteRecord" ;
 			public static final String FIELD_NAME = "Name" ;
 			public static final String FIELD_TTL = "TTL" ;
 			public static final String FIELD_USR_TTLUNIT = "usr_TTLUnit" ;
@@ -36,12 +37,19 @@ public interface DnsResourceRecordListItemContainer extends org.sblim.wbemsmt.bl
 			public static final String FIELD_FAMILY = "Family" ;
 			public static final String FIELD_TYPE = "Type" ;
 			public static final String FIELD_VALUE = "Value" ;
-			public static final String FIELD_USR_DELETERECORD = "usr_DeleteRecord" ;
 		
 	
 	/** 
 	 * Defined Fields
 	 **/
+			
+		/**
+		* <br>
+		* DataType BOOLEAN<br>
+		* UIType CHECKBOX<br>
+		* Relation to FCO: userdefined<br>
+		*/
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_DeleteRecord();
 			
 		/**
 		* <br>
@@ -98,14 +106,6 @@ public interface DnsResourceRecordListItemContainer extends org.sblim.wbemsmt.bl
 		* Relation to FCO: Value<br>
 		*/
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Value();
-			
-		/**
-		* <br>
-		* DataType BOOLEAN<br>
-		* UIType CHECKBOX<br>
-		* Relation to FCO: userdefined<br>
-		*/
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_DeleteRecord();
 	
 	
 	/** 
