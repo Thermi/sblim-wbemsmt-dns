@@ -44,14 +44,17 @@ public class DnsResourceRecordListContainerImplLayouter extends DnsLayouter {
 			grid.getChildren().add(label);
 			grid.getChildren().add(((LabeledJSFInputComponent)container.get_usr_Delete()).getComponentPanel());
 
-			recordGrid.getChildren().add(grid);
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
-			recordGrid.getChildren().add(getDummyLabel());
+//			recordGrid.getChildren().add(grid);
+//			recordGrid.getChildren().add(getDummyLabel());
+//			recordGrid.getChildren().add(getDummyLabel());
+//			recordGrid.getChildren().add(getDummyLabel());
+//			recordGrid.getChildren().add(getDummyLabel());
+//			recordGrid.getChildren().add(getDummyLabel());
+//			recordGrid.getChildren().add(getDummyLabel());
+//			recordGrid.getChildren().add(getDummyLabel());
+			
+			recordGrid.getFacets().put("footer", grid);
+			recordGrid.setFooterClass("left");
 			
 			multiLineBasePanel.updateRows(0);
 		}
