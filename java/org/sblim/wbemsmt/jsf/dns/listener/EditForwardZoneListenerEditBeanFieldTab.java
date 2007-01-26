@@ -139,7 +139,7 @@ public class EditForwardZoneListenerEditBeanFieldTab extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter1,"editForwardZone");
 
-				
+				adapter1 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER DnsForwardZoneDataContainer in EditPanel ${editPanel.getId()}
 				

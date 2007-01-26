@@ -119,7 +119,7 @@ public class EditReverseZoneListenerEditBeanTabReverseZone extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter1,"reverseZone");
 
-				
+				adapter1 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER DnsReverseZoneDataContainer in EditPanel ${editPanel.getId()}
 				

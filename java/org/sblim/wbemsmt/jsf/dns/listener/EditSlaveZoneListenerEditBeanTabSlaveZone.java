@@ -119,7 +119,7 @@ public class EditSlaveZoneListenerEditBeanTabSlaveZone extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter1,"slaveZone");
 
-				
+				adapter1 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER DnsSlaveZoneDataContainer in EditPanel ${editPanel.getId()}
 				

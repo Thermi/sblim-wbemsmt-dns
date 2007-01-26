@@ -119,7 +119,7 @@ public class EditMasterZoneListenerEditBeanTabMasterZone extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter1,"masterZone");
 
-				
+				adapter1 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER DnsMasterZoneDataContainer in EditPanel ${editPanel.getId()}
 				

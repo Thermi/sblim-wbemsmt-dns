@@ -51,6 +51,9 @@ public class ResourceRecordHandler {
 	}
 
 	public void updateModel(DnsResourceRecordListContainer container) throws ModelUpdateException {
+		
+		boolean deleted = false;
+		
 		if (adapter.getUpdateTrigger() == container.get_usr_SelectAll())
 		{
 			boolean select = ((Boolean)container.get_usr_SelectAll().getConvertedControlValue()).booleanValue();
@@ -70,18 +73,27 @@ public class ResourceRecordHandler {
 				{
 					try {
 						delete(item,i);
+						deleted = true;
 					} catch (ObjectDeletionException e) {
 						throw new ModelUpdateException(e);
 					}
 				}
 			}
 		}
+
+		//force a reload
+		if (deleted)
+		{
+			zone.setResourceRecords(null);
+		}
+		
 	}
 
 	public void delete(DnsResourceRecordListItemContainer container, int idx) throws ObjectDeletionException {
 			ResourceRecord resourceRecord = zone.getResourceRecords().getResourceRecord(idx);
 			resourceRecord.delete();
 			 
+			container.getAdapter().setEditObjectMarkedForReload(true);
 			
 	//			for (int i = this.listContainer.getResourceRecords().size()-1; i >= 0 ; i--)
 	//			{
@@ -103,15 +115,6 @@ public class ResourceRecordHandler {
 		
 		//used for later finding the correct record
 		container.setKey(new CimObjectKey(recordFco.getCimObjectPath()));
-		
-		container.get_Family().getProperties().setVisible(!deleted);
-		container.get_Name().getProperties().setVisible(!deleted);
-		container.get_TTL().getProperties().setVisible(!deleted);
-		container.get_usr_DeleteRecord().getProperties().setVisible(!deleted);
-		container.get_usr_TTLUnit().getProperties().setVisible(!deleted);
-		container.get_usr_RemoveTTL().getProperties().setVisible(!deleted);
-		container.get_Type().getProperties().setVisible(!deleted);
-		container.get_Value().getProperties().setVisible(!deleted);
 		
 		if (!deleted)
 		{

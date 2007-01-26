@@ -255,7 +255,7 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter1,"editDnsServiceAllowNotify");
 
-				
+				adapter1 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER DnsAllowNotifyForServiceDataContainer in EditPanel ${editPanel.getId()}
 				
@@ -304,7 +304,7 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter2,"editDnsServiceAllowQuery");
 
-				
+				adapter2 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER DnsAllowQueryForServiceDataContainer in EditPanel ${editPanel.getId()}
 				
@@ -353,7 +353,7 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter3,"editDnsServiceAllowTransfer");
 
-				
+				adapter3 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER DnsAllowTransferForServiceDataContainer in EditPanel ${editPanel.getId()}
 				
@@ -402,7 +402,7 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter4,"editDnsServiceAllowRecursion");
 
-				
+				adapter4 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER DnsAllowRecursionForServiceDataContainer in EditPanel ${editPanel.getId()}
 				
@@ -451,7 +451,7 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter5,"editDnsServiceBlackhole");
 
-				
+				adapter5 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER DnsBlackholeForServiceDataContainer in EditPanel ${editPanel.getId()}
 				

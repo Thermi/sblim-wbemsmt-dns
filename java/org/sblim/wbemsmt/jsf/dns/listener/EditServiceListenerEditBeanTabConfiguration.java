@@ -153,7 +153,7 @@ public class EditServiceListenerEditBeanTabConfiguration extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter1,"editDnsServiceConfiguration");
 
-				
+				adapter1 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER DnsConfigurationDataContainer in EditPanel ${editPanel.getId()}
 				
@@ -202,7 +202,7 @@ public class EditServiceListenerEditBeanTabConfiguration extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter2,"editForwarders");
 
-				
+				adapter2 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER DnsForwardersForServiceDataContainer in EditPanel ${editPanel.getId()}
 				

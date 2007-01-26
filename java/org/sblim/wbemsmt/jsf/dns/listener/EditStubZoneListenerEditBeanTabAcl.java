@@ -221,7 +221,7 @@ public class EditStubZoneListenerEditBeanTabAcl extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter1,"editDnsStubZoneAllowTransfer");
 
-				
+				adapter1 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER DnsAllowTransferForZoneDataContainer in EditPanel ${editPanel.getId()}
 				
@@ -270,7 +270,7 @@ public class EditStubZoneListenerEditBeanTabAcl extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter2,"editDnsStubZoneAllowQuery");
 
-				
+				adapter2 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER DnsAllowQueryForZoneDataContainer in EditPanel ${editPanel.getId()}
 				
@@ -319,7 +319,7 @@ public class EditStubZoneListenerEditBeanTabAcl extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter3,"editDnsStubZoneAllowNotify");
 
-				
+				adapter3 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER DnsAllowNotifyForZoneDataContainer in EditPanel ${editPanel.getId()}
 				
@@ -368,7 +368,7 @@ public class EditStubZoneListenerEditBeanTabAcl extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter4,"editDnsStubZoneAllowUpdate");
 
-				
+				adapter4 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER DnsAllowUpdateForZoneDataContainer in EditPanel ${editPanel.getId()}
 				

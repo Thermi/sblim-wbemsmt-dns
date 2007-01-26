@@ -165,6 +165,7 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
 			setKeyValues(cmd,adapter,dc);
 
 			adapter.updateControls(dc);
+			adapter.setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);
 			
 			System.out.println("\n" + bundle.getString("before.edit"));
 			dc.trace(System.out);

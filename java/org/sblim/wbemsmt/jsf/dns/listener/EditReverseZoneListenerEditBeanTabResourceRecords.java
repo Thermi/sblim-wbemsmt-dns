@@ -135,7 +135,7 @@ public class EditReverseZoneListenerEditBeanTabResourceRecords extends EditBean 
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter1,"editResourceRecords");
 
-				
+				adapter1 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER DnsResourceRecordListContainer in EditPanel ${editPanel.getId()}
 				

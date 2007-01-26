@@ -139,7 +139,7 @@ public class EditAddressMatchListListenerEditBeanFieldTab extends EditBean {
 				selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
 				selector.select(treeNode,adapter1,"editPanel");
 
-				
+				adapter1 .setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);				
 				
 				//ADD THE FIELDS FOR CONTAINER DnsAddressMatchListForServiceDataContainer in EditPanel ${editPanel.getId()}
 				
