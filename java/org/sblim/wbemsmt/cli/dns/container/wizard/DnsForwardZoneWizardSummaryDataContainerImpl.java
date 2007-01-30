@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsForwardZoneWizardSummaryDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardSummaryDataContainer {
@@ -183,6 +184,10 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends BaseDataContai
 		    		get_Forward().setValue(source.get_Forward().getValue());
 		    		get_Forwarders().setValue(source.get_Forwarders().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

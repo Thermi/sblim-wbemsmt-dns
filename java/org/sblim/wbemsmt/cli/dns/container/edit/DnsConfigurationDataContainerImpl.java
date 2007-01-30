@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsConfigurationDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsConfigurationDataContainer {
@@ -202,6 +203,10 @@ public class DnsConfigurationDataContainerImpl extends BaseDataContainer impleme
 		    		get_PortNumber().setValue(source.get_PortNumber().getValue());
 		    		get_usr_RemoveDirectory().setValue(source.get_usr_RemoveDirectory().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

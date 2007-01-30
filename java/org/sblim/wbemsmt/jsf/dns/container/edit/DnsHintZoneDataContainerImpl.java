@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class DnsHintZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsHintZoneDataContainer {
 
@@ -235,8 +236,12 @@ public class DnsHintZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 		    		get_usr_RemoveTTL().setValue(source.get_usr_RemoveTTL().getValue());
 		    		get_ZoneFile().setValue(source.get_ZoneFile().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

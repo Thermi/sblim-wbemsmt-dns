@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class DnsZoneTracingContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneTracingContainer {
 
@@ -594,8 +595,12 @@ public class DnsZoneTracingContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edi
 		    		getAllowQueryAcl().copyFrom(source.getAllowQueryAcl());
 		    		getAllowTransferAcl().copyFrom(source.getAllowTransferAcl());
 		    		getAllowUpdateAcl().copyFrom(source.getAllowUpdateAcl());
-		
-	}
+			}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

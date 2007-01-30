@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class DnsStubZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsStubZoneDataContainer {
 
@@ -599,8 +600,12 @@ public class DnsStubZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 		    		get_ZoneFile().setValue(source.get_ZoneFile().getValue());
 		    		get_usr_UseGlobalForwarders().setValue(source.get_usr_UseGlobalForwarders().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

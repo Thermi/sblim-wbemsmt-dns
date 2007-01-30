@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class DnsMastersForServiceDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsMastersForServiceDataContainer {
 
@@ -291,8 +292,12 @@ public class DnsMastersForServiceDataContainerImpl extends org.sblim.wbemsmt.too
 		    		get_usr_PredefinedMasters().setValue(source.get_usr_PredefinedMasters().getValue());
 		    		get_Name().setValue(source.get_Name().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class DnsMastersWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsMastersWizardSummaryDataContainer {
 
@@ -146,8 +147,12 @@ public class DnsMastersWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.
     	    		get_Name().setValue(source.get_Name().getValue());
 		    		get_AddressList().setValue(source.get_AddressList().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

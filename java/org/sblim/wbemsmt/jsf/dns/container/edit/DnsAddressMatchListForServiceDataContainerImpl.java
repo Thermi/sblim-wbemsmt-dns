@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class DnsAddressMatchListForServiceDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListForServiceDataContainer {
 
@@ -347,8 +348,12 @@ public class DnsAddressMatchListForServiceDataContainerImpl extends org.sblim.wb
 		    		get_usr_AddressDown().setValue(source.get_usr_AddressDown().getValue());
 		    		get_Name().setValue(source.get_Name().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

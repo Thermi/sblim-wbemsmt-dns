@@ -248,6 +248,7 @@ public class MasterZone extends DnsBusinessObject implements Zone {
 		if (adapter.getUpdateTrigger() == container.get_usr_RemoveTTL())
 		{
 			fco.set_TTL(null);
+			container.get_TTL().setModified(true);
 		} 
 		else
 		{

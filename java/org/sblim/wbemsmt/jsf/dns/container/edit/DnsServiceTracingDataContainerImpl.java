@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceTracingDataContainer {
 
@@ -203,8 +204,12 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 		    		getAllowRecursionAcl().copyFrom(source.getAllowRecursionAcl());
 		    		getBlackholeAcl().copyFrom(source.getBlackholeAcl());
 		    		getConfiguration().copyFrom(source.getConfiguration());
-		
-	}
+			}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

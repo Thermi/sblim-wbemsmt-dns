@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class DnsSlaveZoneWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsSlaveZoneWizardSummaryDataContainer {
 
@@ -146,8 +147,12 @@ public class DnsSlaveZoneWizardSummaryDataContainerImpl extends org.sblim.wbemsm
     	    		get_usr_Name().setValue(source.get_usr_Name().getValue());
 		    		get_usr_IpAdressses().setValue(source.get_usr_IpAdressses().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

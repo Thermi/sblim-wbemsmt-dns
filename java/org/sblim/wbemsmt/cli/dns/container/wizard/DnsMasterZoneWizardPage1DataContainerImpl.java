@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsMasterZoneWizardPage1DataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardPage1DataContainer {
@@ -207,6 +208,10 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends BaseDataContainer
 		    		get_usr_IpAdress().setValue(source.get_usr_IpAdress().getValue());
 		    		get_usr_Contact().setValue(source.get_usr_Contact().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

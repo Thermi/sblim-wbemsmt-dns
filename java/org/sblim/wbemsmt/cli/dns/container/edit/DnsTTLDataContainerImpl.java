@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsTTLDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsTTLDataContainer {
@@ -178,6 +179,10 @@ public class DnsTTLDataContainerImpl extends BaseDataContainer implements org.sb
 		    		get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
 		    		get_usr_RemoveTTL().setValue(source.get_usr_RemoveTTL().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

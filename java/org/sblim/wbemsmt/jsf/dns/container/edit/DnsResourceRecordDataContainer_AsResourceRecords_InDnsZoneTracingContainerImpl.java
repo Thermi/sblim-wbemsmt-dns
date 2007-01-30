@@ -34,6 +34,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 	
@@ -381,8 +382,12 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 		    		get_Value().setValue(source.get_Value().getValue());
 		    		get_Priority().setValue(source.get_Priority().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 	
 	
 	

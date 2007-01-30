@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsForwardersForServiceDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardersForServiceDataContainer {
@@ -245,6 +246,10 @@ public class DnsForwardersForServiceDataContainerImpl extends BaseDataContainer 
 		    		get_usr_AddForwarder().setValue(source.get_usr_AddForwarder().getValue());
 		    		get_usr_NewForwarderType().setValue(source.get_usr_NewForwarderType().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

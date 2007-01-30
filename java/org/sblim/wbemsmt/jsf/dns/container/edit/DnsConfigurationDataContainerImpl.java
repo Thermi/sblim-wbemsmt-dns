@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class DnsConfigurationDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsConfigurationDataContainer {
 
@@ -207,8 +208,12 @@ public class DnsConfigurationDataContainerImpl extends org.sblim.wbemsmt.tools.j
 		    		get_PortNumber().setValue(source.get_PortNumber().getValue());
 		    		get_usr_RemoveDirectory().setValue(source.get_usr_RemoveDirectory().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

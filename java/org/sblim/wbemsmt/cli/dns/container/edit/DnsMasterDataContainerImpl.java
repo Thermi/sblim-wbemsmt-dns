@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsMasterDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsMasterDataContainer {
@@ -183,6 +184,10 @@ public class DnsMasterDataContainerImpl extends BaseDataContainer implements org
 		    		get_MasterElementType().setValue(source.get_MasterElementType().getValue());
 		    		get_MasterElement().setValue(source.get_MasterElement().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

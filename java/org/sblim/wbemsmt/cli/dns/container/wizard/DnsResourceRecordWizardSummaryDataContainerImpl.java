@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsResourceRecordWizardSummaryDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardSummaryDataContainer {
@@ -207,6 +208,10 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends BaseDataCon
 		    		get_usr_Value().setValue(source.get_usr_Value().getValue());
 		    		get_usr_Priority().setValue(source.get_usr_Priority().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

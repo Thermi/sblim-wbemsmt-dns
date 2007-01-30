@@ -103,6 +103,7 @@ public class EditMasterZoneListenerEditBeanTabResourceRecords extends EditBean {
     				}
 										
 						
+			super.clearEditBeansModified();
 			return PAGE_EDIT;
 		}
 		
@@ -210,24 +211,4 @@ public class EditMasterZoneListenerEditBeanTabResourceRecords extends EditBean {
        {
 	       super.reload();
        }
-	   
-    	public String revert() throws ObjectRevertException
-    	{
-    	        
-    					adapter1 .revert(currentEditContainer1 );
-    		
-			try
-			{
-    	        
-    					adapter1 .updateControls(currentEditContainer1 );
-						} catch (UpdateControlsException e)
-			{
-				throw new ObjectRevertException("Cannot updateControls after Reverting the changes",e);
-			}
-			
-			
-			return EditBean.PAGE_EDIT;
-    	}
-	   
-		
 }

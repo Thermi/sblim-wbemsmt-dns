@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class DnsServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceOperationsDataContainer {
 
@@ -233,8 +234,12 @@ public class DnsServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.too
 		    		get_invoke_Stop().setValue(source.get_invoke_Stop().getValue());
 		    		get_Status().setValue(source.get_Status().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

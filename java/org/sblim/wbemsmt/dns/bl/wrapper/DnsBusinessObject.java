@@ -171,6 +171,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 					if (forwarderList.getForwarderOnClientByName(newForwarder) == null)
 					{
 						forwarderList.addForwarder(new Forwarder(newForwarder,new UnsignedInt8((short)Linux_DnsForwarders.FORWARDERSELEMENTTYPE_IPV4),adapter,false,true));
+						container.get_Forwarders().setModified(true);
 						forwarderExists = true;
 					}
 					else
@@ -192,6 +193,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 			for (int i = indexList.size() - 1; i >= 0; i--) {
 				UnsignedInt16 index = (UnsignedInt16) indexList.get(i);
 				forwarderList.getForwarderOnClient(index.intValue()).setExistsOnClient(false);
+				container.get_Forwarders().setModified(true);
 			}
 			forwarderList.removeIfNotExistsOnClient();
 		}
@@ -202,6 +204,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 			}
 			forwarderList.removeIfNotExistsOnClient();
 			forwarderExists = false;
+			container.get_Forwarders().setModified(true);
 		}
 	}
 
@@ -877,6 +880,8 @@ public abstract class DnsBusinessObject extends DnsObject {
 		
 		fco.set_SerialNumber(serialNumber);
 		soaContainer.get_SerialNumber().setControlValue(serialNumber);
+		soaContainer.get_SerialNumber().setModified(true);
+
 	}
 	
 	public String getInitialSerialNumber() throws ObjectSaveException

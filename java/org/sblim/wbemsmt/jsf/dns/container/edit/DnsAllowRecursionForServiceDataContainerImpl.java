@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class DnsAllowRecursionForServiceDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowRecursionForServiceDataContainer {
 
@@ -319,8 +320,12 @@ public class DnsAllowRecursionForServiceDataContainerImpl extends org.sblim.wbem
 		    		get_usr_AddressUp().setValue(source.get_usr_AddressUp().getValue());
 		    		get_usr_AddressDown().setValue(source.get_usr_AddressDown().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

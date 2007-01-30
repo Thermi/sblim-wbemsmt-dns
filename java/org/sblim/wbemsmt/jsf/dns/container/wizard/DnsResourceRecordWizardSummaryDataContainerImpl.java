@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class DnsResourceRecordWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardSummaryDataContainer {
 
@@ -204,8 +205,12 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends org.sblim.w
 		    		get_usr_Value().setValue(source.get_usr_Value().getValue());
 		    		get_usr_Priority().setValue(source.get_usr_Priority().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

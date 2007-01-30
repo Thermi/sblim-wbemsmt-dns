@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceOperationsDataContainer {
@@ -216,6 +217,10 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
 		    		get_invoke_Stop().setValue(source.get_invoke_Stop().getValue());
 		    		get_Status().setValue(source.get_Status().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

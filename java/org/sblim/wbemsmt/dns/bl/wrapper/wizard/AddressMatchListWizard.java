@@ -65,9 +65,11 @@ public class AddressMatchListWizard extends DnsWizard {
 
 	public void create(DnsAddressMatchListWizardSummaryDataContainer container) throws ObjectSaveException
 	{
-		aclHandler.create(AclHandler.IDX_USER ,NameFactory.createName(Linux_DnsAddressMatchListsForService.class,(String) page1.get_Name().getConvertedControlValue()));
+		matchList = aclHandler.create(AclHandler.IDX_USER ,NameFactory.createName(Linux_DnsAddressMatchListsForService.class,(String) page1.get_Name().getConvertedControlValue()));
 		adapter.setMarkedForReload();
 		try {
+			//force a reload
+			aclHandler.resetAcl(AclHandler.IDX_USER);
 			adapter.setPathOfTreeNode(aclHandler.getAcl(AclHandler.IDX_USER).getCimObjectPath());
 		} catch (ModelLoadException e) {
 			throw new ObjectSaveException(e);

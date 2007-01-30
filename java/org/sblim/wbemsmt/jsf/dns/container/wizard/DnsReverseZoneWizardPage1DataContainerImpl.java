@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class DnsReverseZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardPage1DataContainer {
 
@@ -319,8 +320,12 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
 		    		get_usr_RemoveAllResourceRecords().setValue(source.get_usr_RemoveAllResourceRecords().getValue());
 		    		get_usr_IpPresets().setValue(source.get_usr_IpPresets().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

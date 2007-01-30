@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class DnsAllowTransferForZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowTransferForZoneDataContainer {
 
@@ -347,8 +348,12 @@ public class DnsAllowTransferForZoneDataContainerImpl extends org.sblim.wbemsmt.
 		    		get_usr_AddressDown().setValue(source.get_usr_AddressDown().getValue());
 		    		get_usr_UseGlobalAddressMatchList().setValue(source.get_usr_UseGlobalAddressMatchList().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

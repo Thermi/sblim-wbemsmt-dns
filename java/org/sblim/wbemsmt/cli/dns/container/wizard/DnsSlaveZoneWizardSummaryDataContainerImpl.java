@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsSlaveZoneWizardSummaryDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsSlaveZoneWizardSummaryDataContainer {
@@ -159,6 +160,10 @@ public class DnsSlaveZoneWizardSummaryDataContainerImpl extends BaseDataContaine
     	    		get_usr_Name().setValue(source.get_usr_Name().getValue());
 		    		get_usr_IpAdressses().setValue(source.get_usr_IpAdressses().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

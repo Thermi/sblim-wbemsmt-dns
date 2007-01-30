@@ -429,6 +429,7 @@ public class AclHandler extends DnsObject {
 					if (adapter.getDnsService().getAddressMatchListList().getAddressMatchListByListName(addressToRemove) != null)
 					{
 						getNotUsedAddressesAsList(idx).add(addressToRemove);
+						container.get_usr_UserAddresses().setModified(true);
 					}
 				}
 				container.get_AddressList().setControlValue(new ArrayList());
@@ -452,6 +453,8 @@ public class AclHandler extends DnsObject {
 						getUsedAddressTypesAsList(idx).set(index,nextType);
 						getUsedAddressTypesAsList(idx).set(index+1,type);
 						
+						container.get_usr_UserAddresses().setModified(true);
+						
 					}
 				}
 				container.get_AddressList().setControlValue(indexList);
@@ -474,6 +477,8 @@ public class AclHandler extends DnsObject {
 						Object prevType = getUsedAddressTypesAsList(idx).get(index-1);
 						getUsedAddressTypesAsList(idx).set(index,prevType);
 						getUsedAddressTypesAsList(idx).set(index-1,type);
+
+						container.get_usr_UserAddresses().setModified(true);
 						
 					}
 				}
@@ -493,6 +498,8 @@ public class AclHandler extends DnsObject {
 				}
 				container.get_AddressList().setControlValue(new ArrayList());
 				addressMatchListExists[idx] = false;
+				container.get_usr_UserAddresses().setModified(true);
+				
 			}
 			else
 			{
@@ -527,6 +534,7 @@ public class AclHandler extends DnsObject {
 			getUsedAddressesAsList(idx).add(addressToAdd);
 			//TODO use other than ipv4 
 			getUsedAddressTypesAsList(idx).add(new UnsignedInt8((short)Linux_DnsAddressMatchList.ADDRESSMATCHLISTELEMENTTYPE_IPV4));
+			container.get_AddressList().setModified(true);
 			addressMatchListExists[idx] = true;
 		}
 		else
@@ -584,7 +592,7 @@ public class AclHandler extends DnsObject {
 		return notUsedAddresses[idx];
 	}
 
-	public void create(int idx, String aclName) throws ObjectCreationException {
+	public Linux_DnsAddressMatchList create(int idx, String aclName) throws ObjectCreationException {
 		try {
 			acl[idx].set_Name(aclName);
 			acl[idx].set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
@@ -607,8 +615,10 @@ public class AclHandler extends DnsObject {
 				keys.add(CIMPropertyBuilder.create(Linux_DnsAddressMatchListsForService.CIM_PROPERTY_LINUX_DNSSERVICE,adapter.getDnsService().getFco()));
 				FcoHelper.create(Linux_DnsAddressMatchListsForService.class,adapter.getCimClient(),keys);
 			}
-			
+			Linux_DnsAddressMatchList result = acl[idx];
 			resetAcl(idx);
+			
+			return result;
 		} catch (ModelLoadException e) {
 			throw new ObjectCreationException(acl[idx],e);
 		}

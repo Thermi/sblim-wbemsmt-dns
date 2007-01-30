@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsSoaContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsSoaContainer {
@@ -322,6 +323,10 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements org.sblim.
 		    		get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
 		    		get_usr_SetSerialNumber().setValue(source.get_usr_SetSerialNumber().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

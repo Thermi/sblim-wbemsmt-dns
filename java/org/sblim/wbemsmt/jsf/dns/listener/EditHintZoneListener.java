@@ -25,11 +25,9 @@
 package org.sblim.wbemsmt.jsf.dns.listener;
 
 import java.util.*;
-import java.util.logging.*;
 import javax.faces.context.FacesContext;
 
-import org.sblim.wbemsmt.tasklauncher.event.*;
-import org.sblim.wbemsmt.bl.adapter.*;
+import org.sblim.wbemsmt.tasklauncher.event.jsf.*;
 import org.sblim.wbemsmt.bl.tree.ITaskLauncherTreeNode;
 import org.sblim.wbemsmt.bl.tree.TaskLauncherTreeNodeEvent;
 import org.sblim.wbemsmt.tools.beans.BeanNameConstants;
@@ -38,14 +36,10 @@ import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.WbemSmtException;
 import org.sblim.wbemsmt.webapp.jsf.ObjectActionControllerBean;
 
-public class EditHintZoneListener extends TaskLauncherContextMenuEventListenerImpl implements EditListener {
-
-    private static final Logger logger = Logger.getLogger("org.sblim.wbemsmt.jsf.dns.listener");
+public class EditHintZoneListener extends JsfEditListener {
 
 	private List editBeans = new ArrayList();
 
-	WbemSmtResourceBundle bundle = null;
-	
 	public String processEvent(TaskLauncherTreeNodeEvent event) throws WbemSmtException {
 
 			ITaskLauncherTreeNode treeNode = event.getTreeNode();
@@ -56,8 +50,15 @@ public class EditHintZoneListener extends TaskLauncherContextMenuEventListenerIm
         	bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},locale);
             final ObjectActionControllerBean oac = (ObjectActionControllerBean)BeanNameConstants.OBJECT_ACTION_CONTROLLER.asValueBinding(fc).getValue(fc);
 			EditBean bean = null;
-			
 
+			if (oac.getCurrentEditListener() != null)
+			{
+				oac.getCurrentEditListener().revert(false);
+			}
+
+    		oac.clearEditBeans();
+			
+			
 							TabbedPane tabbedPane = new TabbedPane(bundle);
 				String bundleKey;
 						
@@ -88,60 +89,5 @@ public class EditHintZoneListener extends TaskLauncherContextMenuEventListenerIm
 						oac.setCurrentEditListener(this);
 			
 			return "editPage";		
-	}
-	
-	public String revert()
-	{
-		boolean foundErrors = false;
-
-		//stop if the first editBean reports errors
-		for (int i=0; i < editBeans.size() && !foundErrors; i++)
-		{
-			try
-			{
-    			EditBean bean = (EditBean)editBeans.get(i);
-    			bean.revert();
-			}
-			catch (Exception e)
-			{
-				logger.log(Level.SEVERE,"Cannot Revert",e);
-				org.sblim.wbemsmt.tools.jsf.JsfUtil.handleException(e);
-				return EditBean.PAGE_EDIT;
-			}
-		}
-		//do a reload if that is necessary
-		EditBean.reloadAdapters(editBeans);
-		return EditBean.PAGE_EDIT;
-	}
-	
-	public String save()
-	{
-		boolean foundErrors = false;
-
-		MessageList messages = new MessageList();
-		
-		//stop if the first editBean reports errors
-		for (int i=0; i < editBeans.size() && !foundErrors; i++)
-		{
-			try
-			{
-    			EditBean bean = (EditBean)editBeans.get(i);
-    			bean.save();
-				messages.addAll(bean.getSaveResult());
-    			foundErrors = messages.hasErrors();
-			}
-			catch (Exception e)
-			{
-				logger.log(Level.SEVERE,"Cannot save",e);
-				org.sblim.wbemsmt.tools.jsf.JsfUtil.handleException(e);
-				return EditBean.PAGE_EDIT;
-			}
-		}
-		
-		EditBean.handleSaveResult(bundle,messages);
-		EditBean.reloadAdapters(editBeans);
-						
-		return EditBean.PAGE_EDIT;
-		
 	}
 }

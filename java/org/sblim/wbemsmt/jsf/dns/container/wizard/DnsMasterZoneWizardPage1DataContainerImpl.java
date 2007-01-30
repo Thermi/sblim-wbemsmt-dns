@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class DnsMasterZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardPage1DataContainer {
 
@@ -208,8 +209,12 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt
 		    		get_usr_IpAdress().setValue(source.get_usr_IpAdress().getValue());
 		    		get_usr_Contact().setValue(source.get_usr_Contact().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

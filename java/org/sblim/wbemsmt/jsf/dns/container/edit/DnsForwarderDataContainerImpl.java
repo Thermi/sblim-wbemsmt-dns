@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class DnsForwarderDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsForwarderDataContainer {
 
@@ -262,8 +263,12 @@ public class DnsForwarderDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 		    		get_usr_AddForwarder().setValue(source.get_usr_AddForwarder().getValue());
 		    		get_usr_NewForwarderType().setValue(source.get_usr_NewForwarderType().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

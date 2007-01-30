@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsAllowNotifyForServiceDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForServiceDataContainer {
@@ -278,6 +279,10 @@ public class DnsAllowNotifyForServiceDataContainerImpl extends BaseDataContainer
 		    		get_usr_AddressUp().setValue(source.get_usr_AddressUp().getValue());
 		    		get_usr_AddressDown().setValue(source.get_usr_AddressDown().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

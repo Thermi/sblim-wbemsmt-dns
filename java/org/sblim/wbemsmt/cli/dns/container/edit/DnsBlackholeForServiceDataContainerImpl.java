@@ -37,6 +37,7 @@ import org.sblim.wbemsmt.exception.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsBlackholeForServiceDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsBlackholeForServiceDataContainer {
@@ -278,6 +279,10 @@ public class DnsBlackholeForServiceDataContainerImpl extends BaseDataContainer i
 		    		get_usr_AddressUp().setValue(source.get_usr_AddressUp().getValue());
 		    		get_usr_AddressDown().setValue(source.get_usr_AddressDown().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 }

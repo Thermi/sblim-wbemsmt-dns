@@ -30,6 +30,7 @@ import java.util.*;
 
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 public class DnsResourceRecordDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer {
 
@@ -320,8 +321,12 @@ public class DnsResourceRecordDataContainerImpl extends org.sblim.wbemsmt.tools.
 		    		get_Value().setValue(source.get_Value().getValue());
 		    		get_Priority().setValue(source.get_Priority().getValue());
 				
-    	    	
-	}
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
 	
 }

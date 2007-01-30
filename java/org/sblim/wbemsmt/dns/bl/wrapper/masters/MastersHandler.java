@@ -238,6 +238,8 @@ public class MastersHandler {
 								//TODO set correct type according zo newAddress
 								MasterItem item = new MasterItem(newAddress,new UnsignedInt8((short)Linux_DnsMasters.MASTERELEMENTTYPE_IPV4),adapter,validator.isPredefinedMaster());
 								usedItems.addMasterItem(item);
+								container.get_Masters().setModified(true);
+
 							}
 							else
 							{
@@ -251,6 +253,7 @@ public class MastersHandler {
 							//TODO set correct type according zo newAddress
 							MasterItem item = new MasterItem(newAddress,new UnsignedInt8((short)Linux_DnsMasters.MASTERELEMENTTYPE_IPV4),adapter,validator.isPredefinedMaster());
 							usedItems.addMasterItem(item);
+							container.get_Masters().setModified(true);
 						}
 						
 					}
@@ -284,6 +287,7 @@ public class MastersHandler {
 						//TODO set correct type according zo newAddress
 						usedItems.addMasterItem(predefinedMasterItem);
 						predefinedItems.remove(predefinedMasterItem);
+						container.get_Masters().setModified(true);
 					}
 					else
 					{
@@ -306,6 +310,7 @@ public class MastersHandler {
 					{
 						predefinedItems.addMasterItem(ipAddressToRemove);
 					}
+					container.get_Masters().setModified(true);
 				}
 				updateIpAddressList(container);
 			}
