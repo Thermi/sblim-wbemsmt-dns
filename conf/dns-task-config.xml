@@ -19,7 +19,13 @@
  */
 -->
 <tasklauncherconfig xmlns="http://sblim.org/wbemsmt/tasklauncher/tasklauncherconfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sblim.org/wbemsmt/tasklauncher/tasklauncherconfig ../../wbemsmt-commons/commons-bl/conf/tasklauncher-config.xsd">
-	<treeconfig name="DNS" filename="dnsTree.xml" slpServicename="other:dns" classForServerTaskLookup="org.sblim.wbemsmt.dns.lookup.LookupServerTask">
+	<treeconfig 
+		name="DNS" 
+		filename="dnsTree.xml" 
+		slpServicename="other:dns"
+		classForServerTaskLookup="org.sblim.wbemsmt.dns.lookup.LookupServerTask"
+		embeddedFilter="org.sblim.wbemsmt.dns.filter.EmbeddedFilter"
+		>
 		<fcoPackage name="org.sblim.wbemsmt.dns.bl.fco"/>
 		<resourceBundle name="messages"/>
 		<resourceBundle name="messagesDns"/>

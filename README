@@ -71,6 +71,7 @@ Third-Party Libraries (and their dependent jar-Files):
   - Apache MyFaces 1.1.4 from http://myfaces.apache.org/
   - Jakarta-Commons Lang from http://jakarta.apache.org/commons/lang/
   - Jakarta-Commons CLI from http://jakarta.apache.org/commons/cli/
+  - XMLBeans 2.2.0 from http://xmlbeans.apache.org/
 
 
 Run-time Preequisites
