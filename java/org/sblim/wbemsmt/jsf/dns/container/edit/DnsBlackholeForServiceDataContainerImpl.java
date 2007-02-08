@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -53,13 +53,14 @@ public class DnsBlackholeForServiceDataContainerImpl extends org.sblim.wbemsmt.t
 	
 	public DnsBlackholeForServiceDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsBlackholeForServiceDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "DnsBlackholeForServiceDataContainer.caption",false);
 				
 				
     			
     				layouter = new DnsBlackholeForServiceDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
 				
-		setFooter(getInputFieldContainer(),"DnsBlackholeForServiceDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsBlackholeForServiceDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -83,6 +84,8 @@ public class DnsBlackholeForServiceDataContainerImpl extends org.sblim.wbemsmt.t
     			ic_AddressList = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_AddressList;
     	}
 			/**
@@ -104,6 +107,8 @@ public class DnsBlackholeForServiceDataContainerImpl extends org.sblim.wbemsmt.t
     			ic_usr_RemoveAddress = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RemoveAddress;
     	}
 			/**
@@ -125,6 +130,8 @@ public class DnsBlackholeForServiceDataContainerImpl extends org.sblim.wbemsmt.t
     			ic_usr_UserAddresses = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_UserAddresses;
     	}
 			/**
@@ -146,6 +153,8 @@ public class DnsBlackholeForServiceDataContainerImpl extends org.sblim.wbemsmt.t
     			ic_usr_NewAddress = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_NewAddress;
     	}
 			/**
@@ -167,6 +176,8 @@ public class DnsBlackholeForServiceDataContainerImpl extends org.sblim.wbemsmt.t
     			ic_usr_AddPredefinedAddress = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddPredefinedAddress;
     	}
 			/**
@@ -188,6 +199,8 @@ public class DnsBlackholeForServiceDataContainerImpl extends org.sblim.wbemsmt.t
     			ic_usr_AddNewAddress = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddNewAddress;
     	}
 			/**
@@ -209,6 +222,8 @@ public class DnsBlackholeForServiceDataContainerImpl extends org.sblim.wbemsmt.t
     			ic_usr_AddressUp = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddressUp;
     	}
 			/**
@@ -230,6 +245,8 @@ public class DnsBlackholeForServiceDataContainerImpl extends org.sblim.wbemsmt.t
     			ic_usr_AddressDown = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddressDown;
     	}
 		

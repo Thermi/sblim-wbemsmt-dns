@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -51,13 +51,14 @@ public class DnsForwardersForServiceDataContainerImpl extends org.sblim.wbemsmt.
 	
 	public DnsForwardersForServiceDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsForwardersForServiceDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "DnsForwardersForServiceDataContainer.caption",false);
 				
 				
     			
     				layouter = new DnsForwardersForServiceDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
 				
-		setFooter(getInputFieldContainer(),"DnsForwardersForServiceDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsForwardersForServiceDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -81,6 +82,8 @@ public class DnsForwardersForServiceDataContainerImpl extends org.sblim.wbemsmt.
     			ic_Forward = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Forward;
     	}
 			/**
@@ -102,6 +105,8 @@ public class DnsForwardersForServiceDataContainerImpl extends org.sblim.wbemsmt.
     			ic_Forwarders = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Forwarders;
     	}
 			/**
@@ -123,6 +128,8 @@ public class DnsForwardersForServiceDataContainerImpl extends org.sblim.wbemsmt.
     			ic_usr_RemoveForwarder = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RemoveForwarder;
     	}
 			/**
@@ -144,6 +151,8 @@ public class DnsForwardersForServiceDataContainerImpl extends org.sblim.wbemsmt.
     			ic_usr_NewForwarder = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_NewForwarder;
     	}
 			/**
@@ -165,6 +174,8 @@ public class DnsForwardersForServiceDataContainerImpl extends org.sblim.wbemsmt.
     			ic_usr_AddForwarder = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddForwarder;
     	}
 			/**
@@ -186,6 +197,8 @@ public class DnsForwardersForServiceDataContainerImpl extends org.sblim.wbemsmt.
     			ic_usr_NewForwarderType = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_NewForwarderType;
     	}
 		

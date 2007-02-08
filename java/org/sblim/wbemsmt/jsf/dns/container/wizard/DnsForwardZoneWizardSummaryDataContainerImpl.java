@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -48,13 +48,14 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
 	
 	public DnsForwardZoneWizardSummaryDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsForwardZoneWizardSummaryDataContainer.caption","DnsForwardZoneWizardSummaryDataContainer.subTitle");
+			
+				super(adapter,bindingPrefix, "DnsForwardZoneWizardSummaryDataContainer.caption","DnsForwardZoneWizardSummaryDataContainer.subTitle",false);
 				
 				
     			
     				layouter = new DnsForwardZoneWizardSummaryDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
 				
-		setFooter(getInputFieldContainer(),"DnsForwardZoneWizardSummaryDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsForwardZoneWizardSummaryDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -78,6 +79,8 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
     			ic_usr_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Name;
     	}
 			/**
@@ -99,6 +102,8 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
     			ic_Forward = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Forward;
     	}
 			/**
@@ -120,6 +125,8 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
     			ic_Forwarders = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Forwarders;
     	}
 		

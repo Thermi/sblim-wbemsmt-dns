@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -42,7 +42,8 @@ public class DnsMasterDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 	
 	public DnsMasterDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsMasterDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "DnsMasterDataContainer.caption",false);
 				
 				
     			
@@ -50,7 +51,7 @@ public class DnsMasterDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_MasterElementType());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_MasterElement());
         					
-		setFooter(getInputFieldContainer(),"DnsMasterDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsMasterDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -74,6 +75,8 @@ public class DnsMasterDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Name;
     	}
 			/**
@@ -95,6 +98,8 @@ public class DnsMasterDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_MasterElementType = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_MasterElementType;
     	}
 			/**
@@ -116,6 +121,8 @@ public class DnsMasterDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     			ic_MasterElement = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_MasterElement;
     	}
 		

@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -44,7 +44,8 @@ public class DnsServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.too
 	
 	public DnsServiceOperationsDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsServiceOperationsDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "DnsServiceOperationsDataContainer.caption",false);
 				
 				
     			
@@ -54,7 +55,7 @@ public class DnsServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.too
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_invoke_Stop());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Status());
         					
-		setFooter(getInputFieldContainer(),"DnsServiceOperationsDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsServiceOperationsDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -78,6 +79,8 @@ public class DnsServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.too
     			ic_RunAsRoot = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_RunAsRoot;
     	}
 			/**
@@ -99,6 +102,8 @@ public class DnsServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.too
     			ic_usr_Restart = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Restart;
     	}
 			/**
@@ -120,6 +125,8 @@ public class DnsServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.too
     			ic_invoke_Start = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_invoke_Start;
     	}
 			/**
@@ -141,6 +148,8 @@ public class DnsServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.too
     			ic_invoke_Stop = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_invoke_Stop;
     	}
 			/**
@@ -162,6 +171,8 @@ public class DnsServiceOperationsDataContainerImpl extends org.sblim.wbemsmt.too
     			ic_Status = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Status;
     	}
 		

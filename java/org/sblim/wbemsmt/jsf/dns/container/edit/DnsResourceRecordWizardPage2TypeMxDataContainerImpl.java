@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -41,14 +41,15 @@ public class DnsResourceRecordWizardPage2TypeMxDataContainerImpl extends org.sbl
 	
 	public DnsResourceRecordWizardPage2TypeMxDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsResourceRecordWizardPage2TypeMxDataContainer.caption","DnsResourceRecordWizardPage2TypeMxDataContainer.subTitle");
+			
+				super(adapter,bindingPrefix, "DnsResourceRecordWizardPage2TypeMxDataContainer.caption","DnsResourceRecordWizardPage2TypeMxDataContainer.subTitle",false);
 				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Value());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Priority());
         					
-		setFooter(getInputFieldContainer(),"DnsResourceRecordWizardPage2TypeMxDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsResourceRecordWizardPage2TypeMxDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -73,6 +74,8 @@ public class DnsResourceRecordWizardPage2TypeMxDataContainerImpl extends org.sbl
 								ic_usr_Value.setRequired(true);
 				;
     		}
+			
+						
     		return ic_usr_Value;
     	}
 			/**
@@ -95,6 +98,8 @@ public class DnsResourceRecordWizardPage2TypeMxDataContainerImpl extends org.sbl
 								ic_usr_Priority.setRequired(true);
 				;
     		}
+			
+						
     		return ic_usr_Priority;
     	}
 		

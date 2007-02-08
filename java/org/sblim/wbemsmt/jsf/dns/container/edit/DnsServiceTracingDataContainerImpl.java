@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -45,7 +45,8 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 	
 	public DnsServiceTracingDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsServiceTracingDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "DnsServiceTracingDataContainer.caption",false);
 				
 				String childBindingPrefix = null;
 				
@@ -81,7 +82,7 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 					                     ,childBindingPrefix);
     			
     	    						
-		setFooter(getInputFieldContainer(),"DnsServiceTracingDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsServiceTracingDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -96,7 +97,7 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 		
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForServiceDataContainer getAllowNotifyAcl()
 		{
-			return icAllowNotifyAcl;
+						return icAllowNotifyAcl;
 		}
 
 			
@@ -107,7 +108,7 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 		
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryForServiceDataContainer getAllowQueryAcl()
 		{
-			return icAllowQueryAcl;
+						return icAllowQueryAcl;
 		}
 
 			
@@ -118,7 +119,7 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 		
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowTransferForServiceDataContainer getAllowTransferAcl()
 		{
-			return icAllowTransferAcl;
+						return icAllowTransferAcl;
 		}
 
 			
@@ -129,7 +130,7 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 		
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowRecursionForServiceDataContainer getAllowRecursionAcl()
 		{
-			return icAllowRecursionAcl;
+						return icAllowRecursionAcl;
 		}
 
 			
@@ -140,7 +141,7 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 		
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsBlackholeForServiceDataContainer getBlackholeAcl()
 		{
-			return icBlackholeAcl;
+						return icBlackholeAcl;
 		}
 
 			
@@ -151,7 +152,7 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 		
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsConfigurationDataContainer getConfiguration()
 		{
-			return icConfiguration;
+						return icConfiguration;
 		}
 
 		

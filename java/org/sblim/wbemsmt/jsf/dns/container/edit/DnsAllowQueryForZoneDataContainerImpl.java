@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -54,13 +54,14 @@ public class DnsAllowQueryForZoneDataContainerImpl extends org.sblim.wbemsmt.too
 	
 	public DnsAllowQueryForZoneDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsAllowQueryForZoneDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "DnsAllowQueryForZoneDataContainer.caption",false);
 				
 				
     			
     				layouter = new DnsAllowQueryForZoneDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
 				
-		setFooter(getInputFieldContainer(),"DnsAllowQueryForZoneDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsAllowQueryForZoneDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -84,6 +85,8 @@ public class DnsAllowQueryForZoneDataContainerImpl extends org.sblim.wbemsmt.too
     			ic_AddressList = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_AddressList;
     	}
 			/**
@@ -105,6 +108,8 @@ public class DnsAllowQueryForZoneDataContainerImpl extends org.sblim.wbemsmt.too
     			ic_usr_RemoveAddress = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RemoveAddress;
     	}
 			/**
@@ -126,6 +131,8 @@ public class DnsAllowQueryForZoneDataContainerImpl extends org.sblim.wbemsmt.too
     			ic_usr_UserAddresses = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_UserAddresses;
     	}
 			/**
@@ -147,6 +154,8 @@ public class DnsAllowQueryForZoneDataContainerImpl extends org.sblim.wbemsmt.too
     			ic_usr_NewAddress = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_NewAddress;
     	}
 			/**
@@ -168,6 +177,8 @@ public class DnsAllowQueryForZoneDataContainerImpl extends org.sblim.wbemsmt.too
     			ic_usr_AddPredefinedAddress = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddPredefinedAddress;
     	}
 			/**
@@ -189,6 +200,8 @@ public class DnsAllowQueryForZoneDataContainerImpl extends org.sblim.wbemsmt.too
     			ic_usr_AddNewAddress = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddNewAddress;
     	}
 			/**
@@ -210,6 +223,8 @@ public class DnsAllowQueryForZoneDataContainerImpl extends org.sblim.wbemsmt.too
     			ic_usr_AddressUp = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddressUp;
     	}
 			/**
@@ -231,6 +246,8 @@ public class DnsAllowQueryForZoneDataContainerImpl extends org.sblim.wbemsmt.too
     			ic_usr_AddressDown = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddressDown;
     	}
 			/**
@@ -252,6 +269,8 @@ public class DnsAllowQueryForZoneDataContainerImpl extends org.sblim.wbemsmt.too
     			ic_usr_UseGlobalAddressMatchList = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_UseGlobalAddressMatchList;
     	}
 		

@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -53,13 +53,14 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
 	
 	public DnsForwardZoneWizardPage1DataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsForwardZoneWizardPage1DataContainer.caption","DnsForwardZoneWizardPage1DataContainer.subTitle");
+			
+				super(adapter,bindingPrefix, "DnsForwardZoneWizardPage1DataContainer.caption","DnsForwardZoneWizardPage1DataContainer.subTitle",false);
 				
 				
     			
     				layouter = new DnsForwardZoneWizardPage1DataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
 				
-		setFooter(getInputFieldContainer(),"DnsForwardZoneWizardPage1DataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsForwardZoneWizardPage1DataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -83,6 +84,8 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
     			ic_Forward = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Forward;
     	}
 			/**
@@ -104,6 +107,8 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
     			ic_Forwarders = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Forwarders;
     	}
 			/**
@@ -125,6 +130,8 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
     			ic_usr_RemoveForwarder = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RemoveForwarder;
     	}
 			/**
@@ -146,6 +153,8 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
     			ic_usr_NewForwarder = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_NewForwarder;
     	}
 			/**
@@ -167,6 +176,8 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
     			ic_usr_AddForwarder = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddForwarder;
     	}
 			/**
@@ -188,6 +199,8 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
     			ic_usr_NewForwarderType = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_NewForwarderType;
     	}
 			/**
@@ -210,6 +223,8 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
 								ic_usr_Name.setRequired(true);
 				;
     		}
+			
+						
     		return ic_usr_Name;
     	}
 			/**
@@ -231,6 +246,8 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
     			ic_usr_UseGlobalForwarders = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_UseGlobalForwarders;
     	}
 		

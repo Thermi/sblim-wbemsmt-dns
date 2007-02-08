@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -42,14 +42,15 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
 	
 	public DnsReverseZoneWizardSummaryDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsReverseZoneWizardSummaryDataContainer.caption","DnsReverseZoneWizardSummaryDataContainer.subTitle");
+			
+				super(adapter,bindingPrefix, "DnsReverseZoneWizardSummaryDataContainer.caption","DnsReverseZoneWizardSummaryDataContainer.subTitle",false);
 				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Name());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_ResourceRecordFile());
         					
-		setFooter(getInputFieldContainer(),"DnsReverseZoneWizardSummaryDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsReverseZoneWizardSummaryDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -73,6 +74,8 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
     			ic_usr_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Name;
     	}
 			/**
@@ -94,6 +97,8 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
     			ic_ResourceRecordFile = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_ResourceRecordFile;
     	}
 		
@@ -104,7 +109,7 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
 		*/
 		public java.util.List getResourceRecords()
 		{
-			return icResourceRecords;
+						return icResourceRecords;
 		}
 
 	

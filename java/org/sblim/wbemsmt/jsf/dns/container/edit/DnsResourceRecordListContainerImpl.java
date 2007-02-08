@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -48,13 +48,14 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 	
 	public DnsResourceRecordListContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsResourceRecordListContainer.caption");
+			
+				super(adapter,bindingPrefix, "DnsResourceRecordListContainer.caption",false);
 				
 				
     			
     				layouter = new DnsResourceRecordListContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
 				
-		setFooter(getInputFieldContainer(),"DnsResourceRecordListContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsResourceRecordListContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -78,6 +79,8 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
     			ic_usr_SelectAll = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxActionComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_SelectAll;
     	}
 			/**
@@ -99,6 +102,8 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
     			ic_usr_Delete = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Delete;
     	}
 		
@@ -109,7 +114,7 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 		*/
 		public java.util.List getResourceRecords()
 		{
-			return icResourceRecords;
+						return icResourceRecords;
 		}
 
 	

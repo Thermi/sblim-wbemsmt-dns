@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -50,13 +50,14 @@ public class DnsHintZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 	
 	public DnsHintZoneDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsHintZoneDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "DnsHintZoneDataContainer.caption",false);
 				
 				
     			
     				layouter = new DnsHintZoneDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
 				
-		setFooter(getInputFieldContainer(),"DnsHintZoneDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsHintZoneDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -80,6 +81,8 @@ public class DnsHintZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Name;
     	}
 			/**
@@ -101,6 +104,8 @@ public class DnsHintZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
     			ic_TTL = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_TTL;
     	}
 			/**
@@ -122,6 +127,8 @@ public class DnsHintZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
     			ic_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_TTLUnit;
     	}
 			/**
@@ -143,6 +150,8 @@ public class DnsHintZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
     			ic_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RemoveTTL;
     	}
 			/**
@@ -164,6 +173,8 @@ public class DnsHintZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
     			ic_ZoneFile = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_ZoneFile;
     	}
 		

@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -41,14 +41,15 @@ public class DnsSlaveZoneWizardSummaryDataContainerImpl extends org.sblim.wbemsm
 	
 	public DnsSlaveZoneWizardSummaryDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsSlaveZoneWizardSummaryDataContainer.caption","DnsSlaveZoneWizardSummaryDataContainer.subTitle");
+			
+				super(adapter,bindingPrefix, "DnsSlaveZoneWizardSummaryDataContainer.caption","DnsSlaveZoneWizardSummaryDataContainer.subTitle",false);
 				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Name());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_IpAdressses());
         					
-		setFooter(getInputFieldContainer(),"DnsSlaveZoneWizardSummaryDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsSlaveZoneWizardSummaryDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -72,6 +73,8 @@ public class DnsSlaveZoneWizardSummaryDataContainerImpl extends org.sblim.wbemsm
     			ic_usr_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Name;
     	}
 			/**
@@ -93,6 +96,8 @@ public class DnsSlaveZoneWizardSummaryDataContainerImpl extends org.sblim.wbemsm
     			ic_usr_IpAdressses = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_IpAdressses;
     	}
 		

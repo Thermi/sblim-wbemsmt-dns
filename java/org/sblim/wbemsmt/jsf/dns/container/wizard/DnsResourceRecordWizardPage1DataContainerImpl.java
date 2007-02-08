@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -47,13 +47,14 @@ public class DnsResourceRecordWizardPage1DataContainerImpl extends org.sblim.wbe
 	
 	public DnsResourceRecordWizardPage1DataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsResourceRecordWizardPage1DataContainer.caption","DnsResourceRecordWizardPage1DataContainer.subTitle");
+			
+				super(adapter,bindingPrefix, "DnsResourceRecordWizardPage1DataContainer.caption","DnsResourceRecordWizardPage1DataContainer.subTitle",false);
 				
 				
     			
     				layouter = new DnsResourceRecordWizardPage1DataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
 				
-		setFooter(getInputFieldContainer(),"DnsResourceRecordWizardPage1DataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsResourceRecordWizardPage1DataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -78,6 +79,8 @@ public class DnsResourceRecordWizardPage1DataContainerImpl extends org.sblim.wbe
 								ic_usr_Type.setRequired(true);
 				;
     		}
+			
+						
     		return ic_usr_Type;
     	}
 			/**
@@ -100,6 +103,8 @@ public class DnsResourceRecordWizardPage1DataContainerImpl extends org.sblim.wbe
 								ic_usr_Name.setRequired(true);
 				;
     		}
+			
+						
     		return ic_usr_Name;
     	}
 		

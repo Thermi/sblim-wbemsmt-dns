@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -54,13 +54,14 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
 	
 	public DnsAddressMatchListWizardPage1DataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsAddressMatchListWizardPage1DataContainer.caption","DnsAddressMatchListWizardPage1DataContainer.subTitle");
+			
+				super(adapter,bindingPrefix, "DnsAddressMatchListWizardPage1DataContainer.caption","DnsAddressMatchListWizardPage1DataContainer.subTitle",false);
 				
 				
     			
     				layouter = new DnsAddressMatchListWizardPage1DataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
 				
-		setFooter(getInputFieldContainer(),"DnsAddressMatchListWizardPage1DataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsAddressMatchListWizardPage1DataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -84,6 +85,8 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
     			ic_AddressList = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_AddressList;
     	}
 			/**
@@ -105,6 +108,8 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
     			ic_usr_RemoveAddress = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RemoveAddress;
     	}
 			/**
@@ -126,6 +131,8 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
     			ic_usr_UserAddresses = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_UserAddresses;
     	}
 			/**
@@ -147,6 +154,8 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
     			ic_usr_NewAddress = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_NewAddress;
     	}
 			/**
@@ -168,6 +177,8 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
     			ic_usr_AddPredefinedAddress = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddPredefinedAddress;
     	}
 			/**
@@ -189,6 +200,8 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
     			ic_usr_AddNewAddress = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddNewAddress;
     	}
 			/**
@@ -210,6 +223,8 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
     			ic_usr_AddressUp = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddressUp;
     	}
 			/**
@@ -231,6 +246,8 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
     			ic_usr_AddressDown = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddressDown;
     	}
 			/**
@@ -253,6 +270,8 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
 								ic_Name.setRequired(true);
 				;
     		}
+			
+						
     		return ic_Name;
     	}
 		

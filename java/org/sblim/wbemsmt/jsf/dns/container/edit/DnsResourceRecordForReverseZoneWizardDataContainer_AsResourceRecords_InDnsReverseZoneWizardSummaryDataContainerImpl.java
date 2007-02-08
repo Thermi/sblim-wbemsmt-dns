@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -106,6 +106,8 @@ public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecord
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_Name).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_Name;
     	}
 			/**
@@ -129,6 +131,8 @@ public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecord
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_Type).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_Type;
     	}
 			/**
@@ -152,6 +156,8 @@ public class DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecord
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_Value).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_Value;
     	}
 		

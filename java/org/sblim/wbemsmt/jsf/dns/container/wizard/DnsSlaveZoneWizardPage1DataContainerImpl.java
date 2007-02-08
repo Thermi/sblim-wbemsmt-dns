@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -52,13 +52,14 @@ public class DnsSlaveZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt.
 	
 	public DnsSlaveZoneWizardPage1DataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsSlaveZoneWizardPage1DataContainer.caption","DnsSlaveZoneWizardPage1DataContainer.subTitle");
+			
+				super(adapter,bindingPrefix, "DnsSlaveZoneWizardPage1DataContainer.caption","DnsSlaveZoneWizardPage1DataContainer.subTitle",false);
 				
 				
     			
     				layouter = new DnsSlaveZoneWizardPage1DataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
 				
-		setFooter(getInputFieldContainer(),"DnsSlaveZoneWizardPage1DataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsSlaveZoneWizardPage1DataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -82,6 +83,8 @@ public class DnsSlaveZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt.
     			ic_Masters = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Masters;
     	}
 			/**
@@ -103,6 +106,8 @@ public class DnsSlaveZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt.
     			ic_usr_RemoveMasterEntry = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RemoveMasterEntry;
     	}
 			/**
@@ -124,6 +129,8 @@ public class DnsSlaveZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt.
     			ic_usr_NewMasterEntry = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_NewMasterEntry;
     	}
 			/**
@@ -145,6 +152,8 @@ public class DnsSlaveZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt.
     			ic_usr_AddNewMasterEntry = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddNewMasterEntry;
     	}
 			/**
@@ -166,6 +175,8 @@ public class DnsSlaveZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt.
     			ic_usr_AddPredefinedMaster = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddPredefinedMaster;
     	}
 			/**
@@ -187,6 +198,8 @@ public class DnsSlaveZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt.
     			ic_usr_PredefinedMasters = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_PredefinedMasters;
     	}
 			/**
@@ -209,6 +222,8 @@ public class DnsSlaveZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt.
 								ic_usr_Name.setRequired(true);
 				;
     		}
+			
+						
     		return ic_usr_Name;
     	}
 		

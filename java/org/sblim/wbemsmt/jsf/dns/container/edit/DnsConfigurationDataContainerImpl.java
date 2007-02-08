@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -49,13 +49,14 @@ public class DnsConfigurationDataContainerImpl extends org.sblim.wbemsmt.tools.j
 	
 	public DnsConfigurationDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsConfigurationDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "DnsConfigurationDataContainer.caption",false);
 				
 				
     			
     				layouter = new DnsConfigurationDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
 				
-		setFooter(getInputFieldContainer(),"DnsConfigurationDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsConfigurationDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -79,6 +80,8 @@ public class DnsConfigurationDataContainerImpl extends org.sblim.wbemsmt.tools.j
     			ic_ConfigurationFile = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_ConfigurationFile;
     	}
 			/**
@@ -100,6 +103,8 @@ public class DnsConfigurationDataContainerImpl extends org.sblim.wbemsmt.tools.j
     			ic_ConfigurationDirectory = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_ConfigurationDirectory;
     	}
 			/**
@@ -121,6 +126,8 @@ public class DnsConfigurationDataContainerImpl extends org.sblim.wbemsmt.tools.j
     			ic_PortNumber = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_PortNumber;
     	}
 			/**
@@ -142,6 +149,8 @@ public class DnsConfigurationDataContainerImpl extends org.sblim.wbemsmt.tools.j
     			ic_usr_RemoveDirectory = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RemoveDirectory;
     	}
 		

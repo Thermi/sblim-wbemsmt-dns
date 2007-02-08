@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -47,7 +47,8 @@ public class DnsResourceRecordListItemContainerImpl extends org.sblim.wbemsmt.to
 	
 	public DnsResourceRecordListItemContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsResourceRecordListItemContainer.caption");
+			
+				super(adapter,bindingPrefix, "DnsResourceRecordListItemContainer.caption",false);
 				
 				
     			
@@ -60,7 +61,7 @@ public class DnsResourceRecordListItemContainerImpl extends org.sblim.wbemsmt.to
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Type());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Value());
         					
-		setFooter(getInputFieldContainer(),"DnsResourceRecordListItemContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsResourceRecordListItemContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -84,6 +85,8 @@ public class DnsResourceRecordListItemContainerImpl extends org.sblim.wbemsmt.to
     			ic_usr_DeleteRecord = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_DeleteRecord;
     	}
 			/**
@@ -106,6 +109,8 @@ public class DnsResourceRecordListItemContainerImpl extends org.sblim.wbemsmt.to
 								ic_Name.setRequired(true);
 				;
     		}
+			
+						
     		return ic_Name;
     	}
 			/**
@@ -127,6 +132,8 @@ public class DnsResourceRecordListItemContainerImpl extends org.sblim.wbemsmt.to
     			ic_TTL = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_TTL;
     	}
 			/**
@@ -148,6 +155,8 @@ public class DnsResourceRecordListItemContainerImpl extends org.sblim.wbemsmt.to
     			ic_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_TTLUnit;
     	}
 			/**
@@ -169,6 +178,8 @@ public class DnsResourceRecordListItemContainerImpl extends org.sblim.wbemsmt.to
     			ic_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RemoveTTL;
     	}
 			/**
@@ -190,6 +201,8 @@ public class DnsResourceRecordListItemContainerImpl extends org.sblim.wbemsmt.to
     			ic_Family = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Family;
     	}
 			/**
@@ -212,6 +225,8 @@ public class DnsResourceRecordListItemContainerImpl extends org.sblim.wbemsmt.to
 								ic_Type.setRequired(true);
 				;
     		}
+			
+						
     		return ic_Type;
     	}
 			/**
@@ -234,6 +249,8 @@ public class DnsResourceRecordListItemContainerImpl extends org.sblim.wbemsmt.to
 								ic_Value.setRequired(true);
 				;
     		}
+			
+						
     		return ic_Value;
     	}
 		

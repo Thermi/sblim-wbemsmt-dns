@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -126,6 +126,8 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)ic_usr_DeleteRecord).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_usr_DeleteRecord;
     	}
 			/**
@@ -150,6 +152,8 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)ic_Name).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_Name;
     	}
 			/**
@@ -173,6 +177,8 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)ic_TTL).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_TTL;
     	}
 			/**
@@ -196,6 +202,8 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)ic_usr_TTLUnit).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_usr_TTLUnit;
     	}
 			/**
@@ -219,6 +227,8 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent)ic_usr_RemoveTTL).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_usr_RemoveTTL;
     	}
 			/**
@@ -242,6 +252,8 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)ic_Family).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_Family;
     	}
 			/**
@@ -266,6 +278,8 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)ic_Type).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_Type;
     	}
 			/**
@@ -290,6 +304,8 @@ public class DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceR
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)ic_Value).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_Value;
     	}
 		

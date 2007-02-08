@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -43,7 +43,8 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends org.sblim.wbems
 	
 	public DnsMasterZoneWizardSummaryDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsMasterZoneWizardSummaryDataContainer.caption","DnsMasterZoneWizardSummaryDataContainer.subTitle");
+			
+				super(adapter,bindingPrefix, "DnsMasterZoneWizardSummaryDataContainer.caption","DnsMasterZoneWizardSummaryDataContainer.subTitle",false);
 				
 				
     			
@@ -52,7 +53,7 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends org.sblim.wbems
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_IpAdress());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Contact());
         					
-		setFooter(getInputFieldContainer(),"DnsMasterZoneWizardSummaryDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsMasterZoneWizardSummaryDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -76,6 +77,8 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends org.sblim.wbems
     			ic_usr_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Name;
     	}
 			/**
@@ -97,6 +100,8 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends org.sblim.wbems
     			ic_usr_Server = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Server;
     	}
 			/**
@@ -118,6 +123,8 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends org.sblim.wbems
     			ic_usr_IpAdress = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_IpAdress;
     	}
 			/**
@@ -139,6 +146,8 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends org.sblim.wbems
     			ic_usr_Contact = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Contact;
     	}
 		

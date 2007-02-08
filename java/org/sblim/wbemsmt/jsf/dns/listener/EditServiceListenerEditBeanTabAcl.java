@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -24,6 +24,7 @@
 
 package org.sblim.wbemsmt.jsf.dns.listener;
 
+import javax.faces.component.*;
 import javax.faces.component.html.*;
 import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
@@ -237,14 +238,16 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 			panel.setWidth("100%");
 			panel.setCellspacing("0");
 			panel.setCellpadding("0");
-			
+
 			UIComponentBase addToThis = panel;
 			
 						TaskLauncherTreeNodeSelector selector = null;
 			//CimObjectKey key = null;
 			HtmlPanelGrid containerPanel = null;
 			org.sblim.wbem.client.CIMClient cimClient = null;
-	
+
+			//This panel is added to container representing the tab. It's the ajaxPanel or the Panel containing the container and it's childs
+			UIPanel panelToAdd= null;
 			
 								
 				cimClient = treeNode.getCimClient();
@@ -262,10 +265,11 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				
 				
 				bindingPrefix = "objectActionController.editBeans['TabAcl'].containers[0].";
+				
 
 				//create cotainner
     			currentEditContainer1 = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsAllowNotifyForServiceDataContainerImpl(adapter1,bindingPrefix);
-				currentEditContainer1.getInputFieldContainer().setStyleClass("mainTable");
+				currentEditContainer1.getPanelForCustomLayout().setStyleClass("mainTable");
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer1.getInputFieldContainer());
 				containerPanel.setWidth("100%");
@@ -286,11 +290,15 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 								
 				//add the childs with occurence list
             					
-				addToThis.getChildren().add(containerPanel);
 				containerPanel.getChildren().add(childEditFields);
+
+									panelToAdd = containerPanel;
+								
+				addToThis.getChildren().add(panelToAdd);
+
 				containers.add(currentEditContainer1);
 				
-            						currentEditContainer1.getLayouter().layout(currentEditContainer1.getInputFieldContainer(),currentEditContainer1 ,bundle);
+            						currentEditContainer1.getLayouter().layout(currentEditContainer1.getPanelForCustomLayout(),currentEditContainer1 ,bundle);
             					
 				addFooter(panel,"objectActionController.editBeans['TabAcl'].");
 				
@@ -311,10 +319,11 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				
 				
 				bindingPrefix = "objectActionController.editBeans['TabAcl'].containers[1].";
+				
 
 				//create cotainner
     			currentEditContainer2 = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsAllowQueryForServiceDataContainerImpl(adapter2,bindingPrefix);
-				currentEditContainer2.getInputFieldContainer().setStyleClass("mainTable");
+				currentEditContainer2.getPanelForCustomLayout().setStyleClass("mainTable");
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer2.getInputFieldContainer());
 				containerPanel.setWidth("100%");
@@ -335,11 +344,15 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 								
 				//add the childs with occurence list
             					
-				addToThis.getChildren().add(containerPanel);
 				containerPanel.getChildren().add(childEditFields);
+
+									panelToAdd = containerPanel;
+								
+				addToThis.getChildren().add(panelToAdd);
+
 				containers.add(currentEditContainer2);
 				
-            						currentEditContainer2.getLayouter().layout(currentEditContainer2.getInputFieldContainer(),currentEditContainer2 ,bundle);
+            						currentEditContainer2.getLayouter().layout(currentEditContainer2.getPanelForCustomLayout(),currentEditContainer2 ,bundle);
             					
 				addFooter(panel,"objectActionController.editBeans['TabAcl'].");
 				
@@ -360,10 +373,11 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				
 				
 				bindingPrefix = "objectActionController.editBeans['TabAcl'].containers[2].";
+				
 
 				//create cotainner
     			currentEditContainer3 = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsAllowTransferForServiceDataContainerImpl(adapter3,bindingPrefix);
-				currentEditContainer3.getInputFieldContainer().setStyleClass("mainTable");
+				currentEditContainer3.getPanelForCustomLayout().setStyleClass("mainTable");
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer3.getInputFieldContainer());
 				containerPanel.setWidth("100%");
@@ -384,11 +398,15 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 								
 				//add the childs with occurence list
             					
-				addToThis.getChildren().add(containerPanel);
 				containerPanel.getChildren().add(childEditFields);
+
+									panelToAdd = containerPanel;
+								
+				addToThis.getChildren().add(panelToAdd);
+
 				containers.add(currentEditContainer3);
 				
-            						currentEditContainer3.getLayouter().layout(currentEditContainer3.getInputFieldContainer(),currentEditContainer3 ,bundle);
+            						currentEditContainer3.getLayouter().layout(currentEditContainer3.getPanelForCustomLayout(),currentEditContainer3 ,bundle);
             					
 				addFooter(panel,"objectActionController.editBeans['TabAcl'].");
 				
@@ -409,10 +427,11 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				
 				
 				bindingPrefix = "objectActionController.editBeans['TabAcl'].containers[3].";
+				
 
 				//create cotainner
     			currentEditContainer4 = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsAllowRecursionForServiceDataContainerImpl(adapter4,bindingPrefix);
-				currentEditContainer4.getInputFieldContainer().setStyleClass("mainTable");
+				currentEditContainer4.getPanelForCustomLayout().setStyleClass("mainTable");
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer4.getInputFieldContainer());
 				containerPanel.setWidth("100%");
@@ -433,11 +452,15 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 								
 				//add the childs with occurence list
             					
-				addToThis.getChildren().add(containerPanel);
 				containerPanel.getChildren().add(childEditFields);
+
+									panelToAdd = containerPanel;
+								
+				addToThis.getChildren().add(panelToAdd);
+
 				containers.add(currentEditContainer4);
 				
-            						currentEditContainer4.getLayouter().layout(currentEditContainer4.getInputFieldContainer(),currentEditContainer4 ,bundle);
+            						currentEditContainer4.getLayouter().layout(currentEditContainer4.getPanelForCustomLayout(),currentEditContainer4 ,bundle);
             					
 				addFooter(panel,"objectActionController.editBeans['TabAcl'].");
 				
@@ -458,10 +481,11 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 				
 				
 				bindingPrefix = "objectActionController.editBeans['TabAcl'].containers[4].";
+				
 
 				//create cotainner
     			currentEditContainer5 = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsBlackholeForServiceDataContainerImpl(adapter5,bindingPrefix);
-				currentEditContainer5.getInputFieldContainer().setStyleClass("mainTable");
+				currentEditContainer5.getPanelForCustomLayout().setStyleClass("mainTable");
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer5.getInputFieldContainer());
 				containerPanel.setWidth("100%");
@@ -482,15 +506,20 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 								
 				//add the childs with occurence list
             					
-				addToThis.getChildren().add(containerPanel);
 				containerPanel.getChildren().add(childEditFields);
+
+									panelToAdd = containerPanel;
+								
+				addToThis.getChildren().add(panelToAdd);
+
 				containers.add(currentEditContainer5);
 				
-            						currentEditContainer5.getLayouter().layout(currentEditContainer5.getInputFieldContainer(),currentEditContainer5 ,bundle);
+            						currentEditContainer5.getLayouter().layout(currentEditContainer5.getPanelForCustomLayout(),currentEditContainer5 ,bundle);
             					
 				addFooter(panel,"objectActionController.editBeans['TabAcl'].");
 				
 			
+						
 						//Creating no OK/Cancel-Button because saving single Tabs is disabled (EditAction.saveSinglePanels)
 						
 		}

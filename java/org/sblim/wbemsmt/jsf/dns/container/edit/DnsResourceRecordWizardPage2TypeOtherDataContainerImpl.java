@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -40,13 +40,14 @@ public class DnsResourceRecordWizardPage2TypeOtherDataContainerImpl extends org.
 	
 	public DnsResourceRecordWizardPage2TypeOtherDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsResourceRecordWizardPage2TypeOtherDataContainer.caption","DnsResourceRecordWizardPage2TypeOtherDataContainer.subTitle");
+			
+				super(adapter,bindingPrefix, "DnsResourceRecordWizardPage2TypeOtherDataContainer.caption","DnsResourceRecordWizardPage2TypeOtherDataContainer.subTitle",false);
 				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Value());
         					
-		setFooter(getInputFieldContainer(),"DnsResourceRecordWizardPage2TypeOtherDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsResourceRecordWizardPage2TypeOtherDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -71,6 +72,8 @@ public class DnsResourceRecordWizardPage2TypeOtherDataContainerImpl extends org.
 								ic_usr_Value.setRequired(true);
 				;
     		}
+			
+						
     		return ic_usr_Value;
     	}
 		

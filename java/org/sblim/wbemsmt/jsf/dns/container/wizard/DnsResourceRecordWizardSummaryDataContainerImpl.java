@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -43,7 +43,8 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends org.sblim.w
 	
 	public DnsResourceRecordWizardSummaryDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsResourceRecordWizardSummaryDataContainer.caption","DnsResourceRecordWizardSummaryDataContainer.subTitle");
+			
+				super(adapter,bindingPrefix, "DnsResourceRecordWizardSummaryDataContainer.caption","DnsResourceRecordWizardSummaryDataContainer.subTitle",false);
 				
 				
     			
@@ -52,7 +53,7 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends org.sblim.w
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Value());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Priority());
         					
-		setFooter(getInputFieldContainer(),"DnsResourceRecordWizardSummaryDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsResourceRecordWizardSummaryDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -76,6 +77,8 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends org.sblim.w
     			ic_usr_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Name;
     	}
 			/**
@@ -97,6 +100,8 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends org.sblim.w
     			ic_usr_Type = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Type;
     	}
 			/**
@@ -118,6 +123,8 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends org.sblim.w
     			ic_usr_Value = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Value;
     	}
 			/**
@@ -139,6 +146,8 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends org.sblim.w
     			ic_usr_Priority = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_Priority;
     	}
 		

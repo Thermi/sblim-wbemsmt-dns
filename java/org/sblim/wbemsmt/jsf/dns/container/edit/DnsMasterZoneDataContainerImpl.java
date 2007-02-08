@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -57,13 +57,14 @@ public class DnsMasterZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 	
 	public DnsMasterZoneDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsMasterZoneDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "DnsMasterZoneDataContainer.caption",false);
 				
 				
     			
     				layouter = new DnsMasterZoneDataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
 				
-		setFooter(getInputFieldContainer(),"DnsMasterZoneDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsMasterZoneDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -87,6 +88,8 @@ public class DnsMasterZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Name;
     	}
 			/**
@@ -108,6 +111,8 @@ public class DnsMasterZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_Forward = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFRadioButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Forward;
     	}
 			/**
@@ -129,6 +134,8 @@ public class DnsMasterZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_Forwarders = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Forwarders;
     	}
 			/**
@@ -150,6 +157,8 @@ public class DnsMasterZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_usr_RemoveForwarder = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RemoveForwarder;
     	}
 			/**
@@ -171,6 +180,8 @@ public class DnsMasterZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_usr_NewForwarder = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_NewForwarder;
     	}
 			/**
@@ -192,6 +203,8 @@ public class DnsMasterZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_usr_AddForwarder = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddForwarder;
     	}
 			/**
@@ -213,6 +226,8 @@ public class DnsMasterZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_usr_NewForwarderType = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_NewForwarderType;
     	}
 			/**
@@ -234,6 +249,8 @@ public class DnsMasterZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_TTL = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_TTL;
     	}
 			/**
@@ -255,6 +272,8 @@ public class DnsMasterZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_TTLUnit;
     	}
 			/**
@@ -276,6 +295,8 @@ public class DnsMasterZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RemoveTTL;
     	}
 			/**
@@ -297,6 +318,8 @@ public class DnsMasterZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_ZoneFile = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_ZoneFile;
     	}
 			/**
@@ -318,6 +341,8 @@ public class DnsMasterZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
     			ic_usr_UseGlobalForwarders = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_UseGlobalForwarders;
     	}
 		

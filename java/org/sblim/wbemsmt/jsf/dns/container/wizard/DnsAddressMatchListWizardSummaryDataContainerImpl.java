@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -41,14 +41,15 @@ public class DnsAddressMatchListWizardSummaryDataContainerImpl extends org.sblim
 	
 	public DnsAddressMatchListWizardSummaryDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsAddressMatchListWizardSummaryDataContainer.caption","DnsAddressMatchListWizardSummaryDataContainer.subTitle");
+			
+				super(adapter,bindingPrefix, "DnsAddressMatchListWizardSummaryDataContainer.caption","DnsAddressMatchListWizardSummaryDataContainer.subTitle",false);
 				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_AddressList());
         					
-		setFooter(getInputFieldContainer(),"DnsAddressMatchListWizardSummaryDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsAddressMatchListWizardSummaryDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -72,6 +73,8 @@ public class DnsAddressMatchListWizardSummaryDataContainerImpl extends org.sblim
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Name;
     	}
 			/**
@@ -93,6 +96,8 @@ public class DnsAddressMatchListWizardSummaryDataContainerImpl extends org.sblim
     			ic_AddressList = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_AddressList;
     	}
 		

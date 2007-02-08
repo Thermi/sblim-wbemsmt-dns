@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -24,6 +24,7 @@
 
 package org.sblim.wbemsmt.jsf.dns.listener;
 
+import javax.faces.component.*;
 import javax.faces.component.html.*;
 import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
@@ -101,14 +102,16 @@ public class EditHintZoneListenerEditBeanTabHintZone extends EditBean {
 			panel.setWidth("100%");
 			panel.setCellspacing("0");
 			panel.setCellpadding("0");
-			
+
 			UIComponentBase addToThis = panel;
 			
 						TaskLauncherTreeNodeSelector selector = null;
 			//CimObjectKey key = null;
 			HtmlPanelGrid containerPanel = null;
 			org.sblim.wbem.client.CIMClient cimClient = null;
-	
+
+			//This panel is added to container representing the tab. It's the ajaxPanel or the Panel containing the container and it's childs
+			UIPanel panelToAdd= null;
 			
 								
 				cimClient = treeNode.getCimClient();
@@ -126,10 +129,11 @@ public class EditHintZoneListenerEditBeanTabHintZone extends EditBean {
 				
 				
 				bindingPrefix = "objectActionController.editBeans['TabHintZone'].containers[0].";
+				
 
 				//create cotainner
     			currentEditContainer1 = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsHintZoneDataContainerImpl(adapter1,bindingPrefix);
-				currentEditContainer1.getInputFieldContainer().setStyleClass("mainTable");
+				currentEditContainer1.getPanelForCustomLayout().setStyleClass("mainTable");
 				containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				containerPanel.getChildren().add(currentEditContainer1.getInputFieldContainer());
 				containerPanel.setWidth("100%");
@@ -150,15 +154,20 @@ public class EditHintZoneListenerEditBeanTabHintZone extends EditBean {
 								
 				//add the childs with occurence list
             					
-				addToThis.getChildren().add(containerPanel);
 				containerPanel.getChildren().add(childEditFields);
+
+									panelToAdd = containerPanel;
+								
+				addToThis.getChildren().add(panelToAdd);
+
 				containers.add(currentEditContainer1);
 				
-            						currentEditContainer1.getLayouter().layout(currentEditContainer1.getInputFieldContainer(),currentEditContainer1 ,bundle);
+            						currentEditContainer1.getLayouter().layout(currentEditContainer1.getPanelForCustomLayout(),currentEditContainer1 ,bundle);
             					
 				addFooter(panel,"objectActionController.editBeans['TabHintZone'].");
 				
 			
+						
 						//Creating no OK/Cancel-Button because saving single Tabs is disabled (EditAction.saveSinglePanels)
 						
 		}

@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -42,7 +42,8 @@ public class DnsTTLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
 	
 	public DnsTTLDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsTTLDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "DnsTTLDataContainer.caption",false);
 				
 				
     			
@@ -50,7 +51,7 @@ public class DnsTTLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_TTLUnit());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_RemoveTTL());
         					
-		setFooter(getInputFieldContainer(),"DnsTTLDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsTTLDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -74,6 +75,8 @@ public class DnsTTLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
     			ic_TTL = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_TTL;
     	}
 			/**
@@ -95,6 +98,8 @@ public class DnsTTLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
     			ic_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_TTLUnit;
     	}
 			/**
@@ -116,6 +121,8 @@ public class DnsTTLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
     			ic_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RemoveTTL;
     	}
 		

@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -40,13 +40,14 @@ public class DnsZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBa
 	
 	public DnsZoneDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsZoneDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "DnsZoneDataContainer.caption",false);
 				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());
         					
-		setFooter(getInputFieldContainer(),"DnsZoneDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsZoneDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -70,6 +71,8 @@ public class DnsZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBa
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Name;
     	}
 		

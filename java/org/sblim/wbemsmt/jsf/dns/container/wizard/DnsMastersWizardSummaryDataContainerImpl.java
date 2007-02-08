@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -41,14 +41,15 @@ public class DnsMastersWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.
 	
 	public DnsMastersWizardSummaryDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsMastersWizardSummaryDataContainer.caption","DnsMastersWizardSummaryDataContainer.subTitle");
+			
+				super(adapter,bindingPrefix, "DnsMastersWizardSummaryDataContainer.caption","DnsMastersWizardSummaryDataContainer.subTitle",false);
 				
 				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_AddressList());
         					
-		setFooter(getInputFieldContainer(),"DnsMastersWizardSummaryDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsMastersWizardSummaryDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -72,6 +73,8 @@ public class DnsMastersWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.
     			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Name;
     	}
 			/**
@@ -93,6 +96,8 @@ public class DnsMastersWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.
     			ic_AddressList = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_AddressList;
     	}
 		

@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -53,13 +53,14 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
 	
 	public DnsReverseZoneWizardPage1DataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsReverseZoneWizardPage1DataContainer.caption","DnsReverseZoneWizardPage1DataContainer.subTitle");
+			
+				super(adapter,bindingPrefix, "DnsReverseZoneWizardPage1DataContainer.caption","DnsReverseZoneWizardPage1DataContainer.subTitle",false);
 				
 				
     			
     				layouter = new DnsReverseZoneWizardPage1DataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
 				
-		setFooter(getInputFieldContainer(),"DnsReverseZoneWizardPage1DataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsReverseZoneWizardPage1DataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -83,6 +84,8 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
     			ic_usr_IpAddress = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_IpAddress;
     	}
 			/**
@@ -104,6 +107,8 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
     			ic_usr_ResourceRecordUsed = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_ResourceRecordUsed;
     	}
 			/**
@@ -125,6 +130,8 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
     			ic_usr_RemoveResourceRecord = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RemoveResourceRecord;
     	}
 			/**
@@ -146,6 +153,8 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
     			ic_usr_ResourceRecordNotUsed = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_ResourceRecordNotUsed;
     	}
 			/**
@@ -167,6 +176,8 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
     			ic_usr_AddResourceRecord = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddResourceRecord;
     	}
 			/**
@@ -188,6 +199,8 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
     			ic_usr_AddAllResourceRecords = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddAllResourceRecords;
     	}
 			/**
@@ -209,6 +222,8 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
     			ic_usr_RemoveAllResourceRecords = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RemoveAllResourceRecords;
     	}
 			/**
@@ -230,6 +245,8 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
     			ic_usr_IpPresets = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxActionComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_IpPresets;
     	}
 		

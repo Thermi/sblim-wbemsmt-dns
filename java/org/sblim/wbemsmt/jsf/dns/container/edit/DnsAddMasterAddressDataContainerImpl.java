@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -45,7 +45,8 @@ public class DnsAddMasterAddressDataContainerImpl extends org.sblim.wbemsmt.tool
 	
 	public DnsAddMasterAddressDataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsAddMasterAddressDataContainer.caption");
+			
+				super(adapter,bindingPrefix, "DnsAddMasterAddressDataContainer.caption",false);
 				
 				
     			
@@ -56,7 +57,7 @@ public class DnsAddMasterAddressDataContainerImpl extends org.sblim.wbemsmt.tool
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_AddPredefinedMaster());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_PredefinedMasters());
         					
-		setFooter(getInputFieldContainer(),"DnsAddMasterAddressDataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsAddMasterAddressDataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -80,6 +81,8 @@ public class DnsAddMasterAddressDataContainerImpl extends org.sblim.wbemsmt.tool
     			ic_Masters = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_Masters;
     	}
 			/**
@@ -101,6 +104,8 @@ public class DnsAddMasterAddressDataContainerImpl extends org.sblim.wbemsmt.tool
     			ic_usr_RemoveMasterEntry = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_RemoveMasterEntry;
     	}
 			/**
@@ -122,6 +127,8 @@ public class DnsAddMasterAddressDataContainerImpl extends org.sblim.wbemsmt.tool
     			ic_usr_NewMasterEntry = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_NewMasterEntry;
     	}
 			/**
@@ -143,6 +150,8 @@ public class DnsAddMasterAddressDataContainerImpl extends org.sblim.wbemsmt.tool
     			ic_usr_AddNewMasterEntry = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddNewMasterEntry;
     	}
 			/**
@@ -164,6 +173,8 @@ public class DnsAddMasterAddressDataContainerImpl extends org.sblim.wbemsmt.tool
     			ic_usr_AddPredefinedMaster = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_AddPredefinedMaster;
     	}
 			/**
@@ -185,6 +196,8 @@ public class DnsAddMasterAddressDataContainerImpl extends org.sblim.wbemsmt.tool
     			ic_usr_PredefinedMasters = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
 				;
     		}
+			
+						
     		return ic_usr_PredefinedMasters;
     	}
 		

@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -126,6 +126,8 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)ic_TTL).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_TTL;
     	}
 			/**
@@ -149,6 +151,8 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)ic_usr_TTLUnit).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_usr_TTLUnit;
     	}
 			/**
@@ -172,6 +176,8 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent)ic_usr_RemoveTTL).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_usr_RemoveTTL;
     	}
 			/**
@@ -195,6 +201,8 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)ic_Name).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_Name;
     	}
 			/**
@@ -218,6 +226,8 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)ic_Type).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_Type;
     	}
 			/**
@@ -241,6 +251,8 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)ic_Family).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_Family;
     	}
 			/**
@@ -264,6 +276,8 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_Value).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_Value;
     	}
 			/**
@@ -287,6 +301,8 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 				;
 				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)ic_Priority).setOrientation( LabeledBaseInputComponentIf.LEFT );
     		}
+
+						
     		return ic_Priority;
     	}
 		

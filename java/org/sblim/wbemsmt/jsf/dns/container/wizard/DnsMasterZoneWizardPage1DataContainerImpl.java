@@ -3,7 +3,7 @@
   *
 
  
- * (C) Copyright IBM Corp. 2005
+ * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -43,7 +43,8 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt
 	
 	public DnsMasterZoneWizardPage1DataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix) throws InitContainerException  {
 
-				super(adapter,bindingPrefix, "DnsMasterZoneWizardPage1DataContainer.caption","DnsMasterZoneWizardPage1DataContainer.subTitle");
+			
+				super(adapter,bindingPrefix, "DnsMasterZoneWizardPage1DataContainer.caption","DnsMasterZoneWizardPage1DataContainer.subTitle",false);
 				
 				
     			
@@ -52,7 +53,7 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_IpAdress());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Contact());
         					
-		setFooter(getInputFieldContainer(),"DnsMasterZoneWizardPage1DataContainer.footerText");
+		setFooter(getPanelForCustomLayout(),"DnsMasterZoneWizardPage1DataContainer.footerText");
 		adapter.initContainer(this);
 	}
 	
@@ -77,6 +78,8 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt
 								ic_usr_Name.setRequired(true);
 				;
     		}
+			
+						
     		return ic_usr_Name;
     	}
 			/**
@@ -99,6 +102,8 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt
 								ic_usr_Server.setRequired(true);
 				;
     		}
+			
+						
     		return ic_usr_Server;
     	}
 			/**
@@ -121,6 +126,8 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt
 								ic_usr_IpAdress.setRequired(true);
 				;
     		}
+			
+						
     		return ic_usr_IpAdress;
     	}
 			/**
@@ -143,6 +150,8 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt
 								ic_usr_Contact.setRequired(true);
 				;
     		}
+			
+						
     		return ic_usr_Contact;
     	}
 		
