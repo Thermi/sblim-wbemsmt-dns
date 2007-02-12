@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS  TYPE="org.eclipse.help.toc"?>
+<toc label="dns">
+   <topic label="Index" href="index.html">
+	  	  <topic label="CreateMasterZone" href="CreateMasterZone.html"/>
+  	  	  <topic label="CreateSlaveZone" href="CreateSlaveZone.html"/>
+  	  	  <topic label="CreateStubZone" href="CreateStubZone.html"/>
+  	  	  <topic label="CreateForwardZone" href="CreateForwardZone.html"/>
+  	  	  <topic label="CreateReverseZone" href="CreateReverseZone.html"/>
+  	  	  <topic label="CreateResourceRecord" href="CreateResourceRecord.html"/>
+  	  	  <topic label="CreateAddressMatchList" href="CreateAddressMatchList.html"/>
+  	  	  <topic label="CreateMasters" href="CreateMasters.html"/>
+  	  	  <topic label="EditMasterZone Tab TabMasterZone" href="EditMasterZone.html#tab_0"/>
+  	  	  <topic label="EditMasterZone Tab TabAcl" href="EditMasterZone.html#tab_1"/>
+  	  	  <topic label="EditMasterZone Tab TabSOA" href="EditMasterZone.html#tab_2"/>
+  	  	  <topic label="EditMasterZone Tab TabResourceRecords" href="EditMasterZone.html#tab_3"/>
+  	  	  <topic label="EditSlaveZone Tab TabSlaveZone" href="EditSlaveZone.html#tab_0"/>
+  	  	  <topic label="EditSlaveZone Tab TabAcl" href="EditSlaveZone.html#tab_1"/>
+  	  	  <topic label="EditSlaveZone Tab TabResourceRecords" href="EditSlaveZone.html#tab_2"/>
+  	  	  <topic label="EditStubZone Tab TabStubZone" href="EditStubZone.html#tab_0"/>
+  	  	  <topic label="EditStubZone Tab TabAcl" href="EditStubZone.html#tab_1"/>
+  	  	  <topic label="EditStubZone Tab TabResourceRecords" href="EditStubZone.html#tab_2"/>
+  	  	  <topic label="EditService Tab TabConfiguration" href="EditService.html#tab_0"/>
+  	  	  <topic label="EditService Tab TabOperations" href="EditService.html#tab_1"/>
+  	  	  <topic label="EditService Tab TabAcl" href="EditService.html#tab_2"/>
+  	  	  <topic label="EditHintZone Tab TabHintZone" href="EditHintZone.html#tab_0"/>
+  	  	  <topic label="EditHintZone Tab TabResourceRecords" href="EditHintZone.html#tab_1"/>
+  	  	  <topic label="EditForwardZone" href="EditForwardZone.html#tab_0"/>
+  	  	  <topic label="EditReverseZone Tab TabReverseZone" href="EditReverseZone.html#tab_0"/>
+  	  	  <topic label="EditReverseZone Tab TabAcl" href="EditReverseZone.html#tab_1"/>
+  	  	  <topic label="EditReverseZone Tab TabSOA" href="EditReverseZone.html#tab_2"/>
+  	  	  <topic label="EditReverseZone Tab TabResourceRecords" href="EditReverseZone.html#tab_3"/>
+  	  	  <topic label="EditAddressMatchList" href="EditAddressMatchList.html#tab_0"/>
+  	  	  <topic label="EditMasters" href="EditMasters.html#tab_0"/>
+  	     </topic> 
+</toc>

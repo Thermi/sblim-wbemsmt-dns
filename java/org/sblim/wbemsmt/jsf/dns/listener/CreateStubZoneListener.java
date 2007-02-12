@@ -33,6 +33,7 @@ import org.sblim.wbemsmt.bl.tree.ITaskLauncherTreeNode;
 import org.sblim.wbemsmt.bl.tree.TaskLauncherTreeNodeEvent;
 import org.sblim.wbemsmt.tools.beans.BeanNameConstants;
 import org.sblim.wbemsmt.tools.wizard.jsf.IWizardController;
+import org.sblim.wbemsmt.bl.help.HelpManager;
 
 public class CreateStubZoneListener extends TaskLauncherContextMenuEventListenerImpl {
 
@@ -40,6 +41,11 @@ public class CreateStubZoneListener extends TaskLauncherContextMenuEventListener
 		FacesContext fc = FacesContext.getCurrentInstance();
         IWizardController wizardController = (IWizardController)BeanNameConstants.OBJECT_ACTION_CONTROLLER.asValueBinding(fc).getValue(fc);
 
+		//set the currentListener as topic for the help
+        final HelpManager helpManager = (HelpManager)BeanNameConstants.HELP_MANAGER.asValueBinding(fc).getValue(fc);
+		helpManager.setMode(HelpManager.MODE_CREATE);
+		helpManager.setCurrentTopic("dns","CreateStubZoneListener");
+		
 
 		ITaskLauncherTreeNode treeNode = event.getTreeNode();
 

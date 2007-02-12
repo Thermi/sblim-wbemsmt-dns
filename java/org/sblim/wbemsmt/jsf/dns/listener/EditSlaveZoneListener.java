@@ -35,6 +35,7 @@ import org.sblim.wbemsmt.tools.jsf.*;
 import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.WbemSmtException;
 import org.sblim.wbemsmt.webapp.jsf.ObjectActionControllerBean;
+import org.sblim.wbemsmt.bl.help.HelpManager;
 
 public class EditSlaveZoneListener extends JsfEditListener {
 
@@ -49,6 +50,12 @@ public class EditSlaveZoneListener extends JsfEditListener {
 			Locale locale = LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale();
         	bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},locale);
             final ObjectActionControllerBean oac = (ObjectActionControllerBean)BeanNameConstants.OBJECT_ACTION_CONTROLLER.asValueBinding(fc).getValue(fc);
+			
+			//set the currentListener as topic for the help
+            final HelpManager helpManager = (HelpManager)BeanNameConstants.HELP_MANAGER.asValueBinding(fc).getValue(fc);
+			helpManager.setMode(HelpManager.MODE_EDIT);
+			helpManager.setCurrentTopic("dns","EditSlaveZoneListener");
+			
 			EditBean bean = null;
 
 			if (oac.getCurrentEditListener() != null)

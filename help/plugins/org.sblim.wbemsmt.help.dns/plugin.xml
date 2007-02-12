@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin 
+			name="org.sblim.wbemsmt.help.metacluster" 
+			id="org.sblim.wbemsmt.help.metacluster" 
+			version="1.0.0">
+			<extension point="org.eclipse.help.toc">
+				<toc file="toc_generated.xml" primary="true"/>
+				<toc file="toc.xml" primary="false"/>
+			</extension>
+</plugin>
