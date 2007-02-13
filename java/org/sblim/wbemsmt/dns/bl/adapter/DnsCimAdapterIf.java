@@ -31,7 +31,7 @@ import org.sblim.wbemsmt.bl.adapter.*;
 	 * This is the interface containing all Methods
 	 **/
 
-public interface DnsCimAdapterIf extends DnsCimAdapterCountIf, DnsCimAdapterCreateIf, DnsCimAdapterDeleteIf, DnsCimAdapterInstallValidatorsIf, DnsCimAdapterSaveIf, DnsCimAdapterRevertIf, DnsCimAdapterUpdateControlsIf, DnsCimAdapterUpdateModelIf
+public interface DnsCimAdapterIf extends DnsCimAdapterCountIf, DnsCimAdapterCreateIf, DnsCimAdapterDeleteIf, DnsCimAdapterInstallValidatorsIf, DnsCimAdapterSaveIf, DnsCimAdapterRevertIf, DnsCimAdapterUpdateControlsIf, DnsCimAdapterUpdateModelIf, DnsCimAdapterInitWizardIf, DnsCimAdapterInitContainerIf
 {
 
 	public static final String[] RESOURCE_BUNDLE_NAMES = new String[]{"messages","messagesDns"};
