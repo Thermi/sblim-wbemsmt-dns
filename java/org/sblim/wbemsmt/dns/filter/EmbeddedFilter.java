@@ -21,16 +21,14 @@ package org.sblim.wbemsmt.dns.filter;
 
 import java.util.logging.Level;
 
-import org.sblim.wbemsmt.tasklauncher.customtreeconfig.TreenodeDocument;
 import org.sblim.wbemsmt.tasklauncher.customtreeconfig.EventListenerDocument.EventListener;
 import org.sblim.wbemsmt.tasklauncher.customtreeconfig.TreenodeDocument.Treenode;
 
 
 public class EmbeddedFilter extends org.sblim.wbemsmt.filter.EmbeddedFilter {
 
-	public Treenode filter(TreenodeDocument treeDocument) {
+	public Treenode filter(Treenode root) {
 		try {
-			Treenode root = treeDocument.getTreenode();
 			EventListener initAdapterListener = root.getTreenodeArray(0).getEventListenerArray(0);
 			//Node with the service
 			Treenode serviceNode = root.getTreenodeArray(0).getTreenodeArray(0);

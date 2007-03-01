@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tlc:treenode xmlns:tlc="http://sblim.org/wbemsmt/tasklauncher/customtreeconfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sblim.org/wbemsmt/tasklauncher/customtreeconfig
-../../wbemsmt-tools-bl/conf/customtreeconfig.xsd">
+<tlc:customtreeconfig version="VERSION_2_0" xmlns:tlc="http://sblim.org/wbemsmt/tasklauncher/customtreeconfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sblim.org/wbemsmt/tasklauncher/customtreeconfig ../../wbemsmt-commons/commons-bl/conf/customtreeconfig.xsd">
+	<tlc:treenode>
 	<tlc:description>root</tlc:description>
 	<tlc:treenode>
 		<tlc:description>tree.dns</tlc:description>
@@ -339,3 +339,4 @@
 		</tlc:treenode>
 	</tlc:treenode>
 </tlc:treenode>
+</tlc:customtreeconfig>
