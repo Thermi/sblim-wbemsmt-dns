@@ -18,7 +18,7 @@
  *
  */
 -->
-<tasklauncherconfig xmlns="http://sblim.org/wbemsmt/tasklauncher/tasklauncherconfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sblim.org/wbemsmt/tasklauncher/tasklauncherconfig ../../wbemsmt-commons/commons-bl/conf/tasklauncher-config.xsd">
+<tasklauncherconfig version="VERSION_2_0" xmlns="http://sblim.org/wbemsmt/tasklauncher/tasklauncherconfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sblim.org/wbemsmt/tasklauncher/tasklauncherconfig ../../wbemsmt-commons/commons-bl/conf/tasklauncher-config.xsd">
 	<treeconfig 
 		name="DNS" 
 		filename="dnsTree.xml" 
