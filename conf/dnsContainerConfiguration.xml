@@ -18,7 +18,7 @@
 	* Contributors: 
 	*/
 -->
-<cc:clientConfig
+<cc:clientConfig version="VERSION_2_0"
 	xsi:schemaLocation="http://sblim.org/wbemsmt/clientconfig ../../wbemsmt-tools/tools-dcg/conf/clientConfig.xsd"
 	xmlns:cmd="http://sblim.org/wbemsmt/cmd"
 	xmlns:cc="http://sblim.org/wbemsmt/clientconfig"
