@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.dns.container.edit;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsBlackholeForServiceDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsBlackholeForServiceDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_AddressList;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_RemoveAddress;
@@ -70,7 +63,7 @@ public class DnsBlackholeForServiceDataContainerImpl extends BaseDataContainer i
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_AddressList() {
     		if (ic_AddressList == null)
     		{
-				String label = bundle.getString("DnsBlackholeForServiceDataContainer.AddressList");
+				String label = getAdapter().getBundle().getString("DnsBlackholeForServiceDataContainer.AddressList");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
     			ic_AddressList = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -86,7 +79,7 @@ public class DnsBlackholeForServiceDataContainerImpl extends BaseDataContainer i
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveAddress() {
     		if (ic_usr_RemoveAddress == null)
     		{
-				String label = bundle.getString("DnsBlackholeForServiceDataContainer.removeAddress");
+				String label = getAdapter().getBundle().getString("DnsBlackholeForServiceDataContainer.removeAddress");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_RemoveAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -102,7 +95,7 @@ public class DnsBlackholeForServiceDataContainerImpl extends BaseDataContainer i
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_UserAddresses() {
     		if (ic_usr_UserAddresses == null)
     		{
-				String label = bundle.getString("DnsBlackholeForServiceDataContainer.userAddresses");
+				String label = getAdapter().getBundle().getString("DnsBlackholeForServiceDataContainer.userAddresses");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
     			ic_usr_UserAddresses = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -118,7 +111,7 @@ public class DnsBlackholeForServiceDataContainerImpl extends BaseDataContainer i
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_NewAddress() {
     		if (ic_usr_NewAddress == null)
     		{
-				String label = bundle.getString("DnsBlackholeForServiceDataContainer.newAddress");
+				String label = getAdapter().getBundle().getString("DnsBlackholeForServiceDataContainer.newAddress");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_NewAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -134,7 +127,7 @@ public class DnsBlackholeForServiceDataContainerImpl extends BaseDataContainer i
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddPredefinedAddress() {
     		if (ic_usr_AddPredefinedAddress == null)
     		{
-				String label = bundle.getString("DnsBlackholeForServiceDataContainer.addPredefinedAddress");
+				String label = getAdapter().getBundle().getString("DnsBlackholeForServiceDataContainer.addPredefinedAddress");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_AddPredefinedAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -150,7 +143,7 @@ public class DnsBlackholeForServiceDataContainerImpl extends BaseDataContainer i
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddNewAddress() {
     		if (ic_usr_AddNewAddress == null)
     		{
-				String label = bundle.getString("DnsBlackholeForServiceDataContainer.addNewAddress");
+				String label = getAdapter().getBundle().getString("DnsBlackholeForServiceDataContainer.addNewAddress");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_AddNewAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -166,7 +159,7 @@ public class DnsBlackholeForServiceDataContainerImpl extends BaseDataContainer i
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddressUp() {
     		if (ic_usr_AddressUp == null)
     		{
-				String label = bundle.getString("DnsBlackholeForServiceDataContainer.addressUp");
+				String label = getAdapter().getBundle().getString("DnsBlackholeForServiceDataContainer.addressUp");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_AddressUp = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -182,7 +175,7 @@ public class DnsBlackholeForServiceDataContainerImpl extends BaseDataContainer i
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddressDown() {
     		if (ic_usr_AddressDown == null)
     		{
-				String label = bundle.getString("DnsBlackholeForServiceDataContainer.addressDown");
+				String label = getAdapter().getBundle().getString("DnsBlackholeForServiceDataContainer.addressDown");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_AddressDown = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -191,11 +184,11 @@ public class DnsBlackholeForServiceDataContainerImpl extends BaseDataContainer i
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("DnsBlackholeForServiceDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("DnsBlackholeForServiceDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -229,7 +222,7 @@ public class DnsBlackholeForServiceDataContainerImpl extends BaseDataContainer i
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

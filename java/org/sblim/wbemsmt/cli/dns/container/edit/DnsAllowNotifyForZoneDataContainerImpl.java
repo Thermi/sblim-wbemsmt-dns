@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.dns.container.edit;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForZoneDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_AddressList;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_RemoveAddress;
@@ -71,7 +64,7 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer im
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_AddressList() {
     		if (ic_AddressList == null)
     		{
-				String label = bundle.getString("DnsAllowNotifyForZoneDataContainer.AddressList");
+				String label = getAdapter().getBundle().getString("DnsAllowNotifyForZoneDataContainer.AddressList");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
     			ic_AddressList = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -87,7 +80,7 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer im
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveAddress() {
     		if (ic_usr_RemoveAddress == null)
     		{
-				String label = bundle.getString("DnsAllowNotifyForZoneDataContainer.removeAddress");
+				String label = getAdapter().getBundle().getString("DnsAllowNotifyForZoneDataContainer.removeAddress");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_RemoveAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -103,7 +96,7 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer im
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_UserAddresses() {
     		if (ic_usr_UserAddresses == null)
     		{
-				String label = bundle.getString("DnsAllowNotifyForZoneDataContainer.userAddresses");
+				String label = getAdapter().getBundle().getString("DnsAllowNotifyForZoneDataContainer.userAddresses");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
     			ic_usr_UserAddresses = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -119,7 +112,7 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer im
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_NewAddress() {
     		if (ic_usr_NewAddress == null)
     		{
-				String label = bundle.getString("DnsAllowNotifyForZoneDataContainer.newAddress");
+				String label = getAdapter().getBundle().getString("DnsAllowNotifyForZoneDataContainer.newAddress");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_NewAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -135,7 +128,7 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer im
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddPredefinedAddress() {
     		if (ic_usr_AddPredefinedAddress == null)
     		{
-				String label = bundle.getString("DnsAllowNotifyForZoneDataContainer.addPredefinedAddress");
+				String label = getAdapter().getBundle().getString("DnsAllowNotifyForZoneDataContainer.addPredefinedAddress");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_AddPredefinedAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -151,7 +144,7 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer im
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddNewAddress() {
     		if (ic_usr_AddNewAddress == null)
     		{
-				String label = bundle.getString("DnsAllowNotifyForZoneDataContainer.addNewAddress");
+				String label = getAdapter().getBundle().getString("DnsAllowNotifyForZoneDataContainer.addNewAddress");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_AddNewAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -167,7 +160,7 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer im
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddressUp() {
     		if (ic_usr_AddressUp == null)
     		{
-				String label = bundle.getString("DnsAllowNotifyForZoneDataContainer.addressUp");
+				String label = getAdapter().getBundle().getString("DnsAllowNotifyForZoneDataContainer.addressUp");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_AddressUp = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -183,7 +176,7 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer im
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddressDown() {
     		if (ic_usr_AddressDown == null)
     		{
-				String label = bundle.getString("DnsAllowNotifyForZoneDataContainer.addressDown");
+				String label = getAdapter().getBundle().getString("DnsAllowNotifyForZoneDataContainer.addressDown");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_AddressDown = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -199,7 +192,7 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer im
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_UseGlobalAddressMatchList() {
     		if (ic_usr_UseGlobalAddressMatchList == null)
     		{
-				String label = bundle.getString("DnsAllowNotifyForZoneDataContainer.useGlobalAddressMatchList");
+				String label = getAdapter().getBundle().getString("DnsAllowNotifyForZoneDataContainer.useGlobalAddressMatchList");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_UseGlobalAddressMatchList = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -208,11 +201,11 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer im
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("DnsAllowNotifyForZoneDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("DnsAllowNotifyForZoneDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -246,7 +239,7 @@ public class DnsAllowNotifyForZoneDataContainerImpl extends BaseDataContainer im
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

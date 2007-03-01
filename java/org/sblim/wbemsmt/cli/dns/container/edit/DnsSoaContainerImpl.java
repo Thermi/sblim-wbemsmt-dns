@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.dns.container.edit;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsSoaContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsSoaContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Server;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Contact;
@@ -71,7 +64,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements org.sblim.
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Server() {
     		if (ic_Server == null)
     		{
-				String label = bundle.getString("DnsSoaContainer.Server");
+				String label = getAdapter().getBundle().getString("DnsSoaContainer.Server");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Server = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -87,7 +80,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements org.sblim.
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Contact() {
     		if (ic_Contact == null)
     		{
-				String label = bundle.getString("DnsSoaContainer.Contact");
+				String label = getAdapter().getBundle().getString("DnsSoaContainer.Contact");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Contact = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -103,7 +96,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements org.sblim.
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SerialNumber() {
     		if (ic_SerialNumber == null)
     		{
-				String label = bundle.getString("DnsSoaContainer.SerialNumber");
+				String label = getAdapter().getBundle().getString("DnsSoaContainer.SerialNumber");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_SerialNumber = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -119,7 +112,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements org.sblim.
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Refresh() {
     		if (ic_Refresh == null)
     		{
-				String label = bundle.getString("DnsSoaContainer.Refresh");
+				String label = getAdapter().getBundle().getString("DnsSoaContainer.Refresh");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt32StringConverter();
     			ic_Refresh = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -135,7 +128,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements org.sblim.
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Retry() {
     		if (ic_Retry == null)
     		{
-				String label = bundle.getString("DnsSoaContainer.Retry");
+				String label = getAdapter().getBundle().getString("DnsSoaContainer.Retry");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt32StringConverter();
     			ic_Retry = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -151,7 +144,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements org.sblim.
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Expire() {
     		if (ic_Expire == null)
     		{
-				String label = bundle.getString("DnsSoaContainer.Expire");
+				String label = getAdapter().getBundle().getString("DnsSoaContainer.Expire");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt32StringConverter();
     			ic_Expire = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -167,7 +160,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements org.sblim.
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_NegativeCachingTTL() {
     		if (ic_NegativeCachingTTL == null)
     		{
-				String label = bundle.getString("DnsSoaContainer.NegativeCachingTTL");
+				String label = getAdapter().getBundle().getString("DnsSoaContainer.NegativeCachingTTL");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_NegativeCachingTTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -183,7 +176,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements org.sblim.
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_TTLUnit() {
     		if (ic_usr_TTLUnit == null)
     		{
-				String label = bundle.getString("DnsSoaContainer.TTLUnit");
+				String label = getAdapter().getBundle().getString("DnsSoaContainer.TTLUnit");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -199,7 +192,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements org.sblim.
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_SetSerialNumber() {
     		if (ic_usr_SetSerialNumber == null)
     		{
-				String label = bundle.getString("DnsSoaContainer.setSerialNumber");
+				String label = getAdapter().getBundle().getString("DnsSoaContainer.setSerialNumber");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_SetSerialNumber = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -208,11 +201,11 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements org.sblim.
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("DnsSoaContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("DnsSoaContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -271,7 +264,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements org.sblim.
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

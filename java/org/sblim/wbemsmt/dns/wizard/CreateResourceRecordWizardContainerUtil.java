@@ -53,7 +53,8 @@ public class CreateResourceRecordWizardContainerUtil extends
 		if (currentPageName.equals(CreateResourceRecordWizardContainer.WIZARD_PANEL_MAIN))
 		{
 			DnsResourceRecordWizardPage1DataContainer page1 = (DnsResourceRecordWizardPage1DataContainer) hmPages.get(currentPageName);
-			
+		
+			//Check if the user selected MX as record type
 			if (ResourceRecord.TYPE_MX.equals(ResourceRecord.getTypeOfIndex((UnsignedInt16) page1.get_usr_Type().getConvertedControlValue())))
 			{
 				return CreateResourceRecordWizardContainer.WIZARD_PANEL_TYPEMX;
@@ -76,7 +77,9 @@ public class CreateResourceRecordWizardContainerUtil extends
 	public void addInitialWizardSteps(IWizardContainer wizardContainer, WizardStepList stepList, HashMap hmPages) {
 
 		stepList.addWizardStep(new WizardStep(wizardContainer, CreateResourceRecordWizardContainer.WIZARD_PANEL_MAIN));
+		//add a step which is just for grouping the following two
 		stepList.addWizardStep(new WizardStep(wizardContainer, "type",wizardContainer.getAdapter(),"recordWizard.step.recordType"));
+		//add two steps at level 2
 		stepList.addWizardStep(new WizardStep(wizardContainer, 2,CreateResourceRecordWizardContainer.WIZARD_PANEL_TYPEMX));
 		stepList.addWizardStep(new WizardStep(wizardContainer, 2,CreateResourceRecordWizardContainer.WIZARD_PANEL_TYPEOTHER));
 		stepList.addWizardStep(new WizardStep(wizardContainer, CreateResourceRecordWizardContainer.WIZARD_PANEL_OVERVIEW));

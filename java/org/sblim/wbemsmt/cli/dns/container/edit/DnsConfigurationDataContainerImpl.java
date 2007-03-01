@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.dns.container.edit;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsConfigurationDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsConfigurationDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_ConfigurationFile;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_ConfigurationDirectory;
@@ -66,7 +59,7 @@ public class DnsConfigurationDataContainerImpl extends BaseDataContainer impleme
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_ConfigurationFile() {
     		if (ic_ConfigurationFile == null)
     		{
-				String label = bundle.getString("DnsConfigurationDataContainer.ConfigurationFile");
+				String label = getAdapter().getBundle().getString("DnsConfigurationDataContainer.ConfigurationFile");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_ConfigurationFile = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -82,7 +75,7 @@ public class DnsConfigurationDataContainerImpl extends BaseDataContainer impleme
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_ConfigurationDirectory() {
     		if (ic_ConfigurationDirectory == null)
     		{
-				String label = bundle.getString("DnsConfigurationDataContainer.ConfigurationDirectory");
+				String label = getAdapter().getBundle().getString("DnsConfigurationDataContainer.ConfigurationDirectory");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_ConfigurationDirectory = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -98,7 +91,7 @@ public class DnsConfigurationDataContainerImpl extends BaseDataContainer impleme
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_PortNumber() {
     		if (ic_PortNumber == null)
     		{
-				String label = bundle.getString("DnsConfigurationDataContainer.PortNumber");
+				String label = getAdapter().getBundle().getString("DnsConfigurationDataContainer.PortNumber");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt32StringConverter();
     			ic_PortNumber = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -114,7 +107,7 @@ public class DnsConfigurationDataContainerImpl extends BaseDataContainer impleme
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveDirectory() {
     		if (ic_usr_RemoveDirectory == null)
     		{
-				String label = bundle.getString("DnsConfigurationDataContainer.removeDirectory");
+				String label = getAdapter().getBundle().getString("DnsConfigurationDataContainer.removeDirectory");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_RemoveDirectory = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -123,11 +116,11 @@ public class DnsConfigurationDataContainerImpl extends BaseDataContainer impleme
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("DnsConfigurationDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("DnsConfigurationDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -161,7 +154,7 @@ public class DnsConfigurationDataContainerImpl extends BaseDataContainer impleme
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

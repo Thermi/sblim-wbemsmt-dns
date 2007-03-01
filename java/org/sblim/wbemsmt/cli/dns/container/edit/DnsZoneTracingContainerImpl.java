@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.dns.container.edit;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsZoneTracingContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneTracingContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_ResourceRecordFile;
@@ -85,7 +78,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name() {
     		if (ic_Name == null)
     		{
-				String label = bundle.getString("DnsZoneTracingContainer.Name");
+				String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.Name");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -101,7 +94,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_ResourceRecordFile() {
     		if (ic_ResourceRecordFile == null)
     		{
-				String label = bundle.getString("DnsZoneTracingContainer.ResourceRecordFile");
+				String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.ResourceRecordFile");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_ResourceRecordFile = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -117,7 +110,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Contact() {
     		if (ic_Contact == null)
     		{
-				String label = bundle.getString("DnsZoneTracingContainer.Contact");
+				String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.Contact");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Contact = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -133,7 +126,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Expire() {
     		if (ic_Expire == null)
     		{
-				String label = bundle.getString("DnsZoneTracingContainer.Expire");
+				String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.Expire");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt32StringConverter();
     			ic_Expire = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -149,7 +142,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Server() {
     		if (ic_Server == null)
     		{
-				String label = bundle.getString("DnsZoneTracingContainer.Server");
+				String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.Server");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Server = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -165,7 +158,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_SerialNumber() {
     		if (ic_SerialNumber == null)
     		{
-				String label = bundle.getString("DnsZoneTracingContainer.SerialNumber");
+				String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.SerialNumber");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_SerialNumber = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -181,7 +174,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Retry() {
     		if (ic_Retry == null)
     		{
-				String label = bundle.getString("DnsZoneTracingContainer.Retry");
+				String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.Retry");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt32StringConverter();
     			ic_Retry = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -197,7 +190,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Forward() {
     		if (ic_Forward == null)
     		{
-				String label = bundle.getString("DnsZoneTracingContainer.Forward");
+				String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.Forward");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
     			ic_Forward = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -213,7 +206,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Forwarders() {
     		if (ic_Forwarders == null)
     		{
-				String label = bundle.getString("DnsZoneTracingContainer.Forwarders");
+				String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.Forwarders");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Forwarders = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -229,7 +222,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_MasterAddresses() {
     		if (ic_usr_MasterAddresses == null)
     		{
-				String label = bundle.getString("DnsZoneTracingContainer.masterAddresses");
+				String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.masterAddresses");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_MasterAddresses = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -245,7 +238,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_TTL() {
     		if (ic_TTL == null)
     		{
-				String label = bundle.getString("DnsZoneTracingContainer.TTL");
+				String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.TTL");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DoubleStringConverter();
     			ic_TTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -261,7 +254,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_TTLUnit() {
     		if (ic_TTLUnit == null)
     		{
-				String label = bundle.getString("DnsZoneTracingContainer.TTLUnit");
+				String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.TTLUnit");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_TTLUnit = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -277,7 +270,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_NegativeCaching_TTL() {
     		if (ic_NegativeCaching_TTL == null)
     		{
-				String label = bundle.getString("DnsZoneTracingContainer.NegativeCaching_TTL");
+				String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.NegativeCaching_TTL");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DoubleStringConverter();
     			ic_NegativeCaching_TTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -293,7 +286,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_NegativeCaching_TTLUnit() {
     		if (ic_usr_NegativeCaching_TTLUnit == null)
     		{
-				String label = bundle.getString("DnsZoneTracingContainer.NegativeCaching_TTLUnit");
+				String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.NegativeCaching_TTLUnit");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_usr_NegativeCaching_TTLUnit = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -356,11 +349,11 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 		}
 
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("DnsZoneTracingContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("DnsZoneTracingContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -449,15 +442,15 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     		        		printStream.println();
-        		printStream.println(bundle.getString("DnsZoneTracingContainer.role.resourceRecords"));
+        		printStream.println(getAdapter().getBundle().getString("DnsZoneTracingContainer.role.resourceRecords"));
         		List listresourceRecords = getResourceRecords();
         		for (int i = 0; i < listresourceRecords.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listresourceRecords.get(i);
         			printStream.println();
-        			printStream.println(bundle.getString("item") + ": " + (i+1) + " " + bundle.getString("of") + " " + listresourceRecords.size());
+        			printStream.println(getAdapter().getBundle().getString("item") + ": " + (i+1) + " " + getAdapter().getBundle().getString("of") + " " + listresourceRecords.size());
         			child.trace(printStream,listOptions,false);
         		}
     			

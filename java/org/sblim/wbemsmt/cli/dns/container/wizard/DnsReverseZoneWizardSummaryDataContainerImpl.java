@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.dns.container.wizard;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsReverseZoneWizardSummaryDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardSummaryDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Name;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_ResourceRecordFile;
@@ -65,7 +58,7 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends BaseDataContai
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Name() {
     		if (ic_usr_Name == null)
     		{
-				String label = bundle.getString("DnsReverseZoneWizardSummaryDataContainer.name");
+				String label = getAdapter().getBundle().getString("DnsReverseZoneWizardSummaryDataContainer.name");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -81,7 +74,7 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends BaseDataContai
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_ResourceRecordFile() {
     		if (ic_ResourceRecordFile == null)
     		{
-				String label = bundle.getString("DnsReverseZoneWizardSummaryDataContainer.ResourceRecordFile");
+				String label = getAdapter().getBundle().getString("DnsReverseZoneWizardSummaryDataContainer.ResourceRecordFile");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_ResourceRecordFile = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -100,11 +93,11 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends BaseDataContai
 
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("DnsReverseZoneWizardSummaryDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("DnsReverseZoneWizardSummaryDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -133,15 +126,15 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends BaseDataContai
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     		        		printStream.println();
-        		printStream.println(bundle.getString("DnsReverseZoneWizardSummaryDataContainer.role.resourceRecords"));
+        		printStream.println(getAdapter().getBundle().getString("DnsReverseZoneWizardSummaryDataContainer.role.resourceRecords"));
         		List listresourceRecords = getResourceRecords();
         		for (int i = 0; i < listresourceRecords.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listresourceRecords.get(i);
         			printStream.println();
-        			printStream.println(bundle.getString("item") + ": " + (i+1) + " " + bundle.getString("of") + " " + listresourceRecords.size());
+        			printStream.println(getAdapter().getBundle().getString("item") + ": " + (i+1) + " " + getAdapter().getBundle().getString("of") + " " + listresourceRecords.size());
         			child.trace(printStream,listOptions,false);
         		}
     			

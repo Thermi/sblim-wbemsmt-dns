@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.dns.container.wizard;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsMasterZoneWizardPage1DataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardPage1DataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Name;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Server;
@@ -66,7 +59,7 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends BaseDataContainer
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Name() {
     		if (ic_usr_Name == null)
     		{
-				String label = bundle.getString("DnsMasterZoneWizardPage1DataContainer.Name");
+				String label = getAdapter().getBundle().getString("DnsMasterZoneWizardPage1DataContainer.Name");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -82,7 +75,7 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends BaseDataContainer
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Server() {
     		if (ic_usr_Server == null)
     		{
-				String label = bundle.getString("DnsMasterZoneWizardPage1DataContainer.Server");
+				String label = getAdapter().getBundle().getString("DnsMasterZoneWizardPage1DataContainer.Server");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_Server = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -98,7 +91,7 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends BaseDataContainer
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_IpAdress() {
     		if (ic_usr_IpAdress == null)
     		{
-				String label = bundle.getString("DnsMasterZoneWizardPage1DataContainer.IpAdress");
+				String label = getAdapter().getBundle().getString("DnsMasterZoneWizardPage1DataContainer.IpAdress");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_IpAdress = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -114,7 +107,7 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends BaseDataContainer
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Contact() {
     		if (ic_usr_Contact == null)
     		{
-				String label = bundle.getString("DnsMasterZoneWizardPage1DataContainer.Contact");
+				String label = getAdapter().getBundle().getString("DnsMasterZoneWizardPage1DataContainer.Contact");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_Contact = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -123,11 +116,11 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends BaseDataContainer
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("DnsMasterZoneWizardPage1DataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("DnsMasterZoneWizardPage1DataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -166,7 +159,7 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends BaseDataContainer
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

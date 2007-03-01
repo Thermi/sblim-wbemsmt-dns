@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.dns.container.edit;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsForwarderDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsForwarderDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_Forward;
     		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_Forwarders;
@@ -68,7 +61,7 @@ public class DnsForwarderDataContainerImpl extends BaseDataContainer implements 
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_Forward() {
     		if (ic_Forward == null)
     		{
-				String label = bundle.getString("DnsForwarderDataContainer.Forward");
+				String label = getAdapter().getBundle().getString("DnsForwarderDataContainer.Forward");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt8StringArrayConverter();
     			ic_Forward = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -84,7 +77,7 @@ public class DnsForwarderDataContainerImpl extends BaseDataContainer implements 
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_Forwarders() {
     		if (ic_Forwarders == null)
     		{
-				String label = bundle.getString("DnsForwarderDataContainer.Forwarders");
+				String label = getAdapter().getBundle().getString("DnsForwarderDataContainer.Forwarders");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
     			ic_Forwarders = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -100,7 +93,7 @@ public class DnsForwarderDataContainerImpl extends BaseDataContainer implements 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveForwarder() {
     		if (ic_usr_RemoveForwarder == null)
     		{
-				String label = bundle.getString("DnsForwarderDataContainer.removeForwarder");
+				String label = getAdapter().getBundle().getString("DnsForwarderDataContainer.removeForwarder");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_RemoveForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -116,7 +109,7 @@ public class DnsForwarderDataContainerImpl extends BaseDataContainer implements 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_NewForwarder() {
     		if (ic_usr_NewForwarder == null)
     		{
-				String label = bundle.getString("DnsForwarderDataContainer.newForwarder");
+				String label = getAdapter().getBundle().getString("DnsForwarderDataContainer.newForwarder");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_NewForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -132,7 +125,7 @@ public class DnsForwarderDataContainerImpl extends BaseDataContainer implements 
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddForwarder() {
     		if (ic_usr_AddForwarder == null)
     		{
-				String label = bundle.getString("DnsForwarderDataContainer.addForwarder");
+				String label = getAdapter().getBundle().getString("DnsForwarderDataContainer.addForwarder");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_AddForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -148,7 +141,7 @@ public class DnsForwarderDataContainerImpl extends BaseDataContainer implements 
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_NewForwarderType() {
     		if (ic_usr_NewForwarderType == null)
     		{
-				String label = bundle.getString("DnsForwarderDataContainer.newForwarderType");
+				String label = getAdapter().getBundle().getString("DnsForwarderDataContainer.newForwarderType");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_usr_NewForwarderType = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -157,11 +150,11 @@ public class DnsForwarderDataContainerImpl extends BaseDataContainer implements 
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("DnsForwarderDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("DnsForwarderDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -200,7 +193,7 @@ public class DnsForwarderDataContainerImpl extends BaseDataContainer implements 
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

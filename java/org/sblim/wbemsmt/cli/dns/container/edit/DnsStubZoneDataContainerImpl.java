@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.dns.container.edit;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsStubZoneDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_Forward;
     		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_Forwarders;
@@ -80,7 +73,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_Forward() {
     		if (ic_Forward == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.Forward");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.Forward");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt8StringArrayConverter();
     			ic_Forward = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -96,7 +89,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_Forwarders() {
     		if (ic_Forwarders == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.Forwarders");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.Forwarders");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
     			ic_Forwarders = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -112,7 +105,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveForwarder() {
     		if (ic_usr_RemoveForwarder == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.removeForwarder");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.removeForwarder");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_RemoveForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -128,7 +121,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_NewForwarder() {
     		if (ic_usr_NewForwarder == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.newForwarder");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.newForwarder");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_NewForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -144,7 +137,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddForwarder() {
     		if (ic_usr_AddForwarder == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.addForwarder");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.addForwarder");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_AddForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -160,7 +153,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_NewForwarderType() {
     		if (ic_usr_NewForwarderType == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.newForwarderType");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.newForwarderType");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_usr_NewForwarderType = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -176,7 +169,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name() {
     		if (ic_Name == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.Name");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.Name");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -192,7 +185,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_Masters() {
     		if (ic_Masters == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.masters");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.masters");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
     			ic_Masters = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -208,7 +201,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveMasterEntry() {
     		if (ic_usr_RemoveMasterEntry == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.removeMasterEntry");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.removeMasterEntry");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_RemoveMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -224,7 +217,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_NewMasterEntry() {
     		if (ic_usr_NewMasterEntry == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.newMasterEntry");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.newMasterEntry");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_NewMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -240,7 +233,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddNewMasterEntry() {
     		if (ic_usr_AddNewMasterEntry == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.addNewMasterEntry");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.addNewMasterEntry");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_AddNewMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -256,7 +249,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddPredefinedMaster() {
     		if (ic_usr_AddPredefinedMaster == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.addPredefinedMaster");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.addPredefinedMaster");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_AddPredefinedMaster = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -272,7 +265,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_PredefinedMasters() {
     		if (ic_usr_PredefinedMasters == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.predefinedMasters");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.predefinedMasters");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
     			ic_usr_PredefinedMasters = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -288,7 +281,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_TTL() {
     		if (ic_TTL == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.TTL");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.TTL");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_TTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -304,7 +297,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_TTLUnit() {
     		if (ic_usr_TTLUnit == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.TTLUnit");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.TTLUnit");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -320,7 +313,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveTTL() {
     		if (ic_usr_RemoveTTL == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.removeTTL");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.removeTTL");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -336,7 +329,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_ZoneFile() {
     		if (ic_ZoneFile == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.ZoneFile");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.ZoneFile");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_ZoneFile = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -352,7 +345,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_UseGlobalForwarders() {
     		if (ic_usr_UseGlobalForwarders == null)
     		{
-				String label = bundle.getString("DnsStubZoneDataContainer.useGlobalForwarders");
+				String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.useGlobalForwarders");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_UseGlobalForwarders = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -361,11 +354,11 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("DnsStubZoneDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("DnsStubZoneDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -439,7 +432,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements o
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

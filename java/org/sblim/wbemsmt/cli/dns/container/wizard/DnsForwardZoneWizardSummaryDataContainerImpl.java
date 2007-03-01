@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.dns.container.wizard;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsForwardZoneWizardSummaryDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardSummaryDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Name;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Forward;
@@ -65,7 +58,7 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends BaseDataContai
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Name() {
     		if (ic_usr_Name == null)
     		{
-				String label = bundle.getString("DnsForwardZoneWizardSummaryDataContainer.Name");
+				String label = getAdapter().getBundle().getString("DnsForwardZoneWizardSummaryDataContainer.Name");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -81,7 +74,7 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends BaseDataContai
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Forward() {
     		if (ic_Forward == null)
     		{
-				String label = bundle.getString("DnsForwardZoneWizardSummaryDataContainer.Forward");
+				String label = getAdapter().getBundle().getString("DnsForwardZoneWizardSummaryDataContainer.Forward");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Forward = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -97,7 +90,7 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends BaseDataContai
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_Forwarders() {
     		if (ic_Forwarders == null)
     		{
-				String label = bundle.getString("DnsForwardZoneWizardSummaryDataContainer.Forwarders");
+				String label = getAdapter().getBundle().getString("DnsForwardZoneWizardSummaryDataContainer.Forwarders");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_Forwarders = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -106,11 +99,11 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends BaseDataContai
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("DnsForwardZoneWizardSummaryDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("DnsForwardZoneWizardSummaryDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -144,7 +137,7 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends BaseDataContai
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

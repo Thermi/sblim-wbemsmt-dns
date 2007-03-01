@@ -24,99 +24,107 @@
 
 package org.sblim.wbemsmt.cli.dns;
 
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.Options;
-import org.apache.commons.cli.GnuParser;
-import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.bl.adapter.BaseDataContainer;
-import org.sblim.wbemsmt.bl.adapter.CimAdapterFactory;
-import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.adapter.DataContainer;
-import org.sblim.wbemsmt.exception.UpdateControlsException;
-import org.sblim.wbemsmt.exception.WbemSmtException;
+import org.apache.commons.cli.*;
+import org.sblim.wbemsmt.bl.adapter.*;
+import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.tools.cli.*;
 import org.sblim.wbemsmt.tools.wizard.cli.*;
 
 public class CreateDnsForwardZone extends CimCommand implements ContainerUpdater {
 
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition("hostname",null,"CreateDnsForwardZone.hostname.argValue",true,false,"CreateDnsForwardZone.hostname.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition("port","5988","CreateDnsForwardZone.port.argValue",false,false,"CreateDnsForwardZone.port.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition("namespace","/root/cimv2","CreateDnsForwardZone.namespace.argValue",false,false,"CreateDnsForwardZone.namespace.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition("user",null,"CreateDnsForwardZone.user.argValue",true,false,"CreateDnsForwardZone.user.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition("password",null,"CreateDnsForwardZone.password.argValue",true,false,"CreateDnsForwardZone.password.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition("publickeyfile","none","CreateDnsForwardZone.publickeyfile.argValue",false,false,"CreateDnsForwardZone.publickeyfile.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition("privatekeyfile","none","CreateDnsForwardZone.privatekeyfile.argValue",false,false,"CreateDnsForwardZone.privatekeyfile.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition("dnsServiceName",null,"CreateDnsForwardZone.dnsServiceName.argValue",true,false,"CreateDnsForwardZone.dnsServiceName.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_zoneName = new OptionDefinition("zoneName",null,"DnsForwardZoneWizardPage1DataContainer.Name.argValue",true,false,"DnsForwardZoneWizardPage1DataContainer.Name.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_useGlobalForwarders = new OptionDefinition("useGlobalForwarders",null,null,false,false,"DnsForwardZoneWizardPage1DataContainer.useGlobalForwarders.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_forward = new OptionDefinition("forward",null,"DnsForwarderDataContainer.Forward.argValue",false,false,"DnsForwarderDataContainer.Forward.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_forwarders = new OptionDefinition("forwarders",null,"DnsForwarderDataContainer.Forwarders.argValue",false,false,"DnsForwarderDataContainer.Forwarders.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_removeForwarder = new OptionDefinition("removeForwarder",null,null,false,false,"DnsForwarderDataContainer.removeForwarder.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_newForwarder = new OptionDefinition("newForwarder",null,"DnsForwarderDataContainer.newForwarder.argValue",false,false,"DnsForwarderDataContainer.newForwarder.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_addForwarder = new OptionDefinition("addForwarder",null,null,false,false,"DnsForwarderDataContainer.addForwarder.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_newForwarderType = new OptionDefinition("newForwarderType",null,"DnsForwarderDataContainer.newForwarderType.argValue",false,false,"DnsForwarderDataContainer.newForwarderType.argDescription");
-		
-public static final OptionDefinition KEY_locale = new OptionDefinition("locale","en","locale",false,false,"locale");	
 	
-	private static final OptionDefinition[] OPTIONS = new OptionDefinition []
+ 
+ 
+	//All Options that are local and defined for this command
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","DnsForwardZoneWizardPage1DataContainer.Name.argValue",true,false,"DnsForwardZoneWizardPage1DataContainer.Name.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_useGlobalForwarders = new OptionDefinition(null,"useGlobalForwarders","noDefaultValue","DnsForwardZoneWizardPage1DataContainer.useGlobalForwarders.argValue",false,false,"DnsForwardZoneWizardPage1DataContainer.useGlobalForwarders.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_forward = new OptionDefinition(null,"forward","noDefaultValue","DnsForwarderDataContainer.Forward.argValue",false,false,"DnsForwarderDataContainer.Forward.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_forwarders = new OptionDefinition(null,"forwarders","noDefaultValue","DnsForwarderDataContainer.Forwarders.argValue",false,false,"DnsForwarderDataContainer.Forwarders.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_removeForwarder = new OptionDefinition(null,"removeForwarder","noDefaultValue","DnsForwarderDataContainer.removeForwarder.argValue",false,false,"DnsForwarderDataContainer.removeForwarder.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_newForwarder = new OptionDefinition(null,"newForwarder","noDefaultValue","DnsForwarderDataContainer.newForwarder.argValue",false,false,"DnsForwarderDataContainer.newForwarder.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_addForwarder = new OptionDefinition(null,"addForwarder","noDefaultValue","DnsForwarderDataContainer.addForwarder.argValue",false,false,"DnsForwarderDataContainer.addForwarder.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_newForwarderType = new OptionDefinition(null,"newForwarderType","noDefaultValue","DnsForwarderDataContainer.newForwarderType.argValue",false,false,"DnsForwarderDataContainer.newForwarderType.argDescription");
+		
+	//All Options that are global and task-related
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+	
+	// Global Communication Options
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition(null,"hostname",null,"hostname.argValue",false,false,"hostname.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition(null,"port","5988","port.argValue",false,false,"port.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition(null,"namespace","/root/cimv2","namespace.argValue",false,false,"namespace.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition(null,"user",null,"user.argValue",false,false,"user.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition(null,"password",null,"password.argValue",false,false,"password.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition(null,"publickeyfile",null,"publickeyfile.argValue",false,false,"publickeyfile.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,"privatekeyfile",null,"privatekeyfile.argValue",false,false,"privatekeyfile.argDescription");
+	
+	// Global Common Options
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_h = new OptionDefinition("h",null,null,null,false,false,"h.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
+	
+	private static final OptionDefinition[] LOCAL_OPTIONS = new OptionDefinition []
 	{
-    	    	KEY_GLOBAL_hostname,
-    	    	KEY_GLOBAL_port,
-    	    	KEY_GLOBAL_namespace,
-    	    	KEY_GLOBAL_user,
-    	    	KEY_GLOBAL_password,
-    	    	KEY_GLOBAL_publickeyfile,
-    	    	KEY_GLOBAL_privatekeyfile,
-    	    	KEY_GLOBAL_dnsServiceName,
     	    	KEY_zoneName,
     	    	KEY_useGlobalForwarders,
     	    	KEY_forward,
@@ -125,8 +133,31 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
     	    	KEY_newForwarder,
     	    	KEY_addForwarder,
     	    	KEY_newForwarderType,
-    			KEY_locale,
-	};
+    		};
+
+	private static final OptionDefinition[] GLOBAL_TASK_OPTIONS = new OptionDefinition []
+	{
+    	    	KEY_GLOBAL_dnsServiceName,
+    		};
+
+	private static final OptionDefinition[] GLOBAL_WBEMSMT_COMMUNICATION_OPTIONS = new OptionDefinition []
+	{
+    	    	KEY_GLOBAL_hostname,
+    	    	KEY_GLOBAL_port,
+    	    	KEY_GLOBAL_namespace,
+    	    	KEY_GLOBAL_user,
+    	    	KEY_GLOBAL_password,
+    	    	KEY_GLOBAL_publickeyfile,
+    	    	KEY_GLOBAL_privatekeyfile,
+    		};
+
+	private static final OptionDefinition[] GLOBAL_WBEMSMT_COMMON_OPTIONS = new OptionDefinition []
+	{
+    	    	KEY_GLOBAL_locale,
+    	    	KEY_GLOBAL_h,
+    	    	KEY_GLOBAL_QUESTION_MARK_,
+    	    	KEY_GLOBAL_help,
+    		};
 
 	
 	
@@ -140,44 +171,51 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
 		super("CreateDnsForwardZone", new String[]{"messages","messagesDns"},locale);
 	}
 
-	public void execute(String[] args) throws WbemSmtException {
+	public void execute(CimCommandValues values) throws WbemSmtException {
 
-	    Options options = createOptions(OPTIONS, bundle);
-		if (args.length == 1 && (args[0].equalsIgnoreCase("--help") || args[0].equalsIgnoreCase("-h") ))
-		{
-			showUsage(options);
-			return;
-		}
-		
-		System.out.println("\n" + bundle.getString("creating", new Object[]{bundle.getString("createForwardZoneWizard.caption")}));
 		//do the real processing
 		try {
 			
  
+			commandValues = values;
+			cmd = values.getCommandLine();
+
+			Options options = values.getOptions();
 			
-			CommandLineParser parser = new GnuParser();
+			//first handle the help options and then the parseException
+			//if the user wants help parsing the args will fail (due to missing required args)
+			//and so the helpOptions should be handled first
 			
-			//check if the password is the only argument that is missing and query the user if thats the case
-			args = super.checkPassword(parser,options,args,KEY_GLOBAL_hostname,KEY_GLOBAL_user,KEY_GLOBAL_password);
-			
-			cmd = parser.parse( options, args);
+    		if (   hasOption(values.getArgs(), "-" + KEY_GLOBAL_QUESTION_MARK_.getShortKey())
+			    || hasOption(values.getArgs(), "-" + KEY_GLOBAL_h.getShortKey()) )
+    		{
+    			showUsage(values.getOut(), options);
+    			return;
+    		}			
+    		else if ( hasOption(values.getArgs(), "--" + KEY_GLOBAL_help.getLongKey()) )
+    		{
+				//TODO add extendedHelp by loading a manpage or sth else
+    			showUsage(values.getOut(), options);
+    			return;
+    		}			
+
+			else if (values.getParseException() != null)
+			{
+				handleParseException(values,KEY_GLOBAL_password);
+				return;
+			}
 			adapter = 
 					(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)CimAdapterFactory.getInstance()
 					.getAdapter(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter.class,this);
 			adapter.setBundle(bundle);
-			adapter.setCimClient(getCimClient(cmd, 
-				KEY_GLOBAL_hostname,
-				KEY_GLOBAL_port,
-				KEY_GLOBAL_namespace,
-				KEY_GLOBAL_user,
-				KEY_GLOBAL_password,
-				KEY_GLOBAL_publickeyfile,
-				KEY_GLOBAL_privatekeyfile));
+			adapter.setCimClient(values.getCimClient());
 				
 			adapter.loadInitial(adapter.getCimClient());
 			
+			values.getOut().println("\n" + bundle.getString("creating", new Object[]{bundle.getString("createForwardZoneWizard.caption")}));
+			
 			CliDataLoader loader = new CreateDnsForwardZoneLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, cmd );
 			
 			org.sblim.wbemsmt.cli.dns.wizard.CreateForwardZoneWizard wizard = new org.sblim.wbemsmt.cli.dns.wizard.CreateForwardZoneWizard((org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter) adapter);
 			wizard.startWizard();
@@ -238,15 +276,15 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
 						
         				
 			adapter.updateControls(dc);
-			System.out.println("\n" + bundle.getString("createdObject") + ":\n");
-			dc.trace(System.out);
+			values.getOut().println("\n" + bundle.getString("createdObject") + ":\n");
+			dc.trace(values.getOut());
 			
-		System.out.println("\n" + bundle.getString("created", new Object[]{bundle.getString("createForwardZoneWizard.caption")}));
+		values.getOut().println("\n" + bundle.getString("created", new Object[]{bundle.getString("createForwardZoneWizard.caption")}));
 		
 		}
 		catch (Exception e)
 		{
-			super.handleException(e,args,options,KEY_GLOBAL_password);
+			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
 		}
 	}
     
@@ -318,4 +356,51 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
     			
 	}	
 
+		
+	
+ 
+			
+	protected LoginOptionValues getLoginOptions() {
+		return new LoginOptionValues(KEY_GLOBAL_hostname,KEY_GLOBAL_user,KEY_GLOBAL_password);
 	}
+
+	protected CimClientOptionValues getCimClientOptions() {
+		
+		return new CimClientOptionValues(KEY_GLOBAL_hostname,
+				KEY_GLOBAL_port,
+				KEY_GLOBAL_namespace,
+				KEY_GLOBAL_user,
+				KEY_GLOBAL_password,
+				KEY_GLOBAL_publickeyfile,
+				KEY_GLOBAL_privatekeyfile);
+	}
+	
+	public Options getOptions() throws WbemSmtException {
+		Options options = super.createOptions(LOCAL_OPTIONS, bundle);
+		super.createOptions(options, GLOBAL_TASK_OPTIONS, bundle);
+		super.createOptions(options, GLOBAL_WBEMSMT_COMMON_OPTIONS, bundle);
+		super.createOptions(options, GLOBAL_WBEMSMT_COMMUNICATION_OPTIONS, bundle);
+		return options;
+	}
+	
+	public Options getLocalOptions() throws WbemSmtException {
+		Options options = super.createOptions(LOCAL_OPTIONS, bundle);
+		return options;
+	}
+
+	public Options getGlobalWbemsmtCommonOptions() throws WbemSmtException {
+		Options options = super.createOptions(GLOBAL_WBEMSMT_COMMON_OPTIONS, bundle);
+		return options;
+	}
+
+	public Options getGlobalWbemsmtCommunicationOptions() throws WbemSmtException {
+		Options options = super.createOptions(GLOBAL_WBEMSMT_COMMUNICATION_OPTIONS, bundle);
+		return options;
+	}
+
+	public Options getGlobalTaskOptions() throws WbemSmtException {
+		Options options = super.createOptions(GLOBAL_TASK_OPTIONS, bundle);
+		return options;
+	}
+	
+}

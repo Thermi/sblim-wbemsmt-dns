@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.dns.container.wizard;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsAddressMatchListWizardSummaryDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsAddressMatchListWizardSummaryDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
     		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_AddressList;
@@ -64,7 +57,7 @@ public class DnsAddressMatchListWizardSummaryDataContainerImpl extends BaseDataC
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name() {
     		if (ic_Name == null)
     		{
-				String label = bundle.getString("DnsAddressMatchListWizardSummaryDataContainer.Name");
+				String label = getAdapter().getBundle().getString("DnsAddressMatchListWizardSummaryDataContainer.Name");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -80,7 +73,7 @@ public class DnsAddressMatchListWizardSummaryDataContainerImpl extends BaseDataC
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_AddressList() {
     		if (ic_AddressList == null)
     		{
-				String label = bundle.getString("DnsAddressMatchListWizardSummaryDataContainer.AddressList");
+				String label = getAdapter().getBundle().getString("DnsAddressMatchListWizardSummaryDataContainer.AddressList");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_AddressList = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -89,11 +82,11 @@ public class DnsAddressMatchListWizardSummaryDataContainerImpl extends BaseDataC
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("DnsAddressMatchListWizardSummaryDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("DnsAddressMatchListWizardSummaryDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -122,7 +115,7 @@ public class DnsAddressMatchListWizardSummaryDataContainerImpl extends BaseDataC
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

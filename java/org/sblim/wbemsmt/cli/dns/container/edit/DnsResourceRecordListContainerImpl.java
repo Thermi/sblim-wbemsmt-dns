@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.dns.container.edit;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsResourceRecordListContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_SelectAll;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Delete;
@@ -65,7 +58,7 @@ public class DnsResourceRecordListContainerImpl extends BaseDataContainer implem
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_SelectAll() {
     		if (ic_usr_SelectAll == null)
     		{
-				String label = bundle.getString("DnsResourceRecordListContainer.selectAll");
+				String label = getAdapter().getBundle().getString("DnsResourceRecordListContainer.selectAll");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_SelectAll = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -81,7 +74,7 @@ public class DnsResourceRecordListContainerImpl extends BaseDataContainer implem
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Delete() {
     		if (ic_usr_Delete == null)
     		{
-				String label = bundle.getString("DnsResourceRecordListContainer.delete");
+				String label = getAdapter().getBundle().getString("DnsResourceRecordListContainer.delete");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_Delete = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -100,11 +93,11 @@ public class DnsResourceRecordListContainerImpl extends BaseDataContainer implem
 
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("DnsResourceRecordListContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("DnsResourceRecordListContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -128,15 +121,15 @@ public class DnsResourceRecordListContainerImpl extends BaseDataContainer implem
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     		        		printStream.println();
-        		printStream.println(bundle.getString("DnsResourceRecordListContainer.role.resourceRecords"));
+        		printStream.println(getAdapter().getBundle().getString("DnsResourceRecordListContainer.role.resourceRecords"));
         		List listresourceRecords = getResourceRecords();
         		for (int i = 0; i < listresourceRecords.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listresourceRecords.get(i);
         			printStream.println();
-        			printStream.println(bundle.getString("item") + ": " + (i+1) + " " + bundle.getString("of") + " " + listresourceRecords.size());
+        			printStream.println(getAdapter().getBundle().getString("item") + ": " + (i+1) + " " + getAdapter().getBundle().getString("of") + " " + listresourceRecords.size());
         			child.trace(printStream,listOptions,false);
         		}
     			

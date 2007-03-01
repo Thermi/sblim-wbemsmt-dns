@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.dns.container.wizard;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsStubZoneWizardPage1DataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_Masters;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_RemoveMasterEntry;
@@ -69,7 +62,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_Masters() {
     		if (ic_Masters == null)
     		{
-				String label = bundle.getString("DnsStubZoneWizardPage1DataContainer.masters");
+				String label = getAdapter().getBundle().getString("DnsStubZoneWizardPage1DataContainer.masters");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
     			ic_Masters = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -85,7 +78,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveMasterEntry() {
     		if (ic_usr_RemoveMasterEntry == null)
     		{
-				String label = bundle.getString("DnsStubZoneWizardPage1DataContainer.removeMasterEntry");
+				String label = getAdapter().getBundle().getString("DnsStubZoneWizardPage1DataContainer.removeMasterEntry");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_RemoveMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -101,7 +94,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_NewMasterEntry() {
     		if (ic_usr_NewMasterEntry == null)
     		{
-				String label = bundle.getString("DnsStubZoneWizardPage1DataContainer.newMasterEntry");
+				String label = getAdapter().getBundle().getString("DnsStubZoneWizardPage1DataContainer.newMasterEntry");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_NewMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -117,7 +110,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddNewMasterEntry() {
     		if (ic_usr_AddNewMasterEntry == null)
     		{
-				String label = bundle.getString("DnsStubZoneWizardPage1DataContainer.addNewMasterEntry");
+				String label = getAdapter().getBundle().getString("DnsStubZoneWizardPage1DataContainer.addNewMasterEntry");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_AddNewMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -133,7 +126,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddPredefinedMaster() {
     		if (ic_usr_AddPredefinedMaster == null)
     		{
-				String label = bundle.getString("DnsStubZoneWizardPage1DataContainer.addPredefinedMaster");
+				String label = getAdapter().getBundle().getString("DnsStubZoneWizardPage1DataContainer.addPredefinedMaster");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_AddPredefinedMaster = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -149,7 +142,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_PredefinedMasters() {
     		if (ic_usr_PredefinedMasters == null)
     		{
-				String label = bundle.getString("DnsStubZoneWizardPage1DataContainer.predefinedMasters");
+				String label = getAdapter().getBundle().getString("DnsStubZoneWizardPage1DataContainer.predefinedMasters");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
     			ic_usr_PredefinedMasters = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -165,7 +158,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Name() {
     		if (ic_usr_Name == null)
     		{
-				String label = bundle.getString("DnsStubZoneWizardPage1DataContainer.Name");
+				String label = getAdapter().getBundle().getString("DnsStubZoneWizardPage1DataContainer.Name");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -174,11 +167,11 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("DnsStubZoneWizardPage1DataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("DnsStubZoneWizardPage1DataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -217,7 +210,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

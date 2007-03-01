@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.dns.container.edit;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsHintZoneDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsHintZoneDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_TTL;
@@ -67,7 +60,7 @@ public class DnsHintZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name() {
     		if (ic_Name == null)
     		{
-				String label = bundle.getString("DnsHintZoneDataContainer.Name");
+				String label = getAdapter().getBundle().getString("DnsHintZoneDataContainer.Name");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -83,7 +76,7 @@ public class DnsHintZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_TTL() {
     		if (ic_TTL == null)
     		{
-				String label = bundle.getString("DnsHintZoneDataContainer.TTL");
+				String label = getAdapter().getBundle().getString("DnsHintZoneDataContainer.TTL");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_TTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -99,7 +92,7 @@ public class DnsHintZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_TTLUnit() {
     		if (ic_usr_TTLUnit == null)
     		{
-				String label = bundle.getString("DnsHintZoneDataContainer.TTLUnit");
+				String label = getAdapter().getBundle().getString("DnsHintZoneDataContainer.TTLUnit");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -115,7 +108,7 @@ public class DnsHintZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveTTL() {
     		if (ic_usr_RemoveTTL == null)
     		{
-				String label = bundle.getString("DnsHintZoneDataContainer.removeTTL");
+				String label = getAdapter().getBundle().getString("DnsHintZoneDataContainer.removeTTL");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -131,7 +124,7 @@ public class DnsHintZoneDataContainerImpl extends BaseDataContainer implements o
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_ZoneFile() {
     		if (ic_ZoneFile == null)
     		{
-				String label = bundle.getString("DnsHintZoneDataContainer.ZoneFile");
+				String label = getAdapter().getBundle().getString("DnsHintZoneDataContainer.ZoneFile");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_ZoneFile = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -140,11 +133,11 @@ public class DnsHintZoneDataContainerImpl extends BaseDataContainer implements o
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("DnsHintZoneDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("DnsHintZoneDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -183,7 +176,7 @@ public class DnsHintZoneDataContainerImpl extends BaseDataContainer implements o
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

@@ -24,86 +24,118 @@
 
 package org.sblim.wbemsmt.cli.dns;
 
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.Options;
-import org.apache.commons.cli.GnuParser;
-import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.bl.adapter.BaseDataContainer;
-import org.sblim.wbemsmt.bl.adapter.CimAdapterFactory;
-import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.adapter.DataContainer;
-import org.sblim.wbemsmt.exception.UpdateControlsException;
-import org.sblim.wbemsmt.exception.WbemSmtException;
+import org.apache.commons.cli.*;
+import org.sblim.wbemsmt.bl.adapter.*;
+import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.tools.cli.*;
 import org.sblim.wbemsmt.tools.wizard.cli.*;
 
 public class CreateDnsStubZone extends CimCommand implements ContainerUpdater {
 
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition("hostname",null,"CreateDnsStubZone.hostname.argValue",true,false,"CreateDnsStubZone.hostname.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition("port","5988","CreateDnsStubZone.port.argValue",false,false,"CreateDnsStubZone.port.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition("namespace","/root/cimv2","CreateDnsStubZone.namespace.argValue",false,false,"CreateDnsStubZone.namespace.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition("user",null,"CreateDnsStubZone.user.argValue",true,false,"CreateDnsStubZone.user.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition("password",null,"CreateDnsStubZone.password.argValue",true,false,"CreateDnsStubZone.password.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition("publickeyfile","none","CreateDnsStubZone.publickeyfile.argValue",false,false,"CreateDnsStubZone.publickeyfile.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition("privatekeyfile","none","CreateDnsStubZone.privatekeyfile.argValue",false,false,"CreateDnsStubZone.privatekeyfile.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition("dnsServiceName",null,"CreateDnsStubZone.dnsServiceName.argValue",true,false,"CreateDnsStubZone.dnsServiceName.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_zoneName = new OptionDefinition("zoneName",null,"DnsStubZoneWizardPage1DataContainer.Name.argValue",true,false,"DnsStubZoneWizardPage1DataContainer.Name.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_masters = new OptionDefinition("masters",null,"DnsAddMasterAddressDataContainer.masters.argValue",false,false,"DnsAddMasterAddressDataContainer.masters.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_removeMasterEntry = new OptionDefinition("removeMasterEntry",null,null,false,false,"DnsAddMasterAddressDataContainer.removeMasterEntry.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_newMasterEntry = new OptionDefinition("newMasterEntry",null,"DnsAddMasterAddressDataContainer.newMasterEntry.argValue",false,false,"DnsAddMasterAddressDataContainer.newMasterEntry.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_addNewMasterEntry = new OptionDefinition("addNewMasterEntry",null,null,false,false,"DnsAddMasterAddressDataContainer.addNewMasterEntry.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_addPredefinedMaster = new OptionDefinition("addPredefinedMaster",null,null,false,false,"DnsAddMasterAddressDataContainer.addPredefinedMaster.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_predefinedMasters = new OptionDefinition("predefinedMasters",null,"DnsAddMasterAddressDataContainer.predefinedMasters.argValue",false,false,"DnsAddMasterAddressDataContainer.predefinedMasters.argDescription");
-		
-public static final OptionDefinition KEY_locale = new OptionDefinition("locale","en","locale",false,false,"locale");	
 	
-	private static final OptionDefinition[] OPTIONS = new OptionDefinition []
+ 
+ 
+	//All Options that are local and defined for this command
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","DnsStubZoneWizardPage1DataContainer.Name.argValue",true,false,"DnsStubZoneWizardPage1DataContainer.Name.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_masters = new OptionDefinition(null,"masters","noDefaultValue","DnsAddMasterAddressDataContainer.masters.argValue",false,false,"DnsAddMasterAddressDataContainer.masters.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_removeMasterEntry = new OptionDefinition(null,"removeMasterEntry","noDefaultValue","DnsAddMasterAddressDataContainer.removeMasterEntry.argValue",false,false,"DnsAddMasterAddressDataContainer.removeMasterEntry.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_newMasterEntry = new OptionDefinition(null,"newMasterEntry","noDefaultValue","DnsAddMasterAddressDataContainer.newMasterEntry.argValue",false,false,"DnsAddMasterAddressDataContainer.newMasterEntry.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_addNewMasterEntry = new OptionDefinition(null,"addNewMasterEntry","noDefaultValue","DnsAddMasterAddressDataContainer.addNewMasterEntry.argValue",false,false,"DnsAddMasterAddressDataContainer.addNewMasterEntry.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_addPredefinedMaster = new OptionDefinition(null,"addPredefinedMaster","noDefaultValue","DnsAddMasterAddressDataContainer.addPredefinedMaster.argValue",false,false,"DnsAddMasterAddressDataContainer.addPredefinedMaster.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_predefinedMasters = new OptionDefinition(null,"predefinedMasters","noDefaultValue","DnsAddMasterAddressDataContainer.predefinedMasters.argValue",false,false,"DnsAddMasterAddressDataContainer.predefinedMasters.argDescription");
+		
+	//All Options that are global and task-related
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+	
+	// Global Communication Options
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition(null,"hostname",null,"hostname.argValue",false,false,"hostname.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition(null,"port","5988","port.argValue",false,false,"port.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition(null,"namespace","/root/cimv2","namespace.argValue",false,false,"namespace.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition(null,"user",null,"user.argValue",false,false,"user.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition(null,"password",null,"password.argValue",false,false,"password.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition(null,"publickeyfile",null,"publickeyfile.argValue",false,false,"publickeyfile.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,"privatekeyfile",null,"privatekeyfile.argValue",false,false,"privatekeyfile.argDescription");
+	
+	// Global Common Options
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_h = new OptionDefinition("h",null,null,null,false,false,"h.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
+	
+	private static final OptionDefinition[] LOCAL_OPTIONS = new OptionDefinition []
+	{
+    	    	KEY_zoneName,
+    	    	KEY_masters,
+    	    	KEY_removeMasterEntry,
+    	    	KEY_newMasterEntry,
+    	    	KEY_addNewMasterEntry,
+    	    	KEY_addPredefinedMaster,
+    	    	KEY_predefinedMasters,
+    		};
+
+	private static final OptionDefinition[] GLOBAL_TASK_OPTIONS = new OptionDefinition []
+	{
+    	    	KEY_GLOBAL_dnsServiceName,
+    		};
+
+	private static final OptionDefinition[] GLOBAL_WBEMSMT_COMMUNICATION_OPTIONS = new OptionDefinition []
 	{
     	    	KEY_GLOBAL_hostname,
     	    	KEY_GLOBAL_port,
@@ -112,16 +144,15 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
     	    	KEY_GLOBAL_password,
     	    	KEY_GLOBAL_publickeyfile,
     	    	KEY_GLOBAL_privatekeyfile,
-    	    	KEY_GLOBAL_dnsServiceName,
-    	    	KEY_zoneName,
-    	    	KEY_masters,
-    	    	KEY_removeMasterEntry,
-    	    	KEY_newMasterEntry,
-    	    	KEY_addNewMasterEntry,
-    	    	KEY_addPredefinedMaster,
-    	    	KEY_predefinedMasters,
-    			KEY_locale,
-	};
+    		};
+
+	private static final OptionDefinition[] GLOBAL_WBEMSMT_COMMON_OPTIONS = new OptionDefinition []
+	{
+    	    	KEY_GLOBAL_locale,
+    	    	KEY_GLOBAL_h,
+    	    	KEY_GLOBAL_QUESTION_MARK_,
+    	    	KEY_GLOBAL_help,
+    		};
 
 	
 	
@@ -135,44 +166,51 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
 		super("CreateDnsStubZone", new String[]{"messages","messagesDns"},locale);
 	}
 
-	public void execute(String[] args) throws WbemSmtException {
+	public void execute(CimCommandValues values) throws WbemSmtException {
 
-	    Options options = createOptions(OPTIONS, bundle);
-		if (args.length == 1 && (args[0].equalsIgnoreCase("--help") || args[0].equalsIgnoreCase("-h") ))
-		{
-			showUsage(options);
-			return;
-		}
-		
-		System.out.println("\n" + bundle.getString("creating", new Object[]{bundle.getString("createStubZoneWizard.caption")}));
 		//do the real processing
 		try {
 			
  
+			commandValues = values;
+			cmd = values.getCommandLine();
+
+			Options options = values.getOptions();
 			
-			CommandLineParser parser = new GnuParser();
+			//first handle the help options and then the parseException
+			//if the user wants help parsing the args will fail (due to missing required args)
+			//and so the helpOptions should be handled first
 			
-			//check if the password is the only argument that is missing and query the user if thats the case
-			args = super.checkPassword(parser,options,args,KEY_GLOBAL_hostname,KEY_GLOBAL_user,KEY_GLOBAL_password);
-			
-			cmd = parser.parse( options, args);
+    		if (   hasOption(values.getArgs(), "-" + KEY_GLOBAL_QUESTION_MARK_.getShortKey())
+			    || hasOption(values.getArgs(), "-" + KEY_GLOBAL_h.getShortKey()) )
+    		{
+    			showUsage(values.getOut(), options);
+    			return;
+    		}			
+    		else if ( hasOption(values.getArgs(), "--" + KEY_GLOBAL_help.getLongKey()) )
+    		{
+				//TODO add extendedHelp by loading a manpage or sth else
+    			showUsage(values.getOut(), options);
+    			return;
+    		}			
+
+			else if (values.getParseException() != null)
+			{
+				handleParseException(values,KEY_GLOBAL_password);
+				return;
+			}
 			adapter = 
 					(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)CimAdapterFactory.getInstance()
 					.getAdapter(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter.class,this);
 			adapter.setBundle(bundle);
-			adapter.setCimClient(getCimClient(cmd, 
-				KEY_GLOBAL_hostname,
-				KEY_GLOBAL_port,
-				KEY_GLOBAL_namespace,
-				KEY_GLOBAL_user,
-				KEY_GLOBAL_password,
-				KEY_GLOBAL_publickeyfile,
-				KEY_GLOBAL_privatekeyfile));
+			adapter.setCimClient(values.getCimClient());
 				
 			adapter.loadInitial(adapter.getCimClient());
 			
+			values.getOut().println("\n" + bundle.getString("creating", new Object[]{bundle.getString("createStubZoneWizard.caption")}));
+			
 			CliDataLoader loader = new CreateDnsStubZoneLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, cmd );
 			
 			org.sblim.wbemsmt.cli.dns.wizard.CreateStubZoneWizard wizard = new org.sblim.wbemsmt.cli.dns.wizard.CreateStubZoneWizard((org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter) adapter);
 			wizard.startWizard();
@@ -233,15 +271,15 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
 						
         				
 			adapter.updateControls(dc);
-			System.out.println("\n" + bundle.getString("createdObject") + ":\n");
-			dc.trace(System.out);
+			values.getOut().println("\n" + bundle.getString("createdObject") + ":\n");
+			dc.trace(values.getOut());
 			
-		System.out.println("\n" + bundle.getString("created", new Object[]{bundle.getString("createStubZoneWizard.caption")}));
+		values.getOut().println("\n" + bundle.getString("created", new Object[]{bundle.getString("createStubZoneWizard.caption")}));
 		
 		}
 		catch (Exception e)
 		{
-			super.handleException(e,args,options,KEY_GLOBAL_password);
+			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
 		}
 	}
     
@@ -312,4 +350,51 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
     			
 	}	
 
+		
+	
+ 
+			
+	protected LoginOptionValues getLoginOptions() {
+		return new LoginOptionValues(KEY_GLOBAL_hostname,KEY_GLOBAL_user,KEY_GLOBAL_password);
 	}
+
+	protected CimClientOptionValues getCimClientOptions() {
+		
+		return new CimClientOptionValues(KEY_GLOBAL_hostname,
+				KEY_GLOBAL_port,
+				KEY_GLOBAL_namespace,
+				KEY_GLOBAL_user,
+				KEY_GLOBAL_password,
+				KEY_GLOBAL_publickeyfile,
+				KEY_GLOBAL_privatekeyfile);
+	}
+	
+	public Options getOptions() throws WbemSmtException {
+		Options options = super.createOptions(LOCAL_OPTIONS, bundle);
+		super.createOptions(options, GLOBAL_TASK_OPTIONS, bundle);
+		super.createOptions(options, GLOBAL_WBEMSMT_COMMON_OPTIONS, bundle);
+		super.createOptions(options, GLOBAL_WBEMSMT_COMMUNICATION_OPTIONS, bundle);
+		return options;
+	}
+	
+	public Options getLocalOptions() throws WbemSmtException {
+		Options options = super.createOptions(LOCAL_OPTIONS, bundle);
+		return options;
+	}
+
+	public Options getGlobalWbemsmtCommonOptions() throws WbemSmtException {
+		Options options = super.createOptions(GLOBAL_WBEMSMT_COMMON_OPTIONS, bundle);
+		return options;
+	}
+
+	public Options getGlobalWbemsmtCommunicationOptions() throws WbemSmtException {
+		Options options = super.createOptions(GLOBAL_WBEMSMT_COMMUNICATION_OPTIONS, bundle);
+		return options;
+	}
+
+	public Options getGlobalTaskOptions() throws WbemSmtException {
+		Options options = super.createOptions(GLOBAL_TASK_OPTIONS, bundle);
+		return options;
+	}
+	
+}

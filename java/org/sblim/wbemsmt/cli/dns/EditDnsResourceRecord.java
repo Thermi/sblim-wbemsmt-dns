@@ -33,96 +33,140 @@ import org.sblim.wbemsmt.tools.cli.*;
 
 public class EditDnsResourceRecord extends CimCommand {
 
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition("hostname",null,"EditDnsResourceRecord.hostname.argValue",true,false,"EditDnsResourceRecord.hostname.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition("port","5988","EditDnsResourceRecord.port.argValue",false,false,"EditDnsResourceRecord.port.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition("namespace","/root/cimv2","EditDnsResourceRecord.namespace.argValue",false,false,"EditDnsResourceRecord.namespace.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition("user",null,"EditDnsResourceRecord.user.argValue",true,false,"EditDnsResourceRecord.user.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition("password",null,"EditDnsResourceRecord.password.argValue",true,false,"EditDnsResourceRecord.password.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition("publickeyfile","none","EditDnsResourceRecord.publickeyfile.argValue",false,false,"EditDnsResourceRecord.publickeyfile.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition("privatekeyfile","none","EditDnsResourceRecord.privatekeyfile.argValue",false,false,"EditDnsResourceRecord.privatekeyfile.argDescription");
-			/**
-		 * 
-		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition("dnsServiceName",null,"EditDnsResourceRecord.dnsServiceName.argValue",true,false,"EditDnsResourceRecord.dnsServiceName.argDescription");
+	
+ 
+ 
+	//All Options that are local and defined for this command
 			/**
 		 * Zone name to select the right zone
 		 */
-		public static final OptionDefinition KEY_zoneName = new OptionDefinition("zoneName",null,"EditDnsResourceRecord.zoneName.argValue",true,false,"EditDnsResourceRecord.zoneName.argDescription");
+		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","EditDnsResourceRecord.zoneName.argValue",true,false,"EditDnsResourceRecord.zoneName.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_recordNameToSelect = new OptionDefinition("recordNameToSelect",null,"EditDnsResourceRecord.recordNameToSelect.argValue",true,false,"EditDnsResourceRecord.recordNameToSelect.argDescription");
+		public static final OptionDefinition KEY_recordNameToSelect = new OptionDefinition(null,"recordNameToSelect","noDefaultValue","EditDnsResourceRecord.recordNameToSelect.argValue",true,false,"EditDnsResourceRecord.recordNameToSelect.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_recordTypeToSelect = new OptionDefinition("recordTypeToSelect",null,"EditDnsResourceRecord.recordTypeToSelect.argValue",true,false,"EditDnsResourceRecord.recordTypeToSelect.argDescription");
+		public static final OptionDefinition KEY_recordTypeToSelect = new OptionDefinition(null,"recordTypeToSelect","noDefaultValue","EditDnsResourceRecord.recordTypeToSelect.argValue",true,false,"EditDnsResourceRecord.recordTypeToSelect.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_recordValueToSelect = new OptionDefinition("recordValueToSelect",null,"EditDnsResourceRecord.recordValueToSelect.argValue",true,false,"EditDnsResourceRecord.recordValueToSelect.argDescription");
+		public static final OptionDefinition KEY_recordValueToSelect = new OptionDefinition(null,"recordValueToSelect","noDefaultValue","EditDnsResourceRecord.recordValueToSelect.argValue",true,false,"EditDnsResourceRecord.recordValueToSelect.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_mxPriorityToSelect = new OptionDefinition("mxPriorityToSelect",null,"EditDnsResourceRecord.mxPriorityToSelect.argValue",true,false,"EditDnsResourceRecord.mxPriorityToSelect.argDescription");
-	
+		public static final OptionDefinition KEY_mxPriorityToSelect = new OptionDefinition(null,"mxPriorityToSelect","noDefaultValue","EditDnsResourceRecord.mxPriorityToSelect.argValue",true,false,"EditDnsResourceRecord.mxPriorityToSelect.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_recordName = new OptionDefinition("recordName",null,"DnsResourceRecordDataContainer.Name.argValue",false,false,"DnsResourceRecordDataContainer.Name.argDescription");
+		public static final OptionDefinition KEY_recordName = new OptionDefinition(null,"recordName","noDefaultValue","DnsResourceRecordDataContainer.Name.argValue",false,false,"DnsResourceRecordDataContainer.Name.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_recordType = new OptionDefinition("recordType",null,"DnsResourceRecordDataContainer.Type.argValue",false,false,"DnsResourceRecordDataContainer.Type.argDescription");
+		public static final OptionDefinition KEY_recordType = new OptionDefinition(null,"recordType","noDefaultValue","DnsResourceRecordDataContainer.Type.argValue",false,false,"DnsResourceRecordDataContainer.Type.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_recordFamily = new OptionDefinition("recordFamily",null,"DnsResourceRecordDataContainer.Family.argValue",false,false,"DnsResourceRecordDataContainer.Family.argDescription");
+		public static final OptionDefinition KEY_recordFamily = new OptionDefinition(null,"recordFamily","noDefaultValue","DnsResourceRecordDataContainer.Family.argValue",false,false,"DnsResourceRecordDataContainer.Family.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_recordValue = new OptionDefinition("recordValue",null,"DnsResourceRecordDataContainer.Value.argValue",false,false,"DnsResourceRecordDataContainer.Value.argDescription");
+		public static final OptionDefinition KEY_recordValue = new OptionDefinition(null,"recordValue","noDefaultValue","DnsResourceRecordDataContainer.Value.argValue",false,false,"DnsResourceRecordDataContainer.Value.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_mxPriority = new OptionDefinition("mxPriority",null,"DnsResourceRecordDataContainer.Priority.argValue",false,false,"DnsResourceRecordDataContainer.Priority.argDescription");
+		public static final OptionDefinition KEY_mxPriority = new OptionDefinition(null,"mxPriority","noDefaultValue","DnsResourceRecordDataContainer.Priority.argValue",false,false,"DnsResourceRecordDataContainer.Priority.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_ttl = new OptionDefinition("ttl",null,"DnsTTLDataContainer.TTL.argValue",false,false,"DnsTTLDataContainer.TTL.argDescription");
+		public static final OptionDefinition KEY_ttl = new OptionDefinition(null,"ttl","noDefaultValue","DnsTTLDataContainer.TTL.argValue",false,false,"DnsTTLDataContainer.TTL.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_ttlUnit = new OptionDefinition("ttlUnit",null,"DnsTTLDataContainer.TTLUnit.argValue",false,false,"DnsTTLDataContainer.TTLUnit.argDescription");
+		public static final OptionDefinition KEY_ttlUnit = new OptionDefinition(null,"ttlUnit","noDefaultValue","DnsTTLDataContainer.TTLUnit.argValue",false,false,"DnsTTLDataContainer.TTLUnit.argDescription");
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_removeTTL = new OptionDefinition("removeTTL",null,null,false,false,"DnsTTLDataContainer.removeTTL.argDescription");
+		public static final OptionDefinition KEY_removeTTL = new OptionDefinition(null,"removeTTL","noDefaultValue","DnsTTLDataContainer.removeTTL.argValue",false,false,"DnsTTLDataContainer.removeTTL.argDescription");
 		
-public static final OptionDefinition KEY_locale = new OptionDefinition("locale","en","locale",false,false,"locale");	
+	//All Options that are global and task-related
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+	
+	// Global Communication Options
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition(null,"hostname",null,"hostname.argValue",false,false,"hostname.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition(null,"port","5988","port.argValue",false,false,"port.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition(null,"namespace","/root/cimv2","namespace.argValue",false,false,"namespace.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition(null,"user",null,"user.argValue",false,false,"user.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition(null,"password",null,"password.argValue",false,false,"password.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition(null,"publickeyfile",null,"publickeyfile.argValue",false,false,"publickeyfile.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,"privatekeyfile",null,"privatekeyfile.argValue",false,false,"privatekeyfile.argDescription");
+	
+	// Global Common Options
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_h = new OptionDefinition("h",null,null,null,false,false,"h.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
+			/**
+		 * 
+		 */
+		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
+	
+	private static final OptionDefinition[] LOCAL_OPTIONS = new OptionDefinition []
+	{
+    	    	KEY_zoneName,
+    	    	KEY_recordNameToSelect,
+    	    	KEY_recordTypeToSelect,
+    	    	KEY_recordValueToSelect,
+    	    	KEY_mxPriorityToSelect,
+    	    	KEY_recordName,
+    	    	KEY_recordType,
+    	    	KEY_recordFamily,
+    	    	KEY_recordValue,
+    	    	KEY_mxPriority,
+    	    	KEY_ttl,
+    	    	KEY_ttlUnit,
+    	    	KEY_removeTTL,
+    		};
 
+	private static final OptionDefinition[] GLOBAL_TASK_OPTIONS = new OptionDefinition []
+	{
+    	    	KEY_GLOBAL_dnsServiceName,
+    		};
 
-	private static final OptionDefinition[] OPTIONS = new OptionDefinition []
+	private static final OptionDefinition[] GLOBAL_WBEMSMT_COMMUNICATION_OPTIONS = new OptionDefinition []
 	{
     	    	KEY_GLOBAL_hostname,
     	    	KEY_GLOBAL_port,
@@ -131,22 +175,15 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
     	    	KEY_GLOBAL_password,
     	    	KEY_GLOBAL_publickeyfile,
     	    	KEY_GLOBAL_privatekeyfile,
-    	    	KEY_GLOBAL_dnsServiceName,
-    	    	KEY_zoneName,
-    	    	KEY_recordNameToSelect,
-    	    	KEY_recordTypeToSelect,
-    	    	KEY_recordValueToSelect,
-    	    	KEY_mxPriorityToSelect,
-    	    	    	KEY_recordName,
-    	    	KEY_recordType,
-    	    	KEY_recordFamily,
-    	    	KEY_recordValue,
-    	    	KEY_mxPriority,
-    	    	KEY_ttl,
-    	    	KEY_ttlUnit,
-    	    	KEY_removeTTL,
-    			KEY_locale,
-	};
+    		};
+
+	private static final OptionDefinition[] GLOBAL_WBEMSMT_COMMON_OPTIONS = new OptionDefinition []
+	{
+    	    	KEY_GLOBAL_locale,
+    	    	KEY_GLOBAL_h,
+    	    	KEY_GLOBAL_QUESTION_MARK_,
+    	    	KEY_GLOBAL_help,
+    		};
 
 		
  
@@ -159,44 +196,50 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
 		super("EditDnsResourceRecord", new String[]{"messages","messagesDns"},locale);
 	}
 	
-	public void execute(String[] args) throws WbemSmtException {
-		
-	    Options options = createOptions(OPTIONS, bundle);
-
-		if (args.length == 1 && (args[0].equalsIgnoreCase("--help") || args[0].equalsIgnoreCase("-h") ))
-		{
-			showUsage(options);
-			return;
-		}
+	public void execute(CimCommandValues values) throws WbemSmtException {
 		
 		//do the real processing
-		System.out.println("\n" + bundle.getString("editing",new Object[]{bundle.getString("DnsResourceRecordDataContainer.caption")}));
 		try {
 			
  
+			commandValues = values;
+			cmd = values.getCommandLine();
+
+			Options options = values.getOptions();
 			
-			CommandLineParser parser = new GnuParser();
+			//first handle the help options and then the parseException
+			//if the user wants help parsing the args will fail (due to missing required args)
+			//and so the helpOptions should be handled first
 			
-			//check if the password is the only argument that is missing and query the user if thats the case
-			args = super.checkPassword(parser,options,args,KEY_GLOBAL_hostname,KEY_GLOBAL_user,KEY_GLOBAL_password);
-			
-			cmd = parser.parse( options, args);
+    		if (   hasOption(values.getArgs(), "-" + KEY_GLOBAL_QUESTION_MARK_.getShortKey())
+			    || hasOption(values.getArgs(), "-" + KEY_GLOBAL_h.getShortKey()) )
+    		{
+    			showUsage(values.getOut(), options);
+    			return;
+    		}			
+    		else if ( hasOption(values.getArgs(), "--" + KEY_GLOBAL_help.getLongKey()) )
+    		{
+				//TODO add extendedHelp by loading a manpage or sth else
+    			showUsage(values.getOut(), options);
+    			return;
+    		}			
+
+			else if (values.getParseException() != null)
+			{
+				handleParseException(values,KEY_GLOBAL_password);
+				return;
+			}
 			adapter = 
 					(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)CimAdapterFactory.getInstance()
 					.getAdapter(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter.class,this);
 			adapter.setBundle(bundle);
-			adapter.setCimClient(getCimClient(cmd, 
-				KEY_GLOBAL_hostname,
-				KEY_GLOBAL_port,
-				KEY_GLOBAL_namespace,
-				KEY_GLOBAL_user,
-				KEY_GLOBAL_password,
-				KEY_GLOBAL_publickeyfile,
-				KEY_GLOBAL_privatekeyfile));
+			adapter.setCimClient(values.getCimClient());
 				
 			adapter.loadInitial(adapter.getCimClient());
 			
-			CliDataLoader loader = new EditDnsResourceRecordLoader();
+			values.getOut().println("\n" + bundle.getString("editing",new Object[]{bundle.getString("DnsResourceRecordDataContainer.caption")}));
+
+        	CliDataLoader loader = new EditDnsResourceRecordLoader();
 			loader.load(bundle,adapter, cmd);
 			
 			org.sblim.wbemsmt.cli.dns.container.edit.DnsResourceRecordDataContainerImpl dc = new org.sblim.wbemsmt.cli.dns.container.edit.DnsResourceRecordDataContainerImpl(adapter);
@@ -207,8 +250,8 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
 			adapter.updateControls(dc);
 			adapter.setActiveModule(AbstractBaseCimAdapter.ACTIVE_EDIT);
 			
-			System.out.println("\n" + bundle.getString("before.edit"));
-			dc.trace(System.out);
+			values.getOut().println("\n" + bundle.getString("before.edit"));
+			dc.trace(values.getOut());
 
 			setValues(cmd,adapter,dc);
 			
@@ -251,17 +294,17 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
 					traceErrors("validation.error",result);
 					return;
 			}
-			System.out.println("\n" + bundle.getString("edited", new Object[]{bundle.getString("DnsResourceRecordDataContainer.caption")}));
+			values.getOut().println("\n" + bundle.getString("edited", new Object[]{bundle.getString("DnsResourceRecordDataContainer.caption")}));
 
 			adapter.updateControls(dc);
 
-			System.out.println("\n" + bundle.getString("after.edit"));
-			dc.trace(System.out);
+			values.getOut().println("\n" + bundle.getString("after.edit"));
+			dc.trace(values.getOut());
 		
 		}
 		catch (Exception e)
 		{
-			super.handleException(e,args,options,KEY_GLOBAL_password);
+			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
 		}
 	}
 	
@@ -269,21 +312,60 @@ public static final OptionDefinition KEY_locale = new OptionDefinition("locale",
 	 * Set all Values that are needed for selecting the right objects. This fields are used even if they are read-only
 	 **/
 	private void setKeyValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer dc) throws WbemSmtException {
-    	    				    				    				    				    				    				    				    					}	
+    		}	
 	
 	/**
 	 * Set all Values that are not read-Only
 	 **/
 	private void setValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer dc) throws WbemSmtException {
-    										setValue(cmd,dc.get_Name(),KEY_recordName);
-																												setMultiValue(adapter.getBundle(),cmd,dc.get_Type(),KEY_recordType);
-																						setMultiValue(adapter.getBundle(),cmd,dc.get_Family(),KEY_recordFamily);
-																setValue(cmd,dc.get_Value(),KEY_recordValue);
-																						setValue(cmd,dc.get_Priority(),KEY_mxPriority);
-																						setValue(cmd,dc.get_TTL(),KEY_ttl);
-																												setMultiValue(adapter.getBundle(),cmd,dc.get_usr_TTLUnit(),KEY_ttlUnit);
-																								
+    			
 		//The Buttons
-    																																																																									if (!pressButton(cmd,adapter,dc,dc.get_usr_RemoveTTL(),KEY_removeTTL)) return;
-								}	
+    		}	
+	
+	
+ 
+			
+	protected LoginOptionValues getLoginOptions() {
+		return new LoginOptionValues(KEY_GLOBAL_hostname,KEY_GLOBAL_user,KEY_GLOBAL_password);
+	}
+
+	protected CimClientOptionValues getCimClientOptions() {
+		
+		return new CimClientOptionValues(KEY_GLOBAL_hostname,
+				KEY_GLOBAL_port,
+				KEY_GLOBAL_namespace,
+				KEY_GLOBAL_user,
+				KEY_GLOBAL_password,
+				KEY_GLOBAL_publickeyfile,
+				KEY_GLOBAL_privatekeyfile);
+	}
+	
+	public Options getOptions() throws WbemSmtException {
+		Options options = super.createOptions(LOCAL_OPTIONS, bundle);
+		super.createOptions(options, GLOBAL_TASK_OPTIONS, bundle);
+		super.createOptions(options, GLOBAL_WBEMSMT_COMMON_OPTIONS, bundle);
+		super.createOptions(options, GLOBAL_WBEMSMT_COMMUNICATION_OPTIONS, bundle);
+		return options;
+	}
+	
+	public Options getLocalOptions() throws WbemSmtException {
+		Options options = super.createOptions(LOCAL_OPTIONS, bundle);
+		return options;
+	}
+
+	public Options getGlobalWbemsmtCommonOptions() throws WbemSmtException {
+		Options options = super.createOptions(GLOBAL_WBEMSMT_COMMON_OPTIONS, bundle);
+		return options;
+	}
+
+	public Options getGlobalWbemsmtCommunicationOptions() throws WbemSmtException {
+		Options options = super.createOptions(GLOBAL_WBEMSMT_COMMUNICATION_OPTIONS, bundle);
+		return options;
+	}
+
+	public Options getGlobalTaskOptions() throws WbemSmtException {
+		Options options = super.createOptions(GLOBAL_TASK_OPTIONS, bundle);
+		return options;
+	}
+	
 }

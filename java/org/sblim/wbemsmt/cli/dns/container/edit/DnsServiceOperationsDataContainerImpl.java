@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.dns.container.edit;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceOperationsDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_RunAsRoot;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Restart;
@@ -67,7 +60,7 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_RunAsRoot() {
     		if (ic_RunAsRoot == null)
     		{
-				String label = bundle.getString("DnsServiceOperationsDataContainer.RunAsRoot");
+				String label = getAdapter().getBundle().getString("DnsServiceOperationsDataContainer.RunAsRoot");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_RunAsRoot = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -83,7 +76,7 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Restart() {
     		if (ic_usr_Restart == null)
     		{
-				String label = bundle.getString("DnsServiceOperationsDataContainer.restart");
+				String label = getAdapter().getBundle().getString("DnsServiceOperationsDataContainer.restart");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_Restart = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -99,7 +92,7 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_invoke_Start() {
     		if (ic_invoke_Start == null)
     		{
-				String label = bundle.getString("DnsServiceOperationsDataContainer.start");
+				String label = getAdapter().getBundle().getString("DnsServiceOperationsDataContainer.start");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_invoke_Start = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -115,7 +108,7 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_invoke_Stop() {
     		if (ic_invoke_Stop == null)
     		{
-				String label = bundle.getString("DnsServiceOperationsDataContainer.stop");
+				String label = getAdapter().getBundle().getString("DnsServiceOperationsDataContainer.stop");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_invoke_Stop = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -131,7 +124,7 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Status() {
     		if (ic_Status == null)
     		{
-				String label = bundle.getString("DnsServiceOperationsDataContainer.Status");
+				String label = getAdapter().getBundle().getString("DnsServiceOperationsDataContainer.Status");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Status = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -140,11 +133,11 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("DnsServiceOperationsDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("DnsServiceOperationsDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -173,7 +166,7 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

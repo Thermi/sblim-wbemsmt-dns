@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.dns.container.edit;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_DeleteRecord;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
@@ -70,7 +63,7 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_DeleteRecord() {
     		if (ic_usr_DeleteRecord == null)
     		{
-				String label = bundle.getString("DnsResourceRecordListItemContainer.deleteRecord");
+				String label = getAdapter().getBundle().getString("DnsResourceRecordListItemContainer.deleteRecord");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
     			ic_usr_DeleteRecord = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -86,7 +79,7 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name() {
     		if (ic_Name == null)
     		{
-				String label = bundle.getString("DnsResourceRecordListItemContainer.Name");
+				String label = getAdapter().getBundle().getString("DnsResourceRecordListItemContainer.Name");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -102,7 +95,7 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_TTL() {
     		if (ic_TTL == null)
     		{
-				String label = bundle.getString("DnsResourceRecordListItemContainer.TTL");
+				String label = getAdapter().getBundle().getString("DnsResourceRecordListItemContainer.TTL");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_TTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -118,7 +111,7 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_TTLUnit() {
     		if (ic_usr_TTLUnit == null)
     		{
-				String label = bundle.getString("DnsResourceRecordListItemContainer.TTLUnit");
+				String label = getAdapter().getBundle().getString("DnsResourceRecordListItemContainer.TTLUnit");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -134,7 +127,7 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveTTL() {
     		if (ic_usr_RemoveTTL == null)
     		{
-				String label = bundle.getString("DnsResourceRecordListItemContainer.removeTTL");
+				String label = getAdapter().getBundle().getString("DnsResourceRecordListItemContainer.removeTTL");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
     		}
@@ -150,7 +143,7 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_Family() {
     		if (ic_Family == null)
     		{
-				String label = bundle.getString("DnsResourceRecordListItemContainer.Family");
+				String label = getAdapter().getBundle().getString("DnsResourceRecordListItemContainer.Family");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt8StringArrayConverter();
     			ic_Family = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -166,7 +159,7 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
 		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_Type() {
     		if (ic_Type == null)
     		{
-				String label = bundle.getString("DnsResourceRecordListItemContainer.Type");
+				String label = getAdapter().getBundle().getString("DnsResourceRecordListItemContainer.Type");
 				org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
     			ic_Type = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
     		}
@@ -182,7 +175,7 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Value() {
     		if (ic_Value == null)
     		{
-				String label = bundle.getString("DnsResourceRecordListItemContainer.Value");
+				String label = getAdapter().getBundle().getString("DnsResourceRecordListItemContainer.Value");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Value = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -191,11 +184,11 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("DnsResourceRecordListItemContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("DnsResourceRecordListItemContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -249,7 +242,7 @@ public class DnsResourceRecordListItemContainerImpl extends BaseDataContainer im
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			

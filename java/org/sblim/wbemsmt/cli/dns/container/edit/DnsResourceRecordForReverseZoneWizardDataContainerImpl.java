@@ -27,11 +27,6 @@ package org.sblim.wbemsmt.cli.dns.container.edit;
 import java.util.*;
 
 import org.sblim.wbemsmt.bl.adapter.*;
-//import org.sblim.wbemsmt.tools.converter.*;
-//import org.sblim.wbemsmt.tools.converter.test.*;
-//import org.sblim.wbemsmt.tools.input.*;
-//import org.sblim.wbemsmt.tools.input.test.*;
-import org.sblim.wbemsmt.tools.resources.*;
 import org.sblim.wbemsmt.exception.*;
 
 
@@ -41,8 +36,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer {
-
-	protected static WbemSmtResourceBundle bundle = ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},Locale.getDefault());
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Type;
@@ -65,7 +58,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends Base
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name() {
     		if (ic_Name == null)
     		{
-				String label = bundle.getString("DnsResourceRecordForReverseZoneWizardDataContainer.Name");
+				String label = getAdapter().getBundle().getString("DnsResourceRecordForReverseZoneWizardDataContainer.Name");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -81,7 +74,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends Base
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Type() {
     		if (ic_Type == null)
     		{
-				String label = bundle.getString("DnsResourceRecordForReverseZoneWizardDataContainer.Type");
+				String label = getAdapter().getBundle().getString("DnsResourceRecordForReverseZoneWizardDataContainer.Type");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Type = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -97,7 +90,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends Base
 		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Value() {
     		if (ic_Value == null)
     		{
-				String label = bundle.getString("DnsResourceRecordForReverseZoneWizardDataContainer.Value");
+				String label = getAdapter().getBundle().getString("DnsResourceRecordForReverseZoneWizardDataContainer.Value");
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
     			ic_Value = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
     		}
@@ -106,11 +99,11 @@ public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends Base
 		
 	
 		
-	public void trace(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
 	{
 		if (title)
 		{
-			printStream.println(bundle.getString("DnsResourceRecordForReverseZoneWizardDataContainer.caption"));
+			printStream.println(getAdapter().getBundle().getString("DnsResourceRecordForReverseZoneWizardDataContainer.caption"));
 		}
 		
 		if (showKey(listOptions))
@@ -144,7 +137,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends Base
 		}
 	}
 	
-	public void traceChilds(java.io.PrintStream printStream, String listOptions, boolean title)
+	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
     			
 			
