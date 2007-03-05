@@ -39,8 +39,6 @@ import org.sblim.wbemsmt.bl.help.HelpManager;
 
 public class EditServiceListener extends JsfEditListener {
 
-	private List editBeans = new ArrayList();
-
 	public String processEvent(TaskLauncherTreeNodeEvent event) throws WbemSmtException {
 
 			ITaskLauncherTreeNode treeNode = event.getTreeNode();
