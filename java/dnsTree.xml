@@ -1,5 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tlc:customtreeconfig version="VERSION_2_0" xmlns:tlc="http://sblim.org/wbemsmt/tasklauncher/customtreeconfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sblim.org/wbemsmt/tasklauncher/customtreeconfig ../../wbemsmt-commons/commons-bl/conf/customtreeconfig.xsd">
+<tlc:customtreeconfig version="VERSION_2_1" xmlns:tlc="http://sblim.org/wbemsmt/tasklauncher/customtreeconfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sblim.org/wbemsmt/tasklauncher/customtreeconfig ../../wbemsmt-commons/commons-bl/conf/customtreeconfig.xsd">
+	<tlc:contextmenu>
+		<tlc:menuitem>
+			<tlc:description>tree.menu.createAdressMatchList</tlc:description>
+			<tlc:eventListener>
+				<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateAddressMatchListListener</tlc:classname>
+			</tlc:eventListener>
+		</tlc:menuitem>
+		<tlc:menuitem>
+			<tlc:description>tree.menu.createMasters</tlc:description>
+			<tlc:eventListener>
+				<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateMastersListener</tlc:classname>
+			</tlc:eventListener>
+		</tlc:menuitem>
+		<tlc:menuitem>
+			<tlc:description>tree.menu.createMasterZone</tlc:description>
+			<tlc:eventListener>
+				<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateMasterZoneListener</tlc:classname>
+			</tlc:eventListener>
+		</tlc:menuitem>
+		<tlc:menuitem>
+			<tlc:description>tree.menu.createSlaveZone</tlc:description>
+			<tlc:eventListener>
+				<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateSlaveZoneListener</tlc:classname>
+			</tlc:eventListener>
+		</tlc:menuitem>							
+		<tlc:menuitem>
+			<tlc:description>tree.menu.createStubZone</tlc:description>
+			<tlc:eventListener>
+				<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateStubZoneListener</tlc:classname>
+			</tlc:eventListener>
+		</tlc:menuitem>
+		<tlc:menuitem>
+			<tlc:description>tree.menu.createForwardZone</tlc:description>
+			<tlc:eventListener>
+				<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateForwardZoneListener</tlc:classname>
+			</tlc:eventListener>
+		</tlc:menuitem>			
+		<tlc:menuitem>
+			<tlc:description>tree.menu.createReverseZone</tlc:description>
+			<tlc:eventListener>
+				<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateReverseZoneListener</tlc:classname>
+			</tlc:eventListener>
+		</tlc:menuitem>
+		<tlc:menuitem>
+			<tlc:description>tree.menu.createResourceRecord</tlc:description>
+			<tlc:eventListener>
+				<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateResourceRecordListener</tlc:classname>
+			</tlc:eventListener>
+		</tlc:menuitem>												
+	</tlc:contextmenu>
 	<tlc:treenode>
 	<tlc:description>root</tlc:description>
 	<tlc:treenode>
@@ -45,14 +95,6 @@
 								<classname>org.sblim.wbemsmt.dns.naming.AddressMatchListNaming</classname>
 							</tlc:instanceNamingClass>
 						</tlc:cimclass>
-						<tlc:contextmenu>
-							<tlc:menuitem>
-								<tlc:description>tree.menu.createAdressMatchList</tlc:description>
-								<tlc:eventListener>
-									<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateAddressMatchListListener</tlc:classname>
-								</tlc:eventListener>
-							</tlc:menuitem>
-						</tlc:contextmenu>
 					</tlc:treenode>
 					<tlc:treenode>
 						<tlc:description>tree.masters</tlc:description>
@@ -76,14 +118,6 @@
 								<classname>org.sblim.wbemsmt.dns.naming.MastersNaming</classname>
 							</tlc:instanceNamingClass>
 						</tlc:cimclass>
-						<tlc:contextmenu>
-							<tlc:menuitem>
-								<tlc:description>tree.menu.createMasters</tlc:description>
-								<tlc:eventListener>
-									<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateMastersListener</tlc:classname>
-								</tlc:eventListener>
-							</tlc:menuitem>
-						</tlc:contextmenu>
 					</tlc:treenode>
 					<tlc:treenode>
 						<tlc:description>tree.masterzones</tlc:description>
@@ -101,18 +135,6 @@
 											<tlc:classname>org.sblim.wbemsmt.dns.listener.DeleteMasterZoneListener</tlc:classname>
 										</tlc:eventListener>
 									</tlc:menuitem>
-									<tlc:menuitem>
-										<tlc:description>tree.menu.createReverseZone</tlc:description>
-										<tlc:eventListener>
-											<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateReverseZoneListener</tlc:classname>
-										</tlc:eventListener>
-									</tlc:menuitem>
-									<tlc:menuitem>
-										<tlc:description>tree.menu.createResourceRecord</tlc:description>
-										<tlc:eventListener>
-											<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateResourceRecordListener</tlc:classname>
-										</tlc:eventListener>
-									</tlc:menuitem>
 								</tlc:contextmenu>
 							</tlc:instanceSubnodes>
 							<tlc:instanceNamingClass>
@@ -126,14 +148,6 @@
 								</tlc:param>
 							</tlc:filter>
 						</tlc:cimclass>
-						<tlc:contextmenu>
-							<tlc:menuitem>
-								<tlc:description>tree.menu.createMasterZone</tlc:description>
-								<tlc:eventListener>
-									<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateMasterZoneListener</tlc:classname>
-								</tlc:eventListener>
-							</tlc:menuitem>
-						</tlc:contextmenu>
 					</tlc:treenode>
 					<tlc:treenode>
 						<tlc:description>tree.slavezones</tlc:description>
@@ -151,12 +165,6 @@
 											<tlc:classname>org.sblim.wbemsmt.dns.listener.DeleteSlaveZoneListener</tlc:classname>
 										</tlc:eventListener>
 									</tlc:menuitem>
-									<tlc:menuitem>
-										<tlc:description>tree.menu.createResourceRecord</tlc:description>
-										<tlc:eventListener>
-											<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateResourceRecordListener</tlc:classname>
-										</tlc:eventListener>
-									</tlc:menuitem>
 								</tlc:contextmenu>
 							</tlc:instanceSubnodes>
 							<tlc:instanceNamingClass>
@@ -170,14 +178,6 @@
 								</tlc:param>
 							</tlc:filter>
 						</tlc:cimclass>
-						<tlc:contextmenu>
-							<tlc:menuitem>
-								<tlc:description>tree.menu.createSlaveZone</tlc:description>
-								<tlc:eventListener>
-									<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateSlaveZoneListener</tlc:classname>
-								</tlc:eventListener>
-							</tlc:menuitem>
-						</tlc:contextmenu>
 					</tlc:treenode>
 					<tlc:treenode>
 						<tlc:description>tree.stubzones</tlc:description>
@@ -195,12 +195,6 @@
 											<tlc:classname>org.sblim.wbemsmt.dns.listener.DeleteStubZoneListener</tlc:classname>
 										</tlc:eventListener>
 									</tlc:menuitem>
-									<tlc:menuitem>
-										<tlc:description>tree.menu.createResourceRecord</tlc:description>
-										<tlc:eventListener>
-											<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateResourceRecordListener</tlc:classname>
-										</tlc:eventListener>
-									</tlc:menuitem>
 								</tlc:contextmenu>
 							</tlc:instanceSubnodes>
 							<tlc:instanceNamingClass>
@@ -214,14 +208,6 @@
 								</tlc:param>
 							</tlc:filter>
 						</tlc:cimclass>
-						<tlc:contextmenu>
-							<tlc:menuitem>
-								<tlc:description>tree.menu.createStubZone</tlc:description>
-								<tlc:eventListener>
-									<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateStubZoneListener</tlc:classname>
-								</tlc:eventListener>
-							</tlc:menuitem>
-						</tlc:contextmenu>
 					</tlc:treenode>
 					<tlc:treenode>
 						<tlc:description>tree.forwardzones</tlc:description>
@@ -239,12 +225,6 @@
 											<tlc:classname>org.sblim.wbemsmt.dns.listener.DeleteForwardZoneListener</tlc:classname>
 										</tlc:eventListener>
 									</tlc:menuitem>
-									<tlc:menuitem>
-										<tlc:description>tree.menu.createResourceRecord</tlc:description>
-										<tlc:eventListener>
-											<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateResourceRecordListener</tlc:classname>
-										</tlc:eventListener>
-									</tlc:menuitem>
 								</tlc:contextmenu>
 							</tlc:instanceSubnodes>
 							<tlc:instanceNamingClass>
@@ -258,14 +238,6 @@
 								</tlc:param>
 							</tlc:filter>
 						</tlc:cimclass>
-						<tlc:contextmenu>
-							<tlc:menuitem>
-								<tlc:description>tree.menu.createForwardZone</tlc:description>
-								<tlc:eventListener>
-									<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateForwardZoneListener</tlc:classname>
-								</tlc:eventListener>
-							</tlc:menuitem>
-						</tlc:contextmenu>
 					</tlc:treenode>
 					<tlc:treenode>
 						<tlc:description>tree.hintzones</tlc:description>
@@ -276,14 +248,6 @@
 								<tlc:eventListener>
 									<tlc:classname>org.sblim.wbemsmt.dns.listener.EditHintZoneListener</tlc:classname>
 								</tlc:eventListener>
-								<tlc:contextmenu>
-									<tlc:menuitem>
-										<tlc:description>tree.menu.createResourceRecord</tlc:description>
-										<tlc:eventListener>
-											<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateResourceRecordListener</tlc:classname>
-										</tlc:eventListener>
-									</tlc:menuitem>
-								</tlc:contextmenu>
 						   </tlc:instanceSubnodes>
 							<tlc:instanceNamingClass>
 								<classname>org.sblim.wbemsmt.dns.naming.ZoneNaming</classname>
@@ -311,12 +275,6 @@
 										<tlc:description>tree.menu.deleteReverseZone</tlc:description>
 										<tlc:eventListener>
 											<tlc:classname>org.sblim.wbemsmt.dns.listener.DeleteReverseZoneListener</tlc:classname>
-										</tlc:eventListener>
-									</tlc:menuitem>
-									<tlc:menuitem>
-										<tlc:description>tree.menu.createResourceRecord</tlc:description>
-										<tlc:eventListener>
-											<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateResourceRecordListener</tlc:classname>
 										</tlc:eventListener>
 									</tlc:menuitem>
 								</tlc:contextmenu>

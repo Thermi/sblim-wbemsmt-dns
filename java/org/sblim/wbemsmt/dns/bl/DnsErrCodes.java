@@ -72,5 +72,8 @@ public class DnsErrCodes {
 	public static final MessageNumber MSG_VALUE_NOT_ADDED_TO_IP_EMPTY_IP = new MessageNumber(ErrCodes.COMPONENT,SUBSYS_DNS,29);
 	public static final MessageNumber MSG_VALUE_NOT_ADDED_TO_MASTER = new MessageNumber(ErrCodes.COMPONENT,SUBSYS_DNS,30);
 	
+	public static final MessageNumber MSG_CANNOT_SELECT_SERVICE = new MessageNumber(ErrCodes.COMPONENT,SUBSYS_DNS,31);
+	public static final MessageNumber MSG_NO_ZONE_SELECTED = new MessageNumber(ErrCodes.COMPONENT,SUBSYS_DNS,32);
+	public static final MessageNumber MSG_NO_MASTERZONE_SELECTED = new MessageNumber(ErrCodes.COMPONENT,SUBSYS_DNS,33);
 	
 }

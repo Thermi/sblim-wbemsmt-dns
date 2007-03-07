@@ -27,8 +27,7 @@ package org.sblim.wbemsmt.jsf.dns.listener;
 import javax.faces.context.FacesContext;
 
 import org.sblim.wbemsmt.tasklauncher.event.TaskLauncherContextMenuEventListenerImpl;
-import org.sblim.wbemsmt.bl.adapter.CimAdapterFactory;
-import org.sblim.wbemsmt.bl.adapter.TaskLauncherTreeNodeSelector;
+import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.bl.tree.ITaskLauncherTreeNode;
 import org.sblim.wbemsmt.bl.tree.TaskLauncherTreeNodeEvent;
 import org.sblim.wbemsmt.tools.beans.BeanNameConstants;
@@ -51,17 +50,33 @@ public class CreateMasterZoneListener extends TaskLauncherContextMenuEventListen
 
 		org.sblim.wbem.client.CIMClient cimClient = treeNode.getCimClient();
 		
-		org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter = 
-			(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)CimAdapterFactory.getInstance()
-			.getAdapter(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter.class,FacesContext.getCurrentInstance(),cimClient);
+		org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter = null;
+		if (cimClient != null)
+		{
+			adapter = 
+				(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)CimAdapterFactory.getInstance()
+				.getAdapter(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter.class,FacesContext.getCurrentInstance(),cimClient);
+		}
 
-		TaskLauncherTreeNodeSelector selector = new org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector();
+		
+
+		TaskLauncherTreeNodeSelectorForCreate selector = new org.sblim.wbemsmt.dns.listener.CreateMasterZoneListenerSelector();
 		selector.select(treeNode,adapter,"createMasterZone");
 
-		org.sblim.wbemsmt.jsf.dns.wizard.CreateMasterZoneWizard wizard = new org.sblim.wbemsmt.jsf.dns.wizard.CreateMasterZoneWizard(adapter);
-		wizard.startWizard();
-		wizardController.setCurrentWizard(wizard);
+		if (selector.execute())
+		{
+			adapter = (org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)selector.getAdapter();
 		
-		return "wizardPage";
+			org.sblim.wbemsmt.jsf.dns.wizard.CreateMasterZoneWizard wizard = new org.sblim.wbemsmt.jsf.dns.wizard.CreateMasterZoneWizard(adapter);
+			wizard.startWizard();
+			wizardController.setCurrentWizard(wizard);
+			
+			return "wizardPage";
+		}
+		else
+		{
+			return "";
+		}	
+
 	}
 }
