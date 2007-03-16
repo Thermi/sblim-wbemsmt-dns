@@ -43,7 +43,7 @@ public class CreateDnsResourceRecord extends CimCommand implements ContainerUpda
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_type = new OptionDefinition(null,"type","noDefaultValue","DnsResourceRecordWizardPage1DataContainer.Type.argValue",true,false,"DnsResourceRecordWizardPage1DataContainer.Type.argDescription");
+		public static final OptionDefinition KEY_recordType = new OptionDefinition(null,"recordType",null,"DnsResourceRecordWizardPage1DataContainer.Type.argValue",true,false,"DnsResourceRecordWizardPage1DataContainer.Type.argDescription");
 			/**
 		 * 
 		 */
@@ -101,10 +101,6 @@ public class CreateDnsResourceRecord extends CimCommand implements ContainerUpda
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_GLOBAL_h = new OptionDefinition("h",null,null,null,false,false,"h.argDescription");
-			/**
-		 * 
-		 */
 		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
 			/**
 		 * 
@@ -114,7 +110,7 @@ public class CreateDnsResourceRecord extends CimCommand implements ContainerUpda
 	private static final OptionDefinition[] LOCAL_OPTIONS = new OptionDefinition []
 	{
     	    	KEY_zoneName,
-    	    	KEY_type,
+    	    	KEY_recordType,
     	    	KEY_recordName,
     	    	KEY_priority,
     	    	KEY_recordValue,
@@ -139,7 +135,6 @@ public class CreateDnsResourceRecord extends CimCommand implements ContainerUpda
 	private static final OptionDefinition[] GLOBAL_WBEMSMT_COMMON_OPTIONS = new OptionDefinition []
 	{
     	    	KEY_GLOBAL_locale,
-    	    	KEY_GLOBAL_h,
     	    	KEY_GLOBAL_QUESTION_MARK_,
     	    	KEY_GLOBAL_help,
     		};
@@ -172,7 +167,7 @@ public class CreateDnsResourceRecord extends CimCommand implements ContainerUpda
 			//and so the helpOptions should be handled first
 			
     		if (   hasOption(values.getArgs(), "-" + KEY_GLOBAL_QUESTION_MARK_.getShortKey())
-			    || hasOption(values.getArgs(), "-" + KEY_GLOBAL_h.getShortKey()) )
+			    || hasOption(values.getArgs(), "-" + KEY_GLOBAL_help.getShortKey()) )
     		{
     			showUsage(values.getOut(), options);
     			return;
@@ -308,7 +303,7 @@ public class CreateDnsResourceRecord extends CimCommand implements ContainerUpda
 	
 	private void setCommandLineValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardPage1DataContainer dc) throws WbemSmtException {
 		//set the values
-																	setMultiValue(adapter.getBundle(),cmd,dc.get_usr_Type(),KEY_type);
+																	setMultiValue(adapter.getBundle(),cmd,dc.get_usr_Type(),KEY_recordType);
 																setValue(cmd,dc.get_usr_Name(),KEY_recordName);
 															
 		//The Buttons

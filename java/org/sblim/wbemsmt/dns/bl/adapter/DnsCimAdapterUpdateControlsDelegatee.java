@@ -20,6 +20,7 @@
 package org.sblim.wbemsmt.dns.bl.adapter;
 
 import org.sblim.wbemsmt.dns.bl.container.edit.*;
+import org.sblim.wbemsmt.dns.bl.container.welcome.WelcomeDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.wizard.*;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
 import org.sblim.wbemsmt.exception.ModelLoadException;
@@ -505,6 +506,10 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 		} catch (ModelLoadException e) {
 			throw new UpdateControlsException(e);
 		}
+	}
+
+	public void updateControlsImpl(WelcomeDataContainer container) throws UpdateControlsException {
+		container.get_usr_WelcomeText().setControlValue("DNS-INFO");
 	}
 
 

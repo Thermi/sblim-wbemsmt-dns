@@ -47,7 +47,7 @@ public class CreateDnsResourceRecordLoader extends DnsDataLoader {
 		String recordName = CliUtil.getOption(cmd,CreateDnsResourceRecord.KEY_recordName);
 		String recordValue = CliUtil.getOption(cmd,CreateDnsResourceRecord.KEY_recordValue);
 		String recordPrio = CliUtil.getOption(cmd,CreateDnsResourceRecord.KEY_priority);
-		String recordType = CliUtil.getOption(cmd,CreateDnsResourceRecord.KEY_type);
+		String recordType = CliUtil.getOption(cmd,CreateDnsResourceRecord.KEY_recordType);
 		selectResourceRecord(bundle, adapter, zoneName,recordName, recordValue, recordPrio,recordType);
 	
 	}

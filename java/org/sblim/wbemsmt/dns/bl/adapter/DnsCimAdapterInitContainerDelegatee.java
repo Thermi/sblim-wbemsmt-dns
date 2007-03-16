@@ -20,6 +20,7 @@
 package org.sblim.wbemsmt.dns.bl.adapter;
 
 import org.sblim.wbemsmt.dns.bl.container.edit.*;
+import org.sblim.wbemsmt.dns.bl.container.welcome.WelcomeDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.wizard.*;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
 import org.sblim.wbemsmt.exception.InitContainerException;
@@ -408,6 +409,11 @@ public class DnsCimAdapterInitContainerDelegatee implements
 		} catch (ModelLoadException e) {
 			throw new InitContainerException(e);
 		}
+	}
+
+	public void initContainerImpl(WelcomeDataContainer container) throws InitContainerException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

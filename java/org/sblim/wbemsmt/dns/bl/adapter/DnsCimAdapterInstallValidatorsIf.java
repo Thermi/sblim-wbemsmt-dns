@@ -89,5 +89,6 @@ public interface DnsCimAdapterInstallValidatorsIf extends InstallValidatorsDeleg
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsTTLDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneTracingContainer container);
+	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.welcome.WelcomeDataContainer container);
 			
 }

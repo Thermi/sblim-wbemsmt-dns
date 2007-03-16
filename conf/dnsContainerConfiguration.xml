@@ -29,6 +29,7 @@
             <cd:fcoPackage dir="../wbemsmt-dns/bin" id="fco" name="org.sblim.wbemsmt"/>
             <cd:containerInterfacePkg id="editContainers" name="org.sblim.wbemsmt.dns.bl.container.edit" dir="../wbemsmt-dns/java/"/>
             <cd:containerInterfacePkg dir="../wbemsmt-dns/java/" id="wizardContainers" name="org.sblim.wbemsmt.dns.bl.container.wizard"/>
+            <cd:containerInterfacePkg dir="../wbemsmt-dns/java" id="welcomeContainers" name="org.sblim.wbemsmt.dns.bl.container.welcome"/>
         </cd:environment>
         <cd:container name="DnsZoneDataContainer" packageId="editContainers" implPackageId="dnsEditContainerImplementation" adapterId="dns" canCreate="false" canDelete="false" canModify="false" isWizard="false" description="Baseclass Container for alle Zones" customLayouter="false">
             <cd:field name="Name" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_DnsZone.get_Name" description="" readOnly="false">
@@ -121,8 +122,8 @@
         </cd:container>
         <cd:container adapterId="dns" name="DnsResourceRecordWizardPage1DataContainer" packageId="wizardContainers" description="Main page of resourceRecord Wizard" canCreate="false" canModify="false" canDelete="false" isWizard="true" implPackageId="dnsWizardContainerImplementation" customLayouter="true">
             <cd:fcoRelation fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" fcoName="Linux_DnsResourceRecord" description=""/>
-            <cd:field name="Type" userDefined="true" dataType="UNSIGNED_INT16" uiType="COMBOBOX" fcoFieldName="Type" description="" readOnly="false" required="true">
-                <cmd:option required="true" long="type" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
+            <cd:field name="Type" userDefined="true" dataType="UNSIGNED_INT16" uiType="COMBOBOX" fcoFieldName="Type" description="" readOnly="false" required="true" orientation="LEFT">
+                <cmd:option required="true" long="recordType" comment="" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
             </cd:field>
             <cd:field name="Name" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false" required="true">
                 <cmd:option required="true" long="recordName" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
@@ -370,10 +371,10 @@
                 <cmd:option long="forwarders" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </cd:field>
             <cd:field name="masterAddresses" dataType="STRING" userDefined="true" uiType="TEXTFIELD" fcoFieldName="userdefined" description="" readOnly="true"/>
-            <cd:field name="TTL" dataType="DOUBLE" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsSetting.get_TTL" description="" readOnly="true"></cd:field>
-            <cd:field name="TTLUnit" dataType="UNSIGNED_INT16" userDefined="false" uiType="COMBOBOX" fcoFieldName="userdefined" description="" readOnly="true"></cd:field>
-            <cd:field name="NegativeCaching_TTL" dataType="DOUBLE" userDefined="false" uiType="TEXTFIELD" fcoFieldName="" description="" readOnly="true"></cd:field>
-            <cd:field name="NegativeCaching_TTLUnit" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="userdefined" description="" readOnly="true"></cd:field>
+            <cd:field name="TTL" dataType="DOUBLE" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsSetting.get_TTL" description="" readOnly="true"/>
+            <cd:field name="TTLUnit" dataType="UNSIGNED_INT16" userDefined="false" uiType="COMBOBOX" fcoFieldName="userdefined" description="" readOnly="true"/>
+            <cd:field name="NegativeCaching_TTL" dataType="DOUBLE" userDefined="false" uiType="TEXTFIELD" fcoFieldName="" description="" readOnly="true"/>
+            <cd:field name="NegativeCaching_TTLUnit" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="userdefined" description="" readOnly="true"/>
             <cd:link linkedContainer="DnsAllowNotifyForZoneDataContainer" linkedPackage="editContainers" occurrence="SINGLE" role="allowNotifyAcl" description=""/>
             <cd:link linkedContainer="DnsAllowQueryForZoneDataContainer" linkedPackage="editContainers" occurrence="SINGLE" role="allowQueryAcl" description=""/>
             <cd:link linkedContainer="DnsAllowTransferForZoneDataContainer" linkedPackage="editContainers" occurrence="SINGLE" role="allowTransferAcl" description=""/>
@@ -443,7 +444,7 @@
             <cd:field name="ipAddress" dataType="STRING" userDefined="true" uiType="TEXTFIELD" fcoFieldName="userdefined" description="" readOnly="false">
                 <cmd:option long="ipAddress" required="true" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true"/>
             </cd:field>
-            <cd:field name="resourceRecordUsed" dataType="UNSIGNED_INT16" userDefined="true" uiType="LIST_WITH_MULTISELECT" fcoFieldName="userdefined" description="" readOnly="false"></cd:field>
+            <cd:field name="resourceRecordUsed" dataType="UNSIGNED_INT16" userDefined="true" uiType="LIST_WITH_MULTISELECT" fcoFieldName="userdefined" description="" readOnly="false"/>
             <cd:field name="removeResourceRecord" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false"/>
             <cd:field name="resourceRecordNotUsed" dataType="UNSIGNED_INT16" userDefined="true" uiType="LIST_WITH_MULTISELECT" fcoFieldName="userdefined" description="" readOnly="false">
                 <cmd:option long="resourceRecordToUse" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
@@ -579,9 +580,12 @@
         <cd:container implPackageId="dnsEditContainerImplementation" name="DnsForwardersForServiceDataContainer" packageId="editContainers" adapterId="dns" description="" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="true">
             <cd:extends container="DnsForwarderDataContainer" packageId="editContainers"/>
         </cd:container>
+        <cd:container implPackageId="dnsWelcomeContainerImplementation" name="WelcomeDataContainer" packageId="welcomeContainers" adapterId="dns" description="" canCreate="false" canModify="false" canDelete="false" isWizard="false" customLayouter="false" dynamic="false">
+            <cd:field name="welcomeText" dataType="STRING" userDefined="true" uiType="LABEL" fcoFieldName="userdefined" description="" orientation="LEFT" readOnly="false" required="false"/>
+        </cd:container>
     </cd:container-definitions>
     <pl:presentationLayer>
-        <pl:environment taskLauncherConfig="../wbemsmt-dns/java/dnsTree.xml/" doJSF="true" doCmd="true" doSwing="false">
+        <pl:environment treeConfig="../wbemsmt-dns/java/dnsTree.xml" taskConfig="../wbemsmt-dns/conf/dns-task-config.xml" doJSF="true" doCmd="true" doSwing="false">
             <pl:listenerPackage packageId="dnsListeners">
                 <pl:delegationPackage id="dns" name="org.sblim.wbemsmt.dns.listener" dir="../wbemsmt-dns/java"/>
                 <pl:jsfPackage id="dns" name="org.sblim.wbemsmt.jsf.dns.listener" dir="../wbemsmt-dns/java"/>
@@ -597,6 +601,11 @@
                 <pl:jsfPackage id="dns" name="org.sblim.wbemsmt.jsf.dns.container.wizard" dir="../wbemsmt-dns/java"/>
                 <pl:swingPackage id="dns" name="org.sblim.wbemsmt.jswing.dns.container.wizard" dir="../wbemsmt-dns/java"/>
                 <pl:cmdPackage id="dns" name="org.sblim.wbemsmt.cli.dns.container.wizard" dir="../wbemsmt-dns/java"/>
+            </pl:containerImplPackage>
+            <pl:containerImplPackage packageId="dnsWelcomeContainerImplementation">
+                <pl:jsfPackage dir="../wbemsmt-dns/java" id="jsf" name="org.sblim.wbemsmt.jsf.dns.container.welcome"/>
+                <pl:swingPackage dir="../wbemsmt-dns/java" id="swing" name="org.sblim.wbemsmt.jswing.dns.container.welcome"/>
+                <pl:cmdPackage dir="../wbemsmt-dns/java" id="cmd" name="org.sblim.wbemsmt.cli.dns.container.welcome"/>
             </pl:containerImplPackage>
             <pl:wizardImplPackage packageId="dns">
                 <pl:jsfPackage id="dns" name="org.sblim.wbemsmt.jsf.dns.wizard" dir="../wbemsmt-dns/java"/>
@@ -747,7 +756,7 @@
             <pl:editPanel>
                 <pl:tab caption="TabMasterZone">
                     <pl:childEditPanel caption="masterZone" linkedContainer="DnsMasterZoneDataContainer" linkedPackage="editContainers">
-                        <cmd:command commandName="EditDnsMasterZone"></cmd:command>
+                        <cmd:command commandName="EditDnsMasterZone"/>
                     </pl:childEditPanel>
                 </pl:tab>
                 <pl:tab caption="TabAcl">
@@ -788,7 +797,7 @@
             <pl:editPanel>
                 <pl:tab caption="TabSlaveZone">
                     <pl:childEditPanel caption="slaveZone" linkedContainer="DnsSlaveZoneDataContainer" linkedPackage="editContainers">
-                        <cmd:command commandName="EditDnsSlaveZone"></cmd:command>
+                        <cmd:command commandName="EditDnsSlaveZone"/>
                     </pl:childEditPanel>
                 </pl:tab>
                 <pl:tab caption="TabAcl">
@@ -827,7 +836,7 @@
             <pl:editPanel>
                 <pl:tab caption="TabStubZone">
                     <pl:childEditPanel caption="stubZone" linkedContainer="DnsStubZoneDataContainer" linkedPackage="editContainers">
-                        <cmd:command commandName="EditDnsStubZone"></cmd:command>
+                        <cmd:command commandName="EditDnsStubZone"/>
                     </pl:childEditPanel>
                 </pl:tab>
                 <pl:tab caption="TabAcl">
@@ -946,7 +955,7 @@
             <pl:editPanel>
                 <pl:tab caption="TabReverseZone">
                     <pl:childEditPanel caption="reverseZone" linkedContainer="DnsReverseZoneDataContainer" linkedPackage="editContainers">
-                        <cmd:command commandName="EditDnsReverseZone"></cmd:command>
+                        <cmd:command commandName="EditDnsReverseZone"/>
                     </pl:childEditPanel>
                 </pl:tab>
                 <pl:tab caption="TabAcl">
@@ -968,7 +977,7 @@
                 </pl:tab>
                 <pl:tab caption="TabSOA">
                     <pl:childEditPanel caption="editSOA" linkedContainer="DnsSoaContainer" linkedPackage="editContainers">
-                        <cmd:command commandName="Ignore"></cmd:command>
+                        <cmd:command commandName="Ignore"/>
                     </pl:childEditPanel>
                 </pl:tab>
                 <pl:tab caption="TabResourceRecords">
@@ -1002,31 +1011,31 @@
             <pl:actionListener>
                 <pl:actionListenerClassDefinition name="DeleteMasterZoneListener" packageId="dnsListeners"/>
             </pl:actionListener>
-            <cmd:command commandName="DeleteDnsMasterZone"></cmd:command>
+            <cmd:command commandName="DeleteDnsMasterZone"/>
         </pl:deleteAction>
         <pl:deleteAction id="deleteSlaveZone" linkedContainer="DnsSlaveZoneDataContainer" linkedPackage="editContainers">
             <pl:actionListener>
                 <pl:actionListenerClassDefinition name="DeleteSlaveZoneListener" packageId="dnsListeners"/>
             </pl:actionListener>
-            <cmd:command commandName="DeleteDnsSlaveZone"></cmd:command>
+            <cmd:command commandName="DeleteDnsSlaveZone"/>
         </pl:deleteAction>
         <pl:deleteAction id="deleteStubZone" linkedContainer="DnsStubZoneDataContainer" linkedPackage="editContainers">
             <pl:actionListener>
                 <pl:actionListenerClassDefinition name="DeleteStubZoneListener" packageId="dnsListeners"/>
             </pl:actionListener>
-            <cmd:command commandName="DeleteDnsStubZone"></cmd:command>
+            <cmd:command commandName="DeleteDnsStubZone"/>
         </pl:deleteAction>
         <pl:deleteAction id="deleteForwardZone" linkedContainer="DnsForwardZoneDataContainer" linkedPackage="editContainers">
             <pl:actionListener>
                 <pl:actionListenerClassDefinition name="DeleteForwardZoneListener" packageId="dnsListeners"/>
             </pl:actionListener>
-            <cmd:command commandName="DeleteDnsForwardZone"></cmd:command>
+            <cmd:command commandName="DeleteDnsForwardZone"/>
         </pl:deleteAction>
         <pl:deleteAction id="deleteReverseZone" linkedContainer="DnsReverseZoneDataContainer" linkedPackage="editContainers">
             <pl:actionListener>
                 <pl:actionListenerClassDefinition name="DeleteReverseZoneListener" packageId="dnsListeners"/>
             </pl:actionListener>
-            <cmd:command commandName="DeleteDnsReverseZone"></cmd:command>
+            <cmd:command commandName="DeleteDnsReverseZone"/>
         </pl:deleteAction>
         <pl:deleteAction id="deleteAddressMatchList" linkedContainer="DnsAddressMatchListForServiceDataContainer" linkedPackage="editContainers">
             <pl:actionListener>
@@ -1105,6 +1114,11 @@
                 <cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
             </cmd:command>
         </pl:listAction>
+        <pl:welcomeAction linkedContainer="WelcomeDataContainer" linkedPackage="welcomeContainers">
+            <pl:actionListener>
+                <pl:actionListenerClassDefinition name="WelcomeListener" packageId="dnsListeners" useCurrentTreeNodeForSelection="true"/>
+            </pl:actionListener>
+        </pl:welcomeAction>
         <cmd:commands>
             <cmd:option long="dnsServiceName" required="true" usedForSelection="true" duplicateOK="true" comment="" defaultValue="noDefaultValue" scope="GLOBAL_TASK"/>
             <cmd:option long="hostname" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>
@@ -1115,7 +1129,6 @@
             <cmd:option long="publickeyfile" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>
             <cmd:option long="privatekeyfile" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>
             <cmd:option long="locale" required="false" usedForSelection="false" duplicateOK="false" short="L" comment="" defaultValue="en" scope="GLOBAL_WBEMSMT_COMMON"/>
-            <cmd:option required="false" usedForSelection="false" duplicateOK="false" short="h" comment="" scope="GLOBAL_WBEMSMT_COMMON" hasArgument="false"/>
             <cmd:option required="false" usedForSelection="false" duplicateOK="false" short="?" comment="" scope="GLOBAL_WBEMSMT_COMMON" hasArgument="false"/>
             <cmd:option long="help" required="false" usedForSelection="false" duplicateOK="false" short="h" comment="" scope="GLOBAL_WBEMSMT_COMMON" hasArgument="false"/>
             <cmd:option long="type" required="false" usedForSelection="false" duplicateOK="false" short="t" comment="" scope="GLOBAL_USMI"/>

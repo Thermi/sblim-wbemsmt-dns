@@ -89,6 +89,7 @@ public interface DnsCimAdapterUpdateControlsIf extends UpdateControlsDelegatee
 	public void updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsTTLDataContainer container) throws org.sblim.wbemsmt.exception.UpdateControlsException;
 	public void updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneDataContainer container) throws org.sblim.wbemsmt.exception.UpdateControlsException;
 	public void updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneTracingContainer container) throws org.sblim.wbemsmt.exception.UpdateControlsException;
+	public void updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.welcome.WelcomeDataContainer container) throws org.sblim.wbemsmt.exception.UpdateControlsException;
 	
 	public void updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer container, org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord fco)  throws org.sblim.wbemsmt.exception.UpdateControlsException;
 	public void updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer container, org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord fco)  throws org.sblim.wbemsmt.exception.UpdateControlsException;

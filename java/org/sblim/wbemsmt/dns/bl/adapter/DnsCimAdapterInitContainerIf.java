@@ -87,4 +87,5 @@ public interface DnsCimAdapterInitContainerIf extends InitContainerDelegatee
 	public void initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsTTLDataContainer container) throws org.sblim.wbemsmt.exception.InitContainerException;
 	public void initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneDataContainer container) throws org.sblim.wbemsmt.exception.InitContainerException;
 	public void initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneTracingContainer container) throws org.sblim.wbemsmt.exception.InitContainerException;
+	public void initContainerImpl(org.sblim.wbemsmt.dns.bl.container.welcome.WelcomeDataContainer container) throws org.sblim.wbemsmt.exception.InitContainerException;
 	}

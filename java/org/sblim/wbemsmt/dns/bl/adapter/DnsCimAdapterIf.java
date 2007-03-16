@@ -211,6 +211,7 @@ public interface DnsCimAdapterIf extends DnsCimAdapterCountIf, DnsCimAdapterCrea
 	public void updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsTTLDataContainer container) throws org.sblim.wbemsmt.exception.UpdateControlsException;
 	public void updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneDataContainer container) throws org.sblim.wbemsmt.exception.UpdateControlsException;
 	public void updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneTracingContainer container) throws org.sblim.wbemsmt.exception.UpdateControlsException;
+	public void updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.welcome.WelcomeDataContainer container) throws org.sblim.wbemsmt.exception.UpdateControlsException;
 	
 	public void updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer container, org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord fco)  throws org.sblim.wbemsmt.exception.UpdateControlsException;
 	public void updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer container, org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord fco)  throws org.sblim.wbemsmt.exception.UpdateControlsException;
@@ -290,5 +291,6 @@ public interface DnsCimAdapterIf extends DnsCimAdapterCountIf, DnsCimAdapterCrea
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsTTLDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneTracingContainer container);
+	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.welcome.WelcomeDataContainer container);
 			
 }

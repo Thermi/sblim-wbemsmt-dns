@@ -1,6 +1,7 @@
 {anchor:Index}
 | *editContainers* |  	[#editContainers.DnsAddMasterAddressDataContainer] \\  	[#editContainers.DnsAddressMatchListDataContainer] \\  	[#editContainers.DnsAddressMatchListForServiceDataContainer] \\  	[#editContainers.DnsAllowNotifyForServiceDataContainer] \\  	[#editContainers.DnsAllowNotifyForZoneDataContainer] \\  	[#editContainers.DnsAllowQueryForServiceDataContainer] \\  	[#editContainers.DnsAllowQueryForZoneDataContainer] \\  	[#editContainers.DnsAllowRecursionForServiceDataContainer] \\  	[#editContainers.DnsAllowTransferForServiceDataContainer] \\  	[#editContainers.DnsAllowTransferForZoneDataContainer] \\  	[#editContainers.DnsAllowUpdateForZoneDataContainer] \\  	[#editContainers.DnsBlackholeForServiceDataContainer] \\  	[#editContainers.DnsConfigurationDataContainer] \\  	[#editContainers.DnsForwardZoneDataContainer] \\  	[#editContainers.DnsForwarderDataContainer] \\  	[#editContainers.DnsForwardersForServiceDataContainer] \\  	[#editContainers.DnsHintZoneDataContainer] \\  	[#editContainers.DnsMasterDataContainer] \\  	[#editContainers.DnsMasterZoneDataContainer] \\  	[#editContainers.DnsMastersForServiceDataContainer] \\  	[#editContainers.DnsResourceRecordDataContainer] \\  	[#editContainers.DnsResourceRecordListContainer] \\  	[#editContainers.DnsResourceRecordListItemContainer] \\  	[#editContainers.DnsReverseZoneDataContainer] \\  	[#editContainers.DnsServiceOperationsDataContainer] \\  	[#editContainers.DnsServiceTracingDataContainer] \\  	[#editContainers.DnsSlaveZoneDataContainer] \\  	[#editContainers.DnsSoaContainer] \\  	[#editContainers.DnsStubZoneDataContainer] \\  	[#editContainers.DnsTTLDataContainer] \\  	[#editContainers.DnsZoneDataContainer] \\  	[#editContainers.DnsZoneTracingContainer] \\  |
 | *wizardContainers* |  	[#wizardContainers.DnsAddressMatchListWizardPage1DataContainer] \\  	[#wizardContainers.DnsAddressMatchListWizardSummaryDataContainer] \\  	[#wizardContainers.DnsForwardZoneWizardPage1DataContainer] \\  	[#wizardContainers.DnsForwardZoneWizardSummaryDataContainer] \\  	[#wizardContainers.DnsMasterZoneWizardPage1DataContainer] \\  	[#wizardContainers.DnsMasterZoneWizardSummaryDataContainer] \\  	[#wizardContainers.DnsMastersWizardPage1DataContainer] \\  	[#wizardContainers.DnsMastersWizardSummaryDataContainer] \\  	[#wizardContainers.DnsResourceRecordForReverseZoneWizardDataContainer] \\  	[#wizardContainers.DnsResourceRecordWizardPage1DataContainer] \\  	[#wizardContainers.DnsResourceRecordWizardPage2TypeMxDataContainer] \\  	[#wizardContainers.DnsResourceRecordWizardPage2TypeOtherDataContainer] \\  	[#wizardContainers.DnsResourceRecordWizardSummaryDataContainer] \\  	[#wizardContainers.DnsReverseZoneWizardPage1DataContainer] \\  	[#wizardContainers.DnsReverseZoneWizardSummaryDataContainer] \\  	[#wizardContainers.DnsSlaveZoneWizardPage1DataContainer] \\  	[#wizardContainers.DnsSlaveZoneWizardSummaryDataContainer] \\  	[#wizardContainers.DnsStubZoneWizardPage1DataContainer] \\  	[#wizardContainers.DnsStubZoneWizardSummaryDataContainer] \\  |
+| *welcomeContainers* |  	[#welcomeContainers.WelcomeDataContainer] \\  |
 
 
 [#Index]
@@ -708,6 +709,24 @@
 	
 
 [#Index]
+{anchor:welcomeContainers.WelcomeDataContainer}
+{panel:title=welcomeContainers.WelcomeDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
+
+| *Description* |  \\ |
+| *Related FCO*\\ |  ---  |
+| *Adapter* \\ | dns |
+| *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.welcome |
+| *Actions* | --- \\ |
+| *CustomLayouter* \\ | --- |
+*Fields:*
+| *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
+| welcomeText | STRING | LABEL | userdefined \\ | Userdefined | Not used for Commandline |
+
+{panel}
+
+	
+
+[#Index]
 {anchor:wizardContainers.DnsAddressMatchListWizardPage1DataContainer}
 {panel:title=wizardContainers.DnsAddressMatchListWizardPage1DataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
 
@@ -903,7 +922,7 @@
 | *CustomLayouter* \\ | X |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| Type | UNSIGNED_INT16 | COMBOBOX | Type \\ | Userdefined | -type, Required |
+| Type | UNSIGNED_INT16 | COMBOBOX | Type \\ | Userdefined | -recordType, Required |
 | Name | STRING | TEXTFIELD | Name \\ | Userdefined | -recordName, Required |
 
 {panel}

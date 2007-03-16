@@ -130,10 +130,6 @@ public class EditDnsReverseZone extends CimCommand {
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_GLOBAL_h = new OptionDefinition("h",null,null,null,false,false,"h.argDescription");
-			/**
-		 * 
-		 */
 		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
 			/**
 		 * 
@@ -175,7 +171,6 @@ public class EditDnsReverseZone extends CimCommand {
 	private static final OptionDefinition[] GLOBAL_WBEMSMT_COMMON_OPTIONS = new OptionDefinition []
 	{
     	    	KEY_GLOBAL_locale,
-    	    	KEY_GLOBAL_h,
     	    	KEY_GLOBAL_QUESTION_MARK_,
     	    	KEY_GLOBAL_help,
     		};
@@ -207,7 +202,7 @@ public class EditDnsReverseZone extends CimCommand {
 			//and so the helpOptions should be handled first
 			
     		if (   hasOption(values.getArgs(), "-" + KEY_GLOBAL_QUESTION_MARK_.getShortKey())
-			    || hasOption(values.getArgs(), "-" + KEY_GLOBAL_h.getShortKey()) )
+			    || hasOption(values.getArgs(), "-" + KEY_GLOBAL_help.getShortKey()) )
     		{
     			showUsage(values.getOut(), options);
     			return;

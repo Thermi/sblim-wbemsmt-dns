@@ -20,6 +20,7 @@
 package org.sblim.wbemsmt.dns.bl.adapter;
 
 import org.sblim.wbemsmt.dns.bl.container.edit.*;
+import org.sblim.wbemsmt.dns.bl.container.welcome.WelcomeDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.wizard.*;
 import org.sblim.wbemsmt.dns.bl.validator.AddressMatchListNameValidator;
 import org.sblim.wbemsmt.dns.bl.validator.MasterAddressesSetValidator;
@@ -400,6 +401,11 @@ public class DnsCimAdapterInstallValidatorsDelegatee implements
 	}
 
 	public void installValidatorsImpl(DnsForwardersForServiceDataContainer container) {
+	}
+
+	public void installValidatorsImpl(WelcomeDataContainer container) {
+		// TODO Auto-generated method stub
+		
 	}
 
 			
