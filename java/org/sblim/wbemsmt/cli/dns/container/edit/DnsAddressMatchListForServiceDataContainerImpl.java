@@ -216,27 +216,27 @@ public class DnsAddressMatchListForServiceDataContainerImpl extends BaseDataCont
 	
 		if (showInstance(listOptions))
 		{
-						if (get_AddressList().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AddressList()).getValue();
-				printStream.println(get_AddressList().getLabelText() + ": " + value);
-			}
-						if (get_usr_UserAddresses().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_UserAddresses()).getValue();
-				printStream.println(get_usr_UserAddresses().getLabelText() + ": " + value);
-			}
-						if (get_usr_NewAddress().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NewAddress()).getValue();
-				printStream.println(get_usr_NewAddress().getLabelText() + ": " + value);
-			}
-						if (get_Name().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
-				printStream.println(get_Name().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_AddressList().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_AddressList()).getValue();
+        				printStream.println(get_AddressList().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_UserAddresses().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_UserAddresses()).getValue();
+        				printStream.println(get_usr_UserAddresses().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_NewAddress().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NewAddress()).getValue();
+        				printStream.println(get_usr_NewAddress().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Name().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
+        				printStream.println(get_Name().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

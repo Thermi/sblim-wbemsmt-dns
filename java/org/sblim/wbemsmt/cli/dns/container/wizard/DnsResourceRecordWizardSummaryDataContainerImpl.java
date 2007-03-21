@@ -131,27 +131,27 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends BaseDataCon
 	
 		if (showInstance(listOptions))
 		{
-						if (get_usr_Name().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Name()).getValue();
-				printStream.println(get_usr_Name().getLabelText() + ": " + value);
-			}
-						if (get_usr_Type().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Type()).getValue();
-				printStream.println(get_usr_Type().getLabelText() + ": " + value);
-			}
-						if (get_usr_Value().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Value()).getValue();
-				printStream.println(get_usr_Value().getLabelText() + ": " + value);
-			}
-						if (get_usr_Priority().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Priority()).getValue();
-				printStream.println(get_usr_Priority().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_usr_Name().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Name()).getValue();
+        				printStream.println(get_usr_Name().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Type().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Type()).getValue();
+        				printStream.println(get_usr_Type().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Value().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Value()).getValue();
+        				printStream.println(get_usr_Value().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Priority().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Priority()).getValue();
+        				printStream.println(get_usr_Priority().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

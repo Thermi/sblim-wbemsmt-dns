@@ -199,42 +199,42 @@ public class DnsResourceRecordDataContainerImpl extends BaseDataContainer implem
 	
 		if (showInstance(listOptions))
 		{
-						if (get_TTL().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_TTL()).getValue();
-				printStream.println(get_TTL().getLabelText() + ": " + value);
-			}
-						if (get_usr_TTLUnit().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_TTLUnit()).getValue();
-				printStream.println(get_usr_TTLUnit().getLabelText() + ": " + value);
-			}
-						if (get_Name().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
-				printStream.println(get_Name().getLabelText() + ": " + value);
-			}
-						if (get_Type().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Type()).getValue();
-				printStream.println(get_Type().getLabelText() + ": " + value);
-			}
-						if (get_Family().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Family()).getValue();
-				printStream.println(get_Family().getLabelText() + ": " + value);
-			}
-						if (get_Value().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Value()).getValue();
-				printStream.println(get_Value().getLabelText() + ": " + value);
-			}
-						if (get_Priority().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Priority()).getValue();
-				printStream.println(get_Priority().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_TTL().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_TTL()).getValue();
+        				printStream.println(get_TTL().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_TTLUnit().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_TTLUnit()).getValue();
+        				printStream.println(get_usr_TTLUnit().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Name().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
+        				printStream.println(get_Name().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Type().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Type()).getValue();
+        				printStream.println(get_Type().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Family().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Family()).getValue();
+        				printStream.println(get_Family().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Value().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Value()).getValue();
+        				printStream.println(get_Value().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Priority().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Priority()).getValue();
+        				printStream.println(get_Priority().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

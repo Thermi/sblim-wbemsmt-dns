@@ -114,22 +114,22 @@ public class DnsMasterDataContainerImpl extends BaseDataContainer implements org
 	
 		if (showInstance(listOptions))
 		{
-						if (get_Name().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
-				printStream.println(get_Name().getLabelText() + ": " + value);
-			}
-						if (get_MasterElementType().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_MasterElementType()).getValue();
-				printStream.println(get_MasterElementType().getLabelText() + ": " + value);
-			}
-						if (get_MasterElement().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_MasterElement()).getValue();
-				printStream.println(get_MasterElement().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_Name().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
+        				printStream.println(get_Name().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_MasterElementType().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_MasterElementType()).getValue();
+        				printStream.println(get_MasterElementType().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_MasterElement().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_MasterElement()).getValue();
+        				printStream.println(get_MasterElement().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

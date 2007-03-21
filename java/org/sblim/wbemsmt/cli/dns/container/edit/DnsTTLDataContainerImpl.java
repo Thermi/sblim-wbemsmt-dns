@@ -114,17 +114,17 @@ public class DnsTTLDataContainerImpl extends BaseDataContainer implements org.sb
 	
 		if (showInstance(listOptions))
 		{
-						if (get_TTL().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_TTL()).getValue();
-				printStream.println(get_TTL().getLabelText() + ": " + value);
-			}
-						if (get_usr_TTLUnit().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_TTLUnit()).getValue();
-				printStream.println(get_usr_TTLUnit().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_TTL().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_TTL()).getValue();
+        				printStream.println(get_TTL().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_TTLUnit().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_TTLUnit()).getValue();
+        				printStream.println(get_usr_TTLUnit().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

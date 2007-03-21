@@ -108,12 +108,12 @@ public class DnsResourceRecordListContainerImpl extends BaseDataContainer implem
 	
 		if (showInstance(listOptions))
 		{
-						if (get_usr_SelectAll().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_SelectAll()).getValue();
-				printStream.println(get_usr_SelectAll().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_usr_SelectAll().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_SelectAll()).getValue();
+        				printStream.println(get_usr_SelectAll().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{
@@ -123,9 +123,9 @@ public class DnsResourceRecordListContainerImpl extends BaseDataContainer implem
 	
 	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
-    		        		printStream.println();
-        		printStream.println(getAdapter().getBundle().getString("DnsResourceRecordListContainer.role.resourceRecords"));
-        		List listresourceRecords = getResourceRecords();
+    		        		List listresourceRecords = getResourceRecords();
+        		printStream.println();
+        		printStream.println(getAdapter().getBundle().getString("DnsResourceRecordListContainer.role.resourceRecords") + " " + getAdapter().getBundle().getString("items.found", new Object[]{new Integer(listresourceRecords.size())}));
         		for (int i = 0; i < listresourceRecords.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listresourceRecords.get(i);
         			printStream.println();

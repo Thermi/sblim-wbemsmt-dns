@@ -108,17 +108,17 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends BaseDataContai
 	
 		if (showInstance(listOptions))
 		{
-						if (get_usr_Name().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Name()).getValue();
-				printStream.println(get_usr_Name().getLabelText() + ": " + value);
-			}
-						if (get_ResourceRecordFile().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ResourceRecordFile()).getValue();
-				printStream.println(get_ResourceRecordFile().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_usr_Name().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Name()).getValue();
+        				printStream.println(get_usr_Name().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_ResourceRecordFile().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ResourceRecordFile()).getValue();
+        				printStream.println(get_ResourceRecordFile().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{
@@ -128,9 +128,9 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends BaseDataContai
 	
 	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
-    		        		printStream.println();
-        		printStream.println(getAdapter().getBundle().getString("DnsReverseZoneWizardSummaryDataContainer.role.resourceRecords"));
-        		List listresourceRecords = getResourceRecords();
+    		        		List listresourceRecords = getResourceRecords();
+        		printStream.println();
+        		printStream.println(getAdapter().getBundle().getString("DnsReverseZoneWizardSummaryDataContainer.role.resourceRecords") + " " + getAdapter().getBundle().getString("items.found", new Object[]{new Integer(listresourceRecords.size())}));
         		for (int i = 0; i < listresourceRecords.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listresourceRecords.get(i);
         			printStream.println();

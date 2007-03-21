@@ -50,6 +50,7 @@ public class WelcomeListener implements JsfWelcomeListener {
 
      				     adapter.updateControls(container);
 
+          					                			container.getLayouter().layout(container.getPanelForCustomLayout(),container ,adapter.getBundle());
           	     				     
      				     
           return container;

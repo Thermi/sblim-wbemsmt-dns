@@ -19,10 +19,67 @@
   */
 package org.sblim.wbemsmt.dns.bl.adapter;
 
-import org.sblim.wbemsmt.dns.bl.container.edit.*;
+import org.sblim.wbemsmt.bl.fielddata.LinkData;
+import org.sblim.wbemsmt.bl.fielddata.MemoData;
+import org.sblim.wbemsmt.bl.fielddata.PictureData;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsAddMasterAddressDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListForServiceDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForServiceDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForZoneDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryForServiceDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryForZoneDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowRecursionForServiceDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowTransferForServiceDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowTransferForZoneDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowUpdateForZoneDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsBlackholeForServiceDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsConfigurationDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardZoneDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsForwarderDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardersForServiceDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsHintZoneDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsMasterDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsMasterZoneDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsMastersForServiceDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsReverseZoneDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceOperationsDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceTracingDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsSlaveZoneDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsSoaContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsStubZoneDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsTTLDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneTracingContainer;
 import org.sblim.wbemsmt.dns.bl.container.welcome.WelcomeDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.*;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsAddressMatchListWizardPage1DataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsAddressMatchListWizardSummaryDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardPage1DataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardSummaryDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardPage1DataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardSummaryDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMastersWizardPage1DataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMastersWizardSummaryDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardPage1DataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardPage2TypeMxDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardPage2TypeOtherDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardSummaryDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardPage1DataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardSummaryDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsSlaveZoneWizardPage1DataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsSlaveZoneWizardSummaryDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsStubZoneWizardPage1DataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsStubZoneWizardSummaryDataContainer;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
+import org.sblim.wbemsmt.dns.listener.CreateAddressMatchListListener;
+import org.sblim.wbemsmt.dns.listener.CreateForwardZoneListener;
+import org.sblim.wbemsmt.dns.listener.CreateMasterZoneListener;
+import org.sblim.wbemsmt.dns.listener.CreateMastersListener;
+import org.sblim.wbemsmt.dns.listener.CreateSlaveZoneListener;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.UpdateControlsException;
 
@@ -509,7 +566,14 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	}
 
 	public void updateControlsImpl(WelcomeDataContainer container) throws UpdateControlsException {
-		container.get_usr_WelcomeText().setControlValue("DNS-INFO");
+		container.get_usr_WelcomeText().setControlValue(container.getAdapter().getBundle().getString("dns.welcome.objects"));
+		container.get_usr_DnsPicture().setControlValue(new PictureData("/org/sblim/wbemsmt/dns/images/dns.gif"));
+		container.get_usr_LinkCreateMasterzone().setControlValue(new LinkData(new CreateMasterZoneListener(),container.getAdapter().getBundle().getString("tree.menu.createMasterZone")));
+		container.get_usr_LinkCreateForwardzone().setControlValue(new LinkData(new CreateForwardZoneListener(),container.getAdapter().getBundle().getString("tree.menu.createForwardZone")));
+		container.get_usr_LinkCreateSlavezone().setControlValue(new LinkData(new CreateSlaveZoneListener(),container.getAdapter().getBundle().getString("tree.menu.createSlaveZone")));
+		container.get_usr_LinkCreateAddressmatchlist().setControlValue(new LinkData(new CreateAddressMatchListListener(),container.getAdapter().getBundle().getString("tree.menu.createAdressMatchList")));
+		container.get_usr_LinkCreateMasters().setControlValue(new LinkData(new CreateMastersListener(),container.getAdapter().getBundle().getString("tree.menu.createMasters")));
+		container.get_usr_Memo().setControlValue(new MemoData(container.getAdapter().getBundle().getString("dns.welcome.additional.info")));
 	}
 
 

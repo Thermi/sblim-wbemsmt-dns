@@ -148,17 +148,17 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
 	
 		if (showInstance(listOptions))
 		{
-						if (get_RunAsRoot().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_RunAsRoot()).getValue();
-				printStream.println(get_RunAsRoot().getLabelText() + ": " + value);
-			}
-						if (get_Status().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Status()).getValue();
-				printStream.println(get_Status().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_RunAsRoot().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_RunAsRoot()).getValue();
+        				printStream.println(get_RunAsRoot().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Status().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Status()).getValue();
+        				printStream.println(get_Status().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

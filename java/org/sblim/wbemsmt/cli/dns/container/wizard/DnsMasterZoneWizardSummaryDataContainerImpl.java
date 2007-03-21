@@ -131,27 +131,27 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends BaseDataContain
 	
 		if (showInstance(listOptions))
 		{
-						if (get_usr_Name().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Name()).getValue();
-				printStream.println(get_usr_Name().getLabelText() + ": " + value);
-			}
-						if (get_usr_Server().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Server()).getValue();
-				printStream.println(get_usr_Server().getLabelText() + ": " + value);
-			}
-						if (get_usr_IpAdress().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_IpAdress()).getValue();
-				printStream.println(get_usr_IpAdress().getLabelText() + ": " + value);
-			}
-						if (get_usr_Contact().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Contact()).getValue();
-				printStream.println(get_usr_Contact().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_usr_Name().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Name()).getValue();
+        				printStream.println(get_usr_Name().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Server().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Server()).getValue();
+        				printStream.println(get_usr_Server().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_IpAdress().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_IpAdress()).getValue();
+        				printStream.println(get_usr_IpAdress().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_Contact().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Contact()).getValue();
+        				printStream.println(get_usr_Contact().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

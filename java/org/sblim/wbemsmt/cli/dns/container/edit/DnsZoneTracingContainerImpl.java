@@ -364,77 +364,77 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 	
 		if (showInstance(listOptions))
 		{
-						if (get_Name().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
-				printStream.println(get_Name().getLabelText() + ": " + value);
-			}
-						if (get_ResourceRecordFile().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ResourceRecordFile()).getValue();
-				printStream.println(get_ResourceRecordFile().getLabelText() + ": " + value);
-			}
-						if (get_Contact().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Contact()).getValue();
-				printStream.println(get_Contact().getLabelText() + ": " + value);
-			}
-						if (get_Expire().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Expire()).getValue();
-				printStream.println(get_Expire().getLabelText() + ": " + value);
-			}
-						if (get_Server().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Server()).getValue();
-				printStream.println(get_Server().getLabelText() + ": " + value);
-			}
-						if (get_SerialNumber().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SerialNumber()).getValue();
-				printStream.println(get_SerialNumber().getLabelText() + ": " + value);
-			}
-						if (get_Retry().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Retry()).getValue();
-				printStream.println(get_Retry().getLabelText() + ": " + value);
-			}
-						if (get_Forward().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Forward()).getValue();
-				printStream.println(get_Forward().getLabelText() + ": " + value);
-			}
-						if (get_Forwarders().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Forwarders()).getValue();
-				printStream.println(get_Forwarders().getLabelText() + ": " + value);
-			}
-						if (get_usr_MasterAddresses().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_MasterAddresses()).getValue();
-				printStream.println(get_usr_MasterAddresses().getLabelText() + ": " + value);
-			}
-						if (get_TTL().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_TTL()).getValue();
-				printStream.println(get_TTL().getLabelText() + ": " + value);
-			}
-						if (get_TTLUnit().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_TTLUnit()).getValue();
-				printStream.println(get_TTLUnit().getLabelText() + ": " + value);
-			}
-						if (get_NegativeCaching_TTL().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_NegativeCaching_TTL()).getValue();
-				printStream.println(get_NegativeCaching_TTL().getLabelText() + ": " + value);
-			}
-						if (get_usr_NegativeCaching_TTLUnit().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NegativeCaching_TTLUnit()).getValue();
-				printStream.println(get_usr_NegativeCaching_TTLUnit().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_Name().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
+        				printStream.println(get_Name().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_ResourceRecordFile().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ResourceRecordFile()).getValue();
+        				printStream.println(get_ResourceRecordFile().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Contact().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Contact()).getValue();
+        				printStream.println(get_Contact().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Expire().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Expire()).getValue();
+        				printStream.println(get_Expire().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Server().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Server()).getValue();
+        				printStream.println(get_Server().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_SerialNumber().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_SerialNumber()).getValue();
+        				printStream.println(get_SerialNumber().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Retry().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Retry()).getValue();
+        				printStream.println(get_Retry().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Forward().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Forward()).getValue();
+        				printStream.println(get_Forward().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Forwarders().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Forwarders()).getValue();
+        				printStream.println(get_Forwarders().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_MasterAddresses().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_MasterAddresses()).getValue();
+        				printStream.println(get_usr_MasterAddresses().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_TTL().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_TTL()).getValue();
+        				printStream.println(get_TTL().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_TTLUnit().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_TTLUnit()).getValue();
+        				printStream.println(get_TTLUnit().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_NegativeCaching_TTL().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_NegativeCaching_TTL()).getValue();
+        				printStream.println(get_NegativeCaching_TTL().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_NegativeCaching_TTLUnit().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NegativeCaching_TTLUnit()).getValue();
+        				printStream.println(get_usr_NegativeCaching_TTLUnit().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{
@@ -444,9 +444,9 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 	
 	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
 	{
-    		        		printStream.println();
-        		printStream.println(getAdapter().getBundle().getString("DnsZoneTracingContainer.role.resourceRecords"));
-        		List listresourceRecords = getResourceRecords();
+    		        		List listresourceRecords = getResourceRecords();
+        		printStream.println();
+        		printStream.println(getAdapter().getBundle().getString("DnsZoneTracingContainer.role.resourceRecords") + " " + getAdapter().getBundle().getString("items.found", new Object[]{new Integer(listresourceRecords.size())}));
         		for (int i = 0; i < listresourceRecords.size(); i++) {
         			BaseDataContainer child = (BaseDataContainer)listresourceRecords.get(i);
         			printStream.println();

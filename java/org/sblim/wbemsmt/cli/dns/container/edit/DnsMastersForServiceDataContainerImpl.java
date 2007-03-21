@@ -182,27 +182,27 @@ public class DnsMastersForServiceDataContainerImpl extends BaseDataContainer imp
 	
 		if (showInstance(listOptions))
 		{
-						if (get_Masters().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Masters()).getValue();
-				printStream.println(get_Masters().getLabelText() + ": " + value);
-			}
-						if (get_usr_NewMasterEntry().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NewMasterEntry()).getValue();
-				printStream.println(get_usr_NewMasterEntry().getLabelText() + ": " + value);
-			}
-						if (get_usr_PredefinedMasters().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_PredefinedMasters()).getValue();
-				printStream.println(get_usr_PredefinedMasters().getLabelText() + ": " + value);
-			}
-						if (get_Name().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
-				printStream.println(get_Name().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_Masters().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Masters()).getValue();
+        				printStream.println(get_Masters().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_NewMasterEntry().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NewMasterEntry()).getValue();
+        				printStream.println(get_usr_NewMasterEntry().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_PredefinedMasters().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_PredefinedMasters()).getValue();
+        				printStream.println(get_usr_PredefinedMasters().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Name().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
+        				printStream.println(get_Name().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

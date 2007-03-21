@@ -80,12 +80,12 @@ public class DnsResourceRecordWizardPage2TypeOtherDataContainerImpl extends Base
 	
 		if (showInstance(listOptions))
 		{
-						if (get_usr_Value().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Value()).getValue();
-				printStream.println(get_usr_Value().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_usr_Value().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Value()).getValue();
+        				printStream.println(get_usr_Value().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

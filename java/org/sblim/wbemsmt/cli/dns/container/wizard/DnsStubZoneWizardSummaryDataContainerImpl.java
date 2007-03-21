@@ -97,17 +97,17 @@ public class DnsStubZoneWizardSummaryDataContainerImpl extends BaseDataContainer
 	
 		if (showInstance(listOptions))
 		{
-						if (get_usr_Name().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Name()).getValue();
-				printStream.println(get_usr_Name().getLabelText() + ": " + value);
-			}
-						if (get_usr_IpAdressses().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_IpAdressses()).getValue();
-				printStream.println(get_usr_IpAdressses().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_usr_Name().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Name()).getValue();
+        				printStream.println(get_usr_Name().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_IpAdressses().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_IpAdressses()).getValue();
+        				printStream.println(get_usr_IpAdressses().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

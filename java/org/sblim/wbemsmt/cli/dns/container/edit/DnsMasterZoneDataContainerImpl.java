@@ -267,47 +267,47 @@ public class DnsMasterZoneDataContainerImpl extends BaseDataContainer implements
 	
 		if (showInstance(listOptions))
 		{
-						if (get_Name().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
-				printStream.println(get_Name().getLabelText() + ": " + value);
-			}
-						if (get_Forward().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Forward()).getValue();
-				printStream.println(get_Forward().getLabelText() + ": " + value);
-			}
-						if (get_Forwarders().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Forwarders()).getValue();
-				printStream.println(get_Forwarders().getLabelText() + ": " + value);
-			}
-						if (get_usr_NewForwarder().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NewForwarder()).getValue();
-				printStream.println(get_usr_NewForwarder().getLabelText() + ": " + value);
-			}
-						if (get_usr_NewForwarderType().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NewForwarderType()).getValue();
-				printStream.println(get_usr_NewForwarderType().getLabelText() + ": " + value);
-			}
-						if (get_TTL().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_TTL()).getValue();
-				printStream.println(get_TTL().getLabelText() + ": " + value);
-			}
-						if (get_usr_TTLUnit().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_TTLUnit()).getValue();
-				printStream.println(get_usr_TTLUnit().getLabelText() + ": " + value);
-			}
-						if (get_ZoneFile().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ZoneFile()).getValue();
-				printStream.println(get_ZoneFile().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_Name().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
+        				printStream.println(get_Name().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Forward().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Forward()).getValue();
+        				printStream.println(get_Forward().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Forwarders().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Forwarders()).getValue();
+        				printStream.println(get_Forwarders().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_NewForwarder().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NewForwarder()).getValue();
+        				printStream.println(get_usr_NewForwarder().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_NewForwarderType().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NewForwarderType()).getValue();
+        				printStream.println(get_usr_NewForwarderType().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_TTL().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_TTL()).getValue();
+        				printStream.println(get_TTL().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_TTLUnit().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_TTLUnit()).getValue();
+        				printStream.println(get_usr_TTLUnit().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_ZoneFile().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ZoneFile()).getValue();
+        				printStream.println(get_ZoneFile().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

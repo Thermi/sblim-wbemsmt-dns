@@ -199,27 +199,27 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends BaseDataContaine
 	
 		if (showInstance(listOptions))
 		{
-						if (get_usr_IpAddress().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_IpAddress()).getValue();
-				printStream.println(get_usr_IpAddress().getLabelText() + ": " + value);
-			}
-						if (get_usr_ResourceRecordUsed().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_ResourceRecordUsed()).getValue();
-				printStream.println(get_usr_ResourceRecordUsed().getLabelText() + ": " + value);
-			}
-						if (get_usr_ResourceRecordNotUsed().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_ResourceRecordNotUsed()).getValue();
-				printStream.println(get_usr_ResourceRecordNotUsed().getLabelText() + ": " + value);
-			}
-						if (get_usr_IpPresets().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_IpPresets()).getValue();
-				printStream.println(get_usr_IpPresets().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_usr_IpAddress().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_IpAddress()).getValue();
+        				printStream.println(get_usr_IpAddress().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_ResourceRecordUsed().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_ResourceRecordUsed()).getValue();
+        				printStream.println(get_usr_ResourceRecordUsed().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_ResourceRecordNotUsed().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_ResourceRecordNotUsed()).getValue();
+        				printStream.println(get_usr_ResourceRecordNotUsed().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_IpPresets().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_IpPresets()).getValue();
+        				printStream.println(get_usr_IpPresets().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

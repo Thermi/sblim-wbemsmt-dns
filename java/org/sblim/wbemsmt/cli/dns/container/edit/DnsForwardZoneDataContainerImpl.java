@@ -199,32 +199,32 @@ public class DnsForwardZoneDataContainerImpl extends BaseDataContainer implement
 	
 		if (showInstance(listOptions))
 		{
-						if (get_Name().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
-				printStream.println(get_Name().getLabelText() + ": " + value);
-			}
-						if (get_Forward().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Forward()).getValue();
-				printStream.println(get_Forward().getLabelText() + ": " + value);
-			}
-						if (get_Forwarders().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Forwarders()).getValue();
-				printStream.println(get_Forwarders().getLabelText() + ": " + value);
-			}
-						if (get_usr_NewForwarder().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NewForwarder()).getValue();
-				printStream.println(get_usr_NewForwarder().getLabelText() + ": " + value);
-			}
-						if (get_usr_NewForwarderType().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NewForwarderType()).getValue();
-				printStream.println(get_usr_NewForwarderType().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_Name().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
+        				printStream.println(get_Name().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Forward().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Forward()).getValue();
+        				printStream.println(get_Forward().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Forwarders().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Forwarders()).getValue();
+        				printStream.println(get_Forwarders().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_NewForwarder().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NewForwarder()).getValue();
+        				printStream.println(get_usr_NewForwarder().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_NewForwarderType().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_NewForwarderType()).getValue();
+        				printStream.println(get_usr_NewForwarderType().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

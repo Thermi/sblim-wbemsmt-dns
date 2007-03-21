@@ -148,27 +148,27 @@ public class DnsHintZoneDataContainerImpl extends BaseDataContainer implements o
 	
 		if (showInstance(listOptions))
 		{
-						if (get_Name().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
-				printStream.println(get_Name().getLabelText() + ": " + value);
-			}
-						if (get_TTL().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_TTL()).getValue();
-				printStream.println(get_TTL().getLabelText() + ": " + value);
-			}
-						if (get_usr_TTLUnit().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_TTLUnit()).getValue();
-				printStream.println(get_usr_TTLUnit().getLabelText() + ": " + value);
-			}
-						if (get_ZoneFile().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ZoneFile()).getValue();
-				printStream.println(get_ZoneFile().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_Name().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Name()).getValue();
+        				printStream.println(get_Name().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_TTL().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_TTL()).getValue();
+        				printStream.println(get_TTL().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_usr_TTLUnit().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_TTLUnit()).getValue();
+        				printStream.println(get_usr_TTLUnit().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_ZoneFile().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ZoneFile()).getValue();
+        				printStream.println(get_ZoneFile().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

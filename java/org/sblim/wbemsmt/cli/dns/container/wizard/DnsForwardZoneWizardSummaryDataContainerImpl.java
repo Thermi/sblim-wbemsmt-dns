@@ -114,22 +114,22 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends BaseDataContai
 	
 		if (showInstance(listOptions))
 		{
-						if (get_usr_Name().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Name()).getValue();
-				printStream.println(get_usr_Name().getLabelText() + ": " + value);
-			}
-						if (get_Forward().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Forward()).getValue();
-				printStream.println(get_Forward().getLabelText() + ": " + value);
-			}
-						if (get_Forwarders().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Forwarders()).getValue();
-				printStream.println(get_Forwarders().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_usr_Name().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Name()).getValue();
+        				printStream.println(get_usr_Name().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Forward().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Forward()).getValue();
+        				printStream.println(get_Forward().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_Forwarders().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_Forwarders()).getValue();
+        				printStream.println(get_Forwarders().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

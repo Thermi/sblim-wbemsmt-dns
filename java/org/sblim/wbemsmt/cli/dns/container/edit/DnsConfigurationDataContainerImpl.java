@@ -131,22 +131,22 @@ public class DnsConfigurationDataContainerImpl extends BaseDataContainer impleme
 	
 		if (showInstance(listOptions))
 		{
-						if (get_ConfigurationFile().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ConfigurationFile()).getValue();
-				printStream.println(get_ConfigurationFile().getLabelText() + ": " + value);
-			}
-						if (get_ConfigurationDirectory().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ConfigurationDirectory()).getValue();
-				printStream.println(get_ConfigurationDirectory().getLabelText() + ": " + value);
-			}
-						if (get_PortNumber().isVisible())
-			{
-				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_PortNumber()).getValue();
-				printStream.println(get_PortNumber().getLabelText() + ": " + value);
-			}
-					}
+			   			   			if (get_ConfigurationFile().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ConfigurationFile()).getValue();
+        				printStream.println(get_ConfigurationFile().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_ConfigurationDirectory().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_ConfigurationDirectory()).getValue();
+        				printStream.println(get_ConfigurationDirectory().getLabelText() + ": " + value);
+   			}
+   			   			   			if (get_PortNumber().isVisible())
+   			{
+        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_PortNumber()).getValue();
+        				printStream.println(get_PortNumber().getLabelText() + ": " + value);
+   			}
+   					}
 
 		if (showChilds(listOptions))
 		{

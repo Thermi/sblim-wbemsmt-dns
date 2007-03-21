@@ -717,10 +717,18 @@
 | *Adapter* \\ | dns |
 | *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.welcome |
 | *Actions* | --- \\ |
-| *CustomLayouter* \\ | --- |
+| *CustomLayouter* \\ | X |
 *Fields:*
 | *Fieldname* | *DataType* | *UIType* | *related FCO Field* | *Constraints* | *Commandline* |
-| welcomeText | STRING | LABEL | userdefined \\ | Userdefined | Not used for Commandline |
+| welcomeText | STRING | LABEL | userdefined \\ | Readonly, Userdefined | Not used for Commandline |
+| dnsPicture | PICTUREDATA | PICTURE | userdefined \\ | Userdefined | Not used for Commandline |
+| memo | MEMODATA | MEMO | userdefined \\ | Userdefined | Not used for Commandline |
+| linkCreateMasterzone | LINKDATA | LINK | userdefined \\ | Userdefined | Not used for Commandline |
+| linkCreateSlavezone | LINKDATA | LINK | userdefined \\ | Userdefined | Not used for Commandline |
+| linkCreateForwardzone | LINKDATA | LINK | userdefined \\ | Userdefined | Not used for Commandline |
+| linkCreateAddressmatchlist | LINKDATA | LINK | userdefined \\ | Userdefined | Not used for Commandline |
+| linkCreateMasters | LINKDATA | LINK | userdefined \\ | Userdefined | Not used for Commandline |
+| actions | STRING | LABEL | userdefined \\ | Userdefined | Not used for Commandline |
 
 {panel}
 
@@ -855,7 +863,7 @@
 {panel:title=wizardContainers.DnsMastersWizardPage1DataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
 
 | *Description* | Page 1 of AddressMatchList-Wizard \\ |
-| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMaster |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasters |
 | *Adapter* \\ | dns |
 | *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
 | *Actions* | MODIFY, WIZARD \\ |
@@ -876,7 +884,7 @@
 {panel:title=wizardContainers.DnsMastersWizardSummaryDataContainer|titleBGColor=#CCE5FF| bgColor=#FFFFFF}
 
 | *Description* | Summary of AddressMatchList-Wizard \\ |
-| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMaster |
+| *Related FCO*\\ | org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasters |
 | *Adapter* \\ | dns |
 | *Package* \\ | Interface: org.sblim.wbemsmt.dns.bl.container.wizard |
 | *Actions* | CREATE, MODIFY, WIZARD \\ |
