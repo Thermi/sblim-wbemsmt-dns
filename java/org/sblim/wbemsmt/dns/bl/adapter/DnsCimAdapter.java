@@ -153,7 +153,7 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 			MasterZone wrapper = new MasterZone(zone,this);
 
 			
-			if (onlyReverseZoneFilter.accept(zone.getCimInstance())) {
+			if (onlyReverseZoneFilter.accept(zone.getCimInstance(), this.cimClient)) {
 				reverseZoneList.addReverseZone(new ReverseZone(new Linux_DnsReverseZoneWrapper(zone),wrapper,this));
 			}
 			else {
@@ -234,7 +234,7 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 				Linux_DnsMasterZone fco = new Linux_DnsMasterZone(node.getCimInstance().getObjectPath(),node.getCimInstance());
 				MasterZone wrapper = new MasterZone(fco,this);
 				
-				if (onlyReverseZoneFilter.accept(fco.getCimInstance())) {
+				if (onlyReverseZoneFilter.accept(fco.getCimInstance(), this.cimClient)) {
 					dnsService.getReverseZoneList().addReverseZone(new ReverseZone(new Linux_DnsReverseZoneWrapper(fco),wrapper,this));
 				}
 				else {

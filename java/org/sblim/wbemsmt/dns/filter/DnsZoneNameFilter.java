@@ -22,6 +22,7 @@ package org.sblim.wbemsmt.dns.filter;
 import java.util.logging.Logger;
 
 import org.sblim.wbem.cim.CIMInstance;
+import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsZone;
 import org.sblim.wbemsmt.tasklauncher.filter.CIMInstanceFilter;
 
@@ -44,7 +45,7 @@ public class DnsZoneNameFilter extends CIMInstanceFilter {
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.tasklauncher.filter.CIMInstanceFilter#accept(org.sblim.wbem.cim.CIMInstance)
 	 */
-	public boolean accept(CIMInstance cimInstance) {
+	public boolean accept(CIMInstance cimInstance, CIMClient cimClient) {
 		String zoneName = (String) cimInstance.getProperty(Linux_DnsZone.CIM_PROPERTY_NAME).getValue().getValue();
 		return accept(zoneName);
 	}

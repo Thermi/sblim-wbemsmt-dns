@@ -57,7 +57,7 @@ public abstract class DnsDataLoader implements CliDataLoader {
 			
 			Linux_DnsZone zone = (Linux_DnsZone) FcoHelper.getInstance(Linux_DnsZoneHelper.class,keys,adapter.getCimClient());
 			int zoneType = zone.get_Type().intValue();
-			if (filter.accept(zone.getCimInstance()))
+			if (filter.accept(zone.getCimInstance(), adapter.getCimClient()))
 			{
 				selectReverseZone(bundle,adapter,zoneName);
 			}
