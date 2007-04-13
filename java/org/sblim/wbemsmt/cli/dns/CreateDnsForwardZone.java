@@ -213,6 +213,11 @@ public class CreateDnsForwardZone extends CimCommand implements ContainerUpdater
 			loader.load(bundle,adapter, cmd );
 			
 			org.sblim.wbemsmt.cli.dns.wizard.CreateForwardZoneWizard wizard = new org.sblim.wbemsmt.cli.dns.wizard.CreateForwardZoneWizard((org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter) adapter);
+			if (!wizard.canBeExecuted())
+			{
+				traceErrors("error.while.execution",wizard.getMessageList());
+				return;
+			}
 			wizard.startWizard();
 			
 			while (!wizard.getContainer().isLast(wizard.getContainer().getCurrentPageName()))
