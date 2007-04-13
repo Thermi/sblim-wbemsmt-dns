@@ -68,10 +68,17 @@ public class CreateStubZoneListener extends TaskLauncherContextMenuEventListener
 			adapter = (org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)selector.getAdapter();
 		
 			org.sblim.wbemsmt.jsf.dns.wizard.CreateStubZoneWizard wizard = new org.sblim.wbemsmt.jsf.dns.wizard.CreateStubZoneWizard(adapter);
-			wizard.startWizard();
-			wizardController.setCurrentWizard(wizard);
-			
-			return "wizardPage";
+
+			if (wizard.canBeExecuted())
+			{
+				wizard.startWizard();
+				wizardController.setCurrentWizard(wizard);
+				return "wizardPage";
+			}
+			else
+			{
+				return "";		
+			}
 		}
 		else
 		{

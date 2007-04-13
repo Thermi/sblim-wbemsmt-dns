@@ -68,10 +68,17 @@ public class CreateResourceRecordListener extends TaskLauncherContextMenuEventLi
 			adapter = (org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)selector.getAdapter();
 		
 			org.sblim.wbemsmt.jsf.dns.wizard.CreateResourceRecordWizard wizard = new org.sblim.wbemsmt.jsf.dns.wizard.CreateResourceRecordWizard(adapter);
-			wizard.startWizard();
-			wizardController.setCurrentWizard(wizard);
-			
-			return "wizardPage";
+
+			if (wizard.canBeExecuted())
+			{
+				wizard.startWizard();
+				wizardController.setCurrentWizard(wizard);
+				return "wizardPage";
+			}
+			else
+			{
+				return "";		
+			}
 		}
 		else
 		{

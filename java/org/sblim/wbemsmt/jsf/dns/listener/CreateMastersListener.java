@@ -68,10 +68,17 @@ public class CreateMastersListener extends TaskLauncherContextMenuEventListenerI
 			adapter = (org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)selector.getAdapter();
 		
 			org.sblim.wbemsmt.jsf.dns.wizard.MasterWizard wizard = new org.sblim.wbemsmt.jsf.dns.wizard.MasterWizard(adapter);
-			wizard.startWizard();
-			wizardController.setCurrentWizard(wizard);
-			
-			return "wizardPage";
+
+			if (wizard.canBeExecuted())
+			{
+				wizard.startWizard();
+				wizardController.setCurrentWizard(wizard);
+				return "wizardPage";
+			}
+			else
+			{
+				return "";		
+			}
 		}
 		else
 		{

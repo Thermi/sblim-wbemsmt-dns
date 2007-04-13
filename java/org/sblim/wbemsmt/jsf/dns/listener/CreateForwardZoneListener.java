@@ -68,10 +68,17 @@ public class CreateForwardZoneListener extends TaskLauncherContextMenuEventListe
 			adapter = (org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)selector.getAdapter();
 		
 			org.sblim.wbemsmt.jsf.dns.wizard.CreateForwardZoneWizard wizard = new org.sblim.wbemsmt.jsf.dns.wizard.CreateForwardZoneWizard(adapter);
-			wizard.startWizard();
-			wizardController.setCurrentWizard(wizard);
-			
-			return "wizardPage";
+
+			if (wizard.canBeExecuted())
+			{
+				wizard.startWizard();
+				wizardController.setCurrentWizard(wizard);
+				return "wizardPage";
+			}
+			else
+			{
+				return "";		
+			}
 		}
 		else
 		{

@@ -68,10 +68,17 @@ public class CreateSlaveZoneListener extends TaskLauncherContextMenuEventListene
 			adapter = (org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)selector.getAdapter();
 		
 			org.sblim.wbemsmt.jsf.dns.wizard.CreateSlaveZoneWizard wizard = new org.sblim.wbemsmt.jsf.dns.wizard.CreateSlaveZoneWizard(adapter);
-			wizard.startWizard();
-			wizardController.setCurrentWizard(wizard);
-			
-			return "wizardPage";
+
+			if (wizard.canBeExecuted())
+			{
+				wizard.startWizard();
+				wizardController.setCurrentWizard(wizard);
+				return "wizardPage";
+			}
+			else
+			{
+				return "";		
+			}
 		}
 		else
 		{
