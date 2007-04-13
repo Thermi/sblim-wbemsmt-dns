@@ -24,21 +24,21 @@ BuildArch:      noarch
 
 BuildRequires: jpackage-utils >= 0:1.5.32
 BuildRequires: ant >= 0:1.6
-BuildRequires: sblim-cim-client >= 0:1.3.1
+BuildRequires: sblim-cim-client >= 0:1.3.2
 #BuildRequires: sblim-wbemsmt-commons => 0.2.3
 BuildRequires: jakarta-commons-cli >= 1.0
 BuildRequires: jakarta-commons-lang >= 2.0
-#BuildRequires:  myfaces >= 1.1.4
+#BuildRequires:  myfaces >= 1.1.5
 
 ###############################################################################
 
 Requires: jpackage-utils >= 0:1.5.32
-Requires: sblim-cim-client >= 0:1.3.1
+Requires: sblim-cim-client >= 0:1.3.2
 Requires: sblim-wbemsmt-commons => 0.2.3
 Requires: sblim-wbemsmt-webapp => 0.2.3
 Requires: jakarta-commons-cli >= 1.0
 Requires: jakarta-commons-lang >= 2.0
-#Requires:  myfaces >= 1.1.4
+#Requires:  myfaces >= 1.1.5
 
 ###############################################################################
 
