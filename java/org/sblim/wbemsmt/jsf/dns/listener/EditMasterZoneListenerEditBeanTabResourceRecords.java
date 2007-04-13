@@ -113,8 +113,7 @@ public class EditMasterZoneListenerEditBeanTabResourceRecords extends EditBean {
 		
 			String bindingPrefix = null;
 			HtmlPanelGrid childEditFields = null;
-						int count = 0;
-						panel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);			
+			panel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);			
 			panel.setWidth("100%");
 			panel.setCellspacing("0");
 			panel.setCellpadding("0");
@@ -158,17 +157,19 @@ public class EditMasterZoneListenerEditBeanTabResourceRecords extends EditBean {
     			
 				//update the child objects
 								
-            	    			count = adapter1.count(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer.class);
-    			currentEditContainer1.getResourceRecords().clear();
-    			for (int i=0; i < count; i++) {
-    				HtmlPanelGrid grid = i==0 ? null :((MultiLineBasePanel)currentEditContainer1.getResourceRecords().get(0)).getInputFieldContainer();
-    				org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl child = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl(adapter1,bindingPrefix, i,grid);
-    				currentEditContainer1.getResourceRecords().add(child);
-					((MultiLineBasePanel)child).setFirst((MultiLineBasePanel)currentEditContainer1.getResourceRecords().get(0));
-    			}
-    			if (count > 0) {
-					((MultiLineBasePanel)currentEditContainer1.getResourceRecords().get(0)).setList(currentEditContainer1.getResourceRecords());
-					((MultiLineBasePanel)currentEditContainer1.getResourceRecords().get(0)).updateRows();
+            					{
+	    			int count = adapter1.count(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer.class);
+	    			currentEditContainer1.getResourceRecords().clear();
+	    			for (int i=0; i < count; i++) {
+	    				HtmlPanelGrid grid = i==0 ? null :((MultiLineBasePanel)currentEditContainer1.getResourceRecords().get(0)).getInputFieldContainer();
+	    				org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl child = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl(adapter1,bindingPrefix, i,grid);
+	    				currentEditContainer1.getResourceRecords().add(child);
+						((MultiLineBasePanel)child).setFirst((MultiLineBasePanel)currentEditContainer1.getResourceRecords().get(0));
+	    			}
+	    			if (count > 0) {
+						((MultiLineBasePanel)currentEditContainer1.getResourceRecords().get(0)).setList(currentEditContainer1.getResourceRecords());
+						((MultiLineBasePanel)currentEditContainer1.getResourceRecords().get(0)).updateRows();
+					}
 				}
             	    			
 				

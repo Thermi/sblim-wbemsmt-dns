@@ -56,7 +56,9 @@ public class EditServiceListener extends JsfEditListener {
 			
 			EditBean bean = null;
 
-			if (oac.getCurrentEditListener() != null)
+			Boolean revert = event.getBooleanParameter(TaskLauncherTreeNodeEvent.PARAM_REVERT);
+			
+			if (oac.getCurrentEditListener() != null && revert != null && revert.booleanValue())
 			{
 				oac.getCurrentEditListener().revert(false);
 			}
