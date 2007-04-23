@@ -25,6 +25,7 @@
 package org.sblim.wbemsmt.cli.dns;
 
 import org.apache.commons.cli.*;
+import org.apache.commons.lang.ClassUtils;
 import org.sblim.wbemsmt.bl.*;
 import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.exception.*;
@@ -260,7 +261,7 @@ public class CreateDnsStubZone extends CimCommand implements ContainerUpdater {
 			BaseDataContainer lastPanel = wizard.getCurrentPanel();
 			
 			MessageList result = wizard.finish();
-			String wizardName = wizard.getClass().getSimpleName();
+			String wizardName = ClassUtils.getShortClassName(wizard.getClass());
 			if (result != null && result.hasErrors())
 			{
 				result.addMessage(new Message(ErrCodes.MSG_CREATE_FAILED,Message.ERROR,bundle.getString(wizardName + ".create.failed")));        
