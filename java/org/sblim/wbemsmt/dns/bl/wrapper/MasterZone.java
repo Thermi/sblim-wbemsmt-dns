@@ -1,7 +1,7 @@
  /** 
   * MasterZone.java
   *
-  * © Copyright IBM Corp. 2005
+  * ï¿½ Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -117,7 +117,7 @@ public class MasterZone extends DnsBusinessObject implements Zone {
 		{
 			forwarderList = new ForwarderList();
 			ArrayList list = fco.getAssociated_Linux_DnsForwarders_Linux_DnsForwardersForZone_Names(adapter.getCimClient(), false);
-			forwarder = (Linux_DnsForwarders) getFirstChild(adapter.getCimClient(), Linux_DnsForwarders.class, list, true, true);
+			forwarder = (Linux_DnsForwarders) getFirstChild(Linux_DnsForwarders.class, list, true, true, adapter.getCimClient());
 			addForwarderIps(forwarder,forwarderList);
 		}
 		return forwarderList;

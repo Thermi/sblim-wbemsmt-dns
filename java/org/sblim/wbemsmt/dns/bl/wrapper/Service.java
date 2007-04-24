@@ -1,7 +1,7 @@
  /** 
   * Service.java
   *
-  * © Copyright IBM Corp. 2005
+  * ï¿½ Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -136,7 +136,7 @@ public class Service extends DnsBusinessObject {
 		{
 			CIMClient cc = adapter.getCimClient();
 			List list = getConfiguration().getAssociated_Linux_DnsServiceSettingData_Linux_DnsServiceSettingDataForServiceConfiguration_Names(cc, false);
-			setting = (Linux_DnsServiceSettingData)getFirstChild(cc,Linux_DnsServiceSettingData.class,list,false, false);
+			setting = (Linux_DnsServiceSettingData)getFirstChild(Linux_DnsServiceSettingData.class,list,false,false, cc);
 		}
 		return setting;
 	}
@@ -148,7 +148,7 @@ public class Service extends DnsBusinessObject {
 		{
 			CIMClient cc = adapter.getCimClient();
 			List list = fco.getAssociated_Linux_DnsServiceConfiguration_Linux_DnsServiceConfigurationForService_Names(cc,false);
-			configuration = (Linux_DnsServiceConfiguration)getFirstChild(cc,Linux_DnsServiceConfiguration.class,list,false, false);
+			configuration = (Linux_DnsServiceConfiguration)getFirstChild(Linux_DnsServiceConfiguration.class,list,false,false, cc);
 		}
 		return configuration;
 	}
@@ -157,7 +157,7 @@ public class Service extends DnsBusinessObject {
 		if (forwarderList == null || forwarderList.isReloadFromServer() )
 		{
 			forwarderList = new ForwarderList();
-			forwarder = (Linux_DnsForwarders) getFirstChild(adapter.getCimClient(), Linux_DnsForwarders.class, fco.getAssociated_Linux_DnsForwarders_Linux_DnsForwardersForService_Names(adapter.getCimClient(), false), true, true);
+			forwarder = (Linux_DnsForwarders) getFirstChild(Linux_DnsForwarders.class, fco.getAssociated_Linux_DnsForwarders_Linux_DnsForwardersForService_Names(adapter.getCimClient(), false), true, true, adapter.getCimClient());
 			addForwarderIps(forwarder,forwarderList);
 		}
 		return forwarderList;

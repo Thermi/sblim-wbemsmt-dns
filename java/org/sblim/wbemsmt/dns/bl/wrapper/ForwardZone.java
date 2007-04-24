@@ -1,7 +1,7 @@
  /** 
   * ForwardZone.java
   *
-  * © Copyright IBM Corp. 2005
+  * ï¿½ Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -79,7 +79,7 @@ public class ForwardZone extends DnsBusinessObject implements Zone {
 		if (forwarderList == null || forwarderList.isReloadFromServer() )
 		{
 			forwarderList = new ForwarderList();
-			forwarder = (Linux_DnsForwarders) getFirstChild(adapter.getCimClient(), Linux_DnsForwarders.class, fco.getAssociated_Linux_DnsForwarders_Linux_DnsForwardersForZone_Names(adapter.getCimClient(), false), true, true);
+			forwarder = (Linux_DnsForwarders) getFirstChild(Linux_DnsForwarders.class, fco.getAssociated_Linux_DnsForwarders_Linux_DnsForwardersForZone_Names(adapter.getCimClient(), false), true, true, adapter.getCimClient());
 			addForwarderIps(forwarder,forwarderList);
 		}
 		return forwarderList;

@@ -1,7 +1,7 @@
  /** 
   * AclHandler.java
   *
-  * © Copyright IBM Corp. 2005
+  * ï¿½ Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -100,7 +100,7 @@ public class AclHandler extends DnsObject {
 			
 			if (associatedObjects.size() == 0 || associatedObjects.get(0) instanceof CIMObjectPath )
 			{
-				acl[index] = (Linux_DnsAddressMatchList) getFirstChild(cc,Linux_DnsAddressMatchList.class,associatedObjects,true, true);
+				acl[index] = (Linux_DnsAddressMatchList) getFirstChild(Linux_DnsAddressMatchList.class,associatedObjects,true,true, cc);
 			}
 			else
 			{
