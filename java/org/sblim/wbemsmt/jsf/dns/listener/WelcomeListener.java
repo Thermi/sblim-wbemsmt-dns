@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+ * Â© Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -52,11 +52,13 @@ public class WelcomeListener implements JsfWelcomeListener {
 				this.dataContainer = container;
 				panel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 
+	          						                			container.getLayouter().layout(container.getPanelForCustomLayout(),container ,adapter.getBundle());
+	          	
+
 				HtmlPanelGrid containerPanel = (HtmlPanelGrid)container.getInputFieldContainer();
 
 				//update the child objects
             	    			
-				
     			adapter.updateControls(container);
     			
     			HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
@@ -73,9 +75,6 @@ public class WelcomeListener implements JsfWelcomeListener {
 								
     			
 				panel.getChildren().add(panelToAdd);
-
-          					                			container.getLayouter().layout(container.getPanelForCustomLayout(),container ,adapter.getBundle());
-          	     				     
      				     
       		} catch (Exception e) {
           throw new WbemSmtException("Cannot process Event with listener " + getClass().getName(),e);
