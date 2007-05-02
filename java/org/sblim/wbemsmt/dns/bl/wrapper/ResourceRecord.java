@@ -30,7 +30,6 @@ import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer;
@@ -106,7 +105,7 @@ public class ResourceRecord extends DnsBusinessObject {
 		save(name,type,value,family);
 		
 		fco.set_TTL(getTTLAsInteger(container,fco.get_TTL()));
-		fco = (Linux_DnsResourceRecord) FcoHelper.save(fco,container.getAdapter().getCimClient());
+		fco = (Linux_DnsResourceRecord) adapter.getFcoHelper().save(fco,container.getAdapter().getCimClient());
 		return null;	
 	}
 
@@ -136,7 +135,7 @@ public class ResourceRecord extends DnsBusinessObject {
 		save(name,type,value,family);
 
 		fco.set_TTL(getTTLAsInteger(container,fco.get_TTL()));
-		fco = (Linux_DnsResourceRecord) FcoHelper.save(fco,container.getAdapter().getCimClient());
+		fco = (Linux_DnsResourceRecord) adapter.getFcoHelper().save(fco,container.getAdapter().getCimClient());
 		return null;	
 	}
 	
@@ -226,7 +225,7 @@ public class ResourceRecord extends DnsBusinessObject {
 
 	public void delete() throws ObjectDeletionException
 	{
-		FcoHelper.delete(fco,adapter.getCimClient(),true);
+		adapter.getFcoHelper().delete(fco,adapter.getCimClient(),true);
 		deleted = true;
 		
 		if (DnsCimAdapter.DUMMY_MODE)
@@ -241,12 +240,12 @@ public class ResourceRecord extends DnsBusinessObject {
 					
 					if (resourceRecordPath.equals(fcoPath))
 					{
-						Linux_DnsResourceRecordsForZone assoc = (Linux_DnsResourceRecordsForZone) FcoHelper.reload(Linux_DnsResourceRecordsForZoneHelper.class,path,adapter.getCimClient());
-						FcoHelper.delete(assoc,adapter.getCimClient());
+						Linux_DnsResourceRecordsForZone assoc = (Linux_DnsResourceRecordsForZone) adapter.getFcoHelper().reload(Linux_DnsResourceRecordsForZoneHelper.class,path,adapter.getCimClient());
+						adapter.getFcoHelper().delete(assoc,adapter.getCimClient());
 						return;
 					}
 				}
-				throw new ObjectDeletionException("Resource Record " + fco + " was not deleted, becaue the record was not found",fco);
+				throw new ObjectDeletionException("Resource Record " + fco + " was not deleted, becaue the record was not found",adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(fco));
 			} catch (ModelLoadException e) {
 				throw new ObjectDeletionException(e);
 			}
@@ -311,7 +310,7 @@ public class ResourceRecord extends DnsBusinessObject {
 
 	public MessageList revert(DnsResourceRecordDataContainer container) throws ObjectRevertException {
 		try {
-			fco = (Linux_DnsResourceRecord) FcoHelper.reload(fco, adapter.getCimClient());
+			fco = (Linux_DnsResourceRecord) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
 		} catch (ModelLoadException e) {
 			throw new ObjectRevertException(e);
 		}

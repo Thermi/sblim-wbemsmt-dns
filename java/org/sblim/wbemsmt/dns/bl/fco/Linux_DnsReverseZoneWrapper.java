@@ -38,9 +38,6 @@ import org.sblim.wbem.cim.CIMProperty;
 import org.sblim.wbem.cim.CIMValue;
 import org.sblim.wbem.cim.UnsignedInt32;
 import org.sblim.wbem.cim.UnsignedInt8;
-import org.sblim.wbem.client.CIMClient;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
 
@@ -257,10 +254,6 @@ public class Linux_DnsReverseZoneWrapper extends CIM_ManagedElement  {
 
 	public void set_Server(String server) {
 		if (masterZone != null) masterZone.set_Server(server);
-	}
-
-	public void save(CIMClient cimClient) throws ObjectSaveException {
-		if (masterZone != null) masterZone =(Linux_DnsMasterZone) FcoHelper.save(masterZone,cimClient);
 	}
 
 	public String get_Contact() {

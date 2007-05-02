@@ -29,7 +29,6 @@ import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListForServiceDataContainer;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchList;
@@ -145,21 +144,21 @@ public class AddressMatchList extends DnsBusinessObject {
 				
 				if (serviceName2.equals(serviceName) && matchListName2.equals(matchListName))
 				{
-					Linux_DnsAddressMatchList aml = (Linux_DnsAddressMatchList) FcoHelper.reload(Linux_DnsAddressMatchListHelper.class, acl.get_Linux_DnsAddressMatchList(),adapter.getCimClient() );
-					FcoHelper.delete(aml,adapter.getCimClient());
+					Linux_DnsAddressMatchList aml = (Linux_DnsAddressMatchList) adapter.getFcoHelper().reload(Linux_DnsAddressMatchListHelper.class, acl.get_Linux_DnsAddressMatchList(),adapter.getCimClient() );
+					adapter.getFcoHelper().delete(aml,adapter.getCimClient());
 					if (DnsCimAdapter.DUMMY_MODE)
 					{
-						FcoHelper.delete(acl,adapter.getCimClient());
+						adapter.getFcoHelper().delete(acl,adapter.getCimClient());
 					}
 					return;
 				}
 			}
-			throw new ObjectDeletionException("MatchList " + matchListName + "was not found.", getFco());
+			throw new ObjectDeletionException("MatchList " + matchListName + "was not found.", adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(getFco()));
 			
 		} catch (ModelLoadException e) {
-			throw new ObjectDeletionException(getFco(),e);
+			throw new ObjectDeletionException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(getFco()),e);
 		} catch (ObjectCreationException e) {
-			throw new ObjectDeletionException(getFco(),e);
+			throw new ObjectDeletionException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(getFco()),e);
 		}
 	}
 	
@@ -169,7 +168,7 @@ public class AddressMatchList extends DnsBusinessObject {
 
 	public MessageList revert(DnsAddressMatchListForServiceDataContainer container) throws ObjectRevertException {
 		try {
-			fco = (Linux_DnsAddressMatchList) FcoHelper.reload(fco, adapter.getCimClient());
+			fco = (Linux_DnsAddressMatchList) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
 			aclHandler.resetAcl(AclHandler.IDX_USER);
 		} catch (ModelLoadException e) {
 			throw new ObjectRevertException(e);

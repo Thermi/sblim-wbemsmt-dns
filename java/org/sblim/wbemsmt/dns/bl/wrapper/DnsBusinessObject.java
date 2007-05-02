@@ -42,7 +42,6 @@ import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListDataContainer;
@@ -429,14 +428,14 @@ public abstract class DnsBusinessObject extends DnsObject {
 				{
 					forwarder.set_Name(NameFactory.createName(Linux_DnsForwardersForZone.class, zone.get_Name()));
 					forwarder.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
-					forwarder = (Linux_DnsForwarders) FcoHelper.create(forwarder, adapter.getCimClient());
+					forwarder = (Linux_DnsForwarders) adapter.getFcoHelper().create(forwarder, adapter.getCimClient());
 					createForwarderAssociation(zone, forwarder);
 				}
 				else
 				{
 					forwarder.set_Name(NameFactory.createName(Linux_DnsForwardersForService.class, null));
 					forwarder.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
-					forwarder = (Linux_DnsForwarders) FcoHelper.create(forwarder, adapter.getCimClient());
+					forwarder = (Linux_DnsForwarders) adapter.getFcoHelper().create(forwarder, adapter.getCimClient());
 					createForwarderAssociation(zone, forwarder);
 				}
 			}
@@ -447,7 +446,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 			
 			if (forwarder.isValidCimInstance() && forwarder.isModified())
 			{
-				forwarder = (Linux_DnsForwarders) FcoHelper.save(forwarder, adapter.getCimClient());
+				forwarder = (Linux_DnsForwarders) adapter.getFcoHelper().save(forwarder, adapter.getCimClient());
 			}
 			
 			return forwarder;
@@ -457,7 +456,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 			if (forwarder.isValidCimInstance())
 			{
 				try {
-					FcoHelper.delete(forwarder, adapter.getCimClient());
+					adapter.getFcoHelper().delete(forwarder, adapter.getCimClient());
 
 					if (DnsCimAdapter.DUMMY_MODE)
 					{
@@ -466,13 +465,13 @@ public abstract class DnsBusinessObject extends DnsObject {
 							Linux_DnsForwardersForZone forwardresForZoneAssoc = (Linux_DnsForwardersForZone) iter.next();
 							if (forwardresForZoneAssoc.get_Linux_DnsZone().getKey(Linux_DnsZone.CIM_PROPERTY_NAME).getValue().getValue().equals(zone.get_Name()))
 							{
-								FcoHelper.delete(forwardresForZoneAssoc,adapter.getCimClient());
+								adapter.getFcoHelper().delete(forwardresForZoneAssoc,adapter.getCimClient());
 							}
 						}
 					}
 					
 				} catch (Exception e) {
-					throw new ObjectSaveException(forwarder);
+					throw new ObjectSaveException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(forwarder));
 				}
 			}
 			return new Linux_DnsForwarders();
@@ -512,14 +511,14 @@ public abstract class DnsBusinessObject extends DnsObject {
 		Linux_DnsAddressMatchList matchList = new Linux_DnsAddressMatchList();
 		matchList.set_Name(NameFactory.createName(associationClass,zone.get_Name()));
 		matchList.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
-		matchList = (Linux_DnsAddressMatchList) FcoHelper.create(matchList,adapter.getCimClient());
+		matchList = (Linux_DnsAddressMatchList) adapter.getFcoHelper().create(matchList,adapter.getCimClient());
 
 		if (DnsCimAdapter.DUMMY_MODE)
 		{
 			Vector keysForAssociation = new Vector();
 			keysForAssociation.add(CIMPropertyBuilder.create(Linux_DnsAllowNotifyForZone.CIM_PROPERTY_LINUX_DNSZONE,zone));
 			keysForAssociation.add(CIMPropertyBuilder.create(Linux_DnsAllowNotifyForZone.CIM_PROPERTY_LINUX_DNSADDRESSMATCHLIST,matchList));
-			FcoHelper.create(associationClass,adapter.getCimClient(),keysForAssociation);
+			adapter.getFcoHelper().create(associationClass,adapter.getCimClient(),keysForAssociation);
 		}
 	}
 
@@ -542,7 +541,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 			resourceRecord.set_Type(type);
 			resourceRecord.set_Family(family);
 			resourceRecord.set_Value(value);
-			resourceRecord = (Linux_DnsResourceRecord) FcoHelper.create(resourceRecord,adapter.getCimClient());
+			resourceRecord = (Linux_DnsResourceRecord) adapter.getFcoHelper().create(resourceRecord,adapter.getCimClient());
 
 			//TODO do we need to create the association between resource records a and zones in RealMode
 			if (DnsCimAdapter.DUMMY_MODE)
@@ -550,7 +549,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 				Vector keys = new Vector();
 				keys.add(CIMPropertyBuilder.create(Linux_DnsResourceRecordsForZone.CIM_PROPERTY_LINUX_DNSZONE,zone));
 				keys.add(CIMPropertyBuilder.create(Linux_DnsResourceRecordsForZone.CIM_PROPERTY_LINUX_DNSRESOURCERECORD,resourceRecord));
-				FcoHelper.create(Linux_DnsResourceRecordsForZone.class,adapter.getCimClient(),keys);
+				adapter.getFcoHelper().create(Linux_DnsResourceRecordsForZone.class,adapter.getCimClient(),keys);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -562,7 +561,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 		Linux_DnsForwarders forwarders = new Linux_DnsForwarders();
 		forwarders.set_Name(NameFactory.createName(Linux_DnsForwardersForZone.class,(String) zone.get_Name()));
 		forwarders.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
-		forwarders = (Linux_DnsForwarders) FcoHelper.create(forwarders,adapter.getCimClient());
+		forwarders = (Linux_DnsForwarders) adapter.getFcoHelper().create(forwarders,adapter.getCimClient());
 	
 		//TODO do we need to create the association between resource records a and zones in RealMode
 		if (DnsCimAdapter.DUMMY_MODE)
@@ -570,7 +569,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 			Vector keys = new Vector();
 			keys.add(CIMPropertyBuilder.create(Linux_DnsForwardersForZone.CIM_PROPERTY_LINUX_DNSZONE,zone));
 			keys.add(CIMPropertyBuilder.create(Linux_DnsForwardersForZone.CIM_PROPERTY_LINUX_DNSFORWARDERS,forwarders));
-			FcoHelper.create(Linux_DnsForwardersForZone.class,adapter.getCimClient(),keys);
+			adapter.getFcoHelper().create(Linux_DnsForwardersForZone.class,adapter.getCimClient(),keys);
 			
 		}
 		return forwarders;
@@ -588,9 +587,9 @@ public abstract class DnsBusinessObject extends DnsObject {
 					Linux_DnsAllowNotifyForZone acl = (Linux_DnsAllowNotifyForZone) iter.next();
 					if (acl.get_Linux_DnsZone().getKey(Linux_DnsZone.CIM_PROPERTY_NAME).getValue().getValue().equals(zone.get_Name()))
 					{
-						Linux_DnsAddressMatchList aml = (Linux_DnsAddressMatchList) FcoHelper.reload(Linux_DnsAddressMatchListHelper.class, acl.get_Linux_DnsAddressMatchList(),adapter.getCimClient() );
-						FcoHelper.delete(acl,adapter.getCimClient());
-						FcoHelper.delete(aml,adapter.getCimClient());
+						Linux_DnsAddressMatchList aml = (Linux_DnsAddressMatchList) adapter.getFcoHelper().reload(Linux_DnsAddressMatchListHelper.class, acl.get_Linux_DnsAddressMatchList(),adapter.getCimClient() );
+						adapter.getFcoHelper().delete(acl,adapter.getCimClient());
+						adapter.getFcoHelper().delete(aml,adapter.getCimClient());
 					}
 				}
 
@@ -599,9 +598,9 @@ public abstract class DnsBusinessObject extends DnsObject {
 					Linux_DnsAllowTransferForZone acl = (Linux_DnsAllowTransferForZone) iter.next();
 					if (acl.get_Linux_DnsZone().getKey(Linux_DnsZone.CIM_PROPERTY_NAME).getValue().getValue().equals(zone.get_Name()))
 					{
-						Linux_DnsAddressMatchList aml = (Linux_DnsAddressMatchList) FcoHelper.reload(Linux_DnsAddressMatchListHelper.class, acl.get_Linux_DnsAddressMatchList(),adapter.getCimClient() );
-						FcoHelper.delete(acl,adapter.getCimClient());
-						FcoHelper.delete(aml,adapter.getCimClient());
+						Linux_DnsAddressMatchList aml = (Linux_DnsAddressMatchList) adapter.getFcoHelper().reload(Linux_DnsAddressMatchListHelper.class, acl.get_Linux_DnsAddressMatchList(),adapter.getCimClient() );
+						adapter.getFcoHelper().delete(acl,adapter.getCimClient());
+						adapter.getFcoHelper().delete(aml,adapter.getCimClient());
 					}
 				}
 
@@ -610,9 +609,9 @@ public abstract class DnsBusinessObject extends DnsObject {
 					Linux_DnsAllowQueryForZone acl = (Linux_DnsAllowQueryForZone) iter.next();
 					if (acl.get_Linux_DnsZone().getKey(Linux_DnsZone.CIM_PROPERTY_NAME).getValue().getValue().equals(zone.get_Name()))
 					{
-						Linux_DnsAddressMatchList aml = (Linux_DnsAddressMatchList) FcoHelper.reload(Linux_DnsAddressMatchListHelper.class, acl.get_Linux_DnsAddressMatchList(),adapter.getCimClient() );
-						FcoHelper.delete(acl,adapter.getCimClient());
-						FcoHelper.delete(aml,adapter.getCimClient());
+						Linux_DnsAddressMatchList aml = (Linux_DnsAddressMatchList) adapter.getFcoHelper().reload(Linux_DnsAddressMatchListHelper.class, acl.get_Linux_DnsAddressMatchList(),adapter.getCimClient() );
+						adapter.getFcoHelper().delete(acl,adapter.getCimClient());
+						adapter.getFcoHelper().delete(aml,adapter.getCimClient());
 					}
 				}
 
@@ -621,9 +620,9 @@ public abstract class DnsBusinessObject extends DnsObject {
 					Linux_DnsAllowUpdateForZone acl = (Linux_DnsAllowUpdateForZone) iter.next();
 					if (acl.get_Linux_DnsZone().getKey(Linux_DnsZone.CIM_PROPERTY_NAME).getValue().getValue().equals(zone.get_Name()))
 					{
-						Linux_DnsAddressMatchList aml = (Linux_DnsAddressMatchList) FcoHelper.reload(Linux_DnsAddressMatchListHelper.class, acl.get_Linux_DnsAddressMatchList(),adapter.getCimClient() );
-						FcoHelper.delete(acl,adapter.getCimClient());
-						FcoHelper.delete(aml,adapter.getCimClient());
+						Linux_DnsAddressMatchList aml = (Linux_DnsAddressMatchList) adapter.getFcoHelper().reload(Linux_DnsAddressMatchListHelper.class, acl.get_Linux_DnsAddressMatchList(),adapter.getCimClient() );
+						adapter.getFcoHelper().delete(acl,adapter.getCimClient());
+						adapter.getFcoHelper().delete(aml,adapter.getCimClient());
 					}
 				}
 				
@@ -632,9 +631,9 @@ public abstract class DnsBusinessObject extends DnsObject {
 					Linux_DnsResourceRecordsForZone recordAssoc = (Linux_DnsResourceRecordsForZone) iter.next();
 					if (recordAssoc.get_Linux_DnsZone().getKey(Linux_DnsZone.CIM_PROPERTY_NAME).getValue().getValue().equals(zone.get_Name()))
 					{
-						Linux_DnsResourceRecord rr = (Linux_DnsResourceRecord) FcoHelper.reload(Linux_DnsResourceRecordHelper.class, recordAssoc.get_Linux_DnsResourceRecord(),adapter.getCimClient() );
-						FcoHelper.delete(recordAssoc,adapter.getCimClient());
-						FcoHelper.delete(rr,adapter.getCimClient());
+						Linux_DnsResourceRecord rr = (Linux_DnsResourceRecord) adapter.getFcoHelper().reload(Linux_DnsResourceRecordHelper.class, recordAssoc.get_Linux_DnsResourceRecord(),adapter.getCimClient() );
+						adapter.getFcoHelper().delete(recordAssoc,adapter.getCimClient());
+						adapter.getFcoHelper().delete(rr,adapter.getCimClient());
 					}
 				}
 
@@ -643,9 +642,9 @@ public abstract class DnsBusinessObject extends DnsObject {
 					Linux_DnsMastersForZone mastersForSlaveAssoc = (Linux_DnsMastersForZone) iter.next();
 					if (mastersForSlaveAssoc.get_Linux_DnsZone().getKey(Linux_DnsSlaveZone.CIM_PROPERTY_NAME).getValue().getValue().equals(zone.get_Name()))
 					{
-						Linux_DnsMasters ip = (Linux_DnsMasters) FcoHelper.reload(Linux_DnsMastersHelper.class, mastersForSlaveAssoc.get_Linux_DnsMasters(),adapter.getCimClient() );
-						FcoHelper.delete(mastersForSlaveAssoc,adapter.getCimClient());
-						FcoHelper.delete(ip,adapter.getCimClient());
+						Linux_DnsMasters ip = (Linux_DnsMasters) adapter.getFcoHelper().reload(Linux_DnsMastersHelper.class, mastersForSlaveAssoc.get_Linux_DnsMasters(),adapter.getCimClient() );
+						adapter.getFcoHelper().delete(mastersForSlaveAssoc,adapter.getCimClient());
+						adapter.getFcoHelper().delete(ip,adapter.getCimClient());
 					}
 				}
 
@@ -654,9 +653,9 @@ public abstract class DnsBusinessObject extends DnsObject {
 					Linux_DnsForwardersForZone forwardresForZoneAssoc = (Linux_DnsForwardersForZone) iter.next();
 					if (forwardresForZoneAssoc.get_Linux_DnsZone().getKey(Linux_DnsZone.CIM_PROPERTY_NAME).getValue().getValue().equals(zone.get_Name()))
 					{
-						Linux_DnsForwarders forwarders = (Linux_DnsForwarders) FcoHelper.reload(Linux_DnsForwardersHelper.class, forwardresForZoneAssoc.get_Linux_DnsForwarders(),adapter.getCimClient() );
-						FcoHelper.delete(forwardresForZoneAssoc,adapter.getCimClient());
-						FcoHelper.delete(forwarders,adapter.getCimClient());
+						Linux_DnsForwarders forwarders = (Linux_DnsForwarders) adapter.getFcoHelper().reload(Linux_DnsForwardersHelper.class, forwardresForZoneAssoc.get_Linux_DnsForwarders(),adapter.getCimClient() );
+						adapter.getFcoHelper().delete(forwardresForZoneAssoc,adapter.getCimClient());
+						adapter.getFcoHelper().delete(forwarders,adapter.getCimClient());
 					}
 				}
 
@@ -665,7 +664,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 				throw new ObjectDeletionException(e);
 			}
 		}
-		FcoHelper.delete(zone,adapter.getCimClient(),true);
+		adapter.getFcoHelper().delete(zone,adapter.getCimClient(),true);
 	}
 
 	public void setForwarder(DnsForwarderDataContainer container, UnsignedInt8 forward) {
@@ -741,7 +740,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 
 	public MessageList revert(DnsResourceRecordListItemContainer container, Linux_DnsResourceRecord fco) throws ObjectRevertException {
 		try {
-			fco = (Linux_DnsResourceRecord) FcoHelper.reload(fco, container.getAdapter().getCimClient());
+			fco = (Linux_DnsResourceRecord) adapter.getFcoHelper().reload(fco, container.getAdapter().getCimClient());
 		} catch (ModelLoadException e) {
 			throw new ObjectRevertException(e);
 		}
@@ -781,7 +780,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 		
 		setValues(fco, container, messageList);
 
-		FcoHelper.save(fco, adapter.getCimClient());
+		adapter.getFcoHelper().save(fco, adapter.getCimClient());
 		
 		return messageList;
 	}
@@ -900,7 +899,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 				Vector keys = new Vector();
 				keys.add(CIMPropertyBuilder.create(Linux_DnsForwardersForZone.CIM_PROPERTY_LINUX_DNSZONE, zone));
 				keys.add(CIMPropertyBuilder.create(Linux_DnsForwardersForZone.CIM_PROPERTY_LINUX_DNSFORWARDERS, forwardersFco));
-				FcoHelper.create(Linux_DnsForwardersForZone.class, adapter.getCimClient(), keys);
+				adapter.getFcoHelper().create(Linux_DnsForwardersForZone.class, adapter.getCimClient(), keys);
 			}
 			else
 			{
@@ -908,9 +907,9 @@ public abstract class DnsBusinessObject extends DnsObject {
 					Vector keys = new Vector();
 					keys.add(CIMPropertyBuilder.create(Linux_DnsForwardersForService.CIM_PROPERTY_LINUX_DNSSERVICE, adapter.getDnsService().getFco()));
 					keys.add(CIMPropertyBuilder.create(Linux_DnsForwardersForService.CIM_PROPERTY_LINUX_DNSFORWARDERS, forwardersFco));
-					FcoHelper.create(Linux_DnsForwardersForService.class, adapter.getCimClient(), keys);
+					adapter.getFcoHelper().create(Linux_DnsForwardersForService.class, adapter.getCimClient(), keys);
 				} catch (ModelLoadException e) {
-					throw new ObjectCreationException(new Linux_DnsForwardersForService(),e);
+					throw new ObjectCreationException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(new Linux_DnsForwardersForService()),e);
 				}
 			}
 			

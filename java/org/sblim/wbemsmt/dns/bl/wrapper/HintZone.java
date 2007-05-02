@@ -22,7 +22,6 @@ package org.sblim.wbemsmt.dns.bl.wrapper;
 import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsHintZoneDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer;
@@ -84,7 +83,7 @@ public class HintZone extends ForwardZone implements Zone {
 	public MessageList save(DnsHintZoneDataContainer container) throws ObjectSaveException {
 		fco.set_ZoneFile((String) container.get_ZoneFile().getConvertedControlValue());
 		fco.set_TTL(getTTLAsInteger(container,fco.get_TTL()));
-		fco = (Linux_DnsHintZone) FcoHelper.save(fco,container.getAdapter().getCimClient());
+		fco = (Linux_DnsHintZone) adapter.getFcoHelper().save(fco,container.getAdapter().getCimClient());
 		forwarderList = null;
 		return null;
 	}
@@ -132,7 +131,7 @@ public class HintZone extends ForwardZone implements Zone {
 
 	public MessageList revert(DnsHintZoneDataContainer container) throws ObjectRevertException {
 		try {
-			fco = (Linux_DnsHintZone) FcoHelper.reload(fco, adapter.getCimClient());
+			fco = (Linux_DnsHintZone) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
 		} catch (ModelLoadException e) {
 			throw new ObjectRevertException(e);
 		}

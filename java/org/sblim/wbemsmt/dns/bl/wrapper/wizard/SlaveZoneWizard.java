@@ -20,7 +20,6 @@
 package org.sblim.wbemsmt.dns.bl.wrapper.wizard;
 
 import org.sblim.wbem.cim.UnsignedInt8;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsSlaveZoneWizardPage1DataContainer;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsSlaveZoneWizardSummaryDataContainer;
@@ -86,7 +85,7 @@ public class SlaveZoneWizard extends DnsWizard {
 		fco.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
 		
 		
-		fco = (Linux_DnsSlaveZone) FcoHelper.create(fco,adapter.getCimClient());
+		fco = (Linux_DnsSlaveZone) adapter.getFcoHelper().create(fco,adapter.getCimClient());
 
 		masters.set_Name(NameFactory.createName(Linux_DnsMastersForZone.class,fco.get_Name()));
 		masters.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);

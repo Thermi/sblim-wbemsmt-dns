@@ -25,7 +25,6 @@ import java.util.List;
 import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryForZoneDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowTransferForZoneDataContainer;
@@ -188,7 +187,7 @@ public class MasterZone extends DnsBusinessObject implements Zone {
 			fco.set_TTL(getTTLAsInteger(container,fco.get_TTL()));
 			if (fco.isModified())
 			{
-				fco = (Linux_DnsMasterZone) FcoHelper.save(fco,container.getAdapter().getCimClient());
+				fco = (Linux_DnsMasterZone) adapter.getFcoHelper().save(fco,container.getAdapter().getCimClient());
 			}
 
 			super.saveForwardersIps(getForwarderList(), forwarder, fco);
@@ -337,7 +336,7 @@ public class MasterZone extends DnsBusinessObject implements Zone {
 
 	public MessageList revert(DnsMasterZoneDataContainer container) throws ObjectRevertException {
 		try {
-			fco = (Linux_DnsMasterZone) FcoHelper.reload(fco, adapter.getCimClient());
+			fco = (Linux_DnsMasterZone) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
 		} catch (ModelLoadException e) {
 			throw new ObjectRevertException(e);
 		}
@@ -346,7 +345,7 @@ public class MasterZone extends DnsBusinessObject implements Zone {
 
 	public MessageList revert(DnsSoaContainer container) throws ObjectRevertException {
 		try {
-			fco = (Linux_DnsMasterZone) FcoHelper.reload(fco, adapter.getCimClient());
+			fco = (Linux_DnsMasterZone) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
 		} catch (ModelLoadException e) {
 			throw new ObjectRevertException(e);
 		}

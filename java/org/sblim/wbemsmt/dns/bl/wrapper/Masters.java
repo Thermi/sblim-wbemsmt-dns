@@ -28,7 +28,6 @@ import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsMastersForServiceDataContainer;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasters;
@@ -110,29 +109,29 @@ public class Masters extends DnsBusinessObject {
 				Object mastersName2 = mastersForService.get_Linux_DnsMasters().getKey(Linux_DnsMasters.CIM_PROPERTY_NAME).getValue().getValue();
 				if (serviceName2.equals(serviceName) && mastersName2.equals(mastersName))
 				{
-					Linux_DnsMasters masters = (Linux_DnsMasters) FcoHelper.reload(Linux_DnsMastersHelper.class, mastersForService.get_Linux_DnsMasters(),adapter.getCimClient() );
-					FcoHelper.delete(masters,adapter.getCimClient());
+					Linux_DnsMasters masters = (Linux_DnsMasters) adapter.getFcoHelper().reload(Linux_DnsMastersHelper.class, mastersForService.get_Linux_DnsMasters(),adapter.getCimClient() );
+					adapter.getFcoHelper().delete(masters,adapter.getCimClient());
 					if (DnsCimAdapter.DUMMY_MODE)
 					{
-						FcoHelper.delete(mastersForService,adapter.getCimClient());
+						adapter.getFcoHelper().delete(mastersForService,adapter.getCimClient());
 					}
 					return;
 				}
 			}
 			
-			throw new ObjectDeletionException(getFco());
+			throw new ObjectDeletionException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(getFco()));
 			
 		} catch (ModelLoadException e) {
 			throw new ObjectDeletionException(e);
 		} catch (ObjectCreationException e) {
-			throw new ObjectDeletionException(getFco(),e);
+			throw new ObjectDeletionException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(getFco()),e);
 		}
 		
 	}
 
 	public MessageList revert(DnsMastersForServiceDataContainer container) throws ObjectRevertException {
 		try {
-			fco = (Linux_DnsMasters) FcoHelper.reload(fco, adapter.getCimClient());
+			fco = (Linux_DnsMasters) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
 			updateName(mastersNaming.getDisplayString(fco.getCimInstance()));
 			mastersHandler = new MastersHandler(adapter,fco,true, null);
 		} catch (ModelLoadException e) {

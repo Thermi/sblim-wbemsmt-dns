@@ -20,7 +20,6 @@
 package org.sblim.wbemsmt.dns.bl.wrapper.wizard;
 
 import org.sblim.wbem.cim.UnsignedInt8;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsStubZoneWizardPage1DataContainer;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsStubZoneWizardSummaryDataContainer;
@@ -86,7 +85,7 @@ public class StubZoneWizard extends DnsWizard {
 		fco.set_ZoneFile(page1.get_usr_Name().getConvertedControlValue() + ".hosts");
 		fco.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
 		
-		fco = (Linux_DnsStubZone) FcoHelper.create(fco,adapter.getCimClient());
+		fco = (Linux_DnsStubZone) adapter.getFcoHelper().create(fco,adapter.getCimClient());
 
 		masters.set_Name(NameFactory.createName(Linux_DnsMastersForZone.class,fco.get_Name()));
 		masters.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);

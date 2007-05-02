@@ -24,7 +24,6 @@ import java.util.List;
 import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForZoneDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer;
@@ -146,7 +145,7 @@ public class SlaveZone extends MasterZone implements Zone {
 			fco.set_Forward(super.getForwarder(container));
 			fco.set_ZoneFile((String) container.get_ZoneFile().getConvertedControlValue());
 			fco.set_TTL(getTTLAsInteger(container,fco.get_TTL()));
-			fco = (Linux_DnsSlaveZone) FcoHelper.save(fco,container.getAdapter().getCimClient());
+			fco = (Linux_DnsSlaveZone) adapter.getFcoHelper().save(fco,container.getAdapter().getCimClient());
 			
 			masterHandler.save();
 
@@ -247,7 +246,7 @@ public class SlaveZone extends MasterZone implements Zone {
 
 	public MessageList revert(DnsSlaveZoneDataContainer container) throws ObjectRevertException {
 		try {
-			fco = (Linux_DnsSlaveZone) FcoHelper.reload(fco, adapter.getCimClient());
+			fco = (Linux_DnsSlaveZone) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
 		} catch (ModelLoadException e) {
 			throw new ObjectRevertException(e);
 		}

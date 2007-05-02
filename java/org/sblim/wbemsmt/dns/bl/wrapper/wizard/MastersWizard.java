@@ -22,7 +22,6 @@ package org.sblim.wbemsmt.dns.bl.wrapper.wizard;
 import java.util.Vector;
 
 import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMastersWizardPage1DataContainer;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMastersWizardSummaryDataContainer;
@@ -84,7 +83,7 @@ public class MastersWizard extends DnsWizard {
 			masters.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
 	
 			//do the create
-			masters = (Linux_DnsMasters) FcoHelper.create(masters,adapter.getCimClient());
+			masters = (Linux_DnsMasters) adapter.getFcoHelper().create(masters,adapter.getCimClient());
 			
 			//TODO do the client have to create the association in real mode ?
 			if (DnsCimAdapter.DUMMY_MODE)
@@ -92,7 +91,7 @@ public class MastersWizard extends DnsWizard {
 				Vector keys = new Vector();
 				keys.add(CIMPropertyBuilder.create(Linux_DnsMastersForService.CIM_PROPERTY_LINUX_DNSSERVICE, adapter.getDnsService().getFco()));
 				keys.add(CIMPropertyBuilder.create(Linux_DnsMastersForService.CIM_PROPERTY_LINUX_DNSMASTERS, masters));
-				FcoHelper.create(Linux_DnsMastersForService.class, adapter.getCimClient(), keys);
+				adapter.getFcoHelper().create(Linux_DnsMastersForService.class, adapter.getCimClient(), keys);
 			}
 	
 			adapter.setMarkedForReload();

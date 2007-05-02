@@ -27,7 +27,20 @@
   */
 package org.sblim.wbemsmt.dns.bl.wrapper;
 
-import org.sblim.wbemsmt.dns.bl.fco.*;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchListsForService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowNotifyForService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowNotifyForZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowQueryForService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowQueryForZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowRecursionForService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowTransferForService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowTransferForZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowUpdateForZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsBlackholeForService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwardersForService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwardersForZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMastersForService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMastersForZone;
 import org.sblim.wbemsmt.exception.ObjectCreationException;
 
 public class NameFactory {

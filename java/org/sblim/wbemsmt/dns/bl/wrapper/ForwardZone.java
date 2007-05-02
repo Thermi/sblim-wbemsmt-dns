@@ -22,7 +22,6 @@ package org.sblim.wbemsmt.dns.bl.wrapper;
 import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardZoneDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer;
@@ -117,7 +116,7 @@ public class ForwardZone extends DnsBusinessObject implements Zone {
 		
 		try {
 			fco.set_Forward(super.getForwarder(container));
-			fco = (Linux_DnsForwardZone) FcoHelper.save(fco,container.getAdapter().getCimClient());
+			fco = (Linux_DnsForwardZone) adapter.getFcoHelper().save(fco,container.getAdapter().getCimClient());
 			
 			saveForwardersIps(getForwarderList(), forwarder, fco);
 			forwarderList.setReloadFromServer(true);
@@ -186,7 +185,7 @@ public class ForwardZone extends DnsBusinessObject implements Zone {
 
 	public MessageList revert(DnsForwardZoneDataContainer container) throws ObjectRevertException {
 		try {
-			fco = (Linux_DnsForwardZone) FcoHelper.reload(fco, adapter.getCimClient());
+			fco = (Linux_DnsForwardZone) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
 		} catch (ModelLoadException e) {
 			throw new ObjectRevertException(e);
 		}

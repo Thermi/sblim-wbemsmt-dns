@@ -11,7 +11,6 @@ import org.sblim.wbem.cim.UnsignedInt8;
 import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsAddMasterAddressDataContainer;
@@ -120,7 +119,7 @@ public class MastersHandler {
 				}
 				masters.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
 				
-				masters = (Linux_DnsMasters) FcoHelper.create(masters, adapter.getCimClient());
+				masters = (Linux_DnsMasters) adapter.getFcoHelper().create(masters, adapter.getCimClient());
 				createAssociation(masters, zone);
 			}
 		}		
@@ -141,7 +140,7 @@ public class MastersHandler {
 		usedItems.setReloadFromServer(true);
 		if (masters.isValidCimInstance())
 		{
-			masters = (Linux_DnsMasters) FcoHelper.save(masters, adapter.getCimClient());
+			masters = (Linux_DnsMasters) adapter.getFcoHelper().save(masters, adapter.getCimClient());
 		}
 		return masters;
 	}
@@ -333,7 +332,7 @@ public class MastersHandler {
 			Vector keys = new Vector();
 			keys.add(CIMPropertyBuilder.create(Linux_DnsMastersForZone.CIM_PROPERTY_LINUX_DNSZONE, zone));
 			keys.add(CIMPropertyBuilder.create(Linux_DnsMastersForZone.CIM_PROPERTY_LINUX_DNSMASTERS, masters));
-			FcoHelper.create(Linux_DnsMastersForZone.class, adapter.getCimClient(), keys);
+			adapter.getFcoHelper().create(Linux_DnsMastersForZone.class, adapter.getCimClient(), keys);
 		}
 	}
 

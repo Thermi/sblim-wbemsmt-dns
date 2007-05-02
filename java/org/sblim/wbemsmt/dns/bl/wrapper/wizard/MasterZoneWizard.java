@@ -22,7 +22,6 @@ package org.sblim.wbemsmt.dns.bl.wrapper.wizard;
 
 import org.sblim.wbem.cim.UnsignedInt8;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardPage1DataContainer;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardSummaryDataContainer;
@@ -74,7 +73,7 @@ public class MasterZoneWizard extends DnsWizard {
 		zone.set_SerialNumber(getInitialSerialNumber());
 		zone.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
 		
-		zone = (Linux_DnsMasterZone) FcoHelper.create(zone,adapter.getCimClient());
+		zone = (Linux_DnsMasterZone) adapter.getFcoHelper().create(zone,adapter.getCimClient());
 		
 		createResourceRecord(zone, 
 				page1.get_usr_Name().getConvertedControlValue() + ".",

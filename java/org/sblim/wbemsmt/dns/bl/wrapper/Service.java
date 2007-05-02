@@ -27,7 +27,6 @@ import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForServiceDataContainer;
@@ -297,8 +296,8 @@ public class Service extends DnsBusinessObject {
 				adapter.setMarkedForReload();
 			}
 			
-			FcoHelper.save(getConfiguration(),adapter.getCimClient());
-			FcoHelper.save(getSetting(),adapter.getCimClient());
+			adapter.getFcoHelper().save(getConfiguration(),adapter.getCimClient());
+			adapter.getFcoHelper().save(getSetting(),adapter.getCimClient());
 			
 			
 			
@@ -416,7 +415,7 @@ public class Service extends DnsBusinessObject {
 				fco.set_Started(new Boolean(false));
 			}
 			try {
-				fco = (Linux_DnsService) FcoHelper.save(fco,cc);
+				fco = (Linux_DnsService) adapter.getFcoHelper().save(fco,cc);
 			} catch (ObjectSaveException e) {
 				throw new ModelUpdateException(e);
 			}
@@ -521,7 +520,7 @@ public class Service extends DnsBusinessObject {
 //		while (count < 10)
 //		{
 //			try {
-//				fco = (Linux_DnsService) FcoHelper.reload(fco, adapter.getCimClient());
+//				fco = (Linux_DnsService) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
 //				if (fco.get_Started() != null && fco.get_Started().booleanValue() == started)
 //				{
 //					return;
@@ -576,7 +575,7 @@ public class Service extends DnsBusinessObject {
 			
 			//save the forward
 			getSetting().set_Forward(super.getForwarder(container));
-			FcoHelper.save(getSetting(),adapter.getCimClient());
+			adapter.getFcoHelper().save(getSetting(),adapter.getCimClient());
 			setting = null;
 
 			//save the forwarders
@@ -658,7 +657,7 @@ public class Service extends DnsBusinessObject {
 	public MessageList revert(DnsConfigurationDataContainer container) throws ObjectRevertException {
 		configuration = null;
 		try {
-			fco = (Linux_DnsService) FcoHelper.reload(fco, adapter.getCimClient());
+			fco = (Linux_DnsService) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
 		} catch (ModelLoadException e) {
 			throw new ObjectRevertException(e);
 		}
@@ -668,7 +667,7 @@ public class Service extends DnsBusinessObject {
 	public MessageList revert(DnsServiceOperationsDataContainer container) throws ObjectRevertException {
 		configuration = null;
 		try {
-			fco = (Linux_DnsService) FcoHelper.reload(fco, adapter.getCimClient());
+			fco = (Linux_DnsService) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
 		} catch (ModelLoadException e) {
 			throw new ObjectRevertException(e);
 		}

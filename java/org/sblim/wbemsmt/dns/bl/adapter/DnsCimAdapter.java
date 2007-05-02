@@ -50,6 +50,7 @@ import org.sblim.wbemsmt.dns.filter.DnsZoneNameFilter;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ObjectNotFoundException;
 import org.sblim.wbemsmt.exception.WbemSmtException;
+import org.sblim.wbemsmt.schema.cim29.tools.FcoHelper;
 import org.sblim.wbemsmt.tools.resources.ResourceBundleManager;
 
 public class DnsCimAdapter extends AbstractBaseCimAdapter {
@@ -105,7 +106,7 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 		//using the same onlyReverseZoneFilter like the tree for getting the reverse zones
 		onlyReverseZoneFilter = new DnsZoneNameFilter(true);
 		
-		init(ResourceBundleManager.getResourceBundle(RESOURCE_BUNDLE_NAMES,locale),selectionHierarchy);
+		init(ResourceBundleManager.getResourceBundle(RESOURCE_BUNDLE_NAMES,locale),selectionHierarchy,new FcoHelper());
 		selectionHierarchy.setAdapter(this);
 		createDelegatee = new DnsCimAdapterCreateDelegatee(this);
 		updateControlsDeletegatee = new DnsCimAdapterUpdateControlsDelegatee(this);

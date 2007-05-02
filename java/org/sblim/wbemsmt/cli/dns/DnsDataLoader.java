@@ -28,9 +28,19 @@ import org.sblim.wbem.cim.CIMObjectPath;
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
-import org.sblim.wbemsmt.dns.bl.fco.*;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchList;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchListsForService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwardZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsHintZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasterZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasters;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMastersForService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsSlaveZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsStubZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsZoneHelper;
 import org.sblim.wbemsmt.dns.bl.wrapper.NameFactory;
 import org.sblim.wbemsmt.dns.bl.wrapper.ResourceRecord;
 import org.sblim.wbemsmt.dns.bl.wrapper.Zone;
@@ -55,7 +65,7 @@ public abstract class DnsDataLoader implements CliDataLoader {
 			//using the same filter like the tree for getting the reverse zones
 			DnsZoneNameFilter filter = new DnsZoneNameFilter(true);
 			
-			Linux_DnsZone zone = (Linux_DnsZone) FcoHelper.getInstance(Linux_DnsZoneHelper.class,keys,adapter.getCimClient());
+			Linux_DnsZone zone = (Linux_DnsZone) adapter.getFcoHelper().getInstance(Linux_DnsZoneHelper.class,keys,adapter.getCimClient());
 			int zoneType = zone.get_Type().intValue();
 			if (filter.accept(zone.getCimInstance(), adapter.getCimClient()))
 			{
@@ -120,7 +130,7 @@ public abstract class DnsDataLoader implements CliDataLoader {
 	private void selectZone(Class zoneClass, String zoneName, AbstractBaseCimAdapter adapter, WbemSmtResourceBundle bundle) throws ObjectNotFoundException {
 		try {
 			CimObjectKey keyService = getServiceKey(adapter, getServiceName());
-			CIMObjectPath pathZone = FcoHelper.getPath(zoneClass,"Name",zoneName,adapter.getCimClient());
+			CIMObjectPath pathZone = adapter.getFcoHelper().getPath(zoneClass,"Name",zoneName,adapter.getCimClient());
 			if (pathZone != null)
 			{
 				CimObjectKey key = new CimObjectKey(pathZone);
@@ -144,7 +154,7 @@ public abstract class DnsDataLoader implements CliDataLoader {
 			
 			listName = NameFactory.createName(Linux_DnsAddressMatchListsForService.class, listName);
 			
-			CIMObjectPath pathService = FcoHelper.getPath(Linux_DnsAddressMatchList.class,new String[]{"Name"},new Object[]{listName}, adapter.getCimClient());
+			CIMObjectPath pathService = adapter.getFcoHelper().getPath(Linux_DnsAddressMatchList.class,new String[]{"Name"},new Object[]{listName}, adapter.getCimClient());
 			if (pathService != null)
 			{
 				CimObjectKey key = new CimObjectKey(pathService);
@@ -170,7 +180,7 @@ public abstract class DnsDataLoader implements CliDataLoader {
 
 			mastersName = NameFactory.createName(Linux_DnsMastersForService.class, mastersName);
 			
-			CIMObjectPath pathService = FcoHelper.getPath(Linux_DnsMasters.class,new String[]{"Name"},new Object[]{mastersName}, adapter.getCimClient());
+			CIMObjectPath pathService = adapter.getFcoHelper().getPath(Linux_DnsMasters.class,new String[]{"Name"},new Object[]{mastersName}, adapter.getCimClient());
 			if (pathService != null)
 			{
 				CimObjectKey key = new CimObjectKey(pathService);
@@ -206,7 +216,7 @@ public abstract class DnsDataLoader implements CliDataLoader {
 			}
 			
 			List records = zone.getLinux_DnsZone().getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZone_Names(adapter.getCimClient(),true);
-			CIMObjectPath pathRecord = FcoHelper.getPath(records,
+			CIMObjectPath pathRecord = adapter.getFcoHelper().getPath(records,
 					new String[]{Linux_DnsResourceRecord.CIM_PROPERTY_ZONENAME,Linux_DnsResourceRecord.CIM_PROPERTY_NAME,Linux_DnsResourceRecord.CIM_PROPERTY_VALUE,Linux_DnsResourceRecord.CIM_PROPERTY_TYPE},
 					new Object[]{zoneName,recordName,recordValue,recordType});
 

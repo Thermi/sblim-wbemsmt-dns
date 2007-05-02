@@ -34,11 +34,21 @@ import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListDataContainer;
-import org.sblim.wbemsmt.dns.bl.fco.*;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchList;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchListsForService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowNotifyForService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowNotifyForZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowQueryForService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowQueryForZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowRecursionForService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowTransferForService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowTransferForZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowUpdateForZone;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsBlackholeForService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsZone;
 import org.sblim.wbemsmt.dns.bl.validator.AddressMatchListElementValidator;
 import org.sblim.wbemsmt.dns.bl.wrapper.DnsObject;
 import org.sblim.wbemsmt.dns.bl.wrapper.NameFactory;
@@ -190,13 +200,13 @@ public class AclHandler extends DnsObject {
 				{
 					aclByIdx.set_Name(NameFactory.createName(cls, zone.get_Name()));
 					aclByIdx.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
-					acl[idx] = aclByIdx = (Linux_DnsAddressMatchList) FcoHelper.create(aclByIdx, adapter.getCimClient());
+					acl[idx] = aclByIdx = (Linux_DnsAddressMatchList) adapter.getFcoHelper().create(aclByIdx, adapter.getCimClient());
 					if (DnsCimAdapter.DUMMY_MODE)
 					{
 						Vector keys = new Vector();
 						keys.add(CIMPropertyBuilder.create(Linux_DnsAllowNotifyForZone.CIM_PROPERTY_LINUX_DNSADDRESSMATCHLIST,acl[idx]));
 						keys.add(CIMPropertyBuilder.create(Linux_DnsAllowNotifyForZone.CIM_PROPERTY_LINUX_DNSZONE,zone));
-						FcoHelper.create(cls,adapter.getCimClient(),keys);
+						adapter.getFcoHelper().create(cls,adapter.getCimClient(),keys);
 					}
 					created = true;
 				}
@@ -205,17 +215,17 @@ public class AclHandler extends DnsObject {
 					try {
 						aclByIdx.set_Name(NameFactory.createName(cls, null));
 						aclByIdx.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
-						acl[idx] = aclByIdx = (Linux_DnsAddressMatchList) FcoHelper.create(aclByIdx, adapter.getCimClient());
+						acl[idx] = aclByIdx = (Linux_DnsAddressMatchList) adapter.getFcoHelper().create(aclByIdx, adapter.getCimClient());
 						if (DnsCimAdapter.DUMMY_MODE)
 						{
 							Vector keys = new Vector();
 							keys.add(CIMPropertyBuilder.create(Linux_DnsAllowNotifyForService.CIM_PROPERTY_LINUX_DNSADDRESSMATCHLIST,acl[idx]));
 							keys.add(CIMPropertyBuilder.create(Linux_DnsAllowNotifyForService.CIM_PROPERTY_LINUX_DNSSERVICE,adapter.getDnsService().getFco()));
-							FcoHelper.create(cls,adapter.getCimClient(),keys);
+							adapter.getFcoHelper().create(cls,adapter.getCimClient(),keys);
 						}
 						created = true;
 					} catch (ModelLoadException e) {
-						throw new ObjectSaveException(new Linux_DnsAllowNotifyForService(),e);
+						throw new ObjectSaveException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(new Linux_DnsAllowNotifyForService()),e);
 					}
 					
 				}
@@ -231,7 +241,7 @@ public class AclHandler extends DnsObject {
 							deleteAssociation(getClassByIdx(idx), aclByIdx, "get_Linux_DnsZone");
 						}
 	
-						FcoHelper.delete(aclByIdx,adapter.getCimClient());
+						adapter.getFcoHelper().delete(aclByIdx,adapter.getCimClient());
 						resetAcl(idx);
 						return null;
 					}
@@ -241,7 +251,7 @@ public class AclHandler extends DnsObject {
 						{
 							deleteAssociation(getClassByIdx(idx), aclByIdx, "get_Linux_DnsService");
 						}
-						FcoHelper.delete(aclByIdx,adapter.getCimClient());
+						adapter.getFcoHelper().delete(aclByIdx,adapter.getCimClient());
 						resetAcl(idx);
 						return null;
 					}
@@ -264,7 +274,7 @@ public class AclHandler extends DnsObject {
 			
 			if (aclByIdx.isModified() && aclByIdx.isValidCimInstance())
 			{
-				FcoHelper.save(aclByIdx,adapter.getCimClient());
+				adapter.getFcoHelper().save(aclByIdx,adapter.getCimClient());
 				resetAcl(idx);
 			}
 			else if (created)
@@ -302,7 +312,7 @@ public class AclHandler extends DnsObject {
 			CIMObjectPath pathAcl = (CIMObjectPath) o.getClass().getMethod("get_Linux_DnsAddressMatchList", new Class[]{}).invoke(o, null);
 			if (pathZone.equals(groupPath) && pathAcl.equals(aclByIdx.getCimObjectPath()))
 			{
-				FcoHelper.delete(o,adapter.getCimClient());
+				adapter.getFcoHelper().delete(o,adapter.getCimClient());
 				found = true;
 			}
 		}
@@ -606,21 +616,21 @@ public class AclHandler extends DnsObject {
 			}
 			acl[idx].set_AddressMatchListElement(addresses);
 			acl[idx].set_AddressMatchListElementType(addressTypes);
-			acl[idx] = (Linux_DnsAddressMatchList) FcoHelper.create(acl[idx],adapter.getCimClient());
+			acl[idx] = (Linux_DnsAddressMatchList) adapter.getFcoHelper().create(acl[idx],adapter.getCimClient());
 
 			if (DnsCimAdapter.DUMMY_MODE)
 			{
 				Vector keys = new Vector();
 				keys.add(CIMPropertyBuilder.create(Linux_DnsAddressMatchListsForService.CIM_PROPERTY_LINUX_DNSADDRESSMATCHLIST,acl[idx]));
 				keys.add(CIMPropertyBuilder.create(Linux_DnsAddressMatchListsForService.CIM_PROPERTY_LINUX_DNSSERVICE,adapter.getDnsService().getFco()));
-				FcoHelper.create(Linux_DnsAddressMatchListsForService.class,adapter.getCimClient(),keys);
+				adapter.getFcoHelper().create(Linux_DnsAddressMatchListsForService.class,adapter.getCimClient(),keys);
 			}
 			Linux_DnsAddressMatchList result = acl[idx];
 			resetAcl(idx);
 			
 			return result;
 		} catch (ModelLoadException e) {
-			throw new ObjectCreationException(acl[idx],e);
+			throw new ObjectCreationException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(acl[idx]),e);
 		}
 		
 	}

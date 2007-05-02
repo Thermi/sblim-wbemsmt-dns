@@ -27,7 +27,6 @@ import java.util.Vector;
 import org.sblim.wbem.cim.UnsignedInt16;
 import org.sblim.wbem.cim.UnsignedInt8;
 import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
-import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsMasterZoneDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer;
@@ -264,7 +263,7 @@ public class ReverseZoneWizard extends DnsWizard {
 		zone.set_ZoneFile(zoneFilename);
 		zone.set_SerialNumber(getInitialSerialNumber());
 		
-		zone = (Linux_DnsMasterZone) FcoHelper.create(zone,adapter.getCimClient());
+		zone = (Linux_DnsMasterZone) adapter.getFcoHelper().create(zone,adapter.getCimClient());
 
 		if (DnsCimAdapter.DUMMY_MODE)
 		{
@@ -278,7 +277,7 @@ public class ReverseZoneWizard extends DnsWizard {
 		for (Iterator iter = createdRecords.iterator(); iter.hasNext();) {
 			Linux_DnsResourceRecord record = (Linux_DnsResourceRecord) iter.next();
 			record.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
-			record = (Linux_DnsResourceRecord) FcoHelper.create(record,adapter.getCimClient());
+			record = (Linux_DnsResourceRecord) adapter.getFcoHelper().create(record,adapter.getCimClient());
 			
 			//TODO do we need to create the association between resource records a and zones in RealMode
 			if (DnsCimAdapter.DUMMY_MODE)
@@ -286,7 +285,7 @@ public class ReverseZoneWizard extends DnsWizard {
 				Vector keys = new Vector();
 				keys.add(CIMPropertyBuilder.create(Linux_DnsResourceRecordsForZone.CIM_PROPERTY_LINUX_DNSZONE,zone));
 				keys.add(CIMPropertyBuilder.create(Linux_DnsResourceRecordsForZone.CIM_PROPERTY_LINUX_DNSRESOURCERECORD,record));
-				FcoHelper.create(Linux_DnsResourceRecordsForZone.class,adapter.getCimClient(),keys);
+				adapter.getFcoHelper().create(Linux_DnsResourceRecordsForZone.class,adapter.getCimClient(),keys);
 			}
 		}
 		
