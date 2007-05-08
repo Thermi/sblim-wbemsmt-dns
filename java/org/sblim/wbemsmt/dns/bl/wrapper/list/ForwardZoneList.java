@@ -52,7 +52,7 @@ public class ForwardZoneList extends ObjectList  {
 		objectsByCimObjectKey.put(fz.getCimObjectKey(),fz);
 	}
 	
-	protected String getKey(Object value) {
+	protected Object getKey(Object value) {
 		ForwardZone rr = (ForwardZone) value;
 		return rr.getForwardZone().get_Name();
 	}

@@ -52,7 +52,7 @@ public class ReverseZoneList extends ObjectList  {
 		objectsByCimObjectKey.put(rz.getCimObjectKey(),rz);
 	}
 	
-	protected String getKey(Object value) {
+	protected Object getKey(Object value) {
 		ReverseZone rr = (ReverseZone) value;
 		return rr.getReverseZone().get_Name();
 	}

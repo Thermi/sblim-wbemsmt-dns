@@ -52,7 +52,7 @@ public class HintZoneList extends ObjectList  {
 		objectsByCimObjectKey.put(hz.getCimObjectKey(),hz);
 	}
 	
-	protected String getKey(Object value) {
+	protected Object getKey(Object value) {
 		HintZone rr = (HintZone) value;
 		return rr.getHintZone().get_Name();
 	}

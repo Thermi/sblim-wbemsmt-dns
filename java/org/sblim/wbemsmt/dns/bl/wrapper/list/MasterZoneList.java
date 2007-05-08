@@ -53,7 +53,7 @@ public class MasterZoneList extends ObjectList  {
 		objectsByCimObjectKey.put(mz.getCimObjectKey(),mz);
 	}
 	
-	protected String getKey(Object value) {
+	protected Object getKey(Object value) {
 		MasterZone mz = (MasterZone) value;
 		return mz.getMasterZone().get_Name();
 	}

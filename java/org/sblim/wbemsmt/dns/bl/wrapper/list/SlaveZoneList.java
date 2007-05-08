@@ -52,7 +52,7 @@ public class SlaveZoneList extends ObjectList  {
 		objectsByCimObjectKey.put(sz.getCimObjectKey(),sz);
 	}
 	
-	protected String getKey(Object value) {
+	protected Object getKey(Object value) {
 		SlaveZone sz = (SlaveZone) value;
 		return sz.getSlaveZone().get_Name();
 	}

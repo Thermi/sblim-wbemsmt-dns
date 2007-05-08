@@ -52,7 +52,7 @@ public class StubZoneList extends ObjectList  {
 		objectsByCimObjectKey.put(sz.getCimObjectKey(),sz);
 	}
 	
-	protected String getKey(Object value) {
+	protected Object getKey(Object value) {
 		StubZone sz = (StubZone) value;
 		return sz.getStubZone().get_Name();
 	}

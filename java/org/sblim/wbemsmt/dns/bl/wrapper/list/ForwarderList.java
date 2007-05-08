@@ -53,7 +53,7 @@ public class ForwarderList extends ObjectList  {
 		if (loaded) reloadListValues();
 	}
 	
-	protected String getKey(Object value) {
+	protected Object getKey(Object value) {
 		Forwarder forwarder = (Forwarder) value;
 		return forwarder.getForwarder();
 	}

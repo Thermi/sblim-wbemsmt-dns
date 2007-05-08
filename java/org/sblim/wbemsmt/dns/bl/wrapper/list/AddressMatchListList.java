@@ -52,7 +52,7 @@ public class AddressMatchListList extends ObjectList  {
 		objectsByCimObjectKey.put(addressMatchList.getCimObjectKey(),addressMatchList);
 	}
 	
-	protected String getKey(Object value) {
+	protected Object getKey(Object value) {
 		AddressMatchList rr = (AddressMatchList) value;
 		return rr.getFco().get_Name();
 	}

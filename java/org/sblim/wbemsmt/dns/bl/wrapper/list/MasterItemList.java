@@ -53,7 +53,7 @@ public class MasterItemList extends ObjectList  {
 		if (loaded) reloadListValues();
 	}
 	
-	protected String getKey(Object value) {
+	protected Object getKey(Object value) {
 		MasterItem ip = (MasterItem) value;
 		return ip.getIp();
 	}

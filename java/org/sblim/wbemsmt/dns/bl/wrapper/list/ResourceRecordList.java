@@ -55,7 +55,7 @@ public class ResourceRecordList extends ObjectList  {
 		objectsByCimObjectKey.put(rr.getCimObjectKey(),rr);
 	}
 	
-	protected String getKey(Object value) {
+	protected Object getKey(Object value) {
 		ResourceRecord rr = (ResourceRecord) value;
 		return rr.getFco().get_Name();
 	}
