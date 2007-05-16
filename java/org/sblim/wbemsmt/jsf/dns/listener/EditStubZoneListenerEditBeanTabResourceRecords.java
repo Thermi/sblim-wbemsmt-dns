@@ -183,10 +183,11 @@ public class EditStubZoneListenerEditBeanTabResourceRecords extends EditBean {
 				//add the single childs
 								
 				//add the childs with occurence list
-            						
+            						{
 					HtmlPanelGrid childPanel = currentEditContainer1.getResourceRecordsPanel().getOuterPanel();
 					childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("editResourceRecordsChild_resourceRecords"));
     				childEditFields.getChildren().add(childPanel); 	
+    				}
     							
 				containerPanel.getChildren().add(childEditFields);
 

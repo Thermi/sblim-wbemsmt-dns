@@ -27,8 +27,6 @@ package org.sblim.wbemsmt.jsf.dns.wizard;
 import javax.faces.component.html.HtmlPanelGrid;
 import javax.faces.context.FacesContext;
 
-//import org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent;
-//import org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel;
 import org.sblim.wbemsmt.tools.resources.LocaleManager;
 import org.sblim.wbemsmt.tools.resources.ResourceBundleManager;
 import org.sblim.wbemsmt.tools.wizard.adapter.IPageWizardAdapter;
@@ -67,7 +65,7 @@ public class CreateForwardZoneWizard extends JSFWizardBase implements IPageWizar
 						try
 						{
 							    						panel1= new org.sblim.wbemsmt.jsf.dns.container.wizard.DnsForwardZoneWizardPage1DataContainerImpl(adapter,binding);
-                                					
+                            
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -100,7 +98,7 @@ public class CreateForwardZoneWizard extends JSFWizardBase implements IPageWizar
 						try
 						{
 							    						panel2= new org.sblim.wbemsmt.jsf.dns.container.wizard.DnsForwardZoneWizardSummaryDataContainerImpl(adapter,binding);
-                                					
+                            
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -171,7 +169,8 @@ public class CreateForwardZoneWizard extends JSFWizardBase implements IPageWizar
         										try
 						{
 							
-                                					
+                            							adapter.updateControls(panel1);
+    					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -190,7 +189,8 @@ public class CreateForwardZoneWizard extends JSFWizardBase implements IPageWizar
         										try
 						{
 							
-                                					
+                            							adapter.updateControls(panel2);
+    					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			

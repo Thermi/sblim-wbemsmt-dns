@@ -24,7 +24,6 @@ import javax.faces.component.html.HtmlPanelGrid;
 
 import org.sblim.wbemsmt.jsf.dns.layouter.DnsLayouter;
 import org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent;
-import org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel;
 import org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle;
 
 public class DnsResourceRecordListContainerImplLayouter extends DnsLayouter {
@@ -33,8 +32,7 @@ public class DnsResourceRecordListContainerImplLayouter extends DnsLayouter {
 		
 		if (container.getResourceRecords().size() > 0)
 		{
-			MultiLineBasePanel multiLineBasePanel = ((MultiLineBasePanel)container.getResourceRecords().get(0));
-			HtmlPanelGrid recordGrid = multiLineBasePanel.getInputFieldContainer();
+			HtmlPanelGrid recordGrid = container.getResourceRecordsPanel().getInputFieldContainer();
 
 			HtmlOutputText label = getLabel("<br>");
 			label.setEscape(false);
@@ -56,7 +54,7 @@ public class DnsResourceRecordListContainerImplLayouter extends DnsLayouter {
 			recordGrid.getFacets().put("footer", grid);
 			recordGrid.setFooterClass("left");
 			
-			multiLineBasePanel.updateRows(0);
+			container.getResourceRecordsPanel().updateRows(0);
 		}
 		else
 		{

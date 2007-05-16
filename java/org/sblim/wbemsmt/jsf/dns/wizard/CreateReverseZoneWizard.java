@@ -27,8 +27,6 @@ package org.sblim.wbemsmt.jsf.dns.wizard;
 import javax.faces.component.html.HtmlPanelGrid;
 import javax.faces.context.FacesContext;
 
-//import org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent;
-//import org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel;
 import org.sblim.wbemsmt.tools.resources.LocaleManager;
 import org.sblim.wbemsmt.tools.resources.ResourceBundleManager;
 import org.sblim.wbemsmt.tools.wizard.adapter.IPageWizardAdapter;
@@ -67,7 +65,7 @@ public class CreateReverseZoneWizard extends JSFWizardBase implements IPageWizar
 						try
 						{
 							    						panel1= new org.sblim.wbemsmt.jsf.dns.container.wizard.DnsReverseZoneWizardPage1DataContainerImpl(adapter,binding);
-                                					
+                            
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -101,21 +99,18 @@ public class CreateReverseZoneWizard extends JSFWizardBase implements IPageWizar
 						{
 														int count = 0;
 							    						panel2= new org.sblim.wbemsmt.jsf.dns.container.wizard.DnsReverseZoneWizardSummaryDataContainerImpl(adapter,binding);
-                                                            count = adapter.count(org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer.class);
-                                panel2.getResourceRecords().clear();
-                                for (int i=0; i < count; i++) {
-                                	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).getInputFieldContainer();
-                                	org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl child = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl(adapter,binding, i,grid);
-                                	panel2.getResourceRecords().add(child);
-									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0));									
-                                }
-                                if (count > 0)
-                                {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).setList(panel2.getResourceRecords());
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).updateRows();
-                                }
+                            								
+								count = adapter.count(org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer.class);
 								
-                                					
+                    			panel2.clearResourceRecords();
+                    			panel2.addResourceRecordsHeader();
+
+                                for (int i=0; i < count; i++) {
+                                    panel2.addResourceRecords(new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl(adapter,binding, i));
+									
+                                }
+                    			panel2.getResourceRecordsPanel().setList(panel2.getResourceRecords());
+                            
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -123,13 +118,13 @@ public class CreateReverseZoneWizard extends JSFWizardBase implements IPageWizar
             				//add the single childs
             				            				
             				//add the childs with occurence list
-                        	            					
-                			if (panel2.getResourceRecords().size() > 0) {
-                				HtmlPanelGrid childPanel = ((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).getOuterPanel();
-            					childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("summaryChild_resourceRecords"));
-                				childEditFields.getChildren().add(childPanel); 	
-                			}
-                			            				panel2.getChildPanel().getChildren().add(childEditFields);
+                        	                        	    {
+                        	    
+								HtmlPanelGrid childPanel = panel2.getResourceRecordsPanel().getOuterPanel();
+								childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("summaryChild_resourceRecords"));
+			    				childEditFields.getChildren().add(childPanel); 	
+                				}
+							            				panel2.getChildPanel().getChildren().add(childEditFields);
 							
 							
         					return panel2;
@@ -191,7 +186,8 @@ public class CreateReverseZoneWizard extends JSFWizardBase implements IPageWizar
         										try
 						{
 							
-                                					
+                            							adapter.updateControls(panel1);
+    					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -212,33 +208,28 @@ public class CreateReverseZoneWizard extends JSFWizardBase implements IPageWizar
 														int count = 0;
 							
                             								
-                                count = adapter.count(org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer.class);
-                                panel2.getResourceRecords().clear();
+								count = adapter.count(org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer.class);
+
+                    			panel2.clearResourceRecords();
+                    			panel2.addResourceRecordsHeader();
+
                                 for (int i=0; i < count; i++) {
-                                	HtmlPanelGrid grid = i==0 ? null :((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).getInputFieldContainer();
-                                	org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl child = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl(adapter,binding, i,grid);
-                                	panel2.getResourceRecords().add(child);
-									((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)child).setFirst((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0));
+                                    panel2.addResourceRecords(new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl(adapter,binding, i));
 									
                                 }
-								
-                                if (count > 0)
-                                {
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).setList(panel2.getResourceRecords());
-                                	((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).updateRows();
-                                }
-								
-                                					
+                    			panel2.getResourceRecordsPanel().setList(panel2.getResourceRecords());
+                            							adapter.updateControls(panel2);
+    					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
             				//add the childs with occurence list
-                        	            					
-                			if (panel2.getResourceRecords().size() > 0) {
-                				HtmlPanelGrid childPanel = ((org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel)panel2.getResourceRecords().get(0)).getOuterPanel();
-            					childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("summaryChild_resourceRecords"));
-                				childEditFields.getChildren().add(childPanel); 	
-                			}
+                        	                        	    {
+                        	    
+								HtmlPanelGrid childPanel = panel2.getResourceRecordsPanel().getOuterPanel();
+								childPanel.setId(org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent.asJsfId("summaryChild_resourceRecords"));
+			    				childEditFields.getChildren().add(childPanel); 	
+                				}
 														panel2.getChildPanel().getChildren().clear();
             				panel2.getChildPanel().getChildren().add(childEditFields);
 						}
