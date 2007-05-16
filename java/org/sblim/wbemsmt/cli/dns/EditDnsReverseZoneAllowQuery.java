@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.cmd.CMDPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/cmd/editCommand.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/cmd/editCommand.vm
   *
   * Contributors: 
   * 
@@ -38,93 +38,93 @@ public class EditDnsReverseZoneAllowQuery extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-		 * 
+   		 * required, used for selection:  --zoneName, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","EditDnsReverseZoneAllowQuery.zoneName.argValue",true,false,"EditDnsReverseZoneAllowQuery.zoneName.argDescription");
 			/**
-		 * 
+   		 *  --useGlobalAddressMatchList, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_useGlobalAddressMatchList = new OptionDefinition(null,"useGlobalAddressMatchList","noDefaultValue","DnsAllowQueryForZoneDataContainer.useGlobalAddressMatchList.argValue",false,false,"DnsAllowQueryForZoneDataContainer.useGlobalAddressMatchList.argDescription");
 			/**
-		 * 
+   		 *  --addressList, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_addressList = new OptionDefinition(null,"addressList","noDefaultValue","DnsAddressMatchListDataContainer.AddressList.argValue",false,false,"DnsAddressMatchListDataContainer.AddressList.argDescription");
 			/**
-		 * 
+   		 *  --removeAddress, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_removeAddress = new OptionDefinition(null,"removeAddress","noDefaultValue","DnsAddressMatchListDataContainer.removeAddress.argValue",false,false,"DnsAddressMatchListDataContainer.removeAddress.argDescription");
 			/**
-		 * 
+   		 *  --userAddresses, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_userAddresses = new OptionDefinition(null,"userAddresses","noDefaultValue","DnsAddressMatchListDataContainer.userAddresses.argValue",false,false,"DnsAddressMatchListDataContainer.userAddresses.argDescription");
 			/**
-		 * 
+   		 *  --newAddress, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_newAddress = new OptionDefinition(null,"newAddress","noDefaultValue","DnsAddressMatchListDataContainer.newAddress.argValue",false,false,"DnsAddressMatchListDataContainer.newAddress.argDescription");
 			/**
-		 * 
+   		 *  --addPredefinedAddress, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_addPredefinedAddress = new OptionDefinition(null,"addPredefinedAddress","noDefaultValue","DnsAddressMatchListDataContainer.addPredefinedAddress.argValue",false,false,"DnsAddressMatchListDataContainer.addPredefinedAddress.argDescription");
 			/**
-		 * 
+   		 *  --addNewAddress, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_addNewAddress = new OptionDefinition(null,"addNewAddress","noDefaultValue","DnsAddressMatchListDataContainer.addNewAddress.argValue",false,false,"DnsAddressMatchListDataContainer.addNewAddress.argDescription");
 			/**
-		 * 
+   		 *  --addressUp, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_addressUp = new OptionDefinition(null,"addressUp","noDefaultValue","DnsAddressMatchListDataContainer.addressUp.argValue",false,false,"DnsAddressMatchListDataContainer.addressUp.argDescription");
 			/**
-		 * 
+   		 *  --addressDown, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_addressDown = new OptionDefinition(null,"addressDown","noDefaultValue","DnsAddressMatchListDataContainer.addressDown.argValue",false,false,"DnsAddressMatchListDataContainer.addressDown.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-		 * 
+   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**
-		 * 
+   		 *  --hostname
 		 */
 		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition(null,"hostname",null,"hostname.argValue",false,false,"hostname.argDescription");
 			/**
-		 * 
+   		 *  --port, default: 5988
 		 */
 		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition(null,"port","5988","port.argValue",false,false,"port.argDescription");
 			/**
-		 * 
+   		 *  --namespace, default: /root/cimv2
 		 */
 		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition(null,"namespace","/root/cimv2","namespace.argValue",false,false,"namespace.argDescription");
 			/**
-		 * 
+   		 *  --user
 		 */
 		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition(null,"user",null,"user.argValue",false,false,"user.argDescription");
 			/**
-		 * 
+   		 *  --password
 		 */
 		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition(null,"password",null,"password.argValue",false,false,"password.argDescription");
 			/**
-		 * 
+   		 *  --publickeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition(null,"publickeyfile",null,"publickeyfile.argValue",false,false,"publickeyfile.argDescription");
 			/**
-		 * 
+   		 *  --privatekeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,"privatekeyfile",null,"privatekeyfile.argValue",false,false,"privatekeyfile.argDescription");
 	
 	// Global Common Options
 			/**
-		 * 
+   		 *  -L --locale, default: en
 		 */
 		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
 			/**
-		 * 
+   		 *  -?
 		 */
 		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
 			/**
-		 * 
+   		 *  -h --help
 		 */
 		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
 	

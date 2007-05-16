@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.cmd.CMDPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/cmd/createCommand.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/cmd/createCommand.vm
   *
   * Contributors: 
   * 
@@ -39,81 +39,81 @@ public class CreateDnsMasters extends CimCommand implements ContainerUpdater {
  
 	//All Options that are local and defined for this command
 			/**
-		 * 
+   		 * required,  --mastersName, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_mastersName = new OptionDefinition(null,"mastersName","noDefaultValue","DnsMastersWizardPage1DataContainer.Name.argValue",true,false,"DnsMastersWizardPage1DataContainer.Name.argDescription");
 			/**
-		 * 
+   		 *  --masters, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_masters = new OptionDefinition(null,"masters","noDefaultValue","DnsAddMasterAddressDataContainer.masters.argValue",false,false,"DnsAddMasterAddressDataContainer.masters.argDescription");
 			/**
-		 * 
+   		 *  --removeMasterEntry, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_removeMasterEntry = new OptionDefinition(null,"removeMasterEntry","noDefaultValue","DnsAddMasterAddressDataContainer.removeMasterEntry.argValue",false,false,"DnsAddMasterAddressDataContainer.removeMasterEntry.argDescription");
 			/**
-		 * 
+   		 *  --newMasterEntry, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_newMasterEntry = new OptionDefinition(null,"newMasterEntry","noDefaultValue","DnsAddMasterAddressDataContainer.newMasterEntry.argValue",false,false,"DnsAddMasterAddressDataContainer.newMasterEntry.argDescription");
 			/**
-		 * 
+   		 *  --addNewMasterEntry, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_addNewMasterEntry = new OptionDefinition(null,"addNewMasterEntry","noDefaultValue","DnsAddMasterAddressDataContainer.addNewMasterEntry.argValue",false,false,"DnsAddMasterAddressDataContainer.addNewMasterEntry.argDescription");
 			/**
-		 * 
+   		 *  --addPredefinedMaster, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_addPredefinedMaster = new OptionDefinition(null,"addPredefinedMaster","noDefaultValue","DnsAddMasterAddressDataContainer.addPredefinedMaster.argValue",false,false,"DnsAddMasterAddressDataContainer.addPredefinedMaster.argDescription");
 			/**
-		 * 
+   		 *  --predefinedMasters, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_predefinedMasters = new OptionDefinition(null,"predefinedMasters","noDefaultValue","DnsAddMasterAddressDataContainer.predefinedMasters.argValue",false,false,"DnsAddMasterAddressDataContainer.predefinedMasters.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-		 * 
+   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**
-		 * 
+   		 *  --hostname
 		 */
 		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition(null,"hostname",null,"hostname.argValue",false,false,"hostname.argDescription");
 			/**
-		 * 
+   		 *  --port, default: 5988
 		 */
 		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition(null,"port","5988","port.argValue",false,false,"port.argDescription");
 			/**
-		 * 
+   		 *  --namespace, default: /root/cimv2
 		 */
 		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition(null,"namespace","/root/cimv2","namespace.argValue",false,false,"namespace.argDescription");
 			/**
-		 * 
+   		 *  --user
 		 */
 		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition(null,"user",null,"user.argValue",false,false,"user.argDescription");
 			/**
-		 * 
+   		 *  --password
 		 */
 		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition(null,"password",null,"password.argValue",false,false,"password.argDescription");
 			/**
-		 * 
+   		 *  --publickeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition(null,"publickeyfile",null,"publickeyfile.argValue",false,false,"publickeyfile.argDescription");
 			/**
-		 * 
+   		 *  --privatekeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,"privatekeyfile",null,"privatekeyfile.argValue",false,false,"privatekeyfile.argDescription");
 	
 	// Global Common Options
 			/**
-		 * 
+   		 *  -L --locale, default: en
 		 */
 		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
 			/**
-		 * 
+   		 *  -?
 		 */
 		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
 			/**
-		 * 
+   		 *  -h --help
 		 */
 		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
 	
@@ -204,7 +204,7 @@ public class CreateDnsMasters extends CimCommand implements ContainerUpdater {
 				
 			adapter.loadInitial(adapter.getCimClient());
 			
-			values.getOut().println("\n" + bundle.getString("creating", new Object[]{bundle.getString("MasterWizard.caption")}));
+			values.getOut().println("\n" + bundle.getString("MasterWizard.create.start"));
 			
 			CliDataLoader loader = new CreateDnsMastersLoader();
 			loader.load(bundle,adapter, cmd );
@@ -287,7 +287,7 @@ public class CreateDnsMasters extends CimCommand implements ContainerUpdater {
 			values.getOut().println("\n" + bundle.getString("createdObject") + ":\n");
 			dc.trace(values.getOut());
 			
-		values.getOut().println("\n" + bundle.getString("created", new Object[]{bundle.getString("MasterWizard.caption")}));
+   		    //values.getOut().println("\n" + bundle.getString("MasterWizard.create.success"));
 		
 		}
 		catch (Exception e)

@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.cmd.CMDPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/cmd/createCommand.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/cmd/createCommand.vm
   *
   * Contributors: 
   * 
@@ -39,69 +39,69 @@ public class CreateDnsMasterZone extends CimCommand implements ContainerUpdater 
  
 	//All Options that are local and defined for this command
 			/**
-		 * 
+   		 * required,  --zoneName, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","DnsMasterZoneWizardPage1DataContainer.Name.argValue",true,false,"DnsMasterZoneWizardPage1DataContainer.Name.argDescription");
 			/**
-		 * 
+   		 * required,  --server, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_server = new OptionDefinition(null,"server","noDefaultValue","DnsMasterZoneWizardPage1DataContainer.Server.argValue",true,false,"DnsMasterZoneWizardPage1DataContainer.Server.argDescription");
 			/**
-		 * 
+   		 * required,  --ip, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_ip = new OptionDefinition(null,"ip","noDefaultValue","DnsMasterZoneWizardPage1DataContainer.IpAdress.argValue",true,false,"DnsMasterZoneWizardPage1DataContainer.IpAdress.argDescription");
 			/**
-		 * Admin email
+   		 * Admin email required,  --contact, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_contact = new OptionDefinition(null,"contact","noDefaultValue","DnsMasterZoneWizardPage1DataContainer.Contact.argValue",true,false,"DnsMasterZoneWizardPage1DataContainer.Contact.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-		 * 
+   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**
-		 * 
+   		 *  --hostname
 		 */
 		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition(null,"hostname",null,"hostname.argValue",false,false,"hostname.argDescription");
 			/**
-		 * 
+   		 *  --port, default: 5988
 		 */
 		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition(null,"port","5988","port.argValue",false,false,"port.argDescription");
 			/**
-		 * 
+   		 *  --namespace, default: /root/cimv2
 		 */
 		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition(null,"namespace","/root/cimv2","namespace.argValue",false,false,"namespace.argDescription");
 			/**
-		 * 
+   		 *  --user
 		 */
 		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition(null,"user",null,"user.argValue",false,false,"user.argDescription");
 			/**
-		 * 
+   		 *  --password
 		 */
 		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition(null,"password",null,"password.argValue",false,false,"password.argDescription");
 			/**
-		 * 
+   		 *  --publickeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition(null,"publickeyfile",null,"publickeyfile.argValue",false,false,"publickeyfile.argDescription");
 			/**
-		 * 
+   		 *  --privatekeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,"privatekeyfile",null,"privatekeyfile.argValue",false,false,"privatekeyfile.argDescription");
 	
 	// Global Common Options
 			/**
-		 * 
+   		 *  -L --locale, default: en
 		 */
 		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
 			/**
-		 * 
+   		 *  -?
 		 */
 		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
 			/**
-		 * 
+   		 *  -h --help
 		 */
 		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
 	
@@ -189,7 +189,7 @@ public class CreateDnsMasterZone extends CimCommand implements ContainerUpdater 
 				
 			adapter.loadInitial(adapter.getCimClient());
 			
-			values.getOut().println("\n" + bundle.getString("creating", new Object[]{bundle.getString("createMasterZoneWizard.caption")}));
+			values.getOut().println("\n" + bundle.getString("createMasterZoneWizard.create.start"));
 			
 			CliDataLoader loader = new CreateDnsMasterZoneLoader();
 			loader.load(bundle,adapter, cmd );
@@ -272,7 +272,7 @@ public class CreateDnsMasterZone extends CimCommand implements ContainerUpdater 
 			values.getOut().println("\n" + bundle.getString("createdObject") + ":\n");
 			dc.trace(values.getOut());
 			
-		values.getOut().println("\n" + bundle.getString("created", new Object[]{bundle.getString("createMasterZoneWizard.caption")}));
+   		    //values.getOut().println("\n" + bundle.getString("createMasterZoneWizard.create.success"));
 		
 		}
 		catch (Exception e)

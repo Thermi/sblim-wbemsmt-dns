@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.cmd.CMDPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/cmd/editCommand.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/cmd/editCommand.vm
   *
   * Contributors: 
   * 
@@ -38,101 +38,101 @@ public class EditDnsReverseZone extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-		 * 
+   		 *  --zoneFile, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_zoneFile = new OptionDefinition(null,"zoneFile","noDefaultValue","DnsReverseZoneDataContainer.ZoneFile.argValue",false,false,"DnsReverseZoneDataContainer.ZoneFile.argDescription");
 			/**
-		 * 
+   		 *  --useGlobalForwarders, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_useGlobalForwarders = new OptionDefinition(null,"useGlobalForwarders","noDefaultValue","DnsReverseZoneDataContainer.useGlobalForwarders.argValue",false,false,"DnsReverseZoneDataContainer.useGlobalForwarders.argDescription");
 			/**
-		 * 
+   		 * used for selection:  --zoneName, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","DnsZoneDataContainer.Name.argValue",false,false,"DnsZoneDataContainer.Name.argDescription");
 			/**
-		 * 
+   		 *  --forward, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_forward = new OptionDefinition(null,"forward","noDefaultValue","DnsForwarderDataContainer.Forward.argValue",false,false,"DnsForwarderDataContainer.Forward.argDescription");
 			/**
-		 * 
+   		 *  --forwarders, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_forwarders = new OptionDefinition(null,"forwarders","noDefaultValue","DnsForwarderDataContainer.Forwarders.argValue",false,false,"DnsForwarderDataContainer.Forwarders.argDescription");
 			/**
-		 * 
+   		 *  --removeForwarder, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_removeForwarder = new OptionDefinition(null,"removeForwarder","noDefaultValue","DnsForwarderDataContainer.removeForwarder.argValue",false,false,"DnsForwarderDataContainer.removeForwarder.argDescription");
 			/**
-		 * 
+   		 *  --newForwarder, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_newForwarder = new OptionDefinition(null,"newForwarder","noDefaultValue","DnsForwarderDataContainer.newForwarder.argValue",false,false,"DnsForwarderDataContainer.newForwarder.argDescription");
 			/**
-		 * 
+   		 *  --addForwarder, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_addForwarder = new OptionDefinition(null,"addForwarder","noDefaultValue","DnsForwarderDataContainer.addForwarder.argValue",false,false,"DnsForwarderDataContainer.addForwarder.argDescription");
 			/**
-		 * 
+   		 *  --newForwarderType, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_newForwarderType = new OptionDefinition(null,"newForwarderType","noDefaultValue","DnsForwarderDataContainer.newForwarderType.argValue",false,false,"DnsForwarderDataContainer.newForwarderType.argDescription");
 			/**
-		 * 
+   		 *  --ttl, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_ttl = new OptionDefinition(null,"ttl","noDefaultValue","DnsTTLDataContainer.TTL.argValue",false,false,"DnsTTLDataContainer.TTL.argDescription");
 			/**
-		 * 
+   		 *  --ttlUnit, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_ttlUnit = new OptionDefinition(null,"ttlUnit","noDefaultValue","DnsTTLDataContainer.TTLUnit.argValue",false,false,"DnsTTLDataContainer.TTLUnit.argDescription");
 			/**
-		 * 
+   		 *  --removeTTL, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_removeTTL = new OptionDefinition(null,"removeTTL","noDefaultValue","DnsTTLDataContainer.removeTTL.argValue",false,false,"DnsTTLDataContainer.removeTTL.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-		 * 
+   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**
-		 * 
+   		 *  --hostname
 		 */
 		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition(null,"hostname",null,"hostname.argValue",false,false,"hostname.argDescription");
 			/**
-		 * 
+   		 *  --port, default: 5988
 		 */
 		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition(null,"port","5988","port.argValue",false,false,"port.argDescription");
 			/**
-		 * 
+   		 *  --namespace, default: /root/cimv2
 		 */
 		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition(null,"namespace","/root/cimv2","namespace.argValue",false,false,"namespace.argDescription");
 			/**
-		 * 
+   		 *  --user
 		 */
 		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition(null,"user",null,"user.argValue",false,false,"user.argDescription");
 			/**
-		 * 
+   		 *  --password
 		 */
 		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition(null,"password",null,"password.argValue",false,false,"password.argDescription");
 			/**
-		 * 
+   		 *  --publickeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition(null,"publickeyfile",null,"publickeyfile.argValue",false,false,"publickeyfile.argDescription");
 			/**
-		 * 
+   		 *  --privatekeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,"privatekeyfile",null,"privatekeyfile.argValue",false,false,"privatekeyfile.argDescription");
 	
 	// Global Common Options
 			/**
-		 * 
+   		 *  -L --locale, default: en
 		 */
 		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
 			/**
-		 * 
+   		 *  -?
 		 */
 		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
 			/**
-		 * 
+   		 *  -h --help
 		 */
 		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
 	

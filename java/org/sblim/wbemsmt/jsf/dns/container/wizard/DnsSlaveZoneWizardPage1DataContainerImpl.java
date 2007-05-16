@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/jsf/containerImpl.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/jsf/containerImpl.vm
   *
   * Contributors: 
   * 
@@ -26,6 +26,7 @@ package org.sblim.wbemsmt.jsf.dns.container.wizard;
 
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
+
 
 
 
@@ -57,7 +58,8 @@ public class DnsSlaveZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt.
 				
 				
     			
-    				layouter = new DnsSlaveZoneWizardPage1DataContainerImplLayouter();//.layout(getPanelForCustomLayout(),this,bundle);
+    				layouter = new DnsSlaveZoneWizardPage1DataContainerImplLayouter();
+			layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsSlaveZoneWizardPage1DataContainer.footerText");
 		adapter.initContainer(this);

@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.cmd.CMDPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/cmd/editCommand.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/cmd/editCommand.vm
   *
   * Contributors: 
   * 
@@ -38,69 +38,69 @@ public class EditDnsServiceConfiguration extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-		 * ${option.getOption().getComment()}
+   		 *  --configurationFile
 		 */
 		public static final OptionDefinition KEY_configurationFile = new OptionDefinition(null,"configurationFile",null,"DnsConfigurationDataContainer.ConfigurationFile.argValue",false,false,"DnsConfigurationDataContainer.ConfigurationFile.argDescription");
 			/**
-		 * ${option.getOption().getComment()}
+   		 *  --configurationDirectory
 		 */
 		public static final OptionDefinition KEY_configurationDirectory = new OptionDefinition(null,"configurationDirectory",null,"DnsConfigurationDataContainer.ConfigurationDirectory.argValue",false,false,"DnsConfigurationDataContainer.ConfigurationDirectory.argDescription");
 			/**
-		 * ${option.getOption().getComment()}
+   		 *  --portNumber
 		 */
 		public static final OptionDefinition KEY_portNumber = new OptionDefinition(null,"portNumber",null,"DnsConfigurationDataContainer.PortNumber.argValue",false,false,"DnsConfigurationDataContainer.PortNumber.argDescription");
 			/**
-		 * 
+   		 *  --removeDirectory, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_removeDirectory = new OptionDefinition(null,"removeDirectory","noDefaultValue","DnsConfigurationDataContainer.removeDirectory.argValue",false,false,"DnsConfigurationDataContainer.removeDirectory.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-		 * 
+   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**
-		 * 
+   		 *  --hostname
 		 */
 		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition(null,"hostname",null,"hostname.argValue",false,false,"hostname.argDescription");
 			/**
-		 * 
+   		 *  --port, default: 5988
 		 */
 		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition(null,"port","5988","port.argValue",false,false,"port.argDescription");
 			/**
-		 * 
+   		 *  --namespace, default: /root/cimv2
 		 */
 		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition(null,"namespace","/root/cimv2","namespace.argValue",false,false,"namespace.argDescription");
 			/**
-		 * 
+   		 *  --user
 		 */
 		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition(null,"user",null,"user.argValue",false,false,"user.argDescription");
 			/**
-		 * 
+   		 *  --password
 		 */
 		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition(null,"password",null,"password.argValue",false,false,"password.argDescription");
 			/**
-		 * 
+   		 *  --publickeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition(null,"publickeyfile",null,"publickeyfile.argValue",false,false,"publickeyfile.argDescription");
 			/**
-		 * 
+   		 *  --privatekeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,"privatekeyfile",null,"privatekeyfile.argValue",false,false,"privatekeyfile.argDescription");
 	
 	// Global Common Options
 			/**
-		 * 
+   		 *  -L --locale, default: en
 		 */
 		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
 			/**
-		 * 
+   		 *  -?
 		 */
 		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
 			/**
-		 * 
+   		 *  -h --help
 		 */
 		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
 	

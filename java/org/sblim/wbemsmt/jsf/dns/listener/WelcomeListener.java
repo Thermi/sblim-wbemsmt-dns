@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/jsf/welcomeListener.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/jsf/welcomeListener.vm
   *
   * Contributors: 
   * 
@@ -32,6 +32,8 @@ import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.bl.welcome.*;
 import org.sblim.wbemsmt.exception.WbemSmtException;
 import javax.faces.component.UIComponentBase;
+
+
 
 public class WelcomeListener implements JsfWelcomeListener {
 
@@ -61,6 +63,7 @@ public class WelcomeListener implements JsfWelcomeListener {
             	    			
     			adapter.updateControls(container);
     			
+            	
     			HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				childEditFields.setStyleClass("childTable");
     			

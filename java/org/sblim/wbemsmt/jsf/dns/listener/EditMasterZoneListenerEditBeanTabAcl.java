@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/jsf/editBean.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/jsf/editBean.vm
   *
   * Contributors: 
   * 
@@ -88,6 +88,8 @@ public class EditMasterZoneListenerEditBeanTabAcl extends EditBean {
                 				//update the child objects
                 				                				
                             	    							adapter1.updateControls(currentEditContainer1);
+    							
+                            	    							
     						} catch (Exception e) {
     							throw new ObjectSaveException("Canot update Model after saving data",e);
     						}
@@ -116,6 +118,8 @@ public class EditMasterZoneListenerEditBeanTabAcl extends EditBean {
                 				//update the child objects
                 				                				
                             	    							adapter2.updateControls(currentEditContainer2);
+    							
+                            	    							
     						} catch (Exception e) {
     							throw new ObjectSaveException("Canot update Model after saving data",e);
     						}
@@ -144,6 +148,8 @@ public class EditMasterZoneListenerEditBeanTabAcl extends EditBean {
                 				//update the child objects
                 				                				
                             	    							adapter3.updateControls(currentEditContainer3);
+    							
+                            	    							
     						} catch (Exception e) {
     							throw new ObjectSaveException("Canot update Model after saving data",e);
     						}
@@ -156,7 +162,8 @@ public class EditMasterZoneListenerEditBeanTabAcl extends EditBean {
         				saveResult.addAll(result);
     				}
 										
-						
+						reloadAdapters();
+			
 			super.clearEditBeansModified();
 			return PAGE_EDIT;
 		}
@@ -210,10 +217,9 @@ public class EditMasterZoneListenerEditBeanTabAcl extends EditBean {
     			
 				//update the child objects
 								
+            					adapter1.updateControls(currentEditContainer1);
+
             	    			
-				
-    			adapter1.updateControls(currentEditContainer1);
-    			
     			childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				childEditFields.setStyleClass("childTable");
     			
@@ -264,10 +270,9 @@ public class EditMasterZoneListenerEditBeanTabAcl extends EditBean {
     			
 				//update the child objects
 								
+            					adapter2.updateControls(currentEditContainer2);
+
             	    			
-				
-    			adapter2.updateControls(currentEditContainer2);
-    			
     			childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				childEditFields.setStyleClass("childTable");
     			
@@ -318,10 +323,9 @@ public class EditMasterZoneListenerEditBeanTabAcl extends EditBean {
     			
 				//update the child objects
 								
+            					adapter3.updateControls(currentEditContainer3);
+
             	    			
-				
-    			adapter3.updateControls(currentEditContainer3);
-    			
     			childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				childEditFields.setStyleClass("childTable");
     			

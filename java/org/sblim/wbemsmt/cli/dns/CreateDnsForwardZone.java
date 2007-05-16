@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.cmd.CMDPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/cmd/createCommand.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/cmd/createCommand.vm
   *
   * Contributors: 
   * 
@@ -39,85 +39,85 @@ public class CreateDnsForwardZone extends CimCommand implements ContainerUpdater
  
 	//All Options that are local and defined for this command
 			/**
-		 * 
+   		 * required,  --zoneName, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","DnsForwardZoneWizardPage1DataContainer.Name.argValue",true,false,"DnsForwardZoneWizardPage1DataContainer.Name.argDescription");
 			/**
-		 * 
+   		 *  --useGlobalForwarders, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_useGlobalForwarders = new OptionDefinition(null,"useGlobalForwarders","noDefaultValue","DnsForwardZoneWizardPage1DataContainer.useGlobalForwarders.argValue",false,false,"DnsForwardZoneWizardPage1DataContainer.useGlobalForwarders.argDescription");
 			/**
-		 * 
+   		 *  --forward, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_forward = new OptionDefinition(null,"forward","noDefaultValue","DnsForwarderDataContainer.Forward.argValue",false,false,"DnsForwarderDataContainer.Forward.argDescription");
 			/**
-		 * 
+   		 *  --forwarders, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_forwarders = new OptionDefinition(null,"forwarders","noDefaultValue","DnsForwarderDataContainer.Forwarders.argValue",false,false,"DnsForwarderDataContainer.Forwarders.argDescription");
 			/**
-		 * 
+   		 *  --removeForwarder, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_removeForwarder = new OptionDefinition(null,"removeForwarder","noDefaultValue","DnsForwarderDataContainer.removeForwarder.argValue",false,false,"DnsForwarderDataContainer.removeForwarder.argDescription");
 			/**
-		 * 
+   		 *  --newForwarder, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_newForwarder = new OptionDefinition(null,"newForwarder","noDefaultValue","DnsForwarderDataContainer.newForwarder.argValue",false,false,"DnsForwarderDataContainer.newForwarder.argDescription");
 			/**
-		 * 
+   		 *  --addForwarder, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_addForwarder = new OptionDefinition(null,"addForwarder","noDefaultValue","DnsForwarderDataContainer.addForwarder.argValue",false,false,"DnsForwarderDataContainer.addForwarder.argDescription");
 			/**
-		 * 
+   		 *  --newForwarderType, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_newForwarderType = new OptionDefinition(null,"newForwarderType","noDefaultValue","DnsForwarderDataContainer.newForwarderType.argValue",false,false,"DnsForwarderDataContainer.newForwarderType.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-		 * 
+   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
 		 */
 		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**
-		 * 
+   		 *  --hostname
 		 */
 		public static final OptionDefinition KEY_GLOBAL_hostname = new OptionDefinition(null,"hostname",null,"hostname.argValue",false,false,"hostname.argDescription");
 			/**
-		 * 
+   		 *  --port, default: 5988
 		 */
 		public static final OptionDefinition KEY_GLOBAL_port = new OptionDefinition(null,"port","5988","port.argValue",false,false,"port.argDescription");
 			/**
-		 * 
+   		 *  --namespace, default: /root/cimv2
 		 */
 		public static final OptionDefinition KEY_GLOBAL_namespace = new OptionDefinition(null,"namespace","/root/cimv2","namespace.argValue",false,false,"namespace.argDescription");
 			/**
-		 * 
+   		 *  --user
 		 */
 		public static final OptionDefinition KEY_GLOBAL_user = new OptionDefinition(null,"user",null,"user.argValue",false,false,"user.argDescription");
 			/**
-		 * 
+   		 *  --password
 		 */
 		public static final OptionDefinition KEY_GLOBAL_password = new OptionDefinition(null,"password",null,"password.argValue",false,false,"password.argDescription");
 			/**
-		 * 
+   		 *  --publickeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_publickeyfile = new OptionDefinition(null,"publickeyfile",null,"publickeyfile.argValue",false,false,"publickeyfile.argDescription");
 			/**
-		 * 
+   		 *  --privatekeyfile
 		 */
 		public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,"privatekeyfile",null,"privatekeyfile.argValue",false,false,"privatekeyfile.argDescription");
 	
 	// Global Common Options
 			/**
-		 * 
+   		 *  -L --locale, default: en
 		 */
 		public static final OptionDefinition KEY_GLOBAL_locale = new OptionDefinition("L","locale","en","locale.argValue",false,false,"locale.argDescription");
 			/**
-		 * 
+   		 *  -?
 		 */
 		public static final OptionDefinition KEY_GLOBAL_QUESTION_MARK_ = new OptionDefinition("?",null,null,null,false,false,"?.argDescription");
 			/**
-		 * 
+   		 *  -h --help
 		 */
 		public static final OptionDefinition KEY_GLOBAL_help = new OptionDefinition("h","help",null,null,false,false,"help.argDescription");
 	
@@ -209,7 +209,7 @@ public class CreateDnsForwardZone extends CimCommand implements ContainerUpdater
 				
 			adapter.loadInitial(adapter.getCimClient());
 			
-			values.getOut().println("\n" + bundle.getString("creating", new Object[]{bundle.getString("createForwardZoneWizard.caption")}));
+			values.getOut().println("\n" + bundle.getString("createForwardZoneWizard.create.start"));
 			
 			CliDataLoader loader = new CreateDnsForwardZoneLoader();
 			loader.load(bundle,adapter, cmd );
@@ -292,7 +292,7 @@ public class CreateDnsForwardZone extends CimCommand implements ContainerUpdater
 			values.getOut().println("\n" + bundle.getString("createdObject") + ":\n");
 			dc.trace(values.getOut());
 			
-		values.getOut().println("\n" + bundle.getString("created", new Object[]{bundle.getString("createForwardZoneWizard.caption")}));
+   		    //values.getOut().println("\n" + bundle.getString("createForwardZoneWizard.create.success"));
 		
 		}
 		catch (Exception e)

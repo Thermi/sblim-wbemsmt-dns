@@ -3,7 +3,7 @@
   *
 
  
- * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp. 2005
   *
   * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
@@ -13,7 +13,7 @@
   * http://www.opensource.org/licenses/cpl1.0.php
   *
   * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
-  * @template: ./tools-dcg/templates/jsf/containerImplMultiLine.vm
+  * @template: org/sblim/wbemsmt/dcg/templates/jsf/containerImplMultiLine.vm
   *
   * Contributors: 
   * 
@@ -23,8 +23,6 @@
   */
 
 package org.sblim.wbemsmt.jsf.dns.container.edit;
-
-import javax.faces.component.html.HtmlPanelGrid;
 
 import java.util.*;
 import org.sblim.wbemsmt.tools.input.jsf.*;
@@ -38,7 +36,7 @@ import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
 
 	
-public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer {
+public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl extends org.sblim.wbemsmt.tools.jsf.MultiLineBasePanel2 implements org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer {
 
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_TTL;
 			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_TTLUnit;
@@ -49,7 +47,9 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Value;
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Priority;
 		
-	private static String[] orientationOfColumnAsCss = new String[]{
+	public static final int COLS = 8;
+	
+	public static String[] orientationOfColumnAsCss = new String[]{
     				"left",
     				"left",
     				"left",
@@ -63,44 +63,8 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
 	
 	
 	
-	private final int index;
-	
-//	public DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl(String bindingPrefix, org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,int index) throws InitContainerException {
-//		this(adapter,bindingPrefix,index, null);
-//	}
-	
-	public DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix,int index, HtmlPanelGrid grid) throws InitContainerException {
-	    super(adapter,
-			  bindingPrefix, // the prefix for binding values
-			  "#{" +  bindingPrefix + "resourceRecords["+ index +"]", // binding for Title
-			  "DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainer.caption", //Key for title
-			  8,grid);
-		this.index = index;
-		addComponents(new LabeledJSFInputComponent[]{
-					(LabeledJSFInputComponent)get_TTL(),
-			
-					(LabeledJSFInputComponent)get_usr_TTLUnit(),
-			
-					(LabeledJSFInputComponent)get_usr_RemoveTTL(),
-			
-					(LabeledJSFInputComponent)get_Name(),
-			
-					(LabeledJSFInputComponent)get_Type(),
-			
-					(LabeledJSFInputComponent)get_Family(),
-			
-					(LabeledJSFInputComponent)get_Value(),
-			
-					(LabeledJSFInputComponent)get_Priority(),
-			
-				});
-		if (first)
-		{
-			//setFooter(getInputFieldContainer(),"#{localeManager.bundle['dns'].DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl_footerText}","DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl.footerText");
-			//setFooter(getInputFieldContainer(),"DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl.footerText");
-			String binding = "#{" +  bindingPrefix + "resourceRecords["+ index +"].footerText}";
-			setFooter(getOuterPanel(),"DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainer.footerText",binding);
-		}
+	public DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String bindingPrefix,int index) throws InitContainerException {
+	    super(adapter,bindingPrefix,index);
 		adapter.initContainer(this);
 	}
 	
@@ -306,6 +270,24 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
     		return ic_Priority;
     	}
 		
+
+	/**
+	 * @return all the Components
+	 */
+	public LabeledJSFInputComponent[] getComponents() {
+		return new LabeledJSFInputComponent[]{
+						(LabeledJSFInputComponent)get_TTL(),
+						(LabeledJSFInputComponent)get_usr_TTLUnit(),
+						(LabeledJSFInputComponent)get_usr_RemoveTTL(),
+						(LabeledJSFInputComponent)get_Name(),
+						(LabeledJSFInputComponent)get_Type(),
+						(LabeledJSFInputComponent)get_Family(),
+						(LabeledJSFInputComponent)get_Value(),
+						(LabeledJSFInputComponent)get_Priority(),
+					};
+	}
+	
+	
 	
 		
 	public void reload()
