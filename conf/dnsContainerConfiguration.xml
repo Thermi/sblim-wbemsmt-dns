@@ -16,7 +16,7 @@
 	*
 	* Contributors: 
 	*/-->
-<cc:clientConfig version="VERSION_2_2" xsi:schemaLocation="http://sblim.org/wbemsmt/clientconfig ../../wbemsmt-tools/tools-dcg/conf/clientConfig.xsd" xmlns:cmd="http://sblim.org/wbemsmt/cmd" xmlns:cc="http://sblim.org/wbemsmt/clientconfig" xmlns:cd="http://sblim.org/wbemsmt/dcg" xmlns:pkg="http://sblim.org/wbemsmt/pkg" xmlns:pl="http://sblim.org/wbemsmt/pl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<cc:clientConfig version="VERSION_2_3" xsi:schemaLocation="http://sblim.org/wbemsmt/clientconfig ../../wbemsmt-tools/tools-dcg/conf/clientConfig.xsd" xmlns:cmd="http://sblim.org/wbemsmt/cmd" xmlns:cc="http://sblim.org/wbemsmt/clientconfig" xmlns:cd="http://sblim.org/wbemsmt/dcg" xmlns:pkg="http://sblim.org/wbemsmt/pkg" xmlns:pl="http://sblim.org/wbemsmt/pl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:plugins="http://sblim.org/wbemsmt/plugins">
     <cc:environment application="dns" documentationDirectory="../wbemsmt-dns/doc/" helpDirectory="../wbemsmt-dns/help">
         <cc:adapterPackage id="dns" name="org.sblim.wbemsmt.dns.bl.adapter" dir="..\wbemsmt-dns\java"/>
         <cc:wizardPackage id="dns" name="org.sblim.wbemsmt.dns.wizard" dir="../wbemsmt-dns/java"/>
@@ -621,7 +621,6 @@
                 <pl:cmdPackage id="dns" name="org.sblim.wbemsmt.cli.dns.wizard" dir="../wbemsmt-dns/java"/>
             </pl:wizardImplPackage>
             <pl:commandsPackage id="commands" dir="../wbemsmt-dns/java/" name="org.sblim.wbemsmt.cli.dns"/>
-            <pl:usmiCommandsPackage id="usmiCommands" dir="../org.sblim.wbemsmt.dns.usmi/java/" name="org.sblim.wbemsmt.dns.usmi"/>
         </pl:environment>
         <pl:createAction id="createMasterZone" traceContainerContainerId="DnsMasterZoneDataContainer" traceContainerPackageId="editContainers">
             <pl:actionListener>
@@ -1139,14 +1138,19 @@
             <cmd:option long="locale" required="false" usedForSelection="false" duplicateOK="false" short="L" comment="" defaultValue="en" scope="GLOBAL_WBEMSMT_COMMON"/>
             <cmd:option required="false" usedForSelection="false" duplicateOK="false" short="?" comment="" scope="GLOBAL_WBEMSMT_COMMON" hasArgument="false"/>
             <cmd:option long="help" required="false" usedForSelection="false" duplicateOK="false" short="h" comment="" scope="GLOBAL_WBEMSMT_COMMON" hasArgument="false"/>
-            <cmd:option long="type" required="false" usedForSelection="false" duplicateOK="false" short="t" comment="" scope="GLOBAL_USMI"/>
-            <cmd:option long="names" required="false" usedForSelection="false" duplicateOK="false" short="n" comment="" scope="GLOBAL_USMI"/>
-            <cmd:option long="groups" required="false" usedForSelection="false" duplicateOK="false" short="N" comment="" scope="GLOBAL_USMI"/>
-            <cmd:option long="ipaddress" required="false" usedForSelection="false" duplicateOK="false" short="i" comment="" scope="GLOBAL_USMI"/>
-            <cmd:option long="tasks" required="false" usedForSelection="false" duplicateOK="false" short="T" comment="" scope="GLOBAL_USMI"/>
-            <cmd:option long="where" required="false" usedForSelection="false" duplicateOK="false" short="w" comment="" scope="GLOBAL_USMI"/>
-            <cmd:option long="file" required="false" usedForSelection="false" duplicateOK="false" short="f" comment="" scope="GLOBAL_USMI"/>
-            <cmd:option long="format" required="false" usedForSelection="false" duplicateOK="false" short="F" comment="" scope="GLOBAL_USMI"/>
         </cmd:commands>
     </pl:presentationLayer>
+    <plugins:plugins>
+        <plugins:plugin classname="org.sblim.wbemsmt.dcg.ext.usmi.plugin.USMIPlugin" version="1.0.0">
+            <cmd:option long="type" short="t" required="false" usedForSelection="false" scope="GLOBAL_CUSTOM"/>
+            <cmd:option long="names" short="n" required="false" usedForSelection="false" scope="GLOBAL_CUSTOM"/>
+            <cmd:option long="groups" short="N" required="false" usedForSelection="false" scope="GLOBAL_CUSTOM"/>
+            <cmd:option long="ipaddress" short="i" required="false" usedForSelection="false" scope="GLOBAL_CUSTOM"/>
+            <cmd:option long="tasks" short="T" required="false" usedForSelection="false" scope="GLOBAL_CUSTOM"/>
+            <cmd:option long="where" short="w" required="false" usedForSelection="false" scope="GLOBAL_CUSTOM"/>
+            <cmd:option long="file" short="f" required="false" usedForSelection="false" scope="GLOBAL_CUSTOM"/>
+            <cmd:option long="format" short="F" required="false" usedForSelection="false" scope="GLOBAL_CUSTOM"/>
+            <plugins:package id="usmi.commands" name="org.sblim.wbemsmt.sample.usmi" dir="../org.sblim.wbemsmt.sample.usmi"/>
+        </plugins:plugin>
+    </plugins:plugins>
 </cc:clientConfig>
