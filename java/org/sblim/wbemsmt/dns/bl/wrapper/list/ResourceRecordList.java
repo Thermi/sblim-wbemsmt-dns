@@ -148,7 +148,7 @@ public class ResourceRecordList extends ObjectList  {
 	}
 
 	public void deleteResourceRecord(ResourceRecord record) {
-		objectsByCimObjectKey.remove(new CimObjectKey(record.getFco()));
+		objectsByCimObjectKey.remove(new CimObjectKey(record.getFco().getCimObjectPath()));
 		reloadListValues();
 	}
 

@@ -211,7 +211,7 @@ public class ResourceRecord extends DnsBusinessObject {
 			container.get_Value().setControlValue(fco.get_Value());
 		}
 		
-		container.setKey(new CimObjectKey(fco));
+		container.setKey(new CimObjectKey(fco.getCimObjectPath()));
 		
 	}
 

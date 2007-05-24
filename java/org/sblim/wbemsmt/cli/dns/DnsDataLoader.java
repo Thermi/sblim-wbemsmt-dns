@@ -239,7 +239,7 @@ public abstract class DnsDataLoader implements CliDataLoader {
 
 	private CimObjectKey getServiceKey(AbstractBaseCimAdapter adapter, String serviceName) throws ObjectNotFoundException {
 		try {
-			return new CimObjectKey(((DnsCimAdapter) adapter).getDnsService(serviceName).getFco());
+			return new CimObjectKey(((DnsCimAdapter) adapter).getDnsService(serviceName).getFco().getCimObjectPath());
 		} catch (ModelLoadException e) {
 			throw new ObjectNotFoundException(e);
 		}

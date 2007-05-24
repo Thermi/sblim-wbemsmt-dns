@@ -67,7 +67,7 @@ public class ResourceRecordWizard extends DnsWizard {
 								   new UnsignedInt8((short)Linux_DnsResourceRecord.FAMILY_INTERNET),
 								   value);
 
-		container.setKey(new CimObjectKey(record));
+		container.setKey(new CimObjectKey(record.getCimObjectPath()));
 		
 		adapter.setMarkedForReload();
 		adapter.setPathOfTreeNode(adapter.getSelectedZone().getLinux_DnsZone().getCimObjectPath());

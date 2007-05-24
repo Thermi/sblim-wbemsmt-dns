@@ -177,7 +177,7 @@ public class Service extends DnsBusinessObject {
 	}
 
 	public CimObjectKey getCimObjectKey() {
-		return new CimObjectKey(fco);
+		return new CimObjectKey(fco.getCimObjectPath());
 	}
 
 	public AddressMatchListList getAddressMatchListList() {
