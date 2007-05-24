@@ -62,7 +62,7 @@ public class AddressMatchList extends DnsBusinessObject {
 	public AddressMatchList(final Linux_DnsAddressMatchList fco, DnsCimAdapter adapter) throws ModelLoadException {
 		super(adapter);
 		this.fco = fco;
-		updateName(addressMatchListNaming.getDisplayString(fco.getCimInstance()));
+		updateName(addressMatchListNaming.getDisplayString(fco.getCimInstance(), adapter.getCimClient()));
 		aclHandler = new AclHandler(adapter, new AssociatedObjectsLoader()
 		 {
 
@@ -117,7 +117,7 @@ public class AddressMatchList extends DnsBusinessObject {
 		//fco.set_Name((String) container.get_Name().getConvertedControlValue());
 		updateName(NameFactory.createName(Linux_DnsAddressMatchListsForService.class, fco.get_Name()));
 		MessageList result = aclHandler.save(AclHandler.IDX_USER);
-		updateName(addressMatchListNaming.getDisplayString(fco.getCimInstance()));
+		updateName(addressMatchListNaming.getDisplayString(fco.getCimInstance(), adapter.getCimClient()));
 		return result;
 	}
 

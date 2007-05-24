@@ -22,6 +22,8 @@ package org.sblim.wbemsmt.dns.naming;
 import java.util.logging.Logger;
 
 import org.sblim.wbem.cim.CIMInstance;
+import org.sblim.wbem.client.CIMClient;
+import org.sblim.wbemsmt.bl.fco.CIM_ObjectIf;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsZone;
 import org.sblim.wbemsmt.tasklauncher.naming.CIMInstanceNaming;
 import org.sblim.wbemsmt.tools.runtime.RuntimeUtil;
@@ -39,7 +41,7 @@ public class ZoneNaming extends CIMInstanceNaming {
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.tasklauncher.naming.CIMInstanceNaming#getDisplayString(org.sblim.wbem.cim.CIMInstance)
 	 */
-	public String getDisplayString(CIMInstance cimInstance) {
+	public String getDisplayString(CIMInstance cimInstance, CIMClient cimClient) {
 		String separator = "\n";
 		int maxlength = 30;
 		if (RuntimeUtil.getInstance().isJSF())
@@ -59,6 +61,10 @@ public class ZoneNaming extends CIMInstanceNaming {
 		sb.append(name);
 
 		return sb.toString();
+	}
+
+	public String getDisplayString(CIM_ObjectIf cimObject, CIMClient cimClient) {
+		return getDisplayString(cimObject.getCimInstance(), cimClient);
 	}
 
 }

@@ -56,7 +56,7 @@ public class Masters extends DnsBusinessObject {
 	public Masters(final Linux_DnsMasters fco, DnsCimAdapter adapter) {
 		super(adapter);
 		this.fco = fco;
-		updateName(mastersNaming.getDisplayString(fco.getCimInstance()));
+		updateName(mastersNaming.getDisplayString(fco.getCimInstance(), adapter.getCimClient()));
 		mastersHandler = new MastersHandler(adapter,fco,true, null);
 	}
 
@@ -83,7 +83,7 @@ public class Masters extends DnsBusinessObject {
 		//fco.set_Name((String) container.get_Name().getConvertedControlValue());
 		updateName(NameFactory.createName(Linux_DnsMastersForService.class, fco.get_Name()));
 		mastersHandler.save();
-		updateName(mastersNaming.getDisplayString(fco.getCimInstance()));
+		updateName(mastersNaming.getDisplayString(fco.getCimInstance(), adapter.getCimClient()));
 		return null;
 	}
 
@@ -132,7 +132,7 @@ public class Masters extends DnsBusinessObject {
 	public MessageList revert(DnsMastersForServiceDataContainer container) throws ObjectRevertException {
 		try {
 			fco = (Linux_DnsMasters) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
-			updateName(mastersNaming.getDisplayString(fco.getCimInstance()));
+			updateName(mastersNaming.getDisplayString(fco.getCimInstance(), adapter.getCimClient()));
 			mastersHandler = new MastersHandler(adapter,fco,true, null);
 		} catch (ModelLoadException e) {
 			throw new ObjectRevertException(e);
