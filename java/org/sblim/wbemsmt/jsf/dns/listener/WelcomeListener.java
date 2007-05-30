@@ -33,6 +33,8 @@ import org.sblim.wbemsmt.bl.welcome.*;
 import org.sblim.wbemsmt.exception.WbemSmtException;
 import javax.faces.component.UIComponentBase;
 
+import org.apache.myfaces.custom.div.Div;
+
 
 
 public class WelcomeListener implements JsfWelcomeListener {
@@ -72,7 +74,12 @@ public class WelcomeListener implements JsfWelcomeListener {
 								
 				//add the childs with occurence list
             					
-				containerPanel.getChildren().add(childEditFields);
+				Div div = (Div) FacesContext.getCurrentInstance().getApplication().createComponent(Div.COMPONENT_TYPE);
+				div.setStyleClass("divWrappingChildTable");
+				div.getChildren().add(childEditFields);
+				
+				containerPanel.getChildren().add(div);
+				
 				UIComponentBase panelToAdd = null;
 									panelToAdd = containerPanel;
 								

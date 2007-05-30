@@ -34,6 +34,7 @@ import org.sblim.wbemsmt.tools.wizard.container.IWizardContainer;
 import org.sblim.wbemsmt.tools.wizard.jsf.JSFWizardBase;
 import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
+import org.apache.myfaces.custom.div.Div;
 
 public class AddressMatchListWizard extends JSFWizardBase implements IPageWizardAdapter {
 
@@ -73,8 +74,13 @@ public class AddressMatchListWizard extends JSFWizardBase implements IPageWizard
             				//add the single childs
             				            				
             				//add the childs with occurence list
-                        	            				panel1.getChildPanel().getChildren().add(childEditFields);
+                        								
+							Div div = (Div) FacesContext.getCurrentInstance().getApplication().createComponent(Div.COMPONENT_TYPE);
+							div.setStyleClass("divWrappingChildTable");
+							div.getChildren().add(childEditFields);
 							
+							panel1.getChildPanel().getChildren().add(div);
+											
 															panel1.getLayouter().layout(panel1.getPanelForCustomLayout(), panel1 ,bundle);
 							
         					return panel1;
@@ -106,8 +112,13 @@ public class AddressMatchListWizard extends JSFWizardBase implements IPageWizard
             				//add the single childs
             				            				
             				//add the childs with occurence list
-                        	            				panel2.getChildPanel().getChildren().add(childEditFields);
+                        								
+							Div div = (Div) FacesContext.getCurrentInstance().getApplication().createComponent(Div.COMPONENT_TYPE);
+							div.setStyleClass("divWrappingChildTable");
+							div.getChildren().add(childEditFields);
 							
+							panel2.getChildPanel().getChildren().add(div);
+											
 							
         					return panel2;
 						}
@@ -175,7 +186,12 @@ public class AddressMatchListWizard extends JSFWizardBase implements IPageWizard
                 			
             				//add the childs with occurence list
                         								panel1.getChildPanel().getChildren().clear();
-            				panel1.getChildPanel().getChildren().add(childEditFields);
+
+							Div div = (Div) FacesContext.getCurrentInstance().getApplication().createComponent(Div.COMPONENT_TYPE);
+							div.setStyleClass("divWrappingChildTable");
+							div.getChildren().add(childEditFields);
+							
+							panel1.getChildPanel().getChildren().add(div);
 						}
 						catch (Exception e)
 						{
@@ -195,7 +211,12 @@ public class AddressMatchListWizard extends JSFWizardBase implements IPageWizard
                 			
             				//add the childs with occurence list
                         								panel2.getChildPanel().getChildren().clear();
-            				panel2.getChildPanel().getChildren().add(childEditFields);
+
+							Div div = (Div) FacesContext.getCurrentInstance().getApplication().createComponent(Div.COMPONENT_TYPE);
+							div.setStyleClass("divWrappingChildTable");
+							div.getChildren().add(childEditFields);
+							
+							panel2.getChildPanel().getChildren().add(div);
 						}
 						catch (Exception e)
 						{
