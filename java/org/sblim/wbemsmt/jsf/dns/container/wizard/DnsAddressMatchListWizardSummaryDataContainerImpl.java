@@ -46,6 +46,8 @@ public class DnsAddressMatchListWizardSummaryDataContainerImpl extends org.sblim
 				super(adapter,bindingPrefix, "DnsAddressMatchListWizardSummaryDataContainer.caption","DnsAddressMatchListWizardSummaryDataContainer.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_AddressList());

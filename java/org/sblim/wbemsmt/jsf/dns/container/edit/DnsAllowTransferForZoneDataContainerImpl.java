@@ -59,9 +59,12 @@ public class DnsAllowTransferForZoneDataContainerImpl extends org.sblim.wbemsmt.
 				super(adapter,bindingPrefix, "DnsAllowTransferForZoneDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsAllowTransferForZoneDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsAllowTransferForZoneDataContainer.footerText");
 		adapter.initContainer(this);

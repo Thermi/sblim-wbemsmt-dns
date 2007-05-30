@@ -57,9 +57,12 @@ public class DnsSlaveZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt.
 				super(adapter,bindingPrefix, "DnsSlaveZoneWizardPage1DataContainer.caption","DnsSlaveZoneWizardPage1DataContainer.subTitle",false);
 				
 				
+		
+				
     			
     				layouter = new DnsSlaveZoneWizardPage1DataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsSlaveZoneWizardPage1DataContainer.footerText");
 		adapter.initContainer(this);

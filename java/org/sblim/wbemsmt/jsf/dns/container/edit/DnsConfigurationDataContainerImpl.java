@@ -54,9 +54,12 @@ public class DnsConfigurationDataContainerImpl extends org.sblim.wbemsmt.tools.j
 				super(adapter,bindingPrefix, "DnsConfigurationDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsConfigurationDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsConfigurationDataContainer.footerText");
 		adapter.initContainer(this);

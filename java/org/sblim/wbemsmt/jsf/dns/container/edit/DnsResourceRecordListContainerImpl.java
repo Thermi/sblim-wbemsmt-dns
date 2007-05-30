@@ -71,9 +71,12 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 				super(adapter,bindingPrefix, "DnsResourceRecordListContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsResourceRecordListContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsResourceRecordListContainer.footerText");
 		adapter.initContainer(this);

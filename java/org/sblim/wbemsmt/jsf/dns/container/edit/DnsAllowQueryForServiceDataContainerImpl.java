@@ -58,9 +58,12 @@ public class DnsAllowQueryForServiceDataContainerImpl extends org.sblim.wbemsmt.
 				super(adapter,bindingPrefix, "DnsAllowQueryForServiceDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsAllowQueryForServiceDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsAllowQueryForServiceDataContainer.footerText");
 		adapter.initContainer(this);

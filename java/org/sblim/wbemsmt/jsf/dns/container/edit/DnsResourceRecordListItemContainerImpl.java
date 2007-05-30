@@ -52,6 +52,8 @@ public class DnsResourceRecordListItemContainerImpl extends org.sblim.wbemsmt.to
 				super(adapter,bindingPrefix, "DnsResourceRecordListItemContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_DeleteRecord());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());

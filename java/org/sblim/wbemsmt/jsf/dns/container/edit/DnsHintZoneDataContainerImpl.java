@@ -55,9 +55,12 @@ public class DnsHintZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 				super(adapter,bindingPrefix, "DnsHintZoneDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsHintZoneDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsHintZoneDataContainer.footerText");
 		adapter.initContainer(this);

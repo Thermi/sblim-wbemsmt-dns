@@ -58,9 +58,12 @@ public class DnsBlackholeForServiceDataContainerImpl extends org.sblim.wbemsmt.t
 				super(adapter,bindingPrefix, "DnsBlackholeForServiceDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsBlackholeForServiceDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsBlackholeForServiceDataContainer.footerText");
 		adapter.initContainer(this);

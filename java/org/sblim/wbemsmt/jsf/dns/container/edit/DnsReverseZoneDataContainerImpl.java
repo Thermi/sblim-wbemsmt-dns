@@ -62,9 +62,12 @@ public class DnsReverseZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 				super(adapter,bindingPrefix, "DnsReverseZoneDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsReverseZoneDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsReverseZoneDataContainer.footerText");
 		adapter.initContainer(this);

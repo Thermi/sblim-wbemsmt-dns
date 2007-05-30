@@ -58,9 +58,12 @@ public class DnsForwardZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf
 				super(adapter,bindingPrefix, "DnsForwardZoneDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsForwardZoneDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsForwardZoneDataContainer.footerText");
 		adapter.initContainer(this);

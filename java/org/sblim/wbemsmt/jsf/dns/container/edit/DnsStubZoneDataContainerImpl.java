@@ -68,9 +68,12 @@ public class DnsStubZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
 				super(adapter,bindingPrefix, "DnsStubZoneDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsStubZoneDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsStubZoneDataContainer.footerText");
 		adapter.initContainer(this);

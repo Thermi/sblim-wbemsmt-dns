@@ -48,6 +48,8 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends org.sblim.wbems
 				super(adapter,bindingPrefix, "DnsMasterZoneWizardSummaryDataContainer.caption","DnsMasterZoneWizardSummaryDataContainer.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Name());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Server());

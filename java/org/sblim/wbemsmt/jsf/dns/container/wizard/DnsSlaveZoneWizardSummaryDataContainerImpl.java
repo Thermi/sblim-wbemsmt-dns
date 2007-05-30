@@ -46,6 +46,8 @@ public class DnsSlaveZoneWizardSummaryDataContainerImpl extends org.sblim.wbemsm
 				super(adapter,bindingPrefix, "DnsSlaveZoneWizardSummaryDataContainer.caption","DnsSlaveZoneWizardSummaryDataContainer.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Name());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_IpAdressses());

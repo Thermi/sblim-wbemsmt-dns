@@ -58,9 +58,12 @@ public class DnsAllowTransferForServiceDataContainerImpl extends org.sblim.wbems
 				super(adapter,bindingPrefix, "DnsAllowTransferForServiceDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsAllowTransferForServiceDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsAllowTransferForServiceDataContainer.footerText");
 		adapter.initContainer(this);

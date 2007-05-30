@@ -50,6 +50,8 @@ public class DnsForwarderDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 				super(adapter,bindingPrefix, "DnsForwarderDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Forward());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Forwarders());

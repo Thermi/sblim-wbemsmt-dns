@@ -46,6 +46,8 @@ public class DnsMastersWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.
 				super(adapter,bindingPrefix, "DnsMastersWizardSummaryDataContainer.caption","DnsMastersWizardSummaryDataContainer.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_AddressList());

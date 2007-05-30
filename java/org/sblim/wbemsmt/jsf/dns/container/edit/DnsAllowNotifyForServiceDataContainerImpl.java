@@ -58,9 +58,12 @@ public class DnsAllowNotifyForServiceDataContainerImpl extends org.sblim.wbemsmt
 				super(adapter,bindingPrefix, "DnsAllowNotifyForServiceDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsAllowNotifyForServiceDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsAllowNotifyForServiceDataContainer.footerText");
 		adapter.initContainer(this);

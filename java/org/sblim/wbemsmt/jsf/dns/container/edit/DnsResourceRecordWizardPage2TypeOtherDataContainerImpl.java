@@ -45,6 +45,8 @@ public class DnsResourceRecordWizardPage2TypeOtherDataContainerImpl extends org.
 				super(adapter,bindingPrefix, "DnsResourceRecordWizardPage2TypeOtherDataContainer.caption","DnsResourceRecordWizardPage2TypeOtherDataContainer.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Value());
         					

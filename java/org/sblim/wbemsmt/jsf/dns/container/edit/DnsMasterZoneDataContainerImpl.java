@@ -62,9 +62,12 @@ public class DnsMasterZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.
 				super(adapter,bindingPrefix, "DnsMasterZoneDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsMasterZoneDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsMasterZoneDataContainer.footerText");
 		adapter.initContainer(this);

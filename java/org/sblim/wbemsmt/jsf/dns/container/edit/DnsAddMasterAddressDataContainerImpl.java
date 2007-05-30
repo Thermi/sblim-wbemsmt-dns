@@ -50,6 +50,8 @@ public class DnsAddMasterAddressDataContainerImpl extends org.sblim.wbemsmt.tool
 				super(adapter,bindingPrefix, "DnsAddMasterAddressDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Masters());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_RemoveMasterEntry());

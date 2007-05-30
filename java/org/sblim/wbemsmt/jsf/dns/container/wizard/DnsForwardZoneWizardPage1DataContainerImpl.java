@@ -58,9 +58,12 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends org.sblim.wbemsm
 				super(adapter,bindingPrefix, "DnsForwardZoneWizardPage1DataContainer.caption","DnsForwardZoneWizardPage1DataContainer.subTitle",false);
 				
 				
+		
+				
     			
     				layouter = new DnsForwardZoneWizardPage1DataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsForwardZoneWizardPage1DataContainer.footerText");
 		adapter.initContainer(this);

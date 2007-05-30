@@ -49,6 +49,8 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 			
 				super(adapter,bindingPrefix, "DnsServiceTracingDataContainer.caption",false);
 				
+				
+		
 				String childBindingPrefix = null;
 				
     				childBindingPrefix = this.bindingPrefix + "allowNotifyAcl.";

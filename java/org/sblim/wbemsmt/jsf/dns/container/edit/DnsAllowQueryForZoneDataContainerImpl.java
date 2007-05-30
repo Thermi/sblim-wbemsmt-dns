@@ -59,9 +59,12 @@ public class DnsAllowQueryForZoneDataContainerImpl extends org.sblim.wbemsmt.too
 				super(adapter,bindingPrefix, "DnsAllowQueryForZoneDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsAllowQueryForZoneDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsAllowQueryForZoneDataContainer.footerText");
 		adapter.initContainer(this);

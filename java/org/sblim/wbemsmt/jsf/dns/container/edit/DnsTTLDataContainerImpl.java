@@ -47,6 +47,8 @@ public class DnsTTLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
 				super(adapter,bindingPrefix, "DnsTTLDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_TTL());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_TTLUnit());

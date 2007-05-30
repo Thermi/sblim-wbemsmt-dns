@@ -59,9 +59,12 @@ public class DnsAddressMatchListForServiceDataContainerImpl extends org.sblim.wb
 				super(adapter,bindingPrefix, "DnsAddressMatchListForServiceDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsAddressMatchListForServiceDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsAddressMatchListForServiceDataContainer.footerText");
 		adapter.initContainer(this);

@@ -68,9 +68,12 @@ public class DnsSlaveZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.E
 				super(adapter,bindingPrefix, "DnsSlaveZoneDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsSlaveZoneDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsSlaveZoneDataContainer.footerText");
 		adapter.initContainer(this);

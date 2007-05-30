@@ -48,6 +48,8 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends org.sblim.w
 				super(adapter,bindingPrefix, "DnsResourceRecordWizardSummaryDataContainer.caption","DnsResourceRecordWizardSummaryDataContainer.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Name());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Type());

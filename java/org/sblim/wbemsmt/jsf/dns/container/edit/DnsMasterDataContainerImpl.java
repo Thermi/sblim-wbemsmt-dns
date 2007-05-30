@@ -47,6 +47,8 @@ public class DnsMasterDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
 				super(adapter,bindingPrefix, "DnsMasterDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_MasterElementType());

@@ -58,9 +58,12 @@ public class DnsAllowUpdateForZoneDataContainerImpl extends org.sblim.wbemsmt.to
 				super(adapter,bindingPrefix, "DnsAllowUpdateForZoneDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsAllowUpdateForZoneDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsAllowUpdateForZoneDataContainer.footerText");
 		adapter.initContainer(this);

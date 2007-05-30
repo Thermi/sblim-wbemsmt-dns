@@ -59,9 +59,12 @@ public class DnsSoaContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePan
 				super(adapter,bindingPrefix, "DnsSoaContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsSoaContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsSoaContainer.footerText");
 		adapter.initContainer(this);

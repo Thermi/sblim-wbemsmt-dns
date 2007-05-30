@@ -56,9 +56,12 @@ public class DnsForwardersForServiceDataContainerImpl extends org.sblim.wbemsmt.
 				super(adapter,bindingPrefix, "DnsForwardersForServiceDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsForwardersForServiceDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsForwardersForServiceDataContainer.footerText");
 		adapter.initContainer(this);

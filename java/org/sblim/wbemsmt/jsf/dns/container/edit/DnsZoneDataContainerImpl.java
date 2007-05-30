@@ -45,6 +45,8 @@ public class DnsZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBa
 				super(adapter,bindingPrefix, "DnsZoneDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());
         					

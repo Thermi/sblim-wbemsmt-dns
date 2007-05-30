@@ -57,9 +57,12 @@ public class DnsMastersWizardPage1DataContainerImpl extends org.sblim.wbemsmt.to
 				super(adapter,bindingPrefix, "DnsMastersWizardPage1DataContainer.caption","DnsMastersWizardPage1DataContainer.subTitle",false);
 				
 				
+		
+				
     			
     				layouter = new DnsMastersWizardPage1DataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsMastersWizardPage1DataContainer.footerText");
 		adapter.initContainer(this);

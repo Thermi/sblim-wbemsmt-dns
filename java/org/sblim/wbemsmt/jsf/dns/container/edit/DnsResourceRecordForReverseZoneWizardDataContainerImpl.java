@@ -47,6 +47,8 @@ public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends org.
 				super(adapter,bindingPrefix, "DnsResourceRecordForReverseZoneWizardDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Name());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_Type());

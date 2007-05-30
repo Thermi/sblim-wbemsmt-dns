@@ -52,6 +52,8 @@ public class DnsResourceRecordDataContainerImpl extends org.sblim.wbemsmt.tools.
 				super(adapter,bindingPrefix, "DnsResourceRecordDataContainer.caption",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_TTL());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_TTLUnit());

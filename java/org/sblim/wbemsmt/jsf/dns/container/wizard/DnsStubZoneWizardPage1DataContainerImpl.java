@@ -57,9 +57,12 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends org.sblim.wbemsmt.t
 				super(adapter,bindingPrefix, "DnsStubZoneWizardPage1DataContainer.caption","DnsStubZoneWizardPage1DataContainer.subTitle",false);
 				
 				
+		
+				
     			
     				layouter = new DnsStubZoneWizardPage1DataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsStubZoneWizardPage1DataContainer.footerText");
 		adapter.initContainer(this);

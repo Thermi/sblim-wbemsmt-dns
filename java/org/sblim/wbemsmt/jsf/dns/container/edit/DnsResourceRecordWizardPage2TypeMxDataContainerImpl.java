@@ -46,6 +46,8 @@ public class DnsResourceRecordWizardPage2TypeMxDataContainerImpl extends org.sbl
 				super(adapter,bindingPrefix, "DnsResourceRecordWizardPage2TypeMxDataContainer.caption","DnsResourceRecordWizardPage2TypeMxDataContainer.subTitle",false);
 				
 				
+		
+				
     			
     	    		        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Value());
         	        		addComponent((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent)get_usr_Priority());

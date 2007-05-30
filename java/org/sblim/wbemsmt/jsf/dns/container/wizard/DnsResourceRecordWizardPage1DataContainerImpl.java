@@ -52,9 +52,12 @@ public class DnsResourceRecordWizardPage1DataContainerImpl extends org.sblim.wbe
 				super(adapter,bindingPrefix, "DnsResourceRecordWizardPage1DataContainer.caption","DnsResourceRecordWizardPage1DataContainer.subTitle",false);
 				
 				
+		
+				
     			
     				layouter = new DnsResourceRecordWizardPage1DataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsResourceRecordWizardPage1DataContainer.footerText");
 		adapter.initContainer(this);

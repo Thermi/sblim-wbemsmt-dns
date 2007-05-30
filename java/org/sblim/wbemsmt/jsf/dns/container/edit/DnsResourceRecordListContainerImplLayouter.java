@@ -30,37 +30,20 @@ public class DnsResourceRecordListContainerImplLayouter extends DnsLayouter {
 
 	public void layout(HtmlPanelGrid parent, DnsResourceRecordListContainerImpl container, WbemSmtResourceBundle bundle) {
 		
-		if (container.getResourceRecords().size() > 0)
-		{
-			HtmlPanelGrid recordGrid = container.getResourceRecordsPanel().getInputFieldContainer();
+		HtmlPanelGrid recordGrid = container.getResourceRecordsPanel().getInputFieldContainer();
 
-			HtmlOutputText label = getLabel("<br>");
-			label.setEscape(false);
-			HtmlPanelGrid grid = createTable(1, "0", "0");
+		HtmlOutputText label = getLabel("<br>");
+		label.setEscape(false);
+		HtmlPanelGrid grid = createTable(1, "0", "0");
 
-			addComponent(grid, (LabeledJSFInputComponent) container.get_usr_SelectAll());
-			grid.getChildren().add(label);
-			grid.getChildren().add(((LabeledJSFInputComponent)container.get_usr_Delete()).getComponentPanel());
+		addComponent(grid, (LabeledJSFInputComponent) container.get_usr_SelectAll());
+		grid.getChildren().add(label);
+		grid.getChildren().add(((LabeledJSFInputComponent)container.get_usr_Delete()).getComponentPanel());
 
-//			recordGrid.getChildren().add(grid);
-//			recordGrid.getChildren().add(getDummyLabel());
-//			recordGrid.getChildren().add(getDummyLabel());
-//			recordGrid.getChildren().add(getDummyLabel());
-//			recordGrid.getChildren().add(getDummyLabel());
-//			recordGrid.getChildren().add(getDummyLabel());
-//			recordGrid.getChildren().add(getDummyLabel());
-//			recordGrid.getChildren().add(getDummyLabel());
-			
-			recordGrid.getFacets().put("footer", grid);
-			recordGrid.setFooterClass("left");
-			
-			container.getResourceRecordsPanel().updateRows(0);
-		}
-		else
-		{
-			parent.getChildren().add(super.getLabelWithBoundValue("DNS", "no.resource.records.found"));
-		}
+		recordGrid.getFacets().put("footer", grid);
+		recordGrid.setFooterClass("left");
 		
+		//container.getResourceRecordsPanel().updateRows(0);
 	}
 
 }

@@ -53,9 +53,12 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
 				super(adapter,bindingPrefix, "DnsForwardZoneWizardSummaryDataContainer.caption","DnsForwardZoneWizardSummaryDataContainer.subTitle",false);
 				
 				
+		
+				
     			
     				layouter = new DnsForwardZoneWizardSummaryDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsForwardZoneWizardSummaryDataContainer.footerText");
 		adapter.initContainer(this);

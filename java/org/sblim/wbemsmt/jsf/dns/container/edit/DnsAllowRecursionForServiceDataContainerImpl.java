@@ -58,9 +58,12 @@ public class DnsAllowRecursionForServiceDataContainerImpl extends org.sblim.wbem
 				super(adapter,bindingPrefix, "DnsAllowRecursionForServiceDataContainer.caption",false);
 				
 				
+		
+				
     			
     				layouter = new DnsAllowRecursionForServiceDataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsAllowRecursionForServiceDataContainer.footerText");
 		adapter.initContainer(this);

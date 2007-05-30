@@ -59,9 +59,12 @@ public class DnsAddressMatchListWizardPage1DataContainerImpl extends org.sblim.w
 				super(adapter,bindingPrefix, "DnsAddressMatchListWizardPage1DataContainer.caption","DnsAddressMatchListWizardPage1DataContainer.subTitle",false);
 				
 				
+		
+				
     			
     				layouter = new DnsAddressMatchListWizardPage1DataContainerImplLayouter();
-			layouter.layout(getPanelForCustomLayout(),this,bundle);
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
 				
 		setFooter(getPanelForCustomLayout(),"DnsAddressMatchListWizardPage1DataContainer.footerText");
 		adapter.initContainer(this);
