@@ -36,6 +36,9 @@ import org.sblim.wbemsmt.tools.resources.*;
 //import org.sblim.wbemsmt.tools.input.jsf.*;
 import org.sblim.wbemsmt.bl.adapter.*;
 
+import org.apache.myfaces.custom.div.Div;
+
+
 public class EditAddressMatchListListenerEditBeanFieldTab extends EditBean {
 	
 	    
@@ -120,6 +123,7 @@ public class EditAddressMatchListListenerEditBeanFieldTab extends EditBean {
 		
 			String bindingPrefix = null;
 			HtmlPanelGrid childEditFields = null;
+			Div div = null;
 			panel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);			
 			panel.setWidth("100%");
 			panel.setCellspacing("0");
@@ -172,12 +176,16 @@ public class EditAddressMatchListListenerEditBeanFieldTab extends EditBean {
     			childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				childEditFields.setStyleClass("childTable");
     			
-
 				//add the single childs
 								
 				//add the childs with occurence list
-            					
-				containerPanel.getChildren().add(childEditFields);
+            	    			
+
+				div = (Div) FacesContext.getCurrentInstance().getApplication().createComponent(Div.COMPONENT_TYPE);
+				div.setStyleClass("divWrappingChildTable");
+				div.getChildren().add(childEditFields);
+				
+				containerPanel.getChildren().add(div);
 
 									panelToAdd = containerPanel;
 								
@@ -190,7 +198,6 @@ public class EditAddressMatchListListenerEditBeanFieldTab extends EditBean {
 				addFooter(panel,"objectActionController.editBeans['fieldTab'].");
 				
 			
-						
 						addOKRevert(addToThis,"objectActionController.editBeans['fieldTab'].");
 						
 		}
