@@ -55,7 +55,7 @@ public class EditStubZoneListenerEditBeanTabResourceRecords extends EditBean {
 			super(ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale()));		
 		}
 
-		public String save() throws ValidationException, ObjectSaveException
+		public String save() throws ValidationException, ObjectSaveException, UpdateControlsException
 		{
 			saveResult = new MessageList();
 						MessageList result = null;
@@ -75,29 +75,8 @@ public class EditStubZoneListenerEditBeanTabResourceRecords extends EditBean {
         				{
         					successCount++;
             				adapter1.save(currentEditContainer1);
-    						try {
-                				//update the child objects
-                				                				
-                            	                        		
-    							String bindingPrefix = "objectActionController.editBeans['TabResourceRecords'].containers[0].";
-                    			int count = adapter1.count(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer.class);
-
-                    			currentEditContainer1.clearResourceRecords();
-                    			currentEditContainer1.addResourceRecordsHeader();
-                    			
-                    			for (int i=0; i < count; i++) {
-	                    			currentEditContainer1.addResourceRecords(new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl(adapter1,bindingPrefix, i));
-                    			}
-
-                    			currentEditContainer1.getResourceRecordsPanel().setList(currentEditContainer1.getResourceRecords());
-								
-                            	    							adapter1.updateControls(currentEditContainer1);
-    							
-                            		                    			currentEditContainer1.getResourceRecordsPanel().updateRows();
-								    							
-    						} catch (Exception e) {
-    							throw new ObjectSaveException("Canot update Model after saving data",e);
-    						}
+							//update the container and children objects
+							currentEditContainer1.updateControls();
             			}
         				
 						//Get the infos afte storing the values
@@ -163,23 +142,9 @@ public class EditStubZoneListenerEditBeanTabResourceRecords extends EditBean {
     			
 				//update the child objects
 								
-            					{
-	    		
-	    			int count = adapter1.count(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer.class);
-	    			
-        			currentEditContainer1.clearResourceRecords();
-        			currentEditContainer1.addResourceRecordsHeader();
-	    			
-        			for (int i=0; i < count; i++) {
-            			currentEditContainer1.addResourceRecords(new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl(adapter1,bindingPrefix, i));
-        			}
+				//update the container and children objects
+				currentEditContainer1.updateControls();
 
-        			currentEditContainer1.getResourceRecordsPanel().setList(currentEditContainer1.getResourceRecords());
-				}
-            					adapter1.updateControls(currentEditContainer1);
-
-            	        			currentEditContainer1.getResourceRecordsPanel().updateRows();
-				    			
     			childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				childEditFields.setStyleClass("childTable");
     			

@@ -46,6 +46,7 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 				private java.util.List icResourceRecords = new java.util.ArrayList();
 		
 		private MultiLinePanel resourceRecordsPanel;
+		private int resourceRecordsCount;
 
 				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icResourceRecords_usr_DeleteRecordHeader;
 				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icResourceRecords_NameHeader;
@@ -149,6 +150,7 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 							  "#{" +  bindingPrefix + "resourceRecordsPanel", // binding for Title
 							  "DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainer.caption", //Key for title
 							  org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl.COLS);
+			  addResourceRecordsHeader();							  
 			}		
 			
 			return resourceRecordsPanel;
@@ -157,7 +159,7 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 		static class ResourceRecordsPanel extends MultiLinePanel
 		{
 			public ResourceRecordsPanel(AbstractBaseCimAdapter adapter, String bindingPrefix, String bindigForTitle, String keyForTitle, int cols) {
-				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, cols);
+				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, "resourceRecords", cols);
 			}
 	
 			protected String getOrientationOfColumnAsCss(int column) {
@@ -165,38 +167,72 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 			}
 		}
 
-	public void addResourceRecords(org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl child) {
+	private void addResourceRecords(org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl child) {
 
 		getResourceRecords().add(child);
 		getResourceRecordsPanel().addComponents(child.getComponents());
 		
-					((LabeledJSFInputComponent)getResourceRecords_usr_DeleteRecordHeader()).getDependentChildFields().add(child.get_usr_DeleteRecord());
-					((LabeledJSFInputComponent)getResourceRecords_NameHeader()).getDependentChildFields().add(child.get_Name());
-					((LabeledJSFInputComponent)getResourceRecords_TTLHeader()).getDependentChildFields().add(child.get_TTL());
-					((LabeledJSFInputComponent)getResourceRecords_usr_TTLUnitHeader()).getDependentChildFields().add(child.get_usr_TTLUnit());
-					((LabeledJSFInputComponent)getResourceRecords_usr_RemoveTTLHeader()).getDependentChildFields().add(child.get_usr_RemoveTTL());
-					((LabeledJSFInputComponent)getResourceRecords_FamilyHeader()).getDependentChildFields().add(child.get_Family());
-					((LabeledJSFInputComponent)getResourceRecords_TypeHeader()).getDependentChildFields().add(child.get_Type());
-					((LabeledJSFInputComponent)getResourceRecords_ValueHeader()).getDependentChildFields().add(child.get_Value());
-		
-		
+					//((LabeledJSFInputComponent)getResourceRecords_usr_DeleteRecordHeader()).getDependentChildFields().add(child.get_usr_DeleteRecord());
+					//((LabeledJSFInputComponent)getResourceRecords_NameHeader()).getDependentChildFields().add(child.get_Name());
+					//((LabeledJSFInputComponent)getResourceRecords_TTLHeader()).getDependentChildFields().add(child.get_TTL());
+					//((LabeledJSFInputComponent)getResourceRecords_usr_TTLUnitHeader()).getDependentChildFields().add(child.get_usr_TTLUnit());
+					//((LabeledJSFInputComponent)getResourceRecords_usr_RemoveTTLHeader()).getDependentChildFields().add(child.get_usr_RemoveTTL());
+					//((LabeledJSFInputComponent)getResourceRecords_FamilyHeader()).getDependentChildFields().add(child.get_Family());
+					//((LabeledJSFInputComponent)getResourceRecords_TypeHeader()).getDependentChildFields().add(child.get_Type());
+					//((LabeledJSFInputComponent)getResourceRecords_ValueHeader()).getDependentChildFields().add(child.get_Value());
+			}
+	
+	private void clearResourceRecords() {
+		getResourceRecords().clear();
 	}
 
-	public void clearResourceRecords() {
-		getResourceRecords().clear();
-		getResourceRecordsPanel().getInputFieldContainer().getChildren().clear();
-					((LabeledJSFInputComponent)getResourceRecords_usr_DeleteRecordHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getResourceRecords_NameHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getResourceRecords_TTLHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getResourceRecords_usr_TTLUnitHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getResourceRecords_usr_RemoveTTLHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getResourceRecords_FamilyHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getResourceRecords_TypeHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getResourceRecords_ValueHeader()).getDependentChildFields().clear();
+	/**
+	* 
+	* Get the ResourceRecords for the UI repesentation
+	*/
+	public java.util.List getResourceRecordsForUI()
+	{
+				
+		List result = new ArrayList();
+		result.addAll(icResourceRecords);
+		
+		while (result.size() < MIN_TABLE_LENGTH)
+		{
+			try {
+				org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl item = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl((org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)adapter,bindingPrefix, result.size());
+				result.add(item);
+			} catch (InitContainerException e) {
+				e.printStackTrace();
 			}
-
-	public void addResourceRecordsHeader() {
-		getResourceRecordsPanel().setHeader(getResourceRecordsHeaderComponents());
+		}
+		
+		resourceRecordsPanel.setList(result);
+		
+		return result;
+	}		
+		
+		
+	/**
+	 * manages the style for whole footer which is displayed if there are no entries in the table or if there is a custom panel in it
+	 * @return
+	 */
+	public String getResourceRecordsFooterClass()
+	{
+		return "multiLineRowHeader center "  
+		+ (icResourceRecords.size() == 0 || getResourceRecordsPanel().isHavingCustomFooter() ?  "visible " : "hidden ");
+	}
+	
+	/**
+	 * manages the style for the label which is displayed if there are no entries in the table
+	 * @return
+	 */
+	public String getResourceRecordsAvailableFooterClass()
+	{
+		return icResourceRecords.size() > 0 ? " hidden " : " visible ";
+	}
+	
+	private void addResourceRecordsHeader() {
+		getResourceRecordsPanel().setHeader(getResourceRecordsHeaderComponents(),getResourceRecordsFieldNames());
 	}
 	
 	private LabeledJSFInputComponent[] getResourceRecordsHeaderComponents() {
@@ -209,6 +245,19 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 							(LabeledJSFInputComponent)getResourceRecords_FamilyHeader(),
 							(LabeledJSFInputComponent)getResourceRecords_TypeHeader(),
 							(LabeledJSFInputComponent)getResourceRecords_ValueHeader(),
+						};
+	}
+
+	private String[] getResourceRecordsFieldNames() {
+		return new String[]{
+							"_usr_DeleteRecord",
+							"_Name",
+							"_TTL",
+							"_usr_TTLUnit",
+							"_usr_RemoveTTL",
+							"_Family",
+							"_Type",
+							"_Value",
 						};
 	}
 
@@ -374,6 +423,43 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesDns"};
+	}
+
+	public void countAndCreateChildren() throws InitContainerException {
+	
+    			try
+		{
+			int count = adapter.count(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer.class);
+	        if (count != resourceRecordsCount)
+	        {
+	           resourceRecordsCount = count;
+	           clearResourceRecords();
+			   for (int i=0; i < count ; i++) {
+			        //<xml-fragment id="dns" adapterclass="DnsCimAdapter" adapterPackageId="dns" xmlns:cmd="http://sblim.org/wbemsmt/cmd" xmlns:cc="http://sblim.org/wbemsmt/clientconfig" xmlns:cd="http://sblim.org/wbemsmt/dcg" xmlns:pkg="http://sblim.org/wbemsmt/pkg" xmlns:pl="http://sblim.org/wbemsmt/pl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:plugins="http://sblim.org/wbemsmt/plugins"/>
+			        //org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter
+	    			addResourceRecords(new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl((org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)adapter,bindingPrefix, i));
+			   }
+	        }
+			getResourceRecordsPanel().setList(getResourceRecords());				   
+		} catch (WbemSmtException e) {
+			throw new InitContainerException(e);
+		}
+    		}
+
+
+	/**
+	 * count and create childrens
+	 * @throws UpdateControlsException
+	 */
+	public void updateControls() throws UpdateControlsException {
+		try {
+			countAndCreateChildren();
+			adapter.updateControls(this);
+		
+							getResourceRecordsPanel().updateRows();				
+					} catch (InitContainerException e) {
+			throw new UpdateControlsException(e);
+		}
 	}
 
 	

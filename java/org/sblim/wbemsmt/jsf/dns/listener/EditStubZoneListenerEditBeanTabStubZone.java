@@ -55,7 +55,7 @@ public class EditStubZoneListenerEditBeanTabStubZone extends EditBean {
 			super(ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale()));		
 		}
 
-		public String save() throws ValidationException, ObjectSaveException
+		public String save() throws ValidationException, ObjectSaveException, UpdateControlsException
 		{
 			saveResult = new MessageList();
 						MessageList result = null;
@@ -75,15 +75,8 @@ public class EditStubZoneListenerEditBeanTabStubZone extends EditBean {
         				{
         					successCount++;
             				adapter1.save(currentEditContainer1);
-    						try {
-                				//update the child objects
-                				                				
-                            	    							adapter1.updateControls(currentEditContainer1);
-    							
-                            	    							
-    						} catch (Exception e) {
-    							throw new ObjectSaveException("Canot update Model after saving data",e);
-    						}
+							//update the container and children objects
+							currentEditContainer1.updateControls();
             			}
         				
 						//Get the infos afte storing the values
@@ -149,9 +142,9 @@ public class EditStubZoneListenerEditBeanTabStubZone extends EditBean {
     			
 				//update the child objects
 								
-            					adapter1.updateControls(currentEditContainer1);
+				//update the container and children objects
+				currentEditContainer1.updateControls();
 
-            	    			
     			childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				childEditFields.setStyleClass("childTable");
     			

@@ -99,7 +99,7 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 		*/
 		
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForServiceDataContainer getAllowNotifyAcl()
-		{
+			{
 						return icAllowNotifyAcl;
 		}
 
@@ -110,7 +110,7 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 		*/
 		
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryForServiceDataContainer getAllowQueryAcl()
-		{
+			{
 						return icAllowQueryAcl;
 		}
 
@@ -121,7 +121,7 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 		*/
 		
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowTransferForServiceDataContainer getAllowTransferAcl()
-		{
+			{
 						return icAllowTransferAcl;
 		}
 
@@ -132,7 +132,7 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 		*/
 		
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowRecursionForServiceDataContainer getAllowRecursionAcl()
-		{
+			{
 						return icAllowRecursionAcl;
 		}
 
@@ -143,7 +143,7 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 		*/
 		
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsBlackholeForServiceDataContainer getBlackholeAcl()
-		{
+			{
 						return icBlackholeAcl;
 		}
 
@@ -154,7 +154,7 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 		*/
 		
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsConfigurationDataContainer getConfiguration()
-		{
+			{
 						return icConfiguration;
 		}
 
@@ -166,6 +166,25 @@ public class DnsServiceTracingDataContainerImpl extends org.sblim.wbemsmt.tools.
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesDns"};
+	}
+
+	public void countAndCreateChildren() throws InitContainerException {
+	
+    		}
+
+
+	/**
+	 * count and create childrens
+	 * @throws UpdateControlsException
+	 */
+	public void updateControls() throws UpdateControlsException {
+		try {
+			countAndCreateChildren();
+			adapter.updateControls(this);
+		
+					} catch (InitContainerException e) {
+			throw new UpdateControlsException(e);
+		}
 	}
 
 	

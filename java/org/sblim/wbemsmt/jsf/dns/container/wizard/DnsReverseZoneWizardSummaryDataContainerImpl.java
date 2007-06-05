@@ -46,6 +46,7 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
 				private java.util.List icResourceRecords = new java.util.ArrayList();
 		
 		private MultiLinePanel resourceRecordsPanel;
+		private int resourceRecordsCount;
 
 				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icResourceRecords_NameHeader;
 				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icResourceRecords_TypeHeader;
@@ -137,6 +138,7 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
 							  "#{" +  bindingPrefix + "resourceRecordsPanel", // binding for Title
 							  "DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainer.caption", //Key for title
 							  org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl.COLS);
+			  addResourceRecordsHeader();							  
 			}		
 			
 			return resourceRecordsPanel;
@@ -145,7 +147,7 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
 		static class ResourceRecordsPanel extends MultiLinePanel
 		{
 			public ResourceRecordsPanel(AbstractBaseCimAdapter adapter, String bindingPrefix, String bindigForTitle, String keyForTitle, int cols) {
-				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, cols);
+				super(adapter, bindingPrefix, bindigForTitle, keyForTitle, "resourceRecords", cols);
 			}
 	
 			protected String getOrientationOfColumnAsCss(int column) {
@@ -153,28 +155,67 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
 			}
 		}
 
-	public void addResourceRecords(org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl child) {
+	private void addResourceRecords(org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl child) {
 
 		getResourceRecords().add(child);
 		getResourceRecordsPanel().addComponents(child.getComponents());
 		
-					((LabeledJSFInputComponent)getResourceRecords_NameHeader()).getDependentChildFields().add(child.get_Name());
-					((LabeledJSFInputComponent)getResourceRecords_TypeHeader()).getDependentChildFields().add(child.get_Type());
-					((LabeledJSFInputComponent)getResourceRecords_ValueHeader()).getDependentChildFields().add(child.get_Value());
-		
-		
+					//((LabeledJSFInputComponent)getResourceRecords_NameHeader()).getDependentChildFields().add(child.get_Name());
+					//((LabeledJSFInputComponent)getResourceRecords_TypeHeader()).getDependentChildFields().add(child.get_Type());
+					//((LabeledJSFInputComponent)getResourceRecords_ValueHeader()).getDependentChildFields().add(child.get_Value());
+			}
+	
+	private void clearResourceRecords() {
+		getResourceRecords().clear();
 	}
 
-	public void clearResourceRecords() {
-		getResourceRecords().clear();
-		getResourceRecordsPanel().getInputFieldContainer().getChildren().clear();
-					((LabeledJSFInputComponent)getResourceRecords_NameHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getResourceRecords_TypeHeader()).getDependentChildFields().clear();
-					((LabeledJSFInputComponent)getResourceRecords_ValueHeader()).getDependentChildFields().clear();
+	/**
+	* 
+	* Get the ResourceRecords for the UI repesentation
+	*/
+	public java.util.List getResourceRecordsForUI()
+	{
+				
+		List result = new ArrayList();
+		result.addAll(icResourceRecords);
+		
+		while (result.size() < MIN_TABLE_LENGTH)
+		{
+			try {
+				org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl item = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl((org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)adapter,bindingPrefix, result.size());
+				result.add(item);
+			} catch (InitContainerException e) {
+				e.printStackTrace();
 			}
-
-	public void addResourceRecordsHeader() {
-		getResourceRecordsPanel().setHeader(getResourceRecordsHeaderComponents());
+		}
+		
+		resourceRecordsPanel.setList(result);
+		
+		return result;
+	}		
+		
+		
+	/**
+	 * manages the style for whole footer which is displayed if there are no entries in the table or if there is a custom panel in it
+	 * @return
+	 */
+	public String getResourceRecordsFooterClass()
+	{
+		return "multiLineRowHeader center "  
+		+ (icResourceRecords.size() == 0 || getResourceRecordsPanel().isHavingCustomFooter() ?  "visible " : "hidden ");
+	}
+	
+	/**
+	 * manages the style for the label which is displayed if there are no entries in the table
+	 * @return
+	 */
+	public String getResourceRecordsAvailableFooterClass()
+	{
+		return icResourceRecords.size() > 0 ? " hidden " : " visible ";
+	}
+	
+	private void addResourceRecordsHeader() {
+		getResourceRecordsPanel().setHeader(getResourceRecordsHeaderComponents(),getResourceRecordsFieldNames());
 	}
 	
 	private LabeledJSFInputComponent[] getResourceRecordsHeaderComponents() {
@@ -182,6 +223,14 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
 							(LabeledJSFInputComponent)getResourceRecords_NameHeader(),
 							(LabeledJSFInputComponent)getResourceRecords_TypeHeader(),
 							(LabeledJSFInputComponent)getResourceRecords_ValueHeader(),
+						};
+	}
+
+	private String[] getResourceRecordsFieldNames() {
+		return new String[]{
+							"_Name",
+							"_Type",
+							"_Value",
 						};
 	}
 
@@ -257,6 +306,43 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
 
 	public String[] getResourceBundleNames() {
 		return new String[]{"messages","messagesDns"};
+	}
+
+	public void countAndCreateChildren() throws InitContainerException {
+	
+    			try
+		{
+			int count = adapter.count(org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer.class);
+	        if (count != resourceRecordsCount)
+	        {
+	           resourceRecordsCount = count;
+	           clearResourceRecords();
+			   for (int i=0; i < count ; i++) {
+			        //<xml-fragment id="dns" adapterclass="DnsCimAdapter" adapterPackageId="dns" xmlns:cmd="http://sblim.org/wbemsmt/cmd" xmlns:cc="http://sblim.org/wbemsmt/clientconfig" xmlns:cd="http://sblim.org/wbemsmt/dcg" xmlns:pkg="http://sblim.org/wbemsmt/pkg" xmlns:pl="http://sblim.org/wbemsmt/pl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:plugins="http://sblim.org/wbemsmt/plugins"/>
+			        //org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter
+	    			addResourceRecords(new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordForReverseZoneWizardDataContainer_AsResourceRecords_InDnsReverseZoneWizardSummaryDataContainerImpl((org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)adapter,bindingPrefix, i));
+			   }
+	        }
+			getResourceRecordsPanel().setList(getResourceRecords());				   
+		} catch (WbemSmtException e) {
+			throw new InitContainerException(e);
+		}
+    		}
+
+
+	/**
+	 * count and create childrens
+	 * @throws UpdateControlsException
+	 */
+	public void updateControls() throws UpdateControlsException {
+		try {
+			countAndCreateChildren();
+			adapter.updateControls(this);
+		
+							getResourceRecordsPanel().updateRows();				
+					} catch (InitContainerException e) {
+			throw new UpdateControlsException(e);
+		}
 	}
 
 	

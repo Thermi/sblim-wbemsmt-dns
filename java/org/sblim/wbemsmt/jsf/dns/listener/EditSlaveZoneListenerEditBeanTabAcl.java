@@ -73,7 +73,7 @@ public class EditSlaveZoneListenerEditBeanTabAcl extends EditBean {
 			super(ResourceBundleManager.getResourceBundle(new String[]{"messages","messagesDns"},LocaleManager.getCurrent(FacesContext.getCurrentInstance()).getCurrentLocale()));		
 		}
 
-		public String save() throws ValidationException, ObjectSaveException
+		public String save() throws ValidationException, ObjectSaveException, UpdateControlsException
 		{
 			saveResult = new MessageList();
 						MessageList result = null;
@@ -93,15 +93,8 @@ public class EditSlaveZoneListenerEditBeanTabAcl extends EditBean {
         				{
         					successCount++;
             				adapter1.save(currentEditContainer1);
-    						try {
-                				//update the child objects
-                				                				
-                            	    							adapter1.updateControls(currentEditContainer1);
-    							
-                            	    							
-    						} catch (Exception e) {
-    							throw new ObjectSaveException("Canot update Model after saving data",e);
-    						}
+							//update the container and children objects
+							currentEditContainer1.updateControls();
             			}
         				
 						//Get the infos afte storing the values
@@ -123,15 +116,8 @@ public class EditSlaveZoneListenerEditBeanTabAcl extends EditBean {
         				{
         					successCount++;
             				adapter2.save(currentEditContainer2);
-    						try {
-                				//update the child objects
-                				                				
-                            	    							adapter2.updateControls(currentEditContainer2);
-    							
-                            	    							
-    						} catch (Exception e) {
-    							throw new ObjectSaveException("Canot update Model after saving data",e);
-    						}
+							//update the container and children objects
+							currentEditContainer2.updateControls();
             			}
         				
 						//Get the infos afte storing the values
@@ -153,15 +139,8 @@ public class EditSlaveZoneListenerEditBeanTabAcl extends EditBean {
         				{
         					successCount++;
             				adapter3.save(currentEditContainer3);
-    						try {
-                				//update the child objects
-                				                				
-                            	    							adapter3.updateControls(currentEditContainer3);
-    							
-                            	    							
-    						} catch (Exception e) {
-    							throw new ObjectSaveException("Canot update Model after saving data",e);
-    						}
+							//update the container and children objects
+							currentEditContainer3.updateControls();
             			}
         				
 						//Get the infos afte storing the values
@@ -183,15 +162,8 @@ public class EditSlaveZoneListenerEditBeanTabAcl extends EditBean {
         				{
         					successCount++;
             				adapter4.save(currentEditContainer4);
-    						try {
-                				//update the child objects
-                				                				
-                            	    							adapter4.updateControls(currentEditContainer4);
-    							
-                            	    							
-    						} catch (Exception e) {
-    							throw new ObjectSaveException("Canot update Model after saving data",e);
-    						}
+							//update the container and children objects
+							currentEditContainer4.updateControls();
             			}
         				
 						//Get the infos afte storing the values
@@ -257,9 +229,9 @@ public class EditSlaveZoneListenerEditBeanTabAcl extends EditBean {
     			
 				//update the child objects
 								
-            					adapter1.updateControls(currentEditContainer1);
+				//update the container and children objects
+				currentEditContainer1.updateControls();
 
-            	    			
     			childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				childEditFields.setStyleClass("childTable");
     			
@@ -314,9 +286,9 @@ public class EditSlaveZoneListenerEditBeanTabAcl extends EditBean {
     			
 				//update the child objects
 								
-            					adapter2.updateControls(currentEditContainer2);
+				//update the container and children objects
+				currentEditContainer2.updateControls();
 
-            	    			
     			childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				childEditFields.setStyleClass("childTable");
     			
@@ -371,9 +343,9 @@ public class EditSlaveZoneListenerEditBeanTabAcl extends EditBean {
     			
 				//update the child objects
 								
-            					adapter3.updateControls(currentEditContainer3);
+				//update the container and children objects
+				currentEditContainer3.updateControls();
 
-            	    			
     			childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				childEditFields.setStyleClass("childTable");
     			
@@ -428,9 +400,9 @@ public class EditSlaveZoneListenerEditBeanTabAcl extends EditBean {
     			
 				//update the child objects
 								
-            					adapter4.updateControls(currentEditContainer4);
+				//update the container and children objects
+				currentEditContainer4.updateControls();
 
-            	    			
     			childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				childEditFields.setStyleClass("childTable");
     			

@@ -21,6 +21,7 @@ package org.sblim.wbemsmt.jsf.dns.container.edit;
 
 import javax.faces.component.html.HtmlOutputText;
 import javax.faces.component.html.HtmlPanelGrid;
+import javax.faces.component.html.HtmlPanelGroup;
 
 import org.sblim.wbemsmt.jsf.dns.layouter.DnsLayouter;
 import org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputComponent;
@@ -30,7 +31,7 @@ public class DnsResourceRecordListContainerImplLayouter extends DnsLayouter {
 
 	public void layout(HtmlPanelGrid parent, DnsResourceRecordListContainerImpl container, WbemSmtResourceBundle bundle) {
 		
-		HtmlPanelGrid recordGrid = container.getResourceRecordsPanel().getInputFieldContainer();
+		HtmlPanelGroup recordsPanel = container.getResourceRecordsPanel().getCustomFooter();
 
 		HtmlOutputText label = getLabel("<br>");
 		label.setEscape(false);
@@ -39,11 +40,8 @@ public class DnsResourceRecordListContainerImplLayouter extends DnsLayouter {
 		addComponent(grid, (LabeledJSFInputComponent) container.get_usr_SelectAll());
 		grid.getChildren().add(label);
 		grid.getChildren().add(((LabeledJSFInputComponent)container.get_usr_Delete()).getComponentPanel());
-
-		recordGrid.getFacets().put("footer", grid);
-		recordGrid.setFooterClass("left");
 		
-		//container.getResourceRecordsPanel().updateRows(0);
+		recordsPanel.getChildren().add(grid);
 	}
 
 }

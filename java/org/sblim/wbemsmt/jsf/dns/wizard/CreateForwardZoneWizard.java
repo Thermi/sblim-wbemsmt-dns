@@ -65,8 +65,9 @@ public class CreateForwardZoneWizard extends JSFWizardBase implements IPageWizar
 					
 						try
 						{
-							    						panel1= new org.sblim.wbemsmt.jsf.dns.container.wizard.DnsForwardZoneWizardPage1DataContainerImpl(adapter,binding);
-                            
+    						panel1= new org.sblim.wbemsmt.jsf.dns.container.wizard.DnsForwardZoneWizardPage1DataContainerImpl(adapter,binding);
+    						panel1.countAndCreateChildren();
+
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -103,8 +104,9 @@ public class CreateForwardZoneWizard extends JSFWizardBase implements IPageWizar
 					
 						try
 						{
-							    						panel2= new org.sblim.wbemsmt.jsf.dns.container.wizard.DnsForwardZoneWizardSummaryDataContainerImpl(adapter,binding);
-                            
+    						panel2= new org.sblim.wbemsmt.jsf.dns.container.wizard.DnsForwardZoneWizardSummaryDataContainerImpl(adapter,binding);
+    						panel2.countAndCreateChildren();
+
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -179,8 +181,7 @@ public class CreateForwardZoneWizard extends JSFWizardBase implements IPageWizar
         				    					//update the child objects
         										try
 						{
-							
-                            							adapter.updateControls(panel1);
+							panel1.updateControls();
     					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
@@ -204,8 +205,7 @@ public class CreateForwardZoneWizard extends JSFWizardBase implements IPageWizar
         				    					//update the child objects
         										try
 						{
-							
-                            							adapter.updateControls(panel2);
+							panel2.updateControls();
     					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");

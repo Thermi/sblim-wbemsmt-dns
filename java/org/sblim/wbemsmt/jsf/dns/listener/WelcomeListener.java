@@ -52,6 +52,9 @@ public class WelcomeListener implements JsfWelcomeListener {
    	       //create container
           			org.sblim.wbemsmt.jsf.dns.container.welcome.WelcomeDataContainerImpl container = new org.sblim.wbemsmt.jsf.dns.container.welcome.WelcomeDataContainerImpl(adapter,bindingPrefix);
      				     container.getPanelForCustomLayout().setStyleClass("mainTable");
+
+				//update the container and children objects
+				container.updateControls();
 	
 				this.dataContainer = container;
 				panel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
@@ -60,12 +63,7 @@ public class WelcomeListener implements JsfWelcomeListener {
 	          	
 
 				HtmlPanelGrid containerPanel = (HtmlPanelGrid)container.getInputFieldContainer();
-
-				//update the child objects
-            	    			
-    			adapter.updateControls(container);
     			
-            	
     			HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
 				childEditFields.setStyleClass("childTable");
     			

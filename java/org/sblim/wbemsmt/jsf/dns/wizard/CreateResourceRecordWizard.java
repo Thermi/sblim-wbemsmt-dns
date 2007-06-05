@@ -67,8 +67,9 @@ public class CreateResourceRecordWizard extends JSFWizardBase implements IPageWi
 					
 						try
 						{
-							    						panel1= new org.sblim.wbemsmt.jsf.dns.container.wizard.DnsResourceRecordWizardPage1DataContainerImpl(adapter,binding);
-                            
+    						panel1= new org.sblim.wbemsmt.jsf.dns.container.wizard.DnsResourceRecordWizardPage1DataContainerImpl(adapter,binding);
+    						panel1.countAndCreateChildren();
+
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -105,8 +106,9 @@ public class CreateResourceRecordWizard extends JSFWizardBase implements IPageWi
 					
 						try
 						{
-							    						panel2= new org.sblim.wbemsmt.jsf.dns.container.wizard.DnsResourceRecordWizardSummaryDataContainerImpl(adapter,binding);
-                            
+    						panel2= new org.sblim.wbemsmt.jsf.dns.container.wizard.DnsResourceRecordWizardSummaryDataContainerImpl(adapter,binding);
+    						panel2.countAndCreateChildren();
+
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -142,8 +144,9 @@ public class CreateResourceRecordWizard extends JSFWizardBase implements IPageWi
 					
 						try
 						{
-							    						panel3= new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordWizardPage2TypeMxDataContainerImpl(adapter,binding);
-                            
+    						panel3= new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordWizardPage2TypeMxDataContainerImpl(adapter,binding);
+    						panel3.countAndCreateChildren();
+
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -179,8 +182,9 @@ public class CreateResourceRecordWizard extends JSFWizardBase implements IPageWi
 					
 						try
 						{
-							    						panel4= new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordWizardPage2TypeOtherDataContainerImpl(adapter,binding);
-                            
+    						panel4= new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordWizardPage2TypeOtherDataContainerImpl(adapter,binding);
+    						panel4.countAndCreateChildren();
+
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
                 			
@@ -254,8 +258,7 @@ public class CreateResourceRecordWizard extends JSFWizardBase implements IPageWi
         				    					//update the child objects
         										try
 						{
-							
-                            							adapter.updateControls(panel1);
+							panel1.updateControls();
     					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
@@ -279,8 +282,7 @@ public class CreateResourceRecordWizard extends JSFWizardBase implements IPageWi
         				    					//update the child objects
         										try
 						{
-							
-                            							adapter.updateControls(panel2);
+							panel2.updateControls();
     					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
@@ -304,8 +306,7 @@ public class CreateResourceRecordWizard extends JSFWizardBase implements IPageWi
         				    					//update the child objects
         										try
 						{
-							
-                            							adapter.updateControls(panel3);
+							panel3.updateControls();
     					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");
@@ -329,8 +330,7 @@ public class CreateResourceRecordWizard extends JSFWizardBase implements IPageWi
         				    					//update the child objects
         										try
 						{
-							
-                            							adapter.updateControls(panel4);
+							panel4.updateControls();
     					
     						HtmlPanelGrid childEditFields = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(HtmlPanelGrid.COMPONENT_TYPE);
             				childEditFields.setStyleClass("childTable");

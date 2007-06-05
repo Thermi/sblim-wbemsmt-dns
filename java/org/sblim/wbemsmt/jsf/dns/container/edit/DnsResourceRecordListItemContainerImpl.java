@@ -300,6 +300,25 @@ public class DnsResourceRecordListItemContainerImpl extends org.sblim.wbemsmt.to
 		return new String[]{"messages","messagesDns"};
 	}
 
+	public void countAndCreateChildren() throws InitContainerException {
+	
+    		}
+
+
+	/**
+	 * count and create childrens
+	 * @throws UpdateControlsException
+	 */
+	public void updateControls() throws UpdateControlsException {
+		try {
+			countAndCreateChildren();
+			adapter.updateControls(this);
+		
+					} catch (InitContainerException e) {
+			throw new UpdateControlsException(e);
+		}
+	}
+
 	
  
 	/**
