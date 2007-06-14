@@ -201,6 +201,9 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 
 		initAddressMatchLists();
 		initMastersForService();
+		
+		loaded = true;
+		
 	}
 
 
@@ -310,6 +313,9 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 				Masters wrapper = new Masters(fco,this);
 				dnsService.getMastersList().addMasters(wrapper);
 			}
+			
+			loaded = true;
+			
 			
 
 		} catch (WbemSmtException e) {
