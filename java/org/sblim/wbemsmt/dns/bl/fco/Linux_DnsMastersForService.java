@@ -23,7 +23,9 @@
 package org.sblim.wbemsmt.dns.bl.fco;
 
 import java.security.InvalidParameterException;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 import java.util.Vector;
 
 import org.sblim.wbem.cim.CIMDataType;
@@ -55,7 +57,7 @@ public class Linux_DnsMastersForService extends CIM_Component  {
 
 	public static Vector CIM_PropertyNameList	= new Vector();
 	public static Vector CIM_PropertyList 		= new Vector();
-	public static Vector Java_Package_List 		= new Vector();
+	private static Set Java_Package_List 		= new HashSet();
 	
 	static {
 		CIM_PropertyNameList.add(CIM_PROPERTY_LINUX_DNSSERVICE);
@@ -75,14 +77,12 @@ public class Linux_DnsMastersForService extends CIM_Component  {
 			Linux_DnsMastersForService.CIM_PropertyList.add(CIM_Component.CIM_PropertyList.elementAt(i));
 		}
 		
-		Java_Package_List.add("org.sblim.wbemsmt.dns.bl.fco");
+		addPackage("org.sblim.wbemsmt.dns.bl.fco");
 				
-		for (int i = 0; i < CIM_Component.Java_Package_List.size(); i++) {
-			if (((String)CIM_Component.Java_Package_List.elementAt(i)).equals("org.sblim.wbemsmt.dns.bl.fco")){
-				continue;
-			}
-			
-			Java_Package_List.add(CIM_Component.Java_Package_List.elementAt(i));
+		String[] parentClassPackageList = CIM_Component.getPackages();
+		
+		for (int i = 0; i < parentClassPackageList.length; i++) {
+			Java_Package_List.add(parentClassPackageList[i]);
 		}
 	};
 			
@@ -159,8 +159,8 @@ public class Linux_DnsMastersForService extends CIM_Component  {
 		} else if (cimObjectPath == null){
 			throw new InvalidParameterException("The cimObjectPath parameter does not contain a valid reference.");		
 		
-		} else if (!CIM_CLASS_NAME.equals(cimInstance.getClassName())) {
-			throw new InvalidParameterException("The class of the cimInstance must be of type " + CIM_CLASS_NAME + ".");
+		} else if (!cimObjectPath.getObjectName().equals(cimInstance.getClassName())) {
+			throw new InvalidParameterException("The class name of the instance and the ObjectPath are not the same.");
 		}
 		
 		setCimInstance(cimInstance);
@@ -176,6 +176,22 @@ public class Linux_DnsMastersForService extends CIM_Component  {
 	public String getClassDisplayName(){
 		return CIM_CLASS_DISPLAYNAME;
 	}
+	
+	public static void addPackage(String packagename) {
+        if (packagename != null) {
+            if (!packagename.endsWith(".")) {
+                packagename = packagename + ".";
+            }
+            Linux_DnsMastersForService.Java_Package_List.add(packagename);
+            
+        } else {
+            throw new NullPointerException();
+        }
+    }
+
+    public static String[] getPackages() {
+        return (String[]) Linux_DnsMastersForService.Java_Package_List.toArray(new String[Linux_DnsMastersForService.Java_Package_List.size()]);
+    }
 	
 	//**********************************************************************
 	// Instance methods
@@ -325,7 +341,7 @@ public class Linux_DnsMastersForService extends CIM_Component  {
 		if (currentProperty == null) {
 			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMastersForService.CIM_PROPERTY_LINUX_DNSSERVICE + " could not be found");
     		
-		} else if (currentProperty.getType() == null || !currentProperty.getType().getRefClassName().equals(Linux_DnsService.CIM_CLASS_NAME)) {
+		} else if (currentProperty.getType() == null ) {
 			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMastersForService.CIM_PROPERTY_LINUX_DNSSERVICE + " is not of expected type Linux_DnsService.");
 		}
         
@@ -347,7 +363,7 @@ public class Linux_DnsMastersForService extends CIM_Component  {
 		} else if (!Linux_DnsMastersForServiceHelper.isValid_Linux_DnsService(newValue)) {
 			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_DnsMastersForService.CIM_PROPERTY_LINUX_DNSSERVICE);
     		
-		} else if (currentProperty.getType() == null || !currentProperty.getType().getRefClassName().equals(Linux_DnsService.CIM_CLASS_NAME)) {
+		} else if (currentProperty.getType() == null ) {
 			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMastersForService.CIM_PROPERTY_LINUX_DNSSERVICE + " is not of expected type Linux_DnsService.");
 		}
     	
@@ -366,7 +382,7 @@ public class Linux_DnsMastersForService extends CIM_Component  {
 		if (currentProperty == null) {
 			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMastersForService.CIM_PROPERTY_LINUX_DNSMASTERS + " could not be found");
     		
-		} else if (currentProperty.getType() == null || !currentProperty.getType().getRefClassName().equals(Linux_DnsMasters.CIM_CLASS_NAME)) {
+		} else if (currentProperty.getType() == null ) {
 			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMastersForService.CIM_PROPERTY_LINUX_DNSMASTERS + " is not of expected type Linux_DnsMasters.");
 		}
         
@@ -388,7 +404,7 @@ public class Linux_DnsMastersForService extends CIM_Component  {
 		} else if (!Linux_DnsMastersForServiceHelper.isValid_Linux_DnsMasters(newValue)) {
 			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_DnsMastersForService.CIM_PROPERTY_LINUX_DNSMASTERS);
     		
-		} else if (currentProperty.getType() == null || !currentProperty.getType().getRefClassName().equals(Linux_DnsMasters.CIM_CLASS_NAME)) {
+		} else if (currentProperty.getType() == null ) {
 			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMastersForService.CIM_PROPERTY_LINUX_DNSMASTERS + " is not of expected type Linux_DnsMasters.");
 		}
     	

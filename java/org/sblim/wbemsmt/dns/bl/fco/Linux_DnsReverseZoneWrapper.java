@@ -29,6 +29,8 @@
 
 package org.sblim.wbemsmt.dns.bl.fco;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Vector;
 
 import org.sblim.wbem.cim.CIMDataType;
@@ -38,6 +40,7 @@ import org.sblim.wbem.cim.CIMProperty;
 import org.sblim.wbem.cim.CIMValue;
 import org.sblim.wbem.cim.UnsignedInt32;
 import org.sblim.wbem.cim.UnsignedInt8;
+import org.sblim.wbemsmt.schema.cim29.CIM_Component;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
 
@@ -70,7 +73,7 @@ public class Linux_DnsReverseZoneWrapper extends CIM_ManagedElement  {
 
 	public static Vector CIM_PropertyNameList	= new Vector();
 	public static Vector CIM_PropertyList 		= new Vector();
-	public static Vector Java_Package_List 		= new Vector();
+	private static Set Java_Package_List 		= new HashSet();
 	
 	static {
 		CIM_PropertyNameList.add(CIM_PROPERTY_NAME);
@@ -101,15 +104,16 @@ public class Linux_DnsReverseZoneWrapper extends CIM_ManagedElement  {
 			Linux_DnsReverseZoneWrapper.CIM_PropertyList.add(Linux_DnsZone.CIM_PropertyList.elementAt(i));
 		}
 		
+		addPackage("org.sblim.wbemsmt.dns.bl.fco");
+		
+		String[] parentClassPackageList = Linux_DnsZone.getPackages();
+		
+		for (int i = 0; i < parentClassPackageList.length; i++) {
+			Java_Package_List.add(parentClassPackageList[i]);
+		}
+
 		Java_Package_List.add("org.sblim.wbemsmt.dns.bl.fco");
 				
-		for (int i = 0; i < Linux_DnsZone.Java_Package_List.size(); i++) {
-			if (((String)Linux_DnsZone.Java_Package_List.elementAt(i)).equals("org.sblim.wbemsmt.dns.bl.fco")){
-				continue;
-			}
-			
-			Java_Package_List.add(Linux_DnsZone.Java_Package_List.elementAt(i));
-		}
 	};
 			
 	
