@@ -1,13 +1,65 @@
+Changes in 0.5.0-1 :
+==============================================================================
+- 1749362  wbemsmt-dns: Upgrade FCOs to latest generator level
+- 1746585  wbemsmt-admin: namespace for application
+- 1737048  wbemsmt-tasks: set Loaded flag if adapter was initialized
+- 1731236  wbemsmt-jsf: childrenTables as HtmlDataTable
+- 1728151  wbemsmt-jsf: scrollable childTables
+- 1727285  wbemsmt-jsf: configurable ajax update interval
+- 1724706  wbemsmt-commons-bl: CIMObjectKey with FCOs
+- 1724637  wbemsmt-common: InstanceNaming based in FCO
+- 1714724  wbemsmt-webapp: rendering of table with childContainers
+- 1720068  wbemsmt-dcg: add support for plugin modules
+- 1715061  wbemsmt: businesObjectList.getKey must return object
+- 1710995  wbemsmt-client: switchable cim schema for tasks
+- 1707399  wbemsmt: change file encoding to utf8
+- 1706397  wbemsmt: add base class for wbemsmt business objects
+- 1705834  wbemsmt: removing java 1.5 methods
+- 1700233  wbemsmt-cli&webapp: customizable feedback msg for wizards
+- 1674057  wbemsmt: update to sblim-cimclient-1.3.2
+- 1671504  wbemsmt-webapp: update to myfaces-core-1.1.5
+- 1699791  wbemsmt-webapp: revert changes after selecting new treenode
+- 1700178  wbemsmt-cli&webapp: cancel wizards
+- 1699213  wbemsmt-common: CIMInstanceFilter.accept: add CimClient
+- 1685389  wbemsmt-dns: add welcome page
+- 1680547  wbemsmt-webapp: welcome screens
+- 1675864  wbemsmt-webapp: common contextMenu
+- 1674186  wbemsmt-webapp: Cancel action for tabbed editActions
+- 1671545  wbemsmt-common: version-attribute for treeConfig.xml
+- 1671546  wbemsmt-common: version-attribute for taskConfig.xml
+- 1671547  wbemsmt-common: version-attribute for containerConfig.xml
+- 1658315  wbemsmt-webapp help integration
+- 1648068  wbemsmt-webapp: Login for Portlet containers
+- 1648024  wbemsmt-webapp: confirmation at pending changes
+- 1645083  wbemsmt-webapp: multilineTable - row deletion
+- 1638397  wbemsmt-webapp: add action menue
+- 1638396  wbemsmt-webapp: add close link to wait indicator
+- 1636819  wbemsmt-dns: reorder fields of resourceRecord List
+- 1618646  wbemsmt-webapp: rework ui: messages
+- 1620646  wbemsmt-webapp: wait indicator / confirmation dlg
+- 1633880  wbemsmt-common: titles for Tables - remove duplicated title for resource records
+- 1633279  wbemsmt-dns: Label instead of InputField in WizardSummary
+- 1633828  wbemsmt-common: remove inherited attributes from derived class
+- 1633822  wbemsmt-common: copy DataContainers
+- 1633209  wbemsmt-webapp: legend only if necessary
+- 1633006  wbemsmt-webapp: alignment of Fields
+- 1631557  wbemsmt-webapp: remove Cancel- and add Revert-Button
+- 1619945  wbemsmt-webapp: TreeSynchronisation
+- 1619423  wbemsmt-webapp: rework ui: field indicators
+- 1619411  wbemsmt-webapp: rework ui: changes for IE,opera...
+- 1613959  wbemsmt-webapp: rework ui: content of editPanels
+- 1615822  wbemsmt-webapp: rework ui: wizards
+
 Changes in 0.2.3-1 :
 ==============================================================================
 
-- #1609091  wbemsmt-dns: Consolidation of cvs module
-- #1609068  wbemsmt-dns: JSF EUI and Commandline support
+- 1609091  wbemsmt-dns: Consolidation of cvs module
+- 1609068  wbemsmt-dns: JSF EUI and Commandline support
 
 
 Changes in 0.2.2-1 : (Distributed packages - which are removed from CVS)
 ==============================================================================
 
-- #1572076  Missing Validation Messages
-- #1412716  cannot delete DNS Resource Record
-- #1574472  Cleanup for client projects
+- 1572076  Missing Validation Messages
+- 1412716  cannot delete DNS Resource Record
+- 1574472  Cleanup for client projects

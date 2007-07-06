@@ -1,5 +1,5 @@
 %define name                    sblim-wbemsmt-dns
-%define version                 0.2.3
+%define version                 0.5.0
 %define build_release           1
 %define release                 %{build_release}jpp
 %define section                 free
@@ -24,21 +24,24 @@ BuildArch:      noarch
 
 BuildRequires: jpackage-utils >= 0:1.5.32
 BuildRequires: ant >= 0:1.6
-BuildRequires: sblim-cim-client >= 0:1.3.2
-#BuildRequires: sblim-wbemsmt-commons => 0.2.3
+BuildRequires: sblim-cim-client >= 0:1.3.3
+BuildRequires: sblim-wbemsmt-commons => 0.5.0
 BuildRequires: jakarta-commons-cli >= 1.0
 BuildRequires: jakarta-commons-lang >= 2.0
 #BuildRequires:  myfaces >= 1.1.5
+#BuildRequires:  tomahawk >= 1.1.3
+#BuildRequires:  xbeans >= 2.2.0
 
 ###############################################################################
 
 Requires: jpackage-utils >= 0:1.5.32
-Requires: sblim-cim-client >= 0:1.3.2
-Requires: sblim-wbemsmt-commons => 0.2.3
-Requires: sblim-wbemsmt-webapp => 0.2.3
+Requires: sblim-cim-client >= 0:1.3.3
+Requires: sblim-wbemsmt-commons => 0.5.0
+Requires: sblim-wbemsmt-webapp => 0.5.0
 Requires: jakarta-commons-cli >= 1.0
 Requires: jakarta-commons-lang >= 2.0
 #Requires:  myfaces >= 1.1.5
+#Requires:  tomahawk >= 1.1.3
 
 ###############################################################################
 
@@ -59,7 +62,7 @@ for the DNS task.
 %build
 CLASSPATH=$(build-classpath sblim-cim-client)
 CLASSPATH=$(build-classpath commons-cli commons-lang):$CLASSPATH
-CLASSPATH=$(build-classpath myfaces-api myfaces-impl ):$CLASSPATH
+CLASSPATH=$(build-classpath myfaces-api myfaces-impl tomahawk xbean):$CLASSPATH
 CLASSPATH=$(build-classpath sblim-wbemsmt/sblim-wbemsmt-commons sblim-wbemsmt/sblim-wbemsmt-commons-launcher-config):$CLASSPATH
 export CLASSPATH
 
@@ -131,6 +134,58 @@ fi
 
 ###############################################################################
 %changelog
+* Fri Jul 6 2007 Wolfgang Taphorn <taphorn@de.ibm.com> 0.5.0-1
+  - Inclusion of fixes for the following issues:
+    o 1749362  wbemsmt-dns: Upgrade FCOs to latest generator level
+    o 1746585  wbemsmt-admin: namespace for application
+    o 1737048  wbemsmt-tasks: set Loaded flag if adapter was initialized
+    o 1731236  wbemsmt-jsf: childrenTables as HtmlDataTable
+    o 1728151  wbemsmt-jsf: scrollable childTables
+    o 1727285  wbemsmt-jsf: configurable ajax update interval
+    o 1724706  wbemsmt-commons-bl: CIMObjectKey with FCOs
+    o 1724637  wbemsmt-common: InstanceNaming based in FCO
+    o 1714724  wbemsmt-webapp: rendering of table with childContainers
+    o 1720068  wbemsmt-dcg: add support for plugin modules
+    o 1715061  wbemsmt: businesObjectList.getKey must return object
+    o 1710995  wbemsmt-client: switchable cim schema for tasks
+    o 1707399  wbemsmt: change file encoding to utf8
+    o 1706397  wbemsmt: add base class for wbemsmt business objects
+    o 1705834  wbemsmt: removing java 1.5 methods
+    o 1700233  wbemsmt-cli&webapp: customizable feedback msg for wizards
+    o 1674057  wbemsmt: update to sblim-cimclient-1.3.2
+    o 1671504  wbemsmt-webapp: update to myfaces-core-1.1.5
+    o 1699791  wbemsmt-webapp: revert changes after selecting new treenode
+    o 1700178  wbemsmt-cli&webapp: cancel wizards
+    o 1699213  wbemsmt-common: CIMInstanceFilter.accept: add CimClient
+    o 1685389  wbemsmt-dns: add welcome page
+    o 1680547  wbemsmt-webapp: welcome screens
+    o 1675864  wbemsmt-webapp: common contextMenu
+    o 1674186  wbemsmt-webapp: Cancel action for tabbed editActions
+    o 1671545  wbemsmt-common: version-attribute for treeConfig.xml
+    o 1671546  wbemsmt-common: version-attribute for taskConfig.xml
+    o 1671547  wbemsmt-common: version-attribute for containerConfig.xml
+    o 1658315  wbemsmt-webapp help integration
+    o 1648068  wbemsmt-webapp: Login for Portlet containers
+    o 1648024  wbemsmt-webapp: confirmation at pending changes
+    o 1645083  wbemsmt-webapp: multilineTable - row deletion
+    o 1638397  wbemsmt-webapp: add action menue
+    o 1638396  wbemsmt-webapp: add close link to wait indicator
+    o 1636819  wbemsmt-dns: reorder fields of resourceRecord List
+    o 1618646  wbemsmt-webapp: rework ui: messages
+    o 1620646  wbemsmt-webapp: wait indicator / confirmation dlg
+    o 1633880  wbemsmt-common: titles for Tables - remove duplicated title for resource records
+    o 1633279  wbemsmt-dns: Label instead of InputField in WizardSummary
+    o 1633828  wbemsmt-common: remove inherited attributes from derived class
+    o 1633822  wbemsmt-common: copy DataContainers
+    o 1633209  wbemsmt-webapp: legend only if necessary
+    o 1633006  wbemsmt-webapp: alignment of Fields
+    o 1631557  wbemsmt-webapp: remove Cancel- and add Revert-Button
+    o 1619945  wbemsmt-webapp: TreeSynchronisation
+    o 1619423  wbemsmt-webapp: rework ui: field indicators
+    o 1619411  wbemsmt-webapp: rework ui: changes for IE,opera...
+    o 1613959  wbemsmt-webapp: rework ui: content of editPanels
+    o 1615822  wbemsmt-webapp: rework ui: wizards
+
 * Mon Dec 4 2006 Wolfgang Taphorn <taphorn@de.ibm.com> 0.2.3-1
   - Consolidation of the different cvs modules
   - Inclusion of fixes for the following bug entries:
