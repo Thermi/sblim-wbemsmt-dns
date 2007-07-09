@@ -40,7 +40,6 @@ import org.sblim.wbem.cim.CIMProperty;
 import org.sblim.wbem.cim.CIMValue;
 import org.sblim.wbem.cim.UnsignedInt32;
 import org.sblim.wbem.cim.UnsignedInt8;
-import org.sblim.wbemsmt.schema.cim29.CIM_Component;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
 
