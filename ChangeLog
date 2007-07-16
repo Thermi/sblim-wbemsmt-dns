@@ -1,6 +1,30 @@
 // =========================================================================
 // new in version 0.5.0-1 :
 
+2007-07-16 19:56  taphorn
+
+	* NEWS, build.xml, sblim-wbemsmt-dns.spec: Fix for issue [ 1754942
+	  ] wbemsmt-dns: Upgrade to build environment
+
+2007-07-12 11:28  mbauschert
+
+	* conf/.cvsignore: using cimschema.jar for faster startup
+
+2007-07-12 11:16  mbauschert
+
+	* conf/.cvsignore: added cimschema to cvsignore
+
+2007-07-09 09:49  mbauschert
+
+	* .classpath,
+	  java/org/sblim/wbemsmt/dns/bl/fco/Linux_DnsReverseZoneWrapper.java:
+	  Fix [ 1750200 ] wbemsmt-client: update jar references
+
+2007-07-07 00:08  taphorn
+
+	* ChangeLog, NEWS, README, build.xml, sblim-wbemsmt-dns.spec:
+	  Preparation for 0.5.0 release
+
 2007-07-06 22:46  taphorn
 
 	* java/org/sblim/wbemsmt/dns/bl/fco/:
