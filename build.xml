@@ -50,9 +50,11 @@
          ================================= -->
     <target name="compile" description="--> Compile the sources of ${ant.project.name}">
         <mkdir dir="${basedir}/${dir.compile.output}"/>
+        <mkdir dir="${basedir}/${dir.compile.output}/java"/>
         <mkdir dir="${basedir}/${dir.compile.output}/etc/sblim-wbemsmt/tasklauncher.d"/>
+        <mkdir dir="${basedir}/${dir.compile.output}/help/plugins/org.sblim.wbemsmt.help.dns"/>
 
-        <javac destdir="${basedir}/${dir.compile.output}"
+        <javac destdir="${basedir}/${dir.compile.output}/java"
                excludes    ="**/package.html"
                debug       ="${javac.debug}"
                listfiles   ="${javac.listfiles}"
@@ -69,10 +71,9 @@
     	<copy todir="${dir.compile.output}">
             <fileset dir="${basedir}">
             	<include name="cli-scripts/**"/>
-            </fileset>
-            <fileset dir="${basedir}/java">
-            	<include name="messages**.properties"/>
-            	<include name="**.xml"/>
+            	<include name="java/**"/>
+                <include name="help/**"/>
+                <exclude name="**/*.java"/>
             </fileset>
         </copy>
     	<copy todir="${dir.compile.output}/etc/sblim-wbemsmt/tasklauncher.d">
@@ -92,10 +93,7 @@
         <mkdir dir="${dir.package.output}/etc/sblim-wbemsmt/tasklauncher.d/"/>
 
     	<jar jarfile="${dir.package.output}/sblim-${ant.project.name}-${Manifest.version}.jar"
-             basedir="${dir.compile.output}"
-    		 includes="org/**,
-    		           messages**.properties,
-                       **.xml"
+             basedir="${dir.compile.output}/java"
              index="${jar.index}">
             <manifest>
                 <attribute name="Built-By" value="${user.name}"/>
@@ -107,8 +105,9 @@
         </jar>        
 
     	<copy todir="${dir.package.output}">
-            <fileset dir="${basedir}">
+            <fileset dir="${dir.compile.output}">
             	<include name="cli-scripts/**"/>
+                <include name="help/**"/>
             </fileset>
         </copy>
     	<copy 
@@ -135,8 +134,9 @@
           <tarfileset
             dir="${basedir}"
             includes="java/**,
-          	          cli-scripts/**,
-          	          conf/dns-task-config.xml,
+                      cli-scripts/**,
+                      help/**,
+                      conf/dns-task-config.xml,
                       build.xml,
                       AUTHORS,
                       ChangeLog,
@@ -145,11 +145,11 @@
                       README,
                       MultipleHostsSupport,
                       TroubleShooting,
-          	          sblim-wbemsmt-dns.spec"
+                      sblim-wbemsmt-dns.spec"
             excludes="**/.ant-targets-build.xml, 
-          	          ${dir.compile.output}/**, 
-          	          ${dir.package.output}/**, 
-          	          ${dir.release.output}/**"
+                      ${dir.compile.output}/**, 
+                      ${dir.package.output}/**, 
+                      ${dir.release.output}/**"
             prefix="sblim-${ant.project.name}"/>
         </tar>
     </target>
@@ -167,6 +167,7 @@
               dir="${dir.package.output}"
               includes="**/*.jar,
             	        cli-scripts/**,
+            	        help/**,
             	        etc/**"
               prefix="sblim-${ant.project.name}"/>
             <tarfileset

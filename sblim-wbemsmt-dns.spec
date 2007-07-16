@@ -5,9 +5,6 @@
 %define section                 free
 
 
-%define wbemsmt_webapp_name     sblim-wbemsmt-webapp
-%define wbemsmt_webapp_instdir  %{_localstatedir}/lib/%{wbemsmt_webapp_name}/webapps/%{wbemsmt_webapp_name}
-
 ###############################################################################
 
 Name:           %{name}
@@ -77,6 +74,7 @@ install -d $RPM_BUILD_ROOT%{_bindir}/
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/sblim-wbemsmt/tasklauncher.d
 install -d $RPM_BUILD_ROOT%{_javadir}/sblim-wbemsmt
 install -d $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
+install -d $RPM_BUILD_ROOT%{_localstatedir}/lib/%{name}/help
 
 # Installation of documentation files
 install COPYING   $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}/COPYING
@@ -97,23 +95,41 @@ install target/package/%{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/sblim-w
     ln -sf %{name}-%{version}.jar %{name}.jar;
 )
 
+# Moving help files to the webapp directory
+mv target/package/help/* $RPM_BUILD_ROOT%{_localstatedir}/lib/%{name}/help
+
 ###############################################################################
 
 %post
 unset JAVA_HOME
-[ -r %{_sysconfdir}/tomcat5/tomcat5.conf ] && . %{_sysconfdir}/tomcat5/tomcat5.conf
 [ -z "$JAVA_HOME" ] && [ -r %{_sysconfdir}/java/java.conf ] && \
     . %{_sysconfdir}/java/java.conf
 [ -z "$JAVA_HOME" ] && JAVA_HOME=%{_jvmdir}/java
-build-jar-repository %{wbemsmt_webapp_instdir}/WEB-INF/lib sblim-wbemsmt/%{name}
+
+unset WBEMSMT_WEBAPP_HOME
+[ -r %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-webapp.conf ] && . %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-webapp.conf
+[ -z "$WBEMSMT_WEBAPP_HOME" ] && WBEMSMT_WEBAPP_HOME=%{_localstatedir}/lib/sblim-wbemsmt-webapp/webapps/sblim-wbemsmt-webapp
+
+unset WBEMSMT_HELPDIR
+[ -r %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-commons.conf ] && . %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-commons.conf
+[ -z "$WBEMSMT_HELPDIR" ] && WBEMSMT_HELPDIR=/var/lib/sblim-wbemsmt/help
+ln -sf %{_localstatedir}/lib/%{name}/help/plugins/org.sblim.wbemsmt.help.dns $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.dns
+
+build-jar-repository $WBEMSMT_WEBAPP_HOME/WEB-INF/lib sblim-wbemsmt/%{name}
 
 
 ###############################################################################
 
 %preun
-if [ $1 = 0 ]; then
-     rm -f %{wbemsmt_webapp_instdir}/WEB-INF/lib/\[sblim-wbemsmt\]\[%{name}.jar\]*.jar
-fi
+unset WBEMSMT_WEBAPP_HOME
+[ -r %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-webapp.conf ] && . %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-webapp.conf
+[ -z "$WBEMSMT_WEBAPP_HOME" ] && WBEMSMT_WEBAPP_HOME=%{_localstatedir}/lib/sblim-wbemsmt-webapp/webapps/sblim-wbemsmt-webapp
+rm -f $WBEMSMT_WEBAPP_HOME/WEB-INF/lib/\[sblim-wbemsmt\]\[%{name}.jar\]*.jar
+
+unset WBEMSMT_HELPDIR
+[ -r %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-commons.conf ] && . %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-commons.conf
+[ -z "$WBEMSMT_HELPDIR" ] && WBEMSMT_HELPDIR=/var/lib/sblim-wbemsmt/help
+unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.dns
 
 
 ###############################################################################
@@ -127,6 +143,7 @@ fi
 %doc %{_docdir}/%{name}-%{version}/NEWS
 %doc %{_docdir}/%{name}-%{version}/TroubleShooting
 %doc %{_docdir}/%{name}-%{version}/MultipleHostsSupport
+%{_localstatedir}/lib/%{name}/help/*
 %{_javadir}/sblim-wbemsmt/%{name}.jar
 %{_javadir}/sblim-wbemsmt/%{name}-%{version}.jar
 %{_bindir}/sblim-wbemsmt-dns-cli.sh
@@ -136,6 +153,8 @@ fi
 %changelog
 * Fri Jul 6 2007 Wolfgang Taphorn <taphorn@de.ibm.com> 0.5.0-1
   - Inclusion of fixes for the following issues:
+    o 1754942  wbemsmt-dns: Upgrade to build environment
+    o 1750200  wbemsmt-client: update jar references
     o 1749362  wbemsmt-dns: Upgrade FCOs to latest generator level
     o 1746585  wbemsmt-admin: namespace for application
     o 1737048  wbemsmt-tasks: set Loaded flag if adapter was initialized
