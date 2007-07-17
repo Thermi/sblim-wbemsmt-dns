@@ -24,5 +24,5 @@ S: Tomcat needs to be running: > service tomcat5 start
    
 P: After a period of inactivity the WBEM-SMT login panel is displayed
 S: The session timeout value in 
-   <sblim-wbemsmt-[task]-dir>/WEB-INF/web.xml is set to 30 minutes. If this is
+   <sblim-wbemsmt-webapp-dir>/WEB-INF/web.xml is set to 30 minutes. If this is
    too small change it.
