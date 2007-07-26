@@ -240,8 +240,6 @@ public interface DnsCimAdapterIf extends DnsCimAdapterCountIf, DnsCimAdapterCrea
 	/** 
 	 * InstallValidator-Methods
 	 **/
-	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAddMasterAddressDataContainer container);
-	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListForServiceDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsAddressMatchListWizardPage1DataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsAddressMatchListWizardSummaryDataContainer container);
@@ -258,10 +256,8 @@ public interface DnsCimAdapterIf extends DnsCimAdapterCountIf, DnsCimAdapterCrea
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardZoneDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardPage1DataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardSummaryDataContainer container);
-	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsForwarderDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardersForServiceDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsHintZoneDataContainer container);
-	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsMasterDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsMasterZoneDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardPage1DataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardSummaryDataContainer container);
@@ -269,7 +265,6 @@ public interface DnsCimAdapterIf extends DnsCimAdapterCountIf, DnsCimAdapterCrea
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsMastersWizardPage1DataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsMastersWizardSummaryDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer container);
-	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardPage1DataContainer container);
@@ -280,7 +275,6 @@ public interface DnsCimAdapterIf extends DnsCimAdapterCountIf, DnsCimAdapterCrea
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardPage1DataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardSummaryDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceOperationsDataContainer container);
-	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceTracingDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsSlaveZoneDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsSlaveZoneWizardPage1DataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsSlaveZoneWizardSummaryDataContainer container);
@@ -288,9 +282,5 @@ public interface DnsCimAdapterIf extends DnsCimAdapterCountIf, DnsCimAdapterCrea
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsStubZoneDataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsStubZoneWizardPage1DataContainer container);
 	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsStubZoneWizardSummaryDataContainer container);
-	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsTTLDataContainer container);
-	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneDataContainer container);
-	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneTracingContainer container);
-	public void installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.welcome.WelcomeDataContainer container);
 			
 }

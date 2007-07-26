@@ -42,13 +42,6 @@ public class DnsCimAdapterInstallValidatorsDelegatee implements
 	}
 
 	/* (non-Javadoc)
-	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInstallValidatorsIf#installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListDataContainer)
-	 */
-	public void installValidatorsImpl(DnsAddressMatchListDataContainer container) {
-
-	}
-
-	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInstallValidatorsIf#installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListForServiceDataContainer)
 	 */
 	public void installValidatorsImpl(
@@ -309,10 +302,6 @@ public class DnsCimAdapterInstallValidatorsDelegatee implements
 		
 	}
 
-	public void installValidatorsImpl(DnsZoneTracingContainer container) {
-		
-	}
-
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInstallValidatorsIf#installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardSummaryDataContainer)
 	 */
@@ -335,25 +324,8 @@ public class DnsCimAdapterInstallValidatorsDelegatee implements
 
 	}
 
-	public void installValidatorsImpl(DnsForwarderDataContainer container) {
-		//do nothing - is a base object
-		
-	}
-
-	public void installValidatorsImpl(DnsTTLDataContainer container) {
-		//do nothing - is a base object
-	}
-
-	public void installValidatorsImpl(DnsAddMasterAddressDataContainer container) {
-		//do nothing - is a base object
-	}
-
 	public void installValidatorsImpl(DnsReverseZoneWizardSummaryDataContainer container) {
 		//do nothing - is a summary page
-	}
-
-	public void installValidatorsImpl(DnsResourceRecordForReverseZoneWizardDataContainer container) {
-		//do nothing - is on a summary page
 	}
 
 	public void installValidatorsImpl(DnsResourceRecordListContainer container) {
@@ -365,9 +337,6 @@ public class DnsCimAdapterInstallValidatorsDelegatee implements
 	}
 
 	public void installValidatorsImpl(DnsSoaContainer container) {
-	}
-
-	public void installValidatorsImpl(DnsMasterDataContainer container) {
 	}
 
 	public void installValidatorsImpl(DnsMastersForServiceDataContainer container) {
