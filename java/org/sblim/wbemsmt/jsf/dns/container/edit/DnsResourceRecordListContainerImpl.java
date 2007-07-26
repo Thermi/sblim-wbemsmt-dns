@@ -200,6 +200,7 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 		{
 			try {
 				org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl item = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl((org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)adapter,bindingPrefix, result.size());
+				DataContainerUtil.setVisibilityOfFields(item,false);
 				result.add(item);
 			} catch (InitContainerException e) {
 				e.printStackTrace();
@@ -435,8 +436,6 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 	           resourceRecordsCount = count;
 	           clearResourceRecords();
 			   for (int i=0; i < count ; i++) {
-			        //<xml-fragment id="dns" adapterclass="DnsCimAdapter" adapterPackageId="dns" xmlns:cmd="http://sblim.org/wbemsmt/cmd" xmlns:cc="http://sblim.org/wbemsmt/clientconfig" xmlns:cd="http://sblim.org/wbemsmt/dcg" xmlns:pkg="http://sblim.org/wbemsmt/pkg" xmlns:pl="http://sblim.org/wbemsmt/pl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:plugins="http://sblim.org/wbemsmt/plugins"/>
-			        //org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter
 	    			addResourceRecords(new org.sblim.wbemsmt.jsf.dns.container.edit.DnsResourceRecordListItemContainer_AsResourceRecords_InDnsResourceRecordListContainerImpl((org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)adapter,bindingPrefix, i));
 			   }
 	        }
