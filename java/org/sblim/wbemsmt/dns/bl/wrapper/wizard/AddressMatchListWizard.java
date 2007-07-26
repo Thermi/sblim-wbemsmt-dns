@@ -85,6 +85,7 @@ public class AddressMatchListWizard extends DnsWizard {
 		try {
 			container.get_Name().setControlValue(page1.get_Name().getConvertedControlValue());
 			container.get_AddressList().setValues(aclHandler.getUsedAddressesAsArray(AclHandler.IDX_USER));
+			container.get_AddressList().setShowAllInReadOnlyView(true);
 		} catch (ModelLoadException e) {
 			throw new UpdateControlsException(e);
 		}

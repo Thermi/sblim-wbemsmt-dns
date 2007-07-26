@@ -67,6 +67,7 @@ public class MastersWizard extends DnsWizard {
 
 	public void updateControls(DnsMastersWizardSummaryDataContainer container) throws UpdateControlsException {
 		container.get_Name().setControlValue(page1.get_Name().getConvertedControlValue());
+		container.get_AddressList().setShowAllInReadOnlyView(true);
 		mastersHandler.updateIpAddressList(container);
 	}
 

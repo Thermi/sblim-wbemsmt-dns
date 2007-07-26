@@ -70,6 +70,7 @@ public class SlaveZoneWizard extends DnsWizard {
 
 	public void updateControls(DnsSlaveZoneWizardSummaryDataContainer container) throws UpdateControlsException {
 		container.get_usr_Name().setControlValue(page1.get_usr_Name().getConvertedControlValue());
+		container.get_usr_IpAdressses().setShowAllInReadOnlyView(true);
 		mastersHandler.updateIpAddressList(container);
 	}
 

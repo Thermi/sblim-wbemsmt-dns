@@ -111,6 +111,8 @@ public class ForwardZoneWizard extends DnsWizard {
 		container.get_Forward().getProperties().setReadOnly(true);
 		container.get_Forwarders().getProperties().setReadOnly(true);
 		container.get_usr_Name().getProperties().setReadOnly(true);
+		container.get_Forwarders().setShowAllInReadOnlyView(true);
+
 	}
 
 	public void updateModel(DnsForwardZoneWizardPage1DataContainer container) throws ModelUpdateException {
