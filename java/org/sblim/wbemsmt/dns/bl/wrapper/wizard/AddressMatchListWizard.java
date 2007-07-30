@@ -71,6 +71,7 @@ public class AddressMatchListWizard extends DnsWizard {
 			//force a reload
 			aclHandler.resetAcl(AclHandler.IDX_USER);
 			adapter.setPathOfTreeNode(aclHandler.getAcl(AclHandler.IDX_USER).getCimObjectPath());
+			matchList = new Linux_DnsAddressMatchList();
 		} catch (ModelLoadException e) {
 			throw new ObjectSaveException(e);
 		}
