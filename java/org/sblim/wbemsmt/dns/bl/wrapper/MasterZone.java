@@ -217,7 +217,7 @@ public class MasterZone extends DnsBusinessObject implements Zone {
 
 	public void updateControls(DnsMasterZoneDataContainer container) throws UpdateControlsException {
 		try {
-			super.setForwarder(container,fco.get_Forward());
+			super.setForwarderToContainer(container,fco.get_Forward());
 			container.get_Forwarders().setValues(getForwarders(getForwarderList()));
 			container.get_Name().setControlValue(fco.get_Name());
 			container.get_ZoneFile().setControlValue(fco.get_ZoneFile());

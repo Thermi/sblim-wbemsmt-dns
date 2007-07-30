@@ -22,12 +22,7 @@ package org.sblim.wbemsmt.dns.bl.adapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.*;
 import org.sblim.wbemsmt.dns.bl.container.welcome.WelcomeDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.wizard.*;
-import org.sblim.wbemsmt.dns.bl.validator.AddressMatchListNameValidator;
-import org.sblim.wbemsmt.dns.bl.validator.MasterAddressesSetValidator;
-import org.sblim.wbemsmt.dns.bl.validator.ResourceRecordListValidator;
-import org.sblim.wbemsmt.dns.bl.validator.ResourceRecordValidator;
-import org.sblim.wbemsmt.dns.bl.validator.ReverseZoneIpValidator;
-import org.sblim.wbemsmt.dns.bl.validator.ZoneNameValidator;
+import org.sblim.wbemsmt.dns.bl.validator.*;
 import org.sblim.wbemsmt.tools.validator.IpAddressFieldValidator;
 import org.sblim.wbemsmt.tools.validator.RequiredFieldValidator;
 
@@ -146,7 +141,7 @@ public class DnsCimAdapterInstallValidatorsDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInstallValidatorsIf#installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardZoneDataContainer)
 	 */
 	public void installValidatorsImpl(DnsForwardZoneDataContainer container) {
-
+		adapter.addValidator(container,new ForwardUnknownValidator(container.get_Forward(),adapter,false));
 	}
 
 	/* (non-Javadoc)
@@ -160,7 +155,7 @@ public class DnsCimAdapterInstallValidatorsDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInstallValidatorsIf#installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsMasterZoneDataContainer)
 	 */
 	public void installValidatorsImpl(DnsMasterZoneDataContainer container) {
-
+		adapter.addValidator(container,new ForwardUnknownValidator(container.get_Forward(),adapter,false));
 	}
 
 	/* (non-Javadoc)
@@ -231,7 +226,7 @@ public class DnsCimAdapterInstallValidatorsDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInstallValidatorsIf#installValidatorsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsReverseZoneDataContainer)
 	 */
 	public void installValidatorsImpl(DnsReverseZoneDataContainer container) {
-
+		adapter.addValidator(container,new ForwardUnknownValidator(container.get_Forward(),adapter,false));
 	}
 
 
@@ -260,6 +255,7 @@ public class DnsCimAdapterInstallValidatorsDelegatee implements
 	public void installValidatorsImpl(DnsSlaveZoneDataContainer container) {
 		MasterAddressesSetValidator masterAddressValidator = new MasterAddressesSetValidator(container.get_Masters(), adapter);
 		adapter.addValidator(container,masterAddressValidator);
+		adapter.addValidator(container,new ForwardUnknownValidator(container.get_Forward(),adapter,false));
 	}
 
 	/* (non-Javadoc)
@@ -355,6 +351,7 @@ public class DnsCimAdapterInstallValidatorsDelegatee implements
 	}
 
 	public void installValidatorsImpl(DnsStubZoneDataContainer container) {
+		adapter.addValidator(container,new ForwardUnknownValidator(container.get_Forward(),adapter,false));
 	}
 
 	public void installValidatorsImpl(DnsStubZoneWizardPage1DataContainer container) {
@@ -370,6 +367,7 @@ public class DnsCimAdapterInstallValidatorsDelegatee implements
 	}
 
 	public void installValidatorsImpl(DnsForwardersForServiceDataContainer container) {
+		adapter.addValidator(container,new ForwardUnknownValidator(container.get_Forward(),adapter,false));
 	}
 
 	public void installValidatorsImpl(WelcomeDataContainer container) {

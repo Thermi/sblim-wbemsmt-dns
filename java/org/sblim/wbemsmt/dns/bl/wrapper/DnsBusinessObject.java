@@ -100,7 +100,16 @@ public abstract class DnsBusinessObject extends DnsObject {
 	public abstract CimObjectKey getCimObjectKey();
 	protected ResourceRecordHandler resourceRecordHandler;
 
+	/**
+	 * true if the object is having forward ip addresses
+	 */
 	protected boolean forwarderExists;
+	
+	/**
+	 * true if the forward attribute is unknown
+	 */
+	protected boolean unknownForwarder = false;
+	
 	
 	private static final DateFormat FORMAT_FOR_SERIAL_NUMBER = new SimpleDateFormat("yyyyMMdd");
 	private static final NumberFormat FORMAT_FOR_SERIAL_NUMBER_VERSION = new DecimalFormat("##00");
@@ -667,15 +676,21 @@ public abstract class DnsBusinessObject extends DnsObject {
 		adapter.getFcoHelper().delete(zone,adapter.getCimClient(),true);
 	}
 
-	public void setForwarder(DnsForwarderDataContainer container, UnsignedInt8 forward) {
+	public void setForwarderToContainer(DnsForwarderDataContainer container, UnsignedInt8 forward) {
 		container.get_Forward().setValues(new String[]{
 				adapter.getBundle().getString("no.forwarder"),
 				Linux_DnsServiceSettingData.CIM_VALUEMAP_FORWARD[Linux_DnsServiceSettingData.FORWARD_ONLY],
 				Linux_DnsServiceSettingData.CIM_VALUEMAP_FORWARD[Linux_DnsServiceSettingData.FORWARD_FIRST]} );
 		
-		if (forward == null || forward.intValue() == Linux_DnsServiceSettingData.FORWARD_UNKNOWN)
+		unknownForwarder = forward != null && forward.intValue() == Linux_DnsServiceSettingData.FORWARD_UNKNOWN; 
+		
+		if (forward == null)
 		{
 			container.get_Forward().setControlValue(new UnsignedInt8((short)0));
+		}
+		else if (forward.intValue() == Linux_DnsServiceSettingData.FORWARD_UNKNOWN)
+		{
+			container.get_Forward().setControlValue(null);
 		}
 		else
 		{
@@ -683,11 +698,11 @@ public abstract class DnsBusinessObject extends DnsObject {
 		}
 	}
 
-	public void setForwarder(DnsForwardZoneWizardSummaryDataContainer container, UnsignedInt8 forward) {
+	public void setForwarderToContainer(DnsForwardZoneWizardSummaryDataContainer container, UnsignedInt8 forward) {
 		
 		if (forward == null || forward.intValue() == Linux_DnsServiceSettingData.FORWARD_UNKNOWN)
 		{
-			container.get_Forward().setControlValue(Linux_DnsServiceSettingData.CIM_VALUEMAP_FORWARD[Linux_DnsServiceSettingData.FORWARD_UNKNOWN]);
+			container.get_Forward().setControlValue(adapter.getBundle().getString("no.forwarder"));
 		}
 		else
 		{
@@ -695,11 +710,22 @@ public abstract class DnsBusinessObject extends DnsObject {
 		}
 	}
 
+	/**
+	 * Returns the value of the forward
+	 * @param container
+	 * @return
+	 * 
+	 * If the user selected "no forwarder" null is returned
+	 * if the user selected only/first the index for that values is returned
+	 * if the forward is unknown and the user selected nothing unknown is returned 
+	 * 
+	 */
 	public UnsignedInt8 getForwarder(DnsForwarderDataContainer container) {
 
-		Object convertedControlValue = container.get_Forward().getConvertedControlValue();
-		if (convertedControlValue != null)
+		
+		if (isForwarderSet(container))
 		{
+			Object convertedControlValue = container.get_Forward().getConvertedControlValue();
 			UnsignedInt8 value = (UnsignedInt8) convertedControlValue;
 			//index 0 is no forwarder
 			if (value.intValue() == 0)
@@ -713,11 +739,23 @@ public abstract class DnsBusinessObject extends DnsObject {
 		}
 		else
 		{
-			return null;
+			if (unknownForwarder)
+			{
+				return new UnsignedInt8((short)Linux_DnsServiceSettingData.FORWARD_UNKNOWN);
+			}
+			else
+			{
+				return null;
+			}
 		}
-
 	}
 
+	public boolean isForwarderSet (DnsForwarderDataContainer container) {
+		Object convertedControlValue = container.get_Forward().getConvertedControlValue();
+		return convertedControlValue != null;
+	}
+	
+	
 	public void updateControls(DnsResourceRecordListContainer container) throws UpdateControlsException {
 		resourceRecordHandler.updateControls(container);
 	}
@@ -931,5 +969,11 @@ public abstract class DnsBusinessObject extends DnsObject {
 	}
 	
 	public final void resetTTL(DnsSoaContainer container){}
+
+	public boolean isUnknownForwarder() {
+		return unknownForwarder;
+	}
+	
+	
 	
 }

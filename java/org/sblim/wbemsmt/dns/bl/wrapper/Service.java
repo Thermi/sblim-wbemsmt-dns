@@ -563,7 +563,7 @@ public class Service extends DnsBusinessObject {
 
 	public void updateControls(DnsForwardersForServiceDataContainer container) throws UpdateControlsException {
 		try {
-			super.setForwarder(container,getSetting().get_Forward());
+			super.setForwarderToContainer(container,getSetting().get_Forward());
 			container.get_Forwarders().setValues(getForwarders(getForwarderList()));
 		} catch (ModelLoadException e) {
 			throw new UpdateControlsException(e);
@@ -590,7 +590,7 @@ public class Service extends DnsBusinessObject {
 
 	public void initContainer(DnsForwardersForServiceDataContainer container) throws InitContainerException {
 		try {
-			super.setForwarder(container,getSetting().get_Forward());
+			super.setForwarderToContainer(container,getSetting().get_Forward());
 		} catch (ModelLoadException e) {
 			throw new InitContainerException(e);
 		}

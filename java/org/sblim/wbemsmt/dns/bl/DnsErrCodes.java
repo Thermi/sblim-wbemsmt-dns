@@ -21,6 +21,8 @@ package org.sblim.wbemsmt.dns.bl;
 
 import org.sblim.wbemsmt.bl.ErrCodes;
 import org.sblim.wbemsmt.bl.MessageNumber;
+import org.sblim.wbemsmt.bl.adapter.Message;
+import org.sblim.wbemsmt.bl.adapter.MessageDefinition;
 
 /**
  * @author Bauschert
@@ -75,5 +77,8 @@ public class DnsErrCodes {
 	public static final MessageNumber MSG_CANNOT_SELECT_SERVICE = new MessageNumber(ErrCodes.COMPONENT,SUBSYS_DNS,31);
 	public static final MessageNumber MSG_NO_ZONE_SELECTED = new MessageNumber(ErrCodes.COMPONENT,SUBSYS_DNS,32);
 	public static final MessageNumber MSG_NO_MASTERZONE_SELECTED = new MessageNumber(ErrCodes.COMPONENT,SUBSYS_DNS,33);
+	
+	public static final MessageDefinition MSGDEF_UNKNOWN_FORWARD_AND_NO_FORWARD_SET = new MessageDefinition(new MessageNumber(ErrCodes.COMPONENT,SUBSYS_DNS,34),Message.WARNING,"unknown.forward.and.no.forward.set");
+
 	
 }

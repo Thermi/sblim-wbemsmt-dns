@@ -164,7 +164,7 @@ public class SlaveZone extends MasterZone implements Zone {
 
 	public void updateControls(DnsSlaveZoneDataContainer container) throws UpdateControlsException {
 		try {
-			super.setForwarder(container,fco.get_Forward());
+			super.setForwarderToContainer(container,fco.get_Forward());
 			container.get_Forwarders().setValues(getForwarders(getForwarderList()));
 			container.get_Name().setControlValue(fco.get_Name());
 			container.get_ZoneFile().setControlValue(fco.get_ZoneFile());

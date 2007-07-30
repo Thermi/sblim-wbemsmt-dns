@@ -132,7 +132,7 @@ public class ForwardZone extends DnsBusinessObject implements Zone {
 
 	public void updateControls(DnsForwardZoneDataContainer container) throws UpdateControlsException {
 		try {
-			super.setForwarder(container,fco.get_Forward());
+			super.setForwarderToContainer(container,fco.get_Forward());
 			container.get_Forwarders().setValues(getForwarders(getForwarderList()));
 			container.get_Name().setControlValue(fco.get_Name());
 			

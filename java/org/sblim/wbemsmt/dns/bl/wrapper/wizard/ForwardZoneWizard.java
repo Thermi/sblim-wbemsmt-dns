@@ -89,7 +89,7 @@ public class ForwardZoneWizard extends DnsWizard {
 
 	public void updateControls(DnsForwardZoneWizardPage1DataContainer container) throws UpdateControlsException {
 		this.page1 = container;
-		super.setForwarder(container, forward);
+		super.setForwarderToContainer(container, forward);
 		try {
 			container.get_Forwarders().setValues(getForwarders(getForwarderList()));
 		} catch (ModelLoadException e) {
@@ -101,7 +101,7 @@ public class ForwardZoneWizard extends DnsWizard {
 		forward = getForwarder(page1); 
 
 		container.get_usr_Name().setControlValue(page1.get_usr_Name().getConvertedControlValue());
-		super.setForwarder(container, forward);
+		super.setForwarderToContainer(container, forward);
 		try {
 			container.get_Forwarders().setValues(getForwarders(getForwarderList()));
 		} catch (ModelLoadException e) {

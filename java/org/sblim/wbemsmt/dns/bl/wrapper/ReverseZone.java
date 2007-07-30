@@ -221,7 +221,7 @@ public class ReverseZone extends SlaveZone implements Zone {
 		container.get_ZoneFile().setControlValue(fco.get_ZoneFile());
 
 		try {
-			super.setForwarder(container,fco.get_Forward());
+			super.setForwarderToContainer(container,fco.get_Forward());
 			container.get_Forwarders().setValues(getForwarders(getForwarderList()));
 		} catch (ModelLoadException e) {
 			throw new UpdateControlsException(e);
