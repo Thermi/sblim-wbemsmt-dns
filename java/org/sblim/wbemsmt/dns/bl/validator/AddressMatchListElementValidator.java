@@ -105,10 +105,10 @@ public class AddressMatchListElementValidator  extends Validator {
 								int mask = Integer.parseInt(ipNetMask);
 								if (mask > 255)
 								{
-									addError(DnsErrCodes.MSG_NETMASK_LARGER_255,result, adapter.getBundle().getString(DnsErrCodes.MSG_NETMASK_LARGER_255,"AddressMatchListElementValidator.netMaskLargerThan255"));
+									addError(DnsErrCodes.MSG_NETMASK_LARGER_255,result, "AddressMatchListElementValidator.netMaskLargerThan255");
 								}
 							} catch (NumberFormatException e) {
-								addError(DnsErrCodes.MSG_NETMASK_NO_INT, result, adapter.getBundle().getString(DnsErrCodes.MSG_NETMASK_NO_INT, "AddressMatchListElementValidator.netMaskNoInt"));
+								addError(DnsErrCodes.MSG_NETMASK_NO_INT, result, "AddressMatchListElementValidator.netMaskNoInt");
 							}
 						}
 						else
@@ -134,12 +134,11 @@ public class AddressMatchListElementValidator  extends Validator {
 		{
 			addHeader(list);
 		}
-		list.addMessage(new Message(messageNumber,Message.ERROR, msg,component));
+		list.addMessage(Message.create(messageNumber,Message.ERROR, adapter.getBundle(), msg));
 	}
 
 	private void addHeader(MessageList list) {
-		String msg = adapter.getBundle().getString("AddressMatchListElementValidator.wrongSyntax");
-		list.addMessage(new Message(DnsErrCodes.MSG_WRONGS_SYNTAX,Message.ERROR, msg,component));
+		list.addMessage(Message.create(DnsErrCodes.MSG_WRONGS_SYNTAX,Message.ERROR, adapter.getBundle(),"AddressMatchListElementValidator.wrongSyntax"));
 		headerAdded = true;
 	}
 
