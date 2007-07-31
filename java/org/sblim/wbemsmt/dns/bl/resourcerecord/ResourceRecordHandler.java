@@ -33,12 +33,9 @@ import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
 import org.sblim.wbemsmt.dns.bl.wrapper.DnsBusinessObject;
 import org.sblim.wbemsmt.dns.bl.wrapper.ResourceRecord;
 import org.sblim.wbemsmt.dns.bl.wrapper.Zone;
-import org.sblim.wbemsmt.exception.ModelUpdateException;
-import org.sblim.wbemsmt.exception.ObjectDeletionException;
-import org.sblim.wbemsmt.exception.ObjectRevertException;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
-import org.sblim.wbemsmt.exception.UpdateControlsException;
+import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.tools.input.ActionComponent;
+import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 
 public class ResourceRecordHandler {
 	private DnsCimAdapter adapter;
@@ -141,6 +138,11 @@ public class ResourceRecordHandler {
 			container.get_Type().setControlValue(ResourceRecord.getIndexByTypeName(recordFco.get_Type()));
 			
 			container.get_Value().setControlValue(recordFco.get_Value());
+			
+			container.get_Name().getProperties().setSize(LabeledBaseInputComponentIf.SIZE_S);
+			container.get_Value().getProperties().setSize(LabeledBaseInputComponentIf.SIZE_S);
+			container.get_TTL().getProperties().setSize(LabeledBaseInputComponentIf.SIZE_S);
+			
 		}
 		
 
@@ -153,6 +155,8 @@ public class ResourceRecordHandler {
 		boolean enabled = zone.getResourceRecords().getResourceRecordsDeleted(false).size() > 0;
 		container.get_usr_Delete().getProperties().setReadOnly(!enabled);
 		container.get_usr_SelectAll().getProperties().setReadOnly(!enabled);
+		container.get_usr_Delete().getProperties().setVisible(enabled);
+		container.get_usr_SelectAll().getProperties().setVisible(enabled);
 	
 		((ActionComponent)container.get_usr_Delete()).setNeedConfirmation(true);
 		((ActionComponent)container.get_usr_Delete()).setShowWait(true);
