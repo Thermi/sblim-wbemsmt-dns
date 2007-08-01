@@ -153,6 +153,12 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.dns
 %changelog
 * Fri Jul 6 2007 Wolfgang Taphorn <taphorn@de.ibm.com> 0.5.0-1
   - Inclusion of fixes for the following issues:
+    o 1764521  wbemsmt-dns: Correct translation of validator warning/error
+    o 1764516  wbemsmt-dns: set Size of resource record fields
+    o 1763522  wbemsmt-dns: cleanup addressmatchlistwizard
+    o 1763520  wbemsmt-dns: Handling of forward-attribute
+    o 1760852  wbemsmt-samba/dns: remove unnecessary installValidator calls
+    o 1760804  wbemsmt-jsf: child tables: controls displayed in empty row
     o 1754942  wbemsmt-dns: Upgrade to build environment
     o 1750200  wbemsmt-client: update jar references
     o 1749362  wbemsmt-dns: Upgrade FCOs to latest generator level
@@ -175,6 +181,7 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.dns
     o 1671504  wbemsmt-webapp: update to myfaces-core-1.1.5
     o 1699791  wbemsmt-webapp: revert changes after selecting new treenode
     o 1700178  wbemsmt-cli&webapp: cancel wizards
+    o 1699830  wbemsmt-common: new UI Comp. for rendering a readonly list
     o 1699213  wbemsmt-common: CIMInstanceFilter.accept: add CimClient
     o 1685389  wbemsmt-dns: add welcome page
     o 1680547  wbemsmt-webapp: welcome screens

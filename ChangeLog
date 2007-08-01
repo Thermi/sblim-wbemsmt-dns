@@ -1,6 +1,86 @@
 // =========================================================================
 // new in version 0.5.0-1 :
 
+2007-07-31 15:29  mbauschert
+
+	*
+	  java/org/sblim/wbemsmt/dns/bl/validator/AddressMatchListElementValidator.java:
+	  Fix [ 1764521 ] wbemsmt-dns: Correct translation of validator
+	  warning/error
+
+2007-07-31 15:27  mbauschert
+
+	*
+	  java/org/sblim/wbemsmt/dns/bl/resourcerecord/ResourceRecordHandler.java:
+	  Fix [ 1764516 ] wbemsmt-dns: set Size of resource record fields
+
+2007-07-31 15:26  mbauschert
+
+	* java/messagesDns_de.properties: fixed typo
+
+2007-07-30 14:56  mbauschert
+
+	* java/: messagesDns.properties, messagesDns_de.properties,
+	  messagesDns_en.properties,
+	  org/sblim/wbemsmt/dns/bl/DnsErrCodes.java,
+	  org/sblim/wbemsmt/dns/bl/adapter/DnsCimAdapterInstallValidatorsDelegatee.java,
+	  org/sblim/wbemsmt/dns/bl/wrapper/DnsBusinessObject.java,
+	  org/sblim/wbemsmt/dns/bl/wrapper/ForwardZone.java,
+	  org/sblim/wbemsmt/dns/bl/wrapper/MasterZone.java,
+	  org/sblim/wbemsmt/dns/bl/wrapper/ReverseZone.java,
+	  org/sblim/wbemsmt/dns/bl/wrapper/Service.java,
+	  org/sblim/wbemsmt/dns/bl/wrapper/SlaveZone.java,
+	  org/sblim/wbemsmt/dns/bl/wrapper/StubZone.java,
+	  org/sblim/wbemsmt/dns/bl/wrapper/wizard/ForwardZoneWizard.java,
+	  org/sblim/wbemsmt/dns/bl/validator/ForwardUnknownValidator.java:
+	  Fix [ 1763520 ] wbemsmt-dns: Handling of forward-attribute
+
+2007-07-30 14:55  mbauschert
+
+	*
+	  java/org/sblim/wbemsmt/dns/bl/wrapper/wizard/AddressMatchListWizard.java:
+	  Fix [ 1763522 ] wbemsmt-dns: cleanup addressmatchlistwizard
+
+2007-07-26 13:43  mbauschert
+
+	* java/org/sblim/wbemsmt/dns/bl/wrapper/wizard/:
+	  AddressMatchListWizard.java, ForwardZoneWizard.java,
+	  MastersWizard.java, SlaveZoneWizard.java, StubZoneWizard.java:
+	  Fix [ 1699830 ] wbemsmt-common: new UI Comp. for rendering a
+	  readonly list
+
+2007-07-26 10:40  mbauschert
+
+	* java/org/sblim/wbemsmt/dns/bl/adapter/: DnsCimAdapterIf.java,
+	  DnsCimAdapterInstallValidatorsDelegatee.java,
+	  DnsCimAdapterInstallValidatorsIf.java: fix [ 1760852 ]
+	  wbemsmt-samba/dns: remove unnecessary installValidator calls
+
+2007-07-26 10:36  mbauschert
+
+	* java/org/sblim/wbemsmt/jsf/dns/container/:
+	  edit/DnsResourceRecordListContainerImpl.java,
+	  edit/DnsZoneTracingContainerImpl.java,
+	  wizard/DnsReverseZoneWizardSummaryDataContainerImpl.java: Fix [
+	  1760804 ] wbemsmt-jsf: child tables: controls displayed in empty
+	  row
+
+2007-07-17 07:57  mbauschert
+
+	* README, TroubleShooting: docu
+
+2007-07-17 07:40  mbauschert
+
+	* .cvsignore: add missingTranslations to cvsignore
+
+2007-07-17 07:39  mbauschert
+
+	* missingTranslations.txt: removed missingTranslations
+
+2007-07-16 19:57  taphorn
+
+	* ChangeLog: added latest changes to the ChangeLog
+
 2007-07-16 19:56  taphorn
 
 	* NEWS, build.xml, sblim-wbemsmt-dns.spec: Fix for issue [ 1754942
