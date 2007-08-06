@@ -35,7 +35,7 @@ public class MasterZoneList extends ObjectList  {
 	
 	public MasterZone getMasterZone(CimObjectKey key)
 	{
-		return (MasterZone)objectsByCimObjectKey.get(key);
+		return (MasterZone)get(key);
 	}
 	
 	public MasterZone getMasterZone(CIMObjectPath path)
@@ -50,7 +50,7 @@ public class MasterZoneList extends ObjectList  {
 
 	public void addMasterZone(MasterZone mz)
 	{
-		objectsByCimObjectKey.put(mz.getCimObjectKey(),mz);
+		put(mz);
 	}
 	
 	protected Object getKey(Object value) {

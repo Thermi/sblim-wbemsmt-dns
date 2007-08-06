@@ -34,7 +34,7 @@ public class HintZoneList extends ObjectList  {
 
 	public HintZone getHintZone(CimObjectKey key)
 	{
-		return (HintZone)objectsByCimObjectKey.get(key);
+		return (HintZone)get(key);
 	}
 	
 	public HintZone getHintZone(CIMObjectPath path)
@@ -49,7 +49,7 @@ public class HintZoneList extends ObjectList  {
 
 	public void addHintZone(HintZone hz)
 	{
-		objectsByCimObjectKey.put(hz.getCimObjectKey(),hz);
+		put(hz);
 	}
 	
 	protected Object getKey(Object value) {

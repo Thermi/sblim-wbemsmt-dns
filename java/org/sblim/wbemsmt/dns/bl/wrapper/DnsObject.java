@@ -24,7 +24,7 @@ import java.util.logging.Logger;
 import org.sblim.wbemsmt.bl.WbemsmtBusinessObject;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 
-public class DnsObject extends WbemsmtBusinessObject{
+public abstract class DnsObject extends WbemsmtBusinessObject{
 
 	protected Logger logger = Logger.getLogger(DnsBusinessObject.class.getName());
 	protected final DnsCimAdapter adapter;

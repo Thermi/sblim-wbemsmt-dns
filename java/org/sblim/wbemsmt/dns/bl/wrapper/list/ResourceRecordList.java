@@ -37,7 +37,7 @@ public class ResourceRecordList extends ObjectList  {
 
 	public ResourceRecord getResourceRecord(CimObjectKey key)
 	{
-		return (ResourceRecord)objectsByCimObjectKey.get(key);
+		return (ResourceRecord)get(key);
 	}
 	
 	public ResourceRecord getResourceRecord(CIMObjectPath path)
@@ -52,7 +52,7 @@ public class ResourceRecordList extends ObjectList  {
 
 	public void addResourceRecord(ResourceRecord rr)
 	{
-		objectsByCimObjectKey.put(rr.getCimObjectKey(),rr);
+		put(rr);
 	}
 	
 	protected Object getKey(Object value) {
@@ -148,7 +148,7 @@ public class ResourceRecordList extends ObjectList  {
 	}
 
 	public void deleteResourceRecord(ResourceRecord record) {
-		objectsByCimObjectKey.remove(new CimObjectKey(record.getFco().getCimObjectPath()));
+		remove(new CimObjectKey(record.getFco().getCimObjectPath()));
 		reloadListValues();
 	}
 

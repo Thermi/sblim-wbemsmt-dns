@@ -34,7 +34,7 @@ public class ForwardZoneList extends ObjectList  {
 
 	public ForwardZone getForwardZone(CimObjectKey key)
 	{
-		return (ForwardZone)objectsByCimObjectKey.get(key);
+		return (ForwardZone)get(key);
 	}
 	
 	public ForwardZone getForwardZone(CIMObjectPath path)
@@ -49,7 +49,7 @@ public class ForwardZoneList extends ObjectList  {
 
 	public void addForwardZone(ForwardZone fz)
 	{
-		objectsByCimObjectKey.put(fz.getCimObjectKey(),fz);
+		put(fz);
 	}
 	
 	protected Object getKey(Object value) {

@@ -34,7 +34,7 @@ public class ReverseZoneList extends ObjectList  {
 
 	public ReverseZone getReverseZone(CimObjectKey key)
 	{
-		return (ReverseZone)objectsByCimObjectKey.get(key);
+		return (ReverseZone)get(key);
 	}
 	
 	public ReverseZone getReverseZone(CIMObjectPath path)
@@ -49,7 +49,7 @@ public class ReverseZoneList extends ObjectList  {
 
 	public void addReverseZone(ReverseZone rz)
 	{
-		objectsByCimObjectKey.put(rz.getCimObjectKey(),rz);
+		put(rz);
 	}
 	
 	protected Object getKey(Object value) {

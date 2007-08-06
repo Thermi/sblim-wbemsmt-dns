@@ -34,7 +34,7 @@ public class ForwarderList extends ObjectList  {
 
 	public Forwarder getForwarder(CimObjectKey key)
 	{
-		return (Forwarder)objectsByCimObjectKey.get(key);
+		return (Forwarder)get(key);
 	}
 	
 	public Forwarder getForwarder(CIMObjectPath path)
@@ -49,8 +49,7 @@ public class ForwarderList extends ObjectList  {
 
 	public void addForwarder(Forwarder sz)
 	{
-		objectsByCimObjectKey.put(sz.getCimObjectKey(),sz);
-		if (loaded) reloadListValues();
+		put(sz);
 	}
 	
 	protected Object getKey(Object value) {
@@ -118,7 +117,7 @@ public class ForwarderList extends ObjectList  {
 			Forwarder forwarder = getForwarder(i);
 			if (!forwarder.isExistsOnClient())
 			{
-				objectsByCimObjectKey.remove(forwarder.getCimObjectKey());
+				remove(forwarder.getCimObjectKey());
 			}
 		}
 		reloadListValues();

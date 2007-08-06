@@ -34,7 +34,7 @@ public class AddressMatchListList extends ObjectList  {
 
 	public AddressMatchList getAddressMatchList(CimObjectKey key)
 	{
-		return (AddressMatchList)objectsByCimObjectKey.get(key);
+		return (AddressMatchList)get(key);
 	}
 	
 	public AddressMatchList getAddressMatchList(CIMObjectPath path)
@@ -49,7 +49,7 @@ public class AddressMatchListList extends ObjectList  {
 
 	public void addAddressMatchList(AddressMatchList addressMatchList)
 	{
-		objectsByCimObjectKey.put(addressMatchList.getCimObjectKey(),addressMatchList);
+		put(addressMatchList);
 	}
 	
 	protected Object getKey(Object value) {

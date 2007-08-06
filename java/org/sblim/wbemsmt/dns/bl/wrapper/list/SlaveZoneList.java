@@ -34,7 +34,7 @@ public class SlaveZoneList extends ObjectList  {
 
 	public SlaveZone getSlaveZone(CimObjectKey key)
 	{
-		return (SlaveZone)objectsByCimObjectKey.get(key);
+		return (SlaveZone)get(key);
 	}
 	
 	public SlaveZone getSlaveZone(CIMObjectPath path)
@@ -49,7 +49,7 @@ public class SlaveZoneList extends ObjectList  {
 
 	public void addSlaveZone(SlaveZone sz)
 	{
-		objectsByCimObjectKey.put(sz.getCimObjectKey(),sz);
+		put(sz);
 	}
 	
 	protected Object getKey(Object value) {

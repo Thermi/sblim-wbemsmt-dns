@@ -34,7 +34,7 @@ public class MasterItemList extends ObjectList  {
 
 	public MasterItem getMasterItem(CimObjectKey key)
 	{
-		return (MasterItem)objectsByCimObjectKey.get(key);
+		return (MasterItem)get(key);
 	}
 	
 	public MasterItem getMasterItem(CIMObjectPath path)
@@ -49,8 +49,7 @@ public class MasterItemList extends ObjectList  {
 
 	public void addMasterItem(MasterItem sz)
 	{
-		objectsByCimObjectKey.put(sz.getCimObjectKey(),sz);
-		if (loaded) reloadListValues();
+		put(sz);
 	}
 	
 	protected Object getKey(Object value) {
@@ -98,8 +97,7 @@ public class MasterItemList extends ObjectList  {
 	}
 
 	public void remove(MasterItem masterItem) {
-		objectsByCimObjectKey.remove(masterItem.getCimObjectKey());
-		
+		remove(masterItem.getCimObjectKey());
 	}	
 	
 }

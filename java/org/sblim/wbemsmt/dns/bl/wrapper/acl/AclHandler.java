@@ -31,6 +31,7 @@ import org.sblim.wbem.cim.CIMObjectPath;
 import org.sblim.wbem.cim.UnsignedInt16;
 import org.sblim.wbem.cim.UnsignedInt8;
 import org.sblim.wbem.client.CIMClient;
+import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
@@ -85,10 +86,6 @@ public class AclHandler extends DnsObject {
 	protected List[] usedAddressTypes = new List[ACL_COUNT];
 	protected List[] notUsedAddresses = new List[ACL_COUNT];
 	
-	public static final int TYPE_IN_ZONE = 0; 
-	public static final int TYPE_IN_SERVICE = 1; 
-	public static final int TYPE_GLOBAL = 2; 
-
 	public static final int IDX_NOTIFY = 0; 
 	public static final int IDX_TRANSFER = 1; 
 	public static final int IDX_UPDATE = 2; 
@@ -633,5 +630,9 @@ public class AclHandler extends DnsObject {
 			throw new ObjectCreationException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(acl[idx]),e);
 		}
 		
+	}
+
+	public CimObjectKey getCimObjectKey() {
+		return new CimObjectKey(new CIMObjectPath("AclHandlerForClass" + loader.getClass().getName()));
 	}
 }

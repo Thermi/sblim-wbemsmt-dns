@@ -34,7 +34,7 @@ public class StubZoneList extends ObjectList  {
 
 	public StubZone getStubZone(CimObjectKey key)
 	{
-		return (StubZone)objectsByCimObjectKey.get(key);
+		return (StubZone)get(key);
 	}
 	
 	public StubZone getStubZone(CIMObjectPath path)
@@ -49,7 +49,7 @@ public class StubZoneList extends ObjectList  {
 
 	public void addStubZone(StubZone sz)
 	{
-		objectsByCimObjectKey.put(sz.getCimObjectKey(),sz);
+		put(sz);
 	}
 	
 	protected Object getKey(Object value) {

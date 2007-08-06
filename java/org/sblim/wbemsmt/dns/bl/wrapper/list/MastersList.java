@@ -34,7 +34,7 @@ public class MastersList extends ObjectList  {
 
 	public Masters getMasters(CimObjectKey key)
 	{
-		return (Masters)objectsByCimObjectKey.get(key);
+		return (Masters)get(key);
 	}
 	
 	public Masters getMasters(CIMObjectPath path)
@@ -49,7 +49,7 @@ public class MastersList extends ObjectList  {
 
 	public void addMasters(Masters addressMatchList)
 	{
-		objectsByCimObjectKey.put(addressMatchList.getCimObjectKey(),addressMatchList);
+		put(addressMatchList);
 	}
 	
 	protected Object getKey(Object value) {
