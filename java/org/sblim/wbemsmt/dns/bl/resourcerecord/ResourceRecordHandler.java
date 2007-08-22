@@ -90,7 +90,7 @@ public class ResourceRecordHandler {
 			ResourceRecord resourceRecord = zone.getResourceRecords().getResourceRecord(idx);
 			resourceRecord.delete();
 			 
-			container.getAdapter().setEditObjectMarkedForReload(true);
+			container.getAdapter().setMarkedForReload();
 			
 	//			for (int i = this.listContainer.getResourceRecords().size()-1; i >= 0 ; i--)
 	//			{
@@ -166,6 +166,9 @@ public class ResourceRecordHandler {
 	}
 
 	public MessageList save(DnsResourceRecordListContainer container) throws ObjectSaveException {
+		
+		//because the save action creates/deletes objects and modifies the resource record list we copy the items
+		
 		return adapter.save(container.getResourceRecords(), zone.getResourceRecords().getFCOs());
 	}
 

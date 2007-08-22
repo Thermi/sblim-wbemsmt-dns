@@ -244,7 +244,7 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 				else {
 					dnsService.getMasterZoneList().addMasterZone(wrapper);
 				}
-				addResourceRecords(wrapper);
+//				addResourceRecords(wrapper);
 				
 			}
 
@@ -255,7 +255,7 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 				Linux_DnsSlaveZone fco = new Linux_DnsSlaveZone(node.getCimInstance().getObjectPath(),node.getCimInstance());
 				SlaveZone wrapper = new SlaveZone(fco,this);
 				dnsService.getSlaveZoneList().addSlaveZone(wrapper);
-				addResourceRecords(wrapper);
+//				addResourceRecords(wrapper);
 				
 			}
 		
@@ -266,7 +266,7 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 				Linux_DnsStubZone fco = new Linux_DnsStubZone(node.getCimInstance().getObjectPath(),node.getCimInstance());
 				StubZone wrapper = new StubZone(fco,this);
 				dnsService.getStubZoneList().addStubZone(wrapper);
-				addResourceRecords(wrapper);
+//				addResourceRecords(wrapper);
 				
 			}
 
@@ -288,7 +288,7 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 				Linux_DnsHintZone fco = new Linux_DnsHintZone(node.getCimInstance().getObjectPath(),node.getCimInstance());
 				HintZone wrapper = new HintZone(fco,this);
 				dnsService.getHintZoneList().addHintZone(wrapper);
-				addResourceRecords(wrapper);
+//				addResourceRecords(wrapper);
 			}
 
 			listWithNodes = rootNode.findInstanceNodes(Linux_DnsAddressMatchList.CIM_CLASS_NAME);
@@ -397,17 +397,6 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 		}
 	}
 	
-	private void addResourceRecords(Zone zoneWrapper) throws WbemSmtException {
-		try {
-			addResourceRecords(zoneWrapper, zoneWrapper.getLinux_DnsZone().getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(cimClient, false,false,null));
-		} catch (RuntimeException e) {
-			//TODO remove Workaround for bug #30
-			e.printStackTrace();
-			ResourceRecordList records = new ResourceRecordList();
-			zoneWrapper.setResourceRecords(records);
-		}
-	}
-
 	public CimObjectKey getKeyByTreeNode(ITaskLauncherTreeNode treeNode) throws ObjectNotFoundException {
 
 		if (treeNode instanceof ICIMInstanceNode) {
