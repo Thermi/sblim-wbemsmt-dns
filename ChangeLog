@@ -1,4 +1,32 @@
 // =========================================================================
+// new in version 0.5.1-1 :
+
+2007-08-22 16:36  mbauschert
+
+	* java/org/sblim/wbemsmt/dns/bl/:
+	  resourcerecord/ResourceRecordHandler.java,
+	  adapter/DnsCimAdapter.java: Fix [ 1779462 ] wbemsmt-dns: resource
+	  records not updated after deletion
+
+2007-08-21 17:29  mbauschert
+
+	*
+	  java/org/sblim/wbemsmt/jsf/dns/container/edit/DnsHintZoneDataContainerImplLayouter.java:
+	  Fix [ 1778695 ] wbemsmt-dns: make zonefile for hintzones visible
+
+2007-08-06 15:07  mbauschert
+
+	* java/org/sblim/wbemsmt/dns/bl/wrapper/: DnsObject.java,
+	  acl/AclHandler.java, list/AddressMatchListList.java,
+	  list/ForwardZoneList.java, list/ForwarderList.java,
+	  list/HintZoneList.java, list/MasterItemList.java,
+	  list/MasterZoneList.java, list/MastersList.java,
+	  list/ResourceRecordList.java, list/ReverseZoneList.java,
+	  list/SlaveZoneList.java, list/StubZoneList.java: Fix [ 1768335 ]
+	  wbemsmt-dns: api changes of objectList
+
+
+// =========================================================================
 // new in version 0.5.0-1 :
 
 2007-07-31 15:29  mbauschert

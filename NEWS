@@ -1,3 +1,9 @@
+Changes in 0.5.1-1 :
+==============================================================================
+- 1779462  wbemsmt-dns: resource records not updated after deletion
+- 1778695  wbemsmt-dns: make zonefile for hintzones visible
+- 1768335  wbemsmt-dns: api changes of objectList
+
 Changes in 0.5.0-1 :
 ==============================================================================
 - 1764521  wbemsmt-dns: Correct translation of validator warning/error
@@ -61,14 +67,11 @@ Changes in 0.5.0-1 :
 
 Changes in 0.2.3-1 :
 ==============================================================================
-
 - 1609091  wbemsmt-dns: Consolidation of cvs module
 - 1609068  wbemsmt-dns: JSF EUI and Commandline support
 
-
 Changes in 0.2.2-1 : (Distributed packages - which are removed from CVS)
 ==============================================================================
-
 - 1572076  Missing Validation Messages
 - 1412716  cannot delete DNS Resource Record
 - 1574472  Cleanup for client projects

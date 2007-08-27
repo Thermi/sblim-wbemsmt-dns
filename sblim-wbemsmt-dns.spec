@@ -1,5 +1,5 @@
 %define name                    sblim-wbemsmt-dns
-%define version                 0.5.0
+%define version                 0.5.1
 %define build_release           1
 %define release                 %{build_release}jpp
 %define section                 free
@@ -151,6 +151,12 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.dns
 
 ###############################################################################
 %changelog
+* Mon Aug 27 2007 Wolfgang Taphorn <taphorn@de.ibm.com> 0.5.1-1
+  - Inclusion of fixes for the following issues:
+    o 1779462  wbemsmt-dns: resource records not updated after deletion
+    o 1778695  wbemsmt-dns: make zonefile for hintzones visible
+    o 1768335  wbemsmt-dns: api changes of objectList
+
 * Fri Jul 6 2007 Wolfgang Taphorn <taphorn@de.ibm.com> 0.5.0-1
   - Inclusion of fixes for the following issues:
     o 1764521  wbemsmt-dns: Correct translation of validator warning/error
