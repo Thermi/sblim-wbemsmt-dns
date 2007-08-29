@@ -1,3 +1,7 @@
+Changes on top of 0.5.1
+==============================================================================
+- 1784055  wbemsmt-dns: define namespace per task
+
 Changes in 0.5.1-1 :
 ==============================================================================
 - 1779462  wbemsmt-dns: resource records not updated after deletion
