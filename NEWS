@@ -1,5 +1,6 @@
 Changes on top of 0.5.1
 ==============================================================================
+- 1787139  wbemsmt-dns:cleanup apidoc and todos
 - 1784055  wbemsmt-dns: define namespace per task
 
 Changes in 0.5.1-1 :

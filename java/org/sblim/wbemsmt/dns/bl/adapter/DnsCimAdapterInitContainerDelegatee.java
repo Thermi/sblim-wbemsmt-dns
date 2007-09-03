@@ -412,8 +412,6 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	}
 
 	public void initContainerImpl(WelcomeDataContainer container) throws InitContainerException {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

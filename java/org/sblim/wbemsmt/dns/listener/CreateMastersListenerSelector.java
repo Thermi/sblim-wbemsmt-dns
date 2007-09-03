@@ -14,7 +14,7 @@
   *
   * Contributors: 
   * 
-  * Description: TODO
+  * Description: Selector class for creating Masters
   * 
   */
 package org.sblim.wbemsmt.dns.listener;

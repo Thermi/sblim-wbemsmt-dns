@@ -542,26 +542,20 @@ public abstract class DnsBusinessObject extends DnsObject {
 	 */
 	public Linux_DnsResourceRecord createResourceRecord(Linux_DnsZone zone, String name, String type, UnsignedInt8 family, String value) throws ObjectCreationException {
 		Linux_DnsResourceRecord resourceRecord = new Linux_DnsResourceRecord();
-		//TODO remove the try-catch which is a workaround for bug #40
-		try {
-			resourceRecord.set_ZoneName(zone.get_Name());
-			resourceRecord.set_Name(name);
-			resourceRecord.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
-			resourceRecord.set_Type(type);
-			resourceRecord.set_Family(family);
-			resourceRecord.set_Value(value);
-			resourceRecord = (Linux_DnsResourceRecord) adapter.getFcoHelper().create(resourceRecord,adapter.getCimClient());
+		resourceRecord.set_ZoneName(zone.get_Name());
+		resourceRecord.set_Name(name);
+		resourceRecord.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
+		resourceRecord.set_Type(type);
+		resourceRecord.set_Family(family);
+		resourceRecord.set_Value(value);
+		resourceRecord = (Linux_DnsResourceRecord) adapter.getFcoHelper().create(resourceRecord,adapter.getCimClient());
 
-			//TODO do we need to create the association between resource records a and zones in RealMode
-			if (DnsCimAdapter.DUMMY_MODE)
-			{
-				Vector keys = new Vector();
-				keys.add(CIMPropertyBuilder.create(Linux_DnsResourceRecordsForZone.CIM_PROPERTY_LINUX_DNSZONE,zone));
-				keys.add(CIMPropertyBuilder.create(Linux_DnsResourceRecordsForZone.CIM_PROPERTY_LINUX_DNSRESOURCERECORD,resourceRecord));
-				adapter.getFcoHelper().create(Linux_DnsResourceRecordsForZone.class,adapter.getCimClient(),keys);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		if (DnsCimAdapter.DUMMY_MODE)
+		{
+			Vector keys = new Vector();
+			keys.add(CIMPropertyBuilder.create(Linux_DnsResourceRecordsForZone.CIM_PROPERTY_LINUX_DNSZONE,zone));
+			keys.add(CIMPropertyBuilder.create(Linux_DnsResourceRecordsForZone.CIM_PROPERTY_LINUX_DNSRESOURCERECORD,resourceRecord));
+			adapter.getFcoHelper().create(Linux_DnsResourceRecordsForZone.class,adapter.getCimClient(),keys);
 		}
 		return resourceRecord;
 	}
@@ -572,7 +566,6 @@ public abstract class DnsBusinessObject extends DnsObject {
 		forwarders.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
 		forwarders = (Linux_DnsForwarders) adapter.getFcoHelper().create(forwarders,adapter.getCimClient());
 	
-		//TODO do we need to create the association between resource records a and zones in RealMode
 		if (DnsCimAdapter.DUMMY_MODE)
 		{
 			Vector keys = new Vector();
@@ -586,8 +579,6 @@ public abstract class DnsBusinessObject extends DnsObject {
 	
 	public void delete(Linux_DnsZone zone) throws ObjectDeletionException
 	{
-		
-		//TODO check if acls and resorce records are deleted in real mode
 		if (DnsCimAdapter.DUMMY_MODE)
 		{
 			try {

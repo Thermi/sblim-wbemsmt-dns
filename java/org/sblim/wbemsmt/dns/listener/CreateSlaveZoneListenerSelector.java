@@ -14,7 +14,7 @@
   *
   * Contributors: 
   * 
-  * Description: TODO
+  * Description: Selector class for creating SlaveZones
   * 
   */
 package org.sblim.wbemsmt.dns.listener;

@@ -941,7 +941,7 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 	}
 
 	public Service getDnsService(String serviceName) throws ModelLoadException {
-		// TODO use serviceName parameter if more than one service is needed
+		// use serviceName parameter if more than one service is needed
 		return getDnsService();
 	}
 
@@ -954,7 +954,7 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 	}
 
 	public Zone getZone(String serviceName, String zoneName) throws ModelLoadException {
-		//TODO first select service if more than one service is supported
+		//first select service if more than one service is supported
 		ArrayList list = Linux_DnsZoneHelper.enumerateInstances(getCimClient(),true);
 		for (Iterator iter = list.iterator(); iter.hasNext();) 
 		{

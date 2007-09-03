@@ -349,8 +349,6 @@ public class Service extends DnsBusinessObject {
 			{
 				container.get_ConfigurationDirectory().setControlValue(DnsCimAdapter.NOT_SET);
 			}
-			
-			//TODO where do we get the port number from
 		} catch (ModelLoadException e) {
 			throw new UpdateControlsException(e);
 		}

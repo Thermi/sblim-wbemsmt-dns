@@ -279,7 +279,6 @@ public class ReverseZoneWizard extends DnsWizard {
 			record.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
 			record = (Linux_DnsResourceRecord) adapter.getFcoHelper().create(record,adapter.getCimClient());
 			
-			//TODO do we need to create the association between resource records a and zones in RealMode
 			if (DnsCimAdapter.DUMMY_MODE)
 			{
 				Vector keys = new Vector();

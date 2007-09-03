@@ -86,7 +86,6 @@ public class MastersWizard extends DnsWizard {
 			//do the create
 			masters = (Linux_DnsMasters) adapter.getFcoHelper().create(masters,adapter.getCimClient());
 			
-			//TODO do the client have to create the association in real mode ?
 			if (DnsCimAdapter.DUMMY_MODE)
 			{
 				Vector keys = new Vector();

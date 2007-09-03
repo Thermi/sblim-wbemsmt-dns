@@ -14,7 +14,7 @@
   *
   * Contributors: 
   * 
-  * Description: TODO
+  * Description: Class to lookup the serverside DNS implementation 
   * 
   */
 package org.sblim.wbemsmt.dns.lookup;

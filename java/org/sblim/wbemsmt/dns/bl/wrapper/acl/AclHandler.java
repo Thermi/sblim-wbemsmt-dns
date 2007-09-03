@@ -539,7 +539,6 @@ public class AclHandler extends DnsObject {
 		if (!found)
 		{
 			getUsedAddressesAsList(idx).add(addressToAdd);
-			//TODO use other than ipv4 
 			getUsedAddressTypesAsList(idx).add(new UnsignedInt8((short)Linux_DnsAddressMatchList.ADDRESSMATCHLISTELEMENTTYPE_IPV4));
 			container.get_AddressList().setModified(true);
 			addressMatchListExists[idx] = true;

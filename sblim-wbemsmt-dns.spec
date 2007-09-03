@@ -151,8 +151,9 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.dns
 
 ###############################################################################
 %changelog
-* Wed Aug 29 2007 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.1-CVS
+* Mon Sep 01 2007 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.1-CVS
   - Inclusion of fixes for the following issues:
+    o 1787139  wbemsmt-dns:cleanup apidoc and todos
     o 1784055  wbemsmt-dns: define namespace per task
 
 * Mon Aug 27 2007 Wolfgang Taphorn <taphorn@de.ibm.com> 0.5.1-1
