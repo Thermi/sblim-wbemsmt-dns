@@ -1,6 +1,6 @@
 %define name                    sblim-wbemsmt-dns
-%define version                 0.5.1
-%define build_release           CVS
+%define version                 0.5.2
+%define build_release           1
 %define release                 %{build_release}jpp
 %define section                 free
 
@@ -151,7 +151,7 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.dns
 
 ###############################################################################
 %changelog
-* Mon Sep 01 2007 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.1-CVS
+* Mon Sep 10 2007 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.2-1
   - Inclusion of fixes for the following issues:
     o 1787139  wbemsmt-dns:cleanup apidoc and todos
     o 1784055  wbemsmt-dns: define namespace per task
