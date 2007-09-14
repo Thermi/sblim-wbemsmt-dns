@@ -1,4 +1,39 @@
 // =========================================================================
+// new in version 0.5.2-1 :
+
+2007-09-14 18:31  taphorn
+
+	* build.xml, sblim-wbemsmt-dns.spec, NEWS: Preparation of next
+	  release
+
+2007-09-03 17:16  mbauschert
+
+	* NEWS, sblim-wbemsmt-dns.spec,
+	  java/org/sblim/wbemsmt/dns/bl/adapter/DnsCimAdapter.java,
+	  java/org/sblim/wbemsmt/dns/bl/adapter/DnsCimAdapterInitContainerDelegatee.java,
+	  java/org/sblim/wbemsmt/dns/bl/adapter/DnsCimAdapterInstallValidatorsDelegatee.java,
+	  java/org/sblim/wbemsmt/dns/bl/wrapper/DnsBusinessObject.java,
+	  java/org/sblim/wbemsmt/dns/bl/wrapper/Service.java,
+	  java/org/sblim/wbemsmt/dns/bl/wrapper/acl/AclHandler.java,
+	  java/org/sblim/wbemsmt/dns/bl/wrapper/masters/MastersHandler.java,
+	  java/org/sblim/wbemsmt/dns/bl/wrapper/wizard/MastersWizard.java,
+	  java/org/sblim/wbemsmt/dns/bl/wrapper/wizard/ReverseZoneWizard.java,
+	  java/org/sblim/wbemsmt/dns/listener/CreateAddressMatchListListenerSelector.java,
+	  java/org/sblim/wbemsmt/dns/listener/CreateForwardZoneListenerSelector.java,
+	  java/org/sblim/wbemsmt/dns/listener/CreateMasterZoneListenerSelector.java,
+	  java/org/sblim/wbemsmt/dns/listener/CreateMastersListenerSelector.java,
+	  java/org/sblim/wbemsmt/dns/listener/CreateSlaveZoneListenerSelector.java,
+	  java/org/sblim/wbemsmt/dns/listener/CreateStubZoneListenerSelector.java,
+	  java/org/sblim/wbemsmt/dns/lookup/LookupServerTask.java: Fix
+	  [1787139] wbemsmt-dns:cleanup apidoc and todos for more see
+	  http://sourceforge.net/tracker/index.php?group_id=128809&func=detail&atid=712784&aid=1787139
+
+2007-08-29 16:18  mbauschert
+
+	* NEWS, sblim-wbemsmt-dns.spec, conf/dns-task-config.xml: Fix
+	  1784055 wbemsmt-dns: define namespace per task
+
+// =========================================================================
 // new in version 0.5.1-1 :
 
 2007-08-22 16:36  mbauschert
