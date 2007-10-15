@@ -57,7 +57,5 @@ public interface DnsResourceRecordWizardPage1DataContainer extends org.sblim.wbe
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

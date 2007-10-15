@@ -170,9 +170,8 @@ public interface DnsZoneTracingContainer extends org.sblim.wbemsmt.bl.adapter.Da
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 			
+				
 		/**
 		* 
 		* linked container DnsAllowNotifyForZoneDataContainer
@@ -180,7 +179,8 @@ public interface DnsZoneTracingContainer extends org.sblim.wbemsmt.bl.adapter.Da
 
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForZoneDataContainer getAllowNotifyAcl();
 
-			
+	   			
+				
 		/**
 		* 
 		* linked container DnsAllowQueryForZoneDataContainer
@@ -188,7 +188,8 @@ public interface DnsZoneTracingContainer extends org.sblim.wbemsmt.bl.adapter.Da
 
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryForZoneDataContainer getAllowQueryAcl();
 
-			
+	   			
+				
 		/**
 		* 
 		* linked container DnsAllowTransferForZoneDataContainer
@@ -196,7 +197,8 @@ public interface DnsZoneTracingContainer extends org.sblim.wbemsmt.bl.adapter.Da
 
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowTransferForZoneDataContainer getAllowTransferAcl();
 
-			
+	   			
+				
 		/**
 		* 
 		* linked container DnsAllowUpdateForZoneDataContainer
@@ -204,7 +206,8 @@ public interface DnsZoneTracingContainer extends org.sblim.wbemsmt.bl.adapter.Da
 
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowUpdateForZoneDataContainer getAllowUpdateAcl();
 
-			
+	   			
+				
 		/**
 		* 
 		* linked container DnsResourceRecordDataContainer
@@ -212,5 +215,13 @@ public interface DnsZoneTracingContainer extends org.sblim.wbemsmt.bl.adapter.Da
 
 		public java.util.List getResourceRecords();
 
-	
+	   		
+	   /**
+		* Header for:
+		* 
+		* linked container DnsResourceRecordDataContainer
+		*/
+		public  org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainerHeader getResourceRecordsHeader();
+		
+			
 }

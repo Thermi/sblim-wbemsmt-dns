@@ -25,9 +25,8 @@
 package org.sblim.wbemsmt.cli.dns;
 
 import org.apache.commons.cli.*;
-import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.bl.adapter.CimAdapterFactory;
-import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.bl.adapter.*;
+import org.sblim.wbemsmt.bl.*;
 import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.tools.cli.*;
 
@@ -220,7 +219,7 @@ public class EditDnsSlaveZoneAllowNotify extends CimCommand {
 			values.getOut().println("\n" + bundle.getString("editing",new Object[]{bundle.getString("DnsAllowNotifyForZoneDataContainer.caption")}));
 
         	CliDataLoader loader = new EditDnsSlaveZoneAllowNotifyLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, commandValues);
 			
 			org.sblim.wbemsmt.cli.dns.container.edit.DnsAllowNotifyForZoneDataContainerImpl dc = new org.sblim.wbemsmt.cli.dns.container.edit.DnsAllowNotifyForZoneDataContainerImpl(adapter);
 						
@@ -239,12 +238,14 @@ public class EditDnsSlaveZoneAllowNotify extends CimCommand {
 
 			if (result.hasErrors())
 			{
-				traceErrors("save.error",result);
+				Message caption = Message.create(ErrCodes.MSG_SAVE_ERROR, Message.ERROR,bundle, "save.error");
+				traceMessages(caption,result);
 				return;
 			}
 			else
 			{
-				traceMessages("additional.messages",result);
+				Message caption = Message.create(ErrCodes.MSG_ADDITIONAL_MESSAGES, Message.ERROR,bundle, "additional.messages");
+				traceMessages(caption,result);
 				result.clear();
 			}
 							
@@ -258,20 +259,24 @@ public class EditDnsSlaveZoneAllowNotify extends CimCommand {
 				result = dc.getMessagesList();
 				if (result.hasErrors())
 				{
-					traceErrors("save.error",result);
+					Message caption = Message.create(ErrCodes.MSG_SAVE_ERROR, Message.ERROR,bundle, "save.error");
+					traceMessages(caption,result);
 				}
 				else if (result.hasWarning())
 				{
-					traceErrors("save.warning",result);
+					Message caption = Message.create(ErrCodes.MSG_SAVE_WARNING, Message.ERROR,bundle, "save.warning");
+					traceMessages(caption,result);
 				}
 				else if (result.hasInfo())
 				{
-					traceErrors("save.info",result);
+					Message caption = Message.create(ErrCodes.MSG_SAVE_INFO, Message.ERROR,bundle, "save.info");
+					traceMessages(caption,result);
 				}
 			}
 			else
 			{
-					traceErrors("validation.error",result);
+					Message caption = Message.create(ErrCodes.MSG_VALIDATION_ERROR, Message.ERROR,bundle, "validation.error");
+					traceMessages(caption,result);
 					return;
 			}
 			values.getOut().println("\n" + bundle.getString("edited", new Object[]{bundle.getString("DnsAllowNotifyForZoneDataContainer.caption")}));
@@ -286,21 +291,34 @@ public class EditDnsSlaveZoneAllowNotify extends CimCommand {
 		{
 			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
 		}
+		finally
+		{
+			if (adapter != null) adapter.cleanup();
+		}
 	}
 	
 	/**
 	 * Set all Values that are needed for selecting the right objects. This fields are used even if they are read-only
 	 **/
 	private void setKeyValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForZoneDataContainer dc) throws WbemSmtException {
-    		}	
+    	    				    				    				    				    				    				    				    				    					}	
 	
 	/**
 	 * Set all Values that are not read-Only
 	 **/
 	private void setValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForZoneDataContainer dc) throws WbemSmtException {
-    			
+    																															setMultiValue(adapter.getBundle(),cmd,dc.get_AddressList(),KEY_addressList);
+																																					setMultiValue(adapter.getBundle(),cmd,dc.get_usr_UserAddresses(),KEY_userAddresses);
+																setValue(cmd,dc.get_usr_NewAddress(),KEY_newAddress);
+																																																																											
 		//The Buttons
-    		}	
+    										if (!pressButton(cmd,adapter,dc,dc.get_usr_UseGlobalAddressMatchList(),KEY_useGlobalAddressMatchList)) return;
+																									if (!pressButton(cmd,adapter,dc,dc.get_usr_RemoveAddress(),KEY_removeAddress)) return;
+																																		if (!pressButton(cmd,adapter,dc,dc.get_usr_AddPredefinedAddress(),KEY_addPredefinedAddress)) return;
+																if (!pressButton(cmd,adapter,dc,dc.get_usr_AddNewAddress(),KEY_addNewAddress)) return;
+																if (!pressButton(cmd,adapter,dc,dc.get_usr_AddressUp(),KEY_addressUp)) return;
+																if (!pressButton(cmd,adapter,dc,dc.get_usr_AddressDown(),KEY_addressDown)) return;
+								}	
 	
 	
  

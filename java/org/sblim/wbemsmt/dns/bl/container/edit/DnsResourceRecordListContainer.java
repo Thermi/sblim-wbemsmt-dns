@@ -58,9 +58,8 @@ public interface DnsResourceRecordListContainer extends org.sblim.wbemsmt.bl.ada
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 			
+				
 		/**
 		* 
 		* linked container DnsResourceRecordListItemContainer
@@ -68,5 +67,13 @@ public interface DnsResourceRecordListContainer extends org.sblim.wbemsmt.bl.ada
 
 		public java.util.List getResourceRecords();
 
-	
+	   		
+	   /**
+		* Header for:
+		* 
+		* linked container DnsResourceRecordListItemContainer
+		*/
+		public  org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainerHeader getResourceRecordsHeader();
+		
+			
 }

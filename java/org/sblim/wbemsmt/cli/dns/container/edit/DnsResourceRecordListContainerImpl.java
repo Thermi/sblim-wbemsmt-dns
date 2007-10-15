@@ -34,12 +34,24 @@ import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-
-public class DnsResourceRecordListContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListContainer {
-
+public class DnsResourceRecordListContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListContainer
+			, org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainerHeader		
+	{
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_SelectAll;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Delete;
-    			private java.util.List icResourceRecords = new java.util.ArrayList();
+    			
+		
+		private java.util.List icResourceRecords = new java.util.ArrayList();
+
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_usr_DeleteRecord;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Name;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_TTL;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_usr_TTLUnit;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_usr_RemoveTTL;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Family;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Type;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Value;
+		
 	
 		
 	public DnsResourceRecordListContainerImpl(AbstractBaseCimAdapter adapter) throws InitContainerException {
@@ -82,6 +94,7 @@ public class DnsResourceRecordListContainerImpl extends BaseDataContainer implem
     	}
 		
 			
+		
 		/**
 		* 
 		* linked container DnsResourceRecordListItemContainer
@@ -90,6 +103,114 @@ public class DnsResourceRecordListContainerImpl extends BaseDataContainer implem
 		{
 			return icResourceRecords;
 		}
+
+   	       /**
+		* Header for:
+		* 
+		* linked container DnsResourceRecordListItemContainer
+		*/
+		public org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainerHeader getResourceRecordsHeader()
+		{
+			return this;
+		}
+
+				/**
+   		 * Header for field deleteRecord
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_usr_DeleteRecord() {
+    		if (icResourceRecordsHeader_usr_DeleteRecord == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordListItemContainer.deleteRecord");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
+    			icResourceRecordsHeader_usr_DeleteRecord = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_usr_DeleteRecord;
+    	    }
+				/**
+   		 * Header for field Name
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Name() {
+    		if (icResourceRecordsHeader_Name == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordListItemContainer.Name");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icResourceRecordsHeader_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_Name;
+    	    }
+				/**
+   		 * Header for field TTL
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_TTL() {
+    		if (icResourceRecordsHeader_TTL == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordListItemContainer.TTL");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icResourceRecordsHeader_TTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_TTL;
+    	    }
+				/**
+   		 * Header for field TTLUnit
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_usr_TTLUnit() {
+    		if (icResourceRecordsHeader_usr_TTLUnit == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordListItemContainer.TTLUnit");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
+    			icResourceRecordsHeader_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_usr_TTLUnit;
+    	    }
+				/**
+   		 * Header for field removeTTL
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_usr_RemoveTTL() {
+    		if (icResourceRecordsHeader_usr_RemoveTTL == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordListItemContainer.removeTTL");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icResourceRecordsHeader_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_usr_RemoveTTL;
+    	    }
+				/**
+   		 * Header for field Family
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Family() {
+    		if (icResourceRecordsHeader_Family == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordListItemContainer.Family");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt8StringArrayConverter();
+    			icResourceRecordsHeader_Family = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_Family;
+    	    }
+				/**
+   		 * Header for field Type
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Type() {
+    		if (icResourceRecordsHeader_Type == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordListItemContainer.Type");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
+    			icResourceRecordsHeader_Type = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_Type;
+    	    }
+				/**
+   		 * Header for field Value
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Value() {
+    		if (icResourceRecordsHeader_Value == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordListItemContainer.Value");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icResourceRecordsHeader_Value = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_Value;
+    	    }
+		
 
 	
 		

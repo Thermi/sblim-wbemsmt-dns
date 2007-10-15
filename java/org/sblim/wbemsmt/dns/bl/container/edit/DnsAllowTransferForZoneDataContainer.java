@@ -48,7 +48,5 @@ public interface DnsAllowTransferForZoneDataContainer extends org.sblim.wbemsmt.
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

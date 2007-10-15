@@ -175,7 +175,7 @@ public class DeleteDnsStubZone extends CimCommand {
 			values.getOut().println("\n" + bundle.getString("deleting",new Object[]{bundle.getString("DnsStubZoneDataContainer.caption")}));
 			
 			CliDataLoader loader = new DeleteDnsStubZoneLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, commandValues);
 			
 			org.sblim.wbemsmt.cli.dns.container.edit.DnsStubZoneDataContainerImpl dc = new org.sblim.wbemsmt.cli.dns.container.edit.DnsStubZoneDataContainerImpl(adapter);
 			
@@ -200,6 +200,10 @@ public class DeleteDnsStubZone extends CimCommand {
 		catch (Exception e)
 		{
 			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
+		}
+		finally
+		{
+			if (adapter != null) adapter.cleanup();
 		}
 	}
 	

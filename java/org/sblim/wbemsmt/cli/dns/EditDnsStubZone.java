@@ -25,9 +25,8 @@
 package org.sblim.wbemsmt.cli.dns;
 
 import org.apache.commons.cli.*;
-import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.bl.adapter.CimAdapterFactory;
-import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.bl.adapter.*;
+import org.sblim.wbemsmt.bl.*;
 import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.tools.cli.*;
 
@@ -260,7 +259,7 @@ public class EditDnsStubZone extends CimCommand {
 			values.getOut().println("\n" + bundle.getString("editing",new Object[]{bundle.getString("DnsStubZoneDataContainer.caption")}));
 
         	CliDataLoader loader = new EditDnsStubZoneLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, commandValues);
 			
 			org.sblim.wbemsmt.cli.dns.container.edit.DnsStubZoneDataContainerImpl dc = new org.sblim.wbemsmt.cli.dns.container.edit.DnsStubZoneDataContainerImpl(adapter);
 						
@@ -279,12 +278,14 @@ public class EditDnsStubZone extends CimCommand {
 
 			if (result.hasErrors())
 			{
-				traceErrors("save.error",result);
+				Message caption = Message.create(ErrCodes.MSG_SAVE_ERROR, Message.ERROR,bundle, "save.error");
+				traceMessages(caption,result);
 				return;
 			}
 			else
 			{
-				traceMessages("additional.messages",result);
+				Message caption = Message.create(ErrCodes.MSG_ADDITIONAL_MESSAGES, Message.ERROR,bundle, "additional.messages");
+				traceMessages(caption,result);
 				result.clear();
 			}
 							
@@ -298,20 +299,24 @@ public class EditDnsStubZone extends CimCommand {
 				result = dc.getMessagesList();
 				if (result.hasErrors())
 				{
-					traceErrors("save.error",result);
+					Message caption = Message.create(ErrCodes.MSG_SAVE_ERROR, Message.ERROR,bundle, "save.error");
+					traceMessages(caption,result);
 				}
 				else if (result.hasWarning())
 				{
-					traceErrors("save.warning",result);
+					Message caption = Message.create(ErrCodes.MSG_SAVE_WARNING, Message.ERROR,bundle, "save.warning");
+					traceMessages(caption,result);
 				}
 				else if (result.hasInfo())
 				{
-					traceErrors("save.info",result);
+					Message caption = Message.create(ErrCodes.MSG_SAVE_INFO, Message.ERROR,bundle, "save.info");
+					traceMessages(caption,result);
 				}
 			}
 			else
 			{
-					traceErrors("validation.error",result);
+					Message caption = Message.create(ErrCodes.MSG_VALIDATION_ERROR, Message.ERROR,bundle, "validation.error");
+					traceMessages(caption,result);
 					return;
 			}
 			values.getOut().println("\n" + bundle.getString("edited", new Object[]{bundle.getString("DnsStubZoneDataContainer.caption")}));
@@ -326,21 +331,44 @@ public class EditDnsStubZone extends CimCommand {
 		{
 			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
 		}
+		finally
+		{
+			if (adapter != null) adapter.cleanup();
+		}
 	}
 	
 	/**
 	 * Set all Values that are needed for selecting the right objects. This fields are used even if they are read-only
 	 **/
 	private void setKeyValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.dns.bl.container.edit.DnsStubZoneDataContainer dc) throws WbemSmtException {
-    		}	
+    	    				    				    				    				    				    				    				    				    		    			    				setValue(cmd,dc.get_Name(),KEY_zoneName);
+    			    			    			    				    				    				    				    				    				    				    				    				    					}	
 	
 	/**
 	 * Set all Values that are not read-Only
 	 **/
 	private void setValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.dns.bl.container.edit.DnsStubZoneDataContainer dc) throws WbemSmtException {
-    			
+    										setValue(cmd,dc.get_ZoneFile(),KEY_zoneFile);
+																																											setMultiValue(adapter.getBundle(),cmd,dc.get_Forward(),KEY_forward);
+																						setMultiValue(adapter.getBundle(),cmd,dc.get_Forwarders(),KEY_forwarders);
+																															setValue(cmd,dc.get_usr_NewForwarder(),KEY_newForwarder);
+																																											setMultiValue(adapter.getBundle(),cmd,dc.get_usr_NewForwarderType(),KEY_newForwarderType);
+																setValue(cmd,dc.get_Name(),KEY_zoneName);
+																												setMultiValue(adapter.getBundle(),cmd,dc.get_Masters(),KEY_masters);
+																															setValue(cmd,dc.get_usr_NewMasterEntry(),KEY_newMasterEntry);
+																																																										setMultiValue(adapter.getBundle(),cmd,dc.get_usr_PredefinedMasters(),KEY_predefinedMasters);
+																setValue(cmd,dc.get_TTL(),KEY_ttl);
+																												setMultiValue(adapter.getBundle(),cmd,dc.get_usr_TTLUnit(),KEY_ttlUnit);
+																								
 		//The Buttons
-    		}	
+    																			if (!pressButton(cmd,adapter,dc,dc.get_usr_UseGlobalForwarders(),KEY_useGlobalForwarders)) return;
+																																		if (!pressButton(cmd,adapter,dc,dc.get_usr_RemoveForwarder(),KEY_removeForwarder)) return;
+																									if (!pressButton(cmd,adapter,dc,dc.get_usr_AddForwarder(),KEY_addForwarder)) return;
+																																											if (!pressButton(cmd,adapter,dc,dc.get_usr_RemoveMasterEntry(),KEY_removeMasterEntry)) return;
+																									if (!pressButton(cmd,adapter,dc,dc.get_usr_AddNewMasterEntry(),KEY_addNewMasterEntry)) return;
+																if (!pressButton(cmd,adapter,dc,dc.get_usr_AddPredefinedMaster(),KEY_addPredefinedMaster)) return;
+																																											if (!pressButton(cmd,adapter,dc,dc.get_usr_RemoveTTL(),KEY_removeTTL)) return;
+								}	
 	
 	
  

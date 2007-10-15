@@ -22,25 +22,13 @@ package org.sblim.wbemsmt.cli.dns;
 import java.util.List;
 import java.util.Vector;
 
-import org.apache.commons.cli.CommandLine;
 import org.sblim.wbem.cim.CIMDataType;
 import org.sblim.wbem.cim.CIMObjectPath;
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchList;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchListsForService;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwardZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsHintZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasterZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasters;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMastersForService;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsSlaveZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsStubZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsZoneHelper;
+import org.sblim.wbemsmt.dns.bl.fco.*;
 import org.sblim.wbemsmt.dns.bl.wrapper.NameFactory;
 import org.sblim.wbemsmt.dns.bl.wrapper.ResourceRecord;
 import org.sblim.wbemsmt.dns.bl.wrapper.Zone;
@@ -48,12 +36,13 @@ import org.sblim.wbemsmt.dns.filter.DnsZoneNameFilter;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 import org.sblim.wbemsmt.exception.ObjectCreationException;
 import org.sblim.wbemsmt.exception.ObjectNotFoundException;
+import org.sblim.wbemsmt.tools.cli.CimCommandValues;
 import org.sblim.wbemsmt.tools.cli.CliDataLoader;
 import org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle;
 
 public abstract class DnsDataLoader implements CliDataLoader {
 
-	protected CommandLine cmd;
+	protected CimCommandValues commandValues;
 
 	protected void selectZone(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, String zoneName, boolean creationOfResourceRecord) throws ObjectNotFoundException {
 		Vector keys = new Vector();
@@ -234,7 +223,7 @@ public abstract class DnsDataLoader implements CliDataLoader {
 	
 	private final String getServiceName()
 	{
-		return cmd.getOptionValue(GlobalArguments.KEY_GLOBAL_dnsServiceName.getLongKey());
+		return commandValues.getOptionValue(GlobalArguments.KEY_GLOBAL_dnsServiceName.getLongKey());
 	}
 
 	private CimObjectKey getServiceKey(AbstractBaseCimAdapter adapter, String serviceName) throws ObjectNotFoundException {

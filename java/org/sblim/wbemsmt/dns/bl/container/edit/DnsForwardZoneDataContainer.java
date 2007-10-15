@@ -48,7 +48,5 @@ public interface DnsForwardZoneDataContainer extends org.sblim.wbemsmt.dns.bl.co
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

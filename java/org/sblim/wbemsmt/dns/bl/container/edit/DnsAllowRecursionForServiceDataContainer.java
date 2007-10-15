@@ -39,7 +39,5 @@ public interface DnsAllowRecursionForServiceDataContainer extends org.sblim.wbem
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

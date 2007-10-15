@@ -39,7 +39,5 @@ public interface DnsAllowTransferForServiceDataContainer extends org.sblim.wbems
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

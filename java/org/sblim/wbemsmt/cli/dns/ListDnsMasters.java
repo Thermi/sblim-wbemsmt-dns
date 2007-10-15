@@ -179,7 +179,7 @@ public class ListDnsMasters extends CimCommand {
 			values.getOut().println("\n" + bundle.getString("listing", new Object[]{bundle.getString("DnsMastersForServiceDataContainer.caption")}));
 			
 			CliDataLoader loader = new ListDnsMastersLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, commandValues);
 			
 			org.sblim.wbemsmt.cli.dns.container.edit.DnsMastersForServiceDataContainerImpl dc = new org.sblim.wbemsmt.cli.dns.container.edit.DnsMastersForServiceDataContainerImpl(adapter);
 			
@@ -206,13 +206,18 @@ public class ListDnsMasters extends CimCommand {
 		{
 			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
 		}
+		finally
+		{
+			if (adapter != null) adapter.cleanup();
+		}
 	}
 	
 	/**
 	 * Set all Values that are needed for selecting the right objects. This fields are used even if they are read-only
 	 **/
 	private void setKeyValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.dns.bl.container.edit.DnsMastersForServiceDataContainer dc) throws WbemSmtException {
-    		}	
+    	    		    			    				setValue(cmd,dc.get_Name(),KEY_mastersName);
+    			    			    			    				    				    				    				    				    				    					}	
 	
 	
  

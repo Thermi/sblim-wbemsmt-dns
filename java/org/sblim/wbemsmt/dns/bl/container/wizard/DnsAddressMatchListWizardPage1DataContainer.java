@@ -48,7 +48,5 @@ public interface DnsAddressMatchListWizardPage1DataContainer extends org.sblim.w
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

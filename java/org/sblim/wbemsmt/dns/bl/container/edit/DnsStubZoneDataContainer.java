@@ -57,7 +57,5 @@ public interface DnsStubZoneDataContainer extends org.sblim.wbemsmt.dns.bl.conta
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

@@ -93,7 +93,5 @@ public interface DnsForwarderDataContainer extends org.sblim.wbemsmt.bl.adapter.
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

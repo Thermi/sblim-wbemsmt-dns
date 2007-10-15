@@ -38,8 +38,9 @@ import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardSummaryDataContainer {
-
+public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardSummaryDataContainer
+			, org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainerHeader		
+	{
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Name;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_ResourceRecordFile;
     			
@@ -48,9 +49,9 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
 		private MultiLinePanel resourceRecordsPanel;
 		private int resourceRecordsCount;
 
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icResourceRecords_NameHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icResourceRecords_TypeHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icResourceRecords_ValueHeader;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Name;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Type;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Value;
 				
 	
 		
@@ -221,9 +222,9 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
 	
 	private LabeledJSFInputComponent[] getResourceRecordsHeaderComponents() {
 		return new LabeledJSFInputComponent[]{
-							(LabeledJSFInputComponent)getResourceRecords_NameHeader(),
-							(LabeledJSFInputComponent)getResourceRecords_TypeHeader(),
-							(LabeledJSFInputComponent)getResourceRecords_ValueHeader(),
+							(LabeledJSFInputComponent)getResourceRecordsHeader_Name(),
+							(LabeledJSFInputComponent)getResourceRecordsHeader_Type(),
+							(LabeledJSFInputComponent)getResourceRecordsHeader_Value(),
 						};
 	}
 
@@ -235,61 +236,71 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends org.sblim.wbem
 						};
 	}
 
-			/**
+	   /**
+		* Header for:
+		* 
+		* linked container DnsResourceRecordForReverseZoneWizardDataContainer
+		*/
+		public org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainerHeader getResourceRecordsHeader()
+		{
+			return this;
+		}
+		
+				/**
    		 * Header for field Name
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getResourceRecords_NameHeader() {
-    		if (icResourceRecords_NameHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Name() {
+    		if (icResourceRecordsHeader_Name == null)
     		{
 				String label = bundle.getString("DnsResourceRecordForReverseZoneWizardDataContainer.Name");
-				String binding = bindingPrefix + "resourceRecords_NameHeader.item";
+				String binding = bindingPrefix + "resourceRecordsHeader_Name.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
-    			icResourceRecords_NameHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icResourceRecords_NameHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icResourceRecords_NameHeader).setHeader(true);
+    			icResourceRecordsHeader_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icResourceRecordsHeader_Name).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icResourceRecordsHeader_Name).setHeader(true);
 			
-    		return icResourceRecords_NameHeader;
+    		return icResourceRecordsHeader_Name;
     	}
-			/**
+				/**
    		 * Header for field Type
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getResourceRecords_TypeHeader() {
-    		if (icResourceRecords_TypeHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Type() {
+    		if (icResourceRecordsHeader_Type == null)
     		{
 				String label = bundle.getString("DnsResourceRecordForReverseZoneWizardDataContainer.Type");
-				String binding = bindingPrefix + "resourceRecords_TypeHeader.item";
+				String binding = bindingPrefix + "resourceRecordsHeader_Type.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
-    			icResourceRecords_TypeHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icResourceRecords_TypeHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icResourceRecords_TypeHeader).setHeader(true);
+    			icResourceRecordsHeader_Type = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icResourceRecordsHeader_Type).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icResourceRecordsHeader_Type).setHeader(true);
 			
-    		return icResourceRecords_TypeHeader;
+    		return icResourceRecordsHeader_Type;
     	}
-			/**
+				/**
    		 * Header for field Value
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getResourceRecords_ValueHeader() {
-    		if (icResourceRecords_ValueHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Value() {
+    		if (icResourceRecordsHeader_Value == null)
     		{
 				String label = bundle.getString("DnsResourceRecordForReverseZoneWizardDataContainer.Value");
-				String binding = bindingPrefix + "resourceRecords_ValueHeader.item";
+				String binding = bindingPrefix + "resourceRecordsHeader_Value.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = true;
-    			icResourceRecords_ValueHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icResourceRecords_ValueHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icResourceRecords_ValueHeader).setHeader(true);
+    			icResourceRecordsHeader_Value = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icResourceRecordsHeader_Value).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFLabelComponent)icResourceRecordsHeader_Value).setHeader(true);
 			
-    		return icResourceRecords_ValueHeader;
+    		return icResourceRecordsHeader_Value;
     	}
-	
+		
 	
 		
 	public void reload()

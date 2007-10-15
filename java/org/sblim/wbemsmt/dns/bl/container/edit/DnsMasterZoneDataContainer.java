@@ -57,7 +57,5 @@ public interface DnsMasterZoneDataContainer extends org.sblim.wbemsmt.dns.bl.con
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

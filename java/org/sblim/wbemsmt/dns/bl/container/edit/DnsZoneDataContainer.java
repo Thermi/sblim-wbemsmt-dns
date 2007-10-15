@@ -48,7 +48,5 @@ public interface DnsZoneDataContainer extends org.sblim.wbemsmt.bl.adapter.DataC
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

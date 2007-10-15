@@ -57,7 +57,5 @@ public interface DnsResourceRecordWizardPage2TypeMxDataContainer extends org.sbl
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

@@ -48,7 +48,5 @@ public interface DnsMastersWizardPage1DataContainer extends org.sblim.wbemsmt.dn
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

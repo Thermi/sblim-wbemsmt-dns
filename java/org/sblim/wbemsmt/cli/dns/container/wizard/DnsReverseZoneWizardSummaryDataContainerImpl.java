@@ -34,12 +34,19 @@ import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-
-public class DnsReverseZoneWizardSummaryDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardSummaryDataContainer {
-
+public class DnsReverseZoneWizardSummaryDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardSummaryDataContainer
+			, org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainerHeader		
+	{
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Name;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_ResourceRecordFile;
-    			private java.util.List icResourceRecords = new java.util.ArrayList();
+    			
+		
+		private java.util.List icResourceRecords = new java.util.ArrayList();
+
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Name;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Type;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Value;
+		
 	
 		
 	public DnsReverseZoneWizardSummaryDataContainerImpl(AbstractBaseCimAdapter adapter) throws InitContainerException {
@@ -82,6 +89,7 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends BaseDataContai
     	}
 		
 			
+		
 		/**
 		* 
 		* linked container DnsResourceRecordForReverseZoneWizardDataContainer
@@ -90,6 +98,54 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends BaseDataContai
 		{
 			return icResourceRecords;
 		}
+
+   	       /**
+		* Header for:
+		* 
+		* linked container DnsResourceRecordForReverseZoneWizardDataContainer
+		*/
+		public org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainerHeader getResourceRecordsHeader()
+		{
+			return this;
+		}
+
+				/**
+   		 * Header for field Name
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Name() {
+    		if (icResourceRecordsHeader_Name == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordForReverseZoneWizardDataContainer.Name");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icResourceRecordsHeader_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_Name;
+    	    }
+				/**
+   		 * Header for field Type
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Type() {
+    		if (icResourceRecordsHeader_Type == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordForReverseZoneWizardDataContainer.Type");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icResourceRecordsHeader_Type = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_Type;
+    	    }
+				/**
+   		 * Header for field Value
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Value() {
+    		if (icResourceRecordsHeader_Value == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordForReverseZoneWizardDataContainer.Value");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icResourceRecordsHeader_Value = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_Value;
+    	    }
+		
 
 	
 		

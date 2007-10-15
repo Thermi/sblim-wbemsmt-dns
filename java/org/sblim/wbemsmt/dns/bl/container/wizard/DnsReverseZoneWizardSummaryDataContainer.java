@@ -58,9 +58,8 @@ public interface DnsReverseZoneWizardSummaryDataContainer extends org.sblim.wbem
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 			
+				
 		/**
 		* 
 		* linked container DnsResourceRecordForReverseZoneWizardDataContainer
@@ -68,5 +67,13 @@ public interface DnsReverseZoneWizardSummaryDataContainer extends org.sblim.wbem
 
 		public java.util.List getResourceRecords();
 
-	
+	   		
+	   /**
+		* Header for:
+		* 
+		* linked container DnsResourceRecordForReverseZoneWizardDataContainer
+		*/
+		public  org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainerHeader getResourceRecordsHeader();
+		
+			
 }

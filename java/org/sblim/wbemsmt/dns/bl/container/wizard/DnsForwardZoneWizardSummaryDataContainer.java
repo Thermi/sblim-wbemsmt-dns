@@ -66,7 +66,5 @@ public interface DnsForwardZoneWizardSummaryDataContainer extends org.sblim.wbem
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

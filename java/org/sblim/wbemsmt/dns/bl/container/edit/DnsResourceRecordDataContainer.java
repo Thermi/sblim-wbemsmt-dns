@@ -84,7 +84,5 @@ public interface DnsResourceRecordDataContainer extends org.sblim.wbemsmt.dns.bl
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

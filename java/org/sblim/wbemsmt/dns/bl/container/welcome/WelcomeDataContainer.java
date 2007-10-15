@@ -120,7 +120,5 @@ public interface WelcomeDataContainer extends org.sblim.wbemsmt.bl.adapter.DataC
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

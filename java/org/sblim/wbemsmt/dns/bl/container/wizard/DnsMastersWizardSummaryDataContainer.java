@@ -57,7 +57,5 @@ public interface DnsMastersWizardSummaryDataContainer extends org.sblim.wbemsmt.
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

@@ -48,7 +48,5 @@ public interface DnsAddressMatchListForServiceDataContainer extends org.sblim.wb
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

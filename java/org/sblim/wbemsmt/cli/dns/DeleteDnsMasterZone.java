@@ -175,7 +175,7 @@ public class DeleteDnsMasterZone extends CimCommand {
 			values.getOut().println("\n" + bundle.getString("deleting",new Object[]{bundle.getString("DnsMasterZoneDataContainer.caption")}));
 			
 			CliDataLoader loader = new DeleteDnsMasterZoneLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, commandValues);
 			
 			org.sblim.wbemsmt.cli.dns.container.edit.DnsMasterZoneDataContainerImpl dc = new org.sblim.wbemsmt.cli.dns.container.edit.DnsMasterZoneDataContainerImpl(adapter);
 			
@@ -200,6 +200,10 @@ public class DeleteDnsMasterZone extends CimCommand {
 		catch (Exception e)
 		{
 			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
+		}
+		finally
+		{
+			if (adapter != null) adapter.cleanup();
 		}
 	}
 	

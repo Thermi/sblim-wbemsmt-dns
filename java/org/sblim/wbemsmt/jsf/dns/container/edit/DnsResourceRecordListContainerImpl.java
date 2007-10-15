@@ -38,8 +38,9 @@ import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListContainer {
-
+public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePanel implements org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListContainer
+			, org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainerHeader		
+	{
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_SelectAll;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Delete;
     			
@@ -48,14 +49,14 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 		private MultiLinePanel resourceRecordsPanel;
 		private int resourceRecordsCount;
 
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icResourceRecords_usr_DeleteRecordHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icResourceRecords_NameHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icResourceRecords_TTLHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf icResourceRecords_usr_TTLUnitHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icResourceRecords_usr_RemoveTTLHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf icResourceRecords_FamilyHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf icResourceRecords_TypeHeader;
-				private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf icResourceRecords_ValueHeader;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_usr_DeleteRecord;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Name;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_TTL;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_usr_TTLUnit;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_usr_RemoveTTL;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Family;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Type;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Value;
 				
 	
 		
@@ -238,14 +239,14 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 	
 	private LabeledJSFInputComponent[] getResourceRecordsHeaderComponents() {
 		return new LabeledJSFInputComponent[]{
-							(LabeledJSFInputComponent)getResourceRecords_usr_DeleteRecordHeader(),
-							(LabeledJSFInputComponent)getResourceRecords_NameHeader(),
-							(LabeledJSFInputComponent)getResourceRecords_TTLHeader(),
-							(LabeledJSFInputComponent)getResourceRecords_usr_TTLUnitHeader(),
-							(LabeledJSFInputComponent)getResourceRecords_usr_RemoveTTLHeader(),
-							(LabeledJSFInputComponent)getResourceRecords_FamilyHeader(),
-							(LabeledJSFInputComponent)getResourceRecords_TypeHeader(),
-							(LabeledJSFInputComponent)getResourceRecords_ValueHeader(),
+							(LabeledJSFInputComponent)getResourceRecordsHeader_usr_DeleteRecord(),
+							(LabeledJSFInputComponent)getResourceRecordsHeader_Name(),
+							(LabeledJSFInputComponent)getResourceRecordsHeader_TTL(),
+							(LabeledJSFInputComponent)getResourceRecordsHeader_usr_TTLUnit(),
+							(LabeledJSFInputComponent)getResourceRecordsHeader_usr_RemoveTTL(),
+							(LabeledJSFInputComponent)getResourceRecordsHeader_Family(),
+							(LabeledJSFInputComponent)getResourceRecordsHeader_Type(),
+							(LabeledJSFInputComponent)getResourceRecordsHeader_Value(),
 						};
 	}
 
@@ -262,151 +263,161 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
 						};
 	}
 
-			/**
+	   /**
+		* Header for:
+		* 
+		* linked container DnsResourceRecordListItemContainer
+		*/
+		public org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainerHeader getResourceRecordsHeader()
+		{
+			return this;
+		}
+		
+				/**
    		 * Header for field deleteRecord
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getResourceRecords_usr_DeleteRecordHeader() {
-    		if (icResourceRecords_usr_DeleteRecordHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_usr_DeleteRecord() {
+    		if (icResourceRecordsHeader_usr_DeleteRecord == null)
     		{
 				String label = bundle.getString("DnsResourceRecordListItemContainer.deleteRecord");
-				String binding = bindingPrefix + "resourceRecords_usr_DeleteRecordHeader.item";
+				String binding = bindingPrefix + "resourceRecordsHeader_usr_DeleteRecord.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icResourceRecords_usr_DeleteRecordHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icResourceRecords_usr_DeleteRecordHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icResourceRecords_usr_DeleteRecordHeader).setHeader(true);
+    			icResourceRecordsHeader_usr_DeleteRecord = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icResourceRecordsHeader_usr_DeleteRecord).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFCheckboxComponent)icResourceRecordsHeader_usr_DeleteRecord).setHeader(true);
 			
-    		return icResourceRecords_usr_DeleteRecordHeader;
+    		return icResourceRecordsHeader_usr_DeleteRecord;
     	}
-			/**
+				/**
    		 * Header for field Name
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getResourceRecords_NameHeader() {
-    		if (icResourceRecords_NameHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Name() {
+    		if (icResourceRecordsHeader_Name == null)
     		{
 				String label = bundle.getString("DnsResourceRecordListItemContainer.Name");
-				String binding = bindingPrefix + "resourceRecords_NameHeader.item";
+				String binding = bindingPrefix + "resourceRecordsHeader_Name.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icResourceRecords_NameHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icResourceRecords_NameHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icResourceRecords_NameHeader).setHeader(true);
+    			icResourceRecordsHeader_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icResourceRecordsHeader_Name).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icResourceRecordsHeader_Name).setHeader(true);
 			
-    		return icResourceRecords_NameHeader;
+    		return icResourceRecordsHeader_Name;
     	}
-			/**
+				/**
    		 * Header for field TTL
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getResourceRecords_TTLHeader() {
-    		if (icResourceRecords_TTLHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_TTL() {
+    		if (icResourceRecordsHeader_TTL == null)
     		{
 				String label = bundle.getString("DnsResourceRecordListItemContainer.TTL");
-				String binding = bindingPrefix + "resourceRecords_TTLHeader.item";
+				String binding = bindingPrefix + "resourceRecordsHeader_TTL.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icResourceRecords_TTLHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icResourceRecords_TTLHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icResourceRecords_TTLHeader).setHeader(true);
+    			icResourceRecordsHeader_TTL = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icResourceRecordsHeader_TTL).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icResourceRecordsHeader_TTL).setHeader(true);
 			
-    		return icResourceRecords_TTLHeader;
+    		return icResourceRecordsHeader_TTL;
     	}
-			/**
+				/**
    		 * Header for field TTLUnit
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf getResourceRecords_usr_TTLUnitHeader() {
-    		if (icResourceRecords_usr_TTLUnitHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_usr_TTLUnit() {
+    		if (icResourceRecordsHeader_usr_TTLUnit == null)
     		{
 				String label = bundle.getString("DnsResourceRecordListItemContainer.TTLUnit");
-				String binding = bindingPrefix + "resourceRecords_usr_TTLUnitHeader.item";
+				String binding = bindingPrefix + "resourceRecordsHeader_usr_TTLUnit.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
-    			icResourceRecords_usr_TTLUnitHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)icResourceRecords_usr_TTLUnitHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)icResourceRecords_usr_TTLUnitHeader).setHeader(true);
+    			icResourceRecordsHeader_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)icResourceRecordsHeader_usr_TTLUnit).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)icResourceRecordsHeader_usr_TTLUnit).setHeader(true);
 			
-    		return icResourceRecords_usr_TTLUnitHeader;
+    		return icResourceRecordsHeader_usr_TTLUnit;
     	}
-			/**
+				/**
    		 * Header for field removeTTL
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getResourceRecords_usr_RemoveTTLHeader() {
-    		if (icResourceRecords_usr_RemoveTTLHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_usr_RemoveTTL() {
+    		if (icResourceRecordsHeader_usr_RemoveTTL == null)
     		{
 				String label = bundle.getString("DnsResourceRecordListItemContainer.removeTTL");
-				String binding = bindingPrefix + "resourceRecords_usr_RemoveTTLHeader.item";
+				String binding = bindingPrefix + "resourceRecordsHeader_usr_RemoveTTL.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icResourceRecords_usr_RemoveTTLHeader = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent)icResourceRecords_usr_RemoveTTLHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent)icResourceRecords_usr_RemoveTTLHeader).setHeader(true);
+    			icResourceRecordsHeader_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent)icResourceRecordsHeader_usr_RemoveTTL).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent)icResourceRecordsHeader_usr_RemoveTTL).setHeader(true);
 			
-    		return icResourceRecords_usr_RemoveTTLHeader;
+    		return icResourceRecordsHeader_usr_RemoveTTL;
     	}
-			/**
+				/**
    		 * Header for field Family
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf getResourceRecords_FamilyHeader() {
-    		if (icResourceRecords_FamilyHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Family() {
+    		if (icResourceRecordsHeader_Family == null)
     		{
 				String label = bundle.getString("DnsResourceRecordListItemContainer.Family");
-				String binding = bindingPrefix + "resourceRecords_FamilyHeader.item";
+				String binding = bindingPrefix + "resourceRecordsHeader_Family.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt8StringConverter();
 				boolean readOnly = false;
-    			icResourceRecords_FamilyHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)icResourceRecords_FamilyHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)icResourceRecords_FamilyHeader).setHeader(true);
+    			icResourceRecordsHeader_Family = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)icResourceRecordsHeader_Family).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)icResourceRecordsHeader_Family).setHeader(true);
 			
-    		return icResourceRecords_FamilyHeader;
+    		return icResourceRecordsHeader_Family;
     	}
-			/**
+				/**
    		 * Header for field Type
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf getResourceRecords_TypeHeader() {
-    		if (icResourceRecords_TypeHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Type() {
+    		if (icResourceRecordsHeader_Type == null)
     		{
 				String label = bundle.getString("DnsResourceRecordListItemContainer.Type");
-				String binding = bindingPrefix + "resourceRecords_TypeHeader.item";
+				String binding = bindingPrefix + "resourceRecordsHeader_Type.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
 				boolean readOnly = false;
-    			icResourceRecords_TypeHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)icResourceRecords_TypeHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)icResourceRecords_TypeHeader).setHeader(true);
+    			icResourceRecordsHeader_Type = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)icResourceRecordsHeader_Type).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFComboBoxComponent)icResourceRecordsHeader_Type).setHeader(true);
 			
-    		return icResourceRecords_TypeHeader;
+    		return icResourceRecordsHeader_Type;
     	}
-			/**
+				/**
    		 * Header for field Value
 		 */
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf getResourceRecords_ValueHeader() {
-    		if (icResourceRecords_ValueHeader == null)
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Value() {
+    		if (icResourceRecordsHeader_Value == null)
     		{
 				String label = bundle.getString("DnsResourceRecordListItemContainer.Value");
-				String binding = bindingPrefix + "resourceRecords_ValueHeader.item";
+				String binding = bindingPrefix + "resourceRecordsHeader_Value.item";
 				logger.fine("Using binding " + binding);
 				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
 				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
 				boolean readOnly = false;
-    			icResourceRecords_ValueHeader = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icResourceRecords_ValueHeader).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
-				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icResourceRecords_ValueHeader).setHeader(true);
+    			icResourceRecordsHeader_Value = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icResourceRecordsHeader_Value).setOrientation( LabeledBaseInputComponentIf.LEFT );    		}
+				((org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent)icResourceRecordsHeader_Value).setHeader(true);
 			
-    		return icResourceRecords_ValueHeader;
+    		return icResourceRecordsHeader_Value;
     	}
-	
+		
 	
 		
 	public void reload()

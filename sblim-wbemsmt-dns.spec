@@ -1,6 +1,6 @@
 %define name                    sblim-wbemsmt-dns
 %define version                 0.5.2
-%define build_release           1
+%define build_release           CVS
 %define release                 %{build_release}jpp
 %define section                 free
 
@@ -151,6 +151,9 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.dns
 
 ###############################################################################
 %changelog
+* Mon Oct 15 2007 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.2-CVS
+	o 1813932  wbemsmt-dns :cliDataLoader uses CIMCommandValues
+
 * Mon Sep 10 2007 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.2-1
   - Inclusion of fixes for the following issues:
     o 1787139  wbemsmt-dns:cleanup apidoc and todos

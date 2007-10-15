@@ -48,7 +48,5 @@ public interface DnsStubZoneWizardPage1DataContainer extends org.sblim.wbemsmt.d
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

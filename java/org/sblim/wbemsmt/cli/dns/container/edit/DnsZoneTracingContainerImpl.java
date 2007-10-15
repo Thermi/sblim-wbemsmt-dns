@@ -34,9 +34,9 @@ import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-
-public class DnsZoneTracingContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneTracingContainer {
-
+public class DnsZoneTracingContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneTracingContainer
+			, org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainerHeader		
+	{
 			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_ResourceRecordFile;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Contact;
@@ -51,7 +51,19 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
     		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_TTLUnit;
     		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_NegativeCaching_TTL;
     		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_NegativeCaching_TTLUnit;
-    			private java.util.List icResourceRecords = new java.util.ArrayList();
+    			
+		
+		private java.util.List icResourceRecords = new java.util.ArrayList();
+
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_TTL;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_usr_TTLUnit;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_usr_RemoveTTL;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Name;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Type;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Family;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Value;
+				private org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf icResourceRecordsHeader_Priority;
+		
 	
 			private org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForZoneDataContainer icAllowNotifyAcl = null;
 			private org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryForZoneDataContainer icAllowQueryAcl = null;
@@ -294,6 +306,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
     	}
 		
 			
+		
 		/**
 		* 
 		* linked container DnsResourceRecordDataContainer
@@ -302,6 +315,114 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements or
 		{
 			return icResourceRecords;
 		}
+
+   	       /**
+		* Header for:
+		* 
+		* linked container DnsResourceRecordDataContainer
+		*/
+		public org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainerHeader getResourceRecordsHeader()
+		{
+			return this;
+		}
+
+				/**
+   		 * Header for field TTL
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_TTL() {
+    		if (icResourceRecordsHeader_TTL == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordDataContainer.TTL");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icResourceRecordsHeader_TTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_TTL;
+    	    }
+				/**
+   		 * Header for field TTLUnit
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_usr_TTLUnit() {
+    		if (icResourceRecordsHeader_usr_TTLUnit == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordDataContainer.TTLUnit");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
+    			icResourceRecordsHeader_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_usr_TTLUnit;
+    	    }
+				/**
+   		 * Header for field removeTTL
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_usr_RemoveTTL() {
+    		if (icResourceRecordsHeader_usr_RemoveTTL == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordDataContainer.removeTTL");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icResourceRecordsHeader_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_usr_RemoveTTL;
+    	    }
+				/**
+   		 * Header for field Name
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Name() {
+    		if (icResourceRecordsHeader_Name == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordDataContainer.Name");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icResourceRecordsHeader_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_Name;
+    	    }
+				/**
+   		 * Header for field Type
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Type() {
+    		if (icResourceRecordsHeader_Type == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordDataContainer.Type");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
+    			icResourceRecordsHeader_Type = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_Type;
+    	    }
+				/**
+   		 * Header for field Family
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Family() {
+    		if (icResourceRecordsHeader_Family == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordDataContainer.Family");
+			    org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt8StringArrayConverter();
+    			icResourceRecordsHeader_Family = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_Family;
+    	    }
+				/**
+   		 * Header for field Value
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Value() {
+    		if (icResourceRecordsHeader_Value == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordDataContainer.Value");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icResourceRecordsHeader_Value = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_Value;
+    	    }
+				/**
+   		 * Header for field Priority
+		 */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseHeaderComponentIf getResourceRecordsHeader_Priority() {
+    		if (icResourceRecordsHeader_Priority == null)
+    		{
+    			String label = getAdapter().getBundle().getString("DnsResourceRecordDataContainer.Priority");
+			    org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+    			icResourceRecordsHeader_Priority = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
+			}
+    		return icResourceRecordsHeader_Priority;
+    	    }
+		
 
 	
 			

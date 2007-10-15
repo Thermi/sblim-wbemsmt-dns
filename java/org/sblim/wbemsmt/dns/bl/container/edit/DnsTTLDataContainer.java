@@ -66,7 +66,5 @@ public interface DnsTTLDataContainer extends org.sblim.wbemsmt.bl.adapter.DataCo
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

@@ -39,7 +39,5 @@ public interface DnsAllowUpdateForZoneDataContainer extends org.sblim.wbemsmt.dn
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

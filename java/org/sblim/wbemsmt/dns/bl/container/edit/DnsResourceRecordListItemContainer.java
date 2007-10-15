@@ -111,7 +111,5 @@ public interface DnsResourceRecordListItemContainer extends org.sblim.wbemsmt.bl
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

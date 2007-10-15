@@ -57,7 +57,5 @@ public interface DnsSlaveZoneDataContainer extends org.sblim.wbemsmt.dns.bl.cont
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

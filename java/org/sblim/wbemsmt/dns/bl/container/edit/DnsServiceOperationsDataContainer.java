@@ -84,7 +84,5 @@ public interface DnsServiceOperationsDataContainer extends org.sblim.wbemsmt.bl.
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

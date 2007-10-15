@@ -19,9 +19,9 @@
   */
 package org.sblim.wbemsmt.cli.dns;
 
-import org.apache.commons.cli.CommandLine;
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.exception.ObjectNotFoundException;
+import org.sblim.wbemsmt.tools.cli.CimCommandValues;
 import org.sblim.wbemsmt.tools.cli.CliUtil;
 import org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle;
 
@@ -31,15 +31,15 @@ public class DeleteDnsResourceRecordLoader extends DnsDataLoader {
 	 * @see org.sblim.wbemsmt.tools.cli.CliDataLoader#load(org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle, org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter, org.apache.commons.cli.CommandLine)
 	 */
 	public void load(WbemSmtResourceBundle bundle,
-			AbstractBaseCimAdapter adapter, CommandLine cmd)
+			AbstractBaseCimAdapter adapter, CimCommandValues commandValues)
 			throws ObjectNotFoundException {
-		this.cmd = cmd;
+		this.commandValues = commandValues;
 
-		String zoneName = CliUtil.getOption(cmd,DeleteDnsResourceRecord.KEY_zoneName);
-		String recordName = CliUtil.getOption(cmd,DeleteDnsResourceRecord.KEY_recordNameToSelect);
-		String recordValue = CliUtil.getOption(cmd,DeleteDnsResourceRecord.KEY_recordValueToSelect);
-		String recordPrio = CliUtil.getOption(cmd,DeleteDnsResourceRecord.KEY_mxPriorityToSelect);
-		String recordType = CliUtil.getOption(cmd,DeleteDnsResourceRecord.KEY_recordTypeToSelect);
+		String zoneName = CliUtil.getOption(commandValues,DeleteDnsResourceRecord.KEY_zoneName);
+		String recordName = CliUtil.getOption(commandValues,DeleteDnsResourceRecord.KEY_recordNameToSelect);
+		String recordValue = CliUtil.getOption(commandValues,DeleteDnsResourceRecord.KEY_recordValueToSelect);
+		String recordPrio = CliUtil.getOption(commandValues,DeleteDnsResourceRecord.KEY_mxPriorityToSelect);
+		String recordType = CliUtil.getOption(commandValues,DeleteDnsResourceRecord.KEY_recordTypeToSelect);
 		selectResourceRecord(bundle, adapter, zoneName,recordName,recordValue,recordPrio,recordType);
 	}
 

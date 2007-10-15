@@ -66,7 +66,5 @@ public interface DnsMasterDataContainer extends org.sblim.wbemsmt.bl.adapter.Dat
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

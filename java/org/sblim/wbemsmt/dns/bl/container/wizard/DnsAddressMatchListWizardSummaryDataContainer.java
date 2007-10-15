@@ -57,7 +57,5 @@ public interface DnsAddressMatchListWizardSummaryDataContainer extends org.sblim
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

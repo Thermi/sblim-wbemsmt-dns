@@ -48,7 +48,5 @@ public interface DnsSlaveZoneWizardPage1DataContainer extends org.sblim.wbemsmt.
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

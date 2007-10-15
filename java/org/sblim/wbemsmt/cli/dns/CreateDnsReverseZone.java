@@ -197,7 +197,7 @@ public class CreateDnsReverseZone extends CimCommand implements ContainerUpdater
 			values.getOut().println("\n" + bundle.getString("createReverseZoneWizard.create.start"));
 			
 			CliDataLoader loader = new CreateDnsReverseZoneLoader();
-			loader.load(bundle,adapter, cmd );
+			loader.load(bundle,adapter, commandValues);
 			
 			org.sblim.wbemsmt.cli.dns.wizard.CreateReverseZoneWizard wizard = new org.sblim.wbemsmt.cli.dns.wizard.CreateReverseZoneWizard((org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter) adapter);
 			if (!wizard.canBeExecuted())
@@ -226,7 +226,8 @@ public class CreateDnsReverseZone extends CimCommand implements ContainerUpdater
 				}
 				else
 				{
-					traceMessages("additional.messages",result);
+					Message caption = Message.create(ErrCodes.MSG_ADDITIONAL_MESSAGES, Message.ERROR,bundle, "additional.messages");
+					traceMessages(caption,result);
 					result.clear();
 				}
 				
@@ -237,12 +238,14 @@ public class CreateDnsReverseZone extends CimCommand implements ContainerUpdater
 				{
 					if (result.hasErrors())
 					{
-    					traceErrors("validation.error",result);
+						Message caption = Message.create(ErrCodes.MSG_VALIDATION_ERROR, Message.ERROR,bundle, "validation.error");
+    					traceMessages(caption,result);
     					return;
 					}
 					else
 					{
-						traceMessages("additional.messages",result);
+						Message caption = Message.create(ErrCodes.MSG_ADDITIONAL_MESSAGES, Message.ERROR,bundle, "additional.messages");
+						traceMessages(caption,result);
 						dataContainer.getMessagesList().clear();
 					}
 				}
@@ -291,6 +294,10 @@ public class CreateDnsReverseZone extends CimCommand implements ContainerUpdater
 		catch (Exception e)
 		{
 			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
+		}
+		finally
+		{
+			if (adapter != null) adapter.cleanup();
 		}
 	}
     

@@ -75,7 +75,5 @@ public interface DnsConfigurationDataContainer extends org.sblim.wbemsmt.bl.adap
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

@@ -19,10 +19,10 @@
   */
 package org.sblim.wbemsmt.cli.dns;
 
-import org.apache.commons.cli.CommandLine;
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardSummaryDataContainer;
 import org.sblim.wbemsmt.exception.ObjectNotFoundException;
+import org.sblim.wbemsmt.tools.cli.CimCommandValues;
 import org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle;
 
 public class CreateDnsMasterZoneLoader extends DnsDataLoader {
@@ -31,9 +31,9 @@ public class CreateDnsMasterZoneLoader extends DnsDataLoader {
 	 * @see org.sblim.wbemsmt.tools.cli.CliDataLoader#load(org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle, org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter, org.apache.commons.cli.CommandLine)
 	 */
 	public void load(WbemSmtResourceBundle bundle,
-			AbstractBaseCimAdapter adapter, CommandLine cmd)
+			AbstractBaseCimAdapter adapter, CimCommandValues commandValues)
 			throws ObjectNotFoundException {
-		this.cmd = cmd;
+		this.commandValues = commandValues;
 		// do nothing
 	}
 

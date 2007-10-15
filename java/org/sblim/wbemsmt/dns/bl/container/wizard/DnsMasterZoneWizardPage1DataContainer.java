@@ -75,7 +75,5 @@ public interface DnsMasterZoneWizardPage1DataContainer extends org.sblim.wbemsmt
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

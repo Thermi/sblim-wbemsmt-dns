@@ -19,9 +19,9 @@
   */
 package org.sblim.wbemsmt.cli.dns;
 
-import org.apache.commons.cli.CommandLine;
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.exception.ObjectNotFoundException;
+import org.sblim.wbemsmt.tools.cli.CimCommandValues;
 import org.sblim.wbemsmt.tools.cli.CliDataLoader;
 import org.sblim.wbemsmt.tools.cli.CliUtil;
 import org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle;
@@ -35,12 +35,12 @@ public class EditDnsSoaRecordLoader extends DnsDataLoader implements
 	 * @see org.sblim.wbemsmt.tools.cli.CliDataLoader#load(org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle, org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter, org.apache.commons.cli.CommandLine)
 	 */
 	public void load(WbemSmtResourceBundle bundle,
-			AbstractBaseCimAdapter adapter, CommandLine cmd)
+			AbstractBaseCimAdapter adapter, CimCommandValues commandValues)
 			throws ObjectNotFoundException {
 
-		this.cmd = cmd;
+		this.commandValues = commandValues;
 		
-		String zoneName = CliUtil.getOption(cmd,EditDnsSoaRecord.KEY_zoneName);
+		String zoneName = CliUtil.getOption(commandValues,EditDnsSoaRecord.KEY_zoneName);
 		selectZone(bundle, adapter, zoneName, false);
 
 	}

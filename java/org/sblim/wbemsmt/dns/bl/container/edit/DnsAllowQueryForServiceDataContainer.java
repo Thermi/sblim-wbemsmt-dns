@@ -39,7 +39,5 @@ public interface DnsAllowQueryForServiceDataContainer extends org.sblim.wbemsmt.
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

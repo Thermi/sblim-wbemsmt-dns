@@ -48,7 +48,5 @@ public interface DnsAllowQueryForZoneDataContainer extends org.sblim.wbemsmt.dns
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

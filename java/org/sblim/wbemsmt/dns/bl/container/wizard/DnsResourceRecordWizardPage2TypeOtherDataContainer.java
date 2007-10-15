@@ -48,7 +48,5 @@ public interface DnsResourceRecordWizardPage2TypeOtherDataContainer extends org.
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

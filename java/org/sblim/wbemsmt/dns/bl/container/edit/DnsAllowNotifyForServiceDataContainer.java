@@ -39,7 +39,5 @@ public interface DnsAllowNotifyForServiceDataContainer extends org.sblim.wbemsmt
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

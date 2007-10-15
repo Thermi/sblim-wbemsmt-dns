@@ -48,7 +48,5 @@ public interface DnsHintZoneDataContainer extends org.sblim.wbemsmt.dns.bl.conta
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

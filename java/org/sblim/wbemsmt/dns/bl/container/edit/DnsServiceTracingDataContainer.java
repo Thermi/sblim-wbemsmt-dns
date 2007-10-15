@@ -45,9 +45,8 @@ public interface DnsServiceTracingDataContainer extends org.sblim.wbemsmt.bl.ada
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 			
+				
 		/**
 		* 
 		* linked container DnsAllowNotifyForServiceDataContainer
@@ -55,7 +54,8 @@ public interface DnsServiceTracingDataContainer extends org.sblim.wbemsmt.bl.ada
 
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForServiceDataContainer getAllowNotifyAcl();
 
-			
+	   			
+				
 		/**
 		* 
 		* linked container DnsAllowQueryForServiceDataContainer
@@ -63,7 +63,8 @@ public interface DnsServiceTracingDataContainer extends org.sblim.wbemsmt.bl.ada
 
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryForServiceDataContainer getAllowQueryAcl();
 
-			
+	   			
+				
 		/**
 		* 
 		* linked container DnsAllowTransferForServiceDataContainer
@@ -71,7 +72,8 @@ public interface DnsServiceTracingDataContainer extends org.sblim.wbemsmt.bl.ada
 
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowTransferForServiceDataContainer getAllowTransferAcl();
 
-			
+	   			
+				
 		/**
 		* 
 		* linked container DnsAllowRecursionForServiceDataContainer
@@ -79,7 +81,8 @@ public interface DnsServiceTracingDataContainer extends org.sblim.wbemsmt.bl.ada
 
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowRecursionForServiceDataContainer getAllowRecursionAcl();
 
-			
+	   			
+				
 		/**
 		* 
 		* linked container DnsBlackholeForServiceDataContainer
@@ -87,7 +90,8 @@ public interface DnsServiceTracingDataContainer extends org.sblim.wbemsmt.bl.ada
 
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsBlackholeForServiceDataContainer getBlackholeAcl();
 
-			
+	   			
+				
 		/**
 		* 
 		* linked container DnsConfigurationDataContainer
@@ -95,5 +99,5 @@ public interface DnsServiceTracingDataContainer extends org.sblim.wbemsmt.bl.ada
 
 		public org.sblim.wbemsmt.dns.bl.container.edit.DnsConfigurationDataContainer getConfiguration();
 
-	
+	   	
 }

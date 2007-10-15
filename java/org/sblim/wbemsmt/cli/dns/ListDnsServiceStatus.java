@@ -174,7 +174,7 @@ public class ListDnsServiceStatus extends CimCommand {
 			values.getOut().println("\n" + bundle.getString("listing", new Object[]{bundle.getString("DnsServiceOperationsDataContainer.caption")}));
 			
 			CliDataLoader loader = new ListDnsServiceStatusLoader();
-			loader.load(bundle,adapter, cmd);
+			loader.load(bundle,adapter, commandValues);
 			
 			org.sblim.wbemsmt.cli.dns.container.edit.DnsServiceOperationsDataContainerImpl dc = new org.sblim.wbemsmt.cli.dns.container.edit.DnsServiceOperationsDataContainerImpl(adapter);
 			
@@ -201,13 +201,17 @@ public class ListDnsServiceStatus extends CimCommand {
 		{
 			super.handleException(e,values.getArgs(),values.getOptions(),KEY_GLOBAL_password);
 		}
+		finally
+		{
+			if (adapter != null) adapter.cleanup();
+		}
 	}
 	
 	/**
 	 * Set all Values that are needed for selecting the right objects. This fields are used even if they are read-only
 	 **/
 	private void setKeyValues(CommandLine cmd,AbstractBaseCimAdapter adapter, org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceOperationsDataContainer dc) throws WbemSmtException {
-    		}	
+    	    				    				    					}	
 	
 	
  

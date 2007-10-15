@@ -48,7 +48,5 @@ public interface DnsMastersForServiceDataContainer extends org.sblim.wbemsmt.dns
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

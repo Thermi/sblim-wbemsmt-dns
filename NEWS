@@ -1,3 +1,7 @@
+Changes on top of 0.5.2-1
+==============================================================================
+- 1813932  wbemsmt-dns: cliDataLoader uses CIMCommandValues
+
 Changes in 0.5.2-1
 ==============================================================================
 - 1787139  wbemsmt-dns:cleanup apidoc and todos

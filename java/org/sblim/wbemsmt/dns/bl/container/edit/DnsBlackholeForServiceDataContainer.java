@@ -39,7 +39,5 @@ public interface DnsBlackholeForServiceDataContainer extends org.sblim.wbemsmt.d
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }

@@ -75,7 +75,5 @@ public interface DnsResourceRecordWizardSummaryDataContainer extends org.sblim.w
 	/** 
 	 * Linked DataContainers
 	 **/
-	 
-	
 	
 }
