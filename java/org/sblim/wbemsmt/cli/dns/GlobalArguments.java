@@ -31,7 +31,7 @@ public class GlobalArguments {
 			/**
 		 * 
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	
 }

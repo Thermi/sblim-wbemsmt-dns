@@ -37,51 +37,51 @@ public class EditDnsStubZoneAllowQuery extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required, used for selection:  --zoneName, default: noDefaultValue
+   		 * required, used for selection:  --zoneName
 		 */
-		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","EditDnsStubZoneAllowQuery.zoneName.argValue",true,false,"EditDnsStubZoneAllowQuery.zoneName.argDescription");
+		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName",null,"EditDnsStubZoneAllowQuery.zoneName.argValue",true,false,"EditDnsStubZoneAllowQuery.zoneName.argDescription");
 			/**
-   		 *  --useGlobalAddressMatchList, default: noDefaultValue
+   		 *  --useGlobalAddressMatchList
 		 */
-		public static final OptionDefinition KEY_useGlobalAddressMatchList = new OptionDefinition(null,"useGlobalAddressMatchList","noDefaultValue","DnsAllowQueryForZoneDataContainer.useGlobalAddressMatchList.argValue",false,false,"DnsAllowQueryForZoneDataContainer.useGlobalAddressMatchList.argDescription");
+		public static final OptionDefinition KEY_useGlobalAddressMatchList = new OptionDefinition(null,"useGlobalAddressMatchList",null,null,false,false,"DnsAllowQueryForZoneDataContainer.useGlobalAddressMatchList.argDescription");
 			/**
-   		 *  --addressList, default: noDefaultValue
+   		 *  --addressList
 		 */
-		public static final OptionDefinition KEY_addressList = new OptionDefinition(null,"addressList","noDefaultValue","DnsAddressMatchListDataContainer.AddressList.argValue",false,false,"DnsAddressMatchListDataContainer.AddressList.argDescription");
+		public static final OptionDefinition KEY_addressList = new OptionDefinition(null,"addressList",null,"DnsAddressMatchListDataContainer.AddressList.argValue",false,false,"DnsAddressMatchListDataContainer.AddressList.argDescription");
 			/**
-   		 *  --removeAddress, default: noDefaultValue
+   		 *  --removeAddress
 		 */
-		public static final OptionDefinition KEY_removeAddress = new OptionDefinition(null,"removeAddress","noDefaultValue","DnsAddressMatchListDataContainer.removeAddress.argValue",false,false,"DnsAddressMatchListDataContainer.removeAddress.argDescription");
+		public static final OptionDefinition KEY_removeAddress = new OptionDefinition(null,"removeAddress",null,null,false,false,"DnsAddressMatchListDataContainer.removeAddress.argDescription");
 			/**
-   		 *  --userAddresses, default: noDefaultValue
+   		 *  --userAddresses
 		 */
-		public static final OptionDefinition KEY_userAddresses = new OptionDefinition(null,"userAddresses","noDefaultValue","DnsAddressMatchListDataContainer.userAddresses.argValue",false,false,"DnsAddressMatchListDataContainer.userAddresses.argDescription");
+		public static final OptionDefinition KEY_userAddresses = new OptionDefinition(null,"userAddresses",null,"DnsAddressMatchListDataContainer.userAddresses.argValue",false,false,"DnsAddressMatchListDataContainer.userAddresses.argDescription");
 			/**
-   		 *  --newAddress, default: noDefaultValue
+   		 *  --newAddress
 		 */
-		public static final OptionDefinition KEY_newAddress = new OptionDefinition(null,"newAddress","noDefaultValue","DnsAddressMatchListDataContainer.newAddress.argValue",false,false,"DnsAddressMatchListDataContainer.newAddress.argDescription");
+		public static final OptionDefinition KEY_newAddress = new OptionDefinition(null,"newAddress",null,"DnsAddressMatchListDataContainer.newAddress.argValue",false,false,"DnsAddressMatchListDataContainer.newAddress.argDescription");
 			/**
-   		 *  --addPredefinedAddress, default: noDefaultValue
+   		 *  --addPredefinedAddress
 		 */
-		public static final OptionDefinition KEY_addPredefinedAddress = new OptionDefinition(null,"addPredefinedAddress","noDefaultValue","DnsAddressMatchListDataContainer.addPredefinedAddress.argValue",false,false,"DnsAddressMatchListDataContainer.addPredefinedAddress.argDescription");
+		public static final OptionDefinition KEY_addPredefinedAddress = new OptionDefinition(null,"addPredefinedAddress",null,null,false,false,"DnsAddressMatchListDataContainer.addPredefinedAddress.argDescription");
 			/**
-   		 *  --addNewAddress, default: noDefaultValue
+   		 *  --addNewAddress
 		 */
-		public static final OptionDefinition KEY_addNewAddress = new OptionDefinition(null,"addNewAddress","noDefaultValue","DnsAddressMatchListDataContainer.addNewAddress.argValue",false,false,"DnsAddressMatchListDataContainer.addNewAddress.argDescription");
+		public static final OptionDefinition KEY_addNewAddress = new OptionDefinition(null,"addNewAddress",null,null,false,false,"DnsAddressMatchListDataContainer.addNewAddress.argDescription");
 			/**
-   		 *  --addressUp, default: noDefaultValue
+   		 *  --addressUp
 		 */
-		public static final OptionDefinition KEY_addressUp = new OptionDefinition(null,"addressUp","noDefaultValue","DnsAddressMatchListDataContainer.addressUp.argValue",false,false,"DnsAddressMatchListDataContainer.addressUp.argDescription");
+		public static final OptionDefinition KEY_addressUp = new OptionDefinition(null,"addressUp",null,null,false,false,"DnsAddressMatchListDataContainer.addressUp.argDescription");
 			/**
-   		 *  --addressDown, default: noDefaultValue
+   		 *  --addressDown
 		 */
-		public static final OptionDefinition KEY_addressDown = new OptionDefinition(null,"addressDown","noDefaultValue","DnsAddressMatchListDataContainer.addressDown.argValue",false,false,"DnsAddressMatchListDataContainer.addressDown.argDescription");
+		public static final OptionDefinition KEY_addressDown = new OptionDefinition(null,"addressDown",null,null,false,false,"DnsAddressMatchListDataContainer.addressDown.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
+   		 * required, used for selection:  --dnsServiceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**

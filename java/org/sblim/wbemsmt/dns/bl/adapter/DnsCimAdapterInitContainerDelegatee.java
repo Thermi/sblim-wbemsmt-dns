@@ -23,6 +23,7 @@ import org.sblim.wbemsmt.dns.bl.container.edit.*;
 import org.sblim.wbemsmt.dns.bl.container.welcome.WelcomeDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.wizard.*;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
+import org.sblim.wbemsmt.dns.bl.wrapper.ResourceRecord;
 import org.sblim.wbemsmt.exception.InitContainerException;
 import org.sblim.wbemsmt.exception.ModelLoadException;
 
@@ -219,6 +220,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(DnsResourceRecordDataContainer container)
 			throws InitContainerException {
+		container.get_Type().setValues(ResourceRecord.TYPES);
 		container.get_Family().setValues(Linux_DnsResourceRecord.CIM_VALUEMAP_FAMILY);
 	}
 

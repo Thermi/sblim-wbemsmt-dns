@@ -39,31 +39,31 @@ public class CreateDnsReverseZone extends CimCommand implements ContainerUpdater
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required, used for selection:  --zoneNameToReverse, default: noDefaultValue
+   		 * required, used for selection:  --zoneNameToReverse
 		 */
-		public static final OptionDefinition KEY_zoneNameToReverse = new OptionDefinition(null,"zoneNameToReverse","noDefaultValue","CreateDnsReverseZone.zoneNameToReverse.argValue",true,false,"CreateDnsReverseZone.zoneNameToReverse.argDescription");
+		public static final OptionDefinition KEY_zoneNameToReverse = new OptionDefinition(null,"zoneNameToReverse",null,"CreateDnsReverseZone.zoneNameToReverse.argValue",true,false,"CreateDnsReverseZone.zoneNameToReverse.argDescription");
 			/**
-   		 * required,  --ipAddress, default: noDefaultValue
+   		 * required,  --ipAddress
 		 */
-		public static final OptionDefinition KEY_ipAddress = new OptionDefinition(null,"ipAddress","noDefaultValue","DnsReverseZoneWizardPage1DataContainer.ipAddress.argValue",true,false,"DnsReverseZoneWizardPage1DataContainer.ipAddress.argDescription");
+		public static final OptionDefinition KEY_ipAddress = new OptionDefinition(null,"ipAddress",null,"DnsReverseZoneWizardPage1DataContainer.ipAddress.argValue",true,false,"DnsReverseZoneWizardPage1DataContainer.ipAddress.argDescription");
 			/**
-   		 *  --resourceRecordToUse, default: noDefaultValue
+   		 *  --resourceRecordToUse
 		 */
-		public static final OptionDefinition KEY_resourceRecordToUse = new OptionDefinition(null,"resourceRecordToUse","noDefaultValue","DnsReverseZoneWizardPage1DataContainer.resourceRecordNotUsed.argValue",false,false,"DnsReverseZoneWizardPage1DataContainer.resourceRecordNotUsed.argDescription");
+		public static final OptionDefinition KEY_resourceRecordToUse = new OptionDefinition(null,"resourceRecordToUse",null,"DnsReverseZoneWizardPage1DataContainer.resourceRecordNotUsed.argValue",false,false,"DnsReverseZoneWizardPage1DataContainer.resourceRecordNotUsed.argDescription");
 			/**
-   		 *  --addResourceRecord, default: noDefaultValue
+   		 *  --addResourceRecord
 		 */
-		public static final OptionDefinition KEY_addResourceRecord = new OptionDefinition(null,"addResourceRecord","noDefaultValue","DnsReverseZoneWizardPage1DataContainer.addResourceRecord.argValue",false,false,"DnsReverseZoneWizardPage1DataContainer.addResourceRecord.argDescription");
+		public static final OptionDefinition KEY_addResourceRecord = new OptionDefinition(null,"addResourceRecord",null,null,false,false,"DnsReverseZoneWizardPage1DataContainer.addResourceRecord.argDescription");
 			/**
-   		 *  --addAllResourceRecords, default: noDefaultValue
+   		 *  --addAllResourceRecords
 		 */
-		public static final OptionDefinition KEY_addAllResourceRecords = new OptionDefinition(null,"addAllResourceRecords","noDefaultValue","DnsReverseZoneWizardPage1DataContainer.addAllResourceRecords.argValue",false,false,"DnsReverseZoneWizardPage1DataContainer.addAllResourceRecords.argDescription");
+		public static final OptionDefinition KEY_addAllResourceRecords = new OptionDefinition(null,"addAllResourceRecords",null,null,false,false,"DnsReverseZoneWizardPage1DataContainer.addAllResourceRecords.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
+   		 * required, used for selection:  --dnsServiceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**

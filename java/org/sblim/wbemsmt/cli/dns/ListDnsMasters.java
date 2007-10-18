@@ -40,15 +40,15 @@ public class ListDnsMasters extends CimCommand {
 		 */
 		public static final OptionDefinition KEY_list = new OptionDefinition(null,"list","INSTANCE_WITH_CHILDS","ListDnsMasters.list.argValue",false,false,"ListDnsMasters.list.argDescription");
 			/**
-   		 * used for selection:  --mastersName, default: noDefaultValue
+   		 * used for selection:  --mastersName
 		 */
-		public static final OptionDefinition KEY_mastersName = new OptionDefinition(null,"mastersName","noDefaultValue","DnsMastersForServiceDataContainer.Name.argValue",false,true,"DnsMastersForServiceDataContainer.Name.argDescription");
+		public static final OptionDefinition KEY_mastersName = new OptionDefinition(null,"mastersName",null,"DnsMastersForServiceDataContainer.Name.argValue",false,true,"DnsMastersForServiceDataContainer.Name.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
+   		 * required, used for selection:  --dnsServiceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**

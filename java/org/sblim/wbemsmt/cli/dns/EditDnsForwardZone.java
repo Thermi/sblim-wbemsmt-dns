@@ -37,43 +37,43 @@ public class EditDnsForwardZone extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 *  --useGlobalForwarders, default: noDefaultValue
+   		 *  --useGlobalForwarders
 		 */
-		public static final OptionDefinition KEY_useGlobalForwarders = new OptionDefinition(null,"useGlobalForwarders","noDefaultValue","DnsForwardZoneDataContainer.useGlobalForwarders.argValue",false,false,"DnsForwardZoneDataContainer.useGlobalForwarders.argDescription");
+		public static final OptionDefinition KEY_useGlobalForwarders = new OptionDefinition(null,"useGlobalForwarders",null,null,false,false,"DnsForwardZoneDataContainer.useGlobalForwarders.argDescription");
 			/**
-   		 * used for selection:  --zoneName, default: noDefaultValue
+   		 * used for selection:  --zoneName
 		 */
-		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","DnsZoneDataContainer.Name.argValue",false,false,"DnsZoneDataContainer.Name.argDescription");
+		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName",null,"DnsZoneDataContainer.Name.argValue",false,false,"DnsZoneDataContainer.Name.argDescription");
 			/**
-   		 *  --forward, default: noDefaultValue
+   		 *  --forward
 		 */
-		public static final OptionDefinition KEY_forward = new OptionDefinition(null,"forward","noDefaultValue","DnsForwarderDataContainer.Forward.argValue",false,false,"DnsForwarderDataContainer.Forward.argDescription");
+		public static final OptionDefinition KEY_forward = new OptionDefinition(null,"forward",null,"DnsForwarderDataContainer.Forward.argValue",false,false,"DnsForwarderDataContainer.Forward.argDescription");
 			/**
-   		 *  --forwarders, default: noDefaultValue
+   		 *  --forwarders
 		 */
-		public static final OptionDefinition KEY_forwarders = new OptionDefinition(null,"forwarders","noDefaultValue","DnsForwarderDataContainer.Forwarders.argValue",false,false,"DnsForwarderDataContainer.Forwarders.argDescription");
+		public static final OptionDefinition KEY_forwarders = new OptionDefinition(null,"forwarders",null,"DnsForwarderDataContainer.Forwarders.argValue",false,false,"DnsForwarderDataContainer.Forwarders.argDescription");
 			/**
-   		 *  --removeForwarder, default: noDefaultValue
+   		 *  --removeForwarder
 		 */
-		public static final OptionDefinition KEY_removeForwarder = new OptionDefinition(null,"removeForwarder","noDefaultValue","DnsForwarderDataContainer.removeForwarder.argValue",false,false,"DnsForwarderDataContainer.removeForwarder.argDescription");
+		public static final OptionDefinition KEY_removeForwarder = new OptionDefinition(null,"removeForwarder",null,null,false,false,"DnsForwarderDataContainer.removeForwarder.argDescription");
 			/**
-   		 *  --newForwarder, default: noDefaultValue
+   		 *  --newForwarder
 		 */
-		public static final OptionDefinition KEY_newForwarder = new OptionDefinition(null,"newForwarder","noDefaultValue","DnsForwarderDataContainer.newForwarder.argValue",false,false,"DnsForwarderDataContainer.newForwarder.argDescription");
+		public static final OptionDefinition KEY_newForwarder = new OptionDefinition(null,"newForwarder",null,"DnsForwarderDataContainer.newForwarder.argValue",false,false,"DnsForwarderDataContainer.newForwarder.argDescription");
 			/**
-   		 *  --addForwarder, default: noDefaultValue
+   		 *  --addForwarder
 		 */
-		public static final OptionDefinition KEY_addForwarder = new OptionDefinition(null,"addForwarder","noDefaultValue","DnsForwarderDataContainer.addForwarder.argValue",false,false,"DnsForwarderDataContainer.addForwarder.argDescription");
+		public static final OptionDefinition KEY_addForwarder = new OptionDefinition(null,"addForwarder",null,null,false,false,"DnsForwarderDataContainer.addForwarder.argDescription");
 			/**
-   		 *  --newForwarderType, default: noDefaultValue
+   		 *  --newForwarderType
 		 */
-		public static final OptionDefinition KEY_newForwarderType = new OptionDefinition(null,"newForwarderType","noDefaultValue","DnsForwarderDataContainer.newForwarderType.argValue",false,false,"DnsForwarderDataContainer.newForwarderType.argDescription");
+		public static final OptionDefinition KEY_newForwarderType = new OptionDefinition(null,"newForwarderType",null,"DnsForwarderDataContainer.newForwarderType.argValue",false,false,"DnsForwarderDataContainer.newForwarderType.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
+   		 * required, used for selection:  --dnsServiceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**

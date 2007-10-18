@@ -39,27 +39,27 @@ public class CreateDnsMasterZone extends CimCommand implements ContainerUpdater 
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required,  --zoneName, default: noDefaultValue
+   		 * required,  --zoneName
 		 */
-		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","DnsMasterZoneWizardPage1DataContainer.Name.argValue",true,false,"DnsMasterZoneWizardPage1DataContainer.Name.argDescription");
+		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName",null,"DnsMasterZoneWizardPage1DataContainer.Name.argValue",true,false,"DnsMasterZoneWizardPage1DataContainer.Name.argDescription");
 			/**
-   		 * required,  --server, default: noDefaultValue
+   		 * required,  --server
 		 */
-		public static final OptionDefinition KEY_server = new OptionDefinition(null,"server","noDefaultValue","DnsMasterZoneWizardPage1DataContainer.Server.argValue",true,false,"DnsMasterZoneWizardPage1DataContainer.Server.argDescription");
+		public static final OptionDefinition KEY_server = new OptionDefinition(null,"server",null,"DnsMasterZoneWizardPage1DataContainer.Server.argValue",true,false,"DnsMasterZoneWizardPage1DataContainer.Server.argDescription");
 			/**
-   		 * required,  --ip, default: noDefaultValue
+   		 * required,  --ip
 		 */
-		public static final OptionDefinition KEY_ip = new OptionDefinition(null,"ip","noDefaultValue","DnsMasterZoneWizardPage1DataContainer.IpAdress.argValue",true,false,"DnsMasterZoneWizardPage1DataContainer.IpAdress.argDescription");
+		public static final OptionDefinition KEY_ip = new OptionDefinition(null,"ip",null,"DnsMasterZoneWizardPage1DataContainer.IpAdress.argValue",true,false,"DnsMasterZoneWizardPage1DataContainer.IpAdress.argDescription");
 			/**
-   		 * Admin email required,  --contact, default: noDefaultValue
+   		 * Admin email required,  --contact
 		 */
-		public static final OptionDefinition KEY_contact = new OptionDefinition(null,"contact","noDefaultValue","DnsMasterZoneWizardPage1DataContainer.Contact.argValue",true,false,"DnsMasterZoneWizardPage1DataContainer.Contact.argDescription");
+		public static final OptionDefinition KEY_contact = new OptionDefinition(null,"contact",null,"DnsMasterZoneWizardPage1DataContainer.Contact.argValue",true,false,"DnsMasterZoneWizardPage1DataContainer.Contact.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
+   		 * required, used for selection:  --dnsServiceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**

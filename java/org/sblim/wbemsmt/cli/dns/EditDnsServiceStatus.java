@@ -37,23 +37,23 @@ public class EditDnsServiceStatus extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 *  --restart, default: noDefaultValue
+   		 *  --restart
 		 */
-		public static final OptionDefinition KEY_restart = new OptionDefinition(null,"restart","noDefaultValue","DnsServiceOperationsDataContainer.restart.argValue",false,false,"DnsServiceOperationsDataContainer.restart.argDescription");
+		public static final OptionDefinition KEY_restart = new OptionDefinition(null,"restart",null,null,false,false,"DnsServiceOperationsDataContainer.restart.argDescription");
 			/**
-   		 *  --start, default: noDefaultValue
+   		 *  --start
 		 */
-		public static final OptionDefinition KEY_start = new OptionDefinition(null,"start","noDefaultValue","DnsServiceOperationsDataContainer.start.argValue",false,false,"DnsServiceOperationsDataContainer.start.argDescription");
+		public static final OptionDefinition KEY_start = new OptionDefinition(null,"start",null,null,false,false,"DnsServiceOperationsDataContainer.start.argDescription");
 			/**
-   		 *  --stop, default: noDefaultValue
+   		 *  --stop
 		 */
-		public static final OptionDefinition KEY_stop = new OptionDefinition(null,"stop","noDefaultValue","DnsServiceOperationsDataContainer.stop.argValue",false,false,"DnsServiceOperationsDataContainer.stop.argDescription");
+		public static final OptionDefinition KEY_stop = new OptionDefinition(null,"stop",null,null,false,false,"DnsServiceOperationsDataContainer.stop.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
+   		 * required, used for selection:  --dnsServiceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**

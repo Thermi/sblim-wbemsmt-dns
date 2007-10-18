@@ -37,9 +37,9 @@ public class EditDnsSoaRecord extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required, used for selection:  --zoneName, default: noDefaultValue
+   		 * required, used for selection:  --zoneName
 		 */
-		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","EditDnsSoaRecord.zoneName.argValue",true,false,"EditDnsSoaRecord.zoneName.argDescription");
+		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName",null,"EditDnsSoaRecord.zoneName.argValue",true,false,"EditDnsSoaRecord.zoneName.argDescription");
 			/**
    		 *  --server
 		 */
@@ -49,9 +49,9 @@ public class EditDnsSoaRecord extends CimCommand {
 		 */
 		public static final OptionDefinition KEY_contact = new OptionDefinition(null,"contact",null,"DnsSoaContainer.Contact.argValue",false,false,"DnsSoaContainer.Contact.argDescription");
 			/**
-   		 *  --serialNumber, default: noDefaultValue
+   		 *  --serialNumber
 		 */
-		public static final OptionDefinition KEY_serialNumber = new OptionDefinition(null,"serialNumber","noDefaultValue","DnsSoaContainer.SerialNumber.argValue",false,false,"DnsSoaContainer.SerialNumber.argDescription");
+		public static final OptionDefinition KEY_serialNumber = new OptionDefinition(null,"serialNumber",null,"DnsSoaContainer.SerialNumber.argValue",false,false,"DnsSoaContainer.SerialNumber.argDescription");
 			/**
    		 *  --refresh
 		 */
@@ -65,23 +65,23 @@ public class EditDnsSoaRecord extends CimCommand {
 		 */
 		public static final OptionDefinition KEY_expire = new OptionDefinition(null,"expire",null,"DnsSoaContainer.Expire.argValue",false,false,"DnsSoaContainer.Expire.argDescription");
 			/**
-   		 *  --negativeCachingTTL, default: noDefaultValue
+   		 *  --negativeCachingTTL
 		 */
-		public static final OptionDefinition KEY_negativeCachingTTL = new OptionDefinition(null,"negativeCachingTTL","noDefaultValue","DnsSoaContainer.NegativeCachingTTL.argValue",false,false,"DnsSoaContainer.NegativeCachingTTL.argDescription");
+		public static final OptionDefinition KEY_negativeCachingTTL = new OptionDefinition(null,"negativeCachingTTL",null,"DnsSoaContainer.NegativeCachingTTL.argValue",false,false,"DnsSoaContainer.NegativeCachingTTL.argDescription");
 			/**
-   		 *  --ttlUnit, default: noDefaultValue
+   		 *  --ttlUnit
 		 */
-		public static final OptionDefinition KEY_ttlUnit = new OptionDefinition(null,"ttlUnit","noDefaultValue","DnsSoaContainer.TTLUnit.argValue",false,false,"DnsSoaContainer.TTLUnit.argDescription");
+		public static final OptionDefinition KEY_ttlUnit = new OptionDefinition(null,"ttlUnit",null,"DnsSoaContainer.TTLUnit.argValue",false,false,"DnsSoaContainer.TTLUnit.argDescription");
 			/**
-   		 *  --setSerialNumber, default: noDefaultValue
+   		 *  --setSerialNumber
 		 */
-		public static final OptionDefinition KEY_setSerialNumber = new OptionDefinition(null,"setSerialNumber","noDefaultValue","DnsSoaContainer.setSerialNumber.argValue",false,false,"DnsSoaContainer.setSerialNumber.argDescription");
+		public static final OptionDefinition KEY_setSerialNumber = new OptionDefinition(null,"setSerialNumber",null,null,false,false,"DnsSoaContainer.setSerialNumber.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
+   		 * required, used for selection:  --dnsServiceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**

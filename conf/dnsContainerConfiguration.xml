@@ -33,7 +33,7 @@
         </cd:environment>
         <cd:container name="DnsZoneDataContainer" packageId="editContainers" implPackageId="dnsEditContainerImplementation" adapterId="dns" canCreate="false" canDelete="false" canModify="false" isWizard="false" description="Baseclass Container for alle Zones" customLayouter="false">
             <cd:field name="Name" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_DnsZone.get_Name" description="" readOnly="false">
-                <cmd:option long="zoneName" required="false" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="zoneName" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
         </cd:container>
         <cd:container adapterId="dns" name="DnsMasterZoneDataContainer" packageId="editContainers" description="Container for DNS MasterZones" canCreate="false" canModify="true" canDelete="true" isWizard="false" implPackageId="dnsEditContainerImplementation" customLayouter="true">
@@ -42,10 +42,10 @@
             <cd:extends container="DnsTTLDataContainer" packageId="editContainers"/>
             <cd:fcoRelation fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" fcoName="Linux_DnsMasterZone" description=""/>
             <cd:field name="ZoneFile" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsMasterZone.get_ZoneFile" description="" readOnly="false">
-                <cmd:option long="zoneFile" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="zoneFile" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="useGlobalForwarders" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="useGlobalForwarders" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="useGlobalForwarders" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
         </cd:container>
         <cd:container adapterId="dns" name="DnsSlaveZoneDataContainer" packageId="editContainers" description="Container for DNS SlaveZones" canCreate="false" canModify="true" canDelete="true" isWizard="false" implPackageId="dnsEditContainerImplementation" customLayouter="true">
@@ -55,10 +55,10 @@
             <cd:extends container="DnsTTLDataContainer" packageId="editContainers"/>
             <cd:fcoRelation fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" fcoName="Linux_DnsSlaveZone" description=""/>
             <cd:field name="ZoneFile" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsSlaveZone.get_ZoneFile" description="" readOnly="false">
-                <cmd:option long="zoneFile" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="zoneFile" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="useGlobalForwarders" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="useGlobalForwarders" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="useGlobalForwarders" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
         </cd:container>
         <cd:container adapterId="dns" name="DnsHintZoneDataContainer" packageId="editContainers" description="Container for DNSHintZones" canCreate="false" canModify="true" canDelete="true" isWizard="false" implPackageId="dnsEditContainerImplementation" customLayouter="true">
@@ -66,7 +66,7 @@
             <cd:extends container="DnsTTLDataContainer" packageId="editContainers"/>
             <cd:fcoRelation fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" fcoName="Linux_DnsHintZone" description=""/>
             <cd:field name="ZoneFile" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsHintZone.get_ZoneFile" description="" readOnly="false">
-                <cmd:option long="zoneFile" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="zoneFile" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
         </cd:container>
         <cd:container adapterId="dns" name="DnsForwardZoneDataContainer" packageId="editContainers" description="Container for DNS ForwardZones" canCreate="false" canModify="true" canDelete="true" isWizard="false" implPackageId="dnsEditContainerImplementation" customLayouter="true">
@@ -74,41 +74,41 @@
             <cd:extends container="DnsForwarderDataContainer" packageId="editContainers"/>
             <cd:fcoRelation fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" fcoName="Linux_DnsForwardZone" description=""/>
             <cd:field name="useGlobalForwarders" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="useGlobalForwarders" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="useGlobalForwarders" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
         </cd:container>
         <cd:container adapterId="dns" name="DnsResourceRecordDataContainer" packageId="editContainers" description="Container for ResourceRecords" canCreate="false" canModify="true" canDelete="true" isWizard="false" implPackageId="dnsEditContainerImplementation">
             <cd:extends container="DnsTTLDataContainer" packageId="editContainers"/>
             <cd:fcoRelation fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" fcoName="Linux_DnsResourceRecord" description=""/>
             <cd:field name="Name" userDefined="false" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false">
-                <cmd:option required="false" long="recordName" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
+                <cmd:option required="false" long="recordName" comment="" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
             </cd:field>
             <cd:field name="Type" userDefined="false" dataType="UNSIGNED_INT16" uiType="COMBOBOX" fcoFieldName="Type" description="" readOnly="false">
-                <cmd:option required="false" long="recordType" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
+                <cmd:option required="false" long="recordType" comment="" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
             </cd:field>
             <cd:field name="Family" userDefined="false" dataType="UNSIGNED_INT8" uiType="COMBOBOX" fcoFieldName="Family" description="" readOnly="false">
-                <cmd:option required="false" long="recordFamily" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
+                <cmd:option required="false" long="recordFamily" comment="" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
             </cd:field>
             <cd:field name="Value" userDefined="false" dataType="STRING" uiType="LABEL" fcoFieldName="Value" description="" readOnly="false">
-                <cmd:option required="false" long="recordValue" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
+                <cmd:option required="false" long="recordValue" comment="" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
             </cd:field>
             <cd:field name="Priority" userDefined="false" dataType="STRING" uiType="LABEL" fcoFieldName="Value" description="" readOnly="false">
-                <cmd:option required="false" long="mxPriority" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
+                <cmd:option required="false" long="mxPriority" comment="" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
             </cd:field>
         </cd:container>
         <cd:container adapterId="dns" name="DnsMasterZoneWizardPage1DataContainer" packageId="wizardContainers" description="Main Page of the MasterzoneWizard" canCreate="false" canModify="true" canDelete="false" isWizard="true" implPackageId="dnsWizardContainerImplementation" customLayouter="false">
             <cd:fcoRelation fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" fcoName="Linux_DnsMasterZone" description=""/>
             <cd:field name="Name" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false" required="true">
-                <cmd:option required="true" long="zoneName" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
+                <cmd:option required="true" long="zoneName" comment="" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
             </cd:field>
             <cd:field name="Server" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Server" description="" readOnly="false" required="true">
-                <cmd:option required="true" long="server" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
+                <cmd:option required="true" long="server" comment="" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
             </cd:field>
             <cd:field name="IpAdress" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="userdefined" description="" readOnly="false" required="true">
-                <cmd:option required="true" long="ip" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
+                <cmd:option required="true" long="ip" comment="" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
             </cd:field>
             <cd:field name="Contact" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Contact" description="" readOnly="false" required="true">
-                <cmd:option required="true" long="contact" comment="Admin email" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
+                <cmd:option required="true" long="contact" comment="Admin email" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
             </cd:field>
         </cd:container>
         <cd:container adapterId="dns" name="DnsMasterZoneWizardSummaryDataContainer" packageId="wizardContainers" description="Overview of the DNSMasterzoneWizard" canCreate="true" canModify="false" canDelete="false" isWizard="true" implPackageId="dnsWizardContainerImplementation" customLayouter="false">
@@ -117,7 +117,7 @@
             <cd:field name="Server" userDefined="true" dataType="STRING" uiType="LABEL" fcoFieldName="Server" description="" readOnly="true"/>
             <cd:field name="IpAdress" userDefined="true" dataType="STRING" uiType="LABEL" fcoFieldName="userdefined" description="" readOnly="true"/>
             <cd:field name="Contact" userDefined="true" dataType="STRING" uiType="LABEL" fcoFieldName="Contact" description="" readOnly="true">
-                <cmd:option required="true" long="contact" comment="Admin email" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
+                <cmd:option required="true" long="contact" comment="Admin email" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
             </cd:field>
         </cd:container>
         <cd:container adapterId="dns" name="DnsResourceRecordWizardPage1DataContainer" packageId="wizardContainers" description="Main page of resourceRecord Wizard" canCreate="false" canModify="false" canDelete="false" isWizard="true" implPackageId="dnsWizardContainerImplementation" customLayouter="true">
@@ -126,7 +126,7 @@
                 <cmd:option required="true" long="recordType" comment="" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
             </cd:field>
             <cd:field name="Name" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false" required="true">
-                <cmd:option required="true" long="recordName" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
+                <cmd:option required="true" long="recordName" comment="" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
             </cd:field>
         </cd:container>
         <cd:container adapterId="dns" name="DnsResourceRecordWizardSummaryDataContainer" packageId="wizardContainers" description="Overview of the ResourceRecords wizard" canCreate="true" canModify="false" canDelete="false" isWizard="true" implPackageId="dnsWizardContainerImplementation" customLayouter="false">
@@ -135,25 +135,25 @@
             <cd:field name="Type" userDefined="true" dataType="STRING" uiType="LABEL" fcoFieldName="Type" description="" readOnly="true" orientation="LEFT" required="false"/>
             <cd:field name="Value" userDefined="true" dataType="STRING" uiType="LABEL" fcoFieldName="Value" description="" readOnly="true" orientation="LEFT" required="false"/>
             <cd:field name="Priority" userDefined="true" dataType="STRING" uiType="LABEL" fcoFieldName="" description="" readOnly="true" orientation="LEFT" required="false">
-                <cmd:option required="false" long="priority" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true" usedForSelection="false"/>
+                <cmd:option required="false" long="priority" comment="" scope="LOCAL_CONTAINER" duplicateOK="true" usedForSelection="false"/>
             </cd:field>
         </cd:container>
         <cd:container adapterId="dns" name="DnsServiceOperationsDataContainer" packageId="editContainers" description="Container for Operations within DNS Service" canCreate="false" canModify="true" canDelete="false" isWizard="false" implPackageId="dnsEditContainerImplementation" customLayouter="false">
             <cd:fcoRelation fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" fcoName="Linux_DnsService" description=""/>
             <cd:field name="RunAsRoot" userDefined="false" dataType="BOOLEAN" uiType="CHECKBOX" fcoFieldName="RunAsRoot" description="" readOnly="true">
-                <cmd:option required="false" long="asRoot" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
+                <cmd:option required="false" long="asRoot" comment="" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
             </cd:field>
             <cd:field name="restart" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option required="false" usedForSelection="false" long="restart" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option required="false" usedForSelection="false" long="restart" comment="" scope="LOCAL_CONTAINER" duplicateOK="false" hasArgument="false"/>
             </cd:field>
             <cd:field name="start" dataType="ACTION" userDefined="false" uiType="BUTTON" fcoFieldName="startService" description="" readOnly="false">
-                <cmd:option required="false" usedForSelection="false" long="start" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option required="false" usedForSelection="false" long="start" comment="" scope="LOCAL_CONTAINER" duplicateOK="false" hasArgument="false"/>
             </cd:field>
             <cd:field name="stop" dataType="ACTION" userDefined="false" uiType="BUTTON" fcoFieldName="stopService" description="" readOnly="false">
-                <cmd:option required="false" usedForSelection="false" long="stop" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option required="false" usedForSelection="false" long="stop" comment="" scope="LOCAL_CONTAINER" duplicateOK="false" hasArgument="false"/>
             </cd:field>
             <cd:field name="Status" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_DnsService.get_Status" description="" readOnly="true">
-                <cmd:option long="status" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option long="status" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </cd:field>
         </cd:container>
         <cd:container name="DnsConfigurationDataContainer" packageId="editContainers" implPackageId="dnsEditContainerImplementation" adapterId="dns" canCreate="false" canDelete="false" canModify="true" isWizard="false" description="Container for DNSService Configuration" customLayouter="true">
@@ -168,34 +168,34 @@
                 <cmd:option long="portNumber" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="removeDirectory" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="removeDirectory" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="removeDirectory" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
         </cd:container>
         <cd:container name="DnsAddressMatchListDataContainer" packageId="editContainers" implPackageId="dnsEditContainerImplementation" adapterId="dns" canCreate="false" canDelete="false" canModify="false" isWizard="false" description="Container for a AddressMatchList (Baseclass for specific ACLs)" customLayouter="true">
             <cd:fcoRelation fcoName="Linux_DnsAddressMatchList" fcoPackageId="org.sblim.wbemsmt.dns.bl.fco"/>
             <cd:field name="AddressList" dataType="UNSIGNED_INT16" userDefined="false" uiType="LIST_WITH_MULTISELECT" fcoFieldName="Linux_DnsAddressMatchList.get_AddressList" description="" readOnly="false">
-                <cmd:option long="addressList" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option long="addressList" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </cd:field>
             <cd:field name="removeAddress" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="removeAddress" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="removeAddress" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
             <cd:field name="userAddresses" dataType="UNSIGNED_INT16" userDefined="true" uiType="LIST_WITH_MULTISELECT" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="userAddresses" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option long="userAddresses" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </cd:field>
             <cd:field name="newAddress" dataType="STRING" userDefined="true" uiType="TEXTFIELD" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="newAddress" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="newAddress" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="addPredefinedAddress" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="Add the Adress selected in the userAddresses-ListBox" readOnly="false">
-                <cmd:option long="addPredefinedAddress" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option long="addPredefinedAddress" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="false" hasArgument="false"/>
             </cd:field>
             <cd:field name="addNewAddress" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="Add the Adress entered in the textField for a new Address" readOnly="false">
-                <cmd:option long="addNewAddress" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option long="addNewAddress" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="false" hasArgument="false"/>
             </cd:field>
             <cd:field name="addressUp" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="addressUp" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="addressUp" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
             <cd:field name="addressDown" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="addressDown" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="addressDown" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsEditContainerImplementation" name="DnsAllowNotifyForServiceDataContainer" packageId="editContainers" adapterId="dns" description="Datacontainer for allow Notify of the service" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="true">
@@ -216,19 +216,19 @@
         <cd:container implPackageId="dnsEditContainerImplementation" name="DnsAllowNotifyForZoneDataContainer" packageId="editContainers" adapterId="dns" description="Datacontainer for AllowNotify of a Zone" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="true">
             <cd:extends container="DnsAddressMatchListDataContainer" packageId="editContainers"/>
             <cd:field name="useGlobalAddressMatchList" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="useGlobalAddressMatchList" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="useGlobalAddressMatchList" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsEditContainerImplementation" name="DnsAllowQueryForZoneDataContainer" packageId="editContainers" adapterId="dns" description="Datacontainer for allowQuery of a zone" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="true">
             <cd:extends container="DnsAddressMatchListDataContainer" packageId="editContainers"/>
             <cd:field name="useGlobalAddressMatchList" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="useGlobalAddressMatchList" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="useGlobalAddressMatchList" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsEditContainerImplementation" name="DnsAllowTransferForZoneDataContainer" packageId="editContainers" adapterId="dns" description="Datacontainer for allowTransfer of a zone" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="true">
             <cd:extends container="DnsAddressMatchListDataContainer" packageId="editContainers"/>
             <cd:field name="useGlobalAddressMatchList" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="useGlobalAddressMatchList" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="useGlobalAddressMatchList" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsEditContainerImplementation" name="DnsAllowUpdateForZoneDataContainer" packageId="editContainers" adapterId="dns" description="Datacontainer for allow Update of a zone" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="true">
@@ -238,68 +238,68 @@
             <cd:extends container="DnsAddressMatchListDataContainer" packageId="editContainers"/>
             <cd:fcoRelation fcoName="Linux_DnsAddressMatchList" fcoPackageId="org.sblim.wbemsmt.dns.bl.fco"/>
             <cd:field name="Name" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_DnsAddressMatchList.get_Name" description="" readOnly="true">
-                <cmd:option long="matchListName" required="false" usedForSelection="true" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option long="matchListName" required="false" usedForSelection="true" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsEditContainerImplementation" name="DnsMastersForServiceDataContainer" packageId="editContainers" adapterId="dns" description="userdefined Masters" canCreate="false" canModify="true" canDelete="true" isWizard="false" customLayouter="true">
             <cd:extends container="DnsAddMasterAddressDataContainer" packageId="editContainers"/>
             <cd:fcoRelation fcoName="Linux_DnsMasters" fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" description=""/>
             <cd:field name="Name" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_DnsMaster.get_Name" description="" readOnly="true">
-                <cmd:option long="mastersName" required="false" usedForSelection="true" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option long="mastersName" required="false" usedForSelection="true" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </cd:field>
         </cd:container>
         <cd:container adapterId="dns" name="DnsForwardZoneWizardPage1DataContainer" packageId="wizardContainers" description="Main Page of wizard for forward zones" canCreate="false" canModify="true" canDelete="false" isWizard="true" implPackageId="dnsWizardContainerImplementation" customLayouter="true">
             <cd:extends container="DnsForwarderDataContainer" packageId="editContainers"/>
             <cd:fcoRelation fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" fcoName="Linux_DnsMasterZone" description=""/>
             <cd:field name="Name" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false" required="true">
-                <cmd:option required="true" long="zoneName" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
+                <cmd:option required="true" long="zoneName" comment="" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
             </cd:field>
             <cd:field name="useGlobalForwarders" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="useGlobalForwarders" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="useGlobalForwarders" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
         </cd:container>
         <cd:container adapterId="dns" name="DnsForwardZoneWizardSummaryDataContainer" packageId="wizardContainers" description="Overview of wizard for forward zones" canCreate="true" canModify="false" canDelete="false" isWizard="true" implPackageId="dnsWizardContainerImplementation" customLayouter="true">
             <cd:fcoRelation fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" fcoName="Linux_DnsMasterZone" description=""/>
             <cd:field name="Name" userDefined="true" dataType="STRING" uiType="LABEL" fcoFieldName="Server" description="" readOnly="true" orientation="LEFT" required="false">
-                <cmd:option required="false" usedForSelection="false" duplicateOK="false" long="name" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option required="false" usedForSelection="false" duplicateOK="false" long="name" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="Forward" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_DnsSetting.get_Forward" description="" readOnly="true" orientation="LEFT" required="false">
-                <cmd:option long="forward" required="false" usedForSelection="false" duplicateOK="true" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="forward" required="false" usedForSelection="false" duplicateOK="true" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="Forwarders" dataType="UNSIGNED_INT16" userDefined="false" uiType="LIST" fcoFieldName="Linux_DnsSetting.get_Forwarders" description="" readOnly="true" orientation="LEFT" required="false">
-                <cmd:option long="forwarders" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true"/>
+                <cmd:option long="forwarders" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="true"/>
             </cd:field>
         </cd:container>
         <cd:container name="DnsAddressMatchListWizardPage1DataContainer" packageId="wizardContainers" implPackageId="dnsWizardContainerImplementation" adapterId="dns" canCreate="false" canDelete="false" canModify="true" isWizard="true" description="Page 1 of AddressMatchList-Wizard" customLayouter="true">
             <cd:extends container="DnsAddressMatchListDataContainer" packageId="editContainers"/>
             <cd:fcoRelation fcoName="Linux_DnsAddressMatchList" fcoPackageId="org.sblim.wbemsmt.dns.bl.fco"/>
             <cd:field name="Name" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsAddressMatchList.get_Name" description="" readOnly="false" required="true">
-                <cmd:option long="matchListName" required="true" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="matchListName" required="true" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
         </cd:container>
         <cd:container name="DnsAddressMatchListWizardSummaryDataContainer" packageId="wizardContainers" implPackageId="dnsWizardContainerImplementation" adapterId="dns" canCreate="true" canDelete="false" canModify="true" isWizard="true" description="Summary of AddressMatchList-Wizard" customLayouter="false">
             <cd:fcoRelation fcoName="Linux_DnsAddressMatchList" fcoPackageId="org.sblim.wbemsmt.dns.bl.fco"/>
             <cd:field name="Name" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_DnsAddressMatchList.get_Name" description="" readOnly="true" orientation="LEFT" required="false">
-                <cmd:option long="name" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option long="name" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </cd:field>
             <cd:field name="AddressList" dataType="UNSIGNED_INT16" userDefined="false" uiType="LIST" fcoFieldName="Linux_DnsAddressMatchList.get_AddressList" description="" readOnly="true" orientation="LEFT" required="false">
-                <cmd:option long="addressList" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option long="addressList" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </cd:field>
         </cd:container>
         <cd:container name="DnsMastersWizardPage1DataContainer" packageId="wizardContainers" implPackageId="dnsWizardContainerImplementation" adapterId="dns" canCreate="false" canDelete="false" canModify="true" isWizard="true" description="Page 1 of AddressMatchList-Wizard" customLayouter="true">
             <cd:extends container="DnsAddMasterAddressDataContainer" packageId="editContainers"/>
             <cd:fcoRelation fcoName="Linux_DnsMasters" fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" description=""/>
             <cd:field name="Name" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsMaster.get_Name" description="" readOnly="false" required="true">
-                <cmd:option long="mastersName" required="true" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="mastersName" required="true" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
         </cd:container>
         <cd:container name="DnsMastersWizardSummaryDataContainer" packageId="wizardContainers" implPackageId="dnsWizardContainerImplementation" adapterId="dns" canCreate="true" canDelete="false" canModify="true" isWizard="true" description="Summary of AddressMatchList-Wizard" customLayouter="false">
             <cd:fcoRelation fcoName="Linux_DnsMasters" fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" description=""/>
             <cd:field name="Name" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_DnsMaster.get_Name" description="" readOnly="true" orientation="LEFT" required="false">
-                <cmd:option long="name" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option long="name" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </cd:field>
             <cd:field name="AddressList" dataType="UNSIGNED_INT16" userDefined="false" uiType="LIST" fcoFieldName="Linux_DnsMaster.get_AddressList" description="" readOnly="true" orientation="LEFT" required="false">
-                <cmd:option long="addressList" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option long="addressList" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsEditContainerImplementation" name="DnsReverseZoneDataContainer" packageId="editContainers" adapterId="dns" description="Container for DNS Reverse Zones" canCreate="false" canModify="true" canDelete="true" isWizard="false" customLayouter="true">
@@ -308,67 +308,67 @@
             <cd:extends container="DnsTTLDataContainer" packageId="editContainers"/>
             <cd:fcoRelation fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" fcoName="Linux_DnsReverseZoneWrapper" description=""/>
             <cd:field name="ZoneFile" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsMasterZone.get_ZoneFile" description="" readOnly="false">
-                <cmd:option long="zoneFile" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="zoneFile" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="useGlobalForwarders" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="useGlobalForwarders" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="useGlobalForwarders" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsWizardContainerImplementation" name="DnsSlaveZoneWizardPage1DataContainer" packageId="wizardContainers" adapterId="dns" description="Page 1 of SlaveZone-Wizard" canCreate="false" canModify="true" canDelete="false" isWizard="true" customLayouter="true">
             <cd:extends container="DnsAddMasterAddressDataContainer" packageId="editContainers"/>
             <cd:field name="Name" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false" required="true">
-                <cmd:option required="true" long="zoneName" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
+                <cmd:option required="true" long="zoneName" comment="" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsWizardContainerImplementation" name="DnsSlaveZoneWizardSummaryDataContainer" packageId="wizardContainers" adapterId="dns" description="Summary-Page of SlaveZone-Wizard" canCreate="true" canModify="true" canDelete="false" isWizard="true" customLayouter="false">
             <cd:field name="Name" userDefined="true" dataType="STRING" uiType="LABEL" fcoFieldName="Name" description="" readOnly="true" orientation="LEFT" required="false">
-                <cmd:option required="false" long="name" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
+                <cmd:option required="false" long="name" comment="" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
             </cd:field>
             <cd:field name="IpAdressses" userDefined="true" dataType="UNSIGNED_INT16" uiType="LIST" fcoFieldName="userdefined" description="" readOnly="true" orientation="LEFT" required="false">
-                <cmd:option required="false" long="ip" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
+                <cmd:option required="false" long="ip" comment="" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsWizardContainerImplementation" name="DnsStubZoneWizardPage1DataContainer" packageId="wizardContainers" adapterId="dns" description="Page 1 of SlaveZone-Wizard" canCreate="false" canModify="true" canDelete="false" isWizard="true" customLayouter="true">
             <cd:extends container="DnsAddMasterAddressDataContainer" packageId="editContainers"/>
             <cd:field name="Name" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false" required="true">
-                <cmd:option required="true" long="zoneName" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
+                <cmd:option required="true" long="zoneName" comment="" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsWizardContainerImplementation" name="DnsStubZoneWizardSummaryDataContainer" packageId="wizardContainers" adapterId="dns" description="Summary-Page of SlaveZone-Wizard" canCreate="true" canModify="true" canDelete="false" isWizard="true" customLayouter="false">
             <cd:field name="Name" userDefined="true" dataType="STRING" uiType="LABEL" fcoFieldName="Name" description="" readOnly="true" orientation="LEFT" required="false">
-                <cmd:option required="false" long="name" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
+                <cmd:option required="false" long="name" comment="" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
             </cd:field>
             <cd:field name="IpAdressses" userDefined="true" dataType="UNSIGNED_INT16" uiType="LIST" fcoFieldName="userdefined" description="" readOnly="true" orientation="LEFT" required="false">
-                <cmd:option required="false" long="ip" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
+                <cmd:option required="false" long="ip" comment="" scope="LOCAL_CONTAINER" usedForSelection="false" duplicateOK="false"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsEditContainerImplementation" name="DnsZoneTracingContainer" packageId="editContainers" adapterId="dns" description="Container for Tracing a Zone" canCreate="false" canModify="false" canDelete="false" isWizard="false" customLayouter="false">
             <cd:field name="Name" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsZone.get_Name" description="" readOnly="true">
-                <cmd:option long="zoneName" required="false" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="zoneName" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="ResourceRecordFile" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsZone.get_ResourceRecordFile" description="" readOnly="true">
-                <cmd:option long="resourceRecordFile" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="resourceRecordFile" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="Contact" userDefined="false" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Contact" description="" readOnly="true">
-                <cmd:option required="false" long="contact" comment="Admin email" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
+                <cmd:option required="false" long="contact" comment="Admin email" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
             </cd:field>
             <cd:field name="Expire" userDefined="false" dataType="UNSIGNED_INT32" uiType="TEXTFIELD" fcoFieldName="Expire" description="" readOnly="true">
-                <cmd:option required="false" long="expire" comment="Expiration" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
+                <cmd:option required="false" long="expire" comment="Expiration" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
             </cd:field>
             <cd:field name="Server" userDefined="false" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Server" description="" readOnly="true">
-                <cmd:option required="false" long="servername" comment="The name of the server" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
+                <cmd:option required="false" long="servername" comment="The name of the server" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
             </cd:field>
             <cd:field name="SerialNumber" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsMasterZone.get_SerialNumber" description="" readOnly="true">
-                <cmd:option long="serialNumber" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="serialNumber" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="Retry" dataType="UNSIGNED_INT32" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsMasterZone.get_Retry" description="" readOnly="true">
-                <cmd:option long="retry" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="retry" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="Forward" dataType="UNSIGNED_INT16" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsSetting.get_Forward" description="" readOnly="true">
-                <cmd:option long="forward" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="forward" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="Forwarders" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsSetting.get_Forwarders" description="" readOnly="true">
-                <cmd:option long="forwarders" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option long="forwarders" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </cd:field>
             <cd:field name="masterAddresses" dataType="STRING" userDefined="true" uiType="TEXTFIELD" fcoFieldName="userdefined" description="" readOnly="true"/>
             <cd:field name="TTL" dataType="DOUBLE" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsSetting.get_TTL" description="" readOnly="true"/>
@@ -391,105 +391,105 @@
         </cd:container>
         <cd:container implPackageId="dnsEditContainerImplementation" name="DnsForwarderDataContainer" packageId="editContainers" adapterId="dns" description="Container for the fields needed to define a forwarder" canCreate="false" canModify="false" canDelete="false" isWizard="false" customLayouter="false">
             <cd:field name="Forward" dataType="UNSIGNED_INT8" userDefined="false" uiType="RADIOBUTTON" fcoFieldName="Linux_DnsSetting.get_Forward" description="" readOnly="false">
-                <cmd:option long="forward" required="false" usedForSelection="false" duplicateOK="true" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="forward" required="false" usedForSelection="false" duplicateOK="true" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="Forwarders" dataType="UNSIGNED_INT16" userDefined="false" uiType="LIST_WITH_MULTISELECT" fcoFieldName="Linux_DnsSetting.get_Forwarders" description="" readOnly="false">
-                <cmd:option long="forwarders" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true"/>
+                <cmd:option long="forwarders" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="true"/>
             </cd:field>
             <cd:field name="removeForwarder" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="removeForwarder" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true"/>
+                <cmd:option long="removeForwarder" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="true" hasArgument="false"/>
             </cd:field>
             <cd:field name="newForwarder" dataType="STRING" userDefined="true" uiType="TEXTFIELD" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="newForwarder" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true"/>
+                <cmd:option long="newForwarder" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="true"/>
             </cd:field>
             <cd:field name="addForwarder" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="addForwarder" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true"/>
+                <cmd:option long="addForwarder" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="true" hasArgument="false"/>
             </cd:field>
             <cd:field name="newForwarderType" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="newForwarderType" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true"/>
+                <cmd:option long="newForwarderType" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="true"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsEditContainerImplementation" name="DnsTTLDataContainer" packageId="editContainers" adapterId="dns" description="Container for the fields needed to define TTL" canCreate="false" canModify="false" canDelete="false" isWizard="false" customLayouter="false">
             <cd:field name="TTL" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsSetting.get_TTL" description="" readOnly="false">
-                <cmd:option long="ttl" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option long="ttl" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </cd:field>
             <cd:field name="TTLUnit" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="ttlUnit" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="ttlUnit" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="removeTTL" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="removeTTL" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="removeTTL" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsEditContainerImplementation" name="DnsAddMasterAddressDataContainer" packageId="editContainers" adapterId="dns" description="Container for the fields needed to add Master IP Addresses" canCreate="false" canModify="false" canDelete="false" isWizard="false" customLayouter="false">
             <cd:field name="masters" dataType="UNSIGNED_INT16" userDefined="false" uiType="LIST_WITH_MULTISELECT" fcoFieldName="Linux_DnsSetting.get_Forwarders" description="" readOnly="false">
-                <cmd:option long="masters" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true"/>
+                <cmd:option long="masters" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="true"/>
             </cd:field>
             <cd:field name="removeMasterEntry" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="removeMasterEntry" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true"/>
+                <cmd:option long="removeMasterEntry" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="true" hasArgument="false"/>
             </cd:field>
             <cd:field name="newMasterEntry" dataType="STRING" userDefined="true" uiType="TEXTFIELD" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="newMasterEntry" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true"/>
+                <cmd:option long="newMasterEntry" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="true"/>
             </cd:field>
             <cd:field name="addNewMasterEntry" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="addNewMasterEntry" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true"/>
+                <cmd:option long="addNewMasterEntry" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="true" hasArgument="false"/>
             </cd:field>
             <cd:field name="addPredefinedMaster" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="addPredefinedMaster" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true"/>
+                <cmd:option long="addPredefinedMaster" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="true" hasArgument="false"/>
             </cd:field>
             <cd:field name="predefinedMasters" dataType="UNSIGNED_INT16" userDefined="true" uiType="LIST_WITH_MULTISELECT" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="predefinedMasters" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true"/>
+                <cmd:option long="predefinedMasters" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="true"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsWizardContainerImplementation" name="DnsReverseZoneWizardPage1DataContainer" packageId="wizardContainers" adapterId="dns" description="Page 1 of ReverseZone-Wizard" canCreate="false" canModify="true" canDelete="false" isWizard="true" customLayouter="true">
             <cd:field name="ipAddress" dataType="STRING" userDefined="true" uiType="TEXTFIELD" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="ipAddress" required="true" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true"/>
+                <cmd:option long="ipAddress" required="true" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="true"/>
             </cd:field>
             <cd:field name="resourceRecordUsed" dataType="UNSIGNED_INT16" userDefined="true" uiType="LIST_WITH_MULTISELECT" fcoFieldName="userdefined" description="" readOnly="false"/>
             <cd:field name="removeResourceRecord" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false"/>
             <cd:field name="resourceRecordNotUsed" dataType="UNSIGNED_INT16" userDefined="true" uiType="LIST_WITH_MULTISELECT" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="resourceRecordToUse" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option long="resourceRecordToUse" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </cd:field>
             <cd:field name="addResourceRecord" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="addResourceRecord" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="addResourceRecord" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
             <cd:field name="addAllResourceRecords" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="addAllResourceRecords" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="addAllResourceRecords" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
             <cd:field name="removeAllResourceRecords" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false"/>
             <cd:field name="ipPresets" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX_WITH_ONCHANGEEVENT" fcoFieldName="userdefined" description="" readOnly="false"/>
         </cd:container>
         <cd:container implPackageId="dnsWizardContainerImplementation" name="DnsReverseZoneWizardSummaryDataContainer" packageId="wizardContainers" adapterId="dns" description="Summary of ReverseZone-Wizard" canCreate="true" canModify="true" canDelete="false" isWizard="true" customLayouter="false">
             <cd:field name="name" dataType="STRING" userDefined="true" uiType="LABEL" fcoFieldName="userdefined" description="" readOnly="true" orientation="LEFT" required="false">
-                <cmd:option long="zoneName" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option long="zoneName" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </cd:field>
             <cd:field name="ResourceRecordFile" dataType="STRING" userDefined="false" uiType="LABEL" fcoFieldName="Linux_DnsZone.get_ResourceRecordFile" description="" readOnly="true" orientation="LEFT" required="false">
-                <cmd:option long="resourceRecordFile" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="resourceRecordFile" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:link linkedContainer="DnsResourceRecordForReverseZoneWizardDataContainer" linkedPackage="wizardContainers" occurrence="LIST" role="resourceRecords" description=""/>
         </cd:container>
         <cd:container implPackageId="dnsEditContainerImplementation" name="DnsResourceRecordWizardPage2TypeMxDataContainer" packageId="wizardContainers" adapterId="dns" description="Page 2 of ResourceRecord-Wizard for defining MX-typed Records" canCreate="false" canModify="true" canDelete="false" isWizard="true" customLayouter="false">
             <cd:field name="Value" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Value" description="" readOnly="false" required="true">
-                <cmd:option required="true" long="recordValue" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true" usedForSelection="false"/>
+                <cmd:option required="true" long="recordValue" comment="" scope="LOCAL_CONTAINER" duplicateOK="true" usedForSelection="false"/>
             </cd:field>
             <cd:field name="Priority" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="" description="" readOnly="false" required="true">
-                <cmd:option required="true" long="priority" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
+                <cmd:option required="true" long="priority" comment="" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsEditContainerImplementation" name="DnsResourceRecordWizardPage2TypeOtherDataContainer" packageId="wizardContainers" adapterId="dns" description="Page 2 of ResourceRecord-Wizard for defining Records with Type other than MX" canCreate="false" canModify="true" canDelete="false" isWizard="true" customLayouter="false">
             <cd:field name="Value" userDefined="true" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Value" description="" readOnly="false" required="true">
-                <cmd:option required="true" long="recordValue" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="true" usedForSelection="false"/>
+                <cmd:option required="true" long="recordValue" comment="" scope="LOCAL_CONTAINER" duplicateOK="true" usedForSelection="false"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsEditContainerImplementation" name="DnsResourceRecordForReverseZoneWizardDataContainer" packageId="wizardContainers" adapterId="dns" description="ResourceRecord within the ReverseZone Wizard (on the Overview page)" canCreate="false" canModify="false" canDelete="false" isWizard="false" customLayouter="false">
             <cd:fcoRelation fcoName="Linux_DnsResourceRecord" fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" description=""/>
             <cd:field name="Name" userDefined="false" dataType="STRING" uiType="LABEL" fcoFieldName="Name" description="" readOnly="true">
-                <cmd:option required="true" long="name" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="true" duplicateOK="false"/>
+                <cmd:option required="true" long="name" comment="" scope="LOCAL_CONTAINER" usedForSelection="true" duplicateOK="false"/>
             </cd:field>
             <cd:field name="Type" userDefined="false" dataType="STRING" uiType="LABEL" fcoFieldName="Type" description="" readOnly="true">
-                <cmd:option required="true" long="type" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="true" duplicateOK="false"/>
+                <cmd:option required="true" long="type" comment="" scope="LOCAL_CONTAINER" usedForSelection="true" duplicateOK="false"/>
             </cd:field>
             <cd:field name="Value" userDefined="false" dataType="STRING" uiType="LABEL" fcoFieldName="Value" description="" readOnly="true">
-                <cmd:option required="true" long="value" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="true" duplicateOK="false"/>
+                <cmd:option required="true" long="value" comment="" scope="LOCAL_CONTAINER" usedForSelection="true" duplicateOK="false"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsEditContainerImplementation" name="DnsResourceRecordListContainer" packageId="editContainers" adapterId="dns" description="Container with a List of ResourceRecords" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="true">
@@ -501,25 +501,25 @@
             <cd:fcoRelation fcoPackageId="org.sblim.wbemsmt.dns.bl.fco" fcoName="Linux_DnsResourceRecord" description=""/>
             <cd:field name="deleteRecord" dataType="BOOLEAN" userDefined="true" uiType="CHECKBOX" fcoFieldName="userdefined" description="" readOnly="false"/>
             <cd:field name="Name" userDefined="false" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Name" description="" readOnly="false" required="true">
-                <cmd:option required="true" long="resourceRecordName" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="true" duplicateOK="false"/>
+                <cmd:option required="true" long="resourceRecordName" comment="" scope="LOCAL_CONTAINER" usedForSelection="true" duplicateOK="false"/>
             </cd:field>
             <cd:field name="TTL" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsSetting.get_TTL" description="" readOnly="false" orientation="LEFT" required="false">
-                <cmd:option long="ttl" required="false" usedForSelection="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false"/>
+                <cmd:option long="ttl" required="false" usedForSelection="false" comment="" scope="LOCAL_CONTAINER" duplicateOK="false"/>
             </cd:field>
             <cd:field name="TTLUnit" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="ttlUnit" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="ttlUnit" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="removeTTL" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="removeTTL" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="removeTTL" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
             <cd:field name="Family" userDefined="false" dataType="UNSIGNED_INT8" uiType="COMBOBOX" fcoFieldName="Family" description="" readOnly="false">
-                <cmd:option required="false" long="family" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
+                <cmd:option required="false" long="family" comment="" scope="LOCAL_CONTAINER" duplicateOK="false" usedForSelection="false"/>
             </cd:field>
             <cd:field name="Type" userDefined="false" dataType="UNSIGNED_INT16" uiType="COMBOBOX" fcoFieldName="Type" description="" readOnly="false" required="true">
-                <cmd:option required="true" long="type" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="true" duplicateOK="false"/>
+                <cmd:option required="true" long="type" comment="" scope="LOCAL_CONTAINER" usedForSelection="true" duplicateOK="false"/>
             </cd:field>
             <cd:field name="Value" userDefined="false" dataType="STRING" uiType="TEXTFIELD" fcoFieldName="Value" description="" readOnly="false" required="true">
-                <cmd:option required="true" long="value" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER" usedForSelection="true" duplicateOK="false"/>
+                <cmd:option required="true" long="value" comment="" scope="LOCAL_CONTAINER" usedForSelection="true" duplicateOK="false"/>
             </cd:field>
         </cd:container>
         <cd:container implPackageId="dnsEditContainerImplementation" name="DnsSoaContainer" packageId="editContainers" adapterId="dns" description="" canCreate="false" canModify="true" canDelete="false" isWizard="false" customLayouter="true">
@@ -531,7 +531,7 @@
                 <cmd:option long="contact" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="SerialNumber" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsMasterZone.get_SerialNumber" description="" readOnly="false">
-                <cmd:option long="serialNumber" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="serialNumber" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="Refresh" dataType="UNSIGNED_INT32" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsMasterZone.get_Refresh">
                 <cmd:option long="refresh" scope="LOCAL_CONTAINER"/>
@@ -543,13 +543,13 @@
                 <cmd:option long="expire" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="NegativeCachingTTL" dataType="STRING" userDefined="false" uiType="TEXTFIELD" fcoFieldName="Linux_DnsMasterZone.get_NegativeCachingTTL" description="" readOnly="false">
-                <cmd:option long="negativeCachingTTL" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="negativeCachingTTL" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="TTLUnit" dataType="UNSIGNED_INT16" userDefined="true" uiType="COMBOBOX" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="ttlUnit" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="ttlUnit" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="setSerialNumber" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="setSerialNumber" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="setSerialNumber" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
         </cd:container>
         <cd:container name="DnsStubZoneDataContainer" packageId="editContainers" implPackageId="dnsEditContainerImplementation" adapterId="dns" canCreate="false" canDelete="true" canModify="true" isWizard="false" description="" customLayouter="true">
@@ -562,7 +562,7 @@
                 <cmd:option long="zoneFile" scope="LOCAL_CONTAINER"/>
             </cd:field>
             <cd:field name="useGlobalForwarders" dataType="ACTION" userDefined="true" uiType="BUTTON" fcoFieldName="userdefined" description="" readOnly="false">
-                <cmd:option long="useGlobalForwarders" required="false" usedForSelection="false" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_CONTAINER"/>
+                <cmd:option long="useGlobalForwarders" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="LOCAL_CONTAINER" hasArgument="false"/>
             </cd:field>
         </cd:container>
         <cd:container name="DnsMasterDataContainer" packageId="editContainers" implPackageId="dnsEditContainerImplementation" adapterId="dns" canCreate="false" canDelete="false" canModify="false" isWizard="false">
@@ -701,7 +701,7 @@
                 <pl:wizardPanel id="summary" isFirst="false" isLast="true" linkedContainer="DnsReverseZoneWizardSummaryDataContainer" linkedPackage="wizardContainers"/>
             </pl:wizard>
             <cmd:command commandName="CreateDnsReverseZone">
-                <cmd:option long="zoneNameToReverse" required="true" usedForSelection="true" duplicateOK="true" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                <cmd:option long="zoneNameToReverse" required="true" usedForSelection="true" duplicateOK="true" comment="" scope="LOCAL_ACTION"/>
             </cmd:command>
         </pl:createAction>
         <pl:createAction id="createResourceRecord" traceContainerContainerId="DnsResourceRecordDataContainer" traceContainerPackageId="editContainers">
@@ -721,7 +721,7 @@
                 <pl:wizardPanel id="typeOther" isFirst="false" isLast="false" linkedContainer="DnsResourceRecordWizardPage2TypeOtherDataContainer" linkedPackage="wizardContainers"/>
             </pl:wizard>
             <cmd:command commandName="CreateDnsResourceRecord">
-                <cmd:option required="true" long="zoneName" comment="name of the zone" defaultValue="noDefaultValue" scope="LOCAL_ACTION" usedForSelection="true" duplicateOK="false"/>
+                <cmd:option required="true" long="zoneName" comment="name of the zone" scope="LOCAL_ACTION" usedForSelection="true" duplicateOK="false"/>
             </cmd:command>
         </pl:createAction>
         <pl:createAction id="createAddressMatchList" traceContainerContainerId="DnsAddressMatchListDataContainer" traceContainerPackageId="editContainers">
@@ -769,24 +769,24 @@
                 <pl:tab caption="TabAcl">
                     <pl:childEditPanel caption="editDnsMasterZoneAllowTransfer" linkedContainer="DnsAllowTransferForZoneDataContainer" linkedPackage="editContainers">
                         <cmd:command commandName="EditDnsMasterZoneAllowTransfer">
-                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
                         </cmd:command>
                     </pl:childEditPanel>
                     <pl:childEditPanel caption="editDnsMasterZoneAllowQuery" linkedContainer="DnsAllowQueryForZoneDataContainer" linkedPackage="editContainers">
                         <cmd:command commandName="EditDnsMasterZoneAllowQuery">
-                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
                         </cmd:command>
                     </pl:childEditPanel>
                     <pl:childEditPanel caption="editDnsMasterZoneAllowUpdate" linkedContainer="DnsAllowUpdateForZoneDataContainer" linkedPackage="editContainers">
                         <cmd:command commandName="EditDnsMasterZoneAllowUpdate">
-                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
                         </cmd:command>
                     </pl:childEditPanel>
                 </pl:tab>
                 <pl:tab caption="TabSOA">
                     <pl:childEditPanel caption="editSOA" linkedContainer="DnsSoaContainer" linkedPackage="editContainers">
                         <cmd:command commandName="EditDnsSoaRecord">
-                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="true" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="true" comment="" scope="LOCAL_ACTION"/>
                         </cmd:command>
                     </pl:childEditPanel>
                 </pl:tab>
@@ -810,22 +810,22 @@
                 <pl:tab caption="TabAcl">
                     <pl:childEditPanel caption="editDnsSlaveZoneAllowTransfer" linkedContainer="DnsAllowTransferForZoneDataContainer" linkedPackage="editContainers">
                         <cmd:command commandName="EditDnsSlaveZoneAllowTransfer">
-                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
                         </cmd:command>
                     </pl:childEditPanel>
                     <pl:childEditPanel caption="editDnsSlaveZoneAllowQuery" linkedContainer="DnsAllowQueryForZoneDataContainer" linkedPackage="editContainers">
                         <cmd:command commandName="EditDnsSlaveZoneAllowQuery">
-                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
                         </cmd:command>
                     </pl:childEditPanel>
                     <pl:childEditPanel caption="editDnsSlaveZoneAllowNotify" linkedContainer="DnsAllowNotifyForZoneDataContainer" linkedPackage="editContainers">
                         <cmd:command commandName="EditDnsSlaveZoneAllowNotify">
-                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
                         </cmd:command>
                     </pl:childEditPanel>
                     <pl:childEditPanel caption="editDnsSlaveZoneAllowUpdate" linkedContainer="DnsAllowUpdateForZoneDataContainer" linkedPackage="editContainers">
                         <cmd:command commandName="EditDnsSlaveZoneAllowUpdate">
-                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
                         </cmd:command>
                     </pl:childEditPanel>
                 </pl:tab>
@@ -849,22 +849,22 @@
                 <pl:tab caption="TabAcl">
                     <pl:childEditPanel caption="editDnsStubZoneAllowTransfer" linkedContainer="DnsAllowTransferForZoneDataContainer" linkedPackage="editContainers">
                         <cmd:command commandName="EditDnsStubZoneAllowTransfer">
-                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
                         </cmd:command>
                     </pl:childEditPanel>
                     <pl:childEditPanel caption="editDnsStubZoneAllowQuery" linkedContainer="DnsAllowQueryForZoneDataContainer" linkedPackage="editContainers">
                         <cmd:command commandName="EditDnsStubZoneAllowQuery">
-                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
                         </cmd:command>
                     </pl:childEditPanel>
                     <pl:childEditPanel caption="editDnsStubZoneAllowNotify" linkedContainer="DnsAllowNotifyForZoneDataContainer" linkedPackage="editContainers">
                         <cmd:command commandName="EditDnsStubZoneAllowNotify">
-                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
                         </cmd:command>
                     </pl:childEditPanel>
                     <pl:childEditPanel caption="editDnsStubZoneAllowUpdate" linkedContainer="DnsAllowUpdateForZoneDataContainer" linkedPackage="editContainers">
                         <cmd:command commandName="EditDnsStubZoneAllowUpdate">
-                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
                         </cmd:command>
                     </pl:childEditPanel>
                 </pl:tab>
@@ -882,11 +882,11 @@
             <pl:editPanel>
                 <pl:childEditPanel caption="editResourceRecords" linkedContainer="DnsResourceRecordDataContainer" linkedPackage="editContainers">
                     <cmd:command commandName="EditDnsResourceRecord">
-                        <cmd:option required="true" usedForSelection="true" long="zoneName" comment="Zone name to select the right zone" defaultValue="noDefaultValue" scope="LOCAL_ACTION" duplicateOK="true"/>
-                        <cmd:option long="recordNameToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
-                        <cmd:option long="recordTypeToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
-                        <cmd:option long="recordValueToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
-                        <cmd:option long="mxPriorityToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                        <cmd:option required="true" usedForSelection="true" long="zoneName" comment="Zone name to select the right zone" scope="LOCAL_ACTION" duplicateOK="true"/>
+                        <cmd:option long="recordNameToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
+                        <cmd:option long="recordTypeToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
+                        <cmd:option long="recordValueToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
+                        <cmd:option long="mxPriorityToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
                     </cmd:command>
                 </pl:childEditPanel>
             </pl:editPanel>
@@ -968,17 +968,17 @@
                 <pl:tab caption="TabAcl">
                     <pl:childEditPanel caption="editDnsReverseZoneAllowTransfer" linkedContainer="DnsAllowTransferForZoneDataContainer" linkedPackage="editContainers">
                         <cmd:command commandName="EditDnsReverseZoneAllowTransfer">
-                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
                         </cmd:command>
                     </pl:childEditPanel>
                     <pl:childEditPanel caption="editDnsReverseZoneAllowQuery" linkedContainer="DnsAllowQueryForZoneDataContainer" linkedPackage="editContainers">
                         <cmd:command commandName="EditDnsReverseZoneAllowQuery">
-                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
                         </cmd:command>
                     </pl:childEditPanel>
                     <pl:childEditPanel caption="editDnsReverseZoneAllowUpdate" linkedContainer="DnsAllowUpdateForZoneDataContainer" linkedPackage="editContainers">
                         <cmd:command commandName="EditDnsReverseZoneAllowUpdate">
-                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                            <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
                         </cmd:command>
                     </pl:childEditPanel>
                 </pl:tab>
@@ -1061,11 +1061,11 @@
                 <pl:actionListenerClassDefinition name="Ignore" packageId="dnsListeners" useCurrentTreeNodeForSelection="true"/>
             </pl:actionListener>
             <cmd:command commandName="DeleteDnsResourceRecord">
-                <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
-                <cmd:option long="recordNameToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
-                <cmd:option long="recordTypeToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
-                <cmd:option long="recordValueToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
-                <cmd:option long="mxPriorityToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
+                <cmd:option long="recordNameToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
+                <cmd:option long="recordTypeToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
+                <cmd:option long="recordValueToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
+                <cmd:option long="mxPriorityToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
             </cmd:command>
         </pl:deleteAction>
         <pl:listAction id="listDnsZone" linkedContainer="DnsZoneTracingContainer" linkedPackage="editContainers">
@@ -1097,11 +1097,11 @@
                 <pl:actionListenerClassDefinition name="ListDnsResourceRecordListener" packageId="dnsListeners"/>
             </pl:actionListener>
             <cmd:command commandName="ListDnsResourceRecord" listType="INSTANCE" traceOnlyChilds="false">
-                <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
-                <cmd:option long="recordNameToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
-                <cmd:option long="recordTypeToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
-                <cmd:option long="recordValueToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
-                <cmd:option long="mxPriorityToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" defaultValue="noDefaultValue" scope="LOCAL_ACTION"/>
+                <cmd:option long="zoneName" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
+                <cmd:option long="recordNameToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
+                <cmd:option long="recordTypeToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
+                <cmd:option long="recordValueToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
+                <cmd:option long="mxPriorityToSelect" required="true" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION"/>
                 <cmd:option long="list" required="false" usedForSelection="true" duplicateOK="false" comment="" scope="LOCAL_ACTION" defaultValue="INSTANCE_WITH_CHILDS"/>
             </cmd:command>
         </pl:listAction>
@@ -1127,7 +1127,7 @@
             </pl:actionListener>
         </pl:welcomeAction>
         <cmd:commands>
-            <cmd:option long="dnsServiceName" required="true" usedForSelection="true" duplicateOK="true" comment="" defaultValue="noDefaultValue" scope="GLOBAL_TASK"/>
+            <cmd:option long="dnsServiceName" required="true" usedForSelection="true" duplicateOK="true" comment="" scope="GLOBAL_TASK"/>
             <cmd:option long="hostname" required="false" usedForSelection="false" duplicateOK="false" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>
             <cmd:option long="port" required="false" usedForSelection="false" duplicateOK="false" defaultValue="5988" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>
             <cmd:option long="namespace" required="false" usedForSelection="false" duplicateOK="false" defaultValue="/root/cimv2" comment="" scope="GLOBAL_WBEMSMT_COMMUNICATION"/>

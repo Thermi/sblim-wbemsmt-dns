@@ -28,12 +28,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Vector;
 
-import org.sblim.wbem.cim.CIMClass;
-import org.sblim.wbem.cim.CIMException;
-import org.sblim.wbem.cim.CIMInstance;
-import org.sblim.wbem.cim.CIMObjectPath;
-import org.sblim.wbem.cim.CIMProperty;
-import org.sblim.wbem.cim.UnsignedInt8;
+import org.sblim.wbem.cim.*;
 import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbem.client.CIMEnumeration;
 
@@ -201,15 +196,36 @@ public final class Linux_DnsHintZoneHelper {
 		CIMInstance cimInstance = cimClient.getInstance(cimObjectPath);
 		
 		Linux_DnsHintZone dataInstance = null;
+		Class clazz = Linux_DnsHintZoneHelper.findClass(cimClient, cimInstance);
+
+		if (clazz == null) {
+			System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of class Linux_DnsHintZone.");
+		}
+		else
+		{
+			Class[] constParams = new Class[2];
+			constParams[0] = CIMObjectPath.class;
+			constParams[1] = CIMInstance.class;
+			try {
+				Constructor cons = clazz.getConstructor(constParams);
+				Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
+				dataInstance = (Linux_DnsHintZone)cons.newInstance(actargs);
+			} catch (Exception e) {
+				System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of class Linux_DnsHintZone.");
+			}
+		}
+
 		try {
-			dataInstance = new Linux_DnsHintZone(cimObjectPath, cimInstance);
+			if (dataInstance == null)
+			{
+				dataInstance = new Linux_DnsHintZone(cimObjectPath, cimInstance);
+			}
 		} catch (Exception e) {
 			// This error should normally not happen, because the instance was received by the server with a valid CIMObjectPath
 			System.err.println("The received CIMInstance object was not valid.\nReceived values are:\n" + cimObjectPath + "\n" + cimInstance);
-			dataInstance = null;
 		}
-		
 		return dataInstance;
+					
 	}
 	
 		/**

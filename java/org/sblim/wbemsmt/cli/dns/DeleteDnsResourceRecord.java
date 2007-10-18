@@ -37,31 +37,31 @@ public class DeleteDnsResourceRecord extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required, used for selection:  --zoneName, default: noDefaultValue
+   		 * required, used for selection:  --zoneName
 		 */
-		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","DeleteDnsResourceRecord.zoneName.argValue",true,false,"DeleteDnsResourceRecord.zoneName.argDescription");
+		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName",null,"DeleteDnsResourceRecord.zoneName.argValue",true,false,"DeleteDnsResourceRecord.zoneName.argDescription");
 			/**
-   		 * required, used for selection:  --recordNameToSelect, default: noDefaultValue
+   		 * required, used for selection:  --recordNameToSelect
 		 */
-		public static final OptionDefinition KEY_recordNameToSelect = new OptionDefinition(null,"recordNameToSelect","noDefaultValue","DeleteDnsResourceRecord.recordNameToSelect.argValue",true,false,"DeleteDnsResourceRecord.recordNameToSelect.argDescription");
+		public static final OptionDefinition KEY_recordNameToSelect = new OptionDefinition(null,"recordNameToSelect",null,"DeleteDnsResourceRecord.recordNameToSelect.argValue",true,false,"DeleteDnsResourceRecord.recordNameToSelect.argDescription");
 			/**
-   		 * required, used for selection:  --recordTypeToSelect, default: noDefaultValue
+   		 * required, used for selection:  --recordTypeToSelect
 		 */
-		public static final OptionDefinition KEY_recordTypeToSelect = new OptionDefinition(null,"recordTypeToSelect","noDefaultValue","DeleteDnsResourceRecord.recordTypeToSelect.argValue",true,false,"DeleteDnsResourceRecord.recordTypeToSelect.argDescription");
+		public static final OptionDefinition KEY_recordTypeToSelect = new OptionDefinition(null,"recordTypeToSelect",null,"DeleteDnsResourceRecord.recordTypeToSelect.argValue",true,false,"DeleteDnsResourceRecord.recordTypeToSelect.argDescription");
 			/**
-   		 * required, used for selection:  --recordValueToSelect, default: noDefaultValue
+   		 * required, used for selection:  --recordValueToSelect
 		 */
-		public static final OptionDefinition KEY_recordValueToSelect = new OptionDefinition(null,"recordValueToSelect","noDefaultValue","DeleteDnsResourceRecord.recordValueToSelect.argValue",true,false,"DeleteDnsResourceRecord.recordValueToSelect.argDescription");
+		public static final OptionDefinition KEY_recordValueToSelect = new OptionDefinition(null,"recordValueToSelect",null,"DeleteDnsResourceRecord.recordValueToSelect.argValue",true,false,"DeleteDnsResourceRecord.recordValueToSelect.argDescription");
 			/**
-   		 * required, used for selection:  --mxPriorityToSelect, default: noDefaultValue
+   		 * required, used for selection:  --mxPriorityToSelect
 		 */
-		public static final OptionDefinition KEY_mxPriorityToSelect = new OptionDefinition(null,"mxPriorityToSelect","noDefaultValue","DeleteDnsResourceRecord.mxPriorityToSelect.argValue",true,false,"DeleteDnsResourceRecord.mxPriorityToSelect.argDescription");
+		public static final OptionDefinition KEY_mxPriorityToSelect = new OptionDefinition(null,"mxPriorityToSelect",null,"DeleteDnsResourceRecord.mxPriorityToSelect.argValue",true,false,"DeleteDnsResourceRecord.mxPriorityToSelect.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
+   		 * required, used for selection:  --dnsServiceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**

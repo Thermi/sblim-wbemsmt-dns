@@ -37,15 +37,15 @@ public class DeleteDnsReverseZone extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * used for selection:  --zoneName, default: noDefaultValue
+   		 * used for selection:  --zoneName
 		 */
-		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","DnsZoneDataContainer.Name.argValue",false,false,"DnsZoneDataContainer.Name.argDescription");
+		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName",null,"DnsZoneDataContainer.Name.argValue",false,false,"DnsZoneDataContainer.Name.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
+   		 * required, used for selection:  --dnsServiceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**

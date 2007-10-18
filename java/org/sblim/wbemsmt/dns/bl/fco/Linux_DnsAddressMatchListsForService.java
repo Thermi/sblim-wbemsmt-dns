@@ -29,14 +29,8 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 
-import org.sblim.wbem.cim.CIMDataType;
-import org.sblim.wbem.cim.CIMException;
-import org.sblim.wbem.cim.CIMInstance;
-import org.sblim.wbem.cim.CIMObjectPath;
-import org.sblim.wbem.cim.CIMProperty;
-import org.sblim.wbem.cim.CIMValue;
+import org.sblim.wbem.cim.*;
 import org.sblim.wbemsmt.schema.cim29.CIM_Component;
-
 
 /**
  *  Association representing the DNS Address Match Lists, that have been specified

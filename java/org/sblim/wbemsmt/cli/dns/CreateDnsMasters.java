@@ -39,39 +39,39 @@ public class CreateDnsMasters extends CimCommand implements ContainerUpdater {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required,  --mastersName, default: noDefaultValue
+   		 * required,  --mastersName
 		 */
-		public static final OptionDefinition KEY_mastersName = new OptionDefinition(null,"mastersName","noDefaultValue","DnsMastersWizardPage1DataContainer.Name.argValue",true,false,"DnsMastersWizardPage1DataContainer.Name.argDescription");
+		public static final OptionDefinition KEY_mastersName = new OptionDefinition(null,"mastersName",null,"DnsMastersWizardPage1DataContainer.Name.argValue",true,false,"DnsMastersWizardPage1DataContainer.Name.argDescription");
 			/**
-   		 *  --masters, default: noDefaultValue
+   		 *  --masters
 		 */
-		public static final OptionDefinition KEY_masters = new OptionDefinition(null,"masters","noDefaultValue","DnsAddMasterAddressDataContainer.masters.argValue",false,false,"DnsAddMasterAddressDataContainer.masters.argDescription");
+		public static final OptionDefinition KEY_masters = new OptionDefinition(null,"masters",null,"DnsAddMasterAddressDataContainer.masters.argValue",false,false,"DnsAddMasterAddressDataContainer.masters.argDescription");
 			/**
-   		 *  --removeMasterEntry, default: noDefaultValue
+   		 *  --removeMasterEntry
 		 */
-		public static final OptionDefinition KEY_removeMasterEntry = new OptionDefinition(null,"removeMasterEntry","noDefaultValue","DnsAddMasterAddressDataContainer.removeMasterEntry.argValue",false,false,"DnsAddMasterAddressDataContainer.removeMasterEntry.argDescription");
+		public static final OptionDefinition KEY_removeMasterEntry = new OptionDefinition(null,"removeMasterEntry",null,null,false,false,"DnsAddMasterAddressDataContainer.removeMasterEntry.argDescription");
 			/**
-   		 *  --newMasterEntry, default: noDefaultValue
+   		 *  --newMasterEntry
 		 */
-		public static final OptionDefinition KEY_newMasterEntry = new OptionDefinition(null,"newMasterEntry","noDefaultValue","DnsAddMasterAddressDataContainer.newMasterEntry.argValue",false,false,"DnsAddMasterAddressDataContainer.newMasterEntry.argDescription");
+		public static final OptionDefinition KEY_newMasterEntry = new OptionDefinition(null,"newMasterEntry",null,"DnsAddMasterAddressDataContainer.newMasterEntry.argValue",false,false,"DnsAddMasterAddressDataContainer.newMasterEntry.argDescription");
 			/**
-   		 *  --addNewMasterEntry, default: noDefaultValue
+   		 *  --addNewMasterEntry
 		 */
-		public static final OptionDefinition KEY_addNewMasterEntry = new OptionDefinition(null,"addNewMasterEntry","noDefaultValue","DnsAddMasterAddressDataContainer.addNewMasterEntry.argValue",false,false,"DnsAddMasterAddressDataContainer.addNewMasterEntry.argDescription");
+		public static final OptionDefinition KEY_addNewMasterEntry = new OptionDefinition(null,"addNewMasterEntry",null,null,false,false,"DnsAddMasterAddressDataContainer.addNewMasterEntry.argDescription");
 			/**
-   		 *  --addPredefinedMaster, default: noDefaultValue
+   		 *  --addPredefinedMaster
 		 */
-		public static final OptionDefinition KEY_addPredefinedMaster = new OptionDefinition(null,"addPredefinedMaster","noDefaultValue","DnsAddMasterAddressDataContainer.addPredefinedMaster.argValue",false,false,"DnsAddMasterAddressDataContainer.addPredefinedMaster.argDescription");
+		public static final OptionDefinition KEY_addPredefinedMaster = new OptionDefinition(null,"addPredefinedMaster",null,null,false,false,"DnsAddMasterAddressDataContainer.addPredefinedMaster.argDescription");
 			/**
-   		 *  --predefinedMasters, default: noDefaultValue
+   		 *  --predefinedMasters
 		 */
-		public static final OptionDefinition KEY_predefinedMasters = new OptionDefinition(null,"predefinedMasters","noDefaultValue","DnsAddMasterAddressDataContainer.predefinedMasters.argValue",false,false,"DnsAddMasterAddressDataContainer.predefinedMasters.argDescription");
+		public static final OptionDefinition KEY_predefinedMasters = new OptionDefinition(null,"predefinedMasters",null,"DnsAddMasterAddressDataContainer.predefinedMasters.argValue",false,false,"DnsAddMasterAddressDataContainer.predefinedMasters.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
+   		 * required, used for selection:  --dnsServiceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**

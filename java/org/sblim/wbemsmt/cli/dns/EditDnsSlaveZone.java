@@ -37,83 +37,83 @@ public class EditDnsSlaveZone extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 *  --zoneFile, default: noDefaultValue
+   		 *  --zoneFile
 		 */
-		public static final OptionDefinition KEY_zoneFile = new OptionDefinition(null,"zoneFile","noDefaultValue","DnsSlaveZoneDataContainer.ZoneFile.argValue",false,false,"DnsSlaveZoneDataContainer.ZoneFile.argDescription");
+		public static final OptionDefinition KEY_zoneFile = new OptionDefinition(null,"zoneFile",null,"DnsSlaveZoneDataContainer.ZoneFile.argValue",false,false,"DnsSlaveZoneDataContainer.ZoneFile.argDescription");
 			/**
-   		 *  --useGlobalForwarders, default: noDefaultValue
+   		 *  --useGlobalForwarders
 		 */
-		public static final OptionDefinition KEY_useGlobalForwarders = new OptionDefinition(null,"useGlobalForwarders","noDefaultValue","DnsSlaveZoneDataContainer.useGlobalForwarders.argValue",false,false,"DnsSlaveZoneDataContainer.useGlobalForwarders.argDescription");
+		public static final OptionDefinition KEY_useGlobalForwarders = new OptionDefinition(null,"useGlobalForwarders",null,null,false,false,"DnsSlaveZoneDataContainer.useGlobalForwarders.argDescription");
 			/**
-   		 * used for selection:  --zoneName, default: noDefaultValue
+   		 * used for selection:  --zoneName
 		 */
-		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","DnsZoneDataContainer.Name.argValue",false,false,"DnsZoneDataContainer.Name.argDescription");
+		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName",null,"DnsZoneDataContainer.Name.argValue",false,false,"DnsZoneDataContainer.Name.argDescription");
 			/**
-   		 *  --forward, default: noDefaultValue
+   		 *  --forward
 		 */
-		public static final OptionDefinition KEY_forward = new OptionDefinition(null,"forward","noDefaultValue","DnsForwarderDataContainer.Forward.argValue",false,false,"DnsForwarderDataContainer.Forward.argDescription");
+		public static final OptionDefinition KEY_forward = new OptionDefinition(null,"forward",null,"DnsForwarderDataContainer.Forward.argValue",false,false,"DnsForwarderDataContainer.Forward.argDescription");
 			/**
-   		 *  --forwarders, default: noDefaultValue
+   		 *  --forwarders
 		 */
-		public static final OptionDefinition KEY_forwarders = new OptionDefinition(null,"forwarders","noDefaultValue","DnsForwarderDataContainer.Forwarders.argValue",false,false,"DnsForwarderDataContainer.Forwarders.argDescription");
+		public static final OptionDefinition KEY_forwarders = new OptionDefinition(null,"forwarders",null,"DnsForwarderDataContainer.Forwarders.argValue",false,false,"DnsForwarderDataContainer.Forwarders.argDescription");
 			/**
-   		 *  --removeForwarder, default: noDefaultValue
+   		 *  --removeForwarder
 		 */
-		public static final OptionDefinition KEY_removeForwarder = new OptionDefinition(null,"removeForwarder","noDefaultValue","DnsForwarderDataContainer.removeForwarder.argValue",false,false,"DnsForwarderDataContainer.removeForwarder.argDescription");
+		public static final OptionDefinition KEY_removeForwarder = new OptionDefinition(null,"removeForwarder",null,null,false,false,"DnsForwarderDataContainer.removeForwarder.argDescription");
 			/**
-   		 *  --newForwarder, default: noDefaultValue
+   		 *  --newForwarder
 		 */
-		public static final OptionDefinition KEY_newForwarder = new OptionDefinition(null,"newForwarder","noDefaultValue","DnsForwarderDataContainer.newForwarder.argValue",false,false,"DnsForwarderDataContainer.newForwarder.argDescription");
+		public static final OptionDefinition KEY_newForwarder = new OptionDefinition(null,"newForwarder",null,"DnsForwarderDataContainer.newForwarder.argValue",false,false,"DnsForwarderDataContainer.newForwarder.argDescription");
 			/**
-   		 *  --addForwarder, default: noDefaultValue
+   		 *  --addForwarder
 		 */
-		public static final OptionDefinition KEY_addForwarder = new OptionDefinition(null,"addForwarder","noDefaultValue","DnsForwarderDataContainer.addForwarder.argValue",false,false,"DnsForwarderDataContainer.addForwarder.argDescription");
+		public static final OptionDefinition KEY_addForwarder = new OptionDefinition(null,"addForwarder",null,null,false,false,"DnsForwarderDataContainer.addForwarder.argDescription");
 			/**
-   		 *  --newForwarderType, default: noDefaultValue
+   		 *  --newForwarderType
 		 */
-		public static final OptionDefinition KEY_newForwarderType = new OptionDefinition(null,"newForwarderType","noDefaultValue","DnsForwarderDataContainer.newForwarderType.argValue",false,false,"DnsForwarderDataContainer.newForwarderType.argDescription");
+		public static final OptionDefinition KEY_newForwarderType = new OptionDefinition(null,"newForwarderType",null,"DnsForwarderDataContainer.newForwarderType.argValue",false,false,"DnsForwarderDataContainer.newForwarderType.argDescription");
 			/**
-   		 *  --masters, default: noDefaultValue
+   		 *  --masters
 		 */
-		public static final OptionDefinition KEY_masters = new OptionDefinition(null,"masters","noDefaultValue","DnsAddMasterAddressDataContainer.masters.argValue",false,false,"DnsAddMasterAddressDataContainer.masters.argDescription");
+		public static final OptionDefinition KEY_masters = new OptionDefinition(null,"masters",null,"DnsAddMasterAddressDataContainer.masters.argValue",false,false,"DnsAddMasterAddressDataContainer.masters.argDescription");
 			/**
-   		 *  --removeMasterEntry, default: noDefaultValue
+   		 *  --removeMasterEntry
 		 */
-		public static final OptionDefinition KEY_removeMasterEntry = new OptionDefinition(null,"removeMasterEntry","noDefaultValue","DnsAddMasterAddressDataContainer.removeMasterEntry.argValue",false,false,"DnsAddMasterAddressDataContainer.removeMasterEntry.argDescription");
+		public static final OptionDefinition KEY_removeMasterEntry = new OptionDefinition(null,"removeMasterEntry",null,null,false,false,"DnsAddMasterAddressDataContainer.removeMasterEntry.argDescription");
 			/**
-   		 *  --newMasterEntry, default: noDefaultValue
+   		 *  --newMasterEntry
 		 */
-		public static final OptionDefinition KEY_newMasterEntry = new OptionDefinition(null,"newMasterEntry","noDefaultValue","DnsAddMasterAddressDataContainer.newMasterEntry.argValue",false,false,"DnsAddMasterAddressDataContainer.newMasterEntry.argDescription");
+		public static final OptionDefinition KEY_newMasterEntry = new OptionDefinition(null,"newMasterEntry",null,"DnsAddMasterAddressDataContainer.newMasterEntry.argValue",false,false,"DnsAddMasterAddressDataContainer.newMasterEntry.argDescription");
 			/**
-   		 *  --addNewMasterEntry, default: noDefaultValue
+   		 *  --addNewMasterEntry
 		 */
-		public static final OptionDefinition KEY_addNewMasterEntry = new OptionDefinition(null,"addNewMasterEntry","noDefaultValue","DnsAddMasterAddressDataContainer.addNewMasterEntry.argValue",false,false,"DnsAddMasterAddressDataContainer.addNewMasterEntry.argDescription");
+		public static final OptionDefinition KEY_addNewMasterEntry = new OptionDefinition(null,"addNewMasterEntry",null,null,false,false,"DnsAddMasterAddressDataContainer.addNewMasterEntry.argDescription");
 			/**
-   		 *  --addPredefinedMaster, default: noDefaultValue
+   		 *  --addPredefinedMaster
 		 */
-		public static final OptionDefinition KEY_addPredefinedMaster = new OptionDefinition(null,"addPredefinedMaster","noDefaultValue","DnsAddMasterAddressDataContainer.addPredefinedMaster.argValue",false,false,"DnsAddMasterAddressDataContainer.addPredefinedMaster.argDescription");
+		public static final OptionDefinition KEY_addPredefinedMaster = new OptionDefinition(null,"addPredefinedMaster",null,null,false,false,"DnsAddMasterAddressDataContainer.addPredefinedMaster.argDescription");
 			/**
-   		 *  --predefinedMasters, default: noDefaultValue
+   		 *  --predefinedMasters
 		 */
-		public static final OptionDefinition KEY_predefinedMasters = new OptionDefinition(null,"predefinedMasters","noDefaultValue","DnsAddMasterAddressDataContainer.predefinedMasters.argValue",false,false,"DnsAddMasterAddressDataContainer.predefinedMasters.argDescription");
+		public static final OptionDefinition KEY_predefinedMasters = new OptionDefinition(null,"predefinedMasters",null,"DnsAddMasterAddressDataContainer.predefinedMasters.argValue",false,false,"DnsAddMasterAddressDataContainer.predefinedMasters.argDescription");
 			/**
-   		 *  --ttl, default: noDefaultValue
+   		 *  --ttl
 		 */
-		public static final OptionDefinition KEY_ttl = new OptionDefinition(null,"ttl","noDefaultValue","DnsTTLDataContainer.TTL.argValue",false,false,"DnsTTLDataContainer.TTL.argDescription");
+		public static final OptionDefinition KEY_ttl = new OptionDefinition(null,"ttl",null,"DnsTTLDataContainer.TTL.argValue",false,false,"DnsTTLDataContainer.TTL.argDescription");
 			/**
-   		 *  --ttlUnit, default: noDefaultValue
+   		 *  --ttlUnit
 		 */
-		public static final OptionDefinition KEY_ttlUnit = new OptionDefinition(null,"ttlUnit","noDefaultValue","DnsTTLDataContainer.TTLUnit.argValue",false,false,"DnsTTLDataContainer.TTLUnit.argDescription");
+		public static final OptionDefinition KEY_ttlUnit = new OptionDefinition(null,"ttlUnit",null,"DnsTTLDataContainer.TTLUnit.argValue",false,false,"DnsTTLDataContainer.TTLUnit.argDescription");
 			/**
-   		 *  --removeTTL, default: noDefaultValue
+   		 *  --removeTTL
 		 */
-		public static final OptionDefinition KEY_removeTTL = new OptionDefinition(null,"removeTTL","noDefaultValue","DnsTTLDataContainer.removeTTL.argValue",false,false,"DnsTTLDataContainer.removeTTL.argDescription");
+		public static final OptionDefinition KEY_removeTTL = new OptionDefinition(null,"removeTTL",null,null,false,false,"DnsTTLDataContainer.removeTTL.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
+   		 * required, used for selection:  --dnsServiceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**

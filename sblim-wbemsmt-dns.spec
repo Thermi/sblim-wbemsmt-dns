@@ -152,6 +152,7 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.dns
 ###############################################################################
 %changelog
 * Mon Oct 15 2007 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.2-CVS
+	o 1815845  wbemsmt-dns : regenerate dcs/fcos to reflect gen. changes
 	o 1813932  wbemsmt-dns :cliDataLoader uses CIMCommandValues
 
 * Mon Sep 10 2007 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.2-1

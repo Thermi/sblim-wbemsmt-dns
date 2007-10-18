@@ -49,15 +49,15 @@ public class EditDnsServiceConfiguration extends CimCommand {
 		 */
 		public static final OptionDefinition KEY_portNumber = new OptionDefinition(null,"portNumber",null,"DnsConfigurationDataContainer.PortNumber.argValue",false,false,"DnsConfigurationDataContainer.PortNumber.argDescription");
 			/**
-   		 *  --removeDirectory, default: noDefaultValue
+   		 *  --removeDirectory
 		 */
-		public static final OptionDefinition KEY_removeDirectory = new OptionDefinition(null,"removeDirectory","noDefaultValue","DnsConfigurationDataContainer.removeDirectory.argValue",false,false,"DnsConfigurationDataContainer.removeDirectory.argDescription");
+		public static final OptionDefinition KEY_removeDirectory = new OptionDefinition(null,"removeDirectory",null,null,false,false,"DnsConfigurationDataContainer.removeDirectory.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
+   		 * required, used for selection:  --dnsServiceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**

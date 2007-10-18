@@ -28,14 +28,7 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 
-import org.sblim.wbem.cim.CIMDataType;
-import org.sblim.wbem.cim.CIMException;
-import org.sblim.wbem.cim.CIMInstance;
-import org.sblim.wbem.cim.CIMObjectPath;
-import org.sblim.wbem.cim.CIMProperty;
-import org.sblim.wbem.cim.CIMValue;
-import org.sblim.wbem.cim.UnsignedInt8;
-
+import org.sblim.wbem.cim.*;
 
 /**
  *  Class representing DNS zones of type Hint.

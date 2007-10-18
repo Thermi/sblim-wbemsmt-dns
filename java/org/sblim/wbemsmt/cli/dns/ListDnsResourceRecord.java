@@ -36,25 +36,25 @@ public class ListDnsResourceRecord extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * required, used for selection:  --zoneName, default: noDefaultValue
+   		 * required, used for selection:  --zoneName
 		 */
-		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","ListDnsResourceRecord.zoneName.argValue",true,false,"ListDnsResourceRecord.zoneName.argDescription");
+		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName",null,"ListDnsResourceRecord.zoneName.argValue",true,false,"ListDnsResourceRecord.zoneName.argDescription");
 			/**
-   		 * required, used for selection:  --recordNameToSelect, default: noDefaultValue
+   		 * required, used for selection:  --recordNameToSelect
 		 */
-		public static final OptionDefinition KEY_recordNameToSelect = new OptionDefinition(null,"recordNameToSelect","noDefaultValue","ListDnsResourceRecord.recordNameToSelect.argValue",true,false,"ListDnsResourceRecord.recordNameToSelect.argDescription");
+		public static final OptionDefinition KEY_recordNameToSelect = new OptionDefinition(null,"recordNameToSelect",null,"ListDnsResourceRecord.recordNameToSelect.argValue",true,false,"ListDnsResourceRecord.recordNameToSelect.argDescription");
 			/**
-   		 * required, used for selection:  --recordTypeToSelect, default: noDefaultValue
+   		 * required, used for selection:  --recordTypeToSelect
 		 */
-		public static final OptionDefinition KEY_recordTypeToSelect = new OptionDefinition(null,"recordTypeToSelect","noDefaultValue","ListDnsResourceRecord.recordTypeToSelect.argValue",true,false,"ListDnsResourceRecord.recordTypeToSelect.argDescription");
+		public static final OptionDefinition KEY_recordTypeToSelect = new OptionDefinition(null,"recordTypeToSelect",null,"ListDnsResourceRecord.recordTypeToSelect.argValue",true,false,"ListDnsResourceRecord.recordTypeToSelect.argDescription");
 			/**
-   		 * required, used for selection:  --recordValueToSelect, default: noDefaultValue
+   		 * required, used for selection:  --recordValueToSelect
 		 */
-		public static final OptionDefinition KEY_recordValueToSelect = new OptionDefinition(null,"recordValueToSelect","noDefaultValue","ListDnsResourceRecord.recordValueToSelect.argValue",true,false,"ListDnsResourceRecord.recordValueToSelect.argDescription");
+		public static final OptionDefinition KEY_recordValueToSelect = new OptionDefinition(null,"recordValueToSelect",null,"ListDnsResourceRecord.recordValueToSelect.argValue",true,false,"ListDnsResourceRecord.recordValueToSelect.argDescription");
 			/**
-   		 * required, used for selection:  --mxPriorityToSelect, default: noDefaultValue
+   		 * required, used for selection:  --mxPriorityToSelect
 		 */
-		public static final OptionDefinition KEY_mxPriorityToSelect = new OptionDefinition(null,"mxPriorityToSelect","noDefaultValue","ListDnsResourceRecord.mxPriorityToSelect.argValue",true,false,"ListDnsResourceRecord.mxPriorityToSelect.argDescription");
+		public static final OptionDefinition KEY_mxPriorityToSelect = new OptionDefinition(null,"mxPriorityToSelect",null,"ListDnsResourceRecord.mxPriorityToSelect.argValue",true,false,"ListDnsResourceRecord.mxPriorityToSelect.argDescription");
 			/**
    		 * used for selection:  --list, default: INSTANCE_WITH_CHILDS
 		 */
@@ -62,9 +62,9 @@ public class ListDnsResourceRecord extends CimCommand {
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
+   		 * required, used for selection:  --dnsServiceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**

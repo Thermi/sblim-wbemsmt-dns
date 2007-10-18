@@ -37,63 +37,63 @@ public class EditDnsResourceRecord extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * Zone name to select the right zone required, used for selection:  --zoneName, default: noDefaultValue
+   		 * Zone name to select the right zone required, used for selection:  --zoneName
 		 */
-		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","EditDnsResourceRecord.zoneName.argValue",true,false,"EditDnsResourceRecord.zoneName.argDescription");
+		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName",null,"EditDnsResourceRecord.zoneName.argValue",true,false,"EditDnsResourceRecord.zoneName.argDescription");
 			/**
-   		 * required, used for selection:  --recordNameToSelect, default: noDefaultValue
+   		 * required, used for selection:  --recordNameToSelect
 		 */
-		public static final OptionDefinition KEY_recordNameToSelect = new OptionDefinition(null,"recordNameToSelect","noDefaultValue","EditDnsResourceRecord.recordNameToSelect.argValue",true,false,"EditDnsResourceRecord.recordNameToSelect.argDescription");
+		public static final OptionDefinition KEY_recordNameToSelect = new OptionDefinition(null,"recordNameToSelect",null,"EditDnsResourceRecord.recordNameToSelect.argValue",true,false,"EditDnsResourceRecord.recordNameToSelect.argDescription");
 			/**
-   		 * required, used for selection:  --recordTypeToSelect, default: noDefaultValue
+   		 * required, used for selection:  --recordTypeToSelect
 		 */
-		public static final OptionDefinition KEY_recordTypeToSelect = new OptionDefinition(null,"recordTypeToSelect","noDefaultValue","EditDnsResourceRecord.recordTypeToSelect.argValue",true,false,"EditDnsResourceRecord.recordTypeToSelect.argDescription");
+		public static final OptionDefinition KEY_recordTypeToSelect = new OptionDefinition(null,"recordTypeToSelect",null,"EditDnsResourceRecord.recordTypeToSelect.argValue",true,false,"EditDnsResourceRecord.recordTypeToSelect.argDescription");
 			/**
-   		 * required, used for selection:  --recordValueToSelect, default: noDefaultValue
+   		 * required, used for selection:  --recordValueToSelect
 		 */
-		public static final OptionDefinition KEY_recordValueToSelect = new OptionDefinition(null,"recordValueToSelect","noDefaultValue","EditDnsResourceRecord.recordValueToSelect.argValue",true,false,"EditDnsResourceRecord.recordValueToSelect.argDescription");
+		public static final OptionDefinition KEY_recordValueToSelect = new OptionDefinition(null,"recordValueToSelect",null,"EditDnsResourceRecord.recordValueToSelect.argValue",true,false,"EditDnsResourceRecord.recordValueToSelect.argDescription");
 			/**
-   		 * required, used for selection:  --mxPriorityToSelect, default: noDefaultValue
+   		 * required, used for selection:  --mxPriorityToSelect
 		 */
-		public static final OptionDefinition KEY_mxPriorityToSelect = new OptionDefinition(null,"mxPriorityToSelect","noDefaultValue","EditDnsResourceRecord.mxPriorityToSelect.argValue",true,false,"EditDnsResourceRecord.mxPriorityToSelect.argDescription");
+		public static final OptionDefinition KEY_mxPriorityToSelect = new OptionDefinition(null,"mxPriorityToSelect",null,"EditDnsResourceRecord.mxPriorityToSelect.argValue",true,false,"EditDnsResourceRecord.mxPriorityToSelect.argDescription");
 			/**
-   		 *  --recordName, default: noDefaultValue
+   		 *  --recordName
 		 */
-		public static final OptionDefinition KEY_recordName = new OptionDefinition(null,"recordName","noDefaultValue","DnsResourceRecordDataContainer.Name.argValue",false,false,"DnsResourceRecordDataContainer.Name.argDescription");
+		public static final OptionDefinition KEY_recordName = new OptionDefinition(null,"recordName",null,"DnsResourceRecordDataContainer.Name.argValue",false,false,"DnsResourceRecordDataContainer.Name.argDescription");
 			/**
-   		 *  --recordType, default: noDefaultValue
+   		 *  --recordType
 		 */
-		public static final OptionDefinition KEY_recordType = new OptionDefinition(null,"recordType","noDefaultValue","DnsResourceRecordDataContainer.Type.argValue",false,false,"DnsResourceRecordDataContainer.Type.argDescription");
+		public static final OptionDefinition KEY_recordType = new OptionDefinition(null,"recordType",null,"DnsResourceRecordDataContainer.Type.argValue",false,false,"DnsResourceRecordDataContainer.Type.argDescription");
 			/**
-   		 *  --recordFamily, default: noDefaultValue
+   		 *  --recordFamily
 		 */
-		public static final OptionDefinition KEY_recordFamily = new OptionDefinition(null,"recordFamily","noDefaultValue","DnsResourceRecordDataContainer.Family.argValue",false,false,"DnsResourceRecordDataContainer.Family.argDescription");
+		public static final OptionDefinition KEY_recordFamily = new OptionDefinition(null,"recordFamily",null,"DnsResourceRecordDataContainer.Family.argValue",false,false,"DnsResourceRecordDataContainer.Family.argDescription");
 			/**
-   		 *  --recordValue, default: noDefaultValue
+   		 *  --recordValue
 		 */
-		public static final OptionDefinition KEY_recordValue = new OptionDefinition(null,"recordValue","noDefaultValue","DnsResourceRecordDataContainer.Value.argValue",false,false,"DnsResourceRecordDataContainer.Value.argDescription");
+		public static final OptionDefinition KEY_recordValue = new OptionDefinition(null,"recordValue",null,"DnsResourceRecordDataContainer.Value.argValue",false,false,"DnsResourceRecordDataContainer.Value.argDescription");
 			/**
-   		 *  --mxPriority, default: noDefaultValue
+   		 *  --mxPriority
 		 */
-		public static final OptionDefinition KEY_mxPriority = new OptionDefinition(null,"mxPriority","noDefaultValue","DnsResourceRecordDataContainer.Priority.argValue",false,false,"DnsResourceRecordDataContainer.Priority.argDescription");
+		public static final OptionDefinition KEY_mxPriority = new OptionDefinition(null,"mxPriority",null,"DnsResourceRecordDataContainer.Priority.argValue",false,false,"DnsResourceRecordDataContainer.Priority.argDescription");
 			/**
-   		 *  --ttl, default: noDefaultValue
+   		 *  --ttl
 		 */
-		public static final OptionDefinition KEY_ttl = new OptionDefinition(null,"ttl","noDefaultValue","DnsTTLDataContainer.TTL.argValue",false,false,"DnsTTLDataContainer.TTL.argDescription");
+		public static final OptionDefinition KEY_ttl = new OptionDefinition(null,"ttl",null,"DnsTTLDataContainer.TTL.argValue",false,false,"DnsTTLDataContainer.TTL.argDescription");
 			/**
-   		 *  --ttlUnit, default: noDefaultValue
+   		 *  --ttlUnit
 		 */
-		public static final OptionDefinition KEY_ttlUnit = new OptionDefinition(null,"ttlUnit","noDefaultValue","DnsTTLDataContainer.TTLUnit.argValue",false,false,"DnsTTLDataContainer.TTLUnit.argDescription");
+		public static final OptionDefinition KEY_ttlUnit = new OptionDefinition(null,"ttlUnit",null,"DnsTTLDataContainer.TTLUnit.argValue",false,false,"DnsTTLDataContainer.TTLUnit.argDescription");
 			/**
-   		 *  --removeTTL, default: noDefaultValue
+   		 *  --removeTTL
 		 */
-		public static final OptionDefinition KEY_removeTTL = new OptionDefinition(null,"removeTTL","noDefaultValue","DnsTTLDataContainer.removeTTL.argValue",false,false,"DnsTTLDataContainer.removeTTL.argDescription");
+		public static final OptionDefinition KEY_removeTTL = new OptionDefinition(null,"removeTTL",null,null,false,false,"DnsTTLDataContainer.removeTTL.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
+   		 * required, used for selection:  --dnsServiceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**

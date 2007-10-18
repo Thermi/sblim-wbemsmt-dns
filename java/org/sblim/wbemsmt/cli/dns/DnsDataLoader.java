@@ -20,13 +20,10 @@
 package org.sblim.wbemsmt.cli.dns;
 
 import java.util.List;
-import java.util.Vector;
 
-import org.sblim.wbem.cim.CIMDataType;
 import org.sblim.wbem.cim.CIMObjectPath;
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
-import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.fco.*;
 import org.sblim.wbemsmt.dns.bl.wrapper.NameFactory;
@@ -45,45 +42,34 @@ public abstract class DnsDataLoader implements CliDataLoader {
 	protected CimCommandValues commandValues;
 
 	protected void selectZone(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, String zoneName, boolean creationOfResourceRecord) throws ObjectNotFoundException {
-		Vector keys = new Vector();
-		keys.add(CIMPropertyBuilder.create(Linux_DnsZone.CIM_PROPERTY_NAME,zoneName,CIMDataType.STRING));
-		keys.add(CIMPropertyBuilder.create(Linux_DnsZone.CIM_PROPERTY_INSTANCEID,DnsCimAdapter.DEFAULT_INSTANCE_ID,CIMDataType.STRING));
 		
 		try {
 
 			//using the same filter like the tree for getting the reverse zones
 			DnsZoneNameFilter filter = new DnsZoneNameFilter(true);
 			
-			Linux_DnsZone zone = (Linux_DnsZone) adapter.getFcoHelper().getInstance(Linux_DnsZoneHelper.class,keys,adapter.getCimClient());
-			int zoneType = zone.get_Type().intValue();
+			List instances = Linux_DnsZoneHelper.enumerateInstanceNames(adapter.getCimClient(), true);
+
+			//throws ObjectNotFoundException if no matchin path element was found
+			CIMObjectPath path = adapter.getFcoHelper().getPath(instances,
+					new String[]{Linux_DnsZone.CIM_PROPERTY_INSTANCEID,Linux_DnsZone.CIM_PROPERTY_NAME},
+					new Object[]{DnsCimAdapter.DEFAULT_INSTANCE_ID,zoneName});
+
+			
+			Linux_DnsZone zone = (Linux_DnsZone) adapter.getFcoHelper().reload(Linux_DnsZoneHelper.class, path, adapter.getCimClient());
 			if (filter.accept(zone.getCimInstance(), adapter.getCimClient()))
 			{
 				selectReverseZone(bundle,adapter,zoneName);
 			}
-			else if (zoneType == Linux_DnsZone.TYPE_MASTER)
+			else if (zone instanceof Linux_DnsForwardZone && creationOfResourceRecord)
 			{
-				selectMasterZone(bundle,adapter,zoneName);
-			}
-			else if (zoneType == Linux_DnsZone.TYPE_SLAVE || zoneType == Linux_DnsZone.TYPE_STUB)
-			{
-				selectSlaveZone(bundle,adapter,zoneName);
-			}
-			else if (zoneType == Linux_DnsZone.TYPE_HINT)
-			{
-				selectHintZone(bundle,adapter,zoneName);
-			}
-			else if (zoneType == Linux_DnsZone.TYPE_FORWARD)
-			{
-				if (creationOfResourceRecord)
-				{
-					throw new ObjectNotFoundException(adapter.getBundle().getString("forwardzone.having.no.resourcerecord"));
-				}
-				selectForwardZone(bundle,adapter,zoneName);
+				throw new ObjectNotFoundException(adapter.getBundle().getString("forwardzone.having.no.resourcerecord"));
 			}
 			else
 			{
-				throw new ModelLoadException("Cannot init reverse with zone of type " + zoneType);
+				selectZone(zone.getClass(), zoneName, adapter, bundle);
 			}
+			
 		} catch (ModelLoadException e) {
 			throw new ObjectNotFoundException(bundle.getString("zone.not.found",new Object[]{zoneName}),e);
 		}
@@ -201,7 +187,7 @@ public abstract class DnsDataLoader implements CliDataLoader {
 			
 			if (recordType.equals(ResourceRecord.TYPE_MX))
 			{
-				recordValue = recordValue + " " + recordPrio;
+				recordValue = recordPrio + " " + recordValue;
 			}
 			
 			List records = zone.getLinux_DnsZone().getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZone_Names(adapter.getCimClient(),true);

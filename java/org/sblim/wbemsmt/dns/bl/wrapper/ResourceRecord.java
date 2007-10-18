@@ -98,7 +98,7 @@ public class ResourceRecord extends DnsBusinessObject {
 
 	public MessageList save(DnsResourceRecordDataContainer container) throws ObjectSaveException {
 		String name = (String) container.get_Name().getConvertedControlValue();
-		String type = ResourceRecord.getTypeOfIndex((UnsignedInt16) container.get_Type());
+		String type = ResourceRecord.getTypeOfIndex((UnsignedInt16) container.get_Type().getConvertedControlValue());
 		String value = (String) container.get_Value().getConvertedControlValue();
 		UnsignedInt8 family = (UnsignedInt8) container.get_Family().getConvertedControlValue();
 
@@ -167,8 +167,6 @@ public class ResourceRecord extends DnsBusinessObject {
 				setDeleted(false);
 				parent.getResourceRecords().addResourceRecord(this);
 				parent.getResourceRecords().reloadListValues();
-				adapter.setMarkedForReload();
-				
 			} catch (Exception e) {
 				throw new ObjectSaveException(e);
 			}

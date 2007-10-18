@@ -33,13 +33,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Vector;
 
-import org.sblim.wbem.cim.CIMDataType;
-import org.sblim.wbem.cim.CIMInstance;
-import org.sblim.wbem.cim.CIMObjectPath;
-import org.sblim.wbem.cim.CIMProperty;
-import org.sblim.wbem.cim.CIMValue;
-import org.sblim.wbem.cim.UnsignedInt32;
-import org.sblim.wbem.cim.UnsignedInt8;
+import org.sblim.wbem.cim.*;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
 

@@ -37,15 +37,15 @@ public class DeleteDnsAddressMatchList extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 * used for selection:  --matchListName, default: noDefaultValue
+   		 * used for selection:  --matchListName
 		 */
-		public static final OptionDefinition KEY_matchListName = new OptionDefinition(null,"matchListName","noDefaultValue","DnsAddressMatchListForServiceDataContainer.Name.argValue",false,true,"DnsAddressMatchListForServiceDataContainer.Name.argDescription");
+		public static final OptionDefinition KEY_matchListName = new OptionDefinition(null,"matchListName",null,"DnsAddressMatchListForServiceDataContainer.Name.argValue",false,true,"DnsAddressMatchListForServiceDataContainer.Name.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
+   		 * required, used for selection:  --dnsServiceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**

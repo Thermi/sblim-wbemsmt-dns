@@ -39,31 +39,31 @@ public class CreateDnsResourceRecord extends CimCommand implements ContainerUpda
  
 	//All Options that are local and defined for this command
 			/**
-   		 * name of the zone required, used for selection:  --zoneName, default: noDefaultValue
+   		 * name of the zone required, used for selection:  --zoneName
 		 */
-		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","CreateDnsResourceRecord.zoneName.argValue",true,false,"CreateDnsResourceRecord.zoneName.argDescription");
+		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName",null,"CreateDnsResourceRecord.zoneName.argValue",true,false,"CreateDnsResourceRecord.zoneName.argDescription");
 			/**
    		 * required,  --recordType
 		 */
 		public static final OptionDefinition KEY_recordType = new OptionDefinition(null,"recordType",null,"DnsResourceRecordWizardPage1DataContainer.Type.argValue",true,false,"DnsResourceRecordWizardPage1DataContainer.Type.argDescription");
 			/**
-   		 * required,  --recordName, default: noDefaultValue
+   		 * required,  --recordName
 		 */
-		public static final OptionDefinition KEY_recordName = new OptionDefinition(null,"recordName","noDefaultValue","DnsResourceRecordWizardPage1DataContainer.Name.argValue",true,false,"DnsResourceRecordWizardPage1DataContainer.Name.argDescription");
+		public static final OptionDefinition KEY_recordName = new OptionDefinition(null,"recordName",null,"DnsResourceRecordWizardPage1DataContainer.Name.argValue",true,false,"DnsResourceRecordWizardPage1DataContainer.Name.argDescription");
 			/**
-   		 * required,  --priority, default: noDefaultValue
+   		 * required,  --priority
 		 */
-		public static final OptionDefinition KEY_priority = new OptionDefinition(null,"priority","noDefaultValue","DnsResourceRecordWizardPage2TypeMxDataContainer.Priority.argValue",true,false,"DnsResourceRecordWizardPage2TypeMxDataContainer.Priority.argDescription");
+		public static final OptionDefinition KEY_priority = new OptionDefinition(null,"priority",null,"DnsResourceRecordWizardPage2TypeMxDataContainer.Priority.argValue",true,false,"DnsResourceRecordWizardPage2TypeMxDataContainer.Priority.argDescription");
 			/**
-   		 * required,  --recordValue, default: noDefaultValue
+   		 * required,  --recordValue
 		 */
-		public static final OptionDefinition KEY_recordValue = new OptionDefinition(null,"recordValue","noDefaultValue","DnsResourceRecordWizardPage2TypeOtherDataContainer.Value.argValue",true,false,"DnsResourceRecordWizardPage2TypeOtherDataContainer.Value.argDescription");
+		public static final OptionDefinition KEY_recordValue = new OptionDefinition(null,"recordValue",null,"DnsResourceRecordWizardPage2TypeOtherDataContainer.Value.argValue",true,false,"DnsResourceRecordWizardPage2TypeOtherDataContainer.Value.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
+   		 * required, used for selection:  --dnsServiceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**

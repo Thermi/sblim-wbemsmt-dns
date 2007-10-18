@@ -37,31 +37,31 @@ public class EditDnsHintZone extends CimCommand {
  
 	//All Options that are local and defined for this command
 			/**
-   		 *  --zoneFile, default: noDefaultValue
+   		 *  --zoneFile
 		 */
-		public static final OptionDefinition KEY_zoneFile = new OptionDefinition(null,"zoneFile","noDefaultValue","DnsHintZoneDataContainer.ZoneFile.argValue",false,false,"DnsHintZoneDataContainer.ZoneFile.argDescription");
+		public static final OptionDefinition KEY_zoneFile = new OptionDefinition(null,"zoneFile",null,"DnsHintZoneDataContainer.ZoneFile.argValue",false,false,"DnsHintZoneDataContainer.ZoneFile.argDescription");
 			/**
-   		 * used for selection:  --zoneName, default: noDefaultValue
+   		 * used for selection:  --zoneName
 		 */
-		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName","noDefaultValue","DnsZoneDataContainer.Name.argValue",false,false,"DnsZoneDataContainer.Name.argDescription");
+		public static final OptionDefinition KEY_zoneName = new OptionDefinition(null,"zoneName",null,"DnsZoneDataContainer.Name.argValue",false,false,"DnsZoneDataContainer.Name.argDescription");
 			/**
-   		 *  --ttl, default: noDefaultValue
+   		 *  --ttl
 		 */
-		public static final OptionDefinition KEY_ttl = new OptionDefinition(null,"ttl","noDefaultValue","DnsTTLDataContainer.TTL.argValue",false,false,"DnsTTLDataContainer.TTL.argDescription");
+		public static final OptionDefinition KEY_ttl = new OptionDefinition(null,"ttl",null,"DnsTTLDataContainer.TTL.argValue",false,false,"DnsTTLDataContainer.TTL.argDescription");
 			/**
-   		 *  --ttlUnit, default: noDefaultValue
+   		 *  --ttlUnit
 		 */
-		public static final OptionDefinition KEY_ttlUnit = new OptionDefinition(null,"ttlUnit","noDefaultValue","DnsTTLDataContainer.TTLUnit.argValue",false,false,"DnsTTLDataContainer.TTLUnit.argDescription");
+		public static final OptionDefinition KEY_ttlUnit = new OptionDefinition(null,"ttlUnit",null,"DnsTTLDataContainer.TTLUnit.argValue",false,false,"DnsTTLDataContainer.TTLUnit.argDescription");
 			/**
-   		 *  --removeTTL, default: noDefaultValue
+   		 *  --removeTTL
 		 */
-		public static final OptionDefinition KEY_removeTTL = new OptionDefinition(null,"removeTTL","noDefaultValue","DnsTTLDataContainer.removeTTL.argValue",false,false,"DnsTTLDataContainer.removeTTL.argDescription");
+		public static final OptionDefinition KEY_removeTTL = new OptionDefinition(null,"removeTTL",null,null,false,false,"DnsTTLDataContainer.removeTTL.argDescription");
 		
 	//All Options that are global and task-related
 			/**
-   		 * required, used for selection:  --dnsServiceName, default: noDefaultValue
+   		 * required, used for selection:  --dnsServiceName
 		 */
-		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName","noDefaultValue","dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
+		public static final OptionDefinition KEY_GLOBAL_dnsServiceName = new OptionDefinition(null,"dnsServiceName",null,"dnsServiceName.argValue",true,false,"dnsServiceName.argDescription");
 	
 	// Global Communication Options
 			/**

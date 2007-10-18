@@ -89,18 +89,9 @@ public class ResourceRecordHandler {
 	public void delete(DnsResourceRecordListItemContainer container, int idx) throws ObjectDeletionException {
 			ResourceRecord resourceRecord = zone.getResourceRecords().getResourceRecord(idx);
 			resourceRecord.delete();
-			 
-			container.getAdapter().setMarkedForReload();
-			
-	//			for (int i = this.listContainer.getResourceRecords().size()-1; i >= 0 ; i--)
-	//			{
-	//				if (this.listContainer.getResourceRecords().get(i) == container)
-	//				{
-	//					this.listContainer.getResourceRecords().remove(i);
-	//					getResourceRecords().getList().remove(i);
-	//				}
-	//			}
-		}
+			adapter.setMarkedForReload();
+			adapter.setPathOfTreeNode(adapter.getSelectedZone().getLinux_DnsZone().getCimObjectPath());
+	}
 
 	public void updateControls(DnsResourceRecordListItemContainer container) {
 	}
