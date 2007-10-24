@@ -105,7 +105,7 @@ public class EditForwardZoneListenerEditBeanFieldTab extends EditBean {
         				addSaveSuccess(saveResult,bundle);
     			}
 			
-						reloadAdapters();
+						//reloadAdapters();
 			
 			super.clearEditBeansModified();
 			return PAGE_EDIT;

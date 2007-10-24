@@ -144,7 +144,7 @@ public class EditMasterZoneListenerEditBeanTabAcl extends EditBean {
         				saveResult.addAll(result);
     				}
 										
-						reloadAdapters();
+						//reloadAdapters();
 			
 			super.clearEditBeansModified();
 			return PAGE_EDIT;
