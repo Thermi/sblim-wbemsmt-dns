@@ -1,5 +1,6 @@
 Changes on top of 0.5.2-1
 ==============================================================================
+- 1836655  wbemsmt-dns: Version replacement during build
 - 1819343  wbemsmt-dns : no reload adapter for edit beans
 - 1815845  wbemsmt-dns : regenerate dcs/fcos to reflect gen. changes
 - 1813932  wbemsmt-dns: cliDataLoader uses CIMCommandValues
