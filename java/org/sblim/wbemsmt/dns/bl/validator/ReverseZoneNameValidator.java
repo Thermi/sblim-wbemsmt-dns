@@ -24,7 +24,7 @@ import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.filter.DnsZoneNameFilter;
-import org.sblim.wbemsmt.exception.ValidationException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 import org.sblim.wbemsmt.tools.validator.Validator;
 
@@ -44,7 +44,7 @@ public class ReverseZoneNameValidator  extends Validator {
 		return new LabeledBaseInputComponentIf[]{component};
 	}
 
-	public void validateElement(MessageList result) throws ValidationException {
+	public void validateElement(MessageList result) throws WbemsmtException {
 
 		//using the same filter like the tree for getting the reverse zones
 		DnsZoneNameFilter filter = new DnsZoneNameFilter(true);

@@ -23,8 +23,7 @@ import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.dns.bl.container.edit.*;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ObjectRevertException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class DnsCimAdapterRevertDelegatee implements DnsCimAdapterRevertIf {
 
@@ -39,66 +38,46 @@ public class DnsCimAdapterRevertDelegatee implements DnsCimAdapterRevertIf {
 	 */
 	public MessageList revertImpl(
 			DnsAllowNotifyForServiceDataContainer container)
-			throws ObjectRevertException {
+			throws WbemsmtException {
 		
-		try {
-			return adapter.getDnsService().revert(container);
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+		return adapter.getDnsService().revert(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterRevertIf#revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryACLForServiceDataContainer)
 	 */
 	public MessageList revertImpl(
-			DnsAllowQueryForServiceDataContainer container) throws ObjectRevertException {
-		try {
-			return adapter.getDnsService().revert(container);
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+			DnsAllowQueryForServiceDataContainer container) throws WbemsmtException {
+		return adapter.getDnsService().revert(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterRevertIf#revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowRecursionACLForServiceDataContainer)
 	 */
 	public MessageList revertImpl(
-			DnsAllowRecursionForServiceDataContainer container) throws ObjectRevertException {
-		try {
-			return adapter.getDnsService().revert(container);
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+			DnsAllowRecursionForServiceDataContainer container) throws WbemsmtException {
+		return adapter.getDnsService().revert(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterRevertIf#revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowTransferACLForServiceDataContainer)
 	 */
 	public MessageList revertImpl(
-			DnsAllowTransferForServiceDataContainer container) throws ObjectRevertException {
-		try {
-			return adapter.getDnsService().revert(container);
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+			DnsAllowTransferForServiceDataContainer container) throws WbemsmtException {
+		return adapter.getDnsService().revert(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterRevertIf#revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsBlackholeACLForServiceDataContainer)
 	 */
-	public MessageList revertImpl(DnsBlackholeForServiceDataContainer container) throws ObjectRevertException {
-		try {
-			return adapter.getDnsService().revert(container);
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+	public MessageList revertImpl(DnsBlackholeForServiceDataContainer container) throws WbemsmtException {
+		return adapter.getDnsService().revert(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterRevertIf#revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyACLForZoneDataContainer)
 	 */
-	public MessageList revertImpl(DnsAllowNotifyForZoneDataContainer container) throws ObjectRevertException {
+	public MessageList revertImpl(DnsAllowNotifyForZoneDataContainer container) throws WbemsmtException {
 		
 		if (adapter.getSelectedSlaveZone() != null)
 		{
@@ -110,7 +89,7 @@ public class DnsCimAdapterRevertDelegatee implements DnsCimAdapterRevertIf {
 		}
 		else
 		{
-			throw new  ObjectRevertException("Cannot revert container - selected zone " + adapter.getSelectedZone() + " not supported");
+			throw new WbemsmtException(WbemsmtException.ERR_REVERT_OBJECT,"Cannot revert container - selected zone " + adapter.getSelectedZone() + " not supported");
 		}
 	}
 
@@ -118,7 +97,7 @@ public class DnsCimAdapterRevertDelegatee implements DnsCimAdapterRevertIf {
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterRevertIf#revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryACLForZoneDataContainer)
 	 */
-	public MessageList revertImpl(DnsAllowQueryForZoneDataContainer container) throws ObjectRevertException {
+	public MessageList revertImpl(DnsAllowQueryForZoneDataContainer container) throws WbemsmtException {
 		if (adapter.getSelectedMasterZone() != null)
 		{
 			return adapter.getSelectedMasterZone().revert(container);
@@ -136,7 +115,7 @@ public class DnsCimAdapterRevertDelegatee implements DnsCimAdapterRevertIf {
 			return adapter.getSelectedReverseZone().revert(container);
 		}
 		else {
-			throw new  ObjectRevertException("Cannot revert container - selected zone " + adapter.getSelectedZone() + " not supported");
+			throw new WbemsmtException(WbemsmtException.ERR_REVERT_OBJECT,"Cannot revert container - selected zone " + adapter.getSelectedZone() + " not supported");
 		}
 	}
 
@@ -147,7 +126,7 @@ public class DnsCimAdapterRevertDelegatee implements DnsCimAdapterRevertIf {
 	 */
 	public MessageList revertImpl(
 			DnsAllowTransferForZoneDataContainer container)
-			throws ObjectRevertException {
+			throws WbemsmtException {
 		if (adapter.getSelectedMasterZone() != null)
 		{
 			return adapter.getSelectedMasterZone().revert(container);
@@ -164,7 +143,7 @@ public class DnsCimAdapterRevertDelegatee implements DnsCimAdapterRevertIf {
 		{
 			return adapter.getSelectedReverseZone().revert(container);
 		} else {
-			throw new  ObjectRevertException("Cannot revert container - selected zone " + adapter.getSelectedZone() + " not supported");
+			throw new WbemsmtException(WbemsmtException.ERR_REVERT_OBJECT,"Cannot revert container - selected zone " + adapter.getSelectedZone() + " not supported");
 		}
 	}
 
@@ -172,7 +151,7 @@ public class DnsCimAdapterRevertDelegatee implements DnsCimAdapterRevertIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterRevertIf#revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowUpdateACLForZoneDataContainer)
 	 */
 	public MessageList revertImpl(DnsAllowUpdateForZoneDataContainer container)
-			throws ObjectRevertException {
+			throws WbemsmtException {
 		if (adapter.getSelectedMasterZone() != null)
 		{
 			return adapter.getSelectedMasterZone().revert(container);
@@ -191,7 +170,7 @@ public class DnsCimAdapterRevertDelegatee implements DnsCimAdapterRevertIf {
 		}
 		else
 		{
-			throw new  ObjectRevertException("Cannot revert container - selected zone " + adapter.getSelectedZone() + " not supported");
+			throw new WbemsmtException(WbemsmtException.ERR_REVERT_OBJECT,"Cannot revert container - selected zone " + adapter.getSelectedZone() + " not supported");
 		}
 	}
 
@@ -200,19 +179,15 @@ public class DnsCimAdapterRevertDelegatee implements DnsCimAdapterRevertIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterRevertIf#revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsConfigurationDataContainer)
 	 */
 	public MessageList revertImpl(DnsConfigurationDataContainer container)
-			throws ObjectRevertException {
-		try {
-			return adapter.getDnsService().revert(container);
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+			throws WbemsmtException {
+		return adapter.getDnsService().revert(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterRevertIf#revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardZoneDataContainer)
 	 */
 	public MessageList revertImpl(DnsForwardZoneDataContainer container)
-			throws ObjectRevertException {
+			throws WbemsmtException {
 		return adapter.getSelectedForwardZone().revert(container);
 	}
 
@@ -220,7 +195,7 @@ public class DnsCimAdapterRevertDelegatee implements DnsCimAdapterRevertIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterRevertIf#revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsHintZoneDataContainer)
 	 */
 	public MessageList revertImpl(DnsHintZoneDataContainer container)
-			throws ObjectRevertException {
+			throws WbemsmtException {
 		return adapter.getSelectedHintZone().revert(container);
 	}
 
@@ -228,14 +203,14 @@ public class DnsCimAdapterRevertDelegatee implements DnsCimAdapterRevertIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterRevertIf#revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsMasterZoneDataContainer)
 	 */
 	public MessageList revertImpl(DnsMasterZoneDataContainer container)
-			throws ObjectRevertException {
+			throws WbemsmtException {
 		return adapter.getSelectedMasterZone().revert(container);
 	}
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterRevertIf#revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsReverseZoneDataContainer)
 	 */
 	public MessageList revertImpl(DnsReverseZoneDataContainer container)
-	throws ObjectRevertException {
+	throws WbemsmtException {
 		return adapter.getSelectedReverseZone().revert(container);
 	}
 
@@ -244,7 +219,7 @@ public class DnsCimAdapterRevertDelegatee implements DnsCimAdapterRevertIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterRevertIf#revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsSlaveZoneDataContainer)
 	 */
 	public MessageList revertImpl(DnsSlaveZoneDataContainer container)
-	throws ObjectRevertException {
+	throws WbemsmtException {
 		return adapter.getSelectedSlaveZone().revert(container);
 	}
 
@@ -252,7 +227,7 @@ public class DnsCimAdapterRevertDelegatee implements DnsCimAdapterRevertIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterRevertIf#revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer)
 	 */
 	public MessageList revertImpl(DnsResourceRecordDataContainer container)
-			throws ObjectRevertException {
+			throws WbemsmtException {
 		return adapter.getSelectedResourceRecord().revert(container);
 	}
 
@@ -260,12 +235,8 @@ public class DnsCimAdapterRevertDelegatee implements DnsCimAdapterRevertIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterRevertIf#revertImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceOperationsDataContainer)
 	 */
 	public MessageList revertImpl(DnsServiceOperationsDataContainer container)
-			throws ObjectRevertException {
-		try {
-			return adapter.getDnsService().revert(container);
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+			throws WbemsmtException {
+		return adapter.getDnsService().revert(container);
 	}
 
 	/* (non-Javadoc)
@@ -273,28 +244,28 @@ public class DnsCimAdapterRevertDelegatee implements DnsCimAdapterRevertIf {
 	 */
 	public MessageList revertImpl(
 			DnsAddressMatchListForServiceDataContainer container)
-			throws ObjectRevertException {
+			throws WbemsmtException {
 		return adapter.getSelectedAddressMatchList().revert(container);
 	}
 
-	public MessageList revertImpl(DnsResourceRecordForReverseZoneWizardDataContainer container, Linux_DnsResourceRecord fco) throws ObjectRevertException {
+	public MessageList revertImpl(DnsResourceRecordForReverseZoneWizardDataContainer container, Linux_DnsResourceRecord fco) throws WbemsmtException {
 		//DnsResourceRecordForReverseZoneWizardDataContainer is not revertd 
 		return null;
 	}
 
-	public MessageList revertImpl(DnsResourceRecordListContainer container) throws ObjectRevertException {
+	public MessageList revertImpl(DnsResourceRecordListContainer container) throws WbemsmtException {
 		return adapter.getSelectedZone().revert(container);
 	}
 
-	public MessageList revertImpl(DnsResourceRecordListItemContainer container) throws ObjectRevertException {
+	public MessageList revertImpl(DnsResourceRecordListItemContainer container) throws WbemsmtException {
 		return null;
 	}
 
-	public MessageList revertImpl(DnsResourceRecordListItemContainer container, Linux_DnsResourceRecord fco) throws ObjectRevertException {
+	public MessageList revertImpl(DnsResourceRecordListItemContainer container, Linux_DnsResourceRecord fco) throws WbemsmtException {
 		return adapter.getSelectedZone().revert(container,fco);
 	}
 
-	public MessageList revertImpl(DnsSoaContainer container) throws ObjectRevertException {
+	public MessageList revertImpl(DnsSoaContainer container) throws WbemsmtException {
 		
 		if (adapter.getSelectedReverseZone() != null)
 		{
@@ -304,23 +275,19 @@ public class DnsCimAdapterRevertDelegatee implements DnsCimAdapterRevertIf {
 		{
 			return adapter.getSelectedMasterZone().revert(container);
 		}
-		else throw new ObjectRevertException("Selected zone is no masterZone or ReverseZone");
+		else throw new WbemsmtException(WbemsmtException.ERR_REVERT_OBJECT,"Selected zone is no masterZone or ReverseZone");
 	}
 
-	public MessageList revertImpl(DnsMastersForServiceDataContainer container) throws ObjectRevertException {
+	public MessageList revertImpl(DnsMastersForServiceDataContainer container) throws WbemsmtException {
 		return adapter.getSelectedMasters().revert(container);
 	}
 
-	public MessageList revertImpl(DnsStubZoneDataContainer container) throws ObjectRevertException {
+	public MessageList revertImpl(DnsStubZoneDataContainer container) throws WbemsmtException {
 		return adapter.getSelectedStubZone().revert(container);
 	}
 
-	public MessageList revertImpl(DnsForwardersForServiceDataContainer container) throws ObjectRevertException {
-		try {
-			return adapter.getDnsService().revert(container);
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+	public MessageList revertImpl(DnsForwardersForServiceDataContainer container) throws WbemsmtException {
+		return adapter.getDnsService().revert(container);
 	}
 
 }

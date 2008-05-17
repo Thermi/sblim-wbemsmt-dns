@@ -19,10 +19,14 @@
   */
 package org.sblim.wbemsmt.dns.bl.wrapper.list;
 
-import org.sblim.wbem.cim.CIMObjectPath;
+import java.util.logging.Level;
+
+import javax.cim.CIMObjectPath;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.wrapper.ObjectList;
 import org.sblim.wbemsmt.dns.bl.wrapper.Forwarder;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
 
@@ -47,7 +51,7 @@ public class ForwarderList extends ObjectList  {
 		return getForwarder(new CimObjectKey(element.getCimObjectPath()));
 	}
 
-	public void addForwarder(Forwarder sz)
+	public void addForwarder(Forwarder sz) throws WbemsmtException
 	{
 		put(sz);
 	}
@@ -61,7 +65,7 @@ public class ForwarderList extends ObjectList  {
 		return null;
 	}
 
-	public Forwarder getForwarder(int i) {
+	public Forwarder getForwarder(int i) throws WbemsmtException {
 		return (Forwarder) getList().get(i);
 	}
 
@@ -69,8 +73,9 @@ public class ForwarderList extends ObjectList  {
 	 * Searches for that Forwarderes shown on the screen and returns the address on position i
 	 * @param i starts at 0
 	 * @return null if position i is larger than the amount of addresses found on the screen 
+	 * @throws WbemsmtException 
 	 */
-	public Forwarder getForwarderOnClient(int i) {
+	public Forwarder getForwarderOnClient(int i) throws WbemsmtException {
 		
 		int foundIdx = -1;
 		
@@ -93,8 +98,9 @@ public class ForwarderList extends ObjectList  {
 	 * Get the ip Address by the the name (the Address itself), check only those existing on the client
 	 * @param forwarder
 	 * @return
+	 * @throws WbemsmtException 
 	 */
-	public Forwarder getForwarderOnClientByName(String forwarderIp) {
+	public Forwarder getForwarderOnClientByName(String forwarderIp) throws WbemsmtException {
 		for (int ii=0; ii < size(); ii++)
 		{
 			Forwarder forwarder = getForwarder(ii);
@@ -109,10 +115,11 @@ public class ForwarderList extends ObjectList  {
 
 	/**
 	 * removes all Object which are not existent on the client
+	 * @throws WbemsmtException 
 	 *
 	 */
 
-	public void removeIfNotExistsOnClient() {
+	public void removeIfNotExistsOnClient() throws WbemsmtException {
 		for (int i = 0; i < size(); i++) {
 			Forwarder forwarder = getForwarder(i);
 			if (!forwarder.isExistsOnClient())
@@ -125,16 +132,22 @@ public class ForwarderList extends ObjectList  {
 
 	public String toString()
 	{
-		removeIfNotExistsOnClient();
-		String[] array = getNameArray();
-		StringBuffer sb = new StringBuffer();
-		for (int i = 0; i < array.length; i++) {
-			String forwarder = array[i];
-			if (sb.length() > 0) sb.append("; ");
-			sb.append(forwarder);
-		}
-		
-		return sb.toString();
+		try {
+            removeIfNotExistsOnClient();
+            String[] array = getNameArray();
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < array.length; i++) {
+            	String forwarder = array[i];
+            	if (sb.length() > 0) sb.append("; ");
+            	sb.append(forwarder);
+            }
+            
+            return sb.toString();
+        }
+        catch (WbemsmtException e) {
+            logger.log(Level.SEVERE,"To string is not possible " + e);
+            return super.toString();
+        }
 	}
 	
 	

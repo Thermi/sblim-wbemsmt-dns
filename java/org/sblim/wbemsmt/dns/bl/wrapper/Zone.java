@@ -1,59 +1,51 @@
 package org.sblim.wbemsmt.dns.bl.wrapper;
 
-import org.sblim.wbem.client.CIMClient;
+import javax.wbem.client.WBEMClient;
+
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsSoaContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneTracingContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.*;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsZone;
 import org.sblim.wbemsmt.dns.bl.wrapper.list.ResourceRecordList;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ModelUpdateException;
-import org.sblim.wbemsmt.exception.ObjectDeletionException;
-import org.sblim.wbemsmt.exception.ObjectRevertException;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
-import org.sblim.wbemsmt.exception.UpdateControlsException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public interface Zone {
-	public ResourceRecordList getResourceRecords();
+	public ResourceRecordList getResourceRecords() throws WbemsmtException;
 	public void setResourceRecords(ResourceRecordList resourceRecordList);
-	public void loadChilds(CIMClient cimClient) throws ModelLoadException;
+	public void loadChilds(WBEMClient cimClient) throws WbemsmtException;
 	public String getName();
-	public void updateControls(DnsResourceRecordDataContainer container, Linux_DnsResourceRecord fco)  throws UpdateControlsException ;
-	public void updateControls(DnsZoneTracingContainer container) throws UpdateControlsException;
+	public void updateControls(DnsResourceRecordDataContainer container, Linux_DnsResourceRecord fco)  throws WbemsmtException ;
+	public void updateControls(DnsZoneTracingContainer container) throws WbemsmtException;
 	public Linux_DnsZone getLinux_DnsZone();
-	public void delete(Linux_DnsZone fco)  throws ObjectDeletionException ;
+	public void delete(Linux_DnsZone fco)  throws WbemsmtException ;
 
-	public void updateModel(DnsResourceRecordListContainer container) throws ModelUpdateException;
-	public void updateControls(DnsResourceRecordListItemContainer container) throws UpdateControlsException;;
-	public void updateControls(DnsResourceRecordListItemContainer container, Linux_DnsResourceRecord recordFco) throws UpdateControlsException;;
-	public void updateControls(DnsResourceRecordListContainer container) throws UpdateControlsException;
-	public MessageList save(DnsResourceRecordListItemContainer container, Linux_DnsResourceRecord fco)  throws ObjectSaveException;
-	public MessageList save(DnsResourceRecordListContainer container) throws ObjectSaveException;
+	public void updateModel(DnsResourceRecordListContainer container) throws WbemsmtException;
+	public void updateControls(DnsResourceRecordListItemContainer container) throws WbemsmtException;;
+	public void updateControls(DnsResourceRecordListItemContainer container, Linux_DnsResourceRecord recordFco) throws WbemsmtException;;
+	public void updateControls(DnsResourceRecordListContainer container) throws WbemsmtException;
+	public MessageList save(DnsResourceRecordListItemContainer container, Linux_DnsResourceRecord fco)  throws WbemsmtException;
+	public MessageList save(DnsResourceRecordListContainer container) throws WbemsmtException;
 	
 	/**
 	 * have to be implemented only if the zone is having a SOA-Record and a serial number to be modified
 	 * @param container 
-	 * @throws ObjectSaveException
+	 * @throws WbemsmtException
 	 */
 	public void updateSerialNumber(DnsSoaContainer container);
 	
 	/**
 	 * Have to be implemented only if the zone is having resourceRecords
 	 * @param container
-	 * @throws ModelUpdateException
+	 * @throws WbemsmtException
 	 */
-	public void updateModel(DnsResourceRecordListItemContainer container) throws ModelUpdateException ;
+	public void updateModel(DnsResourceRecordListItemContainer container) throws WbemsmtException ;
 	
 	/**
 	 * Have to be implemented only if the zone is having a soarecord
 	 * @param container
-	 * @throws ModelUpdateException
+	 * @throws WbemsmtException
 	 */
 	public void resetTTL(DnsSoaContainer container);
-	public MessageList revert(DnsResourceRecordListContainer container) throws ObjectRevertException ;
-	public MessageList revert(DnsResourceRecordListItemContainer container, Linux_DnsResourceRecord fco) throws ObjectRevertException;
+	public MessageList revert(DnsResourceRecordListContainer container) throws WbemsmtException ;
+	public MessageList revert(DnsResourceRecordListItemContainer container, Linux_DnsResourceRecord fco) throws WbemsmtException;
 }

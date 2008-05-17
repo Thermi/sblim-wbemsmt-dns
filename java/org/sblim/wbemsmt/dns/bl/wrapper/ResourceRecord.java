@@ -19,13 +19,13 @@
   */
 package org.sblim.wbemsmt.dns.bl.wrapper;
 
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Logger;
 
-import org.sblim.wbem.cim.CIMObjectPath;
-import org.sblim.wbem.cim.UnsignedInt16;
-import org.sblim.wbem.cim.UnsignedInt8;
+import javax.cim.UnsignedInteger16;
+import javax.cim.UnsignedInteger8;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.Message;
@@ -36,11 +36,7 @@ import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecordsForZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecordsForZoneHelper;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ObjectDeletionException;
-import org.sblim.wbemsmt.exception.ObjectRevertException;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.util.StringTokenizer;
 
 public class ResourceRecord extends DnsBusinessObject {
@@ -93,14 +89,14 @@ public class ResourceRecord extends DnsBusinessObject {
 	}
 
 	public boolean equals(String name, String type, String value) {
-		return fco.get_Name().equals(name) && fco.get_Type().equals(type) && fco.get_Value().equals(value);
+		return fco.get_key_Name().equals(name) && fco.get_key_Type().equals(type) && fco.get_key_Value().equals(value);
 	}
 
-	public MessageList save(DnsResourceRecordDataContainer container) throws ObjectSaveException {
+	public MessageList save(DnsResourceRecordDataContainer container) throws WbemsmtException {
 		String name = (String) container.get_Name().getConvertedControlValue();
-		String type = ResourceRecord.getTypeOfIndex((UnsignedInt16) container.get_Type().getConvertedControlValue());
+		String type = ResourceRecord.getTypeOfIndex((UnsignedInteger16) container.get_Type().getConvertedControlValue());
 		String value = (String) container.get_Value().getConvertedControlValue();
-		UnsignedInt8 family = (UnsignedInt8) container.get_Family().getConvertedControlValue();
+		UnsignedInteger8 family = (UnsignedInteger8) container.get_Family().getConvertedControlValue();
 
 		save(name,type,value,family);
 		
@@ -109,26 +105,26 @@ public class ResourceRecord extends DnsBusinessObject {
 		return null;	
 	}
 
-	public MessageList save(DnsResourceRecordListItemContainer container, boolean firstInFamilyIsNull) throws ObjectSaveException {
+	public MessageList save(DnsResourceRecordListItemContainer container, boolean firstInFamilyIsNull) throws WbemsmtException {
 		
 		String name = (String) container.get_Name().getConvertedControlValue();
-		String type = ResourceRecord.getTypeOfIndex((UnsignedInt16) container.get_Type().getConvertedControlValue());
+		String type = ResourceRecord.getTypeOfIndex((UnsignedInteger16) container.get_Type().getConvertedControlValue());
 		String value = (String) container.get_Value().getConvertedControlValue();
-		UnsignedInt8 family;
+		UnsignedInteger8 family;
 		if (!firstInFamilyIsNull)
 		{
-			family = (UnsignedInt8) container.get_Family().getConvertedControlValue();
+			family = (UnsignedInteger8) container.get_Family().getConvertedControlValue();
 		}
 		else
 		{
-			family = (UnsignedInt8) container.get_Family().getConvertedControlValue();
+			family = (UnsignedInteger8) container.get_Family().getConvertedControlValue();
 			if (family.intValue() == 0)
 			{
 				family = null;
 			}
 			else
 			{
-				family = new UnsignedInt8((short)(family.shortValue()-1));
+				family = new UnsignedInteger8((short)(family.shortValue()-1));
 			}
 		}
 
@@ -146,14 +142,14 @@ public class ResourceRecord extends DnsBusinessObject {
 	 * @param value
 	 * @param family
 	 * @return true if the key attributes where changed and the old resourcerecord was deleted and the new was created
-	 * @throws ObjectSaveException
+	 * @throws WbemsmtException
 	 */
-	public boolean save(String name, String type, String value, UnsignedInt8 family) throws ObjectSaveException
+	public boolean save(String name, String type, String value, UnsignedInteger8 family) throws WbemsmtException
 	{
 		
-		if (!fco.get_Name().equals(name)
-			|| !fco.get_Type().equals(type)
-			|| !fco.get_Value().equals(value)
+		if (!fco.get_key_Name().equals(name)
+			|| !fco.get_key_Type().equals(type)
+			|| !fco.get_key_Value().equals(value)
 		)
 		//delete the old resource record and create a new one
 		{
@@ -168,7 +164,7 @@ public class ResourceRecord extends DnsBusinessObject {
 				parent.getResourceRecords().addResourceRecord(this);
 				parent.getResourceRecords().reloadListValues();
 			} catch (Exception e) {
-				throw new ObjectSaveException(e);
+				throw new WbemsmtException(WbemsmtException.ERR_SAVE_OBJECT,e);
 			}
 			return true;
 		}
@@ -182,17 +178,17 @@ public class ResourceRecord extends DnsBusinessObject {
 
 	public void updateControls(DnsResourceRecordDataContainer container) {
 		
-		container.get_Name().setControlValue(fco.get_Name());
+		container.get_Name().setControlValue(fco.get_key_Name());
 		updateTTLDataContainer(adapter,fco.get_TTL(), container);
-		container.get_Type().setControlValue(ResourceRecord.getIndexByTypeName(fco.get_Type()));
+		container.get_Type().setControlValue(ResourceRecord.getIndexByTypeName(fco.get_key_Type()));
 		container.get_Family().setControlValue(fco.get_Family());
 		
-		boolean isMx = fco.get_Type().equals(ResourceRecord.TYPE_MX);
+		boolean isMx = fco.get_key_Type().equals(ResourceRecord.TYPE_MX);
 		container.get_Priority().getProperties().setVisible(isMx);
 		
 		if (isMx)
 		{
-			String[] values = new StringTokenizer(fco.get_Value()," ").asArray(true,false);
+			String[] values = new StringTokenizer(fco.get_key_Value()," ").asArray(true,false);
 			if (values.length == 2)
 			{
 				container.get_Value().setControlValue(values[0]);
@@ -201,12 +197,12 @@ public class ResourceRecord extends DnsBusinessObject {
 			else
 			{
 				logger.warning("Value for mx resource record " + fco + "should contain two strings as value separated by a space");
-				container.get_Value().setControlValue(fco.get_Value());
+				container.get_Value().setControlValue(fco.get_key_Value());
 			}
 		}
 		else
 		{
-			container.get_Value().setControlValue(fco.get_Value());
+			container.get_Value().setControlValue(fco.get_key_Value());
 		}
 		
 		container.setKey(new CimObjectKey(fco.getCimObjectPath()));
@@ -221,34 +217,20 @@ public class ResourceRecord extends DnsBusinessObject {
 		this.usedInWizard = usedInWizard;
 	}
 
-	public void delete() throws ObjectDeletionException
+	public void delete() throws WbemsmtException
 	{
 		adapter.getFcoHelper().delete(fco,adapter.getCimClient(),true);
-		deleted = true;
-		
-		if (DnsCimAdapter.DUMMY_MODE)
-		{
-			try {
-				String fcoPath = fco.getCimObjectPath().toString();
-				ArrayList list = Linux_DnsResourceRecordsForZoneHelper.enumerateInstanceNames(adapter.getCimClient(),false);
-				for (Iterator iter = list.iterator(); iter.hasNext();) {
-					CIMObjectPath path = (CIMObjectPath) iter.next();
-					
-					String resourceRecordPath = path.getKey(Linux_DnsResourceRecordsForZone.CIM_PROPERTY_LINUX_DNSRESOURCERECORD).getValue().getValue().toString(); 
-					
-					if (resourceRecordPath.equals(fcoPath))
-					{
-						Linux_DnsResourceRecordsForZone assoc = (Linux_DnsResourceRecordsForZone) adapter.getFcoHelper().reload(Linux_DnsResourceRecordsForZoneHelper.class,path,adapter.getCimClient());
-						adapter.getFcoHelper().delete(assoc,adapter.getCimClient());
-						return;
-					}
-				}
-				throw new ObjectDeletionException("Resource Record " + fco + " was not deleted, becaue the record was not found",adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(fco));
-			} catch (ModelLoadException e) {
-				throw new ObjectDeletionException(e);
-			}
-		}
-		
+        if (DnsCimAdapter.DUMMY_MODE)
+        {
+            String fcoPath = fco.getCimObjectPath().toString();
+            List list = fco.getAssociations_Linux_DnsResourceRecordsForZone(adapter.getCimClient(), false, false, null, null);
+            for (Iterator iter = list.iterator(); iter.hasNext();) {
+                Linux_DnsResourceRecordsForZone assoc = (Linux_DnsResourceRecordsForZone) iter.next();
+                adapter.getFcoHelper().delete(assoc,adapter.getCimClient());
+            }
+        }
+
+        deleted = true;
 	}
 
 	public boolean isDeleted() {
@@ -268,13 +250,13 @@ public class ResourceRecord extends DnsBusinessObject {
 		
 	}
 	
-	public static UnsignedInt16 getIndexByTypeName(String name)
+	public static UnsignedInteger16 getIndexByTypeName(String name)
 	{
 		for (int i = 0; i < TYPES.length; i++) {
 			String type = TYPES[i];
 			if (type.equalsIgnoreCase(name))
 			{
-				return new UnsignedInt16(i);
+				return new UnsignedInteger16(i);
 			}
 		}
 		
@@ -282,7 +264,7 @@ public class ResourceRecord extends DnsBusinessObject {
 		return null;
 	}
 	
-	public static String getTypeOfIndex(UnsignedInt16 index)
+	public static String getTypeOfIndex(UnsignedInteger16 index)
 	{
 		if (index != null)
 		{
@@ -306,12 +288,8 @@ public class ResourceRecord extends DnsBusinessObject {
 		return TYPE_UNKNOWN; 
 	}
 
-	public MessageList revert(DnsResourceRecordDataContainer container) throws ObjectRevertException {
-		try {
-			fco = (Linux_DnsResourceRecord) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+	public MessageList revert(DnsResourceRecordDataContainer container) throws WbemsmtException {
+		fco = (Linux_DnsResourceRecord) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
 		return null;
 	}
 	

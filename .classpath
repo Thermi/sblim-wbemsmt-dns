@@ -4,7 +4,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="var" path="JAR_REPO/commons-cli/commons-cli/current/commons-cli.jar"/>
 	<classpathentry kind="var" path="JAR_REPO/commons-lang/commons-lang/current/commons-lang.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/wbemsmt-commons"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/wbemsmt-commons"/>
 	<classpathentry kind="var" path="JAR_REPO/sblim/sblim-wbemsmt-commons-launcher-config/current/sblim-wbemsmt-commons-launcher-config.jar"/>
 	<classpathentry kind="var" path="JAR_REPO/xmlbeans/xbean/current/xbean.jar"/>
 	<classpathentry kind="var" path="JAR_REPO/myfaces/myfaces-api/current/myfaces-api.jar"/>

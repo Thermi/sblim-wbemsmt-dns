@@ -24,8 +24,7 @@ import org.sblim.wbemsmt.dns.bl.container.welcome.WelcomeDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.wizard.*;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
 import org.sblim.wbemsmt.dns.bl.wrapper.ResourceRecord;
-import org.sblim.wbemsmt.exception.InitContainerException;
-import org.sblim.wbemsmt.exception.ModelLoadException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class DnsCimAdapterInitContainerDelegatee implements
 		DnsCimAdapterInitContainerIf {
@@ -40,7 +39,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAddMasterAddressDataContainer)
 	 */
 	public void initContainerImpl(DnsAddMasterAddressDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -48,7 +47,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListDataContainer)
 	 */
 	public void initContainerImpl(DnsAddressMatchListDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -57,7 +56,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsAddressMatchListForServiceDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -66,7 +65,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsAddressMatchListWizardPage1DataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 	}
 
 	/* (non-Javadoc)
@@ -74,7 +73,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsAddressMatchListWizardSummaryDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -83,7 +82,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsAllowNotifyForServiceDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -92,7 +91,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsAllowNotifyForZoneDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -101,7 +100,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsAllowQueryForServiceDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -109,7 +108,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryACLForZoneDataContainer)
 	 */
 	public void initContainerImpl(DnsAllowQueryForZoneDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -118,7 +117,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsAllowRecursionForServiceDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -127,7 +126,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsAllowTransferForServiceDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -136,7 +135,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsAllowTransferForZoneDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -145,7 +144,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsAllowUpdateForZoneDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -154,7 +153,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsBlackholeForServiceDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -162,14 +161,14 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsConfigurationDataContainer)
 	 */
 	public void initContainerImpl(DnsConfigurationDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardZoneDataContainer)
 	 */
 	public void initContainerImpl(DnsForwardZoneDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -177,7 +176,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsForwarderDataContainer)
 	 */
 	public void initContainerImpl(DnsForwarderDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -185,7 +184,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsHintZoneDataContainer)
 	 */
 	public void initContainerImpl(DnsHintZoneDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -193,7 +192,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsMasterZoneDataContainer)
 	 */
 	public void initContainerImpl(DnsMasterZoneDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -202,7 +201,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsMasterZoneWizardPage1DataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -211,7 +210,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsMasterZoneWizardSummaryDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -219,9 +218,9 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer)
 	 */
 	public void initContainerImpl(DnsResourceRecordDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 		container.get_Type().setValues(ResourceRecord.TYPES);
-		container.get_Family().setValues(Linux_DnsResourceRecord.CIM_VALUEMAP_FAMILY);
+		container.get_Family().setValues(Linux_DnsResourceRecord.PROPERTY_FAMILY.VALUE_ENTRIES_FOR_DISPLAY);
 	}
 
 	/* (non-Javadoc)
@@ -229,7 +228,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsResourceRecordForReverseZoneWizardDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -238,7 +237,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsResourceRecordWizardPage1DataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -247,7 +246,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsResourceRecordWizardPage2TypeMxDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -256,7 +255,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsResourceRecordWizardPage2TypeOtherDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -265,7 +264,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsResourceRecordWizardSummaryDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -273,7 +272,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsReverseZoneDataContainer)
 	 */
 	public void initContainerImpl(DnsReverseZoneDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -282,7 +281,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsReverseZoneWizardPage1DataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -291,7 +290,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsReverseZoneWizardSummaryDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -299,7 +298,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceOperationsDataContainer)
 	 */
 	public void initContainerImpl(DnsServiceOperationsDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -307,7 +306,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceTracingDataContainer)
 	 */
 	public void initContainerImpl(DnsServiceTracingDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -315,7 +314,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsSlaveZoneDataContainer)
 	 */
 	public void initContainerImpl(DnsSlaveZoneDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -323,7 +322,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsSlaveZoneWizardPage1DataContainer)
 	 */
 	public void initContainerImpl(DnsSlaveZoneWizardPage1DataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -332,7 +331,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 */
 	public void initContainerImpl(
 			DnsSlaveZoneWizardSummaryDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -340,7 +339,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsTTLDataContainer)
 	 */
 	public void initContainerImpl(DnsTTLDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -348,7 +347,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneDataContainer)
 	 */
 	public void initContainerImpl(DnsZoneDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -356,7 +355,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneTracingContainer)
 	 */
 	public void initContainerImpl(DnsZoneTracingContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -364,7 +363,7 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsZoneWizardPage1DataContainer)
 	 */
 	public void initContainerImpl(DnsForwardZoneWizardPage1DataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 
 	}
 
@@ -372,48 +371,44 @@ public class DnsCimAdapterInitContainerDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterInitContainerIf#initContainerImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsZoneWizardSummaryDataContainer)
 	 */
 	public void initContainerImpl(DnsForwardZoneWizardSummaryDataContainer container)
-			throws InitContainerException {
+			throws WbemsmtException {
 	}
 
-	public void initContainerImpl(DnsResourceRecordListContainer container) throws InitContainerException {
+	public void initContainerImpl(DnsResourceRecordListContainer container) throws WbemsmtException {
 	}
 
-	public void initContainerImpl(DnsResourceRecordListItemContainer container) throws InitContainerException {
+	public void initContainerImpl(DnsResourceRecordListItemContainer container) throws WbemsmtException {
 	}
 
-	public void initContainerImpl(DnsSoaContainer container) throws InitContainerException {
+	public void initContainerImpl(DnsSoaContainer container) throws WbemsmtException {
 	}
 
-	public void initContainerImpl(DnsMasterDataContainer container) throws InitContainerException {
+	public void initContainerImpl(DnsMasterDataContainer container) throws WbemsmtException {
 	}
 
-	public void initContainerImpl(DnsMastersForServiceDataContainer container) throws InitContainerException {
+	public void initContainerImpl(DnsMastersForServiceDataContainer container) throws WbemsmtException {
 	}
 
-	public void initContainerImpl(DnsMastersWizardPage1DataContainer container) throws InitContainerException {
+	public void initContainerImpl(DnsMastersWizardPage1DataContainer container) throws WbemsmtException {
 	}
 
-	public void initContainerImpl(DnsMastersWizardSummaryDataContainer container) throws InitContainerException {
+	public void initContainerImpl(DnsMastersWizardSummaryDataContainer container) throws WbemsmtException {
 	}
 
-	public void initContainerImpl(DnsStubZoneDataContainer container) throws InitContainerException {
+	public void initContainerImpl(DnsStubZoneDataContainer container) throws WbemsmtException {
 	}
 
-	public void initContainerImpl(DnsStubZoneWizardPage1DataContainer container) throws InitContainerException {
+	public void initContainerImpl(DnsStubZoneWizardPage1DataContainer container) throws WbemsmtException {
 	}
 
-	public void initContainerImpl(DnsStubZoneWizardSummaryDataContainer container) throws InitContainerException {
+	public void initContainerImpl(DnsStubZoneWizardSummaryDataContainer container) throws WbemsmtException {
 	}
 
-	public void initContainerImpl(DnsForwardersForServiceDataContainer container) throws InitContainerException {
-		try {
-			adapter.getDnsService().initContainer(container);
-		} catch (ModelLoadException e) {
-			throw new InitContainerException(e);
-		}
+	public void initContainerImpl(DnsForwardersForServiceDataContainer container) throws WbemsmtException {
+		adapter.getDnsService().initContainer(container);
 	}
 
-	public void initContainerImpl(WelcomeDataContainer container) throws InitContainerException {
+	public void initContainerImpl(WelcomeDataContainer container) throws WbemsmtException {
 	}
 
 }

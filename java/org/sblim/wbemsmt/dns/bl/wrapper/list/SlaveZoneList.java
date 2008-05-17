@@ -19,10 +19,12 @@
   */
 package org.sblim.wbemsmt.dns.bl.wrapper.list;
 
-import org.sblim.wbem.cim.CIMObjectPath;
+import javax.cim.CIMObjectPath;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.wrapper.ObjectList;
 import org.sblim.wbemsmt.dns.bl.wrapper.SlaveZone;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
 
@@ -47,14 +49,14 @@ public class SlaveZoneList extends ObjectList  {
 		return getSlaveZone(new CimObjectKey(element.getCimObjectPath()));
 	}
 
-	public void addSlaveZone(SlaveZone sz)
+	public void addSlaveZone(SlaveZone sz) throws WbemsmtException
 	{
 		put(sz);
 	}
 	
 	protected Object getKey(Object value) {
 		SlaveZone sz = (SlaveZone) value;
-		return sz.getSlaveZone().get_Name();
+		return sz.getSlaveZone().get_key_Name();
 	}
 	
 	protected Object getFco(Object value) {
@@ -62,7 +64,7 @@ public class SlaveZoneList extends ObjectList  {
 		return sz.getSlaveZone();
 	}
 
-	public SlaveZone getSlaveZone(int i) {
+	public SlaveZone getSlaveZone(int i) throws WbemsmtException {
 		return (SlaveZone) getList().get(i);
 	}
 }

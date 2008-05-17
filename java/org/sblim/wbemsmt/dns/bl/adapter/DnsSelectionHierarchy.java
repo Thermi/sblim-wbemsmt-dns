@@ -20,24 +20,8 @@
 package org.sblim.wbemsmt.dns.bl.adapter;
 
 import org.sblim.wbemsmt.bl.adapter.SelectionHierarchy;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchList;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwardZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsHintZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasterZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasters;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsReverseZoneWrapper;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsSlaveZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsStubZone;
-import org.sblim.wbemsmt.dns.bl.wrapper.AddressMatchList;
-import org.sblim.wbemsmt.dns.bl.wrapper.ForwardZone;
-import org.sblim.wbemsmt.dns.bl.wrapper.HintZone;
-import org.sblim.wbemsmt.dns.bl.wrapper.MasterZone;
-import org.sblim.wbemsmt.dns.bl.wrapper.Masters;
-import org.sblim.wbemsmt.dns.bl.wrapper.ResourceRecord;
-import org.sblim.wbemsmt.dns.bl.wrapper.ReverseZone;
-import org.sblim.wbemsmt.dns.bl.wrapper.SlaveZone;
-import org.sblim.wbemsmt.dns.bl.wrapper.StubZone;
+import org.sblim.wbemsmt.dns.bl.fco.*;
+import org.sblim.wbemsmt.dns.bl.wrapper.*;
 
 public class DnsSelectionHierarchy extends SelectionHierarchy {
 

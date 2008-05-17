@@ -19,8 +19,8 @@
   */
 package org.sblim.wbemsmt.dns.bl.wrapper.wizard;
 
-import org.sblim.wbem.cim.UnsignedInt16;
-import org.sblim.wbem.cim.UnsignedInt8;
+import javax.cim.UnsignedInteger16;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardPage1DataContainer;
@@ -30,9 +30,7 @@ import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardSummaryD
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
 import org.sblim.wbemsmt.dns.bl.wrapper.ResourceRecord;
 import org.sblim.wbemsmt.dns.wizard.CreateResourceRecordWizardContainer;
-import org.sblim.wbemsmt.exception.InitWizardException;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
-import org.sblim.wbemsmt.exception.WbemSmtException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 
 public class ResourceRecordWizard extends DnsWizard {
@@ -49,10 +47,10 @@ public class ResourceRecordWizard extends DnsWizard {
 		super(adapter);
 	}
 
-	public void create(DnsResourceRecordWizardSummaryDataContainer container) throws ObjectSaveException {
+	public void create(DnsResourceRecordWizardSummaryDataContainer container) throws WbemsmtException {
 
 		String value;
-		if (ResourceRecord.TYPE_MX.equals(ResourceRecord.getTypeOfIndex((UnsignedInt16) page1.get_usr_Type().getConvertedControlValue()) ))
+		if (ResourceRecord.TYPE_MX.equals(ResourceRecord.getTypeOfIndex((UnsignedInteger16) page1.get_usr_Type().getConvertedControlValue()) ))
 		{
 			value = page2mx.get_usr_Priority().getConvertedControlValue() + " " + page2mx.get_usr_Value().getConvertedControlValue();
 		}
@@ -63,8 +61,8 @@ public class ResourceRecordWizard extends DnsWizard {
 		
 		Linux_DnsResourceRecord record = super.createResourceRecord(adapter.getSelectedZone().getLinux_DnsZone(),
 								   (String) page1.get_usr_Name().getConvertedControlValue(),
-								   ResourceRecord.getTypeOfIndex((UnsignedInt16) page1.get_usr_Type().getConvertedControlValue()),
-								   new UnsignedInt8((short)Linux_DnsResourceRecord.FAMILY_INTERNET),
+								   ResourceRecord.getTypeOfIndex((UnsignedInteger16) page1.get_usr_Type().getConvertedControlValue()),
+								   Linux_DnsResourceRecord.PROPERTY_FAMILY.VALUE_MAP_ENTRY_1_FOR_VALUE_ENTRY_Internet,
 								   value);
 
 		container.setKey(new CimObjectKey(record.getCimObjectPath()));
@@ -97,7 +95,7 @@ public class ResourceRecordWizard extends DnsWizard {
 	public void updateControls(DnsResourceRecordWizardSummaryDataContainer container) {
 
 		container.get_usr_Name().setControlValue(page1.get_usr_Name().getConvertedControlValue());
-		container.get_usr_Type().setControlValue(ResourceRecord.getTypeOfIndex((UnsignedInt16) page1.get_usr_Type().getConvertedControlValue()));
+		container.get_usr_Type().setControlValue(ResourceRecord.getTypeOfIndex((UnsignedInteger16) page1.get_usr_Type().getConvertedControlValue()));
 
 		container.get_usr_Value().setControlValue(valueField.getConvertedControlValue());
 		boolean isMx = ResourceRecord.TYPE_MX.equals(page1.get_usr_Type().getConvertedControlValue());
@@ -132,7 +130,7 @@ public class ResourceRecordWizard extends DnsWizard {
 		//do nothing
 	}
 
-	public void init(DnsResourceRecordWizardPage1DataContainer container, CreateResourceRecordWizardContainer wizardContainer) throws InitWizardException {
+	public void init(DnsResourceRecordWizardPage1DataContainer container, CreateResourceRecordWizardContainer wizardContainer) throws WbemsmtException {
 		try {
 			container.get_usr_Type().setControlValue(null);
 			container.get_usr_Name().setControlValue("");
@@ -147,8 +145,8 @@ public class ResourceRecordWizard extends DnsWizard {
 			{
 				other.get_usr_Value().setControlValue("");
 			}
-		} catch (WbemSmtException e) {
-			throw new InitWizardException(e);
+		} catch (WbemsmtException e) {
+			throw new WbemsmtException(WbemsmtException.ERR_INIT_WIZARD,e);
 		}
 	}
 

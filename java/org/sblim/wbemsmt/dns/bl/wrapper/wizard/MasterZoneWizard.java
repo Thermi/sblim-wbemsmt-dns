@@ -20,7 +20,6 @@
 package org.sblim.wbemsmt.dns.bl.wrapper.wizard;
 
 
-import org.sblim.wbem.cim.UnsignedInt8;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardPage1DataContainer;
@@ -29,8 +28,7 @@ import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasterZone;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsZone;
 import org.sblim.wbemsmt.dns.bl.wrapper.ResourceRecord;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class MasterZoneWizard extends DnsWizard {
 
@@ -61,41 +59,38 @@ public class MasterZoneWizard extends DnsWizard {
 		container.get_usr_Contact().setControlValue(super.checkContact(container.get_usr_Contact(), messageList));
 	}
 
-	public void create(DnsMasterZoneWizardSummaryDataContainer container) throws ObjectSaveException {
+	public void create(DnsMasterZoneWizardSummaryDataContainer container) throws WbemsmtException {
 		
 		
-		Linux_DnsMasterZone zone = new Linux_DnsMasterZone();
-		zone.set_Name((String) page1.get_usr_Name().getConvertedControlValue());
-		zone.set_Type(new UnsignedInt8((short)Linux_DnsZone.TYPE_MASTER));
+		Linux_DnsMasterZone zone;
+        zone = new Linux_DnsMasterZone(adapter.getCimClient(),adapter.getNamespace());
+		zone.set_key_Name((String) page1.get_usr_Name().getConvertedControlValue());
+        zone.set_Type(Linux_DnsZone.PROPERTY_TYPE.VALUE_MAP_ENTRY_1_FOR_VALUE_ENTRY_Master);
 		zone.set_ZoneFile(page1.get_usr_Name().getConvertedControlValue() + ".hosts");
 		zone.set_Contact((String) page1.get_usr_Contact().getConvertedControlValue());
 		zone.set_Server((String) page1.get_usr_Server().getConvertedControlValue());
 		zone.set_SerialNumber(getInitialSerialNumber());
-		zone.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
+		zone.set_key_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
 		
 		zone = (Linux_DnsMasterZone) adapter.getFcoHelper().create(zone,adapter.getCimClient());
 		
 		createResourceRecord(zone, 
 				page1.get_usr_Name().getConvertedControlValue() + ".",
 				ResourceRecord.TYPE_NS,
-				new UnsignedInt8((short)Linux_DnsResourceRecord.FAMILY_INTERNET),
+				Linux_DnsResourceRecord.PROPERTY_FAMILY.VALUE_MAP_ENTRY_1_FOR_VALUE_ENTRY_Internet,
 				(String) page1.get_usr_Server().getConvertedControlValue());
 
 		createResourceRecord(zone, 
 				(String) page1.get_usr_Server().getConvertedControlValue(),
 				ResourceRecord.TYPE_A,
-				new UnsignedInt8((short)Linux_DnsResourceRecord.FAMILY_INTERNET),
+				Linux_DnsResourceRecord.PROPERTY_FAMILY.VALUE_MAP_ENTRY_1_FOR_VALUE_ENTRY_Internet,
 				(String) page1.get_usr_IpAdress().getConvertedControlValue());
 
 		createForwarders(zone);
 		
 		if (DnsCimAdapter.DUMMY_MODE)
 		{
-			try {
-				super.createAclAssociations(zone,adapter.getDnsService().getFco());
-			} catch (ModelLoadException e) {
-				throw new ObjectSaveException(e);
-			}
+			super.createAclAssociations(zone,adapter.getDnsService().getFco());
 		}
 		
 		adapter.setPathOfTreeNode(zone.getCimObjectPath());

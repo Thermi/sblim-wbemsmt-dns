@@ -19,29 +19,27 @@
   */
 package org.sblim.wbemsmt.dns.bl.wrapper;
 
-import java.util.Vector;
+import javax.cim.CIMObjectPath;
+import javax.cim.CIMProperty;
+import javax.cim.UnsignedInteger8;
 
-import org.sblim.wbem.cim.CIMDataType;
-import org.sblim.wbem.cim.CIMObjectPath;
-import org.sblim.wbem.cim.UnsignedInt8;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
-import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwarders;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class Forwarder extends DnsBusinessObject {
 
 	private boolean existsOnServer = false;
 	private boolean existsOnClient = false;
 	private final String forwarder;
-	private final UnsignedInt8 type;
+	private final UnsignedInteger8 type;
 	
 
 	/**
 	 * @param zone must be set if existsOnServer = true
-	 * @throws org.sblim.wbemsmt.exception.ModelLoadException 
 	 */
-	public Forwarder(String forwarder, UnsignedInt8 type, DnsCimAdapter adapter,boolean existsOnServer,boolean existsOnClient) {
+	public Forwarder(String forwarder, UnsignedInteger8 type, DnsCimAdapter adapter,boolean existsOnServer,boolean existsOnClient) {
 		super(adapter);
 		this.forwarder = forwarder;
 		this.type = type;
@@ -52,10 +50,10 @@ public class Forwarder extends DnsBusinessObject {
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.wrapper.DnsBusinessObject#getCimObjectKey()
 	 */
-	public CimObjectKey getCimObjectKey() {
-			Vector keys = new Vector();
-			keys.add(CIMPropertyBuilder.create(Linux_DnsForwarders.CIM_PROPERTY_NAME,forwarder + type.intValue(),CIMDataType.STRING));
-			return new CimObjectKey(new CIMObjectPath(Linux_DnsForwarders.CIM_CLASS_NAME,keys));
+	public CimObjectKey getCimObjectKey() throws WbemsmtException {
+			CIMProperty[] keys = new CIMProperty[1];
+			keys[0] = Linux_DnsForwarders.create_key_Name(adapter.getCimClient(),adapter.getNamespace(), forwarder + type.intValue());
+			return new CimObjectKey(new CIMObjectPath(Linux_DnsForwarders.CIM_CLASS_NAME,adapter.getNamespace(), keys));
 	}
 
 	public boolean isExistsOnServer() {
@@ -82,7 +80,7 @@ public class Forwarder extends DnsBusinessObject {
 		return forwarder;
 	}
 
-	public UnsignedInt8 getType() {
+	public UnsignedInteger8 getType() {
 		return type;
 	}
 	

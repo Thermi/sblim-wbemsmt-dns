@@ -19,7 +19,8 @@
   */
 package org.sblim.wbemsmt.dns.bl.wrapper;
 
-import org.sblim.wbem.client.CIMClient;
+import javax.wbem.client.WBEMClient;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
@@ -32,10 +33,7 @@ import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsZone;
 import org.sblim.wbemsmt.dns.bl.resourcerecord.ResourceRecordHandler;
 import org.sblim.wbemsmt.dns.bl.wrapper.list.ResourceRecordList;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ObjectRevertException;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
-import org.sblim.wbemsmt.exception.UpdateControlsException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class HintZone extends ForwardZone implements Zone {
 
@@ -57,12 +55,12 @@ public class HintZone extends ForwardZone implements Zone {
 		return new CimObjectKey(fco.getCimObjectPath());
 	}
 
-	public ResourceRecordList getResourceRecords() {
+	public ResourceRecordList getResourceRecords() throws WbemsmtException {
 		if (resourceRecords == null )
-		{
-			adapter.addResourceRecords(this,fco.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(adapter.getCimClient(),false,false,null));
-		}
-		return resourceRecords;
+        {
+        	adapter.addResourceRecords(this,fco.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(adapter.getCimClient()));
+        }
+        return resourceRecords;
 	}
 
 	/**
@@ -73,14 +71,14 @@ public class HintZone extends ForwardZone implements Zone {
 		return fco;
 	}
 
-	public void loadChilds(CIMClient cimClient) {
+	public void loadChilds(WBEMClient cimClient) {
 	}
 	
 	public String getName() {
-		return getHintZone().get_Name();
+		return getHintZone().get_key_Name();
 	}
 
-	public MessageList save(DnsHintZoneDataContainer container) throws ObjectSaveException {
+	public MessageList save(DnsHintZoneDataContainer container) throws WbemsmtException {
 		fco.set_ZoneFile((String) container.get_ZoneFile().getConvertedControlValue());
 		fco.set_TTL(getTTLAsInteger(container,fco.get_TTL()));
 		fco = (Linux_DnsHintZone) adapter.getFcoHelper().save(fco,container.getAdapter().getCimClient());
@@ -88,29 +86,29 @@ public class HintZone extends ForwardZone implements Zone {
 		return null;
 	}
 
-	public void updateControls(DnsResourceRecordDataContainer container, Linux_DnsResourceRecord fco) throws UpdateControlsException {
+	public void updateControls(DnsResourceRecordDataContainer container, Linux_DnsResourceRecord fco) throws WbemsmtException {
 		super.updateControls(container,fco);
 	}
 
 	public void updateControls(DnsHintZoneDataContainer container) {
-		container.get_Name().setControlValue(fco.get_Name());
+		container.get_Name().setControlValue(fco.get_key_Name());
 		container.get_ZoneFile().setControlValue(fco.get_ZoneFile());
 		updateTTLDataContainer(adapter,fco.get_TTL(), container);
 	}
 
-	public void updateControls(DnsZoneTracingContainer container) throws UpdateControlsException {
-		container.get_Name().setControlValue(fco.get_Name());
-		container.get_ResourceRecordFile().setControlValue(fco.get_ZoneFile());
-		container.get_usr_MasterAddresses().getProperties().setVisible(false);
-		updateTTLDataContainer(adapter,fco.get_TTL(), container.get_TTL(),container.get_TTLUnit());
-	
-		container.get_NegativeCaching_TTL().getProperties().setVisible(false);
-		container.get_usr_NegativeCaching_TTLUnit().getProperties().setVisible(false);
-		show(container.getAllowNotifyAcl(),false);
-		show(container.getAllowTransferAcl(),false);
-		show(container.getAllowQueryAcl(),false);
-		show(container.getAllowUpdateAcl(),false);
-		adapter.updateControls(container.getResourceRecords(),getResourceRecords().getFCOs());
+	public void updateControls(DnsZoneTracingContainer container) throws WbemsmtException {
+		container.get_Name().setControlValue(fco.get_key_Name());
+        container.get_ResourceRecordFile().setControlValue(fco.get_ZoneFile());
+        container.get_usr_MasterAddresses().getProperties().setVisible(false);
+        updateTTLDataContainer(adapter,fco.get_TTL(), container.get_TTL(),container.get_TTLUnit());
+
+        container.get_NegativeCaching_TTL().getProperties().setVisible(false);
+        container.get_usr_NegativeCaching_TTLUnit().getProperties().setVisible(false);
+        show(container.getAllowNotifyAcl(),false);
+        show(container.getAllowTransferAcl(),false);
+        show(container.getAllowQueryAcl(),false);
+        show(container.getAllowUpdateAcl(),false);
+        adapter.updateControls(container.getResourceRecords(),getResourceRecords().getFCOs());
 		
 	}
 	public Linux_DnsZone getLinux_DnsZone() {
@@ -129,12 +127,8 @@ public class HintZone extends ForwardZone implements Zone {
 		} 
 	}
 
-	public MessageList revert(DnsHintZoneDataContainer container) throws ObjectRevertException {
-		try {
-			fco = (Linux_DnsHintZone) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+	public MessageList revert(DnsHintZoneDataContainer container) throws WbemsmtException {
+		fco = (Linux_DnsHintZone) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
 		return null;
 	}
 	

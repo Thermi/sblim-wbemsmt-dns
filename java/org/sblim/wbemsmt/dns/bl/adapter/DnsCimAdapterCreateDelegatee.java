@@ -19,16 +19,8 @@
   */
 package org.sblim.wbemsmt.dns.bl.adapter;
 
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsAddressMatchListWizardSummaryDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardSummaryDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMastersWizardSummaryDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardSummaryDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardSummaryDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsStubZoneWizardSummaryDataContainer;
-
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsSlaveZoneWizardSummaryDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardSummaryDataContainer;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
+import org.sblim.wbemsmt.dns.bl.container.wizard.*;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class DnsCimAdapterCreateDelegatee implements DnsCimAdapterCreateIf {
 
@@ -43,7 +35,7 @@ public class DnsCimAdapterCreateDelegatee implements DnsCimAdapterCreateIf {
 	 */
 	public void createImpl(
 			DnsAddressMatchListWizardSummaryDataContainer container)
-			throws ObjectSaveException {
+			throws WbemsmtException {
 		
 		adapter.getAddressMatchListWizard().create(container);
 
@@ -53,7 +45,7 @@ public class DnsCimAdapterCreateDelegatee implements DnsCimAdapterCreateIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterCreateIf#createImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardSummaryDataContainer)
 	 */
 	public void createImpl(DnsMasterZoneWizardSummaryDataContainer container)
-			throws ObjectSaveException {
+			throws WbemsmtException {
 		adapter.getMasterZoneWizard().create(container);
 	}
 
@@ -61,7 +53,7 @@ public class DnsCimAdapterCreateDelegatee implements DnsCimAdapterCreateIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterCreateIf#createImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardSummaryDataContainer)
 	 */
 	public void createImpl(DnsResourceRecordWizardSummaryDataContainer container)
-			throws ObjectSaveException {
+			throws WbemsmtException {
 		adapter.getResourceRecordWizard().create(container);
 
 	}
@@ -70,24 +62,24 @@ public class DnsCimAdapterCreateDelegatee implements DnsCimAdapterCreateIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterCreateIf#createImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsZoneWizardSummaryDataContainer)
 	 */
 	public void createImpl(DnsForwardZoneWizardSummaryDataContainer container)
-			throws ObjectSaveException {
+			throws WbemsmtException {
 		adapter.getForwardZoneWizard().create(container);
 	}
 
-	public void createImpl(DnsSlaveZoneWizardSummaryDataContainer container) throws ObjectSaveException {
+	public void createImpl(DnsSlaveZoneWizardSummaryDataContainer container) throws WbemsmtException {
 		adapter.getSlaveZoneWizard().create(container);
 	}
 
-	public void createImpl(DnsReverseZoneWizardSummaryDataContainer container) throws ObjectSaveException {
+	public void createImpl(DnsReverseZoneWizardSummaryDataContainer container) throws WbemsmtException {
 		adapter.getReverseZoneWizard().create(container);
 		
 	}
 
-	public void createImpl(DnsMastersWizardSummaryDataContainer container) throws ObjectSaveException {
+	public void createImpl(DnsMastersWizardSummaryDataContainer container) throws WbemsmtException {
 		adapter.getMastersWizard().create(container);
 	}
 
-	public void createImpl(DnsStubZoneWizardSummaryDataContainer container) throws ObjectSaveException {
+	public void createImpl(DnsStubZoneWizardSummaryDataContainer container) throws WbemsmtException {
 		adapter.getStubZoneWizard().create(container);
 		
 	}

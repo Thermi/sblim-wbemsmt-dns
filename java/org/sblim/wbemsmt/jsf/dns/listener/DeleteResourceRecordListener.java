@@ -35,10 +35,10 @@ import org.sblim.wbemsmt.bl.tree.TaskLauncherTreeNodeEvent;
 
 public class DeleteResourceRecordListener extends TaskLauncherContextMenuEventListenerImpl {
 
-	public String processEvent(TaskLauncherTreeNodeEvent event) throws org.sblim.wbemsmt.exception.WbemSmtException {
+	public String processEvent(TaskLauncherTreeNodeEvent event) throws org.sblim.wbemsmt.exception.WbemsmtException {
 				ITaskLauncherTreeNode treeNode = event.getTreeNode();
 
-				org.sblim.wbem.client.CIMClient cimClient = treeNode.getCimClient();
+				javax.wbem.client.WBEMClient cimClient = treeNode.getCimClient();
 
 				org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter = 
 					(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter)CimAdapterFactory.getInstance()

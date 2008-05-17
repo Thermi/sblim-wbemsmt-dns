@@ -19,7 +19,10 @@
   */
 package org.sblim.wbemsmt.dns.bl.adapter;
 
-import org.sblim.wbemsmt.exception.CountException;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneTracingContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardSummaryDataContainer;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class DnsCimAdapterCountDelegatee implements DnsCimAdapterCountIf {
 
@@ -30,16 +33,16 @@ public class DnsCimAdapterCountDelegatee implements DnsCimAdapterCountIf {
 		this.adapter = adapter;
 	}
 
-	public int countImpl_DnsResourceRecordDataContainer() throws CountException {
-		return adapter.getSelectedZone().getResourceRecords().size();
+	public int countImpl_ResourceRecords(Class cls, DnsZoneTracingContainer container) throws WbemsmtException {
+        return adapter.getSelectedZone().getResourceRecords().size();
 	}
 
-	public int countImpl_DnsResourceRecordForReverseZoneWizardDataContainer() throws CountException {
+	public int countImpl_ResourceRecords(Class cls, DnsReverseZoneWizardSummaryDataContainer container) throws WbemsmtException {
 		return adapter.getReverseZoneWizard().getCreatedRecords().size();	
 	}
 
-	public int countImpl_DnsResourceRecordListItemContainer() throws CountException {
-		return adapter.getSelectedZone().getResourceRecords().size();
+	public int countImpl_ResourceRecords(Class cls, DnsResourceRecordListContainer parent) throws WbemsmtException {
+        return adapter.getSelectedZone().getResourceRecords().size();
 	}
 
 }

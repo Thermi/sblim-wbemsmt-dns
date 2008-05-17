@@ -30,11 +30,7 @@ import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchListsForService;
 import org.sblim.wbemsmt.dns.bl.wrapper.NameFactory;
 import org.sblim.wbemsmt.dns.bl.wrapper.acl.AclHandler;
 import org.sblim.wbemsmt.dns.bl.wrapper.acl.AssociatedObjectsLoader;
-import org.sblim.wbemsmt.exception.InitWizardException;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ModelUpdateException;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
-import org.sblim.wbemsmt.exception.UpdateControlsException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class AddressMatchListWizard extends DnsWizard {
 
@@ -42,14 +38,17 @@ public class AddressMatchListWizard extends DnsWizard {
 
 	private AclHandler aclHandler;
 	
-	private Linux_DnsAddressMatchList matchList = new Linux_DnsAddressMatchList();
+	private Linux_DnsAddressMatchList matchList = null;
 	
 	
 	/**
 	 * @param adapter
+	 * @throws WbemsmtException 
 	 */
-	public AddressMatchListWizard(DnsCimAdapter adapter) {
+	public AddressMatchListWizard(DnsCimAdapter adapter) throws WbemsmtException {
 		super(adapter);
+		
+		matchList = new Linux_DnsAddressMatchList(adapter.getCimClient(),adapter.getNamespace());
 		
 		aclHandler = new AclHandler(adapter,new AssociatedObjectsLoader()
 		{
@@ -63,36 +62,28 @@ public class AddressMatchListWizard extends DnsWizard {
 		}, null);
 	}
 
-	public void create(DnsAddressMatchListWizardSummaryDataContainer container) throws ObjectSaveException
+	public void create(DnsAddressMatchListWizardSummaryDataContainer container) throws WbemsmtException
 	{
 		matchList = aclHandler.create(AclHandler.IDX_USER ,NameFactory.createName(Linux_DnsAddressMatchListsForService.class,(String) page1.get_Name().getConvertedControlValue()));
 		adapter.setMarkedForReload();
-		try {
-			//force a reload
-			aclHandler.resetAcl(AclHandler.IDX_USER);
-			adapter.setPathOfTreeNode(aclHandler.getAcl(AclHandler.IDX_USER).getCimObjectPath());
-			matchList = new Linux_DnsAddressMatchList();
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
-		}
+		//force a reload
+        aclHandler.resetAcl(AclHandler.IDX_USER);
+        adapter.setPathOfTreeNode(aclHandler.getAcl(AclHandler.IDX_USER).getCimObjectPath());
+        matchList = new Linux_DnsAddressMatchList(adapter.getCimClient(),adapter.getNamespace());
 	}
 
-	public void updateControls(DnsAddressMatchListWizardPage1DataContainer container) throws UpdateControlsException {
+	public void updateControls(DnsAddressMatchListWizardPage1DataContainer container) throws WbemsmtException {
 		this.page1 = container;
 		aclHandler.updateControls(page1,AclHandler.IDX_USER,null);
 	}
 
-	public void updateControls(DnsAddressMatchListWizardSummaryDataContainer container) throws UpdateControlsException {
-		try {
-			container.get_Name().setControlValue(page1.get_Name().getConvertedControlValue());
-			container.get_AddressList().setValues(aclHandler.getUsedAddressesAsArray(AclHandler.IDX_USER));
-			container.get_AddressList().setShowAllInReadOnlyView(true);
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+	public void updateControls(DnsAddressMatchListWizardSummaryDataContainer container) throws WbemsmtException {
+		container.get_Name().setControlValue(page1.get_Name().getConvertedControlValue());
+        container.get_AddressList().setValues(aclHandler.getUsedAddressesAsArray(AclHandler.IDX_USER));
+        container.get_AddressList().setShowAllInReadOnlyView(true);
 	}
 
-	public void updateModel(DnsAddressMatchListWizardPage1DataContainer container) throws ModelUpdateException {
+	public void updateModel(DnsAddressMatchListWizardPage1DataContainer container) throws WbemsmtException {
 		if (adapter.getUpdateTrigger() == container.get_usr_AddNewAddress() || 
 			adapter.getUpdateTrigger() == container.get_usr_AddPredefinedAddress() || 
 			adapter.getUpdateTrigger() == container.get_usr_RemoveAddress())
@@ -101,13 +92,9 @@ public class AddressMatchListWizard extends DnsWizard {
 		}
 	}
 
-	public void init(DnsAddressMatchListWizardPage1DataContainer container) throws InitWizardException {
-		try {
-			aclHandler.resetAcls();
-			matchList = new Linux_DnsAddressMatchList();
-		} catch (ModelLoadException e) {
-			throw new InitWizardException(e);
-		}
+	public void init(DnsAddressMatchListWizardPage1DataContainer container) throws WbemsmtException {
+		aclHandler.resetAcls();
+        matchList = new Linux_DnsAddressMatchList(adapter.getCimClient(),adapter.getNamespace());
 	}
 
 }

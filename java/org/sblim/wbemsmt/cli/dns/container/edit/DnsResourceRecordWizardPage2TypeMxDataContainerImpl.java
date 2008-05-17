@@ -1,26 +1,25 @@
 /** 
-  * DnsResourceRecordWizardPage2TypeMxDataContainerImpl.java
-  *
-
- 
-  * © Copyright IBM Corp. 2005
-  *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
-  * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
-  * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
-  *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
-  *
-  * @author: org.sblim.wbemsmt.dcg.generator.cmd.CMDPresentationLayerGenerator
-  * @template: org/sblim/wbemsmt/dcg/templates/cmd/containerImpl.vm
-  *
-  * Contributors: 
-  * 
-  * Description: Page 2 of ResourceRecord-Wizard for defining MX-typed Records
-  * 
-  * generated Class
-  */
+ * DnsResourceRecordWizardPage2TypeMxDataContainerImpl.java
+ * 
+ * © Copyright IBM Corp. 2006,2007
+ *
+ * THIS FILE IS PROVIDED UNDER THE TER	MS OF THE COMMON PUBLIC LICENSE
+ * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
+ * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
+ *
+ * You can obtain a current copy of the Common Public License from
+ * http://www.opensource.org/licenses/cpl1.0.php
+ *
+ * @author: org.sblim.wbemsmt.dcg.generator.cmd.CMDPresentationLayerGenerator
+ * @template: org/sblim/wbemsmt/dcg/templates/cmd/containerImpl.vm
+ *
+ * Contributors: 
+ *   michael.bauschert@de.ibm.com
+ * 
+ * Description: Page 2 of ResourceRecord-Wizard for defining MX-typed Records
+ * 
+ * generated Class
+ */
 
 package org.sblim.wbemsmt.cli.dns.container.edit;
 
@@ -29,133 +28,121 @@ import java.util.*;
 import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.exception.*;
 
-
-
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-public class DnsResourceRecordWizardPage2TypeMxDataContainerImpl extends BaseDataContainer implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardPage2TypeMxDataContainer
-	{
-			private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Value;
-    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Priority;
-    	
-		
-	public DnsResourceRecordWizardPage2TypeMxDataContainerImpl(AbstractBaseCimAdapter adapter) throws InitContainerException {
-		super();
-		setAdapter(adapter);
-    			adapter.initContainer(this);
-	}
+public class DnsResourceRecordWizardPage2TypeMxDataContainerImpl extends BaseDataContainer
+        implements
+        org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardPage2TypeMxDataContainer {
+    private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Value;
+    private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_Priority;
 
-			/**
-		* 
-		* DataType STRING
-		* UIType TEXTFIELD
-		* ReadOnly false
-		*/
+    public DnsResourceRecordWizardPage2TypeMxDataContainerImpl(AbstractBaseCimAdapter adapter)
+            throws WbemsmtException {
+        super();
+        setAdapter(adapter);
+        adapter.initContainer(this);
+    }
 
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Value() {
-    		if (ic_usr_Value == null)
-    		{
-				String label = getAdapter().getBundle().getString("DnsResourceRecordWizardPage2TypeMxDataContainer.Value");
-				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_Value = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
-    		}
-    		return ic_usr_Value;
-    	}
-			/**
-		* 
-		* DataType STRING
-		* UIType TEXTFIELD
-		* ReadOnly false
-		*/
+    /**
+     * 
+     * DataType STRING
+     * UIType TEXTFIELD
+     * ReadOnly false
+     */
 
-		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Priority() {
-    		if (ic_usr_Priority == null)
-    		{
-				String label = getAdapter().getBundle().getString("DnsResourceRecordWizardPage2TypeMxDataContainer.Priority");
-				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-    			ic_usr_Priority = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,label,"",converter);
-    		}
-    		return ic_usr_Priority;
-    	}
-		
-	
-		
-	public void trace(java.io.PrintWriter 	printStream, String listOptions, boolean title)
-	{
-		if (title)
-		{
-			printStream.println(getAdapter().getBundle().getString("DnsResourceRecordWizardPage2TypeMxDataContainer.caption"));
-		}
-		
-		if (showKey(listOptions))
-		{
-			String key = getKey() != null ? getKey().toString() : "-";
-			printStream.println(getAdapter().getBundle().getString("key") + ": " + key + "\n");
-		}
-	
-		if (showInstance(listOptions))
-		{
-			   			   			if (get_usr_Value().isVisible())
-   			{
-        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Value()).getValue();
-        				printStream.println(get_usr_Value().getLabelText() + ": " + value);
-   			}
-   			   			   			if (get_usr_Priority().isVisible())
-   			{
-        				Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf)get_usr_Priority()).getValue();
-        				printStream.println(get_usr_Priority().getLabelText() + ": " + value);
-   			}
-   					}
+    public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Value() {
+        if (ic_usr_Value == null) {
+            String label = getAdapter().getBundle().getString(
+                    "DnsResourceRecordWizardPage2TypeMxDataContainer.Value");
+            org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+            ic_usr_Value = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
+                    label, "", converter);
+        }
+        return ic_usr_Value;
+    }
 
-		if (showChilds(listOptions))
-		{
-			traceChilds(printStream,listOptions,title);
-		}
-	}
-	
-	public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title)
-	{
-    			
-			
-	}
-	
-	
- 
-	/**
-	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
-	 * @return
-	 */
-	public List getFields()
-	{
-		List fields = new ArrayList();
-    				fields.add(get_usr_Value());
-    				fields.add(get_usr_Priority());
-    			return fields;
-	}
+    /**
+     * 
+     * DataType STRING
+     * UIType TEXTFIELD
+     * ReadOnly false
+     */
 
-	/**
-	 * Return a list of all associated childContainers. A childContainer is a DataContainer
-	 * @return
-	 */
-	public List getChildContainers()
-	{
-		List childs = new ArrayList();
-    	    			return childs;
-	
-	}
-	
-	public void copyFrom(DataContainer sourceContainer)
-	{
-		DnsResourceRecordWizardPage2TypeMxDataContainerImpl source = (DnsResourceRecordWizardPage2TypeMxDataContainerImpl)sourceContainer;
-	
-    	    		get_usr_Value().setValue(source.get_usr_Value().getValue());
-		    		get_usr_Priority().setValue(source.get_usr_Priority().getValue());
-				
-    	    		}
-	
-	public boolean isModified()
-	{
-    	return DataContainerUtil.isModified(this);
-	}		
+    public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_Priority() {
+        if (ic_usr_Priority == null) {
+            String label = getAdapter().getBundle().getString(
+                    "DnsResourceRecordWizardPage2TypeMxDataContainer.Priority");
+            org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+            ic_usr_Priority = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
+                    this, label, "", converter);
+        }
+        return ic_usr_Priority;
+    }
+
+    public void trace(java.io.PrintWriter printStream, String listOptions, boolean title) {
+        if (title) {
+            printStream.println(getAdapter().getBundle().getString(
+                    "DnsResourceRecordWizardPage2TypeMxDataContainer.caption"));
+        }
+
+        if (showKey(listOptions)) {
+            String key = getKey() != null ? getKey().toString() : "-";
+            printStream.println(getAdapter().getBundle().getString("key") + ": " + key + "\n");
+        }
+
+        if (showInstance(listOptions)) {
+            if (get_usr_Value().isVisible()) {
+                Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf) get_usr_Value())
+                        .getValue();
+                printStream.println(get_usr_Value().getLabelText() + ": " + value);
+            }
+            if (get_usr_Priority().isVisible()) {
+                Object value = ((org.sblim.wbemsmt.tools.input.test.TestInputComponentIf) get_usr_Priority())
+                        .getValue();
+                printStream.println(get_usr_Priority().getLabelText() + ": " + value);
+            }
+        }
+
+        if (showChilds(listOptions)) {
+            traceChilds(printStream, listOptions, title);
+        }
+    }
+
+    public void traceChilds(java.io.PrintWriter printStream, String listOptions, boolean title) {
+
+    }
+
+    /**
+     * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+     * @return
+     */
+    public List getFields() {
+        List fields = new ArrayList();
+        fields.add(get_usr_Value());
+        fields.add(get_usr_Priority());
+        return fields;
+    }
+
+    /**
+     * Return a list of all associated childContainers. A childContainer is a DataContainer
+     * @return
+     */
+    public List getChildContainers() {
+        List childs = new ArrayList();
+        return childs;
+
+    }
+
+    public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
+        DnsResourceRecordWizardPage2TypeMxDataContainerImpl source = (DnsResourceRecordWizardPage2TypeMxDataContainerImpl) sourceContainer;
+
+        get_usr_Value().setValue(source.get_usr_Value().getValue());
+        get_usr_Priority().setValue(source.get_usr_Priority().getValue());
+
+    }
+
+    public boolean isModified() {
+        return DataContainerUtil.isModified(this);
+    }
 }

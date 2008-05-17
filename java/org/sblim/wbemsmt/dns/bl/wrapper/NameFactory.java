@@ -27,21 +27,8 @@
   */
 package org.sblim.wbemsmt.dns.bl.wrapper;
 
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchListsForService;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowNotifyForService;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowNotifyForZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowQueryForService;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowQueryForZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowRecursionForService;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowTransferForService;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowTransferForZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowUpdateForZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsBlackholeForService;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwardersForService;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwardersForZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMastersForService;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMastersForZone;
-import org.sblim.wbemsmt.exception.ObjectCreationException;
+import org.sblim.wbemsmt.dns.bl.fco.*;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class NameFactory {
 
@@ -66,9 +53,9 @@ public class NameFactory {
 	 * @param associationClass The class of the association to which the element belongs for which a name is created 
 	 * @param cimElementName The name of the Masters-Entry,Zone or AddressMatchList
 	 * @return
-	 * @throws ObjectCreationException
+	 * @throws WbemsmtException
 	 */
-	public static String createName(Class associationClass, String cimElementName) throws ObjectCreationException {
+	public static String createName(Class associationClass, String cimElementName) throws WbemsmtException {
 			
 			//FOR SERVICE
 			if (Linux_DnsForwardersForService.class.isAssignableFrom(associationClass))
@@ -130,7 +117,7 @@ public class NameFactory {
 				return create(LOCATION_ZONE,cimElementName,ATTRIBUTE_NAME_ALLOW_UPDATE);
 			}
 			
-			throw new ObjectCreationException("Cannot get Name for class " + associationClass.getName());
+			throw new WbemsmtException(WbemsmtException.ERR_CREATE_OBJECT,"Cannot get Name for class " + associationClass.getName());
 	}
  
 

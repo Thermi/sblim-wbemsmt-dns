@@ -19,7 +19,8 @@
   */
 package org.sblim.wbemsmt.dns.bl.validator;
 
-import org.sblim.wbem.cim.UnsignedInt16;
+import javax.cim.UnsignedInteger16;
+
 import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
@@ -27,7 +28,7 @@ import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.wrapper.ResourceRecord;
 import org.sblim.wbemsmt.dns.bl.wrapper.Zone;
 import org.sblim.wbemsmt.dns.bl.wrapper.list.ResourceRecordList;
-import org.sblim.wbemsmt.exception.ValidationException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 import org.sblim.wbemsmt.tools.validator.IpAddressFieldValidator;
 import org.sblim.wbemsmt.tools.validator.Validator;
@@ -51,43 +52,46 @@ public class ResourceRecordValidator  extends Validator {
 		return fields;
 	}
 
-	public void validateElement(MessageList result) throws ValidationException {
+	public void validateElement(MessageList result) throws WbemsmtException {
 
 		LabeledBaseInputComponentIf nameField = dnsCimAdapter.getResourceRecordWizard().getNameField();
-		LabeledBaseInputComponentIf typeField = dnsCimAdapter.getResourceRecordWizard().getTypeField();
-		LabeledBaseInputComponentIf valueField = dnsCimAdapter.getResourceRecordWizard().getValueField();
-		LabeledBaseInputComponentIf prioField = dnsCimAdapter.getResourceRecordWizard().getPriorityField();
-		fields = new LabeledBaseInputComponentIf[]{nameField,typeField,valueField,prioField};
-		
-		String name = (String)nameField.getConvertedControlValue();
-		String typeString = ResourceRecord.getTypeOfIndex((UnsignedInt16)typeField.getConvertedControlValue());
-		
-		//check if the field values are okay
-		boolean ok = checkFieldValues(dnsCimAdapter, result,nameField,typeField,valueField);
-		
-		if (ok)
-		{
-			//last check if the reord already exists
-			Zone zone = dnsCimAdapter.getSelectedZone();
-			ResourceRecordList resourceRecords = zone.getResourceRecords();
-			boolean isMax = ResourceRecord.TYPE_MX.equals(typeString);
-			
-			for (int i=0; resourceRecords != null && i < resourceRecords.size(); i++) {
-				ResourceRecord rr = resourceRecords.getResourceRecord(i);
-				
-				String valueString = isMax ? (String)valueField.getConvertedControlValue() + " " + (String)prioField.getConvertedControlValue() : (String)valueField.getConvertedControlValue();
-				
-				if (rr.equals(name,
-						typeString,
-							  valueString
-							))
-				{
-					String msg = adapter.getBundle().getString(DnsErrCodes.MSG_RECORD_EXISTS, "validator.resourceRecordExists",new Object[]{nameField.getConvertedControlValue(),typeString,valueField.getConvertedControlValue()});
-					result.addMessage(new Message(DnsErrCodes.MSG_RECORD_EXISTS,Message.ERROR,msg,nameField));
-					return;
-				}
-			}
-		}
+        LabeledBaseInputComponentIf typeField = dnsCimAdapter.getResourceRecordWizard().getTypeField();
+        LabeledBaseInputComponentIf valueField = dnsCimAdapter.getResourceRecordWizard().getValueField();
+        LabeledBaseInputComponentIf prioField = dnsCimAdapter.getResourceRecordWizard().getPriorityField();
+        fields = new LabeledBaseInputComponentIf[]{nameField,typeField,valueField,prioField};
+        
+        String name = (String)nameField.getConvertedControlValue();
+        String typeString = ResourceRecord.getTypeOfIndex((UnsignedInteger16)typeField.getConvertedControlValue());
+        
+        //check if the field values are okay
+        boolean ok = checkFieldValues(dnsCimAdapter, result,nameField,typeField,valueField);
+        
+        if (ok)
+        {
+        	//last check if the reord already exists
+        	Zone zone = dnsCimAdapter.getSelectedZone();
+        	ResourceRecordList resourceRecords;
+            resourceRecords = zone.getResourceRecords();
+            boolean isMax = ResourceRecord.TYPE_MX.equals(typeString);
+        	
+        	int size = resourceRecords.size();
+        	
+            for (int i=0; resourceRecords != null && i < size; i++) {
+        		ResourceRecord rr = resourceRecords.getResourceRecord(i);
+        		
+        		String valueString = isMax ? (String)valueField.getConvertedControlValue() + " " + (String)prioField.getConvertedControlValue() : (String)valueField.getConvertedControlValue();
+        		
+        		if (rr.equals(name,
+        				typeString,
+        					  valueString
+        					))
+        		{
+        			String msg = adapter.getBundle().getString(DnsErrCodes.MSG_RECORD_EXISTS, "validator.resourceRecordExists",new Object[]{nameField.getConvertedControlValue(),typeString,valueField.getConvertedControlValue()});
+        			result.addMessage(new Message(DnsErrCodes.MSG_RECORD_EXISTS,Message.ERROR,msg,nameField));
+        			return;
+        		}
+        	}
+        }
 		
 		
 	}
@@ -95,7 +99,7 @@ public class ResourceRecordValidator  extends Validator {
 	public static boolean checkFieldValues(DnsCimAdapter adapter, MessageList result, LabeledBaseInputComponentIf nameField, LabeledBaseInputComponentIf typeField, LabeledBaseInputComponentIf valueField) {
 		
 		String name = (String)nameField.getConvertedControlValue();
-		String typeString = ResourceRecord.getTypeOfIndex((UnsignedInt16)typeField.getConvertedControlValue());
+		String typeString = ResourceRecord.getTypeOfIndex((UnsignedInteger16)typeField.getConvertedControlValue());
 		String value = (String)valueField.getConvertedControlValue();
 
 		if (StringUtil.containsWhitespaces(name))

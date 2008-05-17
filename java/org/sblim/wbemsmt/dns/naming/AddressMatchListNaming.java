@@ -22,9 +22,10 @@ package org.sblim.wbemsmt.dns.naming;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.sblim.wbem.cim.CIMInstance;
-import org.sblim.wbem.client.CIMClient;
-import org.sblim.wbemsmt.bl.fco.CIM_ObjectIf;
+import javax.cim.CIMInstance;
+import javax.wbem.client.WBEMClient;
+
+import org.sblim.wbemsmt.bl.fco.AbstractWbemsmtFco;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasters;
 import org.sblim.wbemsmt.dns.bl.wrapper.NameFactory;
 import org.sblim.wbemsmt.tasklauncher.naming.CIMInstanceNaming;
@@ -43,8 +44,8 @@ public class AddressMatchListNaming extends CIMInstanceNaming {
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.tasklauncher.naming.CIMInstanceNaming#getDisplayString(org.sblim.wbem.cim.CIMInstance)
 	 */
-	public String getDisplayString(CIMInstance cimInstance, CIMClient cimClient) {
-		String name = (String) cimInstance.getProperty(Linux_DnsMasters.CIM_PROPERTY_NAME).getValue().getValue();
+	public String getDisplayString(CIMInstance cimInstance, WBEMClient cimClient) {
+		String name = (String) cimInstance.getProperty(Linux_DnsMasters.PROPERTY_NAME.NAME).getValue();
 		try {
 			String[] array = new StringTokenizer(name,NameFactory.SEPARATOR).asArray(true, false);
 			return array[1];
@@ -54,7 +55,7 @@ public class AddressMatchListNaming extends CIMInstanceNaming {
 		}
 	}
 	
-	public String getDisplayString(CIM_ObjectIf cimObject, CIMClient cimClient) {
+	public String getDisplayString(AbstractWbemsmtFco cimObject, WBEMClient cimClient) {
 		return getDisplayString(cimObject.getCimInstance(), cimClient);
 	}
 	

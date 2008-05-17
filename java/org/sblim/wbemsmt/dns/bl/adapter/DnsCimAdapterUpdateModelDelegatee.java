@@ -21,8 +21,7 @@ package org.sblim.wbemsmt.dns.bl.adapter;
 
 import org.sblim.wbemsmt.dns.bl.container.edit.*;
 import org.sblim.wbemsmt.dns.bl.container.wizard.*;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ModelUpdateException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class DnsCimAdapterUpdateModelDelegatee implements
 		DnsCimAdapterUpdateModelIf {
@@ -42,7 +41,7 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateModelIf#updateModelImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListDataContainer)
 	 */
 	public void updateModelImpl(DnsAddressMatchListDataContainer container)
-			throws ModelUpdateException {
+			throws WbemsmtException {
 		// do nothing is a base object
 	}
 
@@ -51,7 +50,7 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 	 */
 	public void updateModelImpl(
 			DnsAddressMatchListForServiceDataContainer container)
-			throws ModelUpdateException {
+			throws WbemsmtException {
 		adapter.getSelectedAddressMatchList().updateModel(container);
 	}
 
@@ -60,7 +59,7 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 	 */
 	public void updateModelImpl(
 			DnsAddressMatchListWizardPage1DataContainer container)
-			throws ModelUpdateException {
+			throws WbemsmtException {
 
 		adapter.getAddressMatchListWizard().updateModel(container);
 
@@ -71,19 +70,15 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 	 */
 	public void updateModelImpl(
 			DnsAllowNotifyForServiceDataContainer container)
-			throws ModelUpdateException {
-		try {
-			adapter.getDnsService().updateModel(container);
-		} catch (ModelLoadException e) {
-			throw new ModelUpdateException(e);
-		}
+			throws WbemsmtException {
+		adapter.getDnsService().updateModel(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateModelIf#updateModelImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyACLForZoneDataContainer)
 	 */
 	public void updateModelImpl(DnsAllowNotifyForZoneDataContainer container)
-			throws ModelUpdateException {
+			throws WbemsmtException {
 		if (adapter.getSelectedSlaveZone() != null)
 		{
 			adapter.getSelectedSlaveZone().updateModel(container);
@@ -94,7 +89,7 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 		}
 		else
 		{
-			throw new  ModelUpdateException("Cannot updateModel for container - selected zone " + adapter.getSelectedZone() + " not supported");
+			throw new WbemsmtException(WbemsmtException.ERR_UPDATING_MODEL, "Cannot updateModel for container - selected zone " + adapter.getSelectedZone() + " not supported");
 		}
 	}
 
@@ -103,19 +98,15 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 	 */
 	public void updateModelImpl(
 			DnsAllowQueryForServiceDataContainer container)
-			throws ModelUpdateException {
-		try {
-			adapter.getDnsService().updateModel(container);
-		} catch (ModelLoadException e) {
-			throw new ModelUpdateException(e);
-		}
+			throws WbemsmtException {
+		adapter.getDnsService().updateModel(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateModelIf#updateModelImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryACLForZoneDataContainer)
 	 */
 	public void updateModelImpl(DnsAllowQueryForZoneDataContainer container)
-			throws ModelUpdateException {
+			throws WbemsmtException {
 		if (adapter.getSelectedMasterZone() != null)
 		{
 			adapter.getSelectedMasterZone().updateModel(container);
@@ -134,7 +125,7 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 		}
 		else
 		{
-			throw new  ModelUpdateException("Cannot updateModel for container - selected zone " + adapter.getSelectedZone() + " not supported");
+			throw new WbemsmtException(WbemsmtException.ERR_UPDATING_MODEL,"Cannot updateModel for container - selected zone " + adapter.getSelectedZone() + " not supported");
 		}
 	}
 
@@ -143,12 +134,8 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 	 */
 	public void updateModelImpl(
 			DnsAllowRecursionForServiceDataContainer container)
-			throws ModelUpdateException {
-		try {
-			adapter.getDnsService().updateModel(container);
-		} catch (ModelLoadException e) {
-			throw new ModelUpdateException(e);
-		}
+			throws WbemsmtException {
+		adapter.getDnsService().updateModel(container);
 	}
 
 	/* (non-Javadoc)
@@ -156,12 +143,8 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 	 */
 	public void updateModelImpl(
 			DnsAllowTransferForServiceDataContainer container)
-			throws ModelUpdateException {
-		try {
-			adapter.getDnsService().updateModel(container);
-		} catch (ModelLoadException e) {
-			throw new ModelUpdateException(e);
-		}
+			throws WbemsmtException {
+		adapter.getDnsService().updateModel(container);
 
 	}
 
@@ -170,7 +153,7 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 	 */
 	public void updateModelImpl(
 			DnsAllowTransferForZoneDataContainer container)
-			throws ModelUpdateException {
+			throws WbemsmtException {
 		if (adapter.getSelectedMasterZone() != null)
 		{
 			adapter.getSelectedMasterZone().updateModel(container);
@@ -189,7 +172,7 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 		}
 		else
 		{
-			throw new  ModelUpdateException("Cannot updateModel for container - selected zone " + adapter.getSelectedZone() + " not supported");
+			throw new WbemsmtException(WbemsmtException.ERR_UPDATING_MODEL,"Cannot updateModel for container - selected zone " + adapter.getSelectedZone() + " not supported");
 		}
 	}
 
@@ -197,7 +180,7 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateModelIf#updateModelImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowUpdateACLForZoneDataContainer)
 	 */
 	public void updateModelImpl(DnsAllowUpdateForZoneDataContainer container)
-			throws ModelUpdateException {
+			throws WbemsmtException {
 
 		if (adapter.getSelectedMasterZone() != null)
 		{
@@ -217,7 +200,7 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 		}
 		else
 		{
-			throw new  ModelUpdateException("Cannot updateModel for container - selected zone " + adapter.getSelectedZone() + " not supported");
+			throw new WbemsmtException(WbemsmtException.ERR_UPDATING_MODEL,"Cannot updateModel for container - selected zone " + adapter.getSelectedZone() + " not supported");
 		}
 
 	}
@@ -226,19 +209,15 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateModelIf#updateModelImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsBlackholeACLForServiceDataContainer)
 	 */
 	public void updateModelImpl(DnsBlackholeForServiceDataContainer container)
-			throws ModelUpdateException {
-		try {
-			adapter.getDnsService().updateModel(container);
-		} catch (ModelLoadException e) {
-			throw new ModelUpdateException(e);
-		}
+			throws WbemsmtException {
+		adapter.getDnsService().updateModel(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateModelIf#updateModelImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardZoneDataContainer)
 	 */
 	public void updateModelImpl(DnsForwardZoneDataContainer container)
-			throws ModelUpdateException {
+			throws WbemsmtException {
 		adapter.getSelectedForwardZone().updateModel(container);
 	}
 
@@ -246,7 +225,7 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateModelIf#updateModelImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsMasterZoneDataContainer)
 	 */
 	public void updateModelImpl(DnsMasterZoneDataContainer container)
-			throws ModelUpdateException {
+			throws WbemsmtException {
 		adapter.getSelectedMasterZone().updateModel(container);
 
 	}
@@ -255,7 +234,7 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateModelIf#updateModelImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardPage1DataContainer)
 	 */
 	public void updateModelImpl(DnsMasterZoneWizardPage1DataContainer container)
-			throws ModelUpdateException {
+			throws WbemsmtException {
 		adapter.getMasterZoneWizard().updateModel(container);
 	}
 
@@ -264,15 +243,15 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 	 */
 	public void updateModelImpl(
 			DnsResourceRecordWizardPage1DataContainer container)
-			throws ModelUpdateException {
+			throws WbemsmtException {
 		adapter.getResourceRecordWizard().updateModel(container);
 	}
 
-	public void updateModelImpl(DnsResourceRecordWizardPage2TypeMxDataContainer container) throws ModelUpdateException {
+	public void updateModelImpl(DnsResourceRecordWizardPage2TypeMxDataContainer container) throws WbemsmtException {
 		adapter.getResourceRecordWizard().updateModel(container);
 	}
 
-	public void updateModelImpl(DnsResourceRecordWizardPage2TypeOtherDataContainer container) throws ModelUpdateException {
+	public void updateModelImpl(DnsResourceRecordWizardPage2TypeOtherDataContainer container) throws WbemsmtException {
 		adapter.getResourceRecordWizard().updateModel(container);
 	}
 
@@ -280,7 +259,7 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateModelIf#updateModelImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsReverseZoneDataContainer)
 	 */
 	public void updateModelImpl(DnsReverseZoneDataContainer container)
-			throws ModelUpdateException {
+			throws WbemsmtException {
 		adapter.getSelectedReverseZone().updateModel(container);
 	}
 
@@ -288,7 +267,7 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateModelIf#updateModelImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardPage1DataContainer)
 	 */
 	public void updateModelImpl(DnsReverseZoneWizardPage1DataContainer container)
-			throws ModelUpdateException {
+			throws WbemsmtException {
 		adapter.getReverseZoneWizard().updateModel(container);
 	}
 
@@ -296,19 +275,15 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateModelIf#updateModelImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceOperationsDataContainer)
 	 */
 	public void updateModelImpl(DnsServiceOperationsDataContainer container)
-			throws ModelUpdateException {
-		try {
-			adapter.getDnsService().updateModel(container);
-		} catch (ModelLoadException e) {
-			throw new ModelUpdateException(e);
-		}
+			throws WbemsmtException {
+		adapter.getDnsService().updateModel(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateModelIf#updateModelImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsSlaveZoneDataContainer)
 	 */
 	public void updateModelImpl(DnsSlaveZoneDataContainer container)
-			throws ModelUpdateException {
+			throws WbemsmtException {
 		adapter.getSelectedSlaveZone().updateModel(container);
 	}
 
@@ -316,56 +291,52 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateModelIf#updateModelImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsZoneWizardPage1DataContainer)
 	 */
 	public void updateModelImpl(DnsForwardZoneWizardPage1DataContainer container)
-			throws ModelUpdateException {
+			throws WbemsmtException {
 		adapter.getForwardZoneWizard().updateModel(container);
 	}
 
-	public void updateModelImpl(DnsSlaveZoneWizardPage1DataContainer container) throws ModelUpdateException {
+	public void updateModelImpl(DnsSlaveZoneWizardPage1DataContainer container) throws WbemsmtException {
 		adapter.getSlaveZoneWizard().updateModel(container);
 	}
 
-	public void updateModelImpl(DnsForwarderDataContainer container) throws ModelUpdateException {
+	public void updateModelImpl(DnsForwarderDataContainer container) throws WbemsmtException {
 		// do nothing - is a base object
 	}
 
-	public void updateModelImpl(DnsAddMasterAddressDataContainer container) throws ModelUpdateException {
+	public void updateModelImpl(DnsAddMasterAddressDataContainer container) throws WbemsmtException {
 		//do nothing - is a base object
 	}
 
-	public void updateModelImpl(DnsForwardZoneWizardSummaryDataContainer container) throws ModelUpdateException {
+	public void updateModelImpl(DnsForwardZoneWizardSummaryDataContainer container) throws WbemsmtException {
 		// do nothing
 	}
 
-	public void updateModelImpl(DnsResourceRecordListContainer container) throws ModelUpdateException {
+	public void updateModelImpl(DnsResourceRecordListContainer container) throws WbemsmtException {
 		adapter.getSelectedZone().updateModel(container);
 	}
 
-	public void updateModelImpl(DnsMastersForServiceDataContainer container) throws ModelUpdateException {
+	public void updateModelImpl(DnsMastersForServiceDataContainer container) throws WbemsmtException {
 		adapter.getSelectedMasters().updateModel(container);
 	}
 
-	public void updateModelImpl(DnsMastersWizardPage1DataContainer container) throws ModelUpdateException {
+	public void updateModelImpl(DnsMastersWizardPage1DataContainer container) throws WbemsmtException {
 		adapter.getMastersWizard().updateModel(container);
 	}
 
-	public void updateModelImpl(DnsStubZoneDataContainer container) throws ModelUpdateException {
+	public void updateModelImpl(DnsStubZoneDataContainer container) throws WbemsmtException {
 		adapter.getSelectedStubZone().updateModel(container);
 	}
 
-	public void updateModelImpl(DnsStubZoneWizardPage1DataContainer container) throws ModelUpdateException {
+	public void updateModelImpl(DnsStubZoneWizardPage1DataContainer container) throws WbemsmtException {
 		adapter.getStubZoneWizard().updateModel(container);
 		
 	}
 
-	public void updateModelImpl(DnsForwardersForServiceDataContainer container) throws ModelUpdateException {
-		try {
-			adapter.getDnsService().updateModel(container);
-		} catch (ModelLoadException e) {
-			throw new ModelUpdateException(e);
-		}
+	public void updateModelImpl(DnsForwardersForServiceDataContainer container) throws WbemsmtException {
+		adapter.getDnsService().updateModel(container);
 	}
 
-	public void updateModelImpl(DnsSoaContainer container) throws ModelUpdateException {
+	public void updateModelImpl(DnsSoaContainer container) throws WbemsmtException {
 		if (adapter.getUpdateTrigger() == container.get_usr_SetSerialNumber())
 		{
 			adapter.getSelectedZone().updateSerialNumber(container);
@@ -373,31 +344,27 @@ public class DnsCimAdapterUpdateModelDelegatee implements
 		
 	}
 
-	public void updateModelImpl(DnsConfigurationDataContainer container) throws ModelUpdateException {
-		try {
-			adapter.getDnsService().updateModel(container);
-		} catch (ModelLoadException e) {
-			throw new ModelUpdateException(e);
-		}
+	public void updateModelImpl(DnsConfigurationDataContainer container) throws WbemsmtException {
+		adapter.getDnsService().updateModel(container);
 		
 	}
 
-	public void updateModelImpl(DnsHintZoneDataContainer container) throws ModelUpdateException {
+	public void updateModelImpl(DnsHintZoneDataContainer container) throws WbemsmtException {
 		adapter.getSelectedHintZone().updateModel(container);
 		
 		
 	}
 
-	public void updateModelImpl(DnsResourceRecordDataContainer container) throws ModelUpdateException {
+	public void updateModelImpl(DnsResourceRecordDataContainer container) throws WbemsmtException {
 		adapter.getSelectedResourceRecord().updateModel(container);
 	}
 
-	public void updateModelImpl(DnsTTLDataContainer container) throws ModelUpdateException {
+	public void updateModelImpl(DnsTTLDataContainer container) throws WbemsmtException {
 		// do nothing it is just a base class
 		
 	}
 
-	public void updateModelImpl(DnsResourceRecordListItemContainer container) throws ModelUpdateException {
+	public void updateModelImpl(DnsResourceRecordListItemContainer container) throws WbemsmtException {
 		adapter.getSelectedZone().updateModel(container);
 	}
 

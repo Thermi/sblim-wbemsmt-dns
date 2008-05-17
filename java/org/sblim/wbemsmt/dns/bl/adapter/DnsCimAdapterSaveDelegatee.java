@@ -23,8 +23,7 @@ import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.dns.bl.container.edit.*;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class DnsCimAdapterSaveDelegatee implements DnsCimAdapterSaveIf {
 
@@ -39,66 +38,46 @@ public class DnsCimAdapterSaveDelegatee implements DnsCimAdapterSaveIf {
 	 */
 	public MessageList saveImpl(
 			DnsAllowNotifyForServiceDataContainer container)
-			throws ObjectSaveException {
+			throws WbemsmtException {
 		
-		try {
-			return adapter.getDnsService().save(container);
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
-		}
+		return adapter.getDnsService().save(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterSaveIf#saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryACLForServiceDataContainer)
 	 */
 	public MessageList saveImpl(
-			DnsAllowQueryForServiceDataContainer container) throws ObjectSaveException {
-		try {
-			return adapter.getDnsService().save(container);
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
-		}
+			DnsAllowQueryForServiceDataContainer container) throws WbemsmtException {
+		return adapter.getDnsService().save(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterSaveIf#saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowRecursionACLForServiceDataContainer)
 	 */
 	public MessageList saveImpl(
-			DnsAllowRecursionForServiceDataContainer container) throws ObjectSaveException {
-		try {
-			return adapter.getDnsService().save(container);
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
-		}
+			DnsAllowRecursionForServiceDataContainer container) throws WbemsmtException {
+		return adapter.getDnsService().save(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterSaveIf#saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowTransferACLForServiceDataContainer)
 	 */
 	public MessageList saveImpl(
-			DnsAllowTransferForServiceDataContainer container) throws ObjectSaveException {
-		try {
-			return adapter.getDnsService().save(container);
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
-		}
+			DnsAllowTransferForServiceDataContainer container) throws WbemsmtException {
+		return adapter.getDnsService().save(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterSaveIf#saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsBlackholeACLForServiceDataContainer)
 	 */
-	public MessageList saveImpl(DnsBlackholeForServiceDataContainer container) throws ObjectSaveException {
-		try {
-			return adapter.getDnsService().save(container);
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
-		}
+	public MessageList saveImpl(DnsBlackholeForServiceDataContainer container) throws WbemsmtException {
+		return adapter.getDnsService().save(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterSaveIf#saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyACLForZoneDataContainer)
 	 */
-	public MessageList saveImpl(DnsAllowNotifyForZoneDataContainer container) throws ObjectSaveException {
+	public MessageList saveImpl(DnsAllowNotifyForZoneDataContainer container) throws WbemsmtException {
 		
 		if (adapter.getSelectedSlaveZone() != null)
 		{
@@ -110,7 +89,7 @@ public class DnsCimAdapterSaveDelegatee implements DnsCimAdapterSaveIf {
 		}
 		else
 		{
-			throw new  ObjectSaveException("Cannot save container - selected zone " + adapter.getSelectedZone() + " not supported");
+			throw new WbemsmtException(WbemsmtException.ERR_SAVE_OBJECT,"Cannot save container - selected zone " + adapter.getSelectedZone() + " not supported");
 		}
 	}
 
@@ -118,7 +97,7 @@ public class DnsCimAdapterSaveDelegatee implements DnsCimAdapterSaveIf {
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterSaveIf#saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryACLForZoneDataContainer)
 	 */
-	public MessageList saveImpl(DnsAllowQueryForZoneDataContainer container) throws ObjectSaveException {
+	public MessageList saveImpl(DnsAllowQueryForZoneDataContainer container) throws WbemsmtException {
 		if (adapter.getSelectedMasterZone() != null)
 		{
 			return adapter.getSelectedMasterZone().save(container);
@@ -136,7 +115,7 @@ public class DnsCimAdapterSaveDelegatee implements DnsCimAdapterSaveIf {
 			return adapter.getSelectedReverseZone().save(container);
 		}
 		else {
-			throw new  ObjectSaveException("Cannot save container - selected zone " + adapter.getSelectedZone() + " not supported");
+			throw new WbemsmtException(WbemsmtException.ERR_SAVE_OBJECT,"Cannot save container - selected zone " + adapter.getSelectedZone() + " not supported");
 		}
 	}
 
@@ -147,7 +126,7 @@ public class DnsCimAdapterSaveDelegatee implements DnsCimAdapterSaveIf {
 	 */
 	public MessageList saveImpl(
 			DnsAllowTransferForZoneDataContainer container)
-			throws ObjectSaveException {
+			throws WbemsmtException {
 		if (adapter.getSelectedMasterZone() != null)
 		{
 			return adapter.getSelectedMasterZone().save(container);
@@ -164,7 +143,7 @@ public class DnsCimAdapterSaveDelegatee implements DnsCimAdapterSaveIf {
 		{
 			return adapter.getSelectedReverseZone().save(container);
 		} else {
-			throw new  ObjectSaveException("Cannot save container - selected zone " + adapter.getSelectedZone() + " not supported");
+			throw new WbemsmtException(WbemsmtException.ERR_SAVE_OBJECT,"Cannot save container - selected zone " + adapter.getSelectedZone() + " not supported");
 		}
 	}
 
@@ -172,7 +151,7 @@ public class DnsCimAdapterSaveDelegatee implements DnsCimAdapterSaveIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterSaveIf#saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowUpdateACLForZoneDataContainer)
 	 */
 	public MessageList saveImpl(DnsAllowUpdateForZoneDataContainer container)
-			throws ObjectSaveException {
+			throws WbemsmtException {
 		if (adapter.getSelectedMasterZone() != null)
 		{
 			return adapter.getSelectedMasterZone().save(container);
@@ -191,7 +170,7 @@ public class DnsCimAdapterSaveDelegatee implements DnsCimAdapterSaveIf {
 		}
 		else
 		{
-			throw new  ObjectSaveException("Cannot save container - selected zone " + adapter.getSelectedZone() + " not supported");
+			throw new WbemsmtException(WbemsmtException.ERR_SAVE_OBJECT,"Cannot save container - selected zone " + adapter.getSelectedZone() + " not supported");
 		}
 	}
 
@@ -200,19 +179,15 @@ public class DnsCimAdapterSaveDelegatee implements DnsCimAdapterSaveIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterSaveIf#saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsConfigurationDataContainer)
 	 */
 	public MessageList saveImpl(DnsConfigurationDataContainer container)
-			throws ObjectSaveException {
-		try {
-			return adapter.getDnsService().save(container);
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
-		}
+			throws WbemsmtException {
+		return adapter.getDnsService().save(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterSaveIf#saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardZoneDataContainer)
 	 */
 	public MessageList saveImpl(DnsForwardZoneDataContainer container)
-			throws ObjectSaveException {
+			throws WbemsmtException {
 		return adapter.getSelectedForwardZone().save(container);
 	}
 
@@ -220,7 +195,7 @@ public class DnsCimAdapterSaveDelegatee implements DnsCimAdapterSaveIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterSaveIf#saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsHintZoneDataContainer)
 	 */
 	public MessageList saveImpl(DnsHintZoneDataContainer container)
-			throws ObjectSaveException {
+			throws WbemsmtException {
 		return adapter.getSelectedHintZone().save(container);
 	}
 
@@ -228,14 +203,14 @@ public class DnsCimAdapterSaveDelegatee implements DnsCimAdapterSaveIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterSaveIf#saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsMasterZoneDataContainer)
 	 */
 	public MessageList saveImpl(DnsMasterZoneDataContainer container)
-			throws ObjectSaveException {
+			throws WbemsmtException {
 		return adapter.getSelectedMasterZone().save(container);
 	}
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterSaveIf#saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsReverseZoneDataContainer)
 	 */
 	public MessageList saveImpl(DnsReverseZoneDataContainer container)
-	throws ObjectSaveException {
+	throws WbemsmtException {
 		return adapter.getSelectedReverseZone().save(container);
 	}
 
@@ -244,7 +219,7 @@ public class DnsCimAdapterSaveDelegatee implements DnsCimAdapterSaveIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterSaveIf#saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsSlaveZoneDataContainer)
 	 */
 	public MessageList saveImpl(DnsSlaveZoneDataContainer container)
-	throws ObjectSaveException {
+	throws WbemsmtException {
 		return adapter.getSelectedSlaveZone().save(container);
 	}
 
@@ -252,7 +227,7 @@ public class DnsCimAdapterSaveDelegatee implements DnsCimAdapterSaveIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterSaveIf#saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer)
 	 */
 	public MessageList saveImpl(DnsResourceRecordDataContainer container)
-			throws ObjectSaveException {
+			throws WbemsmtException {
 		return adapter.getSelectedResourceRecord().save(container);
 	}
 
@@ -260,12 +235,8 @@ public class DnsCimAdapterSaveDelegatee implements DnsCimAdapterSaveIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterSaveIf#saveImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceOperationsDataContainer)
 	 */
 	public MessageList saveImpl(DnsServiceOperationsDataContainer container)
-			throws ObjectSaveException {
-		try {
-			return adapter.getDnsService().save(container);
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
-		}
+			throws WbemsmtException {
+		return adapter.getDnsService().save(container);
 	}
 
 	/* (non-Javadoc)
@@ -273,28 +244,28 @@ public class DnsCimAdapterSaveDelegatee implements DnsCimAdapterSaveIf {
 	 */
 	public MessageList saveImpl(
 			DnsAddressMatchListForServiceDataContainer container)
-			throws ObjectSaveException {
+			throws WbemsmtException {
 		return adapter.getSelectedAddressMatchList().save(container);
 	}
 
-	public MessageList saveImpl(DnsResourceRecordForReverseZoneWizardDataContainer container, Linux_DnsResourceRecord fco) throws ObjectSaveException {
+	public MessageList saveImpl(DnsResourceRecordForReverseZoneWizardDataContainer container, Linux_DnsResourceRecord fco) throws WbemsmtException {
 		//DnsResourceRecordForReverseZoneWizardDataContainer is not saved 
 		return null;
 	}
 
-	public MessageList saveImpl(DnsResourceRecordListContainer container) throws ObjectSaveException {
+	public MessageList saveImpl(DnsResourceRecordListContainer container) throws WbemsmtException {
 		return adapter.getSelectedZone().save(container);
 	}
 
-	public MessageList saveImpl(DnsResourceRecordListItemContainer container) throws ObjectSaveException {
+	public MessageList saveImpl(DnsResourceRecordListItemContainer container) throws WbemsmtException {
 		return null;
 	}
 
-	public MessageList saveImpl(DnsResourceRecordListItemContainer container, Linux_DnsResourceRecord fco) throws ObjectSaveException {
+	public MessageList saveImpl(DnsResourceRecordListItemContainer container, Linux_DnsResourceRecord fco) throws WbemsmtException {
 		return adapter.getSelectedZone().save(container,fco);
 	}
 
-	public MessageList saveImpl(DnsSoaContainer container) throws ObjectSaveException {
+	public MessageList saveImpl(DnsSoaContainer container) throws WbemsmtException {
 		
 		if (adapter.getSelectedReverseZone() != null)
 		{
@@ -304,23 +275,19 @@ public class DnsCimAdapterSaveDelegatee implements DnsCimAdapterSaveIf {
 		{
 			return adapter.getSelectedMasterZone().save(container);
 		}
-		else throw new ObjectSaveException("Selected zone is no masterZone or ReverseZone");
+		else throw new WbemsmtException(WbemsmtException.ERR_SAVE_OBJECT,"Selected zone is no masterZone or ReverseZone");
 	}
 
-	public MessageList saveImpl(DnsMastersForServiceDataContainer container) throws ObjectSaveException {
+	public MessageList saveImpl(DnsMastersForServiceDataContainer container) throws WbemsmtException {
 		return adapter.getSelectedMasters().save(container);
 	}
 
-	public MessageList saveImpl(DnsStubZoneDataContainer container) throws ObjectSaveException {
+	public MessageList saveImpl(DnsStubZoneDataContainer container) throws WbemsmtException {
 		return adapter.getSelectedStubZone().save(container);
 	}
 
-	public MessageList saveImpl(DnsForwardersForServiceDataContainer container) throws ObjectSaveException {
-		try {
-			return adapter.getDnsService().save(container);
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
-		}
+	public MessageList saveImpl(DnsForwardersForServiceDataContainer container) throws WbemsmtException {
+		return adapter.getDnsService().save(container);
 	}
 
 }

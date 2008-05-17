@@ -21,17 +21,12 @@ package org.sblim.wbemsmt.dns.listener;
 
 import java.util.List;
 
-import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.bl.adapter.CimAdapterFactory;
-import org.sblim.wbemsmt.bl.adapter.Message;
-import org.sblim.wbemsmt.bl.adapter.MessageUtil;
-import org.sblim.wbemsmt.bl.adapter.TaskLauncherTreeNodeSelectorForCreate;
+import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.bl.tree.ITaskLauncherTreeNode;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsService;
-import org.sblim.wbemsmt.exception.ObjectNotFoundException;
-import org.sblim.wbemsmt.exception.WbemSmtException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.tasklauncher.CIMInstanceNode;
 
 /**
@@ -42,7 +37,7 @@ public class DnsCreateListenerSelector implements TaskLauncherTreeNodeSelectorFo
 
 	private AbstractBaseCimAdapter adapter;
 
-	public void select(ITaskLauncherTreeNode treeNode, AbstractBaseCimAdapter cimAdapter, String createId) throws ObjectNotFoundException {
+	public void select(ITaskLauncherTreeNode treeNode, AbstractBaseCimAdapter cimAdapter, String createId) throws WbemsmtException {
 		
 		ITaskLauncherTreeNode parent = treeNode;
 		try {
@@ -68,8 +63,8 @@ public class DnsCreateListenerSelector implements TaskLauncherTreeNodeSelectorFo
 			}
 			
 			
-		} catch (WbemSmtException e) {
-			throw new ObjectNotFoundException("Cannot find SambaService with node " + treeNode.getInfo(),e); 
+		} catch (WbemsmtException e) {
+			throw new WbemsmtException(WbemsmtException.ERR_OBJECT_NOT_FOUND,"Cannot find SambaService with node " + treeNode.getInfo(),e); 
 		}
 		
 	}

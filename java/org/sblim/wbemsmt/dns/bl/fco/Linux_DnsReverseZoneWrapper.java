@@ -29,11 +29,11 @@
 
 package org.sblim.wbemsmt.dns.bl.fco;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Vector;
+import javax.cim.CIMInstance;
+import javax.cim.CIMObjectPath;
+import javax.cim.UnsignedInteger32;
+import javax.cim.UnsignedInteger8;
 
-import org.sblim.wbem.cim.*;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
 
@@ -64,50 +64,6 @@ public class Linux_DnsReverseZoneWrapper extends CIM_ManagedElement  {
 	
 	
 
-	public static Vector CIM_PropertyNameList	= new Vector();
-	public static Vector CIM_PropertyList 		= new Vector();
-	private static Set Java_Package_List 		= new HashSet();
-	
-	static {
-		CIM_PropertyNameList.add(CIM_PROPERTY_NAME);
-		CIM_PropertyNameList.add(CIM_PROPERTY_RESOURCERECORDFILE);
-		CIM_PropertyNameList.add(CIM_PROPERTY_TYPE);
-				
-		for (int i = 0; i < Linux_DnsZone.CIM_PropertyNameList.size(); i++) {
-			if (((String)Linux_DnsZone.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_NAME)||
-				((String)Linux_DnsZone.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_RESOURCERECORDFILE)||
-				((String)Linux_DnsZone.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_TYPE)){
-				continue;
-			}
-			
-			Linux_DnsReverseZoneWrapper.CIM_PropertyNameList.add(Linux_DnsZone.CIM_PropertyNameList.elementAt(i));
-		}
-		
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_NAME, new CIMValue(null, new CIMDataType(CIMDataType.STRING))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_RESOURCERECORDFILE, new CIMValue(null, new CIMDataType(CIMDataType.STRING))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_TYPE, new CIMValue(null, new CIMDataType(CIMDataType.UINT16))));
-				
-		for (int i = 0; i < Linux_DnsZone.CIM_PropertyList.size(); i++) {
-			if (((CIMProperty)Linux_DnsZone.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_NAME)||
-				((CIMProperty)Linux_DnsZone.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_RESOURCERECORDFILE)||
-				((CIMProperty)Linux_DnsZone.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_TYPE)){
-				continue;
-			}
-			
-			Linux_DnsReverseZoneWrapper.CIM_PropertyList.add(Linux_DnsZone.CIM_PropertyList.elementAt(i));
-		}
-		
-		addPackage("org.sblim.wbemsmt.dns.bl.fco");
-		
-		String[] parentClassPackageList = Linux_DnsZone.getPackages();
-		
-		for (int i = 0; i < parentClassPackageList.length; i++) {
-			Java_Package_List.add(parentClassPackageList[i]);
-		}
-
-		Java_Package_List.add("org.sblim.wbemsmt.dns.bl.fco");
-				
-	};
 			
 	
 	//**********************************************************************
@@ -129,13 +85,6 @@ public class Linux_DnsReverseZoneWrapper extends CIM_ManagedElement  {
 	//**********************************************************************
 	// Instance methods
 	//**********************************************************************
-
-	/**
-	*	no description
-	*/	
-	public boolean isDataValid(Vector invalidProperties) {
-		return masterZone.isDataValid(invalidProperties);
-	}
 	
 	/**
 	*	The method returns this CIM instance
@@ -192,9 +141,9 @@ public class Linux_DnsReverseZoneWrapper extends CIM_ManagedElement  {
 	
 	// Attribute Name
 	
-	public String get_Name() {
+	public String get_key_Name() {
 		
-		return masterZone.get_Name();
+		return masterZone.get_key_Name();
 	}
 	    
 			
@@ -208,7 +157,7 @@ public class Linux_DnsReverseZoneWrapper extends CIM_ManagedElement  {
 			
 	// Attribute Type
 	
-	public UnsignedInt8 get_Type() {
+	public UnsignedInteger8 get_Type() {
 		
 		return masterZone.get_Type();
 	}
@@ -221,11 +170,11 @@ public class Linux_DnsReverseZoneWrapper extends CIM_ManagedElement  {
 		return masterZone;
 	}
 
-	public void set_NegativeCachingTTL(UnsignedInt32 asUnsignedInt32) {
+	public void set_NegativeCachingTTL(UnsignedInteger32 asUnsignedInt32) {
 		if (masterZone != null) masterZone.set_NegativeCachingTTL(asUnsignedInt32);
 	}
 
-	public void set_Forward(UnsignedInt8 forward) {
+	public void set_Forward(UnsignedInteger8 forward) {
 		if (masterZone != null) masterZone.set_Forward(forward);
 	}
 
@@ -237,11 +186,11 @@ public class Linux_DnsReverseZoneWrapper extends CIM_ManagedElement  {
 		if (masterZone != null) masterZone.set_Contact(contact);
 	}
 
-	public void set_Expire(UnsignedInt32 expire) {
+	public void set_Expire(UnsignedInteger32 expire) {
 		if (masterZone != null) masterZone.set_Expire(expire);
 	}
 
-	public void set_Retry(UnsignedInt32 retry) {
+	public void set_Retry(UnsignedInteger32 retry) {
 		if (masterZone != null) masterZone.set_Retry(retry);
 	}
 
@@ -258,17 +207,17 @@ public class Linux_DnsReverseZoneWrapper extends CIM_ManagedElement  {
 		return null;
 	}
 
-	public UnsignedInt32 get_Expire() {
+	public UnsignedInteger32 get_Expire() {
 		if (masterZone != null) return masterZone.get_Expire();
 		return null;
 	}
 
-	public UnsignedInt8 get_Forward() {
+	public UnsignedInteger8 get_Forward() {
 		if (masterZone != null) return masterZone.get_Forward();
 		return null;
 	}
 
-	public UnsignedInt32 get_Retry() {
+	public UnsignedInteger32 get_Retry() {
 		if (masterZone != null) return masterZone.get_Retry();
 		return null;
 	}
@@ -293,7 +242,7 @@ public class Linux_DnsReverseZoneWrapper extends CIM_ManagedElement  {
 		
 	}
 
-	public UnsignedInt32 get_NegativeCachingTTL() {
+	public UnsignedInteger32 get_NegativeCachingTTL() {
 		if (masterZone != null) return masterZone.get_NegativeCachingTTL();
 		return null;
 	}

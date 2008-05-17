@@ -22,7 +22,7 @@ package org.sblim.wbemsmt.dns.wizard;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.sblim.wbem.cim.UnsignedInt16;
+import javax.cim.UnsignedInteger16;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardPage1DataContainer;
 import org.sblim.wbemsmt.dns.bl.wrapper.ResourceRecord;
 import org.sblim.wbemsmt.tools.wizard.WizardContainerUtil;
@@ -55,7 +55,7 @@ public class CreateResourceRecordWizardContainerUtil extends
 			DnsResourceRecordWizardPage1DataContainer page1 = (DnsResourceRecordWizardPage1DataContainer) hmPages.get(currentPageName);
 		
 			//Check if the user selected MX as record type
-			if (ResourceRecord.TYPE_MX.equals(ResourceRecord.getTypeOfIndex((UnsignedInt16) page1.get_usr_Type().getConvertedControlValue())))
+			if (ResourceRecord.TYPE_MX.equals(ResourceRecord.getTypeOfIndex((UnsignedInteger16) page1.get_usr_Type().getConvertedControlValue())))
 			{
 				return CreateResourceRecordWizardContainer.WIZARD_PANEL_TYPEMX;
 			}

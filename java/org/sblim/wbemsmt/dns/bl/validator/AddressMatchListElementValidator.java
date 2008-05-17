@@ -32,8 +32,7 @@ import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.wrapper.AddressMatchList;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ValidationException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 import org.sblim.wbemsmt.tools.validator.IpAddressFieldValidator;
 import org.sblim.wbemsmt.tools.validator.Validator;
@@ -59,7 +58,7 @@ public class AddressMatchListElementValidator  extends Validator {
 		return new LabeledBaseInputComponentIf[]{component};
 	}
 
-	public void validateElement(MessageList result) throws ValidationException {
+	public void validateElement(MessageList result) throws WbemsmtException {
 
 		headerAdded = false;
 		isPredefindAddressMatchList = false;
@@ -78,50 +77,46 @@ public class AddressMatchListElementValidator  extends Validator {
 			//validate only values without key
 			if (!value.startsWith("key "))
 			{
-				try {
-					AddressMatchList addressMatchList = dnsCimAdapter.getDnsService().getAddressMatchListList().getAddressMatchListByListName(value);
-					isPredefindAddressMatchList = addressMatchList != null;
-					if (isPredefindAddressMatchList)
-					{
-						return;
-					}
-					
-					//check if it's a global defined matchList
+				AddressMatchList addressMatchList = dnsCimAdapter.getDnsService().getAddressMatchListList().getAddressMatchListByListName(value);
+                isPredefindAddressMatchList = addressMatchList != null;
+                if (isPredefindAddressMatchList)
+                {
+                	return;
+                }
+                
+                //check if it's a global defined matchList
 
-					addressMatchList = dnsCimAdapter.getDnsService().getAddressMatchListList().getAddressMatchListByListName(value);
-					
-					if (addressMatchList == null)
-					{
-						int indexOfSlash = value.indexOf("/");
-						//only Ip-Prefixes can contain a slash
-						if (indexOfSlash > -1 )
-						{
-							String ipPrefix = value.substring(0,indexOfSlash);
-							
-							IpAddressFieldValidator.validateIpValues(result, ipPrefix, adapter, component, new StringTokenizer(ipPrefix,".",false).asArray(true, true));
-							
-							String ipNetMask = value.substring(indexOfSlash+1);
-							try {
-								int mask = Integer.parseInt(ipNetMask);
-								if (mask > 255)
-								{
-									addError(DnsErrCodes.MSG_NETMASK_LARGER_255,result, "AddressMatchListElementValidator.netMaskLargerThan255");
-								}
-							} catch (NumberFormatException e) {
-								addError(DnsErrCodes.MSG_NETMASK_NO_INT, result, "AddressMatchListElementValidator.netMaskNoInt");
-							}
-						}
-						else
-						{
-							if (!IpAddressFieldValidator.validateIpAddress(result, value, adapter, component))
-							{
-								addHeader(result);
-							}
-						}
-					}
-				} catch (ModelLoadException e) {
-					throw new ValidationException(e);
-				}
+                addressMatchList = dnsCimAdapter.getDnsService().getAddressMatchListList().getAddressMatchListByListName(value);
+                
+                if (addressMatchList == null)
+                {
+                	int indexOfSlash = value.indexOf("/");
+                	//only Ip-Prefixes can contain a slash
+                	if (indexOfSlash > -1 )
+                	{
+                		String ipPrefix = value.substring(0,indexOfSlash);
+                		
+                		IpAddressFieldValidator.validateIpValues(result, ipPrefix, adapter, component, new StringTokenizer(ipPrefix,".",false).asArray(true, true));
+                		
+                		String ipNetMask = value.substring(indexOfSlash+1);
+                		try {
+                			int mask = Integer.parseInt(ipNetMask);
+                			if (mask > 255)
+                			{
+                				addError(DnsErrCodes.MSG_NETMASK_LARGER_255,result, "AddressMatchListElementValidator.netMaskLargerThan255");
+                			}
+                		} catch (NumberFormatException e) {
+                			addError(DnsErrCodes.MSG_NETMASK_NO_INT, result, "AddressMatchListElementValidator.netMaskNoInt");
+                		}
+                	}
+                	else
+                	{
+                		if (!IpAddressFieldValidator.validateIpAddress(result, value, adapter, component))
+                		{
+                			addHeader(result);
+                		}
+                	}
+                }
 				
 			}
 			

@@ -19,7 +19,8 @@
   */
 package org.sblim.wbemsmt.dns.bl.wrapper.wizard;
 
-import org.sblim.wbem.cim.UnsignedInt8;
+import javax.cim.UnsignedInteger8;
+
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardPage1DataContainer;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardSummaryDataContainer;
@@ -29,17 +30,13 @@ import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwardersForZone;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsZone;
 import org.sblim.wbemsmt.dns.bl.wrapper.NameFactory;
 import org.sblim.wbemsmt.dns.bl.wrapper.list.ForwarderList;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ModelUpdateException;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
-import org.sblim.wbemsmt.exception.UpdateControlsException;
-import org.sblim.wbemsmt.exception.WbemSmtException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class ForwardZoneWizard extends DnsWizard {
 
 	protected DnsForwardZoneWizardPage1DataContainer page1;
 	private ForwarderList forwarderList;
-	private UnsignedInt8 forward;
+	private UnsignedInteger8 forward;
 
 	/**
 	 * @param adapter
@@ -49,7 +46,7 @@ public class ForwardZoneWizard extends DnsWizard {
 	}
 
 	
-	public ForwarderList getForwarderList() throws ModelLoadException {
+	public ForwarderList getForwarderList() throws WbemsmtException {
 		if (forwarderList == null || forwarderList.isReloadFromServer())
 		{
 			forwarderList = new ForwarderList();
@@ -58,55 +55,47 @@ public class ForwardZoneWizard extends DnsWizard {
 	}	
 
 	
-	public void create(DnsForwardZoneWizardSummaryDataContainer container)throws ObjectSaveException {
+	public void create(DnsForwardZoneWizardSummaryDataContainer container)throws WbemsmtException {
 		
 		try {
-			Linux_DnsForwardZone zone = new Linux_DnsForwardZone();
-			zone.set_Name((String) page1.get_usr_Name().getConvertedControlValue());
-			zone.set_Type(new UnsignedInt8((short)Linux_DnsZone.TYPE_FORWARD));
+			Linux_DnsForwardZone zone = new Linux_DnsForwardZone(adapter.getCimClient(),adapter.getNamespace());
+			zone.set_key_Name((String) page1.get_usr_Name().getConvertedControlValue());
+			zone.set_Type(Linux_DnsZone.PROPERTY_TYPE.VALUE_MAP_ENTRY_4_FOR_VALUE_ENTRY_Forward);
 			zone.set_Forward(forward);
-			zone.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
+			zone.set_key_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
 			zone = (Linux_DnsForwardZone) adapter.getFcoHelper().create(zone,adapter.getCimClient());
 			adapter.setMarkedForReload();
 			adapter.setPathOfTreeNode(zone.getCimObjectPath());
 
-			Linux_DnsForwarders forwardersFco = new Linux_DnsForwarders();
-			forwardersFco.set_Name(NameFactory.createName(Linux_DnsForwardersForZone.class, zone.get_Name()));
-			forwardersFco.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
+			Linux_DnsForwarders forwardersFco = new Linux_DnsForwarders(adapter.getCimClient(),adapter.getNamespace());
+			forwardersFco.set_key_Name(NameFactory.createName(Linux_DnsForwardersForZone.class, zone.get_key_Name()));
+			forwardersFco.set_key_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
 			//	save the forwarder
 			forwardersFco = saveForwardersIps(getForwarderList(), forwardersFco, zone);
 			
 			forward = null;
 			forwarderList.setReloadFromServer(true);
 			
-		} catch (WbemSmtException e) {
-			throw new ObjectSaveException(e);
+		} catch (Exception e) {
+			throw new WbemsmtException(WbemsmtException.ERR_SAVE_OBJECT,e);
 		}
 	}
 
 
 
 
-	public void updateControls(DnsForwardZoneWizardPage1DataContainer container) throws UpdateControlsException {
+	public void updateControls(DnsForwardZoneWizardPage1DataContainer container) throws WbemsmtException {
 		this.page1 = container;
 		super.setForwarderToContainer(container, forward);
-		try {
-			container.get_Forwarders().setValues(getForwarders(getForwarderList()));
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+		container.get_Forwarders().setValues(getForwarders(getForwarderList()));
 	}
 
-	public void updateControls(DnsForwardZoneWizardSummaryDataContainer container) throws UpdateControlsException {
+	public void updateControls(DnsForwardZoneWizardSummaryDataContainer container) throws WbemsmtException {
 		forward = getForwarder(page1); 
 
 		container.get_usr_Name().setControlValue(page1.get_usr_Name().getConvertedControlValue());
 		super.setForwarderToContainer(container, forward);
-		try {
-			container.get_Forwarders().setValues(getForwarders(getForwarderList()));
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+		container.get_Forwarders().setValues(getForwarders(getForwarderList()));
 		
 		container.get_Forward().getProperties().setReadOnly(true);
 		container.get_Forwarders().getProperties().setReadOnly(true);
@@ -115,7 +104,7 @@ public class ForwardZoneWizard extends DnsWizard {
 
 	}
 
-	public void updateModel(DnsForwardZoneWizardPage1DataContainer container) throws ModelUpdateException {
+	public void updateModel(DnsForwardZoneWizardPage1DataContainer container) throws WbemsmtException {
 		this.page1 = container;
 		this.forward = getForwarder(container);
 		
@@ -124,12 +113,8 @@ public class ForwardZoneWizard extends DnsWizard {
 			adapter.getUpdateTrigger() == container.get_usr_UseGlobalForwarders()
 		)
 		{
-			try {
-				forward = super.getForwarder(container);
-				updateForwarders(getForwarderList(),container,container.get_usr_UseGlobalForwarders());
-			} catch (ModelLoadException e) {
-				throw new ModelUpdateException(e);
-			}
+			forward = super.getForwarder(container);
+            updateForwarders(getForwarderList(),container,container.get_usr_UseGlobalForwarders());
 
 		}
 	}

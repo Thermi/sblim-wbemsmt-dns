@@ -25,8 +25,7 @@ import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.wrapper.DnsBusinessObject;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ValidationException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 import org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf;
 import org.sblim.wbemsmt.tools.validator.Validator;
@@ -51,16 +50,12 @@ public class ForwardUnknownValidator  extends Validator {
 		return new LabeledBaseInputComponentIf[]{component};
 	}
 
-	public void validateElement(MessageList result) throws ValidationException {
+	public void validateElement(MessageList result) throws WbemsmtException {
 
 		DnsBusinessObject dnsObject = null;
 		if (service)
 		{
-			try {
-				dnsObject = adapter2.getDnsService();
-			} catch (ModelLoadException e) {
-				throw new ValidationException(e);
-			}
+			dnsObject = adapter2.getDnsService();
 		}
 		else
 		{

@@ -151,6 +151,9 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.dns
 
 ###############################################################################
 %changelog
+* Sat May 17 2008 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.5-1
+    o 1965984 wbemsmt-dns: migrate to jsr48
+    
 * Tue Dec 11 2007 Sam Kannan <samkannan@us.ibm.com> 0.5.3-1
     o 1845500  wbemsmt-dns: Include proper group definition for RPM
     o 1836655  wbemsmt-dns: Version replacement during build

@@ -27,8 +27,7 @@ import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.wrapper.Zone;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ValidationException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 import org.sblim.wbemsmt.tools.validator.Validator;
 
@@ -50,23 +49,19 @@ public class ZoneNameValidator  extends Validator {
 		return new LabeledBaseInputComponentIf[]{component};
 	}
 
-	public void validateElement(MessageList result) throws ValidationException {
+	public void validateElement(MessageList result) throws WbemsmtException {
 
-		try {
-			List zones = dnsCimAdapter.getDnsService().getZoneList();
-			
-			for (Iterator iter = zones.iterator(); iter.hasNext();) {
-				Zone zone = (Zone) iter.next();
-				if (zone.getName().equals(component.getConvertedControlValue()))
-				{
-					String msg = adapter.getBundle().getString(DnsErrCodes.MSG_REVERSE_ZONE_EXISTS,"validator.zoneExists",new Object[]{component.getConvertedControlValue()});
-					result.addMessage(new Message(DnsErrCodes.MSG_REVERSE_ZONE_EXISTS, Message.ERROR, msg,component));
-					return;
-				}
-			}
-		} catch (ModelLoadException e) {
-			throw new ValidationException(e);
-		}
+		List zones = dnsCimAdapter.getDnsService().getZoneList();
+        
+        for (Iterator iter = zones.iterator(); iter.hasNext();) {
+        	Zone zone = (Zone) iter.next();
+        	if (zone.getName().equals(component.getConvertedControlValue()))
+        	{
+        		String msg = adapter.getBundle().getString(DnsErrCodes.MSG_REVERSE_ZONE_EXISTS,"validator.zoneExists",new Object[]{component.getConvertedControlValue()});
+        		result.addMessage(new Message(DnsErrCodes.MSG_REVERSE_ZONE_EXISTS, Message.ERROR, msg,component));
+        		return;
+        	}
+        }
 	}
 
 }

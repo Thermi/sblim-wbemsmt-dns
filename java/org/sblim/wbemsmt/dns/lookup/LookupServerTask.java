@@ -19,25 +19,26 @@
   */
 package org.sblim.wbemsmt.dns.lookup;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.sblim.wbem.cim.CIMException;
-import org.sblim.wbem.cim.CIMObjectPath;
-import org.sblim.wbem.client.CIMClient;
+import javax.wbem.client.WBEMClient;
+
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsService;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.lookup.Lookup;
 
 public class LookupServerTask implements Lookup {
 
 	static Logger logger = Logger.getLogger(LookupServerTask.class.getName()); 
 	
-	public boolean lookup(CIMClient cimClient) {
+	public boolean lookup(WBEMClient cimClient, String namespace) {
 		
 		try {
-			cimClient.getClass(new CIMObjectPath(Linux_DnsService.CIM_CLASS_NAME));
+			new Linux_DnsService(cimClient,namespace);
 			return true;
-		} catch (CIMException e) {
-			logger.severe("Cannot lookup dns task on server " + cimClient.getNameSpace().toString() + " Exception " + e.getDescription());
+		} catch (WbemsmtException e) {
+			logger.log(Level.SEVERE,"Cannot lookup dns task on server " + namespace,e);
 			return false;
 		}
 	}

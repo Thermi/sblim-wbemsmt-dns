@@ -21,7 +21,7 @@ package org.sblim.wbemsmt.cli.dns;
 
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsAddressMatchListWizardSummaryDataContainer;
-import org.sblim.wbemsmt.exception.ObjectNotFoundException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.tools.cli.CimCommandValues;
 import org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle;
 
@@ -32,13 +32,13 @@ public class CreateDnsAddressMatchListLoader extends DnsDataLoader {
 	 */
 	public void load(WbemSmtResourceBundle bundle,
 			AbstractBaseCimAdapter adapter, CimCommandValues commandValues)
-			throws ObjectNotFoundException {
+			throws WbemsmtException {
 				this.commandValues = commandValues;
 		// do nothing
 	}
 
 	
-	public void loadTracingObject(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, DnsAddressMatchListWizardSummaryDataContainer container) throws ObjectNotFoundException {
+	public void loadTracingObject(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, DnsAddressMatchListWizardSummaryDataContainer container) throws WbemsmtException {
 
 		String name = (String) container.get_Name().getConvertedControlValue();
 		selectAddressMatchList(bundle, adapter, name);

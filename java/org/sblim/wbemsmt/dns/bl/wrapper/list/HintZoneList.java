@@ -19,10 +19,12 @@
   */
 package org.sblim.wbemsmt.dns.bl.wrapper.list;
 
-import org.sblim.wbem.cim.CIMObjectPath;
+import javax.cim.CIMObjectPath;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.wrapper.ObjectList;
 import org.sblim.wbemsmt.dns.bl.wrapper.HintZone;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
 
@@ -47,14 +49,14 @@ public class HintZoneList extends ObjectList  {
 		return getHintZone(new CimObjectKey(element.getCimObjectPath()));
 	}
 
-	public void addHintZone(HintZone hz)
+	public void addHintZone(HintZone hz) throws WbemsmtException
 	{
 		put(hz);
 	}
 	
 	protected Object getKey(Object value) {
 		HintZone rr = (HintZone) value;
-		return rr.getHintZone().get_Name();
+		return rr.getHintZone().get_key_Name();
 	}
 	
 	protected Object getFco(Object value) {
@@ -62,7 +64,7 @@ public class HintZoneList extends ObjectList  {
 		return rr.getHintZone();
 	}
 
-	public HintZone getHintZone(int i) {
+	public HintZone getHintZone(int i) throws WbemsmtException {
 		return (HintZone) getList().get(i);
 	}
 }

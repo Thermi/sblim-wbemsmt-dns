@@ -20,16 +20,17 @@
 
 package org.sblim.wbemsmt.dns.bl.adapter;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.sblim.wbem.cim.CIMObjectPath;
-import org.sblim.wbem.client.CIMClient;
+import javax.cim.CIMObjectPath;
+import javax.wbem.client.WBEMClient;
+
 import org.sblim.wbemsmt.bl.adapter.*;
+import org.sblim.wbemsmt.bl.fco.FcoHelper;
 import org.sblim.wbemsmt.bl.tree.ICIMClassNode;
 import org.sblim.wbemsmt.bl.tree.ICIMInstanceNode;
 import org.sblim.wbemsmt.bl.tree.ITaskLauncherTreeNode;
@@ -37,20 +38,9 @@ import org.sblim.wbemsmt.dns.bl.fco.*;
 import org.sblim.wbemsmt.dns.bl.wrapper.*;
 import org.sblim.wbemsmt.dns.bl.wrapper.list.ResourceRecordList;
 import org.sblim.wbemsmt.dns.bl.wrapper.list.ReverseZoneList;
-import org.sblim.wbemsmt.dns.bl.wrapper.wizard.AddressMatchListWizard;
-import org.sblim.wbemsmt.dns.bl.wrapper.wizard.DnsWizard;
-import org.sblim.wbemsmt.dns.bl.wrapper.wizard.ForwardZoneWizard;
-import org.sblim.wbemsmt.dns.bl.wrapper.wizard.MasterZoneWizard;
-import org.sblim.wbemsmt.dns.bl.wrapper.wizard.MastersWizard;
-import org.sblim.wbemsmt.dns.bl.wrapper.wizard.ResourceRecordWizard;
-import org.sblim.wbemsmt.dns.bl.wrapper.wizard.ReverseZoneWizard;
-import org.sblim.wbemsmt.dns.bl.wrapper.wizard.SlaveZoneWizard;
-import org.sblim.wbemsmt.dns.bl.wrapper.wizard.StubZoneWizard;
+import org.sblim.wbemsmt.dns.bl.wrapper.wizard.*;
 import org.sblim.wbemsmt.dns.filter.DnsZoneNameFilter;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ObjectNotFoundException;
-import org.sblim.wbemsmt.exception.WbemSmtException;
-import org.sblim.wbemsmt.schema.cim29.tools.FcoHelper;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.tools.resources.ResourceBundleManager;
 
 public class DnsCimAdapter extends AbstractBaseCimAdapter {
@@ -100,7 +90,7 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 	private InitContainerDelegatee initContainerDelegatee;
 	private Zone selectedZone;
 	
-	public DnsCimAdapter(Locale locale) {
+	public DnsCimAdapter(Locale locale) throws WbemsmtException {
 		super();
 		
 		//using the same onlyReverseZoneFilter like the tree for getting the reverse zones
@@ -125,89 +115,89 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 		stubZoneWizard = new StubZoneWizard(this);
 		forwardZoneWizard = new ForwardZoneWizard(this);
 		reverseZoneWizard = new ReverseZoneWizard(this);
-		addressMatchListWizard = new AddressMatchListWizard(this);
 		resourceRecordWizard = new ResourceRecordWizard(this);
 		
 	}
 
-	public void reLoad(CIMClient cimClient) throws ModelLoadException
+	public void reLoad(WBEMClient cimClient) throws WbemsmtException
 	{
 		loaded = false;
 		load(cimClient);
 	}
 
-	public void load(CIMClient cimClient) throws ModelLoadException {
+	public void load(WBEMClient cimClient) throws WbemsmtException {
 		
-		if (loaded)
-			return;
+            if (loaded)
+            	return;
 
-		this.cimClient = cimClient;
-		
-		initDnsService();
-		
-		ArrayList list = Linux_DnsMasterZoneHelper.enumerateInstances(cimClient,true);
-		
-		ReverseZoneList reverseZoneList = new ReverseZoneList();
-		
-		for (Iterator iter = list.iterator(); iter.hasNext();) {
-			Linux_DnsMasterZone zone = (Linux_DnsMasterZone) iter.next();
-			MasterZone wrapper = new MasterZone(zone,this);
+            setCimClient(cimClient);
+            
+            addressMatchListWizard = new AddressMatchListWizard(this);
+            
+            initDnsService();
+            
+            List list = Linux_DnsMasterZoneHelper.enumerateInstances(cimClient,getNamespace(),true);
+            
+            ReverseZoneList reverseZoneList = new ReverseZoneList();
+            
+            for (Iterator iter = list.iterator(); iter.hasNext();) {
+            	Linux_DnsMasterZone zone = (Linux_DnsMasterZone) iter.next();
+            	MasterZone wrapper = new MasterZone(zone,this);
 
-			
-			if (onlyReverseZoneFilter.accept(zone.getCimInstance(), this.cimClient)) {
-				reverseZoneList.addReverseZone(new ReverseZone(new Linux_DnsReverseZoneWrapper(zone),wrapper,this));
-			}
-			else {
-				dnsService.getMasterZoneList().addMasterZone(wrapper);
-			}
-			ArrayList associatedRecords = zone.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(cimClient,false,false,null);
-			addResourceRecords(wrapper, associatedRecords);
-		}
-		
-		list = Linux_DnsSlaveZoneHelper.enumerateInstances(cimClient,true);
-		for (Iterator iter = list.iterator(); iter.hasNext();) {
-			Linux_DnsSlaveZone zone = (Linux_DnsSlaveZone) iter.next();
-			SlaveZone wrapper = new SlaveZone(zone,this);
-			dnsService.getSlaveZoneList().addSlaveZone(wrapper);
-			ArrayList associatedRecords = zone.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(cimClient,false,false,null);
-			addResourceRecords(wrapper, associatedRecords);
-		}
+            	
+            	if (onlyReverseZoneFilter.accept(zone.getCimInstance(), this.cimClient)) {
+            		reverseZoneList.addReverseZone(new ReverseZone(new Linux_DnsReverseZoneWrapper(zone),wrapper,this));
+            	}
+            	else {
+            		dnsService.getMasterZoneList().addMasterZone(wrapper);
+            	}
+            	List associatedRecords = zone.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(cimClient);
+            	addResourceRecords(wrapper, associatedRecords);
+            }
+            
+            list = Linux_DnsSlaveZoneHelper.enumerateInstances(cimClient,getNamespace(), true);
+            for (Iterator iter = list.iterator(); iter.hasNext();) {
+            	Linux_DnsSlaveZone zone = (Linux_DnsSlaveZone) iter.next();
+            	SlaveZone wrapper = new SlaveZone(zone,this);
+            	dnsService.getSlaveZoneList().addSlaveZone(wrapper);
+            	List associatedRecords = zone.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(cimClient);
+            	addResourceRecords(wrapper, associatedRecords);
+            }
 
-		list = Linux_DnsStubZoneHelper.enumerateInstances(cimClient,true);
-		for (Iterator iter = list.iterator(); iter.hasNext();) {
-			Linux_DnsStubZone zone = (Linux_DnsStubZone) iter.next();
-			StubZone wrapper = new StubZone(zone,this);
-			dnsService.getStubZoneList().addStubZone(wrapper);
-			ArrayList associatedRecords = zone.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(cimClient,false,false,null);
-			addResourceRecords(wrapper, associatedRecords);
-		}
+            list = Linux_DnsStubZoneHelper.enumerateInstances(cimClient,getNamespace(),true);
+            for (Iterator iter = list.iterator(); iter.hasNext();) {
+            	Linux_DnsStubZone zone = (Linux_DnsStubZone) iter.next();
+            	StubZone wrapper = new StubZone(zone,this);
+            	dnsService.getStubZoneList().addStubZone(wrapper);
+            	List associatedRecords = zone.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(cimClient);
+            	addResourceRecords(wrapper, associatedRecords);
+            }
 
-		list = Linux_DnsHintZoneHelper.enumerateInstances(cimClient,true);
-		for (Iterator iter = list.iterator(); iter.hasNext();) {
-			Linux_DnsHintZone zone = (Linux_DnsHintZone) iter.next();
-			HintZone wrapper = new HintZone(zone,this);
-			dnsService.getHintZoneList().addHintZone(wrapper);
-			ArrayList associatedRecords = zone.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(cimClient,false,false,null);
-			addResourceRecords(wrapper, associatedRecords);
-		}
-		list = Linux_DnsForwardZoneHelper.enumerateInstances(cimClient,true);
-		for (Iterator iter = list.iterator(); iter.hasNext();) {
-			Linux_DnsForwardZone zone = (Linux_DnsForwardZone) iter.next();
-			ForwardZone wrapper = new ForwardZone(zone,this);
-			dnsService.getForwardZoneList().addForwardZone(wrapper);
-			//a forwardZone have no resourcerecords - set a empty list
-			wrapper.setResourceRecords(new ResourceRecordList());
-		}
+            list = Linux_DnsHintZoneHelper.enumerateInstances(cimClient,getNamespace(),true);
+            for (Iterator iter = list.iterator(); iter.hasNext();) {
+            	Linux_DnsHintZone zone = (Linux_DnsHintZone) iter.next();
+            	HintZone wrapper = new HintZone(zone,this);
+            	dnsService.getHintZoneList().addHintZone(wrapper);
+            	List associatedRecords = zone.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(cimClient);
+            	addResourceRecords(wrapper, associatedRecords);
+            }
+            list = Linux_DnsForwardZoneHelper.enumerateInstances(cimClient,getNamespace(),true);
+            for (Iterator iter = list.iterator(); iter.hasNext();) {
+            	Linux_DnsForwardZone zone = (Linux_DnsForwardZone) iter.next();
+            	ForwardZone wrapper = new ForwardZone(zone,this);
+            	dnsService.getForwardZoneList().addForwardZone(wrapper);
+            	//a forwardZone have no resourcerecords - set a empty list
+            	wrapper.setResourceRecords(new ResourceRecordList());
+            }
 
-		initAddressMatchLists();
-		initMastersForService();
-		
-		loaded = true;
-		
+            initAddressMatchLists();
+            initMastersForService();
+            
+            loaded = true;
 	}
 
 
-	public void loadInitial(CIMClient cimClient) throws ModelLoadException {
+	public void loadInitial(WBEMClient cimClient) throws WbemsmtException {
 		this.cimClient = cimClient;
 		initDnsService();
 		initAddressMatchLists();
@@ -215,180 +205,151 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 	}
 	
 	
-	public void reLoad(ITaskLauncherTreeNode rootNode) throws ModelLoadException {
+	public void reLoad(ITaskLauncherTreeNode rootNode) throws WbemsmtException {
 		loaded = false;
 		load(rootNode);
 	}
 
-	public void load(ITaskLauncherTreeNode rootNode) throws ModelLoadException {
-		try {
-			
-			if (loaded == true)
-				return;
-			this.cimClient = rootNode.getCimClient();
-			
-			this.rootNode = rootNode;
-			
-			initDnsService();
+	public void load(ITaskLauncherTreeNode rootNode) throws WbemsmtException {
+		if (loaded == true)
+        	return;
+         
+        setCimClient(rootNode.getCimClient());
+        
+        addressMatchListWizard = new AddressMatchListWizard(this);
 
-			List listWithNodes = rootNode.findInstanceNodes(Linux_DnsMasterZone.CIM_CLASS_NAME);
-			for (Iterator iterServiceNodes = listWithNodes.iterator(); iterServiceNodes.hasNext();) {
-				ICIMInstanceNode node = (ICIMInstanceNode) iterServiceNodes.next();
+        this.rootNode = rootNode;
+        
+        initDnsService();
 
-				Linux_DnsMasterZone fco = new Linux_DnsMasterZone(node.getCimInstance().getObjectPath(),node.getCimInstance());
-				MasterZone wrapper = new MasterZone(fco,this);
-				
-				if (onlyReverseZoneFilter.accept(fco.getCimInstance(), this.cimClient)) {
-					dnsService.getReverseZoneList().addReverseZone(new ReverseZone(new Linux_DnsReverseZoneWrapper(fco),wrapper,this));
-				}
-				else {
-					dnsService.getMasterZoneList().addMasterZone(wrapper);
-				}
+        List listWithNodes = rootNode.findInstanceNodes(Linux_DnsMasterZone.CIM_CLASS_NAME);
+        for (Iterator iterServiceNodes = listWithNodes.iterator(); iterServiceNodes.hasNext();) {
+        	ICIMInstanceNode node = (ICIMInstanceNode) iterServiceNodes.next();
+
+        	Linux_DnsMasterZone fco = new Linux_DnsMasterZone(node.getCimInstance());
+        	MasterZone wrapper = new MasterZone(fco,this);
+        	
+        	if (onlyReverseZoneFilter.accept(fco.getCimInstance(), this.cimClient)) {
+        		dnsService.getReverseZoneList().addReverseZone(new ReverseZone(new Linux_DnsReverseZoneWrapper(fco),wrapper,this));
+        	}
+        	else {
+        		dnsService.getMasterZoneList().addMasterZone(wrapper);
+        	}
 //				addResourceRecords(wrapper);
-				
-			}
+        	
+        }
 
-			listWithNodes = rootNode.findInstanceNodes(Linux_DnsSlaveZone.CIM_CLASS_NAME);
-			for (Iterator iterServiceNodes = listWithNodes.iterator(); iterServiceNodes.hasNext();) {
-				ICIMInstanceNode node = (ICIMInstanceNode) iterServiceNodes.next();
+        listWithNodes = rootNode.findInstanceNodes(Linux_DnsSlaveZone.CIM_CLASS_NAME);
+        for (Iterator iterServiceNodes = listWithNodes.iterator(); iterServiceNodes.hasNext();) {
+        	ICIMInstanceNode node = (ICIMInstanceNode) iterServiceNodes.next();
 
-				Linux_DnsSlaveZone fco = new Linux_DnsSlaveZone(node.getCimInstance().getObjectPath(),node.getCimInstance());
-				SlaveZone wrapper = new SlaveZone(fco,this);
-				dnsService.getSlaveZoneList().addSlaveZone(wrapper);
+        	Linux_DnsSlaveZone fco = new Linux_DnsSlaveZone(node.getCimInstance());
+        	SlaveZone wrapper = new SlaveZone(fco,this);
+        	dnsService.getSlaveZoneList().addSlaveZone(wrapper);
 //				addResourceRecords(wrapper);
-				
-			}
-		
-			listWithNodes = rootNode.findInstanceNodes(Linux_DnsStubZone.CIM_CLASS_NAME);
-			for (Iterator iterServiceNodes = listWithNodes.iterator(); iterServiceNodes.hasNext();) {
-				ICIMInstanceNode node = (ICIMInstanceNode) iterServiceNodes.next();
+        	
+        }
 
-				Linux_DnsStubZone fco = new Linux_DnsStubZone(node.getCimInstance().getObjectPath(),node.getCimInstance());
-				StubZone wrapper = new StubZone(fco,this);
-				dnsService.getStubZoneList().addStubZone(wrapper);
+        listWithNodes = rootNode.findInstanceNodes(Linux_DnsStubZone.CIM_CLASS_NAME);
+        for (Iterator iterServiceNodes = listWithNodes.iterator(); iterServiceNodes.hasNext();) {
+        	ICIMInstanceNode node = (ICIMInstanceNode) iterServiceNodes.next();
+
+        	Linux_DnsStubZone fco = new Linux_DnsStubZone(node.getCimInstance());
+        	StubZone wrapper = new StubZone(fco,this);
+        	dnsService.getStubZoneList().addStubZone(wrapper);
 //				addResourceRecords(wrapper);
-				
-			}
+        	
+        }
 
-			listWithNodes = rootNode.findInstanceNodes(Linux_DnsForwardZone.CIM_CLASS_NAME);
-			for (Iterator iterServiceNodes = listWithNodes.iterator(); iterServiceNodes.hasNext();) {
-				ICIMInstanceNode node = (ICIMInstanceNode) iterServiceNodes.next();
+        listWithNodes = rootNode.findInstanceNodes(Linux_DnsForwardZone.CIM_CLASS_NAME);
+        for (Iterator iterServiceNodes = listWithNodes.iterator(); iterServiceNodes.hasNext();) {
+        	ICIMInstanceNode node = (ICIMInstanceNode) iterServiceNodes.next();
 
-				Linux_DnsForwardZone fco = new Linux_DnsForwardZone(node.getCimInstance().getObjectPath(),node.getCimInstance());
-				ForwardZone wrapper = new ForwardZone(fco,this);
-				dnsService.getForwardZoneList().addForwardZone(wrapper);
-				//a forwardZone have no resourcerecords - set a empty list
-				wrapper.setResourceRecords(new ResourceRecordList());
-			}
+        	Linux_DnsForwardZone fco = new Linux_DnsForwardZone(node.getCimInstance());
+        	ForwardZone wrapper = new ForwardZone(fco,this);
+        	dnsService.getForwardZoneList().addForwardZone(wrapper);
+        	//a forwardZone have no resourcerecords - set a empty list
+        	wrapper.setResourceRecords(new ResourceRecordList());
+        }
 
-			listWithNodes = rootNode.findInstanceNodes(Linux_DnsHintZone.CIM_CLASS_NAME);
-			for (Iterator iterServiceNodes = listWithNodes.iterator(); iterServiceNodes.hasNext();) {
-				ICIMInstanceNode node = (ICIMInstanceNode) iterServiceNodes.next();
+        listWithNodes = rootNode.findInstanceNodes(Linux_DnsHintZone.CIM_CLASS_NAME);
+        for (Iterator iterServiceNodes = listWithNodes.iterator(); iterServiceNodes.hasNext();) {
+        	ICIMInstanceNode node = (ICIMInstanceNode) iterServiceNodes.next();
 
-				Linux_DnsHintZone fco = new Linux_DnsHintZone(node.getCimInstance().getObjectPath(),node.getCimInstance());
-				HintZone wrapper = new HintZone(fco,this);
-				dnsService.getHintZoneList().addHintZone(wrapper);
+        	Linux_DnsHintZone fco = new Linux_DnsHintZone(node.getCimInstance());
+        	HintZone wrapper = new HintZone(fco,this);
+        	dnsService.getHintZoneList().addHintZone(wrapper);
 //				addResourceRecords(wrapper);
-			}
+        }
 
-			listWithNodes = rootNode.findInstanceNodes(Linux_DnsAddressMatchList.CIM_CLASS_NAME);
-			for (Iterator iterServiceNodes = listWithNodes.iterator(); iterServiceNodes.hasNext();) {
-				ICIMInstanceNode node = (ICIMInstanceNode) iterServiceNodes.next();
+        listWithNodes = rootNode.findInstanceNodes(Linux_DnsAddressMatchList.CIM_CLASS_NAME);
+        for (Iterator iterServiceNodes = listWithNodes.iterator(); iterServiceNodes.hasNext();) {
+        	ICIMInstanceNode node = (ICIMInstanceNode) iterServiceNodes.next();
 
-				Linux_DnsAddressMatchList fco = new Linux_DnsAddressMatchList(node.getCimInstance().getObjectPath(),node.getCimInstance());
-				AddressMatchList wrapper = new AddressMatchList(fco,this);
-				dnsService.getAddressMatchListList().addAddressMatchList(wrapper);
-			}
+        	Linux_DnsAddressMatchList fco = new Linux_DnsAddressMatchList(node.getCimInstance());
+        	AddressMatchList wrapper = new AddressMatchList(fco,this);
+        	dnsService.getAddressMatchListList().addAddressMatchList(wrapper);
+        }
 
-			dnsService.getAddressMatchListList().addAddressMatchList(new AddressMatchList("none",this));
-			dnsService.getAddressMatchListList().addAddressMatchList(new AddressMatchList("any",this));
-			dnsService.getAddressMatchListList().addAddressMatchList(new AddressMatchList("localhost",this));
-			dnsService.getAddressMatchListList().addAddressMatchList(new AddressMatchList("localnets",this));
+        dnsService.getAddressMatchListList().addAddressMatchList(new AddressMatchList("none",this));
+        dnsService.getAddressMatchListList().addAddressMatchList(new AddressMatchList("any",this));
+        dnsService.getAddressMatchListList().addAddressMatchList(new AddressMatchList("localhost",this));
+        dnsService.getAddressMatchListList().addAddressMatchList(new AddressMatchList("localnets",this));
 
-			listWithNodes = rootNode.findInstanceNodes(Linux_DnsMasters.CIM_CLASS_NAME);
-			for (Iterator iterServiceNodes = listWithNodes.iterator(); iterServiceNodes.hasNext();) {
-				ICIMInstanceNode node = (ICIMInstanceNode) iterServiceNodes.next();
+        listWithNodes = rootNode.findInstanceNodes(Linux_DnsMasters.CIM_CLASS_NAME);
+        for (Iterator iterServiceNodes = listWithNodes.iterator(); iterServiceNodes.hasNext();) {
+        	ICIMInstanceNode node = (ICIMInstanceNode) iterServiceNodes.next();
 
-				Linux_DnsMasters fco = new Linux_DnsMasters(node.getCimInstance().getObjectPath(),node.getCimInstance());
-				Masters wrapper = new Masters(fco,this);
-				dnsService.getMastersList().addMasters(wrapper);
-			}
-			
-			loaded = true;
-			
-			
-
-		} catch (WbemSmtException e) {
-			throw new ModelLoadException(e);
-		}
+        	Linux_DnsMasters fco = new Linux_DnsMasters(node.getCimInstance());
+        	Masters wrapper = new Masters(fco,this);
+        	dnsService.getMastersList().addMasters(wrapper);
+        }
+        
+        loaded = true;
 	}
 
-	private void initDnsService() throws ModelLoadException {
-		ArrayList serviceList = Linux_DnsServiceHelper.enumerateInstances(cimClient,true);
-		if (serviceList.size() != 1)
-		{
-			throw new ModelLoadException("Expected one Linux_DnsService and Linux_DnsServiceHelper.enumerateInstances returns " + serviceList.size());
-		}
-		else
-		{
-			dnsService = new Service((Linux_DnsService) serviceList.get(0),this);
-		}
+	private void initDnsService() throws WbemsmtException {
+		List serviceList = Linux_DnsServiceHelper.enumerateInstances(cimClient,getNamespace(), true);
+        if (serviceList.size() != 1)
+        {
+        	throw new WbemsmtException(WbemsmtException.ERR_LOADING_MODEL,"Expected one Linux_DnsService and Linux_DnsServiceHelper.enumerateInstances returns " + serviceList.size());
+        }
+        else
+        {
+        	dnsService = new Service((Linux_DnsService) serviceList.get(0),this);
+        }
 	}
 
-	private void initAddressMatchLists() throws ModelLoadException {
+	private void initAddressMatchLists() throws WbemsmtException {
 		
 		
-		ArrayList list = getDnsService().getFco().getAssociated_Linux_DnsAddressMatchList_Linux_DnsAddressMatchListsForServices(cimClient, false, false, null);
-		//ArrayList list = Linux_DnsAddressMatchListsForServiceHelper.enumerateInstances(cimClient,true);
+		List list = getDnsService().getFco().getAssociated_Linux_DnsAddressMatchList_Linux_DnsAddressMatchListsForServices(cimClient);
 
-		for (Iterator iter = list.iterator(); iter.hasNext();) {
-			Linux_DnsAddressMatchList addressMatchList = (Linux_DnsAddressMatchList) iter.next();
-			AddressMatchList wrapper = new AddressMatchList(addressMatchList,this);
-			dnsService.getAddressMatchListList().addAddressMatchList(wrapper);
-		}
-		
-//		AddressMatchList wrapper = new AddressMatchList(
-//				(Linux_DnsAddressMatchList) FcoHelper.reload(Linux_DnsAddressMatchListHelper.class,assoc.get_Linux_DnsAddressMatchList(),cimClient),
-//				this);
-
-//		for (Iterator iter = list.iterator(); iter.hasNext();) {
-//			Linux_DnsAddressMatchListsForService assoc = (Linux_DnsAddressMatchListsForService) iter.next();
-//			//load without reloading the object ???
-//			AddressMatchList wrapper = new AddressMatchList(
-//					(Linux_DnsAddressMatchList) FcoHelper.reload(Linux_DnsAddressMatchListHelper.class,assoc.get_Linux_DnsAddressMatchList(),cimClient),
-//					this);
-//			dnsService.getAddressMatchListList().addAddressMatchList(wrapper);
-//		}
-		
-		dnsService.getAddressMatchListList().addAddressMatchList(new AddressMatchList("none",this));
-		dnsService.getAddressMatchListList().addAddressMatchList(new AddressMatchList("any",this));
-		dnsService.getAddressMatchListList().addAddressMatchList(new AddressMatchList("localhost",this));
-		dnsService.getAddressMatchListList().addAddressMatchList(new AddressMatchList("localnets",this));
+        for (Iterator iter = list.iterator(); iter.hasNext();) {
+        	Linux_DnsAddressMatchList addressMatchList = (Linux_DnsAddressMatchList) iter.next();
+        	AddressMatchList wrapper = new AddressMatchList(addressMatchList,this);
+        	dnsService.getAddressMatchListList().addAddressMatchList(wrapper);
+        }
+        
+        dnsService.getAddressMatchListList().addAddressMatchList(new AddressMatchList("none",this));
+        dnsService.getAddressMatchListList().addAddressMatchList(new AddressMatchList("any",this));
+        dnsService.getAddressMatchListList().addAddressMatchList(new AddressMatchList("localhost",this));
+        dnsService.getAddressMatchListList().addAddressMatchList(new AddressMatchList("localnets",this));
 		
 	}
 
-	private void initMastersForService() throws ModelLoadException {
+	private void initMastersForService() throws WbemsmtException {
 		
-		ArrayList list = getDnsService().getFco().getAssociated_Linux_DnsMasters_Linux_DnsMastersForServices(cimClient, false, false, null);
-		for (Iterator iter = list.iterator(); iter.hasNext();) {
-			Linux_DnsMasters masters = (Linux_DnsMasters) iter.next();
-			Masters wrapper = new Masters(masters,this);
-			dnsService.getMastersList().addMasters(wrapper);
-		}
-		
-//		ArrayList list = Linux_DnsMastersForServiceHelper.enumerateInstances(cimClient,true);
-//		
-//		for (Iterator iter = list.iterator(); iter.hasNext();) {
-//			Linux_DnsMastersForService assoc = (Linux_DnsMastersForService) iter.next();
-//			//load without reloading the object ???
-//			Masters wrapper = new Masters(
-//					(Linux_DnsMasters) FcoHelper.reload(Linux_DnsMastersHelper.class,assoc.get_Linux_DnsMasters(),cimClient),
-//					this);
-//			dnsService.getMastersList().addMasters(wrapper);
-//		}
+		List list = getDnsService().getFco().getAssociated_Linux_DnsMasters_Linux_DnsMastersForServices(cimClient);
+        for (Iterator iter = list.iterator(); iter.hasNext();) {
+        	Linux_DnsMasters masters = (Linux_DnsMasters) iter.next();
+        	Masters wrapper = new Masters(masters,this);
+        	dnsService.getMastersList().addMasters(wrapper);
+        }
+
 	}
 
-	public void addResourceRecords(Zone wrapper, ArrayList associatedRecords) {
+	public void addResourceRecords(Zone wrapper, List associatedRecords) throws WbemsmtException {
 		ResourceRecordList records = new ResourceRecordList();
 		wrapper.setResourceRecords(records);
 		for (Iterator iter2 = associatedRecords.iterator(); iter2.hasNext();) {
@@ -397,7 +358,7 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 		}
 	}
 	
-	public CimObjectKey getKeyByTreeNode(ITaskLauncherTreeNode treeNode) throws ObjectNotFoundException {
+	public CimObjectKey getKeyByTreeNode(ITaskLauncherTreeNode treeNode) throws WbemsmtException {
 
 		if (treeNode instanceof ICIMInstanceNode) {
 			ICIMInstanceNode node = (ICIMInstanceNode) treeNode;
@@ -463,7 +424,7 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 	{
 		//The select-Method is called even if this is a reverseZone because there is no real CIMObject for a reverse Zone 
 		//so check if we have a reverse zone and delegate the call to the right methog
-		String zoneName = (String) key.getObjectPath().getKey(Linux_DnsZone.CIM_PROPERTY_NAME).getValue().getValue();
+		String zoneName = (String) key.getObjectPath().getKey(Linux_DnsZone.PROPERTY_NAME.NAME).getValue();
 		if (onlyReverseZoneFilter.accept(zoneName))
 		{
 			return select_1_Linux_DnsReverseZoneWrapper(key);
@@ -730,18 +691,18 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 
 	public boolean select_2_Linux_DnsResourceRecord(CimObjectKey key)
 	{
-		Zone zone = getSelectedZone();
-		ResourceRecordList resourceRecords = zone.getResourceRecords();
-
-		ResourceRecord rr = resourceRecords.getResourceRecord(key);
-		if (rr != null)
-		{
-			selectionHierarchy.add(rr);
-			return true;
-		}
-		
-		//if object was not found try to reload
-		try {
+	    try {
+    		Zone zone = getSelectedZone();
+    		ResourceRecordList resourceRecords = zone.getResourceRecords();
+    
+    		ResourceRecord rr = resourceRecords.getResourceRecord(key);
+    		if (rr != null)
+    		{
+    			selectionHierarchy.add(rr);
+    			return true;
+    		}
+    		
+    		//if object was not found try to reload
 			Linux_DnsResourceRecord fco = Linux_DnsResourceRecordHelper.getInstance(cimClient,key.getObjectPath());
 			if (fco != null)
 			{
@@ -932,7 +893,7 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 		return selectionHierarchy;
 	}
 
-	public Service getDnsService() throws ModelLoadException {
+	public Service getDnsService() throws WbemsmtException {
 		if (dnsService == null)
 		{
 			initDnsService();
@@ -940,7 +901,7 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 		return dnsService;
 	}
 
-	public Service getDnsService(String serviceName) throws ModelLoadException {
+	public Service getDnsService(String serviceName) throws WbemsmtException {
 		// use serviceName parameter if more than one service is needed
 		return getDnsService();
 	}
@@ -953,51 +914,51 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 		this.activeWizard = activeWizard;
 	}
 
-	public Zone getZone(String serviceName, String zoneName) throws ModelLoadException {
-		//first select service if more than one service is supported
-		ArrayList list = Linux_DnsZoneHelper.enumerateInstances(getCimClient(),true);
-		for (Iterator iter = list.iterator(); iter.hasNext();) 
-		{
-			Linux_DnsZone zoneFco =  (Linux_DnsZone) iter.next();
-			CIMObjectPath path = zoneFco.getCimObjectPath();
-			if (zoneFco.get_Name().equals(zoneName))
-			{
-				int zoneType = zoneFco.get_Type().intValue();
-				if (zoneType == Linux_DnsZone.TYPE_MASTER)
-				{
-					Linux_DnsMasterZone fco = Linux_DnsMasterZoneHelper.getInstance(getCimClient(),path);
-					MasterZone zone = new MasterZone(fco,this);
-					getDnsService().getMasterZoneList().addMasterZone(zone);
-					return zone;
-				}
-				else if (zoneType == Linux_DnsZone.TYPE_SLAVE || zoneType == Linux_DnsZone.TYPE_STUB)
-				{
-					Linux_DnsSlaveZone fco = Linux_DnsSlaveZoneHelper.getInstance(getCimClient(),path);
-					SlaveZone zone = new SlaveZone(fco,this);
-					getDnsService().getSlaveZoneList().addSlaveZone(zone);
-					return zone;
-				}
-				else if (zoneType == Linux_DnsZone.TYPE_HINT)
-				{
-					Linux_DnsHintZone fco = Linux_DnsHintZoneHelper.getInstance(getCimClient(),path);
-					HintZone zone = new HintZone(fco,this);
-					getDnsService().getHintZoneList().addHintZone(zone);
-					return zone;
-				}
-				else if (zoneType == Linux_DnsZone.TYPE_FORWARD)
-				{
-					Linux_DnsForwardZone fco = Linux_DnsForwardZoneHelper.getInstance(getCimClient(),path);
-					ForwardZone zone = new ForwardZone(fco,this);
-					getDnsService().getForwardZoneList().addForwardZone(zone);
-					return zone;
-				}
-				else
-				{
-					throw new ModelLoadException("Cannot load zone " + zoneName + " with zone of type " + zoneType);
-				}
-			}
-		}
-		throw new ModelLoadException(bundle.getString("zone.not.found",new Object[]{zoneName}));
+	public Zone getZone(String serviceName, String zoneName) throws WbemsmtException {
+		List list = Linux_DnsZoneHelper.enumerateInstances(getCimClient(),getNamespace(), true);
+        for (Iterator iter = list.iterator(); iter.hasNext();) 
+        {
+        	Linux_DnsZone zoneFco =  (Linux_DnsZone) iter.next();
+        	CIMObjectPath path = zoneFco.getCimObjectPath();
+        	if (zoneFco.get_key_Name().equals(zoneName))
+        	{
+        		int zoneType = zoneFco.get_Type().intValue();
+        		if (zoneType == Linux_DnsZone.PROPERTY_TYPE.VALUE_MAP_ENTRY_1_FOR_VALUE_ENTRY_Master.intValue())
+        		{
+        			Linux_DnsMasterZone fco = Linux_DnsMasterZoneHelper.getInstance(getCimClient(),path);
+        			MasterZone zone = new MasterZone(fco,this);
+        			getDnsService().getMasterZoneList().addMasterZone(zone);
+        			return zone;
+        		}
+        		else if (zoneType == Linux_DnsZone.PROPERTY_TYPE.VALUE_MAP_ENTRY_2_FOR_VALUE_ENTRY_Slave.intValue() 
+        		        || zoneType == Linux_DnsZone.PROPERTY_TYPE.VALUE_MAP_ENTRY_3_FOR_VALUE_ENTRY_Stub.intValue())
+        		{
+        			Linux_DnsSlaveZone fco = Linux_DnsSlaveZoneHelper.getInstance(getCimClient(),path);
+        			SlaveZone zone = new SlaveZone(fco,this);
+        			getDnsService().getSlaveZoneList().addSlaveZone(zone);
+        			return zone;
+        		}
+        		else if (zoneType == Linux_DnsZone.PROPERTY_TYPE.VALUE_MAP_ENTRY_5_FOR_VALUE_ENTRY_Hint.intValue())
+        		{
+        			Linux_DnsHintZone fco = Linux_DnsHintZoneHelper.getInstance(getCimClient(),path);
+        			HintZone zone = new HintZone(fco,this);
+        			getDnsService().getHintZoneList().addHintZone(zone);
+        			return zone;
+        		}
+        		else if (zoneType == Linux_DnsZone.PROPERTY_TYPE.VALUE_MAP_ENTRY_4_FOR_VALUE_ENTRY_Forward.intValue())
+        		{
+        			Linux_DnsForwardZone fco = Linux_DnsForwardZoneHelper.getInstance(getCimClient(),path);
+        			ForwardZone zone = new ForwardZone(fco,this);
+        			getDnsService().getForwardZoneList().addForwardZone(zone);
+        			return zone;
+        		}
+        		else
+        		{
+        			throw new WbemsmtException(WbemsmtException.ERR_LOADING_MODEL,"Cannot load zone " + zoneName + " with zone of type " + zoneType);
+        		}
+        	}
+        }
+		throw new WbemsmtException(WbemsmtException.ERR_LOADING_MODEL,bundle.getString("zone.not.found",new Object[]{zoneName}));
 	}
 	
 }

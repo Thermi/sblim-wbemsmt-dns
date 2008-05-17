@@ -27,13 +27,8 @@ import org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector;
 import org.sblim.wbemsmt.bl.tree.ITaskLauncherTreeNode;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwardZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsHintZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasterZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsSlaveZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsStubZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsZone;
-import org.sblim.wbemsmt.exception.ObjectNotFoundException;
+import org.sblim.wbemsmt.dns.bl.fco.*;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.tasklauncher.CIMInstanceNode;
 
 /**
@@ -50,7 +45,7 @@ public class CreateResourceRecordListenerSelector implements
 	 */
 	public void select(ITaskLauncherTreeNode treeNode,
 			AbstractBaseCimAdapter adapter, String editPanelId)
-			throws ObjectNotFoundException {
+			throws WbemsmtException {
 		
 		String className = treeNode instanceof CIMInstanceNode ? ((CIMInstanceNode)treeNode).getCimInstance().getClassName() : null;
 		boolean isZone = Linux_DnsMasterZone.CIM_CLASS_NAME.equals(className)

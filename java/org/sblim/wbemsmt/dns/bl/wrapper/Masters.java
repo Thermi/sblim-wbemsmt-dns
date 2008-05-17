@@ -23,27 +23,18 @@ package org.sblim.wbemsmt.dns.bl.wrapper;
 import java.util.Iterator;
 import java.util.List;
 
-import org.sblim.wbem.cim.CIMDataType;
-import org.sblim.wbem.client.CIMClient;
+import javax.wbem.client.WBEMClient;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsMastersForServiceDataContainer;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasters;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMastersForService;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMastersForServiceHelper;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMastersHelper;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsService;
 import org.sblim.wbemsmt.dns.bl.wrapper.masters.MastersHandler;
 import org.sblim.wbemsmt.dns.naming.MastersNaming;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ModelUpdateException;
-import org.sblim.wbemsmt.exception.ObjectCreationException;
-import org.sblim.wbemsmt.exception.ObjectDeletionException;
-import org.sblim.wbemsmt.exception.ObjectRevertException;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
-import org.sblim.wbemsmt.exception.UpdateControlsException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class Masters extends DnsBusinessObject {
 
@@ -61,7 +52,7 @@ public class Masters extends DnsBusinessObject {
 	}
 
 	private void updateName(Object value) {
-		this.fco.getCimInstance().setProperty(Linux_DnsMasters.CIM_PROPERTY_NAME,CIMPropertyBuilder.createVaue(value, CIMDataType.STRING));
+		this.fco.set_key_Name(value.toString());
 	}
 
 	/* (non-Javadoc)
@@ -76,40 +67,40 @@ public class Masters extends DnsBusinessObject {
 			return fco;
 	}
 	
-	public void loadChilds(CIMClient cimClient) {
+	public void loadChilds(WBEMClient cimClient) {
 	}
 
-	public MessageList save(DnsMastersForServiceDataContainer container)  throws ObjectSaveException {
+	public MessageList save(DnsMastersForServiceDataContainer container)  throws WbemsmtException {
 		//fco.set_Name((String) container.get_Name().getConvertedControlValue());
-		updateName(NameFactory.createName(Linux_DnsMastersForService.class, fco.get_Name()));
+		updateName(NameFactory.createName(Linux_DnsMastersForService.class, fco.get_key_Name()));
 		mastersHandler.save();
 		updateName(mastersNaming.getDisplayString(fco.getCimInstance(), adapter.getCimClient()));
 		return null;
 	}
 
-	public void updateControls(DnsMastersForServiceDataContainer container) throws UpdateControlsException {
-		container.get_Name().setControlValue(fco.get_Name());
+	public void updateControls(DnsMastersForServiceDataContainer container) throws WbemsmtException {
+		container.get_Name().setControlValue(fco.get_key_Name());
 		mastersHandler.updateIpAddressList(container);
 	}
 
-	public void updateModel(DnsMastersForServiceDataContainer container) throws ModelUpdateException {
+	public void updateModel(DnsMastersForServiceDataContainer container) throws WbemsmtException {
 		mastersHandler.updateAddressModel(container);
 	}
 
-	public void delete() throws ObjectDeletionException {
+	public void delete() throws WbemsmtException {
 		
 		try {
-			updateName(NameFactory.createName(Linux_DnsMastersForService.class, fco.get_Name()));
+			updateName(NameFactory.createName(Linux_DnsMastersForService.class, fco.get_key_Name()));
 			String serviceName = adapter.getDnsService().getFco().get_Name();
-			String mastersName = fco.get_Name();
-			List list = Linux_DnsMastersForServiceHelper.enumerateInstances(adapter.getCimClient(),false);
+			String mastersName = fco.get_key_Name();
+			List list = Linux_DnsMastersForServiceHelper.enumerateInstances(adapter.getCimClient(),adapter.getNamespace(),false);
 			for (Iterator iter = list.iterator(); iter.hasNext();) {
 				Linux_DnsMastersForService mastersForService = (Linux_DnsMastersForService) iter.next();
-				Object serviceName2 = mastersForService.get_Linux_DnsService().getKey(Linux_DnsService.CIM_PROPERTY_NAME).getValue().getValue();
-				Object mastersName2 = mastersForService.get_Linux_DnsMasters().getKey(Linux_DnsMasters.CIM_PROPERTY_NAME).getValue().getValue();
+				Object serviceName2 = mastersForService.get_GroupComponent_Linux_DnsService(adapter.getCimClient()).get_key_Name();
+				Object mastersName2 = mastersForService.get_PartComponent_Linux_DnsMasters(adapter.getCimClient()).get_key_Name();
 				if (serviceName2.equals(serviceName) && mastersName2.equals(mastersName))
 				{
-					Linux_DnsMasters masters = (Linux_DnsMasters) adapter.getFcoHelper().reload(Linux_DnsMastersHelper.class, mastersForService.get_Linux_DnsMasters(),adapter.getCimClient() );
+					Linux_DnsMasters masters = mastersForService.get_PartComponent_Linux_DnsMasters(adapter.getCimClient());
 					adapter.getFcoHelper().delete(masters,adapter.getCimClient());
 					if (DnsCimAdapter.DUMMY_MODE)
 					{
@@ -119,24 +110,18 @@ public class Masters extends DnsBusinessObject {
 				}
 			}
 			
-			throw new ObjectDeletionException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(getFco()));
+			throw new WbemsmtException(WbemsmtException.ERR_DELETE_OBJECT,"Cannot delete Masters",getFco());
 			
-		} catch (ModelLoadException e) {
-			throw new ObjectDeletionException(e);
-		} catch (ObjectCreationException e) {
-			throw new ObjectDeletionException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(getFco()),e);
+		} catch (Exception e) {
+			throw new WbemsmtException(WbemsmtException.ERR_DELETE_OBJECT,e);
 		}
 		
 	}
 
-	public MessageList revert(DnsMastersForServiceDataContainer container) throws ObjectRevertException {
-		try {
-			fco = (Linux_DnsMasters) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
-			updateName(mastersNaming.getDisplayString(fco.getCimInstance(), adapter.getCimClient()));
-			mastersHandler = new MastersHandler(adapter,fco,true, null);
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+	public MessageList revert(DnsMastersForServiceDataContainer container) throws WbemsmtException {
+		fco = (Linux_DnsMasters) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
+        updateName(mastersNaming.getDisplayString(fco.getCimInstance(), adapter.getCimClient()));
+        mastersHandler = new MastersHandler(adapter,fco,true, null);
 		return null;
 	}
 }

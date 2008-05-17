@@ -19,23 +19,9 @@
   */
 package org.sblim.wbemsmt.dns.bl.adapter;
 
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsAddressMatchListWizardPage1DataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardPage1DataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardPage1DataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMastersWizardPage1DataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardPage1DataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardPage1DataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsSlaveZoneWizardPage1DataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsStubZoneWizardPage1DataContainer;
-import org.sblim.wbemsmt.dns.wizard.AddressMatchListWizardContainer;
-import org.sblim.wbemsmt.dns.wizard.CreateForwardZoneWizardContainer;
-import org.sblim.wbemsmt.dns.wizard.CreateMasterZoneWizardContainer;
-import org.sblim.wbemsmt.dns.wizard.CreateResourceRecordWizardContainer;
-import org.sblim.wbemsmt.dns.wizard.CreateReverseZoneWizardContainer;
-import org.sblim.wbemsmt.dns.wizard.CreateSlaveZoneWizardContainer;
-import org.sblim.wbemsmt.dns.wizard.CreateStubZoneWizardContainer;
-import org.sblim.wbemsmt.dns.wizard.MasterWizardContainer;
-import org.sblim.wbemsmt.exception.InitWizardException;
+import org.sblim.wbemsmt.dns.bl.container.wizard.*;
+import org.sblim.wbemsmt.dns.wizard.*;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class DnsCimAdapterInitWizardDelegatee implements DnsCimAdapterInitWizardIf {
 
@@ -45,47 +31,47 @@ public class DnsCimAdapterInitWizardDelegatee implements DnsCimAdapterInitWizard
 		this.adapter = adapter;
 	}
 
-	public void initWizardImpl(DnsAddressMatchListWizardPage1DataContainer container, AddressMatchListWizardContainer wizardContainer, String currentPagename) throws InitWizardException {
+	public void initWizardImpl(DnsAddressMatchListWizardPage1DataContainer container, AddressMatchListWizardContainer wizardContainer, String currentPagename) throws WbemsmtException {
 		adapter.setActiveWizard(adapter.getAddressMatchListWizard());
 		adapter.getAddressMatchListWizard().init(container);
 		adapter.clearSelectedZones();
 	}
 
-	public void initWizardImpl(DnsResourceRecordWizardPage1DataContainer container, CreateResourceRecordWizardContainer wizardContainer, String currentPagename) throws InitWizardException {
+	public void initWizardImpl(DnsResourceRecordWizardPage1DataContainer container, CreateResourceRecordWizardContainer wizardContainer, String currentPagename) throws WbemsmtException {
 		adapter.setActiveWizard(adapter.getResourceRecordWizard());
 		adapter.getResourceRecordWizard().init(container,wizardContainer);
 	}
 
-	public void initWizardImpl(DnsForwardZoneWizardPage1DataContainer container, CreateForwardZoneWizardContainer wizardContainer, String currentPagename) throws InitWizardException {
+	public void initWizardImpl(DnsForwardZoneWizardPage1DataContainer container, CreateForwardZoneWizardContainer wizardContainer, String currentPagename) throws WbemsmtException {
 		adapter.setActiveWizard(adapter.getForwardZoneWizard());
 		adapter.getForwardZoneWizard().init(container);
 		adapter.clearSelectedZones();
 	}
 
-	public void initWizardImpl(DnsMasterZoneWizardPage1DataContainer container, CreateMasterZoneWizardContainer wizardContainer, String currentPagename) throws InitWizardException {
+	public void initWizardImpl(DnsMasterZoneWizardPage1DataContainer container, CreateMasterZoneWizardContainer wizardContainer, String currentPagename) throws WbemsmtException {
 		adapter.setActiveWizard(adapter.getMasterZoneWizard());
 		adapter.getMasterZoneWizard().init(container);
 		adapter.clearSelectedZones();
 	}
 
-	public void initWizardImpl(DnsReverseZoneWizardPage1DataContainer container, CreateReverseZoneWizardContainer wizardContainer, String currentPagename) throws InitWizardException {
+	public void initWizardImpl(DnsReverseZoneWizardPage1DataContainer container, CreateReverseZoneWizardContainer wizardContainer, String currentPagename) throws WbemsmtException {
 		adapter.setActiveWizard(adapter.getReverseZoneWizard());
-		adapter.getReverseZoneWizard().init();
+        adapter.getReverseZoneWizard().init();
 	}
 
-	public void initWizardImpl(DnsSlaveZoneWizardPage1DataContainer container, CreateSlaveZoneWizardContainer wizardContainer, String currentPagename) throws InitWizardException {
+	public void initWizardImpl(DnsSlaveZoneWizardPage1DataContainer container, CreateSlaveZoneWizardContainer wizardContainer, String currentPagename) throws WbemsmtException {
 		adapter.setActiveWizard(adapter.getSlaveZoneWizard());
 		adapter.getSlaveZoneWizard().init(container);
 		adapter.clearSelectedZones();
 	}
 
-	public void initWizardImpl(DnsMastersWizardPage1DataContainer container, MasterWizardContainer wizardContainer, String currentPagename) throws InitWizardException {
+	public void initWizardImpl(DnsMastersWizardPage1DataContainer container, MasterWizardContainer wizardContainer, String currentPagename) throws WbemsmtException {
 		adapter.setActiveWizard(adapter.getMastersWizard());
-		adapter.getMastersWizard().init(container);
-		adapter.clearSelectedZones();
+        adapter.getMastersWizard().init(container);
+        adapter.clearSelectedZones();
 	}
 
-	public void initWizardImpl(DnsStubZoneWizardPage1DataContainer container, CreateStubZoneWizardContainer wizardContainer, String currentPagename) throws InitWizardException {
+	public void initWizardImpl(DnsStubZoneWizardPage1DataContainer container, CreateStubZoneWizardContainer wizardContainer, String currentPagename) throws WbemsmtException {
 		adapter.setActiveWizard(adapter.getStubZoneWizard());
 		adapter.getStubZoneWizard().init(container);
 		adapter.clearSelectedZones();

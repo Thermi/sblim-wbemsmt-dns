@@ -1,936 +1,1427 @@
 /** 
  * Linux_DnsMasterZone.java
  *
- * © Copyright IBM Corp. 2005
+ * 
+ * © Copyright IBM Corp. 2006,2007
  *
- * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+ * THIS FILE IS PROVIDED UNDER THE TER	MS OF THE COMMON PUBLIC LICENSE
  * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
  * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
  *
  * You can obtain a current copy of the Common Public License from
  * http://www.opensource.org/licenses/cpl1.0.php
  *
- * @author:	ECCG 0.9.7 generated 
- * 			(author should be changed, e.g. First and Last Name <xxx@cc.ibm.com>)
+ * @author: org.sblim.wbemsmt.dcg.generator.fco.jsr48.FcoGenerator
+ * @template: org/sblim/wbemsmt/dcg/templates/fco/jsr48/fco.vm
  *
  * Contributors:
- *
- *
- * Description:  Class representing DNS zones of type Master.
+ *    michael.bauschert@de.ibm.com 
  * 
+ * Description: Class representing DNS zones of type Master.
+ * 
+ * generated Class
  */
 
 package org.sblim.wbemsmt.dns.bl.fco;
 
-import java.security.InvalidParameterException;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.Vector;
+import javax.cim.*;
+import javax.wbem.client.*;
 
-import org.sblim.wbem.cim.*;
+import org.sblim.wbemsmt.exception.*;
 
-/**
- *  Class representing DNS zones of type Master.
- */
-public class Linux_DnsMasterZone extends Linux_DnsZone  {
-	
-	public final static String CIM_CLASS_NAME = "Linux_DnsMasterZone"; //$NON-NLS-1$
-	public final static String CIM_CLASS_DISPLAYNAME = CIM_CLASS_NAME;
+public class Linux_DnsMasterZone extends Linux_DnsZone {
 
-	private boolean validCimInstance = false;
-	
-	
-	
-	/**
-	*	The owner mail address for this zone
-	*/
-	public final static String CIM_PROPERTY_CONTACT = "Contact"; //$NON-NLS-1$
-	/**
-	*	The time in seconds after a RR expires.
-	*/
-	public final static String CIM_PROPERTY_EXPIRE = "Expire"; //$NON-NLS-1$
-	/**
-	*	The default behavior for forwarding requests.
-	*/
-	public final static String CIM_PROPERTY_FORWARD = "Forward"; //$NON-NLS-1$
-	/**
-	*	
-	*/
-	public final static String CIM_PROPERTY_NAME = "Name"; //$NON-NLS-1$
-	/**
-	*	The negative caching time to live. This controls how long other servers will cache no-such-domain (NXDOMAIN) responses from you. Max value is 3 hours (10800 sec).
-	*/
-	public final static String CIM_PROPERTY_NEGATIVECACHINGTTL = "NegativeCachingTTL"; //$NON-NLS-1$
-	/**
-	*	The time in seconds after a RR is refershed.
-	*/
-	public final static String CIM_PROPERTY_REFRESH = "Refresh"; //$NON-NLS-1$
-	/**
-	*	The time in seconds after a RR is retried.
-	*/
-	public final static String CIM_PROPERTY_RETRY = "Retry"; //$NON-NLS-1$
-	/**
-	*	Serial Number of syntax year month day version: yyyymmddvv.
-	*/
-	public final static String CIM_PROPERTY_SERIALNUMBER = "SerialNumber"; //$NON-NLS-1$
-	/**
-	*	IP Address of the authoritative server for this zone
-	*/
-	public final static String CIM_PROPERTY_SERVER = "Server"; //$NON-NLS-1$
-	/**
-	*	The default time to live value for Resource Records (RR). TTL describes how long a RR can be cached, before it should be discarded.
-	*/
-	public final static String CIM_PROPERTY_TTL = "TTL"; //$NON-NLS-1$
-	/**
-	*	Value = 1 for Type Master.
-	*/
-	public final static String CIM_PROPERTY_TYPE = "Type"; //$NON-NLS-1$
-	/**
-	*	The zone file that contains the zone specific RR.
-	*/
-	public final static String CIM_PROPERTY_ZONEFILE = "ZoneFile"; //$NON-NLS-1$
-	
-	
-	
+    public final static String CIM_CLASS_NAME = "Linux_DnsMasterZone";
+    public final static String CIM_CLASS_DISPLAYNAME = CIM_CLASS_NAME;
 
-	public static Vector CIM_PropertyNameList	= new Vector();
-	public static Vector CIM_PropertyList 		= new Vector();
-	private static Set Java_Package_List 		= new HashSet();
-	
-	static {
-		CIM_PropertyNameList.add(CIM_PROPERTY_CONTACT);
-		CIM_PropertyNameList.add(CIM_PROPERTY_EXPIRE);
-		CIM_PropertyNameList.add(CIM_PROPERTY_FORWARD);
-		CIM_PropertyNameList.add(CIM_PROPERTY_NAME);
-		CIM_PropertyNameList.add(CIM_PROPERTY_NEGATIVECACHINGTTL);
-		CIM_PropertyNameList.add(CIM_PROPERTY_REFRESH);
-		CIM_PropertyNameList.add(CIM_PROPERTY_RETRY);
-		CIM_PropertyNameList.add(CIM_PROPERTY_SERIALNUMBER);
-		CIM_PropertyNameList.add(CIM_PROPERTY_SERVER);
-		CIM_PropertyNameList.add(CIM_PROPERTY_TTL);
-		CIM_PropertyNameList.add(CIM_PROPERTY_TYPE);
-		CIM_PropertyNameList.add(CIM_PROPERTY_ZONEFILE);
-				
-		for (int i = 0; i < Linux_DnsZone.CIM_PropertyNameList.size(); i++) {
-			if (((String)Linux_DnsZone.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_CONTACT)||
-				((String)Linux_DnsZone.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_EXPIRE)||
-				((String)Linux_DnsZone.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_FORWARD)||
-				((String)Linux_DnsZone.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_NAME)||
-				((String)Linux_DnsZone.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_NEGATIVECACHINGTTL)||
-				((String)Linux_DnsZone.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_REFRESH)||
-				((String)Linux_DnsZone.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_RETRY)||
-				((String)Linux_DnsZone.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_SERIALNUMBER)||
-				((String)Linux_DnsZone.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_SERVER)||
-				((String)Linux_DnsZone.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_TTL)||
-				((String)Linux_DnsZone.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_TYPE)||
-				((String)Linux_DnsZone.CIM_PropertyNameList.elementAt(i)).equals(CIM_PROPERTY_ZONEFILE)){
-				continue;
-			}
-			
-			Linux_DnsMasterZone.CIM_PropertyNameList.add(Linux_DnsZone.CIM_PropertyNameList.elementAt(i));
-		}
-		
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_CONTACT, new CIMValue(null, new CIMDataType(CIMDataType.STRING))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_EXPIRE, new CIMValue(null, new CIMDataType(CIMDataType.UINT32))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_FORWARD, new CIMValue(null, new CIMDataType(CIMDataType.UINT8))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_NAME, new CIMValue(null, new CIMDataType(CIMDataType.STRING))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_NEGATIVECACHINGTTL, new CIMValue(null, new CIMDataType(CIMDataType.UINT32))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_REFRESH, new CIMValue(null, new CIMDataType(CIMDataType.UINT32))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_RETRY, new CIMValue(null, new CIMDataType(CIMDataType.UINT32))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_SERIALNUMBER, new CIMValue(null, new CIMDataType(CIMDataType.STRING))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_SERVER, new CIMValue(null, new CIMDataType(CIMDataType.STRING))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_TTL, new CIMValue(null, new CIMDataType(CIMDataType.SINT32))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_TYPE, new CIMValue(new UnsignedInt8("1"), new CIMDataType(CIMDataType.UINT8))));
-		CIM_PropertyList.add(new CIMProperty(CIM_PROPERTY_ZONEFILE, new CIMValue(null, new CIMDataType(CIMDataType.STRING))));
-				
-		for (int i = 0; i < Linux_DnsZone.CIM_PropertyList.size(); i++) {
-			if (((CIMProperty)Linux_DnsZone.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_CONTACT)||
-				((CIMProperty)Linux_DnsZone.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_EXPIRE)||
-				((CIMProperty)Linux_DnsZone.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_FORWARD)||
-				((CIMProperty)Linux_DnsZone.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_NAME)||
-				((CIMProperty)Linux_DnsZone.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_NEGATIVECACHINGTTL)||
-				((CIMProperty)Linux_DnsZone.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_REFRESH)||
-				((CIMProperty)Linux_DnsZone.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_RETRY)||
-				((CIMProperty)Linux_DnsZone.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_SERIALNUMBER)||
-				((CIMProperty)Linux_DnsZone.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_SERVER)||
-				((CIMProperty)Linux_DnsZone.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_TTL)||
-				((CIMProperty)Linux_DnsZone.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_TYPE)||
-				((CIMProperty)Linux_DnsZone.CIM_PropertyList.get(i)).getName().equals(CIM_PROPERTY_ZONEFILE)){
-				continue;
-			}
-			
-			Linux_DnsMasterZone.CIM_PropertyList.add(Linux_DnsZone.CIM_PropertyList.elementAt(i));
-		}
-		
-		addPackage("org.sblim.wbemsmt.dns.bl.fco");
-				
-		String[] parentClassPackageList = Linux_DnsZone.getPackages();
-		
-		for (int i = 0; i < parentClassPackageList.length; i++) {
-			Java_Package_List.add(parentClassPackageList[i]);
-		}
-	};
-			
-	public final static String[] CIM_VALUEMAP_FORWARD = {"Unknown","Only","First"};
-	
-	
-	public final static int FORWARD_UNKNOWN = 0;
-	public final static int FORWARD_ONLY = 1;
-	public final static int FORWARD_FIRST = 2;
-	
-	
-	
-	//**********************************************************************
-	// Constructors 	
-	//**********************************************************************
+    /**
+     * Constants of property Contact
+     * The owner mail address for this zone
+     */
+    public static class PROPERTY_CONTACT {
+        /**
+         * name of the property Contact
+         */
+        public final static String NAME = "Contact";
 
-	/**
-	*	Class constructor
-	*/	
-	public Linux_DnsMasterZone() {
+    }
 
-		this.cimInstance	= new CIMInstance();
-		
-		for (int i = 0; i < CIM_PropertyList.size(); i++) {
-			this.cimInstance.addProperty((CIMProperty)((CIMProperty)CIM_PropertyList.get(i)).clone());
-		}
-		
-		this.cimObjectPath 	= new CIMObjectPath(CIM_CLASS_NAME);
-		this.cimInstance.setObjectPath(this.cimObjectPath);
+    /**
+     * Constants of property Expire
+     * The time in seconds after a RR expires.
+     */
+    public static class PROPERTY_EXPIRE {
+        /**
+         * name of the property Expire
+         */
+        public final static String NAME = "Expire";
 
-		this.original_cimInstance	= (CIMInstance)this.cimInstance.clone();
+    }
 
-		setValidCimInstance(false);
-	}
+    /**
+     * Constants of property Forward
+     * The default behavior for forwarding requests.
+     */
+    public static class PROPERTY_FORWARD {
+        /**
+         * name of the property Forward
+         */
+        public final static String NAME = "Forward";
 
+        /**
+         * constant for value map entry 0
+         */
 
-	/**
-	*	Class constructor
-	*/	
-	public Linux_DnsMasterZone(Vector keyProperties){ 
-		this();
-		
-		if (keyProperties == null) {
-			throw new InvalidParameterException("The keyProperties parameter does not contain a valid reference.");
-		
-		}
-		
-		Iterator iter = keyProperties.iterator();
-		while (iter.hasNext()) {
-			Object property = iter.next();
-			
-			if (property instanceof CIMProperty) {
-				CIMProperty keyProperty = (CIMProperty)property;
-				this.cimObjectPath.addKey(keyProperty);
-				
-				if (this.cimInstance.getProperty(keyProperty.getName()) != null) {
-					this.cimInstance.removeProperty(keyProperty.getName());
-				}
-				this.cimInstance.addProperty(keyProperty);
-				
-			} else {
-				throw new InvalidParameterException("The keyProperties parameter should only contain objects of class CIMProperty.");
-				
-			}
-		}
-		
-		setValidCimInstance(false);
-	}
+        public final static javax.cim.UnsignedInteger8 VALUE_MAP_ENTRY_0_FOR_VALUE_ENTRY_Unknown = new javax.cim.UnsignedInteger8(
+                "0");
 
-	
-	/**
-	*	Class constructor
-	*/	
-	public Linux_DnsMasterZone(CIMObjectPath cimObjectPath, CIMInstance cimInstance){ 
-		
-		if (cimInstance == null) {
-			throw new InvalidParameterException("The cimInstance parameter does not contain a valid reference.");
-		
-		} else if (cimObjectPath == null){
-			throw new InvalidParameterException("The cimObjectPath parameter does not contain a valid reference.");		
-		
-		} else if (!cimObjectPath.getObjectName().equals(cimInstance.getClassName())) {
-			throw new InvalidParameterException("The class name of the instance and the ObjectPath are not the same.");
-		}
-		
-		setCimInstance(cimInstance);
-		this.original_cimInstance = (CIMInstance)cimInstance.clone();
-		this.cimObjectPath        = cimObjectPath;
-		setValidCimInstance(true);
-	}
+        /**
+         * constant for value entry Unknown (corresponds to mapEntry 0 )
+         */
+        public final static String VALUE_ENTRY_Unknown = "Unknown";
 
-	
-	/**
-	*	The method returns the display name of the class
-	*/	
-	public String getClassDisplayName(){
-		return CIM_CLASS_DISPLAYNAME;
-	}
-	
-	public static void addPackage(String packagename) {
-        if (packagename != null) {
-            if (!packagename.endsWith(".")) {
-                packagename = packagename + ".";
+        /**
+         * constant for value map entry 1
+         */
+
+        public final static javax.cim.UnsignedInteger8 VALUE_MAP_ENTRY_1_FOR_VALUE_ENTRY_Only = new javax.cim.UnsignedInteger8(
+                "1");
+
+        /**
+         * constant for value entry Only (corresponds to mapEntry 1 )
+         */
+        public final static String VALUE_ENTRY_Only = "Only";
+
+        /**
+         * constant for value map entry 2
+         */
+
+        public final static javax.cim.UnsignedInteger8 VALUE_MAP_ENTRY_2_FOR_VALUE_ENTRY_First = new javax.cim.UnsignedInteger8(
+                "2");
+
+        /**
+         * constant for value entry First (corresponds to mapEntry 2 )
+         */
+        public final static String VALUE_ENTRY_First = "First";
+
+        /**
+         * get the ValueMapEntry of the given value
+         * @param value the value to find the ValueMapEntry for
+         * @return the ValueMap entry or null if not found
+         */
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@77c277c2
+        public static javax.cim.UnsignedInteger8 getValueMapEntry(String value) {
+
+            if (VALUE_ENTRY_Unknown.equals(value)) {
+                return VALUE_MAP_ENTRY_0_FOR_VALUE_ENTRY_Unknown;
             }
-            Linux_DnsMasterZone.Java_Package_List.add(packagename);
-            
-        } else {
-            throw new NullPointerException();
+
+            if (VALUE_ENTRY_Only.equals(value)) {
+                return VALUE_MAP_ENTRY_1_FOR_VALUE_ENTRY_Only;
+            }
+
+            if (VALUE_ENTRY_First.equals(value)) {
+                return VALUE_MAP_ENTRY_2_FOR_VALUE_ENTRY_First;
+            }
+            return null;
+
+        }
+
+        /**
+         * uses the element within array VALUE_ENTRIES_FOR_DISPLAY at index indexInPulldown to get the ValueMapEntry
+         * @param indexInPulldown the index within the pulldown element, the list etc
+         * @return the ValueMap entry from the displayed values
+         */
+        public static javax.cim.UnsignedInteger8 getValueMapEntryFromDisplayedValue(
+                Number indexInPulldown) {
+            return getValueMapEntry(VALUE_ENTRIES_FOR_DISPLAY[indexInPulldown.intValue()]);
+        }
+
+        /**
+         * gets the value for the given valueMap entry (currentValue) and gives back the index of this value within the VALUE_ENTRIES_FOR_DISPLAY array
+         *
+         * can be used to set the correct selection index for a pulldown field
+         *
+         * @return -1 if for the currentValue no value within VALUE_ENTRIES_FOR_DISPLAY was found
+         * @param currentValue the currentValue to get the index for
+         */
+        public static int getIndexForDisplay(javax.cim.UnsignedInteger8 currentValue) {
+            String valueEntry = getValueEntry(currentValue);
+            if (valueEntry != null) {
+                for (int i = 0; i < VALUE_ENTRIES_FOR_DISPLAY.length; i++) {
+                    if (VALUE_ENTRIES_FOR_DISPLAY[i].equals(valueEntry)) {
+                        return i;
+                    }
+                }
+            }
+            return -1;
+
+        }
+
+        /**
+         * get the ValueEntry of the given valueMapEntry
+         * @param valueMapEntry the entry within the valueMap to find the ValueEntry for
+         * @return the Value entry or null if not found
+         */
+
+        public static String getValueEntry(javax.cim.UnsignedInteger8 value) {
+            int iValue = value.intValue();
+
+            if (iValue == VALUE_MAP_ENTRY_0_FOR_VALUE_ENTRY_Unknown.intValue()) {
+                return VALUE_ENTRY_Unknown;
+            }
+
+            if (iValue == VALUE_MAP_ENTRY_1_FOR_VALUE_ENTRY_Only.intValue()) {
+                return VALUE_ENTRY_Only;
+            }
+
+            if (iValue == VALUE_MAP_ENTRY_2_FOR_VALUE_ENTRY_First.intValue()) {
+                return VALUE_ENTRY_First;
+            }
+            return null;
+
+        }
+
+        /**
+         * ValueMap entries
+         * Contains no entries that having an integer value range representation
+         * 
+         * The couterpart for the value entries is returned by VALUE_ENTRIES_FOR_DISPLAY
+         *
+         * @see \#VALUE_ENTRIES_FOR_DISPLAY
+         * 
+         * Value Map for the property Forward   
+         */
+        public final static javax.cim.UnsignedInteger8[] VALUE_MAP_ENTRIES = {
+                VALUE_MAP_ENTRY_0_FOR_VALUE_ENTRY_Unknown, VALUE_MAP_ENTRY_1_FOR_VALUE_ENTRY_Only,
+                VALUE_MAP_ENTRY_2_FOR_VALUE_ENTRY_First };
+
+        /**
+         * Values
+         * Contains all values even those having an integer value range representation within the valueMap
+         * Value Map for the property Forward   
+         */
+        public final static String[] VALUE_ENTRIES = { VALUE_ENTRY_Unknown, VALUE_ENTRY_Only,
+                VALUE_ENTRY_First };
+
+        /**
+         * Values for displaying within pulldown elements, lists, radio buttons etc
+         * Contains no values that having an integer value range representation within the valueMap
+         * 
+         * Value Map for the property Forward   
+         */
+        public final static String[] VALUE_ENTRIES_FOR_DISPLAY = { VALUE_ENTRY_Unknown,
+                VALUE_ENTRY_Only, VALUE_ENTRY_First };
+
+    }
+
+    /**
+     * Constants of property Name
+     * 
+     */
+    public static class PROPERTY_NAME {
+        /**
+         * name of the property Name
+         */
+        public final static String NAME = "Name";
+
+    }
+
+    /**
+     * Constants of property NegativeCachingTTL
+     * The negative caching time to live. This controls how long other servers will cache no-such-domain (NXDOMAIN) responses from you. Max value is 3 hours (10800 sec).
+     */
+    public static class PROPERTY_NEGATIVECACHINGTTL {
+        /**
+         * name of the property NegativeCachingTTL
+         */
+        public final static String NAME = "NegativeCachingTTL";
+
+    }
+
+    /**
+     * Constants of property Refresh
+     * The time in seconds after a RR is refershed.
+     */
+    public static class PROPERTY_REFRESH {
+        /**
+         * name of the property Refresh
+         */
+        public final static String NAME = "Refresh";
+
+    }
+
+    /**
+     * Constants of property Retry
+     * The time in seconds after a RR is retried.
+     */
+    public static class PROPERTY_RETRY {
+        /**
+         * name of the property Retry
+         */
+        public final static String NAME = "Retry";
+
+    }
+
+    /**
+     * Constants of property SerialNumber
+     * Serial Number of syntax year month day version: yyyymmddvv.
+     */
+    public static class PROPERTY_SERIALNUMBER {
+        /**
+         * name of the property SerialNumber
+         */
+        public final static String NAME = "SerialNumber";
+
+    }
+
+    /**
+     * Constants of property Server
+     * IP Address of the authoritative server for this zone
+     */
+    public static class PROPERTY_SERVER {
+        /**
+         * name of the property Server
+         */
+        public final static String NAME = "Server";
+
+    }
+
+    /**
+     * Constants of property TTL
+     * The default time to live value for Resource Records (RR). TTL describes how long a RR can be cached, before it should be discarded.
+     */
+    public static class PROPERTY_TTL {
+        /**
+         * name of the property TTL
+         */
+        public final static String NAME = "TTL";
+
+    }
+
+    /**
+     * Constants of property Type
+     * Value = 1 for Type Master.
+     */
+    public static class PROPERTY_TYPE {
+        /**
+         * name of the property Type
+         */
+        public final static String NAME = "Type";
+
+    }
+
+    /**
+     * Constants of property ZoneFile
+     * The zone file that contains the zone specific RR.
+     */
+    public static class PROPERTY_ZONEFILE {
+        /**
+         * name of the property ZoneFile
+         */
+        public final static String NAME = "ZoneFile";
+
+    }
+
+    static {
+        addPackage("org.sblim.wbemsmt.dns.bl.fco");
+        String[] parentClassPackageList = Linux_DnsZone.getPackages();
+
+        for (int i = 0; i < parentClassPackageList.length; i++) {
+            addPackage(parentClassPackageList[i]);
+        }
+
+    };
+
+    //**********************************************************************
+    // Constructors     
+    //**********************************************************************
+
+    /**
+     *   Class constructor
+     * 
+     *       *   <br>
+     *   Class representing DNS zones of type Master.
+     *   @param client the CIM Client
+     *   @param namespace the target namespace
+     */
+
+    public Linux_DnsMasterZone(WBEMClient client, String namespace) throws WbemsmtException {
+        CIMClass cls = getClass(client, namespace);
+        setFromServer(false);
+        init(cls.newInstance(), true);
+    }
+
+    /**
+     *   Class constructor
+     * 
+     *       *   <br>
+     *   Class representing DNS zones of type Master.
+     *   @param cimInstance the instance that is used to create the Object
+     */
+
+    public Linux_DnsMasterZone(CIMInstance cimInstance) throws WbemsmtException {
+
+        if (cimInstance == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimInstance parameter does not contain a valid reference.");
+        }
+        setFromServer(true);
+        init(cimInstance, false);
+    }
+
+    /**
+     * Default constructor
+     */
+    protected Linux_DnsMasterZone() {
+    }
+
+    /**
+     * initializes the FCO
+     *
+     *   @param cimInstance the instance that is used to create the Object
+     *   @param overwrite currently the dataType of embeddedObject/Instance properties is not set correct by the cimClient. This flags decides if to overwrite thos properties
+     */
+    protected void init(CIMInstance cimInstance, boolean overwrite) throws WbemsmtException {
+        propertiesToCheck.put("Contact", new CIMProperty("Contact", CIMDataType.STRING_T, null));
+        propertiesToCheck.put("Expire", new CIMProperty("Expire", CIMDataType.UINT32_T, null));
+        propertiesToCheck.put("Forward", new CIMProperty("Forward", CIMDataType.UINT8_T, null));
+        propertiesToCheck.put("Name", new CIMProperty("Name", CIMDataType.STRING_T, null));
+        propertiesToCheck.put("NegativeCachingTTL", new CIMProperty("NegativeCachingTTL",
+                CIMDataType.UINT32_T, null));
+        propertiesToCheck.put("Refresh", new CIMProperty("Refresh", CIMDataType.UINT32_T, null));
+        propertiesToCheck.put("Retry", new CIMProperty("Retry", CIMDataType.UINT32_T, null));
+        propertiesToCheck.put("SerialNumber", new CIMProperty("SerialNumber", CIMDataType.STRING_T,
+                null));
+        propertiesToCheck.put("Server", new CIMProperty("Server", CIMDataType.STRING_T, null));
+        propertiesToCheck.put("TTL", new CIMProperty("TTL", CIMDataType.SINT32_T, null));
+        propertiesToCheck.put("Type", new CIMProperty("Type", CIMDataType.UINT8_T, null));
+        propertiesToCheck.put("ZoneFile", new CIMProperty("ZoneFile", CIMDataType.STRING_T, null));
+
+        super.init(cimInstance, overwrite);
+
+        //currently the dataType of embeddedObject/Instance properties is not set correct by the cimClient
+        //we overwrite the dataType by setting null for every embeddedObject/Instance property
+        if (overwrite) {
+
         }
     }
 
-    public static String[] getPackages() {
-        return (String[]) Linux_DnsMasterZone.Java_Package_List.toArray(new String[Linux_DnsMasterZone.Java_Package_List.size()]);
+    //**********************************************************************
+    // Properties get/set     
+    //**********************************************************************
+
+    /**
+     * Get the property Contact
+     *     * <br>
+     * The owner mail address for this zone
+     *     */
+
+    public String get_Contact() {
+        CIMProperty currentProperty = getProperty(PROPERTY_CONTACT.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_CONTACT.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return null;
+        }
+
+        return (String) currentProperty.getValue();
+
     }
-	
-	//**********************************************************************
-	// Instance methods
-	//**********************************************************************
 
-	/**
-	*	no description
-	*/	
-	public boolean isDataValid(Vector invalidProperties) {
-		boolean result = true;
-		
-		if (invalidProperties == null) {
-			invalidProperties = new Vector();
-		} else {
-			invalidProperties.removeAllElements();
-		}
-		
-		CIMProperty CIMProperty_Name = this.cimInstance.getProperty(CIM_PROPERTY_NAME);
-		
-		if (CIMProperty_Name == null || CIMProperty_Name.getValue().isEmpty() || CIMProperty_Name.getValue().isNullValue()) {
-			invalidProperties.add(new String[]{CIM_PROPERTY_NAME, "Key"});
-			result = false;
-		}
-		
-		return result;
-	}
-	
-	/**
-	 * @return Returns the validCimInstance.
-	 */
-	public boolean isValidCimInstance() {
-		return this.validCimInstance;
-	}
-	
-	/**
-	 * @param validCimInstance The validCimInstance to set.
-	 */
-	private void setValidCimInstance(boolean isValidCimInstance) {
+    /**
+     * Set the property Contact
+     * <br>
+     * The owner mail address for this zone
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
 
-		this.validCimInstance = isValidCimInstance;
-	}
-	
-	
-	/**
-	*	The method returns this CIM instance
-	*/
-	public CIMInstance getCimInstance() {
-		
-		return this.cimInstance;
-	}
-	
-	
-	/**
-	*	The method sets this CIM instance
-	*/
-	public void setCimInstance(CIMInstance cimInstance) {
-		
-		this.cimInstance = cimInstance;
-	}
-	
-		
-	/**
-	*	The method returns this CIM object path
-	*/
-	public CIMObjectPath getCimObjectPath() {
-		return this.cimObjectPath;
-	}
-	
-	
-	/**
-	*	The method checks if the cimInstance has been modified
-	*/
-	public boolean isModified() {
-	    
-	    if (!this.original_cimInstance.equals(this.cimInstance)) 
-	        return true;
-	    
-	    return false;
-	}
-	
-	
-	/**
-	*	The method resets the values of the cimInstance
-	*/	
-	public void resetValues() {
-	    this.cimInstance = (CIMInstance)this.original_cimInstance.clone();
-	}
-	
-	
-	/**
-	*	The method checks if the cimInstance equals an other cimInstance
-	*/	
-	public boolean equals(Object object) {
-	    
-	    if (!(object instanceof Linux_DnsMasterZone)) {
-	        return false;
-	    }
-	    
-	    if (this.cimInstance == null && ((Linux_DnsMasterZone)object).cimInstance != null) {
-	    	return false;
-	    	
-	    } else if (this.cimInstance != null && ((Linux_DnsMasterZone)object).cimInstance == null) {
-	    	return false;
-	    	
-	    } else if (this.cimInstance != null && !this.cimInstance.equals(((Linux_DnsMasterZone)object).cimInstance)) {
-	    	return false;
-	    	
-	    } else if (this.original_cimInstance == null && ((Linux_DnsMasterZone)object).original_cimInstance != null) {
-	    	return false;
-	    	
-	    } else if (this.original_cimInstance != null && ((Linux_DnsMasterZone)object).original_cimInstance == null) {
-	    	return false;
-	    	
-	    } else if (this.original_cimInstance != null && !this.original_cimInstance.equals(((Linux_DnsMasterZone)object).original_cimInstance)) {
-	        return false;
-	        
-	    } else if (this.cimObjectPath == null && ((Linux_DnsMasterZone)object).cimObjectPath != null) {
-	    	return false;
-	    	
-	    } else if (this.cimObjectPath != null && ((Linux_DnsMasterZone)object).cimObjectPath == null) {
-	    	return false;
-		    	
-	    } else if (this.cimObjectPath != null && !this.cimObjectPath.equals(((Linux_DnsMasterZone)object).cimObjectPath)) {
-	        return false;
-	        
-	    } 
-	    
-	    return true;
-	}
-	
-	/**
-	*	The method return this method as a string
-	*/	
-	public String toString() {
-		return this.cimInstance.toString();
-	}
+    public boolean set_Contact(String newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_CONTACT.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_Contact(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_CONTACT.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return false;
+        }
 
-	//*****************************************************
-	// Associators methods
-	//*****************************************************
-	
-	
-	
-	//*****************************************************
-	// Attribute methods
-	//*****************************************************
-	
-	// Attribute Contact
-	
-	public String get_Contact() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_CONTACT);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_CONTACT + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_CONTACT + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (String)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_Contact(String newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_CONTACT);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_CONTACT + " could not be found");
-    		
-		} else if (!Linux_DnsMasterZoneHelper.isValid_Contact(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_DnsMasterZone.CIM_PROPERTY_CONTACT);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_CONTACT + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.STRING));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+    }
 
-	// Attribute Expire
-	
-	public UnsignedInt32 get_Expire() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_EXPIRE);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_EXPIRE + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.UINT32) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_EXPIRE + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.UINT32) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (UnsignedInt32)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_Expire(UnsignedInt32 newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_EXPIRE);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_EXPIRE + " could not be found");
-    		
-		} else if (!Linux_DnsMasterZoneHelper.isValid_Expire(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_DnsMasterZone.CIM_PROPERTY_EXPIRE);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.UINT32) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_EXPIRE + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.UINT32) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.UINT32));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+    /**
+     * Get the property Contact by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
 
-	// Attribute Forward
-	
-	public UnsignedInt8 get_Forward() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_FORWARD);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_FORWARD + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.UINT8) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_FORWARD + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.UINT8) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (UnsignedInt8)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_Forward(UnsignedInt8 newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_FORWARD);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_FORWARD + " could not be found");
-    		
-		} else if (!Linux_DnsMasterZoneHelper.isValid_Forward(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_DnsMasterZone.CIM_PROPERTY_FORWARD);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.UINT8) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_FORWARD + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.UINT8) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.UINT8));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+    public static CIMProperty create_Contact(WBEMClient client, String namespace, String newValue)
+            throws WbemsmtException {
+        Linux_DnsMasterZone fco = new Linux_DnsMasterZone(client, namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_CONTACT.NAME);
+        if (property != null) {
+            property = setPropertyValue_Contact(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_CONTACT.NAME + " was not found in instance "
+                    + fco.getCimObjectPath());
+        }
+        return property;
+    }
 
-	// Attribute Name
-	
-	public String get_Name() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_NAME);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_NAME + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_NAME + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (String)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_Name(String newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_NAME);
-    	
-		if (isValidCimInstance()) {
-    		throw new InvalidParameterException("The property " + Linux_DnsMasterZone.CIM_PROPERTY_NAME + "can not be modified. It is a KEY value.");
-    		
-		} else if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_NAME + " could not be found");
-    		
-		} else if (!Linux_DnsMasterZoneHelper.isValid_Name(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_DnsMasterZone.CIM_PROPERTY_NAME);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_NAME + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.STRING));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+    /**
+     * Set the property Contact
+     * <br>
+     * The owner mail address for this zone
+     */
 
-	// Attribute NegativeCachingTTL
-	
-	public UnsignedInt32 get_NegativeCachingTTL() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_NEGATIVECACHINGTTL);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_NEGATIVECACHINGTTL + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.UINT32) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_NEGATIVECACHINGTTL + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.UINT32) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (UnsignedInt32)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_NegativeCachingTTL(UnsignedInt32 newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_NEGATIVECACHINGTTL);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_NEGATIVECACHINGTTL + " could not be found");
-    		
-		} else if (!Linux_DnsMasterZoneHelper.isValid_NegativeCachingTTL(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_DnsMasterZone.CIM_PROPERTY_NEGATIVECACHINGTTL);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.UINT32) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_NEGATIVECACHINGTTL + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.UINT32) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.UINT32));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+    private static CIMProperty setPropertyValue_Contact(CIMProperty currentProperty, String newValue) {
+        Object setThis = null;
 
-	// Attribute Refresh
-	
-	public UnsignedInt32 get_Refresh() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_REFRESH);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_REFRESH + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.UINT32) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_REFRESH + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.UINT32) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (UnsignedInt32)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_Refresh(UnsignedInt32 newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_REFRESH);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_REFRESH + " could not be found");
-    		
-		} else if (!Linux_DnsMasterZoneHelper.isValid_Refresh(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_DnsMasterZone.CIM_PROPERTY_REFRESH);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.UINT32) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_REFRESH + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.UINT32) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.UINT32));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+        setThis = newValue;
 
-	// Attribute Retry
-	
-	public UnsignedInt32 get_Retry() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_RETRY);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_RETRY + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.UINT32) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_RETRY + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.UINT32) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (UnsignedInt32)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_Retry(UnsignedInt32 newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_RETRY);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_RETRY + " could not be found");
-    		
-		} else if (!Linux_DnsMasterZoneHelper.isValid_Retry(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_DnsMasterZone.CIM_PROPERTY_RETRY);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.UINT32) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_RETRY + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.UINT32) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.UINT32));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
 
-	// Attribute SerialNumber
-	
-	public String get_SerialNumber() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_SERIALNUMBER);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_SERIALNUMBER + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_SERIALNUMBER + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (String)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_SerialNumber(String newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_SERIALNUMBER);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_SERIALNUMBER + " could not be found");
-    		
-		} else if (!Linux_DnsMasterZoneHelper.isValid_SerialNumber(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_DnsMasterZone.CIM_PROPERTY_SERIALNUMBER);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_SERIALNUMBER + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.STRING));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+        return newProperty;
+    }
 
-	// Attribute Server
-	
-	public String get_Server() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_SERVER);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_SERVER + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_SERVER + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (String)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_Server(String newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_SERVER);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_SERVER + " could not be found");
-    		
-		} else if (!Linux_DnsMasterZoneHelper.isValid_Server(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_DnsMasterZone.CIM_PROPERTY_SERVER);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_SERVER + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.STRING));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+    /**
+     * Get the property Expire
+     *     * <br>
+     * The time in seconds after a RR expires.
+     *     */
 
-	// Attribute TTL
-	
-	public Integer get_TTL() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_TTL);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_TTL + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.SINT32) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_TTL + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.SINT32) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (Integer)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_TTL(Integer newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_TTL);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_TTL + " could not be found");
-    		
-		} else if (!Linux_DnsMasterZoneHelper.isValid_TTL(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_DnsMasterZone.CIM_PROPERTY_TTL);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.SINT32) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_TTL + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.SINT32) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.SINT32));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+    public javax.cim.UnsignedInteger32 get_Expire() {
+        CIMProperty currentProperty = getProperty(PROPERTY_EXPIRE.NAME);
 
-	// Attribute Type
-	
-	public UnsignedInt8 get_Type() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_TYPE);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_TYPE + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.UINT8) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_TYPE + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.UINT8) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (UnsignedInt8)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_Type(UnsignedInt8 newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_TYPE);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_TYPE + " could not be found");
-    		
-		} else if (!Linux_DnsMasterZoneHelper.isValid_Type(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_DnsMasterZone.CIM_PROPERTY_TYPE);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.UINT8) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_TYPE + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.UINT8) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.UINT8));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_EXPIRE.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return null;
+        }
 
-	// Attribute ZoneFile
-	
-	public String get_ZoneFile() {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_ZONEFILE);
-        
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_ZONEFILE + " could not be found");
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_ZONEFILE + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-        
-		if (currentProperty.getValue() == null) {
-			return null;
-		}
-        
-		return (String)currentProperty.getValue().getValue();
-	}
-	    
-			
-	public void set_ZoneFile(String newValue) {
-		
-		CIMProperty currentProperty = this.cimInstance.getProperty(Linux_DnsMasterZone.CIM_PROPERTY_ZONEFILE);
-    	
-		if (currentProperty == null) {
-			throw new CIMException(CIMException.CIM_ERR_NO_SUCH_PROPERTY, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_ZONEFILE + " could not be found");
-    		
-		} else if (!Linux_DnsMasterZoneHelper.isValid_ZoneFile(newValue)) {
-			throw new InvalidParameterException("The value " + newValue + " is not valid for property " + Linux_DnsMasterZone.CIM_PROPERTY_ZONEFILE);
-    		
-		} else if (currentProperty.getType() == null || currentProperty.getType().getType() != CIMDataType.STRING) {
-			throw new CIMException(CIMException.CIM_ERR_TYPE_MISMATCH, "The property " + Linux_DnsMasterZone.CIM_PROPERTY_ZONEFILE + " is not of expected type " + CIMDataType.getPredefinedType(CIMDataType.STRING) + ".");
-		}
-    	
-		CIMValue updatedValue = new CIMValue(newValue, new CIMDataType(CIMDataType.STRING));
-		currentProperty.setValue(updatedValue);
-	}	
-	    
-	
+        return (javax.cim.UnsignedInteger32) currentProperty.getValue();
 
-	
-	
-	//*****************************************************
-	// Invoke methods
-	//*****************************************************
-	
-	
+    }
+
+    /**
+     * Set the property Expire
+     * <br>
+     * The time in seconds after a RR expires.
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_Expire(javax.cim.UnsignedInteger32 newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_EXPIRE.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_Expire(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_EXPIRE.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property Expire by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_Expire(WBEMClient client, String namespace,
+            javax.cim.UnsignedInteger32 newValue) throws WbemsmtException {
+        Linux_DnsMasterZone fco = new Linux_DnsMasterZone(client, namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_EXPIRE.NAME);
+        if (property != null) {
+            property = setPropertyValue_Expire(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_EXPIRE.NAME + " was not found in instance "
+                    + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property Expire
+     * <br>
+     * The time in seconds after a RR expires.
+     */
+
+    private static CIMProperty setPropertyValue_Expire(CIMProperty currentProperty,
+            javax.cim.UnsignedInteger32 newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property Forward
+     *     * <br>
+     * The default behavior for forwarding requests.
+     *     */
+
+    public javax.cim.UnsignedInteger8 get_Forward() {
+        CIMProperty currentProperty = getProperty(PROPERTY_FORWARD.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_FORWARD.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return null;
+        }
+
+        return (javax.cim.UnsignedInteger8) currentProperty.getValue();
+
+    }
+
+    /**
+     * Set the property Forward
+     * <br>
+     * The default behavior for forwarding requests.
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_Forward(javax.cim.UnsignedInteger8 newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_FORWARD.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_Forward(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_FORWARD.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property Forward by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_Forward(WBEMClient client, String namespace,
+            javax.cim.UnsignedInteger8 newValue) throws WbemsmtException {
+        Linux_DnsMasterZone fco = new Linux_DnsMasterZone(client, namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_FORWARD.NAME);
+        if (property != null) {
+            property = setPropertyValue_Forward(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_FORWARD.NAME + " was not found in instance "
+                    + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property Forward
+     * <br>
+     * The default behavior for forwarding requests.
+     */
+
+    private static CIMProperty setPropertyValue_Forward(CIMProperty currentProperty,
+            javax.cim.UnsignedInteger8 newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property Name
+     *     * <br>
+     * 
+     *     */
+
+    public String get_key_Name() {
+        CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_NAME.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return null;
+        }
+
+        return (String) currentProperty.getValue();
+
+    }
+
+    /**
+     * Set the property Name
+     * <br>
+     * 
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_key_Name(String newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_NAME.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property Name by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_key_Name(WBEMClient client, String namespace, String newValue)
+            throws WbemsmtException {
+        Linux_DnsMasterZone fco = new Linux_DnsMasterZone(client, namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_NAME.NAME);
+        if (property != null) {
+            property = setPropertyValue_key_Name(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_NAME.NAME + " was not found in instance "
+                    + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property Name
+     * <br>
+     * 
+     */
+
+    private static CIMProperty setPropertyValue_key_Name(CIMProperty currentProperty,
+            String newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property NegativeCachingTTL
+     *     * <br>
+     * The negative caching time to live. This controls how long other servers will cache no-such-domain (NXDOMAIN) responses from you. Max value is 3 hours (10800 sec).
+     *     */
+
+    public javax.cim.UnsignedInteger32 get_NegativeCachingTTL() {
+        CIMProperty currentProperty = getProperty(PROPERTY_NEGATIVECACHINGTTL.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_NEGATIVECACHINGTTL.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return null;
+        }
+
+        return (javax.cim.UnsignedInteger32) currentProperty.getValue();
+
+    }
+
+    /**
+     * Set the property NegativeCachingTTL
+     * <br>
+     * The negative caching time to live. This controls how long other servers will cache no-such-domain (NXDOMAIN) responses from you. Max value is 3 hours (10800 sec).
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_NegativeCachingTTL(javax.cim.UnsignedInteger32 newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_NEGATIVECACHINGTTL.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_NegativeCachingTTL(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_NEGATIVECACHINGTTL.NAME
+                    + " was not found in instance " + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property NegativeCachingTTL by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_NegativeCachingTTL(WBEMClient client, String namespace,
+            javax.cim.UnsignedInteger32 newValue) throws WbemsmtException {
+        Linux_DnsMasterZone fco = new Linux_DnsMasterZone(client, namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_NEGATIVECACHINGTTL.NAME);
+        if (property != null) {
+            property = setPropertyValue_NegativeCachingTTL(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_NEGATIVECACHINGTTL.NAME
+                    + " was not found in instance " + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property NegativeCachingTTL
+     * <br>
+     * The negative caching time to live. This controls how long other servers will cache no-such-domain (NXDOMAIN) responses from you. Max value is 3 hours (10800 sec).
+     */
+
+    private static CIMProperty setPropertyValue_NegativeCachingTTL(CIMProperty currentProperty,
+            javax.cim.UnsignedInteger32 newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property Refresh
+     *     * <br>
+     * The time in seconds after a RR is refershed.
+     *     */
+
+    public javax.cim.UnsignedInteger32 get_Refresh() {
+        CIMProperty currentProperty = getProperty(PROPERTY_REFRESH.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_REFRESH.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return null;
+        }
+
+        return (javax.cim.UnsignedInteger32) currentProperty.getValue();
+
+    }
+
+    /**
+     * Set the property Refresh
+     * <br>
+     * The time in seconds after a RR is refershed.
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_Refresh(javax.cim.UnsignedInteger32 newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_REFRESH.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_Refresh(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_REFRESH.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property Refresh by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_Refresh(WBEMClient client, String namespace,
+            javax.cim.UnsignedInteger32 newValue) throws WbemsmtException {
+        Linux_DnsMasterZone fco = new Linux_DnsMasterZone(client, namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_REFRESH.NAME);
+        if (property != null) {
+            property = setPropertyValue_Refresh(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_REFRESH.NAME + " was not found in instance "
+                    + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property Refresh
+     * <br>
+     * The time in seconds after a RR is refershed.
+     */
+
+    private static CIMProperty setPropertyValue_Refresh(CIMProperty currentProperty,
+            javax.cim.UnsignedInteger32 newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property Retry
+     *     * <br>
+     * The time in seconds after a RR is retried.
+     *     */
+
+    public javax.cim.UnsignedInteger32 get_Retry() {
+        CIMProperty currentProperty = getProperty(PROPERTY_RETRY.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_RETRY.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return null;
+        }
+
+        return (javax.cim.UnsignedInteger32) currentProperty.getValue();
+
+    }
+
+    /**
+     * Set the property Retry
+     * <br>
+     * The time in seconds after a RR is retried.
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_Retry(javax.cim.UnsignedInteger32 newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_RETRY.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_Retry(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_RETRY.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property Retry by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_Retry(WBEMClient client, String namespace,
+            javax.cim.UnsignedInteger32 newValue) throws WbemsmtException {
+        Linux_DnsMasterZone fco = new Linux_DnsMasterZone(client, namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_RETRY.NAME);
+        if (property != null) {
+            property = setPropertyValue_Retry(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_RETRY.NAME + " was not found in instance "
+                    + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property Retry
+     * <br>
+     * The time in seconds after a RR is retried.
+     */
+
+    private static CIMProperty setPropertyValue_Retry(CIMProperty currentProperty,
+            javax.cim.UnsignedInteger32 newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property SerialNumber
+     *     * <br>
+     * Serial Number of syntax year month day version: yyyymmddvv.
+     *     */
+
+    public String get_SerialNumber() {
+        CIMProperty currentProperty = getProperty(PROPERTY_SERIALNUMBER.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_SERIALNUMBER.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return null;
+        }
+
+        return (String) currentProperty.getValue();
+
+    }
+
+    /**
+     * Set the property SerialNumber
+     * <br>
+     * Serial Number of syntax year month day version: yyyymmddvv.
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_SerialNumber(String newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_SERIALNUMBER.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_SerialNumber(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_SERIALNUMBER.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property SerialNumber by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_SerialNumber(WBEMClient client, String namespace,
+            String newValue) throws WbemsmtException {
+        Linux_DnsMasterZone fco = new Linux_DnsMasterZone(client, namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_SERIALNUMBER.NAME);
+        if (property != null) {
+            property = setPropertyValue_SerialNumber(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_SERIALNUMBER.NAME + " was not found in instance "
+                    + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property SerialNumber
+     * <br>
+     * Serial Number of syntax year month day version: yyyymmddvv.
+     */
+
+    private static CIMProperty setPropertyValue_SerialNumber(CIMProperty currentProperty,
+            String newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property Server
+     *     * <br>
+     * IP Address of the authoritative server for this zone
+     *     */
+
+    public String get_Server() {
+        CIMProperty currentProperty = getProperty(PROPERTY_SERVER.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_SERVER.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return null;
+        }
+
+        return (String) currentProperty.getValue();
+
+    }
+
+    /**
+     * Set the property Server
+     * <br>
+     * IP Address of the authoritative server for this zone
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_Server(String newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_SERVER.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_Server(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_SERVER.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property Server by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_Server(WBEMClient client, String namespace, String newValue)
+            throws WbemsmtException {
+        Linux_DnsMasterZone fco = new Linux_DnsMasterZone(client, namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_SERVER.NAME);
+        if (property != null) {
+            property = setPropertyValue_Server(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_SERVER.NAME + " was not found in instance "
+                    + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property Server
+     * <br>
+     * IP Address of the authoritative server for this zone
+     */
+
+    private static CIMProperty setPropertyValue_Server(CIMProperty currentProperty, String newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property TTL
+     *     * <br>
+     * The default time to live value for Resource Records (RR). TTL describes how long a RR can be cached, before it should be discarded.
+     *     */
+
+    public Integer get_TTL() {
+        CIMProperty currentProperty = getProperty(PROPERTY_TTL.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_TTL.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return null;
+        }
+
+        return (Integer) currentProperty.getValue();
+
+    }
+
+    /**
+     * Set the property TTL
+     * <br>
+     * The default time to live value for Resource Records (RR). TTL describes how long a RR can be cached, before it should be discarded.
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_TTL(Integer newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_TTL.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_TTL(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_TTL.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property TTL by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_TTL(WBEMClient client, String namespace, Integer newValue)
+            throws WbemsmtException {
+        Linux_DnsMasterZone fco = new Linux_DnsMasterZone(client, namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_TTL.NAME);
+        if (property != null) {
+            property = setPropertyValue_TTL(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_TTL.NAME + " was not found in instance "
+                    + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property TTL
+     * <br>
+     * The default time to live value for Resource Records (RR). TTL describes how long a RR can be cached, before it should be discarded.
+     */
+
+    private static CIMProperty setPropertyValue_TTL(CIMProperty currentProperty, Integer newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property Type
+     *     * <br>
+     * Value = 1 for Type Master.
+     *     */
+
+    public javax.cim.UnsignedInteger8 get_Type() {
+        CIMProperty currentProperty = getProperty(PROPERTY_TYPE.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_TYPE.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return null;
+        }
+
+        return (javax.cim.UnsignedInteger8) currentProperty.getValue();
+
+    }
+
+    /**
+     * Set the property Type
+     * <br>
+     * Value = 1 for Type Master.
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_Type(javax.cim.UnsignedInteger8 newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_TYPE.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_Type(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_TYPE.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property Type by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_Type(WBEMClient client, String namespace,
+            javax.cim.UnsignedInteger8 newValue) throws WbemsmtException {
+        Linux_DnsMasterZone fco = new Linux_DnsMasterZone(client, namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_TYPE.NAME);
+        if (property != null) {
+            property = setPropertyValue_Type(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_TYPE.NAME + " was not found in instance "
+                    + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property Type
+     * <br>
+     * Value = 1 for Type Master.
+     */
+
+    private static CIMProperty setPropertyValue_Type(CIMProperty currentProperty,
+            javax.cim.UnsignedInteger8 newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    /**
+     * Get the property ZoneFile
+     *     * <br>
+     * The zone file that contains the zone specific RR.
+     *     */
+
+    public String get_ZoneFile() {
+        CIMProperty currentProperty = getProperty(PROPERTY_ZONEFILE.NAME);
+
+        if (currentProperty == null || currentProperty.getValue() == null) {
+            logger.warning("Property " + PROPERTY_ZONEFILE.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return null;
+        }
+
+        return (String) currentProperty.getValue();
+
+    }
+
+    /**
+     * Set the property ZoneFile
+     * <br>
+     * The zone file that contains the zone specific RR.
+     *
+     * @return true if the property was found, false if the property was not found and the value was not set
+     */
+
+    public boolean set_ZoneFile(String newValue) {
+        CIMProperty currentProperty = getProperty(PROPERTY_ZONEFILE.NAME);
+        if (currentProperty != null) {
+            currentProperty = setPropertyValue_ZoneFile(currentProperty, newValue);
+            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            return true;
+        }
+        else {
+            logger.warning("Property " + PROPERTY_ZONEFILE.NAME + " was not found in instance "
+                    + getCimObjectPath());
+            return false;
+        }
+
+    }
+
+    /**
+     * Get the property ZoneFile by getting the class from the server<br>
+     * and retrieving the property from it
+     * After that the value is set to this property and the property is returned
+     * @return null if the property cannot be found in the instance from the server
+     * @throws WbemsmtException 
+     */
+
+    public static CIMProperty create_ZoneFile(WBEMClient client, String namespace, String newValue)
+            throws WbemsmtException {
+        Linux_DnsMasterZone fco = new Linux_DnsMasterZone(client, namespace);
+        CIMProperty property = fco.getProperty(PROPERTY_ZONEFILE.NAME);
+        if (property != null) {
+            property = setPropertyValue_ZoneFile(property, newValue);
+        }
+        else {
+            logger.warning("Property " + PROPERTY_ZONEFILE.NAME + " was not found in instance "
+                    + fco.getCimObjectPath());
+        }
+        return property;
+    }
+
+    /**
+     * Set the property ZoneFile
+     * <br>
+     * The zone file that contains the zone specific RR.
+     */
+
+    private static CIMProperty setPropertyValue_ZoneFile(CIMProperty currentProperty,
+            String newValue) {
+        Object setThis = null;
+
+        setThis = newValue;
+
+        CIMProperty newProperty = new CIMProperty(currentProperty.getName(), currentProperty
+                .getDataType(), setThis, currentProperty.isKey(), currentProperty.isPropagated(),
+                currentProperty.getOriginClass());
+
+        return newProperty;
+    }
+
+    //**********************************************************************
+    // Associators methods     
+    //**********************************************************************
+
+    //**********************************************************************
+    // Extrinsic Method invocations     
+    //**********************************************************************                         
+
+    //**********************************************************************
+    // utility methods     
+    //**********************************************************************                         
+
+    /**
+     * return the name of the CIMClass
+     * @return
+     */
+    public String getObjectName() {
+        return Linux_DnsMasterZone.CIM_CLASS_NAME;
+    }
 
 }

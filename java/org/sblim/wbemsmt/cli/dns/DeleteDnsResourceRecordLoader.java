@@ -20,7 +20,7 @@
 package org.sblim.wbemsmt.cli.dns;
 
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.exception.ObjectNotFoundException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.tools.cli.CimCommandValues;
 import org.sblim.wbemsmt.tools.cli.CliUtil;
 import org.sblim.wbemsmt.tools.resources.WbemSmtResourceBundle;
@@ -32,7 +32,7 @@ public class DeleteDnsResourceRecordLoader extends DnsDataLoader {
 	 */
 	public void load(WbemSmtResourceBundle bundle,
 			AbstractBaseCimAdapter adapter, CimCommandValues commandValues)
-			throws ObjectNotFoundException {
+			throws WbemsmtException {
 		this.commandValues = commandValues;
 
 		String zoneName = CliUtil.getOption(commandValues,DeleteDnsResourceRecord.KEY_zoneName);

@@ -19,16 +19,8 @@
   */
 package org.sblim.wbemsmt.dns.bl.adapter;
 
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchList;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwardZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsHintZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasterZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasters;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsReverseZoneWrapper;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsSlaveZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsStubZone;
-import org.sblim.wbemsmt.exception.ObjectDeletionException;
+import org.sblim.wbemsmt.dns.bl.fco.*;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class DnsCimAdapterDeleteDelegatee implements DnsCimAdapterDeleteIf {
 
@@ -43,7 +35,7 @@ public class DnsCimAdapterDeleteDelegatee implements DnsCimAdapterDeleteIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterDeleteIf#deleteImpl(org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchList)
 	 */
 	public void deleteImpl(Linux_DnsAddressMatchList fco)
-			throws ObjectDeletionException {
+			throws WbemsmtException {
 		
 		adapter.getSelectedAddressMatchList().delete();
 		adapter.setMarkedForReload();
@@ -54,7 +46,7 @@ public class DnsCimAdapterDeleteDelegatee implements DnsCimAdapterDeleteIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterDeleteIf#deleteImpl(org.sblim.wbemsmt.dns.bl.fco.Linux_DnsHintZone)
 	 */
 	public void deleteImpl(Linux_DnsHintZone fco)
-			throws ObjectDeletionException {
+			throws WbemsmtException {
 		adapter.getSelectedZone().delete(fco);
 		adapter.setMarkedForReload();
 	}
@@ -63,7 +55,7 @@ public class DnsCimAdapterDeleteDelegatee implements DnsCimAdapterDeleteIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterDeleteIf#deleteImpl(org.sblim.wbemsmt.dns.bl.fco.Linux_DnsHintZone)
 	 */
 	public void deleteImpl(Linux_DnsForwardZone fco)
-			throws ObjectDeletionException {
+			throws WbemsmtException {
 		adapter.getSelectedZone().delete(fco);
 		adapter.setMarkedForReload();
 	}
@@ -72,7 +64,7 @@ public class DnsCimAdapterDeleteDelegatee implements DnsCimAdapterDeleteIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterDeleteIf#deleteImpl(org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasterZone)
 	 */
 	public void deleteImpl(Linux_DnsMasterZone fco)
-			throws ObjectDeletionException {
+			throws WbemsmtException {
 		adapter.getSelectedZone().delete(fco);
 		adapter.setMarkedForReload();
 	}
@@ -81,7 +73,7 @@ public class DnsCimAdapterDeleteDelegatee implements DnsCimAdapterDeleteIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterDeleteIf#deleteImpl(org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord)
 	 */
 	public void deleteImpl(Linux_DnsResourceRecord fco)
-			throws ObjectDeletionException {
+			throws WbemsmtException {
 		adapter.getSelectedResourceRecord().delete();
 		adapter.setMarkedForReload();
 	}
@@ -90,7 +82,7 @@ public class DnsCimAdapterDeleteDelegatee implements DnsCimAdapterDeleteIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterDeleteIf#deleteImpl(org.sblim.wbemsmt.dns.bl.fco.Linux_DnsReverseZoneWrapper)
 	 */
 	public void deleteImpl(Linux_DnsReverseZoneWrapper fco)
-			throws ObjectDeletionException {
+			throws WbemsmtException {
 
 		adapter.getSelectedReverseZone().delete(fco);
 		adapter.setMarkedForReload();
@@ -100,17 +92,17 @@ public class DnsCimAdapterDeleteDelegatee implements DnsCimAdapterDeleteIf {
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterDeleteIf#deleteImpl(org.sblim.wbemsmt.dns.bl.fco.Linux_DnsSlaveZone)
 	 */
 	public void deleteImpl(Linux_DnsSlaveZone fco)
-			throws ObjectDeletionException {
+			throws WbemsmtException {
 		adapter.getSelectedZone().delete(fco);
 		adapter.setMarkedForReload();
 	}
 
-	public void deleteImpl(Linux_DnsStubZone fco) throws ObjectDeletionException {
+	public void deleteImpl(Linux_DnsStubZone fco) throws WbemsmtException {
 		adapter.getSelectedZone().delete(fco);
 		adapter.setMarkedForReload();
 	}
 
-	public void deleteImpl(Linux_DnsMasters fco) throws ObjectDeletionException {
+	public void deleteImpl(Linux_DnsMasters fco) throws WbemsmtException {
 		adapter.getSelectedMasters().delete();
 		adapter.setMarkedForReload();
 	}

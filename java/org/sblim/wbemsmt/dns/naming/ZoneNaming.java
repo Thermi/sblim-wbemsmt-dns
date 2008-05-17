@@ -21,9 +21,10 @@ package org.sblim.wbemsmt.dns.naming;
 
 import java.util.logging.Logger;
 
-import org.sblim.wbem.cim.CIMInstance;
-import org.sblim.wbem.client.CIMClient;
-import org.sblim.wbemsmt.bl.fco.CIM_ObjectIf;
+import javax.cim.CIMInstance;
+import javax.wbem.client.WBEMClient;
+
+import org.sblim.wbemsmt.bl.fco.AbstractWbemsmtFco;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsZone;
 import org.sblim.wbemsmt.tasklauncher.naming.CIMInstanceNaming;
 import org.sblim.wbemsmt.tools.runtime.RuntimeUtil;
@@ -41,7 +42,7 @@ public class ZoneNaming extends CIMInstanceNaming {
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.tasklauncher.naming.CIMInstanceNaming#getDisplayString(org.sblim.wbem.cim.CIMInstance)
 	 */
-	public String getDisplayString(CIMInstance cimInstance, CIMClient cimClient) {
+	public String getDisplayString(CIMInstance cimInstance, WBEMClient cimClient) {
 		String separator = "\n";
 		int maxlength = 30;
 		if (RuntimeUtil.getInstance().isJSF())
@@ -51,7 +52,7 @@ public class ZoneNaming extends CIMInstanceNaming {
 		
 		StringBuffer sb = new StringBuffer();
 		
-		String name = (String) cimInstance.getProperty(Linux_DnsZone.CIM_PROPERTY_NAME).getValue().getValue();
+		String name = (String) cimInstance.getProperty(Linux_DnsZone.PROPERTY_NAME.NAME).getValue();
 		while (name.length() > maxlength)
 		{
 			sb.append(name.substring(0,maxlength));
@@ -63,7 +64,7 @@ public class ZoneNaming extends CIMInstanceNaming {
 		return sb.toString();
 	}
 
-	public String getDisplayString(CIM_ObjectIf cimObject, CIMClient cimClient) {
+	public String getDisplayString(AbstractWbemsmtFco cimObject, WBEMClient cimClient) {
 		return getDisplayString(cimObject.getCimInstance(), cimClient);
 	}
 

@@ -25,8 +25,7 @@ import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.wrapper.AddressMatchList;
 import org.sblim.wbemsmt.dns.bl.wrapper.list.AddressMatchListList;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ValidationException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 import org.sblim.wbemsmt.tools.validator.Validator;
 
@@ -48,23 +47,19 @@ public class AddressMatchListNameValidator  extends Validator {
 		return new LabeledBaseInputComponentIf[]{component};
 	}
 
-	public void validateElement(MessageList result) throws ValidationException {
+	public void validateElement(MessageList result) throws WbemsmtException {
 
-		try {
-			AddressMatchListList addressMatchLists = dnsCimAdapter.getDnsService().getAddressMatchListList();
-			
-			for (int i=0; i < addressMatchLists.size(); i++) {
-				AddressMatchList matchList = addressMatchLists.getAddressMatchList(i);
-				if (matchList.getFco().get_Name().equals(component.getConvertedControlValue()))
-				{
-					String msg = adapter.getBundle().getString(DnsErrCodes.MSG_MATCHLIST_EXISTS, "validator.matchListExists",new Object[]{component.getConvertedControlValue()});
-					result.addMessage(new Message(DnsErrCodes.MSG_MATCHLIST_EXISTS,Message.ERROR, msg,component));
-					return;
-				}
-			}
-		} catch (ModelLoadException e) {
-			throw new ValidationException(e);
-		}
+		AddressMatchListList addressMatchLists = dnsCimAdapter.getDnsService().getAddressMatchListList();
+        
+        for (int i=0; i < addressMatchLists.size(); i++) {
+        	AddressMatchList matchList = addressMatchLists.getAddressMatchList(i);
+        	if (matchList.getFco().get_key_Name().equals(component.getConvertedControlValue()))
+        	{
+        		String msg = adapter.getBundle().getString(DnsErrCodes.MSG_MATCHLIST_EXISTS, "validator.matchListExists",new Object[]{component.getConvertedControlValue()});
+        		result.addMessage(new Message(DnsErrCodes.MSG_MATCHLIST_EXISTS,Message.ERROR, msg,component));
+        		return;
+        	}
+        }
 	}
 
 }

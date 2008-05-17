@@ -19,28 +19,26 @@
   */
 package org.sblim.wbemsmt.dns.bl.wrapper;
 
-import java.util.Vector;
+import javax.cim.CIMObjectPath;
+import javax.cim.CIMProperty;
+import javax.cim.UnsignedInteger8;
 
-import org.sblim.wbem.cim.CIMDataType;
-import org.sblim.wbem.cim.CIMObjectPath;
-import org.sblim.wbem.cim.UnsignedInt8;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
-import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasters;
-import org.sblim.wbemsmt.exception.ModelLoadException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class MasterItem extends DnsBusinessObject {
 
 	private final String ip;
-	private final UnsignedInt8 type;
+	private final UnsignedInteger8 type;
 	private boolean predefined = false;
 
 	/**
 	 * @param zone must be set if existsOnServer = true
-	 * @throws ModelLoadException 
+	 * @throws WbemsmtException 
 	 */
-	public MasterItem(String ip, UnsignedInt8 type, DnsCimAdapter adapter,boolean predefined) throws ModelLoadException {
+	public MasterItem(String ip, UnsignedInteger8 type, DnsCimAdapter adapter,boolean predefined) throws WbemsmtException {
 		super(adapter);
 		this.ip = ip;
 		this.type = type;
@@ -50,10 +48,10 @@ public class MasterItem extends DnsBusinessObject {
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.wrapper.DnsBusinessObject#getCimObjectKey()
 	 */
-	public CimObjectKey getCimObjectKey() {
-		Vector keys = new Vector();
-		keys.add(CIMPropertyBuilder.create(Linux_DnsMasters.CIM_PROPERTY_NAME,ip + type.intValue(),CIMDataType.STRING));
-		return new CimObjectKey(new CIMObjectPath(Linux_DnsMasters.CIM_CLASS_NAME,keys));
+	public CimObjectKey getCimObjectKey() throws WbemsmtException {
+		CIMProperty[] keys = new CIMProperty[1];
+		keys[0] = Linux_DnsMasters.create_key_Name(adapter.getCimClient(), adapter.getNamespace(), ip + type.intValue());
+		return new CimObjectKey(new CIMObjectPath(Linux_DnsMasters.CIM_CLASS_NAME,adapter.getNamespace(), keys));
 	}
 
 	public String getDisplayString() {
@@ -64,7 +62,7 @@ public class MasterItem extends DnsBusinessObject {
 		return ip;
 	}
 
-	public UnsignedInt8 getType() {
+	public UnsignedInteger8 getType() {
 		return type;
 	}
 

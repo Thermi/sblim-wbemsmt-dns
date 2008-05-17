@@ -22,66 +22,12 @@ package org.sblim.wbemsmt.dns.bl.adapter;
 import org.sblim.wbemsmt.bl.fielddata.LinkData;
 import org.sblim.wbemsmt.bl.fielddata.MemoData;
 import org.sblim.wbemsmt.bl.fielddata.PictureData;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsAddMasterAddressDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListForServiceDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForServiceDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForZoneDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryForServiceDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryForZoneDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowRecursionForServiceDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowTransferForServiceDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowTransferForZoneDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowUpdateForZoneDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsBlackholeForServiceDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsConfigurationDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardZoneDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsForwarderDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardersForServiceDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsHintZoneDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsMasterDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsMasterZoneDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsMastersForServiceDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordListItemContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsReverseZoneDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceOperationsDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceTracingDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsSlaveZoneDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsSoaContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsStubZoneDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsTTLDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneTracingContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.*;
 import org.sblim.wbemsmt.dns.bl.container.welcome.WelcomeDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsAddressMatchListWizardPage1DataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsAddressMatchListWizardSummaryDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardPage1DataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsForwardZoneWizardSummaryDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardPage1DataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardSummaryDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMastersWizardPage1DataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMastersWizardSummaryDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardPage1DataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardPage2TypeMxDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardPage2TypeOtherDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordWizardSummaryDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardPage1DataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsReverseZoneWizardSummaryDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsSlaveZoneWizardPage1DataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsSlaveZoneWizardSummaryDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsStubZoneWizardPage1DataContainer;
-import org.sblim.wbemsmt.dns.bl.container.wizard.DnsStubZoneWizardSummaryDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.wizard.*;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;
-import org.sblim.wbemsmt.dns.listener.CreateAddressMatchListListener;
-import org.sblim.wbemsmt.dns.listener.CreateForwardZoneListener;
-import org.sblim.wbemsmt.dns.listener.CreateMasterZoneListener;
-import org.sblim.wbemsmt.dns.listener.CreateMastersListener;
-import org.sblim.wbemsmt.dns.listener.CreateSlaveZoneListener;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.UpdateControlsException;
+import org.sblim.wbemsmt.dns.listener.*;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class DnsCimAdapterUpdateControlsDelegatee implements
 		DnsCimAdapterUpdateControlsIf {
@@ -97,7 +43,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateControlsIf#updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListDataContainer)
 	 */
 	public void updateControlsImpl(DnsAddressMatchListDataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		// do nothing is a base object
 
 	}
@@ -107,7 +53,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 */
 	public void updateControlsImpl(
 			DnsAddressMatchListForServiceDataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 
 		adapter.getSelectedAddressMatchList().updateControls(container);
 
@@ -118,7 +64,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 */
 	public void updateControlsImpl(
 			DnsAddressMatchListWizardPage1DataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 
 		adapter.getAddressMatchListWizard().updateControls(container);
 
@@ -129,7 +75,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 */
 	public void updateControlsImpl(
 			DnsAddressMatchListWizardSummaryDataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		adapter.getAddressMatchListWizard().updateControls(container);
 
 	}
@@ -139,12 +85,8 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 */
 	public void updateControlsImpl(
 			DnsAllowNotifyForServiceDataContainer container)
-			throws UpdateControlsException {
-		try {
-			adapter.getDnsService().updateControls(container);
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+			throws WbemsmtException {
+		adapter.getDnsService().updateControls(container);
 	}
 
 	/* (non-Javadoc)
@@ -152,7 +94,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 */
 	public void updateControlsImpl(
 			DnsAllowNotifyForZoneDataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		if (adapter.getSelectedSlaveZone() != null)
 		{
 			adapter.getSelectedSlaveZone().updateControls(container);
@@ -162,7 +104,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 			adapter.getSelectedStubZone().updateControls(container);
 		}
 		else {
-			throw new  UpdateControlsException("Cannot updateControls for container - selected zone " + adapter.getSelectedZone() + " not supported");
+			throw new  WbemsmtException(WbemsmtException.ERR_UPDATE_CONTROLS,"Cannot updateControls for container - selected zone " + adapter.getSelectedZone() + " not supported");
 		}
 
 	}
@@ -172,12 +114,8 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 */
 	public void updateControlsImpl(
 			DnsAllowQueryForServiceDataContainer container)
-			throws UpdateControlsException {
-		try {
-			adapter.getDnsService().updateControls(container);
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+			throws WbemsmtException {
+		adapter.getDnsService().updateControls(container);
 	}
 
 	/* (non-Javadoc)
@@ -185,7 +123,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 */
 	public void updateControlsImpl(
 			DnsAllowQueryForZoneDataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		if (adapter.getSelectedMasterZone() != null)
 		{
 			adapter.getSelectedMasterZone().updateControls(container);
@@ -203,7 +141,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 			adapter.getSelectedReverseZone().updateControls(container);
 		}
 		else {
-			throw new  UpdateControlsException("Cannot updateControls for container - selected zone " + adapter.getSelectedZone() + " not supported");
+			throw new  WbemsmtException(WbemsmtException.ERR_UPDATE_CONTROLS,"Cannot updateControls for container - selected zone " + adapter.getSelectedZone() + " not supported");
 		}
 	}
 
@@ -212,12 +150,8 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 */
 	public void updateControlsImpl(
 			DnsAllowRecursionForServiceDataContainer container)
-			throws UpdateControlsException {
-		try {
-			adapter.getDnsService().updateControls(container);
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+			throws WbemsmtException {
+		adapter.getDnsService().updateControls(container);
 	}
 
 	/* (non-Javadoc)
@@ -225,12 +159,8 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 */
 	public void updateControlsImpl(
 			DnsAllowTransferForServiceDataContainer container)
-			throws UpdateControlsException {
-		try {
-			adapter.getDnsService().updateControls(container);
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+			throws WbemsmtException {
+		adapter.getDnsService().updateControls(container);
 	}
 
 	/* (non-Javadoc)
@@ -238,7 +168,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 */
 	public void updateControlsImpl(
 			DnsAllowTransferForZoneDataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		if (adapter.getSelectedMasterZone() != null)
 		{
 			adapter.getSelectedMasterZone().updateControls(container);
@@ -257,7 +187,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 		}
 		else
 		{
-			throw new  UpdateControlsException("Cannot updateControls for container - selected zone " + adapter.getSelectedZone() + " not supported");
+			throw new  WbemsmtException(WbemsmtException.ERR_UPDATE_CONTROLS,"Cannot updateControls for container - selected zone " + adapter.getSelectedZone() + " not supported");
 		}
 	}
 
@@ -266,7 +196,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 */
 	public void updateControlsImpl(
 			DnsAllowUpdateForZoneDataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		if (adapter.getSelectedMasterZone() != null)
 		{
 			adapter.getSelectedMasterZone().updateControls(container);
@@ -284,7 +214,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 			adapter.getSelectedReverseZone().updateControls(container);
 		}
 		else {
-			throw new  UpdateControlsException("Cannot updateControls for container - selected zone " + adapter.getSelectedZone() + " not supported");
+			throw new  WbemsmtException(WbemsmtException.ERR_UPDATE_CONTROLS,"Cannot updateControls for container - selected zone " + adapter.getSelectedZone() + " not supported");
 		}
 	}
 
@@ -293,31 +223,23 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 */
 	public void updateControlsImpl(
 			DnsBlackholeForServiceDataContainer container)
-			throws UpdateControlsException {
-		try {
-			adapter.getDnsService().updateControls(container);
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+			throws WbemsmtException {
+		adapter.getDnsService().updateControls(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateControlsIf#updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsConfigurationDataContainer)
 	 */
 	public void updateControlsImpl(DnsConfigurationDataContainer container)
-			throws UpdateControlsException {
-		try {
-			adapter.getDnsService().updateControls(container);
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+			throws WbemsmtException {
+		adapter.getDnsService().updateControls(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateControlsIf#updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardZoneDataContainer)
 	 */
 	public void updateControlsImpl(DnsForwardZoneDataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		adapter.getSelectedForwardZone().updateControls(container);
 	}
 
@@ -325,7 +247,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateControlsIf#updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsHintZoneDataContainer)
 	 */
 	public void updateControlsImpl(DnsHintZoneDataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		adapter.getSelectedHintZone().updateControls(container);
 
 	}
@@ -334,7 +256,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateControlsIf#updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsMasterZoneDataContainer)
 	 */
 	public void updateControlsImpl(DnsMasterZoneDataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		adapter.getSelectedMasterZone().updateControls(container);
 	}
 
@@ -343,7 +265,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 */
 	public void updateControlsImpl(
 			DnsMasterZoneWizardPage1DataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		adapter.getMasterZoneWizard().updateControls(container);
 
 	}
@@ -353,7 +275,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 */
 	public void updateControlsImpl(
 			DnsMasterZoneWizardSummaryDataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		adapter.getMasterZoneWizard().updateControls(container);
 
 	}
@@ -362,7 +284,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateControlsIf#updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer)
 	 */
 	public void updateControlsImpl(DnsResourceRecordDataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		adapter.getSelectedResourceRecord().updateControls(container);
 
 	}
@@ -372,16 +294,16 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 */
 	public void updateControlsImpl(
 			DnsResourceRecordWizardPage1DataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		adapter.getResourceRecordWizard().updateControls(container);
 
 	}
 
-	public void updateControlsImpl(DnsResourceRecordWizardPage2TypeMxDataContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsResourceRecordWizardPage2TypeMxDataContainer container) throws WbemsmtException {
 		adapter.getResourceRecordWizard().updateControls(container);
 	}
 
-	public void updateControlsImpl(DnsResourceRecordWizardPage2TypeOtherDataContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsResourceRecordWizardPage2TypeOtherDataContainer container) throws WbemsmtException {
 		adapter.getResourceRecordWizard().updateControls(container);
 	}
 
@@ -390,7 +312,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 */
 	public void updateControlsImpl(
 			DnsResourceRecordWizardSummaryDataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		adapter.getResourceRecordWizard().updateControls(container);
 
 	}
@@ -399,7 +321,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateControlsIf#updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsReverseZoneDataContainer)
 	 */
 	public void updateControlsImpl(DnsReverseZoneDataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		adapter.getSelectedReverseZone().updateControls(container);
 
 	}
@@ -409,7 +331,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 */
 	public void updateControlsImpl(
 			DnsReverseZoneWizardPage1DataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		adapter.getReverseZoneWizard().updateControls(container);
 	}
 
@@ -417,19 +339,15 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateControlsIf#updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceOperationsDataContainer)
 	 */
 	public void updateControlsImpl(DnsServiceOperationsDataContainer container)
-			throws UpdateControlsException {
-		try {
-			adapter.getDnsService().updateControls(container);
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+			throws WbemsmtException {
+		adapter.getDnsService().updateControls(container);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateControlsIf#updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsSlaveZoneDataContainer)
 	 */
 	public void updateControlsImpl(DnsSlaveZoneDataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		adapter.getSelectedSlaveZone().updateControls(container);
 	}
 
@@ -437,7 +355,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateControlsIf#updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.edit.DnsZoneDataContainer)
 	 */
 	public void updateControlsImpl(DnsZoneDataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		//do nothing - is a base object
 	}
 
@@ -445,7 +363,7 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateControlsIf#updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsZoneWizardPage1DataContainer)
 	 */
 	public void updateControlsImpl(DnsForwardZoneWizardPage1DataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		adapter.getForwardZoneWizard().updateControls(container);
 	}
 
@@ -453,71 +371,67 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 	 * @see org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapterUpdateControlsIf#updateControlsImpl(org.sblim.wbemsmt.dns.bl.container.wizard.DnsZoneWizardSummaryDataContainer)
 	 */
 	public void updateControlsImpl(DnsForwardZoneWizardSummaryDataContainer container)
-			throws UpdateControlsException {
+			throws WbemsmtException {
 		adapter.getForwardZoneWizard().updateControls(container);
 	}
 
-	public void updateControlsImpl(DnsServiceTracingDataContainer container) throws UpdateControlsException {
-		try {
-			adapter.getDnsService().updateControls(container);
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+	public void updateControlsImpl(DnsServiceTracingDataContainer container) throws WbemsmtException {
+		adapter.getDnsService().updateControls(container);
 	}
 
-	public void updateControlsImpl(DnsSlaveZoneWizardPage1DataContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsSlaveZoneWizardPage1DataContainer container) throws WbemsmtException {
 		adapter.getSlaveZoneWizard().updateControls(container);
 	}
 
-	public void updateControlsImpl(DnsSlaveZoneWizardSummaryDataContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsSlaveZoneWizardSummaryDataContainer container) throws WbemsmtException {
 		adapter.getSlaveZoneWizard().updateControls(container);
 	}
 
-	public void updateControlsImpl(DnsZoneTracingContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsZoneTracingContainer container) throws WbemsmtException {
 		adapter.getSelectedZone().updateControls(container);
 	}
 
-	public void updateControlsImpl(DnsResourceRecordDataContainer container, Linux_DnsResourceRecord fco) throws UpdateControlsException {
+	public void updateControlsImpl(DnsResourceRecordDataContainer container, Linux_DnsResourceRecord fco) throws WbemsmtException {
 		adapter.getSelectedZone().updateControls(container,fco);
 	}
 
-	public void updateControlsImpl(DnsForwarderDataContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsForwarderDataContainer container) throws WbemsmtException {
 		//do nothing - is a base object
 	}
 
-	public void updateControlsImpl(DnsTTLDataContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsTTLDataContainer container) throws WbemsmtException {
 		//do nothing - is a base object
 		
 	}
 
-	public void updateControlsImpl(DnsAddMasterAddressDataContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsAddMasterAddressDataContainer container) throws WbemsmtException {
 		//do nothing - is a base object
 	}
 
-	public void updateControlsImpl(DnsReverseZoneWizardSummaryDataContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsReverseZoneWizardSummaryDataContainer container) throws WbemsmtException {
 		adapter.getReverseZoneWizard().updateControls(container);
 	}
 
-	public void updateControlsImpl(DnsResourceRecordForReverseZoneWizardDataContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsResourceRecordForReverseZoneWizardDataContainer container) throws WbemsmtException {
 	}
 
-	public void updateControlsImpl(DnsResourceRecordForReverseZoneWizardDataContainer container, Linux_DnsResourceRecord fco) throws UpdateControlsException {
+	public void updateControlsImpl(DnsResourceRecordForReverseZoneWizardDataContainer container, Linux_DnsResourceRecord fco) throws WbemsmtException {
 		adapter.getReverseZoneWizard().updateControls(container,fco);
 	}
 
-	public void updateControlsImpl(DnsResourceRecordListContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsResourceRecordListContainer container) throws WbemsmtException {
 		adapter.getSelectedZone().updateControls(container);
 	}
 
-	public void updateControlsImpl(DnsResourceRecordListItemContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsResourceRecordListItemContainer container) throws WbemsmtException {
 		adapter.getSelectedZone().updateControls(container);
 	}
 
-	public void updateControlsImpl(DnsResourceRecordListItemContainer container, Linux_DnsResourceRecord fco) throws UpdateControlsException {
+	public void updateControlsImpl(DnsResourceRecordListItemContainer container, Linux_DnsResourceRecord fco) throws WbemsmtException {
 		adapter.getSelectedZone().updateControls(container,fco);
 	}
 
-	public void updateControlsImpl(DnsSoaContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsSoaContainer container) throws WbemsmtException {
 		if (adapter.getSelectedReverseZone() != null)
 		{
 			adapter.getSelectedReverseZone().updateControls(container);
@@ -527,45 +441,41 @@ public class DnsCimAdapterUpdateControlsDelegatee implements
 			adapter.getSelectedMasterZone().updateControls(container);
 		}
 		
-		else throw new UpdateControlsException("Selected zone is no masterZone or ReverseZone");
+		else throw new WbemsmtException(WbemsmtException.ERR_UPDATE_CONTROLS,"Selected zone is no masterZone or ReverseZone");
 	}
 
-	public void updateControlsImpl(DnsMasterDataContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsMasterDataContainer container) throws WbemsmtException {
 	}
 
-	public void updateControlsImpl(DnsMastersForServiceDataContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsMastersForServiceDataContainer container) throws WbemsmtException {
 		adapter.getSelectedMasters().updateControls(container);
 	}
 
-	public void updateControlsImpl(DnsMastersWizardPage1DataContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsMastersWizardPage1DataContainer container) throws WbemsmtException {
 		adapter.getMastersWizard().updateControls(container);
 	}
 
-	public void updateControlsImpl(DnsMastersWizardSummaryDataContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsMastersWizardSummaryDataContainer container) throws WbemsmtException {
 		adapter.getMastersWizard().updateControls(container);
 	}
 
-	public void updateControlsImpl(DnsStubZoneDataContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsStubZoneDataContainer container) throws WbemsmtException {
 		adapter.getSelectedStubZone().updateControls(container);
 	}
 
-	public void updateControlsImpl(DnsStubZoneWizardPage1DataContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsStubZoneWizardPage1DataContainer container) throws WbemsmtException {
 		adapter.getStubZoneWizard().updateControls(container);
 	}
 
-	public void updateControlsImpl(DnsStubZoneWizardSummaryDataContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(DnsStubZoneWizardSummaryDataContainer container) throws WbemsmtException {
 		adapter.getStubZoneWizard().updateControls(container);
 	}
 
-	public void updateControlsImpl(DnsForwardersForServiceDataContainer container) throws UpdateControlsException {
-		try {
-			adapter.getDnsService().updateControls(container);
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+	public void updateControlsImpl(DnsForwardersForServiceDataContainer container) throws WbemsmtException {
+		adapter.getDnsService().updateControls(container);
 	}
 
-	public void updateControlsImpl(WelcomeDataContainer container) throws UpdateControlsException {
+	public void updateControlsImpl(WelcomeDataContainer container) throws WbemsmtException {
 		container.get_usr_WelcomeText().setControlValue(container.getAdapter().getBundle().getString("dns.welcome.objects"));
 		container.get_usr_DnsPicture().setControlValue(new PictureData("/org/sblim/wbemsmt/dns/images/dns.gif"));
 		container.get_usr_LinkCreateMasterzone().setControlValue(new LinkData(new CreateMasterZoneListener(),container.getAdapter().getBundle().getString("tree.menu.createMasterZone")));

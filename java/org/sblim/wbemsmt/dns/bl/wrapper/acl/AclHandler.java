@@ -24,43 +24,27 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Vector;
 
+import javax.cim.CIMObjectPath;
+import javax.cim.UnsignedInteger16;
+import javax.cim.UnsignedInteger8;
+import javax.wbem.client.WBEMClient;
+
+import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
-import org.sblim.wbem.cim.CIMObjectPath;
-import org.sblim.wbem.cim.UnsignedInt16;
-import org.sblim.wbem.cim.UnsignedInt8;
-import org.sblim.wbem.client.CIMClient;
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
-import org.sblim.wbemsmt.bl.fco.CIMPropertyBuilder;
+import org.sblim.wbemsmt.bl.fco.AbstractWbemsmtFco;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsAddressMatchListDataContainer;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchList;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchListsForService;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowNotifyForService;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowNotifyForZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowQueryForService;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowQueryForZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowRecursionForService;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowTransferForService;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowTransferForZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAllowUpdateForZone;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsBlackholeForService;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsZone;
+import org.sblim.wbemsmt.dns.bl.fco.*;
 import org.sblim.wbemsmt.dns.bl.validator.AddressMatchListElementValidator;
 import org.sblim.wbemsmt.dns.bl.wrapper.DnsObject;
 import org.sblim.wbemsmt.dns.bl.wrapper.NameFactory;
 import org.sblim.wbemsmt.dns.bl.wrapper.list.AddressMatchListList;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ModelUpdateException;
-import org.sblim.wbemsmt.exception.ObjectCreationException;
-import org.sblim.wbemsmt.exception.ObjectDeletionException;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
-import org.sblim.wbemsmt.exception.UpdateControlsException;
-import org.sblim.wbemsmt.exception.ValidationException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 
 public class AclHandler extends DnsObject {
@@ -94,20 +78,21 @@ public class AclHandler extends DnsObject {
 	public static final int IDX_USER = 5; 
 	public static final int IDX_RECURSION = 6; 
 
-	public Linux_DnsAddressMatchList getAcl(int index) throws ModelLoadException {
+	public Linux_DnsAddressMatchList getAcl(int index) throws WbemsmtException {
 
 		if (acl[index] == null)
 		{
-			CIMClient cc = adapter.getCimClient();
+			WBEMClient cc = adapter.getCimClient();
 			List associatedObjects = loader.load(index);
 			if (associatedObjects == null)
 			{
-				throw new ModelLoadException(CANNOT_LOAD_OBJECTS_FOR_TYPE + index);
+				WbemsmtException e = new WbemsmtException(WbemsmtException.ERR_LOADING_MODEL,CANNOT_LOAD_OBJECTS_FOR_TYPE + index);
+                throw e;
 			}
 			
 			if (associatedObjects.size() == 0 || associatedObjects.get(0) instanceof CIMObjectPath )
 			{
-				acl[index] = (Linux_DnsAddressMatchList) getFirstChild(Linux_DnsAddressMatchList.class,associatedObjects,true,true, cc);
+				acl[index] = (Linux_DnsAddressMatchList) getFirstChild(Linux_DnsAddressMatchList.class,associatedObjects,true,true, cc, adapter.getNamespace());
 			}
 			else
 			{
@@ -123,21 +108,21 @@ public class AclHandler extends DnsObject {
 	
 	
 	
-	private void loadAclDependentObjects(int index) throws ModelLoadException {
+	private void loadAclDependentObjects(int index) throws WbemsmtException {
 	
 		notUsedAddresses[index] = new ArrayList();
 		//add the userdefined ones
 		AddressMatchListList addressMatchListList = adapter.getDnsService().getAddressMatchListList();
 		for (int i=0; i < addressMatchListList.size(); i++)
 		{
-			String name = addressMatchListList.getAddressMatchList(i).getFco().get_Name();
+			String name = addressMatchListList.getAddressMatchList(i).getFco().get_key_Name();
 			notUsedAddresses[index].add(name);
 		}
 
 		usedAddresses[index] = new ArrayList();
 		usedAddressTypes[index] = new ArrayList();
 		String[] addresses = acl[index].get_AddressMatchListElement();
-		UnsignedInt8[] addressTypes = acl[index].get_AddressMatchListElementType();
+		UnsignedInteger8[] addressTypes = acl[index].get_AddressMatchListElementType();
 		
 		for (int i = 0; addresses != null && i < addresses.length; i++) {
 			String address = addresses[i];
@@ -157,13 +142,13 @@ public class AclHandler extends DnsObject {
 		}
 	}
 
-	public void resetAcls() throws ModelLoadException {
+	public void resetAcls() throws WbemsmtException {
 
 		for (int i = 0; i < acl.length; i++) {
 			try {
 				resetAcl(i);
-			} catch (ModelLoadException e) {
-				if (e.getMessage().startsWith(CANNOT_LOAD_OBJECTS_FOR_TYPE))
+			} catch (WbemsmtException e) {
+				if (e.getUserObject() != null && e.getMessage().startsWith(CANNOT_LOAD_OBJECTS_FOR_TYPE))
 				{
 					//thats okay - not all objects do have all types of acls
 				}
@@ -176,146 +161,134 @@ public class AclHandler extends DnsObject {
 		
 	}
 
-	public void resetAcl(int idx) throws ModelLoadException {
+	public void resetAcl(int idx) throws WbemsmtException {
 		acl[idx] = null;
 		acl[idx] = getAcl(idx);
 		usedAddressTypes[idx] = usedAddresses[idx] = notUsedAddresses[idx] = null;
 	}
 
 
-	public MessageList save(int idx) throws ObjectSaveException {
+	public MessageList save(int idx) throws WbemsmtException {
 
-		try {
-			Linux_DnsAddressMatchList aclByIdx = getAcl(idx);
-			boolean created = false;
-			//create a new acl?
-			if (addressMatchListExists[idx] && !aclByIdx.isValidCimInstance())
-			{
-				Class cls = getClassByIdx(idx);
-				
-				if (zone != null)
-				{
-					aclByIdx.set_Name(NameFactory.createName(cls, zone.get_Name()));
-					aclByIdx.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
-					acl[idx] = aclByIdx = (Linux_DnsAddressMatchList) adapter.getFcoHelper().create(aclByIdx, adapter.getCimClient());
-					if (DnsCimAdapter.DUMMY_MODE)
-					{
-						Vector keys = new Vector();
-						keys.add(CIMPropertyBuilder.create(Linux_DnsAllowNotifyForZone.CIM_PROPERTY_LINUX_DNSADDRESSMATCHLIST,acl[idx]));
-						keys.add(CIMPropertyBuilder.create(Linux_DnsAllowNotifyForZone.CIM_PROPERTY_LINUX_DNSZONE,zone));
-						adapter.getFcoHelper().create(cls,adapter.getCimClient(),keys);
-					}
-					created = true;
-				}
-				else
-				{
-					try {
-						aclByIdx.set_Name(NameFactory.createName(cls, null));
-						aclByIdx.set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
-						acl[idx] = aclByIdx = (Linux_DnsAddressMatchList) adapter.getFcoHelper().create(aclByIdx, adapter.getCimClient());
-						if (DnsCimAdapter.DUMMY_MODE)
-						{
-							Vector keys = new Vector();
-							keys.add(CIMPropertyBuilder.create(Linux_DnsAllowNotifyForService.CIM_PROPERTY_LINUX_DNSADDRESSMATCHLIST,acl[idx]));
-							keys.add(CIMPropertyBuilder.create(Linux_DnsAllowNotifyForService.CIM_PROPERTY_LINUX_DNSSERVICE,adapter.getDnsService().getFco()));
-							adapter.getFcoHelper().create(cls,adapter.getCimClient(),keys);
-						}
-						created = true;
-					} catch (ModelLoadException e) {
-						throw new ObjectSaveException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(new Linux_DnsAllowNotifyForService()),e);
-					}
-					
-				}
-			}
-			//delete the old
-			else if (!addressMatchListExists[idx] && aclByIdx.isValidCimInstance())
-			{
-				try {
-					if (zone != null)
-					{
-						if (DnsCimAdapter.DUMMY_MODE)
-						{
-							deleteAssociation(getClassByIdx(idx), aclByIdx, "get_Linux_DnsZone");
-						}
-	
-						adapter.getFcoHelper().delete(aclByIdx,adapter.getCimClient());
-						resetAcl(idx);
-						return null;
-					}
-					else
-					{
-						if (DnsCimAdapter.DUMMY_MODE)
-						{
-							deleteAssociation(getClassByIdx(idx), aclByIdx, "get_Linux_DnsService");
-						}
-						adapter.getFcoHelper().delete(aclByIdx,adapter.getCimClient());
-						resetAcl(idx);
-						return null;
-					}
-				} catch (ObjectDeletionException e) {
-					throw new ObjectSaveException(e);
-				} catch (Exception e) {
-					throw new ObjectSaveException(e);
-				}
-			}
-			
-			String[] addresses = new String[getUsedAddressesAsList(idx).size()];
-			UnsignedInt8[] addressTypes = new UnsignedInt8[getUsedAddressTypesAsList(idx).size()];
-			
-			for (int i=0; i < getUsedAddressesAsList(idx).size(); i++) {
-				addresses[i] = (String) getUsedAddressesAsList(idx).get(i);
-				addressTypes[i] = (UnsignedInt8) getUsedAddressTypesAsList(idx).get(i); 
-			}
-			aclByIdx.set_AddressMatchListElement(addresses);
-			aclByIdx.set_AddressMatchListElementType(addressTypes);
-			
-			if (aclByIdx.isModified() && aclByIdx.isValidCimInstance())
-			{
-				adapter.getFcoHelper().save(aclByIdx,adapter.getCimClient());
-				resetAcl(idx);
-			}
-			else if (created)
-			{
-				resetAcl(idx);
-			}
-			
-			return null;
-		} catch (ModelLoadException e1) {
-			throw new ObjectSaveException(e1);
-		}
+		Linux_DnsAddressMatchList aclByIdx = getAcl(idx);
+        boolean created = false;
+        //create a new acl?
+        if (addressMatchListExists[idx] && !aclByIdx.isFromServer())
+        {
+        	Class cls = getClassByIdx(idx);
+        	
+        	if (zone != null)
+        	{
+        		aclByIdx.set_key_Name(NameFactory.createName(cls, zone.get_key_Name()));
+        		aclByIdx.set_key_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
+        		acl[idx] = aclByIdx = (Linux_DnsAddressMatchList) adapter.getFcoHelper().create(aclByIdx, adapter.getCimClient());
+        		if (DnsCimAdapter.DUMMY_MODE)
+        		{
+                    Linux_DnsAllowNotifyForZone assoc = new Linux_DnsAllowNotifyForZone(adapter.getCimClient(),adapter.getNamespace());
+                    assoc.set_GroupComponent_Linux_DnsZone(zone);
+                    assoc.set_PartComponent_Linux_DnsAddressMatchList(acl[idx]);
+                    adapter.getFcoHelper().create(assoc,adapter.getCimClient());
+        		}
+        		created = true;
+        	}
+        	else
+        	{
+        		aclByIdx.set_key_Name(NameFactory.createName(cls, null));
+                aclByIdx.set_key_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
+                acl[idx] = aclByIdx = (Linux_DnsAddressMatchList) adapter.getFcoHelper().create(aclByIdx, adapter.getCimClient());
+                if (DnsCimAdapter.DUMMY_MODE)
+                {
+                    Linux_DnsAllowNotifyForService assoc = new Linux_DnsAllowNotifyForService(adapter.getCimClient(),adapter.getNamespace());
+                	assoc.set_GroupComponent_Linux_DnsService(adapter.getDnsService().getFco());
+                    assoc.set_PartComponent_Linux_DnsAddressMatchList(acl[idx]);
+                	adapter.getFcoHelper().create(assoc,adapter.getCimClient());
+                }
+                created = true;
+        		
+        	}
+        }
+        //delete the old
+        else if (!addressMatchListExists[idx] && aclByIdx.isFromServer())
+        {
+        	try {
+        		if (zone != null)
+        		{
+        			if (DnsCimAdapter.DUMMY_MODE)
+        			{
+        				deleteAssociation(getClassByIdx(idx), aclByIdx);
+        			}
+
+        			adapter.getFcoHelper().delete(aclByIdx,adapter.getCimClient());
+        			resetAcl(idx);
+        			return null;
+        		}
+        		else
+        		{
+        			if (DnsCimAdapter.DUMMY_MODE)
+        			{
+        				deleteAssociation(getClassByIdx(idx), aclByIdx);
+        			}
+        			adapter.getFcoHelper().delete(aclByIdx,adapter.getCimClient());
+        			resetAcl(idx);
+        			return null;
+        		}
+        	} catch (Exception e) {
+        		throw new WbemsmtException(WbemsmtException.ERR_SAVE_OBJECT,e);
+        	}
+        }
+        
+        String[] addresses = new String[getUsedAddressesAsList(idx).size()];
+        UnsignedInteger8[] addressTypes = new UnsignedInteger8[getUsedAddressTypesAsList(idx).size()];
+        
+        for (int i=0; i < getUsedAddressesAsList(idx).size(); i++) {
+        	addresses[i] = (String) getUsedAddressesAsList(idx).get(i);
+        	addressTypes[i] = (UnsignedInteger8) getUsedAddressTypesAsList(idx).get(i); 
+        }
+        aclByIdx.set_AddressMatchListElement(addresses);
+        aclByIdx.set_AddressMatchListElementType(addressTypes);
+        
+        if (aclByIdx.isModified() && aclByIdx.isFromServer())
+        {
+        	adapter.getFcoHelper().save(aclByIdx,adapter.getCimClient());
+        	resetAcl(idx);
+        }
+        else if (created)
+        {
+        	resetAcl(idx);
+        }
+        
+        return null;
 	}
 
 	/**
 	 * Helper Method to delete a Assocation. Should  be only used in DummyMode
-	 * @param associationHelperClass
 	 * @param aclByIdx
-	 * @param getterNameGroupComponent
+	 * @param associationHelperClass
 	 * @throws NoSuchMethodException
 	 * @throws IllegalAccessException
 	 * @throws InvocationTargetException
-	 * @throws ObjectDeletionException
+	 * @throws WbemsmtException
 	 * @throws ClassNotFoundException 
-	 * @throws ModelLoadException 
+	 * @throws WbemsmtException 
 	 */
-	private void deleteAssociation(Class associationClass, Linux_DnsAddressMatchList aclByIdx, String getterNameGroupComponent) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, ObjectDeletionException, ClassNotFoundException, ModelLoadException {
-		CIMObjectPath groupPath = zone != null ? zone.getCimObjectPath() : adapter.getDnsService().getFco().getCimObjectPath();
-		Class associationHelperClass = Class.forName(associationClass.getName() + "Helper");
-		Method m = associationHelperClass.getMethod("enumerateInstances", new Class[]{CIMClient.class,boolean.class});
-		List list = (List) m.invoke(null,new Object[]{adapter.getCimClient(),Boolean.FALSE});
-		boolean found = false;
-		for (Iterator iter = list.iterator(); !found && iter.hasNext();) {
-			Object o = iter.next();
-			CIMObjectPath pathZone = (CIMObjectPath) o.getClass().getMethod(getterNameGroupComponent, new Class[]{}).invoke(o, null);
-			CIMObjectPath pathAcl = (CIMObjectPath) o.getClass().getMethod("get_Linux_DnsAddressMatchList", new Class[]{}).invoke(o, null);
-			if (pathZone.equals(groupPath) && pathAcl.equals(aclByIdx.getCimObjectPath()))
-			{
-				adapter.getFcoHelper().delete(o,adapter.getCimClient());
-				found = true;
-			}
+	private void deleteAssociation(Class associationClass, Linux_DnsAddressMatchList aclByIdx) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, ClassNotFoundException, WbemsmtException {
+		
+	    String className = ClassUtils.getShortClassName(associationClass);
+
+	    Method m = zone != null ? 
+	            zone.getClass().getMethod("getAssociations_" + className, new Class[]{WBEMClient.class, boolean.class, boolean.class, String.class, String[].class}) : 
+	            adapter.getDnsService().getFco().getClass().getMethod("getAssociations_" + className, new Class[]{WBEMClient.class, boolean.class, boolean.class, String.class, String[].class});
+	    
+	    Object fco = zone != null ? (Object)zone : (Object)adapter.getDnsService().getFco();
+	            
+	    List list = (List) m.invoke(fco, new Object[]{adapter.getCimClient(),new Boolean(false),new Boolean(false),null,null});
+		for (Iterator iter = list.iterator(); iter.hasNext();) {
+			AbstractWbemsmtFco o = (AbstractWbemsmtFco) iter.next();
+			adapter.getFcoHelper().delete(o,adapter.getCimClient());
 		}
 	}
 
-	private Class getClassByIdx(int idx) throws ObjectSaveException {
+	private Class getClassByIdx(int idx) throws WbemsmtException {
 
 		Class cls = null;
 		if (zone != null)
@@ -324,198 +297,184 @@ public class AclHandler extends DnsObject {
 			else if (idx == IDX_QUERY) cls = Linux_DnsAllowQueryForZone.class;
 			else if (idx == IDX_UPDATE) cls = Linux_DnsAllowUpdateForZone.class;
 			else if (idx == IDX_TRANSFER) cls = Linux_DnsAllowTransferForZone.class;
-			else throw new ObjectSaveException("Cannot implicit create ACL for share of type " + idx);
+			else throw new WbemsmtException(WbemsmtException.ERR_SAVE_OBJECT,"Cannot implicit create ACL for share of type " + idx);
 		} else {
 			if (idx == IDX_NOTIFY) cls = Linux_DnsAllowNotifyForService.class;
 			else if (idx == IDX_QUERY) cls = Linux_DnsAllowQueryForService.class;
 			else if (idx == IDX_TRANSFER) cls = Linux_DnsAllowTransferForService.class;
 			else if (idx == IDX_RECURSION) cls = Linux_DnsAllowRecursionForService.class;
 			else if (idx == IDX_BLACKHOLE) cls = Linux_DnsBlackholeForService.class;
-			else throw new ObjectSaveException("Cannot implicit create ACL for service of type " + idx);
+			else throw new WbemsmtException(WbemsmtException.ERR_SAVE_OBJECT,"Cannot implicit create ACL for service of type " + idx);
 		}
 		return cls;
 	}
 	
-	public void updateControls(DnsAddressMatchListDataContainer container, int idx, String ignoreThisName) throws UpdateControlsException {
+	public void updateControls(DnsAddressMatchListDataContainer container, int idx, String ignoreThisName) throws WbemsmtException {
 		
-		try {
-			getAcl(idx);
-			
-			for (int i = getNotUsedAddressesAsList(idx).size() - 1; i >= 0; i--) {
-				String address = (String) getNotUsedAddressesAsList(idx).get(i);
-				if (address.equals(ignoreThisName))
-				{
-					getNotUsedAddressesAsList(idx).remove(i);
-				}
-			}
-			
-			container.get_AddressList().setValues((String[]) getUsedAddressesAsList(idx).toArray(new String[getUsedAddressesAsList(idx).size()]));
-			container.get_usr_UserAddresses().setValues((String[]) getNotUsedAddressesAsList(idx).toArray(new String[getNotUsedAddressesAsList(idx).size()]));
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+		getAcl(idx);
+        
+        for (int i = getNotUsedAddressesAsList(idx).size() - 1; i >= 0; i--) {
+        	String address = (String) getNotUsedAddressesAsList(idx).get(i);
+        	if (address.equals(ignoreThisName))
+        	{
+        		getNotUsedAddressesAsList(idx).remove(i);
+        	}
+        }
+        
+        container.get_AddressList().setValues((String[]) getUsedAddressesAsList(idx).toArray(new String[getUsedAddressesAsList(idx).size()]));
+        container.get_usr_UserAddresses().setValues((String[]) getNotUsedAddressesAsList(idx).toArray(new String[getNotUsedAddressesAsList(idx).size()]));
 	}
 	
-	public void updateModel(DnsAddressMatchListDataContainer container, LabeledBaseInputComponentIf useGlobalButton,  int idx) throws ModelUpdateException {
+	public void updateModel(DnsAddressMatchListDataContainer container, LabeledBaseInputComponentIf useGlobalButton,  int idx) throws WbemsmtException {
 		
-		try {
-			
-			getAcl(idx);
-			
-			if (adapter.getUpdateTrigger() == container.get_usr_AddNewAddress())
-			{
-				String userEnteredAddress = (String) container.get_usr_NewAddress().getConvertedControlValue();
-				if(StringUtils.isNotEmpty(userEnteredAddress))
-				{
-					AddressMatchListElementValidator validator = new AddressMatchListElementValidator(container.get_usr_NewAddress(),adapter);
-					try {
-						MessageList list = validator.validate();
-						if (!list.hasErrors())
-						{
-							if (!validator.isPredefindAddressMatchList())
-							{
-								add(idx,userEnteredAddress,container);
-							}
-							else
-							{
-								boolean found = false;
-								for (int i=0; !found && i < getNotUsedAddressesAsList(idx).size(); i++) {
-									String notUsedAddress = (String) getNotUsedAddressesAsList(idx).get(i);
-									if (notUsedAddress.equals(userEnteredAddress))
-									{
-										getNotUsedAddressesAsList(idx).remove(i);
-										add(idx,userEnteredAddress,container);
-										found = true;
-									}
-								}
-								if (!found)
-								{
-									list = MessageList.init(container);
-									String msg = adapter.getBundle().getString(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_ACL,"value.not.added.to.acl",new Object[]{container.get_usr_NewAddress()});
-									list.addMessage(new Message(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_ACL,Message.WARNING,msg,container.get_usr_NewAddress()));
+		getAcl(idx);
+        
+        if (adapter.getUpdateTrigger() == container.get_usr_AddNewAddress())
+        {
+        	String userEnteredAddress = (String) container.get_usr_NewAddress().getConvertedControlValue();
+        	if(StringUtils.isNotEmpty(userEnteredAddress))
+        	{
+        		AddressMatchListElementValidator validator = new AddressMatchListElementValidator(container.get_usr_NewAddress(),adapter);
+        		MessageList list = validator.validate();
+                if (!list.hasErrors())
+                {
+                	if (!validator.isPredefindAddressMatchList())
+                	{
+                		add(idx,userEnteredAddress,container);
+                	}
+                	else
+                	{
+                		boolean found = false;
+                		for (int i=0; !found && i < getNotUsedAddressesAsList(idx).size(); i++) {
+                			String notUsedAddress = (String) getNotUsedAddressesAsList(idx).get(i);
+                			if (notUsedAddress.equals(userEnteredAddress))
+                			{
+                				getNotUsedAddressesAsList(idx).remove(i);
+                				add(idx,userEnteredAddress,container);
+                				found = true;
+                			}
+                		}
+                		if (!found)
+                		{
+                			list = MessageList.init(container);
+                			String msg = adapter.getBundle().getString(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_ACL,"value.not.added.to.acl",new Object[]{container.get_usr_NewAddress()});
+                			list.addMessage(new Message(DnsErrCodes.MSG_VALUE_NOT_ADDED_TO_ACL,Message.WARNING,msg,container.get_usr_NewAddress()));
 
-								}
-							}
-						}
-						else
-						{
-							MessageList.init(container).addAll(list);
-						}
-					} catch (ValidationException e) {
-						throw new ModelUpdateException(e);
-					}
-					
-				}
-				//reset the values
-				container.get_usr_NewAddress().setControlValue("");
-				container.get_usr_UserAddresses().setControlValue(new ArrayList());
-			}
-			else if (adapter.getUpdateTrigger() == container.get_usr_AddPredefinedAddress())
-			{
-				List indexList = (List) container.get_usr_UserAddresses().getConvertedControlValue();
-				
-				for (int i = indexList.size() - 1; i >= 0; i--) {
-					UnsignedInt16 index = (UnsignedInt16)indexList.get(i);
-					String addressToAdd = (String) getNotUsedAddressesAsList(idx).remove(index.intValue());
-					add(idx,addressToAdd,container);
+                		}
+                	}
+                }
+                else
+                {
+                	MessageList.init(container).addAll(list);
+                }
+        		
+        	}
+        	//reset the values
+        	container.get_usr_NewAddress().setControlValue("");
+        	container.get_usr_UserAddresses().setControlValue(new ArrayList());
+        }
+        else if (adapter.getUpdateTrigger() == container.get_usr_AddPredefinedAddress())
+        {
+        	List indexList = (List) container.get_usr_UserAddresses().getConvertedControlValue();
+        	
+        	for (int i = indexList.size() - 1; i >= 0; i--) {
+        		UnsignedInteger16 index = (UnsignedInteger16)indexList.get(i);
+        		String addressToAdd = (String) getNotUsedAddressesAsList(idx).remove(index.intValue());
+        		add(idx,addressToAdd,container);
 
-				}
-				//reset the values
-				container.get_usr_NewAddress().setControlValue("");
-				container.get_usr_UserAddresses().setControlValue(new ArrayList());
-			}
-			else if (adapter.getUpdateTrigger() == container.get_usr_RemoveAddress())
-			{
-				List indexList = (List) container.get_AddressList().getConvertedControlValue();
-				for (int i = indexList.size() - 1; i >= 0; i--) {
-					UnsignedInt16 index = (UnsignedInt16) indexList.get(i);
-					getUsedAddressTypesAsList(idx).remove(index.intValue());
-					String addressToRemove = (String) getUsedAddressesAsList(idx).remove(index.intValue());
-					
-					//if the adress is a link to a userdefined addressMatchList, put to the not used list
-					if (adapter.getDnsService().getAddressMatchListList().getAddressMatchListByListName(addressToRemove) != null)
-					{
-						getNotUsedAddressesAsList(idx).add(addressToRemove);
-						container.get_usr_UserAddresses().setModified(true);
-					}
-				}
-				container.get_AddressList().setControlValue(new ArrayList());
-			}
-			else if (adapter.getUpdateTrigger() == container.get_usr_AddressDown())
-			{
-				List indexList = (List) container.get_AddressList().getConvertedControlValue();
-				for (int i = indexList.size() - 1; i >= 0; i--) {
-					int index = ((UnsignedInt16) indexList.get(i)).intValue();
-					if (index < getUsedAddressesAsList(idx).size() - 1)
-					{
-						indexList.set(i, new UnsignedInt16(index+1));
+        	}
+        	//reset the values
+        	container.get_usr_NewAddress().setControlValue("");
+        	container.get_usr_UserAddresses().setControlValue(new ArrayList());
+        }
+        else if (adapter.getUpdateTrigger() == container.get_usr_RemoveAddress())
+        {
+        	List indexList = (List) container.get_AddressList().getConvertedControlValue();
+        	for (int i = indexList.size() - 1; i >= 0; i--) {
+        		UnsignedInteger16 index = (UnsignedInteger16) indexList.get(i);
+        		getUsedAddressTypesAsList(idx).remove(index.intValue());
+        		String addressToRemove = (String) getUsedAddressesAsList(idx).remove(index.intValue());
+        		
+        		//if the adress is a link to a userdefined addressMatchList, put to the not used list
+        		if (adapter.getDnsService().getAddressMatchListList().getAddressMatchListByListName(addressToRemove) != null)
+        		{
+        			getNotUsedAddressesAsList(idx).add(addressToRemove);
+        			container.get_usr_UserAddresses().setModified(true);
+        		}
+        	}
+        	container.get_AddressList().setControlValue(new ArrayList());
+        }
+        else if (adapter.getUpdateTrigger() == container.get_usr_AddressDown())
+        {
+        	List indexList = (List) container.get_AddressList().getConvertedControlValue();
+        	for (int i = indexList.size() - 1; i >= 0; i--) {
+        		int index = ((UnsignedInteger16) indexList.get(i)).intValue();
+        		if (index < getUsedAddressesAsList(idx).size() - 1)
+        		{
+        			indexList.set(i, new UnsignedInteger16(index+1));
 
-						Object address = getUsedAddressesAsList(idx).get(index);
-						Object nextAddress = getUsedAddressesAsList(idx).get(index+1);
-						getUsedAddressesAsList(idx).set(index, nextAddress);
-						getUsedAddressesAsList(idx).set(index+1, address);
+        			Object address = getUsedAddressesAsList(idx).get(index);
+        			Object nextAddress = getUsedAddressesAsList(idx).get(index+1);
+        			getUsedAddressesAsList(idx).set(index, nextAddress);
+        			getUsedAddressesAsList(idx).set(index+1, address);
 
-						Object type = getUsedAddressTypesAsList(idx).get(index);
-						Object nextType = getUsedAddressTypesAsList(idx).get(index+1);
-						getUsedAddressTypesAsList(idx).set(index,nextType);
-						getUsedAddressTypesAsList(idx).set(index+1,type);
-						
-						container.get_usr_UserAddresses().setModified(true);
-						
-					}
-				}
-				container.get_AddressList().setControlValue(indexList);
-			}
-			else if (adapter.getUpdateTrigger() == container.get_usr_AddressUp())
-			{
-				List indexList = (List) container.get_AddressList().getConvertedControlValue();
-				for (int i = 0; i < indexList.size(); i++) {
-					int index = ((UnsignedInt16) indexList.get(i)).intValue();
-					if (index > 0)
-					{
-						indexList.set(i, new UnsignedInt16(index-1));
-											
-						Object address = getUsedAddressesAsList(idx).get(index);
-						Object prevAddress = getUsedAddressesAsList(idx).get(index-1);
-						getUsedAddressesAsList(idx).set(index, prevAddress);
-						getUsedAddressesAsList(idx).set(index-1, address);
+        			Object type = getUsedAddressTypesAsList(idx).get(index);
+        			Object nextType = getUsedAddressTypesAsList(idx).get(index+1);
+        			getUsedAddressTypesAsList(idx).set(index,nextType);
+        			getUsedAddressTypesAsList(idx).set(index+1,type);
+        			
+        			container.get_usr_UserAddresses().setModified(true);
+        			
+        		}
+        	}
+        	container.get_AddressList().setControlValue(indexList);
+        }
+        else if (adapter.getUpdateTrigger() == container.get_usr_AddressUp())
+        {
+        	List indexList = (List) container.get_AddressList().getConvertedControlValue();
+        	for (int i = 0; i < indexList.size(); i++) {
+        		int index = ((UnsignedInteger16) indexList.get(i)).intValue();
+        		if (index > 0)
+        		{
+        			indexList.set(i, new UnsignedInteger16(index-1));
+        								
+        			Object address = getUsedAddressesAsList(idx).get(index);
+        			Object prevAddress = getUsedAddressesAsList(idx).get(index-1);
+        			getUsedAddressesAsList(idx).set(index, prevAddress);
+        			getUsedAddressesAsList(idx).set(index-1, address);
 
-						Object type = getUsedAddressTypesAsList(idx).get(index);
-						Object prevType = getUsedAddressTypesAsList(idx).get(index-1);
-						getUsedAddressTypesAsList(idx).set(index,prevType);
-						getUsedAddressTypesAsList(idx).set(index-1,type);
+        			Object type = getUsedAddressTypesAsList(idx).get(index);
+        			Object prevType = getUsedAddressTypesAsList(idx).get(index-1);
+        			getUsedAddressTypesAsList(idx).set(index,prevType);
+        			getUsedAddressTypesAsList(idx).set(index-1,type);
 
-						container.get_usr_UserAddresses().setModified(true);
-						
-					}
-				}
-				container.get_AddressList().setControlValue(indexList);
-			}
-			else if (useGlobalButton != null && adapter.getUpdateTrigger() ==  useGlobalButton)
-			{
-				for (int i = getUsedAddressesAsList(idx).size() - 1; i >= 0; i--) {
-					getUsedAddressTypesAsList(idx).remove(i);
-					String addressToRemove = (String) getUsedAddressesAsList(idx).remove(i);
-					
-					//if the adress is a link to a userdefined addressMatchList, put to the not used list
-					if (adapter.getDnsService().getAddressMatchListList().getAddressMatchListByListName(addressToRemove) != null)
-					{
-						getNotUsedAddressesAsList(idx).add(addressToRemove);
-					}
-				}
-				container.get_AddressList().setControlValue(new ArrayList());
-				addressMatchListExists[idx] = false;
-				container.get_usr_UserAddresses().setModified(true);
-				
-			}
-			else
-			{
-				throw new ModelUpdateException("Cannot update Model");
-			}
-
-		} catch (ModelLoadException e) {
-			throw new ModelUpdateException(e);
-		} 
+        			container.get_usr_UserAddresses().setModified(true);
+        			
+        		}
+        	}
+        	container.get_AddressList().setControlValue(indexList);
+        }
+        else if (useGlobalButton != null && adapter.getUpdateTrigger() ==  useGlobalButton)
+        {
+        	for (int i = getUsedAddressesAsList(idx).size() - 1; i >= 0; i--) {
+        		getUsedAddressTypesAsList(idx).remove(i);
+        		String addressToRemove = (String) getUsedAddressesAsList(idx).remove(i);
+        		
+        		//if the adress is a link to a userdefined addressMatchList, put to the not used list
+        		if (adapter.getDnsService().getAddressMatchListList().getAddressMatchListByListName(addressToRemove) != null)
+        		{
+        			getNotUsedAddressesAsList(idx).add(addressToRemove);
+        		}
+        	}
+        	container.get_AddressList().setControlValue(new ArrayList());
+        	addressMatchListExists[idx] = false;
+        	container.get_usr_UserAddresses().setModified(true);
+        	
+        }
+        else
+        {
+        	throw new WbemsmtException(WbemsmtException.ERR_UPDATING_MODEL,"Cannot update Model");
+        } 
 	}
 	
 	/**
@@ -523,9 +482,9 @@ public class AclHandler extends DnsObject {
 	 * @param idx
 	 * @param addressToAdd
 	 * @param container 
-	 * @throws ModelLoadException 
+	 * @throws WbemsmtException 
 	 */
-	private void add(int idx, String addressToAdd, DnsAddressMatchListDataContainer container) throws ModelLoadException {
+	private void add(int idx, String addressToAdd, DnsAddressMatchListDataContainer container) throws WbemsmtException {
 		
 		boolean found = false;
 		for (Iterator iter = getUsedAddressesAsList(idx).iterator(); iter.hasNext() && !found;) {
@@ -539,7 +498,7 @@ public class AclHandler extends DnsObject {
 		if (!found)
 		{
 			getUsedAddressesAsList(idx).add(addressToAdd);
-			getUsedAddressTypesAsList(idx).add(new UnsignedInt8((short)Linux_DnsAddressMatchList.ADDRESSMATCHLISTELEMENTTYPE_IPV4));
+			getUsedAddressTypesAsList(idx).add(Linux_DnsAddressMatchList.PROPERTY_ADDRESSMATCHLISTELEMENTTYPE.VALUE_MAP_ENTRY_2_FOR_VALUE_ENTRY_IPv4);
 			container.get_AddressList().setModified(true);
 			addressMatchListExists[idx] = true;
 		}
@@ -551,7 +510,7 @@ public class AclHandler extends DnsObject {
 		}
 	}
 
-	public String getUsedAddresses(int idx) throws ModelLoadException
+	public String getUsedAddresses(int idx) throws WbemsmtException
 	{
 		StringBuffer sb = new StringBuffer();
 		
@@ -566,12 +525,12 @@ public class AclHandler extends DnsObject {
 		return sb.toString();
 	}
 
-	public String[] getUsedAddressesAsArray(int idx) throws ModelLoadException
+	public String[] getUsedAddressesAsArray(int idx) throws WbemsmtException
 	{
 		return (String[]) getUsedAddressesAsList(idx).toArray(new String[getUsedAddressesAsList(idx).size()]);
 	}
 
-	private List getUsedAddressesAsList(int idx) throws ModelLoadException
+	private List getUsedAddressesAsList(int idx) throws WbemsmtException
 	{
 		if (usedAddresses[idx] == null)
 		{
@@ -580,7 +539,7 @@ public class AclHandler extends DnsObject {
 		return usedAddresses[idx];
 	}
 
-	private List getUsedAddressTypesAsList(int idx) throws ModelLoadException
+	private List getUsedAddressTypesAsList(int idx) throws WbemsmtException
 	{
 		if (usedAddressTypes[idx] == null)
 		{
@@ -589,7 +548,7 @@ public class AclHandler extends DnsObject {
 		return usedAddressTypes[idx];
 	}
 
-	private List getNotUsedAddressesAsList(int idx) throws ModelLoadException
+	private List getNotUsedAddressesAsList(int idx) throws WbemsmtException
 	{
 		if (notUsedAddresses[idx] == null)
 		{
@@ -598,36 +557,32 @@ public class AclHandler extends DnsObject {
 		return notUsedAddresses[idx];
 	}
 
-	public Linux_DnsAddressMatchList create(int idx, String aclName) throws ObjectCreationException {
-		try {
-			acl[idx].set_Name(aclName);
-			acl[idx].set_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
+	public Linux_DnsAddressMatchList create(int idx, String aclName) throws WbemsmtException {
+		acl[idx].set_key_Name(aclName);
+        acl[idx].set_key_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
 
-			String[] addresses = new String[getUsedAddressesAsList(idx).size()];
-			UnsignedInt8[] addressTypes = new UnsignedInt8[getUsedAddressTypesAsList(idx).size()];
-			
-			for (int i=0; i < getUsedAddressesAsList(idx).size(); i++) {
-				addresses[i] = (String) getUsedAddressesAsList(idx).get(i);
-				addressTypes[i] = (UnsignedInt8) getUsedAddressTypesAsList(idx).get(i);
-			}
-			acl[idx].set_AddressMatchListElement(addresses);
-			acl[idx].set_AddressMatchListElementType(addressTypes);
-			acl[idx] = (Linux_DnsAddressMatchList) adapter.getFcoHelper().create(acl[idx],adapter.getCimClient());
+        String[] addresses = new String[getUsedAddressesAsList(idx).size()];
+        UnsignedInteger8[] addressTypes = new UnsignedInteger8[getUsedAddressTypesAsList(idx).size()];
+        
+        for (int i=0; i < getUsedAddressesAsList(idx).size(); i++) {
+        	addresses[i] = (String) getUsedAddressesAsList(idx).get(i);
+        	addressTypes[i] = (UnsignedInteger8) getUsedAddressTypesAsList(idx).get(i);
+        }
+        acl[idx].set_AddressMatchListElement(addresses);
+        acl[idx].set_AddressMatchListElementType(addressTypes);
+        acl[idx] = (Linux_DnsAddressMatchList) adapter.getFcoHelper().create(acl[idx],adapter.getCimClient());
 
-			if (DnsCimAdapter.DUMMY_MODE)
-			{
-				Vector keys = new Vector();
-				keys.add(CIMPropertyBuilder.create(Linux_DnsAddressMatchListsForService.CIM_PROPERTY_LINUX_DNSADDRESSMATCHLIST,acl[idx]));
-				keys.add(CIMPropertyBuilder.create(Linux_DnsAddressMatchListsForService.CIM_PROPERTY_LINUX_DNSSERVICE,adapter.getDnsService().getFco()));
-				adapter.getFcoHelper().create(Linux_DnsAddressMatchListsForService.class,adapter.getCimClient(),keys);
-			}
-			Linux_DnsAddressMatchList result = acl[idx];
-			resetAcl(idx);
-			
-			return result;
-		} catch (ModelLoadException e) {
-			throw new ObjectCreationException(adapter.getFcoHelper().getCIM_ObjectCreator().createUnhecked(acl[idx]),e);
-		}
+        if (DnsCimAdapter.DUMMY_MODE)
+        {
+            Linux_DnsAddressMatchListsForService assoc = new Linux_DnsAddressMatchListsForService(adapter.getCimClient(),adapter.getNamespace());
+            assoc.set_GroupComponent_Linux_DnsService(adapter.getDnsService().getFco());
+            assoc.set_PartComponent_Linux_DnsAddressMatchList(acl[idx]);
+        	adapter.getFcoHelper().create(assoc,adapter.getCimClient());
+        }
+        Linux_DnsAddressMatchList result = acl[idx];
+        resetAcl(idx);
+        
+        return result;
 		
 	}
 

@@ -22,44 +22,22 @@ package org.sblim.wbemsmt.dns.bl.wrapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.sblim.wbem.cim.UnsignedInt32;
-import org.sblim.wbem.client.CIMClient;
+import javax.cim.UnsignedInteger32;
+import javax.wbem.client.WBEMClient;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.Message;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForServiceDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryForServiceDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowRecursionForServiceDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowTransferForServiceDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsBlackholeForServiceDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsConfigurationDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardersForServiceDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceOperationsDataContainer;
-import org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceTracingDataContainer;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchList;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwarders;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsService;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsServiceConfiguration;
-import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsServiceSettingData;
+import org.sblim.wbemsmt.dns.bl.container.edit.*;
+import org.sblim.wbemsmt.dns.bl.fco.*;
 import org.sblim.wbemsmt.dns.bl.wrapper.acl.AclHandler;
 import org.sblim.wbemsmt.dns.bl.wrapper.acl.AssociatedObjectsLoader;
-import org.sblim.wbemsmt.dns.bl.wrapper.list.AddressMatchListList;
-import org.sblim.wbemsmt.dns.bl.wrapper.list.ForwardZoneList;
-import org.sblim.wbemsmt.dns.bl.wrapper.list.ForwarderList;
-import org.sblim.wbemsmt.dns.bl.wrapper.list.HintZoneList;
-import org.sblim.wbemsmt.dns.bl.wrapper.list.MasterZoneList;
-import org.sblim.wbemsmt.dns.bl.wrapper.list.MastersList;
-import org.sblim.wbemsmt.dns.bl.wrapper.list.ReverseZoneList;
-import org.sblim.wbemsmt.dns.bl.wrapper.list.SlaveZoneList;
-import org.sblim.wbemsmt.dns.bl.wrapper.list.StubZoneList;
-import org.sblim.wbemsmt.exception.InitContainerException;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ModelUpdateException;
-import org.sblim.wbemsmt.exception.ObjectRevertException;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
-import org.sblim.wbemsmt.exception.UpdateControlsException;
+import org.sblim.wbemsmt.dns.bl.wrapper.list.*;
+import org.sblim.wbemsmt.exception.WbemsmtException;
+import org.sblim.wbemsmt.schema.cim29.CIM_Service.StartServiceResult;
+import org.sblim.wbemsmt.schema.cim29.CIM_Service.StopServiceResult;
 
 public class Service extends DnsBusinessObject {
 
@@ -109,62 +87,62 @@ public class Service extends DnsBusinessObject {
 		this.fco = service;
 		aclHandler = new AclHandler(adapter, new AssociatedObjectsLoader()
 		{
-			public List load(int index) {
+			public List load(int index) throws WbemsmtException {
 				switch (index) {
-				case AclHandler.IDX_NOTIFY:
-					return fco.getAssociated_Linux_DnsAddressMatchList_Linux_DnsAllowNotifyForService_Names(adapter.getCimClient(),false);
-				case AclHandler.IDX_TRANSFER:
-					return fco.getAssociated_Linux_DnsAddressMatchList_Linux_DnsAllowTransferForService_Names(adapter.getCimClient(),false);
-				case AclHandler.IDX_QUERY:
-					return fco.getAssociated_Linux_DnsAddressMatchList_Linux_DnsAllowQueryForService_Names(adapter.getCimClient(),false);
-				case AclHandler.IDX_RECURSION:
-					return fco.getAssociated_Linux_DnsAddressMatchList_Linux_DnsAllowRecursionForService_Names(adapter.getCimClient(),false);
-				case AclHandler.IDX_BLACKHOLE:
-					return fco.getAssociated_Linux_DnsAddressMatchList_Linux_DnsBlackholeForService_Names(adapter.getCimClient(),false);
-				default:
-					break;
-				}
-				return null;
+                case AclHandler.IDX_NOTIFY:
+                	return fco.getAssociated_Linux_DnsAddressMatchList_Linux_DnsAllowNotifyForServiceNames(adapter.getCimClient());
+                case AclHandler.IDX_TRANSFER:
+                	return fco.getAssociated_Linux_DnsAddressMatchList_Linux_DnsAllowTransferForServiceNames(adapter.getCimClient());
+                case AclHandler.IDX_QUERY:
+                	return fco.getAssociated_Linux_DnsAddressMatchList_Linux_DnsAllowQueryForServiceNames(adapter.getCimClient());
+                case AclHandler.IDX_RECURSION:
+                	return fco.getAssociated_Linux_DnsAddressMatchList_Linux_DnsAllowRecursionForServiceNames(adapter.getCimClient());
+                case AclHandler.IDX_BLACKHOLE:
+                	return fco.getAssociated_Linux_DnsAddressMatchList_Linux_DnsBlackholeForServiceNames(adapter.getCimClient());
+                default:
+                	break;
+                }
+                return null;
 			}
 		}, null);
 		
 	}
 
-	public Linux_DnsServiceSettingData getSetting() throws ModelLoadException {
+	public Linux_DnsServiceSettingData getSetting() throws WbemsmtException {
 		if (setting == null)
-		{
-			CIMClient cc = adapter.getCimClient();
-			List list = getConfiguration().getAssociated_Linux_DnsServiceSettingData_Linux_DnsServiceSettingDataForServiceConfiguration_Names(cc, false);
-			setting = (Linux_DnsServiceSettingData)getFirstChild(Linux_DnsServiceSettingData.class,list,false,false, cc);
-		}
-		return setting;
+        {
+        	WBEMClient cc = adapter.getCimClient();
+        	List list = getConfiguration().getAssociated_Linux_DnsServiceSettingData_Linux_DnsServiceSettingDataForServiceConfigurationNames(cc);
+        	setting = (Linux_DnsServiceSettingData)getFirstChild(Linux_DnsServiceSettingData.class,list,false,false, cc, adapter.getNamespace());
+        }
+        return setting;
 	}
 
 
 
-	public Linux_DnsServiceConfiguration getConfiguration() throws ModelLoadException {
+	public Linux_DnsServiceConfiguration getConfiguration() throws WbemsmtException {
 		if (configuration == null)
-		{
-			CIMClient cc = adapter.getCimClient();
-			List list = fco.getAssociated_Linux_DnsServiceConfiguration_Linux_DnsServiceConfigurationForService_Names(cc,false);
-			configuration = (Linux_DnsServiceConfiguration)getFirstChild(Linux_DnsServiceConfiguration.class,list,false,false, cc);
-		}
-		return configuration;
+        {
+        	WBEMClient cc = adapter.getCimClient();
+        	List list = fco.getAssociated_Linux_DnsServiceConfiguration_Linux_DnsServiceConfigurationForServiceNames(cc);
+        	configuration = (Linux_DnsServiceConfiguration)getFirstChild(Linux_DnsServiceConfiguration.class,list,false,false, cc, adapter.getNamespace());
+        }
+        return configuration;
 	}
 
-	public ForwarderList getForwarderList() throws ModelLoadException {
+	public ForwarderList getForwarderList() throws WbemsmtException {
 		if (forwarderList == null || forwarderList.isReloadFromServer() )
-		{
-			forwarderList = new ForwarderList();
-			forwarder = (Linux_DnsForwarders) getFirstChild(Linux_DnsForwarders.class, fco.getAssociated_Linux_DnsForwarders_Linux_DnsForwardersForService_Names(adapter.getCimClient(), false), true, true, adapter.getCimClient());
-			addForwarderIps(forwarder,forwarderList);
-		}
-		return forwarderList;
+        {
+        	forwarderList = new ForwarderList();
+        	forwarder = (Linux_DnsForwarders) getFirstChild(Linux_DnsForwarders.class, fco.getAssociated_Linux_DnsForwarders_Linux_DnsForwardersForServiceNames(adapter.getCimClient()), true, true, adapter.getCimClient(), adapter.getNamespace());
+        	addForwarderIps(forwarder,forwarderList);
+        }
+        return forwarderList;
 	}
 
 
 
-	public Linux_DnsAddressMatchList getAcl(int index) throws ModelLoadException {
+	public Linux_DnsAddressMatchList getAcl(int index) throws WbemsmtException {
 		return aclHandler.getAcl(index);
 	}
 
@@ -246,7 +224,7 @@ public class Service extends DnsBusinessObject {
 		this.stubZoneList = stubZoneList;
 	}
 
-	public List getZoneList() {
+	public List getZoneList() throws WbemsmtException {
 		List allZones = new ArrayList();
 		allZones.addAll(getMasterZoneList().getList());
 		allZones.addAll(getSlaveZoneList().getList());
@@ -258,100 +236,91 @@ public class Service extends DnsBusinessObject {
 	}
 
 
-	public MessageList save(DnsAllowNotifyForServiceDataContainer container)  throws ObjectSaveException {
+	public MessageList save(DnsAllowNotifyForServiceDataContainer container)  throws WbemsmtException {
 		return aclHandler.save(AclHandler.IDX_NOTIFY);
 	}
-	public MessageList save(DnsBlackholeForServiceDataContainer container) throws ObjectSaveException {
+	public MessageList save(DnsBlackholeForServiceDataContainer container) throws WbemsmtException {
 		return aclHandler.save(AclHandler.IDX_BLACKHOLE);
 	}
 
-	public MessageList save(DnsAllowTransferForServiceDataContainer container) throws ObjectSaveException {
+	public MessageList save(DnsAllowTransferForServiceDataContainer container) throws WbemsmtException {
 		return aclHandler.save(AclHandler.IDX_TRANSFER);
 	}
 
-	public MessageList save(DnsAllowRecursionForServiceDataContainer container) throws ObjectSaveException {
+	public MessageList save(DnsAllowRecursionForServiceDataContainer container) throws WbemsmtException {
 		return aclHandler.save(AclHandler.IDX_RECURSION);
 	}
 
-	public MessageList save(DnsAllowQueryForServiceDataContainer container) throws ObjectSaveException {
+	public MessageList save(DnsAllowQueryForServiceDataContainer container) throws WbemsmtException {
 		return aclHandler.save(AclHandler.IDX_QUERY);
 	}
 
-	public MessageList save(DnsConfigurationDataContainer container) throws ObjectSaveException {
-		try {
-			getConfiguration().set_ConfigurationFile((String) container.get_ConfigurationFile().getConvertedControlValue());
-			String directory = (String) container.get_ConfigurationDirectory().getConvertedControlValue();
-			if (DnsCimAdapter.NOT_SET.equals(directory))
-			{
-				getSetting().set_ConfigurationDirectory(null);	
-			}
-			else
-			{
-				getSetting().set_ConfigurationDirectory(directory);
-			}
-			
-			
-			if (getConfiguration().isModified() || getSetting().isModified())
-			{
-				adapter.setMarkedForReload();
-			}
-			
-			adapter.getFcoHelper().save(getConfiguration(),adapter.getCimClient());
-			adapter.getFcoHelper().save(getSetting(),adapter.getCimClient());
-			
-			
-			
-			configuration = null;
-			setting = null;
-			
-			return null;
-			
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
-		}
+	public MessageList save(DnsConfigurationDataContainer container) throws WbemsmtException {
+		getConfiguration().set_ConfigurationFile((String) container.get_ConfigurationFile().getConvertedControlValue());
+        String directory = (String) container.get_ConfigurationDirectory().getConvertedControlValue();
+        if (DnsCimAdapter.NOT_SET.equals(directory))
+        {
+        	getSetting().set_ConfigurationDirectory(null);	
+        }
+        else
+        {
+        	getSetting().set_ConfigurationDirectory(directory);
+        }
+        
+        
+        if (getConfiguration().isModified() || getSetting().isModified())
+        {
+        	adapter.setMarkedForReload();
+        }
+        
+        adapter.getFcoHelper().save(getConfiguration(),adapter.getCimClient());
+        adapter.getFcoHelper().save(getSetting(),adapter.getCimClient());
+        
+        
+        
+        configuration = null;
+        setting = null;
+        
+        return null;
 	}
 
-	public MessageList save(DnsServiceOperationsDataContainer container) throws ObjectSaveException{
+	public MessageList save(DnsServiceOperationsDataContainer container) throws WbemsmtException{
 		//do nothing
 		return null;
 	}
 
-	public void updateControls(DnsAllowNotifyForServiceDataContainer container) throws UpdateControlsException {
+	public void updateControls(DnsAllowNotifyForServiceDataContainer container) throws WbemsmtException {
 		aclHandler.updateControls(container,AclHandler.IDX_NOTIFY,null);
 	}
 
-	public void updateControls(DnsAllowQueryForServiceDataContainer container)  throws UpdateControlsException{
+	public void updateControls(DnsAllowQueryForServiceDataContainer container)  throws WbemsmtException{
 		aclHandler.updateControls(container,AclHandler.IDX_QUERY,null);
 	}
 
-	public void updateControls(DnsAllowRecursionForServiceDataContainer container)  throws UpdateControlsException{
+	public void updateControls(DnsAllowRecursionForServiceDataContainer container)  throws WbemsmtException{
 		aclHandler.updateControls(container,AclHandler.IDX_RECURSION,null);
 	}
 
-	public void updateControls(DnsAllowTransferForServiceDataContainer container)  throws UpdateControlsException{
+	public void updateControls(DnsAllowTransferForServiceDataContainer container)  throws WbemsmtException{
 		aclHandler.updateControls(container,AclHandler.IDX_TRANSFER,null);
 	}
 
-	public void updateControls(DnsBlackholeForServiceDataContainer container)  throws UpdateControlsException{
+	public void updateControls(DnsBlackholeForServiceDataContainer container)  throws WbemsmtException{
 		aclHandler.updateControls(container,AclHandler.IDX_BLACKHOLE,null);
 	}
 
 
-	public void updateControls(DnsConfigurationDataContainer container) throws UpdateControlsException {
+	public void updateControls(DnsConfigurationDataContainer container) throws WbemsmtException {
 
-		try {
-			container.get_ConfigurationFile().setControlValue(getConfiguration().get_ConfigurationFile());
-			if (getSetting().get_ConfigurationDirectory() != null)
-			{
-				container.get_ConfigurationDirectory().setControlValue(getSetting().get_ConfigurationDirectory());				
-			}
-			else
-			{
-				container.get_ConfigurationDirectory().setControlValue(DnsCimAdapter.NOT_SET);
-			}
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+		container.get_ConfigurationFile().setControlValue(getConfiguration().get_ConfigurationFile());
+        if (getSetting().get_ConfigurationDirectory() != null)
+        {
+        	container.get_ConfigurationDirectory().setControlValue(getSetting().get_ConfigurationDirectory());				
+        }
+        else
+        {
+        	container.get_ConfigurationDirectory().setControlValue(DnsCimAdapter.NOT_SET);
+        }
 	}
 
 
@@ -364,7 +333,7 @@ public class Service extends DnsBusinessObject {
 		
 	}
 
-	public void updateControls(DnsServiceTracingDataContainer container) throws UpdateControlsException {
+	public void updateControls(DnsServiceTracingDataContainer container) throws WbemsmtException {
 		
 		updateControls(container.getAllowNotifyAcl());
 		updateControls(container.getAllowTransferAcl());
@@ -376,30 +345,30 @@ public class Service extends DnsBusinessObject {
 		
 	}
 
-	public void updateModel(DnsAllowNotifyForServiceDataContainer container) throws ModelUpdateException  {
+	public void updateModel(DnsAllowNotifyForServiceDataContainer container) throws WbemsmtException  {
 		aclHandler.updateModel(container,null,AclHandler.IDX_NOTIFY);
 	}
 
-	public void updateModel(DnsAllowQueryForServiceDataContainer container) throws ModelUpdateException  {
+	public void updateModel(DnsAllowQueryForServiceDataContainer container) throws WbemsmtException  {
 		aclHandler.updateModel(container,null,AclHandler.IDX_QUERY);
 	}
 
-	public void updateModel(DnsAllowRecursionForServiceDataContainer container) throws ModelUpdateException  {
+	public void updateModel(DnsAllowRecursionForServiceDataContainer container) throws WbemsmtException  {
 		aclHandler.updateModel(container,null,AclHandler.IDX_RECURSION);
 	}
 
-	public void updateModel(DnsAllowTransferForServiceDataContainer container) throws ModelUpdateException  {
+	public void updateModel(DnsAllowTransferForServiceDataContainer container) throws WbemsmtException  {
 		aclHandler.updateModel(container,null,AclHandler.IDX_TRANSFER);
 	}
 
-	public void updateModel(DnsBlackholeForServiceDataContainer container) throws ModelUpdateException {
+	public void updateModel(DnsBlackholeForServiceDataContainer container) throws WbemsmtException {
 		aclHandler.updateModel(container,null,AclHandler.IDX_BLACKHOLE);
 	}
 
 
-	public void updateModel(DnsServiceOperationsDataContainer container) throws ModelUpdateException {
+	public void updateModel(DnsServiceOperationsDataContainer container) throws WbemsmtException {
 
-		CIMClient cc = adapter.getCimClient();
+		WBEMClient cc = adapter.getCimClient();
 		
 		if (DnsCimAdapter.DUMMY_MODE)
 		{
@@ -412,43 +381,48 @@ public class Service extends DnsBusinessObject {
 			{
 				fco.set_Started(new Boolean(false));
 			}
-			try {
-				fco = (Linux_DnsService) adapter.getFcoHelper().save(fco,cc);
-			} catch (ObjectSaveException e) {
-				throw new ModelUpdateException(e);
-			}
+			fco = (Linux_DnsService) adapter.getFcoHelper().save(fco,cc);
 			
 		}
 		else
 		{
-			UnsignedInt32 rc = new UnsignedInt32(0);
-			if (adapter.getUpdateTrigger() == container.get_invoke_Start())
-			{
-				rc = fco.invoke_startService(cc);
-				evaluateRC(container,rc,true);
-			}
-			else if (adapter.getUpdateTrigger() == container.get_invoke_Stop())
-			{
-				rc = fco.invoke_stopService(cc);
-				evaluateRC(container,rc,false);
-			}
-			else if (adapter.getUpdateTrigger() == container.get_usr_Restart())
-			{
-				rc = fco.invoke_stopService(cc);
-				if (!evaluateRC(container,rc,false))
-				{
-					return;
-				}
-				
-				rc = fco.invoke_startService(cc);
-				evaluateRC(container,rc,true);
-			}
+			try {
+                UnsignedInteger32 rc = new UnsignedInteger32(0);
+                if (adapter.getUpdateTrigger() == container.get_invoke_Start())
+                {
+                    StartServiceResult result = fco.invoke_StartService(cc);
+                	rc = result.getResultObject();
+                	evaluateRC(container,rc,true);
+                }
+                else if (adapter.getUpdateTrigger() == container.get_invoke_Stop())
+                {
+                    StopServiceResult result = fco.invoke_StopService(cc);
+                    rc = result.getResultObject();
+                	evaluateRC(container,rc,false);
+                }
+                else if (adapter.getUpdateTrigger() == container.get_usr_Restart())
+                {
+                    StopServiceResult result = fco.invoke_StopService(cc);
+                    rc = result.getResultObject();
+                	if (!evaluateRC(container,rc,false))
+                	{
+                		return;
+                	}
+                	
+                    StartServiceResult result1 = fco.invoke_StartService(cc);
+                    rc = result1.getResultObject();
+                	evaluateRC(container,rc,true);
+                }
+            }
+            catch (NumberFormatException e) {
+                throw new WbemsmtException(WbemsmtException.ERR_UPDATING_MODEL,e);
+            }
 			
 			
 		}
 	}
 
-	private boolean evaluateRC(DnsServiceOperationsDataContainer container, UnsignedInt32 rc, boolean start) {
+	private boolean evaluateRC(DnsServiceOperationsDataContainer container, UnsignedInteger32 rc, boolean start) {
 		
 		int iRc = (int) rc.longValue();
 		if (iRc == RC_OK)
@@ -512,7 +486,7 @@ public class Service extends DnsBusinessObject {
 		
 	}
 
-//	private void waitForStatus(DnsServiceOperationsDataContainer container, boolean started) throws ModelUpdateException {
+//	private void waitForStatus(DnsServiceOperationsDataContainer container, boolean started) throws WbemsmtException {
 //		
 //		int count = 0;
 //		while (count < 10)
@@ -529,8 +503,6 @@ public class Service extends DnsBusinessObject {
 //					count++;
 //					Thread.sleep(1000);
 //				}
-//			} catch (ModelLoadException e) {
-//				throw new ModelUpdateException("Cannot check if service was started/stopped",e);
 //			} catch (InterruptedException e) {
 //				e.printStackTrace();
 //			}
@@ -550,125 +522,76 @@ public class Service extends DnsBusinessObject {
 //		
 //	}
 
-	public void updateModel(DnsForwardersForServiceDataContainer container) throws ModelUpdateException {
-		try {
-			getSetting().set_Forward(super.getForwarder(container));
-			updateForwarders(getForwarderList(),container,null);
-		} catch (ModelLoadException e) {
-			throw new ModelUpdateException(e);
-		}
+	public void updateModel(DnsForwardersForServiceDataContainer container) throws WbemsmtException {
+		getSetting().set_Forward(super.getForwarder(container));
+        updateForwarders(getForwarderList(),container,null);
 	}
 
-	public void updateControls(DnsForwardersForServiceDataContainer container) throws UpdateControlsException {
-		try {
-			super.setForwarderToContainer(container,getSetting().get_Forward());
-			container.get_Forwarders().setValues(getForwarders(getForwarderList()));
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+	public void updateControls(DnsForwardersForServiceDataContainer container) throws WbemsmtException {
+		super.setForwarderToContainer(container,getSetting().get_Forward());
+        container.get_Forwarders().setValues(getForwarders(getForwarderList()));
 	}
 
-	public MessageList save(DnsForwardersForServiceDataContainer container) throws ObjectSaveException {
-		try {
-			
-			//save the forward
-			getSetting().set_Forward(super.getForwarder(container));
-			adapter.getFcoHelper().save(getSetting(),adapter.getCimClient());
-			setting = null;
+	public MessageList save(DnsForwardersForServiceDataContainer container) throws WbemsmtException {
+		//save the forward
+        getSetting().set_Forward(super.getForwarder(container));
+        adapter.getFcoHelper().save(getSetting(),adapter.getCimClient());
+        setting = null;
 
-			//save the forwarders
-			saveForwardersIps(getForwarderList(), forwarder, null);
-			forwarderList.setReloadFromServer(true);
-			
-			return null;
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
-		}
+        //save the forwarders
+        saveForwardersIps(getForwarderList(), forwarder, null);
+        forwarderList.setReloadFromServer(true);
+        
+        return null;
 	}
 
-	public void initContainer(DnsForwardersForServiceDataContainer container) throws InitContainerException {
-		try {
-			super.setForwarderToContainer(container,getSetting().get_Forward());
-		} catch (ModelLoadException e) {
-			throw new InitContainerException(e);
-		}
+	public void initContainer(DnsForwardersForServiceDataContainer container) throws WbemsmtException {
+		super.setForwarderToContainer(container,getSetting().get_Forward());
 	}
 	
-	public void updateModel(DnsConfigurationDataContainer container) throws ModelUpdateException {
+	public void updateModel(DnsConfigurationDataContainer container) throws WbemsmtException {
 
-		try {
-			if (adapter.getUpdateTrigger() == container.get_usr_RemoveDirectory())
-			{
-				getSetting().set_ConfigurationDirectory(null);
-			}
-		} catch (ModelLoadException e) {
-			throw new ModelUpdateException(e);
-		}
+		if (adapter.getUpdateTrigger() == container.get_usr_RemoveDirectory())
+        {
+        	getSetting().set_ConfigurationDirectory(null);
+        }
 		
 	}
 
-	public MessageList revert(DnsAllowNotifyForServiceDataContainer container) throws ObjectRevertException {
-		try {
-			aclHandler.resetAcl(AclHandler.IDX_NOTIFY);
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+	public MessageList revert(DnsAllowNotifyForServiceDataContainer container) throws WbemsmtException {
+		aclHandler.resetAcl(AclHandler.IDX_NOTIFY);
 		return null;
 	}
 
-	public MessageList revert(DnsAllowQueryForServiceDataContainer container) throws ObjectRevertException {
-		try {
-			aclHandler.resetAcl(AclHandler.IDX_QUERY);
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+	public MessageList revert(DnsAllowQueryForServiceDataContainer container) throws WbemsmtException {
+		aclHandler.resetAcl(AclHandler.IDX_QUERY);
 		return null;
 	}
 
-	public MessageList revert(DnsAllowRecursionForServiceDataContainer container) throws ObjectRevertException {
-		try {
-			aclHandler.resetAcl(AclHandler.IDX_RECURSION);
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+	public MessageList revert(DnsAllowRecursionForServiceDataContainer container) throws WbemsmtException {
+		aclHandler.resetAcl(AclHandler.IDX_RECURSION);
 		return null;
 	}
 
-	public MessageList revert(DnsAllowTransferForServiceDataContainer container) throws ObjectRevertException {
-		try {
-			aclHandler.resetAcl(AclHandler.IDX_TRANSFER);
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+	public MessageList revert(DnsAllowTransferForServiceDataContainer container) throws WbemsmtException {
+		aclHandler.resetAcl(AclHandler.IDX_TRANSFER);
 		return null;
 	}
 
-	public MessageList revert(DnsBlackholeForServiceDataContainer container) throws ObjectRevertException {
-		try {
-			aclHandler.resetAcl(AclHandler.IDX_BLACKHOLE);
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+	public MessageList revert(DnsBlackholeForServiceDataContainer container) throws WbemsmtException {
+		aclHandler.resetAcl(AclHandler.IDX_BLACKHOLE);
 		return null;
 	}
 
-	public MessageList revert(DnsConfigurationDataContainer container) throws ObjectRevertException {
+	public MessageList revert(DnsConfigurationDataContainer container) throws WbemsmtException {
 		configuration = null;
-		try {
-			fco = (Linux_DnsService) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+		fco = (Linux_DnsService) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
 		return null;
 	}
 
-	public MessageList revert(DnsServiceOperationsDataContainer container) throws ObjectRevertException {
+	public MessageList revert(DnsServiceOperationsDataContainer container) throws WbemsmtException {
 		configuration = null;
-		try {
-			fco = (Linux_DnsService) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+		fco = (Linux_DnsService) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
 		return null;
 	}
 

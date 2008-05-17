@@ -21,11 +21,12 @@
 
 package org.sblim.wbemsmt.dns.bl.wrapper.wizard;
 
-import org.sblim.wbem.client.CIMClient;
+import javax.wbem.client.WBEMClient;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.wrapper.DnsBusinessObject;
-import org.sblim.wbemsmt.exception.ModelLoadException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class DnsWizard extends DnsBusinessObject {
 
@@ -33,7 +34,7 @@ public class DnsWizard extends DnsBusinessObject {
 		super(adapter);
 	}
 
-	public void loadChilds(CIMClient cimClient) throws ModelLoadException {
+	public void loadChilds(WBEMClient cimClient) throws WbemsmtException {
 		//do nothing per defautl - wizards have no childs
 	}
 

@@ -29,8 +29,7 @@ import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.wrapper.Masters;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ValidationException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
 import org.sblim.wbemsmt.tools.validator.IpAddressFieldValidator;
 import org.sblim.wbemsmt.tools.validator.Validator;
@@ -54,7 +53,7 @@ public class MastersElementValidator  extends Validator {
 		return new LabeledBaseInputComponentIf[]{component};
 	}
 
-	public void validateElement(MessageList result) throws ValidationException {
+	public void validateElement(MessageList result) throws WbemsmtException {
 
 		isPredefinedMaster = false;
 		
@@ -65,11 +64,7 @@ public class MastersElementValidator  extends Validator {
 			value = value.trim();
 			
 			Masters masters = null;
-			try {
-				masters = dnsCimAdapter.getDnsService().getMastersList().getMastersByListName(value);
-			} catch (ModelLoadException e1) {
-				throw new ValidationException(e1);
-			}
+			masters = dnsCimAdapter.getDnsService().getMastersList().getMastersByListName(value);
 			isPredefinedMaster = masters != null;
 			if (isPredefinedMaster)
 			{

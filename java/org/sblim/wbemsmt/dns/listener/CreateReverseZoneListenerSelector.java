@@ -28,7 +28,7 @@ import org.sblim.wbemsmt.bl.tree.ITaskLauncherTreeNode;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasterZone;
-import org.sblim.wbemsmt.exception.ObjectNotFoundException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.tasklauncher.CIMInstanceNode;
 
 /**
@@ -45,7 +45,7 @@ public class CreateReverseZoneListenerSelector implements
 	 */
 	public void select(ITaskLauncherTreeNode treeNode,
 			AbstractBaseCimAdapter adapter, String editPanelId)
-			throws ObjectNotFoundException {
+			throws WbemsmtException {
 		
 		String className = treeNode instanceof CIMInstanceNode ? ((CIMInstanceNode)treeNode).getCimInstance().getClassName() : null;
 		boolean isMasterzone = Linux_DnsMasterZone.CIM_CLASS_NAME.equals(className);

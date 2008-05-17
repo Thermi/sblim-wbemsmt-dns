@@ -21,6 +21,8 @@ package org.sblim.wbemsmt.dns.bl.wrapper.acl;
 
 import java.util.List;
 
+import org.sblim.wbemsmt.exception.WbemsmtException;
+
 
 public interface AssociatedObjectsLoader {
 	
@@ -36,7 +38,7 @@ public interface AssociatedObjectsLoader {
 	 * @see AclHandler#IDX_UPDATE
 	 * @see AclHandler#IDX_USER
 	 */
-	public List load(int index);
+	public List load(int index) throws WbemsmtException;
 	
 
 }

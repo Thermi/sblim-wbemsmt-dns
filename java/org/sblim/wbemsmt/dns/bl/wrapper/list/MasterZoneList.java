@@ -19,10 +19,12 @@
   */
 package org.sblim.wbemsmt.dns.bl.wrapper.list;
 
-import org.sblim.wbem.cim.CIMObjectPath;
+import javax.cim.CIMObjectPath;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.wrapper.ObjectList;
 import org.sblim.wbemsmt.dns.bl.wrapper.MasterZone;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
 
@@ -48,14 +50,14 @@ public class MasterZoneList extends ObjectList  {
 		return getMasterZone(new CimObjectKey(element.getCimObjectPath()));
 	}
 
-	public void addMasterZone(MasterZone mz)
+	public void addMasterZone(MasterZone mz) throws WbemsmtException
 	{
 		put(mz);
 	}
 	
 	protected Object getKey(Object value) {
 		MasterZone mz = (MasterZone) value;
-		return mz.getMasterZone().get_Name();
+		return mz.getMasterZone().get_key_Name();
 	}
 	
 	protected Object getFco(Object value) {
@@ -63,7 +65,7 @@ public class MasterZoneList extends ObjectList  {
 		return mz.getMasterZone();
 	}
 
-	public MasterZone getMasterZone(int i) {
+	public MasterZone getMasterZone(int i) throws WbemsmtException {
 		return (MasterZone) getList().get(i);
 	}
 }

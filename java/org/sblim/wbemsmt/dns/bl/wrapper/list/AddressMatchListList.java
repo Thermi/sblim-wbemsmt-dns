@@ -19,10 +19,12 @@
   */
 package org.sblim.wbemsmt.dns.bl.wrapper.list;
 
-import org.sblim.wbem.cim.CIMObjectPath;
+import javax.cim.CIMObjectPath;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.wrapper.ObjectList;
 import org.sblim.wbemsmt.dns.bl.wrapper.AddressMatchList;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
 
@@ -47,14 +49,14 @@ public class AddressMatchListList extends ObjectList  {
 		return getAddressMatchList(new CimObjectKey(element.getCimObjectPath()));
 	}
 
-	public void addAddressMatchList(AddressMatchList addressMatchList)
+	public void addAddressMatchList(AddressMatchList addressMatchList) throws WbemsmtException
 	{
 		put(addressMatchList);
 	}
 	
 	protected Object getKey(Object value) {
 		AddressMatchList rr = (AddressMatchList) value;
-		return rr.getFco().get_Name();
+		return rr.getFco().get_key_Name();
 	}
 	
 	protected Object getFco(Object value) {
@@ -62,11 +64,11 @@ public class AddressMatchListList extends ObjectList  {
 		return rr.getFco();
 	}
 
-	public AddressMatchList getAddressMatchList(int i) {
+	public AddressMatchList getAddressMatchList(int i) throws WbemsmtException {
 		return (AddressMatchList) getList().get(i);
 	}
 
-	public AddressMatchList getAddressMatchListByListName(String listName) {
+	public AddressMatchList getAddressMatchListByListName(String listName) throws WbemsmtException {
 		return (AddressMatchList) getObjectsByName().get(listName);
 	}
 }

@@ -19,10 +19,14 @@
   */
 package org.sblim.wbemsmt.dns.bl.wrapper.list;
 
-import org.sblim.wbem.cim.CIMObjectPath;
+import java.util.logging.Level;
+
+import javax.cim.CIMObjectPath;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.wrapper.ObjectList;
 import org.sblim.wbemsmt.dns.bl.wrapper.MasterItem;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
 
 
@@ -47,7 +51,7 @@ public class MasterItemList extends ObjectList  {
 		return getMasterItem(new CimObjectKey(element.getCimObjectPath()));
 	}
 
-	public void addMasterItem(MasterItem sz)
+	public void addMasterItem(MasterItem sz) throws WbemsmtException
 	{
 		put(sz);
 	}
@@ -61,7 +65,7 @@ public class MasterItemList extends ObjectList  {
 		return null;
 	}
 
-	public MasterItem getMasterItem(int i) {
+	public MasterItem getMasterItem(int i) throws WbemsmtException {
 		return (MasterItem) getList().get(i);
 	}
 
@@ -69,8 +73,9 @@ public class MasterItemList extends ObjectList  {
 	 * Get the ip Address by the the name (the Address itself), check only those existing on the client
 	 * @param newAddress
 	 * @return
+	 * @throws WbemsmtException 
 	 */
-	public MasterItem getMasterItemByName(String newAddress) {
+	public MasterItem getMasterItemByName(String newAddress) throws WbemsmtException {
 		for (int ii=0; ii < size(); ii++)
 		{
 			MasterItem ip = getMasterItem(ii);
@@ -85,18 +90,24 @@ public class MasterItemList extends ObjectList  {
 	
 	public String toString()
 	{
-		String[] forwarders = getNameArray();
-		StringBuffer sb = new StringBuffer();
-		for (int i = 0; i < forwarders.length; i++) {
-			String forwarder = forwarders[i];
-			if (sb.length() > 0) sb.append("; ");
-			sb.append(forwarder);
-		}
-		
-		return sb.toString();
+		try {
+            String[] forwarders = getNameArray();
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < forwarders.length; i++) {
+            	String forwarder = forwarders[i];
+            	if (sb.length() > 0) sb.append("; ");
+            	sb.append(forwarder);
+            }
+            
+            return sb.toString();
+        }
+        catch (WbemsmtException e) {
+            logger.log(Level.SEVERE,"To string is not possible " + e);
+            return super.toString();
+        }
 	}
 
-	public void remove(MasterItem masterItem) {
+	public void remove(MasterItem masterItem) throws WbemsmtException {
 		remove(masterItem.getCimObjectKey());
 	}	
 	

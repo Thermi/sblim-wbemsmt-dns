@@ -1,473 +1,462 @@
 /** 
  * Linux_DnsHintZoneHelper.java
  *
- * © Copyright IBM Corp. 2005
+ * 
+ * © Copyright IBM Corp. 2006,2007
  *
- * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+ * THIS FILE IS PROVIDED UNDER THE TER	MS OF THE COMMON PUBLIC LICENSE
  * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
  * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
  *
  * You can obtain a current copy of the Common Public License from
  * http://www.opensource.org/licenses/cpl1.0.php
  *
- * @author:	ECCG 0.9.7 generated 
- * 			(author should be changed, e.g. First and Last Name <xxx@cc.ibm.com>)
+ * @author: org.sblim.wbemsmt.dcg.generator.fco.jsr48.FcoGenerator
+ * @template: org/sblim/wbemsmt/dcg/templates/fco/jsr48/helper.vm
  *
- * Contributors:
- *
- *
- * Description: 
+ * Contributors: 
+ *    michael.bauschert@de.ibm.com
  * 
+ * Description: Helper class for Linux_DnsHintZone
+ *    
+ * 
+ * generated Class
+ * @see Linux_DnsHintZone
  */
 
 package org.sblim.wbemsmt.dns.bl.fco;
 
-import java.lang.reflect.Constructor;
-import java.security.InvalidParameterException;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Vector;
+import java.util.*;
+import java.lang.reflect.*;
 
-import org.sblim.wbem.cim.*;
-import org.sblim.wbem.client.CIMClient;
-import org.sblim.wbem.client.CIMEnumeration;
+import javax.cim.*;
+import javax.wbem.*;
+import javax.wbem.client.*;
+import org.sblim.wbemsmt.bl.fco.*;
 
-public final class Linux_DnsHintZoneHelper {
+import org.sblim.wbemsmt.exception.*;
+import org.sblim.wbemsmt.exception.impl.*;
+import org.sblim.wbemsmt.exception.impl.userobject.*;
 
-	public final static String CIM_CLASS_NAME = "Linux_DnsHintZone";
-	
-	/**
-	*	The method enumerates the instance names of a given CIM client with the same class name
-	*/	
-	public final static ArrayList enumerateInstanceNames(CIMClient cimClient, boolean deep){
-	
-		ArrayList cimInstanceNamesList = new ArrayList(); 
-	
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-			
-		Enumeration enumeration = null;
-		
-		try {
-			enumeration = cimClient.enumerateInstanceNames(new CIMObjectPath(CIM_CLASS_NAME));
+public class Linux_DnsHintZoneHelper extends AbstractWbemsmtFcoHelper {
 
-			CIMObjectPath cimObjectPath = null;
-		
-			while (enumeration != null && enumeration.hasMoreElements()) {
-				cimObjectPath = (CIMObjectPath) enumeration.nextElement();
-	           
-				if (deep || CIM_CLASS_NAME.equals(cimObjectPath.getObjectName())) {
-					cimInstanceNamesList.add(cimObjectPath);
-				}
-			}
-	    } finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return cimInstanceNamesList;
-	}
+    //**********************************************************************
+    // EnumerateInstance / EnumerateInstanceNames     
+    //**********************************************************************
 
+    /**
+     * The method enumerates the instance names of a given CIM client with the same class name
+     * @param client the CIM client for the connection to the server
+     * @param namespace target namespace
+     * @param deep set to true if the subclasses should be also included
+     *
+     * @return a list of CIMObjectPathes of instances of type Linux_DnsHintZone or the subclasses if deep == true
+     */
+    public final static List enumerateInstanceNames(WBEMClient client, String namespace,
+            boolean deep) throws WbemsmtException {
 
-	/**
-	*	The method enumerates the instances of a given CIM client
-	*/		
-	public final static ArrayList enumerateInstances(CIMClient cimClient, boolean deep){
-	
-		ArrayList resultArrayList = new ArrayList();
-	
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		}
-			
-		Enumeration enumeration = null;
-		
-		try {
-			enumeration = cimClient.enumerateInstances(new CIMObjectPath(CIM_CLASS_NAME), deep);
-		
-			while (enumeration.hasMoreElements()) {
-				Object obj = enumeration.nextElement();
-				if (obj instanceof CIMInstance) {
-					CIMInstance cimInstance = (CIMInstance)obj;
-					if (!deep && cimInstance.getClassName().equals(CIM_CLASS_NAME)) {
-						resultArrayList.add(new Linux_DnsHintZone(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-					Class clazz = Linux_DnsHintZoneHelper.findClass(cimClient, cimInstance);
-					if (clazz == null) {
-						System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of class Linux_DnsHintZone.");
-						resultArrayList.add(new Linux_DnsHintZone(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-				
-					Class[] constParams = new Class[2];
-					constParams[0] = CIMObjectPath.class;
-					constParams[1] = CIMInstance.class;
-					Constructor cons = null;
-					try {
-						cons = clazz.getConstructor(constParams);
-					
-					} catch(NoSuchMethodException e) {
-						System.err.println("The required constructor of class " + cimInstance.getClassName() + " could not be found. Constructing instance of class Linux_DnsHintZone.");
-						resultArrayList.add(new Linux_DnsHintZone(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
-				
-					try {
-						Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
-					
-						Object dataObj = cons.newInstance(actargs);
-					
-						resultArrayList.add(dataObj);
-					} catch (Exception e) {
-						System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of class Linux_DnsHintZone.");
-						resultArrayList.add(new Linux_DnsHintZone(cimInstance.getObjectPath(), cimInstance));
-						continue;
-					}
+        List cimInstanceNamesList = new ArrayList();
 
-				}
-			}
-		} finally {
-			try {
-				if (enumeration != null) {
-					((CIMEnumeration)enumeration).close();
-				}
-			} catch(Exception e) {
-				throw new CIMException(CIMException.CIM_ERR_FAILED, "The socket of the result could not be closed properly.");
-			}
-		}
-			
-		return resultArrayList;
-	}
-	
-	
-	/**
-	*	The method returns an instance of a given CIM client at a given path
-	*/	
-	public final static Linux_DnsHintZone getInstance(CIMClient cimClient, Vector keyProperties) {
-		
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-			
-		} else if(keyProperties == null) {
-			throw new InvalidParameterException("The dataInstance parameter does not contain a valid reference.");
-			
-		}
-		
-		return Linux_DnsHintZoneHelper.getInstance(cimClient, new Linux_DnsHintZone(keyProperties));
-	}
-	
-	
-	/**
-	*	The method returns an instance of a given CIM client at a given path
-	*/	
-	public final static Linux_DnsHintZone getInstance(CIMClient cimClient, Linux_DnsHintZone dataInstance) {
-		
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-			
-		} else if(dataInstance == null) {
-			throw new InvalidParameterException("The dataInstance parameter does not contain a valid reference.");
-			
-		}
-		
-		return Linux_DnsHintZoneHelper.getInstance(cimClient, dataInstance.getCimObjectPath());
-	}
-	
-	
-	/**
-	*	The method returns an instance of a given CIM client at a given path
-	*/	
-	public final static Linux_DnsHintZone getInstance(CIMClient cimClient, CIMObjectPath cimObjectPath) {
-	
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-	
-		} else if (cimObjectPath == null) {
-			throw new InvalidParameterException("The cimObjectPath parameter does not contain a valid reference.");
-		}
-		
-		CIMInstance cimInstance = cimClient.getInstance(cimObjectPath);
-		
-		Linux_DnsHintZone dataInstance = null;
-		Class clazz = Linux_DnsHintZoneHelper.findClass(cimClient, cimInstance);
+        if (client == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The client parameter does not contain a valid reference.");
+        }
 
-		if (clazz == null) {
-			System.err.println("The class " + cimInstance.getClassName() +" was not found. Constructing instance of class Linux_DnsHintZone.");
-		}
-		else
-		{
-			Class[] constParams = new Class[2];
-			constParams[0] = CIMObjectPath.class;
-			constParams[1] = CIMInstance.class;
-			try {
-				Constructor cons = clazz.getConstructor(constParams);
-				Object[] actargs = new Object[] {cimInstance.getObjectPath(), cimInstance};
-				dataInstance = (Linux_DnsHintZone)cons.newInstance(actargs);
-			} catch (Exception e) {
-				System.err.println("The instance of class " + cimInstance.getClassName() + " could not be created successful. Constructing instance of class Linux_DnsHintZone.");
-			}
-		}
+        CloseableIterator iterator = null;
 
-		try {
-			if (dataInstance == null)
-			{
-				dataInstance = new Linux_DnsHintZone(cimObjectPath, cimInstance);
-			}
-		} catch (Exception e) {
-			// This error should normally not happen, because the instance was received by the server with a valid CIMObjectPath
-			System.err.println("The received CIMInstance object was not valid.\nReceived values are:\n" + cimObjectPath + "\n" + cimInstance);
-		}
-		return dataInstance;
-					
-	}
-	
-		/**
-	 * find a FCO class which can represent the given cimInstance
-	 * Begins at the lowest classes in the cim class hierarchy and try to create a FCO with
-	 * all the defined packages. If the Class cannot be created go one step up in the hierarchy
-	 * and try again and again and again...
-	 * @param cimClient
-	 * @param cimInstance
-	 * @return The class for the FCO or null if a class was NOT found to create a FCO from
-	 * @see #Java_Package_List
-	 */
-	public static Class findClass(CIMClient cimClient, CIMInstance cimInstance) {
+        CIMObjectPath path = new CIMObjectPath(Linux_DnsHintZone.CIM_CLASS_NAME,
+                AbstractWbemsmtFcoHelper.harmonizeNamespace(namespace));
 
-		String[] packageList = Linux_DnsHintZone.getPackages();
-	
-		String className = cimInstance.getClassName();
-		Class clazz = findClassInPackages(className, packageList);
+        try {
+            iterator = client.enumerateInstanceNames(path);
 
-		if (clazz == null)
-		{
-			//try going up the class hierarchy and try to construct the next possible class
-			CIMClass cimClass = cimClient.getClass(cimInstance.getObjectPath());
-			while (clazz == null && cimClass != null && cimClass.getSuperClass() != null)
-			{
-				clazz = findClassInPackages(cimClass.getSuperClass(), packageList);
-				cimClass = cimClient.getClass(new CIMObjectPath(cimClass.getSuperClass()));
-			}
-		}
-		
-		return clazz;
-	}
+            CIMObjectPath cimObjectPath = null;
 
-	/**
-	 * Try to create a class with the given classname and one of the packages
-	 * if the first creation is possible the class is returned
-	 * @param className
-	 * @param packageList
-	 * @return the Class or null if no combination between className and one of the Packages was possible
-	 */
-	private static Class findClassInPackages(String className, String[] packageList) {
-		Class clazz = null;
-		for (int i = 0; clazz == null && i < packageList.length; i++) {
-			String cimClassName = (packageList[i]) + className;
-			try {
-				clazz = Class.forName(cimClassName);
-			} catch(ClassNotFoundException e) {
-			}
-		}
-		return clazz;
-	}
-	
-	
-	/**
-	*	The method creates a class instance in a given CIM client
-	*/	
-	public final static Linux_DnsHintZone createInstance(CIMClient cimClient, Linux_DnsHintZone dataInstance, boolean notifyDifferencies){ 
-	
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-	
-		} else if (dataInstance == null) {
-			throw new InvalidParameterException("The dataInstance parameter does not contain a valid CIMInstance object.");
-	
-		} else if (!dataInstance.isDataValid(null)) {
-			throw new InvalidParameterException("The dataInstance parameter does not contain all required properties.");
-	
-		} else if (dataInstance.getCimObjectPath() == null) {
-			throw new InvalidParameterException("The cimObjectPath parameter does not contain a valid reference.");
-		}
-	
-		CIMInstance serverBasedInstance = copyDataToServerInstance(cimClient, dataInstance, notifyDifferencies);
-		CIMObjectPath cimObjectPath = cimClient.createInstance(dataInstance.getCimObjectPath(), serverBasedInstance);
-		
-		Linux_DnsHintZone newDataInstance = null;
-		try {
-			newDataInstance = Linux_DnsHintZoneHelper.getInstance(cimClient, cimObjectPath);
-		} catch (Exception e) {
-			// This error should normally never happen, except of a server or cimClient problem.
-			System.err.println("The new created cimInstance could not retrieved properly from the server.");
-			newDataInstance = null;
-		}
-		
-		return newDataInstance;
-	}
-	
-	
-	/**
-	*	The method modifies a class instance in a given CIM client
-	*/	
-	public final static Linux_DnsHintZone modifyInstance(CIMClient cimClient, Linux_DnsHintZone dataInstance, boolean notifyDifferencies){ 
-	
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		
-		} else if (dataInstance == null || dataInstance.getCimObjectPath() == null) {
-			throw new InvalidParameterException("The dataInstance parameter does not contain a valid reference to the destination object.");
-	
-		} else if (dataInstance == null) {
-			throw new InvalidParameterException("The dataInstance parameter does not contain a valid CIMInstance object.");
-	
-		} else if (!dataInstance.isDataValid(null)) {
-			throw new InvalidParameterException("The dataInstance parameter does not contain all required properties.");
-		
-		} else if (!dataInstance.isValidCimInstance()) {
-			throw new InvalidParameterException("The specified dataInstance does not contain a CIMInstance retrieved from a CIMServer.");
-		}
-			
-		if (dataInstance.isModified()) {
-			CIMInstance serverBasedInstance = copyDataToServerInstance(cimClient, dataInstance, notifyDifferencies);
-			cimClient.setInstance(dataInstance.getCimObjectPath(), serverBasedInstance);
-			dataInstance = Linux_DnsHintZoneHelper.getInstance(cimClient, dataInstance.getCimObjectPath());
-		}
-		
-		return dataInstance;
-	}
-	
-	
-	/**
-	*	The method deletes a class instance in a given CIM client
-	*/	
-	public final static void deleteInstance(CIMClient cimClient, Linux_DnsHintZone dataInstance){
-	
-		if (cimClient == null) {
-			throw new InvalidParameterException("The cimClient parameter does not contain a valid reference.");
-		
-		} else if (dataInstance == null || dataInstance.getCimObjectPath() == null) {
-			throw new InvalidParameterException("The dataInstance parameter does not contain a valid reference to the destination object.");
-		
-		} else if (!dataInstance.isValidCimInstance()) {
-			throw new InvalidParameterException("The specified dataInstance does not contain a CIMInstance retrieved from a CIMServer.");
-		}
-		
-		cimClient.deleteInstance(dataInstance.getCimObjectPath());
-	}
+            while (iterator != null && iterator.hasNext()) {
 
-	
-	/**
-	*	no description
-	*/
-	private final static CIMInstance copyDataToServerInstance(CIMClient cimClient, Linux_DnsHintZone dataInstance, boolean notifyDifferencies) {
-		CIMClass cimClass = cimClient.getClass(new CIMObjectPath(CIM_CLASS_NAME), false, true, true);
-		CIMInstance serverCimInstance = cimClass.newInstance();
-		CIMInstance clientCimInstance = dataInstance.getCimInstance();
-	
-		Vector serverPropertyListVector = serverCimInstance.getAllProperties();
-			
-		for (int i = 0; i < serverPropertyListVector.size(); i++) {
-			if ((CIMProperty)serverPropertyListVector.get(i) != null && 
-					Linux_DnsHintZone.CIM_PropertyNameList.contains(((CIMProperty)serverPropertyListVector.get(i)).getName())) {
-				CIMProperty orgProperty = clientCimInstance.getProperty(((CIMProperty)serverPropertyListVector.get(i)).getName());
-				CIMProperty serverProperty = serverCimInstance.getProperty(((CIMProperty)serverPropertyListVector.get(i)).getName());
-				
-				if (orgProperty != null && serverProperty != null) {
-					serverProperty.setValue(orgProperty.getValue());
-					
-				} else if (orgProperty == null){
-					serverProperty.setValue(null);
-					
-				} else {
-					serverCimInstance.addProperty(new CIMProperty(orgProperty.getName(),orgProperty.getValue()));
-				}
-			}
-		}
-			
-		Vector missedProperties = new Vector();
-		Vector unrecognizedProperties = new Vector();
-		
-		if (notifyDifferencies) {
-			if (testClientServerIntegrity(cimClient, missedProperties, unrecognizedProperties)) {
-							
-			} else {
-				String errorMSG = new String("The following parameter differ between the client and the server side:");
-				for (int i = 0; i < missedProperties.size(); i++) {
-					errorMSG+=("\nMissed property: " + missedProperties.get(i));
-				}
-				for (int i = 0; i < unrecognizedProperties.size(); i++) {
-					errorMSG+=("\nNot recognized property: " + unrecognizedProperties.get(i));
-				}
-								
-				throw new CIMException(CIMException.CIM_ERR_INVALID_PARAMETER, errorMSG);
-			}
-		}
-		
-		return serverCimInstance;
-	}	
-	/**
-	*	no description
-	*/	
-	public static boolean testClientServerIntegrity(CIMClient cimClient, Vector missedProperties, Vector unrecognizedProperties) {
-		boolean result = true;
-		
-		if (missedProperties == null) {
-			missedProperties = new Vector();
-		} else {
-			missedProperties.removeAllElements();
-		}
-		
-		if (unrecognizedProperties == null) {
-			unrecognizedProperties = new Vector();
-		} else {
-			unrecognizedProperties.removeAllElements();
-		}
-			
-		CIMClass cimClass = cimClient.getClass(new CIMObjectPath(CIM_CLASS_NAME), false, true, true);
-		CIMInstance serverCimInstance = cimClass.newInstance();
-		
-		Vector serverPropertyList = serverCimInstance.getAllProperties();
-		Vector serverPropertyNameList = new Vector();
-		
-		for (int i = 0; i < serverPropertyList.size(); i++) {
-			if ((CIMProperty)serverPropertyList.get(i) == null ||
-					!Linux_DnsHintZone.CIM_PropertyNameList.contains(((CIMProperty)serverPropertyList.get(i)).getName())) {
-				missedProperties.add(((CIMProperty)serverPropertyList.get(i))!=null?((CIMProperty)serverPropertyList.get(i)).getName():"");
-				result = false;
-			}
-			serverPropertyNameList.add(((CIMProperty)serverPropertyList.get(i)).getName());
-		}
-			
-		for (int i = 0; i < Linux_DnsHintZone.CIM_PropertyNameList.size(); i++) {
-				if (!serverPropertyNameList.contains(Linux_DnsHintZone.CIM_PropertyNameList.get(i))) {
-				unrecognizedProperties.add(Linux_DnsHintZone.CIM_PropertyNameList.get(i));
-				result = false;
-			}
-		}
-		return result;
-	}
-	
-	public static boolean isValid_Name(String Name) {
-		return true;
-	}
+                checkException(iterator);
+                cimObjectPath = (CIMObjectPath) iterator.next();
+                checkException(iterator);
 
-	public static boolean isValid_TTL(Integer TTL) {
-		return true;
-	}
+                if (deep || Linux_DnsHintZone.CIM_CLASS_NAME.equals(cimObjectPath.getObjectName())) {
+                    cimInstanceNamesList.add(cimObjectPath);
+                }
+            }
+            checkException(iterator);
+        }
+        catch (WBEMException e) {
+            throw new EnumerateInstanceNamesException(e, new EnumerateInstanceNamesUserObject(path));
+        }
+        finally {
+            try {
+                if (iterator != null) {
+                    iterator.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
 
-	public static boolean isValid_Type(UnsignedInt8 Type) {
-		return true;
-	}
+        return cimInstanceNamesList;
+    }
 
-	public static boolean isValid_ZoneFile(String ZoneFile) {
-		return true;
-	}
+    /**
+     * The method enumerates the instances of a given CIM client
+     * @param client the CIM client for the connection to the server
+     * @param namespace target namespace
+     * @param deep set to true if the subclasses should be also included
+     *
+     * @return a list of instances of type Linux_DnsHintZone or the subclasses if deep == true
+     */
+    public final static List enumerateInstances(WBEMClient client, String namespace, boolean deep)
+            throws WbemsmtException {
+
+        ArrayList resultArrayList = new ArrayList();
+
+        if (client == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The client parameter does not contain a valid reference.");
+        }
+
+        CloseableIterator iterator = null;
+
+        CIMObjectPath path = new CIMObjectPath(Linux_DnsHintZone.CIM_CLASS_NAME,
+                AbstractWbemsmtFcoHelper.harmonizeNamespace(namespace));
+        try {
+            iterator = client.enumerateInstances(path, deep, false, false, null);
+        }
+        catch (WBEMException e) {
+            throw new EnumerateInstancesException(e, new EnumerateInstancesUserObject(path, deep,
+                    false, false, null));
+        }
+        try {
+            while (iterator.hasNext()) {
+                checkException(iterator);
+
+                Object obj = iterator.next();
+                checkException(iterator);
+
+                if (obj instanceof CIMInstance) {
+                    CIMInstance cimInstance = (CIMInstance) obj;
+                    if (!deep
+                            && cimInstance.getClassName().equals(Linux_DnsHintZone.CIM_CLASS_NAME)) {
+                        resultArrayList.add(new Linux_DnsHintZone(cimInstance));
+                        continue;
+                    }
+                    Class clazz = Linux_DnsHintZoneHelper.findClass(client, cimInstance);
+                    if (clazz == null) {
+                        System.err
+                                .println("The class "
+                                        + cimInstance.getClassName()
+                                        + " was not found. Constructing instance of class Linux_DnsHintZone.");
+                        resultArrayList.add(new Linux_DnsHintZone(cimInstance));
+                        continue;
+                    }
+
+                    Class[] constParams = new Class[1];
+                    constParams[0] = CIMInstance.class;
+                    Constructor cons = null;
+                    try {
+                        cons = clazz.getConstructor(constParams);
+
+                    }
+                    catch (NoSuchMethodException e) {
+                        System.err
+                                .println("The required constructor of class "
+                                        + cimInstance.getClassName()
+                                        + " could not be found. Constructing instance of class Linux_DnsHintZone.");
+                        resultArrayList.add(new Linux_DnsHintZone(cimInstance));
+                        continue;
+                    }
+
+                    try {
+                        Object[] actargs = new Object[] { cimInstance };
+
+                        Object dataObj = cons.newInstance(actargs);
+
+                        resultArrayList.add(dataObj);
+                    }
+                    catch (Exception e) {
+                        System.err
+                                .println("The instance of class "
+                                        + cimInstance.getClassName()
+                                        + " could not be created successful. Constructing instance of class Linux_DnsHintZone.");
+                        resultArrayList.add(new Linux_DnsHintZone(cimInstance));
+                        continue;
+                    }
+
+                }
+            }
+            checkException(iterator);
+
+        }
+        finally {
+            try {
+                if (iterator != null) {
+                    iterator.close();
+                }
+            }
+            catch (Exception e) {
+                throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                        "The socket of the result could not be closed properly.");
+            }
+        }
+
+        return resultArrayList;
+    }
+
+    //**********************************************************************
+    // getInstance     
+    //**********************************************************************
+
+    /**
+     * The method returns an instance of a given WBEMClient at a given path
+     * @param client the CIM client for the connection to the server
+     * @param cimObjectPath the object path of the instance
+     * @return the instance
+     */
+    public final static Linux_DnsHintZone getInstance(WBEMClient client, CIMObjectPath cimObjectPath)
+            throws WbemsmtException {
+
+        if (client == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The WBEMClient parameter does not contain a valid reference.");
+
+        }
+        else if (cimObjectPath == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimObjectPath parameter does not contain a valid reference.");
+        }
+
+        CIMInstance cimInstance = null;
+        try {
+            cimInstance = client.getInstance(cimObjectPath, false, false, null);
+        }
+        catch (WBEMException e) {
+            throw new GetInstanceException(e, new GetInstanceUserObject(cimObjectPath, false,
+                    false, null));
+        }
+
+        return getInstance(client, cimInstance);
+
+    }
+
+    /**
+     *    The method returns a FCO of a given WBEMClient with the given CIMInstance - If the cimInstance is coming from a subclass and the subclass FCO can be found
+     *    the fco of the this subclass is returned;
+     */
+    public final static Linux_DnsHintZone getInstance(WBEMClient client, CIMInstance cimInstance)
+            throws WbemsmtException {
+
+        Linux_DnsHintZone dataInstance = null;
+        Class clazz = Linux_DnsHintZoneHelper.findClass(client, cimInstance);
+
+        if (clazz == null) {
+            System.err.println("The class " + cimInstance.getClassName()
+                    + " was not found. Constructing instance of class Linux_DnsHintZone.");
+        }
+        else {
+            Class[] constParams = new Class[1];
+            constParams[0] = CIMInstance.class;
+            try {
+                Constructor cons = clazz.getConstructor(constParams);
+                Object[] actargs = new Object[] { cimInstance };
+                dataInstance = (Linux_DnsHintZone) cons.newInstance(actargs);
+            }
+            catch (Exception e) {
+                System.err
+                        .println("The instance of class "
+                                + cimInstance.getClassName()
+                                + " could not be created successful. Constructing instance of class Linux_DnsHintZone.");
+            }
+        }
+
+        try {
+            if (dataInstance == null) {
+                dataInstance = new Linux_DnsHintZone(cimInstance);
+            }
+        }
+        catch (Exception e) {
+            throw new WbemsmtException(WbemsmtException.ERR_FAILED,
+                    "The received CIMInstance object was not valid",
+                    new CIMInstance[] { cimInstance }, e);
+        }
+        return dataInstance;
+
+    }
+
+    /**
+     *    The method returns an instance of a given WBEMClient for the given key properties
+     */
+    public final static Linux_DnsHintZone getInstance(WBEMClient client, String namespace,
+            String InstanceID, String Name
+
+    ) throws WbemsmtException {
+
+        if (client == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The WBEMClient parameter does not contain a valid reference.");
+
+        }
+        CIMProperty[] keyProperties = new CIMProperty[2];
+
+        Object setThis = null;
+
+        setThis = InstanceID;
+
+        keyProperties[0] = new CIMProperty(Linux_DnsHintZone.PROPERTY_INSTANCEID.NAME,
+                CIMDataType.STRING_T, setThis, true, false, Linux_DnsHintZone.CIM_CLASS_NAME);
+
+        setThis = Name;
+
+        keyProperties[1] = new CIMProperty(Linux_DnsHintZone.PROPERTY_NAME.NAME,
+                CIMDataType.STRING_T, setThis, true, false, Linux_DnsHintZone.CIM_CLASS_NAME);
+
+        CIMObjectPath path = new CIMObjectPath(Linux_DnsHintZone.CIM_CLASS_NAME,
+                AbstractWbemsmtFcoHelper.harmonizeNamespace(namespace), keyProperties);
+
+        return getInstance(client, path);
+
+    }
+
+    //**********************************************************************
+    // createInstance     
+    //**********************************************************************
+
+    /**
+     * The method creates a class instance in a given CIM client
+     * method executes a getInstance after creation to retrieve the instance
+     * @param client the CIM client for the connection to the server
+     * @param dataInstance the FCO to create
+     * @param notifyDifferencies if true the method checks 
+     *        if after the creation there\'s a difference and throws an WbemsmtException with Errorcode ERR_CIM_DIFFERENCE_AFTER_CREATE
+     *        the userObject of the exception is a List with all Properties that are different. Every list entry contains a CIMProperty array with two elements. the first is the old property and the second is the property after creation
+     * @return the created instance
+     *
+     */
+    public final static Linux_DnsHintZone createInstance(WBEMClient client,
+            Linux_DnsHintZone dataInstance, boolean notifyDifferencies) throws WbemsmtException {
+
+        if (client == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The WBEMClient parameter does not contain a valid reference.");
+
+        }
+        else if (dataInstance == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The dataInstance parameter does not contain a valid CIMInstance object.");
+
+        }
+        else if (dataInstance.getCimObjectPath() == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The cimObjectPath parameter does not contain a valid reference.");
+        }
+
+        CIMObjectPath cimObjectPath = null;
+
+        try {
+            cimObjectPath = client.createInstance(dataInstance.getCimInstance());
+        }
+        catch (WBEMException e) {
+            throw new CreateInstanceException(e, new CreateInstanceUserObject(dataInstance
+                    .getCimInstance()));
+        }
+
+        Linux_DnsHintZone newDataInstance = Linux_DnsHintZoneHelper.getInstance(client,
+                cimObjectPath);
+        if (notifyDifferencies) {
+            checkDifferencesAfterCreate(dataInstance, newDataInstance);
+        }
+
+        return newDataInstance;
+    }
+
+    //**********************************************************************
+    // saveInstance     
+    //**********************************************************************
+
+    /**
+     * The method modifies a class instance in a given CIM client
+     * @param client the CIM client for the connection to the server
+     * @param dataInstance the FCO to create
+     * @param notifyDifferencies if true the method checks 
+     *        if after the modification there\'s a difference and throws an WbemsmtException with Errorcode ERR_CIM_DIFFERENCE_AFTER_MODIFY
+     *        the userObject of the exception is a List with all Properties that are different. Every list entry contains a CIMProperty array with two elements. the first is the old property and the second is the property after creation
+     * @return the modified instance
+     */
+    public final static Linux_DnsHintZone modifyInstance(WBEMClient client,
+            Linux_DnsHintZone dataInstance, boolean notifyDifferencies) throws WbemsmtException {
+
+        if (client == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The WBEMClient parameter does not contain a valid reference.");
+
+        }
+        else if (dataInstance == null || dataInstance.getCimObjectPath() == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The dataInstance parameter does not contain a valid reference to the destination object.");
+
+        }
+        else if (dataInstance == null) {
+            throw new WbemsmtException(WbemsmtException.ERR_INVALID_PARAMETER,
+                    "The dataInstance parameter does not contain a valid CIMInstance object.");
+        }
+
+        if (dataInstance.isModified()) {
+            try {
+                client.modifyInstance(dataInstance.getCimInstance(), null);
+            }
+            catch (WBEMException e) {
+                throw new ModifyInstanceException(e, new ModifyInstanceUserObject(dataInstance
+                        .getCimInstance(), null));
+            }
+            Linux_DnsHintZone dataInstance2 = Linux_DnsHintZoneHelper.getInstance(client,
+                    dataInstance.getCimObjectPath());
+            if (notifyDifferencies) {
+                checkDifferencesAfterModify(dataInstance, dataInstance2);
+            }
+            return dataInstance2;
+        }
+
+        return dataInstance;
+    }
+
+    //**********************************************************************
+    // deleteInstance     
+    //**********************************************************************
+
+    /**
+     * The method deletes a class instance in a given CIM client
+     * @param client the CIM client for the connection to the server
+     * @param dataInstance the FCO to create
+     */
+    public final static void deleteInstance(WBEMClient client, Linux_DnsHintZone dataInstance)
+            throws WbemsmtException {
+        org.sblim.wbemsmt.bl.fco.AbstractWbemsmtFcoHelper.deleteInstance(client, dataInstance);
+    }
+
+    //**********************************************************************
+    // utility methods     
+    //**********************************************************************
+
+    /** 
+     * find a FCO class which can represent the given cimInstance 
+     * Begins at the lowest classes in the cim class hierarchy and try to create a FCO with
+     * all the defined packages. If the Class cannot be created go one step up in the hierarchy 
+     * and try again and again and again... 
+     * @param WBEMClient 
+     * @param cimInstance 
+     * @return The class for the FCO or null if a class was NOT found to create a FCO from 
+     * @see #Java_Package_List 
+     */
+
+    public static Class findClass(WBEMClient client, CIMInstance cimInstance)
+            throws WbemsmtException {
+
+        return org.sblim.wbemsmt.bl.fco.AbstractWbemsmtFcoHelper.findClass(client, cimInstance,
+                Linux_DnsHintZone.getPackages());
+    }
 
 }

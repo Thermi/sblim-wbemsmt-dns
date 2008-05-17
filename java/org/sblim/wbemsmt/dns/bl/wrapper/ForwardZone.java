@@ -19,7 +19,8 @@
   */
 package org.sblim.wbemsmt.dns.bl.wrapper;
 
-import org.sblim.wbem.client.CIMClient;
+import javax.wbem.client.WBEMClient;
+
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.MessageList;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
@@ -34,11 +35,7 @@ import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsZone;
 import org.sblim.wbemsmt.dns.bl.resourcerecord.ResourceRecordHandler;
 import org.sblim.wbemsmt.dns.bl.wrapper.list.ForwarderList;
 import org.sblim.wbemsmt.dns.bl.wrapper.list.ResourceRecordList;
-import org.sblim.wbemsmt.exception.ModelLoadException;
-import org.sblim.wbemsmt.exception.ModelUpdateException;
-import org.sblim.wbemsmt.exception.ObjectRevertException;
-import org.sblim.wbemsmt.exception.ObjectSaveException;
-import org.sblim.wbemsmt.exception.UpdateControlsException;
+import org.sblim.wbemsmt.exception.WbemsmtException;
 
 public class ForwardZone extends DnsBusinessObject implements Zone {
 
@@ -74,22 +71,22 @@ public class ForwardZone extends DnsBusinessObject implements Zone {
 		return new CimObjectKey(fco.getCimObjectPath());
 	}
 	
-	public ForwarderList getForwarderList() throws ModelLoadException {
+	public ForwarderList getForwarderList() throws WbemsmtException {
 		if (forwarderList == null || forwarderList.isReloadFromServer() )
-		{
-			forwarderList = new ForwarderList();
-			forwarder = (Linux_DnsForwarders) getFirstChild(Linux_DnsForwarders.class, fco.getAssociated_Linux_DnsForwarders_Linux_DnsForwardersForZone_Names(adapter.getCimClient(), false), true, true, adapter.getCimClient());
-			addForwarderIps(forwarder,forwarderList);
-		}
-		return forwarderList;
+        {
+        	forwarderList = new ForwarderList();
+        	forwarder = (Linux_DnsForwarders) getFirstChild(Linux_DnsForwarders.class, fco.getAssociated_Linux_DnsForwarders_Linux_DnsForwardersForZoneNames(adapter.getCimClient()), true, true, adapter.getCimClient(), adapter.getNamespace());
+        	addForwarderIps(forwarder,forwarderList);
+        }
+        return forwarderList;
 	}
 	
-	public ResourceRecordList getResourceRecords() {
+	public ResourceRecordList getResourceRecords() throws WbemsmtException {
 		if (resourceRecords == null )
-		{
-			adapter.addResourceRecords(this,fco.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(adapter.getCimClient(),false,false,null));
-		}
-		return resourceRecords;
+        {
+        	adapter.addResourceRecords(this,fco.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(adapter.getCimClient()));
+        }
+        return resourceRecords;
 	}
 
 	public void setResourceRecords(ResourceRecordList resourceRecords) {
@@ -104,73 +101,56 @@ public class ForwardZone extends DnsBusinessObject implements Zone {
 		return fco;
 	}
 	
-	public void loadChilds(CIMClient cimClient) {
+	public void loadChilds(WBEMClient cimClient) {
 		forwarderList = null;
 		
 	}
 	public String getName() {
-		return getForwardZone().get_Name();
+		return getForwardZone().get_key_Name();
 	}
 
-	public MessageList save(DnsForwardZoneDataContainer container) throws ObjectSaveException {
+	public MessageList save(DnsForwardZoneDataContainer container) throws WbemsmtException {
 		
-		try {
-			fco.set_Forward(super.getForwarder(container));
-			fco = (Linux_DnsForwardZone) adapter.getFcoHelper().save(fco,container.getAdapter().getCimClient());
-			
-			saveForwardersIps(getForwarderList(), forwarder, fco);
-			forwarderList.setReloadFromServer(true);
-			
-			return null;
-		} catch (ModelLoadException e) {
-			throw new ObjectSaveException(e);
-		}
+		fco.set_Forward(super.getForwarder(container));
+        fco = (Linux_DnsForwardZone) adapter.getFcoHelper().save(fco,container.getAdapter().getCimClient());
+        
+        saveForwardersIps(getForwarderList(), forwarder, fco);
+        forwarderList.setReloadFromServer(true);
+        
+        return null;
 	}
-	public void updateControls(DnsResourceRecordDataContainer container, Linux_DnsResourceRecord fco) throws UpdateControlsException {
+	public void updateControls(DnsResourceRecordDataContainer container, Linux_DnsResourceRecord fco) throws WbemsmtException {
 		super.updateControls(container,fco);
 	}
 
-	public void updateControls(DnsForwardZoneDataContainer container) throws UpdateControlsException {
-		try {
-			super.setForwarderToContainer(container,fco.get_Forward());
-			container.get_Forwarders().setValues(getForwarders(getForwarderList()));
-			container.get_Name().setControlValue(fco.get_Name());
-			
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
+	public void updateControls(DnsForwardZoneDataContainer container) throws WbemsmtException {
+		super.setForwarderToContainer(container,fco.get_Forward());
+        container.get_Forwarders().setValues(getForwarders(getForwarderList()));
+        container.get_Name().setControlValue(fco.get_key_Name());
 	}
 
-	public void updateModel(DnsForwardZoneDataContainer container) throws ModelUpdateException {
-		try {
+	public void updateModel(DnsForwardZoneDataContainer container) throws WbemsmtException {
 			fco.set_Forward(super.getForwarder(container));
 			updateForwarders(getForwarderList(),container,container.get_usr_UseGlobalForwarders());
-		} catch (ModelLoadException e) {
-			throw new ModelUpdateException(e);
-		}
 	}
 
-	public void updateControls(DnsZoneTracingContainer container) throws UpdateControlsException {
-		container.get_Forward().setControlValue(fco.get_Forward());
-		
-		try {
-			getForwarderList().removeIfNotExistsOnClient();
-			container.get_Forwarders().setControlValue(getForwarderList().toString());
-		} catch (ModelLoadException e) {
-			throw new UpdateControlsException(e);
-		}
-		container.get_Name().setControlValue(fco.get_Name());
-		
-		container.get_usr_MasterAddresses().getProperties().setVisible(false);
-
-		container.get_TTL().getProperties().setVisible(false);
-		container.get_NegativeCaching_TTL().getProperties().setVisible(false);
-		container.get_usr_NegativeCaching_TTLUnit().getProperties().setVisible(false);
-		show(container.getAllowNotifyAcl(),false);
-		show(container.getAllowTransferAcl(),false);
-		show(container.getAllowQueryAcl(),false);
-		show(container.getAllowUpdateAcl(),false);
-		adapter.updateControls(container.getResourceRecords(),getResourceRecords().getFCOs());
+	public void updateControls(DnsZoneTracingContainer container) throws WbemsmtException {
+	    container.get_Forward().setControlValue(fco.get_Forward());
+        
+        getForwarderList().removeIfNotExistsOnClient();
+        container.get_Forwarders().setControlValue(getForwarderList().toString());
+        container.get_Name().setControlValue(fco.get_key_Name());
+        
+        container.get_usr_MasterAddresses().getProperties().setVisible(false);
+   
+        container.get_TTL().getProperties().setVisible(false);
+        container.get_NegativeCaching_TTL().getProperties().setVisible(false);
+        container.get_usr_NegativeCaching_TTLUnit().getProperties().setVisible(false);
+        show(container.getAllowNotifyAcl(),false);
+        show(container.getAllowTransferAcl(),false);
+        show(container.getAllowQueryAcl(),false);
+        show(container.getAllowUpdateAcl(),false);
+        adapter.updateControls(container.getResourceRecords(),getResourceRecords().getFCOs());
 		
 		
 	}
@@ -183,12 +163,8 @@ public class ForwardZone extends DnsBusinessObject implements Zone {
 		//do nothing - a ForwardZone has no SerialNumber
 	}
 
-	public MessageList revert(DnsForwardZoneDataContainer container) throws ObjectRevertException {
-		try {
-			fco = (Linux_DnsForwardZone) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
-		} catch (ModelLoadException e) {
-			throw new ObjectRevertException(e);
-		}
+	public MessageList revert(DnsForwardZoneDataContainer container) throws WbemsmtException {
+		fco = (Linux_DnsForwardZone) adapter.getFcoHelper().reload(fco, adapter.getCimClient());
 		return null;
 	}
 
