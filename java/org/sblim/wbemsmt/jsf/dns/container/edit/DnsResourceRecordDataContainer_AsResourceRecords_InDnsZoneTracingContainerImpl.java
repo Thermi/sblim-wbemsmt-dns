@@ -345,14 +345,14 @@ public class DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingCo
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl source = (DnsResourceRecordDataContainer_AsResourceRecords_InDnsZoneTracingContainerImpl) sourceContainer;
 
-        get_TTL().setValue(source.get_TTL().getValue());
-        get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
-        get_usr_RemoveTTL().setValue(source.get_usr_RemoveTTL().getValue());
-        get_Name().setValue(source.get_Name().getValue());
-        get_Type().setValue(source.get_Type().getValue());
-        get_Family().setValue(source.get_Family().getValue());
-        get_Value().setValue(source.get_Value().getValue());
-        get_Priority().setValue(source.get_Priority().getValue());
+        get_TTL().copyFrom(source.get_TTL());
+        get_usr_TTLUnit().copyFrom(source.get_usr_TTLUnit());
+        get_usr_RemoveTTL().copyFrom(source.get_usr_RemoveTTL());
+        get_Name().copyFrom(source.get_Name());
+        get_Type().copyFrom(source.get_Type());
+        get_Family().copyFrom(source.get_Family());
+        get_Value().copyFrom(source.get_Value());
+        get_Priority().copyFrom(source.get_Priority());
 
     }
 

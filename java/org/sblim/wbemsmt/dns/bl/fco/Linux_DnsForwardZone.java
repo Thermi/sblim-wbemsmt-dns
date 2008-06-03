@@ -85,7 +85,7 @@ public class Linux_DnsForwardZone extends Linux_DnsZone {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@7e2e7e2e
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@62c862c8
         public static javax.cim.UnsignedInteger8 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_Unknown.equals(value)) {
@@ -322,8 +322,7 @@ public class Linux_DnsForwardZone extends Linux_DnsZone {
     public boolean set_Forward(javax.cim.UnsignedInteger8 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_FORWARD.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Forward(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Forward(currentProperty, newValue));
             return true;
         }
         else {
@@ -405,8 +404,7 @@ public class Linux_DnsForwardZone extends Linux_DnsZone {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {
@@ -488,8 +486,7 @@ public class Linux_DnsForwardZone extends Linux_DnsZone {
     public boolean set_Type(javax.cim.UnsignedInteger8 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_TYPE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Type(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Type(currentProperty, newValue));
             return true;
         }
         else {

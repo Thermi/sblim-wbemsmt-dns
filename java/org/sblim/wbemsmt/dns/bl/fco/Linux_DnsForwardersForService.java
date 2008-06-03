@@ -171,9 +171,7 @@ public class Linux_DnsForwardersForService extends CIM_Component {
     public boolean set_GroupComponent_Linux_DnsService(Linux_DnsService newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_GROUPCOMPONENT_LINUX_DNSSERVICE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_GroupComponent_Linux_DnsService(currentProperty,
-                    newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_GroupComponent_Linux_DnsService(currentProperty, newValue));
             return true;
         }
         else {
@@ -257,9 +255,8 @@ public class Linux_DnsForwardersForService extends CIM_Component {
     public boolean set_PartComponent_Linux_DnsForwarders(Linux_DnsForwarders newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_PARTCOMPONENT_LINUX_DNSFORWARDERS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_PartComponent_Linux_DnsForwarders(currentProperty,
-                    newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_PartComponent_Linux_DnsForwarders(currentProperty,
+                    newValue));
             return true;
         }
         else {

@@ -58,7 +58,7 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends BaseDataContain
                     "DnsMasterZoneWizardSummaryDataContainer.Name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Name;
     }
@@ -76,7 +76,7 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends BaseDataContain
                     "DnsMasterZoneWizardSummaryDataContainer.Server");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Server = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Server;
     }
@@ -94,7 +94,7 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends BaseDataContain
                     "DnsMasterZoneWizardSummaryDataContainer.IpAdress");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_IpAdress = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_IpAdress;
     }
@@ -112,7 +112,7 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends BaseDataContain
                     "DnsMasterZoneWizardSummaryDataContainer.Contact");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Contact = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Contact;
     }
@@ -186,10 +186,10 @@ public class DnsMasterZoneWizardSummaryDataContainerImpl extends BaseDataContain
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsMasterZoneWizardSummaryDataContainerImpl source = (DnsMasterZoneWizardSummaryDataContainerImpl) sourceContainer;
 
-        get_usr_Name().setValue(source.get_usr_Name().getValue());
-        get_usr_Server().setValue(source.get_usr_Server().getValue());
-        get_usr_IpAdress().setValue(source.get_usr_IpAdress().getValue());
-        get_usr_Contact().setValue(source.get_usr_Contact().getValue());
+        get_usr_Name().copyFrom(source.get_usr_Name());
+        get_usr_Server().copyFrom(source.get_usr_Server());
+        get_usr_IpAdress().copyFrom(source.get_usr_IpAdress());
+        get_usr_Contact().copyFrom(source.get_usr_Contact());
 
     }
 

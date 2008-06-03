@@ -53,7 +53,7 @@ public class DnsZoneDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsZoneDataContainer.Name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Name;
     }
@@ -108,7 +108,7 @@ public class DnsZoneDataContainerImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsZoneDataContainerImpl source = (DnsZoneDataContainerImpl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
+        get_Name().copyFrom(source.get_Name());
 
     }
 

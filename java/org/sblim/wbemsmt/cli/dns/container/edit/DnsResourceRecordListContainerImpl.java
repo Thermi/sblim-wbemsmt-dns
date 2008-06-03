@@ -68,7 +68,7 @@ public class DnsResourceRecordListContainerImpl extends BaseDataContainer implem
                     "DnsResourceRecordListContainer.selectAll");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_usr_SelectAll = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_SelectAll;
     }
@@ -86,7 +86,7 @@ public class DnsResourceRecordListContainerImpl extends BaseDataContainer implem
                     "DnsResourceRecordListContainer.delete");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Delete = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Delete;
     }
@@ -287,8 +287,8 @@ public class DnsResourceRecordListContainerImpl extends BaseDataContainer implem
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsResourceRecordListContainerImpl source = (DnsResourceRecordListContainerImpl) sourceContainer;
 
-        get_usr_SelectAll().setValue(source.get_usr_SelectAll().getValue());
-        get_usr_Delete().setValue(source.get_usr_Delete().getValue());
+        get_usr_SelectAll().copyFrom(source.get_usr_SelectAll());
+        get_usr_Delete().copyFrom(source.get_usr_Delete());
 
         List targetListForResourceRecords = (List) getResourceRecords();
         List sourceListForResourceRecords = (List) source.getResourceRecords();

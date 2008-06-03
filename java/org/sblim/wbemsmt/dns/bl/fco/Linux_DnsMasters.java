@@ -116,7 +116,7 @@ public class Linux_DnsMasters extends CIM_SettingData {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@c0e0c0e
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@28562856
         public static javax.cim.UnsignedInteger8 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_Unknown.equals(value)) {
@@ -396,8 +396,7 @@ public class Linux_DnsMasters extends CIM_SettingData {
     public boolean set_MasterElementType(javax.cim.UnsignedInteger8[] newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_MASTERELEMENTTYPE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_MasterElementType(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_MasterElementType(currentProperty, newValue));
             return true;
         }
         else {
@@ -479,8 +478,7 @@ public class Linux_DnsMasters extends CIM_SettingData {
     public boolean set_MasterElement(String[] newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_MASTERELEMENT.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_MasterElement(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_MasterElement(currentProperty, newValue));
             return true;
         }
         else {
@@ -562,8 +560,7 @@ public class Linux_DnsMasters extends CIM_SettingData {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {

@@ -239,8 +239,7 @@ public class Linux_DnsService extends CIM_Service {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {
@@ -322,8 +321,7 @@ public class Linux_DnsService extends CIM_Service {
     public boolean set_RunAsRoot(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_RUNASROOT.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_RunAsRoot(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_RunAsRoot(currentProperty, newValue));
             return true;
         }
         else {
@@ -405,8 +403,7 @@ public class Linux_DnsService extends CIM_Service {
     public boolean set_Started(Boolean newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_STARTED.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Started(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Started(currentProperty, newValue));
             return true;
         }
         else {

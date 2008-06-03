@@ -149,8 +149,8 @@ public class DnsMastersWizardSummaryDataContainerImpl extends
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsMastersWizardSummaryDataContainerImpl source = (DnsMastersWizardSummaryDataContainerImpl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
-        get_AddressList().setValue(source.get_AddressList().getValue());
+        get_Name().copyFrom(source.get_Name());
+        get_AddressList().copyFrom(source.get_AddressList());
 
     }
 

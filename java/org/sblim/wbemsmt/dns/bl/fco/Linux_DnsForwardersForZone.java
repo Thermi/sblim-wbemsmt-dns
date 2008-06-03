@@ -169,9 +169,7 @@ public class Linux_DnsForwardersForZone extends CIM_Component {
     public boolean set_GroupComponent_Linux_DnsZone(Linux_DnsZone newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_GROUPCOMPONENT_LINUX_DNSZONE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_GroupComponent_Linux_DnsZone(currentProperty,
-                    newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_GroupComponent_Linux_DnsZone(currentProperty, newValue));
             return true;
         }
         else {
@@ -255,9 +253,8 @@ public class Linux_DnsForwardersForZone extends CIM_Component {
     public boolean set_PartComponent_Linux_DnsForwarders(Linux_DnsForwarders newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_PARTCOMPONENT_LINUX_DNSFORWARDERS.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_PartComponent_Linux_DnsForwarders(currentProperty,
-                    newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_PartComponent_Linux_DnsForwarders(currentProperty,
+                    newValue));
             return true;
         }
         else {

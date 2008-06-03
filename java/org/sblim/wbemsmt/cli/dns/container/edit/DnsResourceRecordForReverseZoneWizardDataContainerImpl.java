@@ -58,7 +58,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends Base
                     "DnsResourceRecordForReverseZoneWizardDataContainer.Name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Name;
     }
@@ -76,7 +76,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends Base
                     "DnsResourceRecordForReverseZoneWizardDataContainer.Type");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Type = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Type;
     }
@@ -94,7 +94,7 @@ public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends Base
                     "DnsResourceRecordForReverseZoneWizardDataContainer.Value");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Value = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Value;
     }
@@ -162,9 +162,9 @@ public class DnsResourceRecordForReverseZoneWizardDataContainerImpl extends Base
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsResourceRecordForReverseZoneWizardDataContainerImpl source = (DnsResourceRecordForReverseZoneWizardDataContainerImpl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
-        get_Type().setValue(source.get_Type().getValue());
-        get_Value().setValue(source.get_Value().getValue());
+        get_Name().copyFrom(source.get_Name());
+        get_Type().copyFrom(source.get_Type());
+        get_Value().copyFrom(source.get_Value());
 
     }
 

@@ -211,10 +211,10 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsResourceRecordWizardSummaryDataContainerImpl source = (DnsResourceRecordWizardSummaryDataContainerImpl) sourceContainer;
 
-        get_usr_Name().setValue(source.get_usr_Name().getValue());
-        get_usr_Type().setValue(source.get_usr_Type().getValue());
-        get_usr_Value().setValue(source.get_usr_Value().getValue());
-        get_usr_Priority().setValue(source.get_usr_Priority().getValue());
+        get_usr_Name().copyFrom(source.get_usr_Name());
+        get_usr_Type().copyFrom(source.get_usr_Type());
+        get_usr_Value().copyFrom(source.get_usr_Value());
+        get_usr_Priority().copyFrom(source.get_usr_Priority());
 
     }
 

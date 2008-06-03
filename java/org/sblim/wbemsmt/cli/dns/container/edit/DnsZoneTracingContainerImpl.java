@@ -91,7 +91,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.Name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Name;
     }
@@ -109,7 +109,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements
                     "DnsZoneTracingContainer.ResourceRecordFile");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_ResourceRecordFile = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_ResourceRecordFile;
     }
@@ -126,7 +126,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.Contact");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Contact = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Contact;
     }
@@ -143,7 +143,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.Expire");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt32StringConverter();
             ic_Expire = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Expire;
     }
@@ -160,7 +160,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.Server");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Server = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Server;
     }
@@ -178,7 +178,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements
                     "DnsZoneTracingContainer.SerialNumber");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_SerialNumber = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_SerialNumber;
     }
@@ -195,7 +195,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.Retry");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt32StringConverter();
             ic_Retry = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Retry;
     }
@@ -212,7 +212,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.Forward");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt16StringConverter();
             ic_Forward = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Forward;
     }
@@ -229,7 +229,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.Forwarders");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Forwarders = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Forwarders;
     }
@@ -247,7 +247,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements
                     "DnsZoneTracingContainer.masterAddresses");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_MasterAddresses = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_MasterAddresses;
     }
@@ -264,7 +264,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.TTL");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DoubleStringConverter();
             ic_TTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_TTL;
     }
@@ -281,7 +281,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsZoneTracingContainer.TTLUnit");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_TTLUnit = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_TTLUnit;
     }
@@ -299,7 +299,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements
                     "DnsZoneTracingContainer.NegativeCaching_TTL");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DoubleStringConverter();
             ic_NegativeCaching_TTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_NegativeCaching_TTL;
     }
@@ -317,7 +317,7 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements
                     "DnsZoneTracingContainer.NegativeCaching_TTLUnit");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_NegativeCaching_TTLUnit = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_NegativeCaching_TTLUnit;
     }
@@ -655,21 +655,20 @@ public class DnsZoneTracingContainerImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsZoneTracingContainerImpl source = (DnsZoneTracingContainerImpl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
-        get_ResourceRecordFile().setValue(source.get_ResourceRecordFile().getValue());
-        get_Contact().setValue(source.get_Contact().getValue());
-        get_Expire().setValue(source.get_Expire().getValue());
-        get_Server().setValue(source.get_Server().getValue());
-        get_SerialNumber().setValue(source.get_SerialNumber().getValue());
-        get_Retry().setValue(source.get_Retry().getValue());
-        get_Forward().setValue(source.get_Forward().getValue());
-        get_Forwarders().setValue(source.get_Forwarders().getValue());
-        get_usr_MasterAddresses().setValue(source.get_usr_MasterAddresses().getValue());
-        get_TTL().setValue(source.get_TTL().getValue());
-        get_TTLUnit().setValue(source.get_TTLUnit().getValue());
-        get_NegativeCaching_TTL().setValue(source.get_NegativeCaching_TTL().getValue());
-        get_usr_NegativeCaching_TTLUnit().setValue(
-                source.get_usr_NegativeCaching_TTLUnit().getValue());
+        get_Name().copyFrom(source.get_Name());
+        get_ResourceRecordFile().copyFrom(source.get_ResourceRecordFile());
+        get_Contact().copyFrom(source.get_Contact());
+        get_Expire().copyFrom(source.get_Expire());
+        get_Server().copyFrom(source.get_Server());
+        get_SerialNumber().copyFrom(source.get_SerialNumber());
+        get_Retry().copyFrom(source.get_Retry());
+        get_Forward().copyFrom(source.get_Forward());
+        get_Forwarders().copyFrom(source.get_Forwarders());
+        get_usr_MasterAddresses().copyFrom(source.get_usr_MasterAddresses());
+        get_TTL().copyFrom(source.get_TTL());
+        get_TTLUnit().copyFrom(source.get_TTLUnit());
+        get_NegativeCaching_TTL().copyFrom(source.get_NegativeCaching_TTL());
+        get_usr_NegativeCaching_TTLUnit().copyFrom(source.get_usr_NegativeCaching_TTLUnit());
 
         List targetListForResourceRecords = (List) getResourceRecords();
         List sourceListForResourceRecords = (List) source.getResourceRecords();

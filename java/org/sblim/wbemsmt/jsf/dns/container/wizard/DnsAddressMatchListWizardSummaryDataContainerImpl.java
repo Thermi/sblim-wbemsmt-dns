@@ -152,8 +152,8 @@ public class DnsAddressMatchListWizardSummaryDataContainerImpl extends
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsAddressMatchListWizardSummaryDataContainerImpl source = (DnsAddressMatchListWizardSummaryDataContainerImpl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
-        get_AddressList().setValue(source.get_AddressList().getValue());
+        get_Name().copyFrom(source.get_Name());
+        get_AddressList().copyFrom(source.get_AddressList());
 
     }
 

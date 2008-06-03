@@ -56,7 +56,7 @@ public class DnsResourceRecordWizardPage2TypeOtherDataContainerImpl extends Base
                     "DnsResourceRecordWizardPage2TypeOtherDataContainer.Value");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Value = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Value;
     }
@@ -112,7 +112,7 @@ public class DnsResourceRecordWizardPage2TypeOtherDataContainerImpl extends Base
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsResourceRecordWizardPage2TypeOtherDataContainerImpl source = (DnsResourceRecordWizardPage2TypeOtherDataContainerImpl) sourceContainer;
 
-        get_usr_Value().setValue(source.get_usr_Value().getValue());
+        get_usr_Value().copyFrom(source.get_usr_Value());
 
     }
 

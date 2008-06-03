@@ -190,8 +190,7 @@ public class Linux_DnsHintZone extends Linux_DnsZone {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {
@@ -273,8 +272,7 @@ public class Linux_DnsHintZone extends Linux_DnsZone {
     public boolean set_TTL(Integer newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_TTL.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_TTL(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_TTL(currentProperty, newValue));
             return true;
         }
         else {
@@ -355,8 +353,7 @@ public class Linux_DnsHintZone extends Linux_DnsZone {
     public boolean set_Type(javax.cim.UnsignedInteger8 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_TYPE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Type(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Type(currentProperty, newValue));
             return true;
         }
         else {
@@ -438,8 +435,7 @@ public class Linux_DnsHintZone extends Linux_DnsZone {
     public boolean set_ZoneFile(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_ZONEFILE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_ZoneFile(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_ZoneFile(currentProperty, newValue));
             return true;
         }
         else {

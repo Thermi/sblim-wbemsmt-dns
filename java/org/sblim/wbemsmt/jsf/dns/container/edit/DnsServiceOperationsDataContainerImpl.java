@@ -237,11 +237,11 @@ public class DnsServiceOperationsDataContainerImpl extends
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsServiceOperationsDataContainerImpl source = (DnsServiceOperationsDataContainerImpl) sourceContainer;
 
-        get_RunAsRoot().setValue(source.get_RunAsRoot().getValue());
-        get_usr_Restart().setValue(source.get_usr_Restart().getValue());
-        get_invoke_Start().setValue(source.get_invoke_Start().getValue());
-        get_invoke_Stop().setValue(source.get_invoke_Stop().getValue());
-        get_Status().setValue(source.get_Status().getValue());
+        get_RunAsRoot().copyFrom(source.get_RunAsRoot());
+        get_usr_Restart().copyFrom(source.get_usr_Restart());
+        get_invoke_Start().copyFrom(source.get_invoke_Start());
+        get_invoke_Stop().copyFrom(source.get_invoke_Stop());
+        get_Status().copyFrom(source.get_Status());
 
     }
 

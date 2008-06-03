@@ -171,9 +171,7 @@ public class Linux_DnsBlackholeForService extends CIM_Component {
     public boolean set_GroupComponent_Linux_DnsService(Linux_DnsService newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_GROUPCOMPONENT_LINUX_DNSSERVICE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_GroupComponent_Linux_DnsService(currentProperty,
-                    newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_GroupComponent_Linux_DnsService(currentProperty, newValue));
             return true;
         }
         else {
@@ -257,9 +255,8 @@ public class Linux_DnsBlackholeForService extends CIM_Component {
     public boolean set_PartComponent_Linux_DnsAddressMatchList(Linux_DnsAddressMatchList newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_PARTCOMPONENT_LINUX_DNSADDRESSMATCHLIST.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_PartComponent_Linux_DnsAddressMatchList(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_PartComponent_Linux_DnsAddressMatchList(currentProperty,
+                    newValue));
             return true;
         }
         else {

@@ -55,7 +55,7 @@ public class DnsTTLDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsTTLDataContainer.TTL");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_TTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_TTL;
     }
@@ -72,7 +72,7 @@ public class DnsTTLDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsTTLDataContainer.TTLUnit");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_TTLUnit;
     }
@@ -89,7 +89,7 @@ public class DnsTTLDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsTTLDataContainer.removeTTL");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_RemoveTTL;
     }
@@ -151,9 +151,9 @@ public class DnsTTLDataContainerImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsTTLDataContainerImpl source = (DnsTTLDataContainerImpl) sourceContainer;
 
-        get_TTL().setValue(source.get_TTL().getValue());
-        get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
-        get_usr_RemoveTTL().setValue(source.get_usr_RemoveTTL().getValue());
+        get_TTL().copyFrom(source.get_TTL());
+        get_usr_TTLUnit().copyFrom(source.get_usr_TTLUnit());
+        get_usr_RemoveTTL().copyFrom(source.get_usr_RemoveTTL());
 
     }
 

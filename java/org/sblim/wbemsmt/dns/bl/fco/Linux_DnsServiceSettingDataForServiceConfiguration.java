@@ -173,9 +173,8 @@ public class Linux_DnsServiceSettingDataForServiceConfiguration extends CIM_Comp
             Linux_DnsServiceConfiguration newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_GROUPCOMPONENT_LINUX_DNSSERVICECONFIGURATION.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_GroupComponent_Linux_DnsServiceConfiguration(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_GroupComponent_Linux_DnsServiceConfiguration(
+                    currentProperty, newValue));
             return true;
         }
         else {
@@ -264,9 +263,8 @@ public class Linux_DnsServiceSettingDataForServiceConfiguration extends CIM_Comp
             Linux_DnsServiceSettingData newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_PARTCOMPONENT_LINUX_DNSSERVICESETTINGDATA.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_PartComponent_Linux_DnsServiceSettingData(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_PartComponent_Linux_DnsServiceSettingData(currentProperty,
+                    newValue));
             return true;
         }
         else {

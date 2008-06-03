@@ -58,7 +58,7 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends BaseDataCon
                     "DnsResourceRecordWizardSummaryDataContainer.Name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Name;
     }
@@ -76,7 +76,7 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends BaseDataCon
                     "DnsResourceRecordWizardSummaryDataContainer.Type");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Type = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Type;
     }
@@ -94,7 +94,7 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends BaseDataCon
                     "DnsResourceRecordWizardSummaryDataContainer.Value");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Value = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Value;
     }
@@ -112,7 +112,7 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends BaseDataCon
                     "DnsResourceRecordWizardSummaryDataContainer.Priority");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Priority = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Priority;
     }
@@ -186,10 +186,10 @@ public class DnsResourceRecordWizardSummaryDataContainerImpl extends BaseDataCon
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsResourceRecordWizardSummaryDataContainerImpl source = (DnsResourceRecordWizardSummaryDataContainerImpl) sourceContainer;
 
-        get_usr_Name().setValue(source.get_usr_Name().getValue());
-        get_usr_Type().setValue(source.get_usr_Type().getValue());
-        get_usr_Value().setValue(source.get_usr_Value().getValue());
-        get_usr_Priority().setValue(source.get_usr_Priority().getValue());
+        get_usr_Name().copyFrom(source.get_usr_Name());
+        get_usr_Type().copyFrom(source.get_usr_Type());
+        get_usr_Value().copyFrom(source.get_usr_Value());
+        get_usr_Priority().copyFrom(source.get_usr_Priority());
 
     }
 

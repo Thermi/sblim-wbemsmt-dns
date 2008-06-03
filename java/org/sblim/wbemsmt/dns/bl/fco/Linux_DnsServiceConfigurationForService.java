@@ -171,8 +171,7 @@ public class Linux_DnsServiceConfigurationForService extends CIM_ElementConfigur
     public boolean set_Element_Linux_DnsService(Linux_DnsService newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_ELEMENT_LINUX_DNSSERVICE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Element_Linux_DnsService(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Element_Linux_DnsService(currentProperty, newValue));
             return true;
         }
         else {
@@ -258,9 +257,8 @@ public class Linux_DnsServiceConfigurationForService extends CIM_ElementConfigur
             Linux_DnsServiceConfiguration newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_CONFIGURATION_LINUX_DNSSERVICECONFIGURATION.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Configuration_Linux_DnsServiceConfiguration(
-                    currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Configuration_Linux_DnsServiceConfiguration(
+                    currentProperty, newValue));
             return true;
         }
         else {

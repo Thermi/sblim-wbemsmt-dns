@@ -61,7 +61,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
                     "DnsStubZoneWizardPage1DataContainer.masters");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
             ic_Masters = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_Masters;
     }
@@ -79,7 +79,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
                     "DnsStubZoneWizardPage1DataContainer.removeMasterEntry");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_RemoveMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_RemoveMasterEntry;
     }
@@ -97,7 +97,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
                     "DnsStubZoneWizardPage1DataContainer.newMasterEntry");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_NewMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_NewMasterEntry;
     }
@@ -115,7 +115,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
                     "DnsStubZoneWizardPage1DataContainer.addNewMasterEntry");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_AddNewMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AddNewMasterEntry;
     }
@@ -133,7 +133,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
                     "DnsStubZoneWizardPage1DataContainer.addPredefinedMaster");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_AddPredefinedMaster = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AddPredefinedMaster;
     }
@@ -151,7 +151,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
                     "DnsStubZoneWizardPage1DataContainer.predefinedMasters");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
             ic_usr_PredefinedMasters = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_PredefinedMasters;
     }
@@ -169,7 +169,7 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
                     "DnsStubZoneWizardPage1DataContainer.Name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Name;
     }
@@ -246,13 +246,13 @@ public class DnsStubZoneWizardPage1DataContainerImpl extends BaseDataContainer i
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsStubZoneWizardPage1DataContainerImpl source = (DnsStubZoneWizardPage1DataContainerImpl) sourceContainer;
 
-        get_Masters().setValue(source.get_Masters().getValue());
-        get_usr_RemoveMasterEntry().setValue(source.get_usr_RemoveMasterEntry().getValue());
-        get_usr_NewMasterEntry().setValue(source.get_usr_NewMasterEntry().getValue());
-        get_usr_AddNewMasterEntry().setValue(source.get_usr_AddNewMasterEntry().getValue());
-        get_usr_AddPredefinedMaster().setValue(source.get_usr_AddPredefinedMaster().getValue());
-        get_usr_PredefinedMasters().setValue(source.get_usr_PredefinedMasters().getValue());
-        get_usr_Name().setValue(source.get_usr_Name().getValue());
+        get_Masters().copyFrom(source.get_Masters());
+        get_usr_RemoveMasterEntry().copyFrom(source.get_usr_RemoveMasterEntry());
+        get_usr_NewMasterEntry().copyFrom(source.get_usr_NewMasterEntry());
+        get_usr_AddNewMasterEntry().copyFrom(source.get_usr_AddNewMasterEntry());
+        get_usr_AddPredefinedMaster().copyFrom(source.get_usr_AddPredefinedMaster());
+        get_usr_PredefinedMasters().copyFrom(source.get_usr_PredefinedMasters());
+        get_usr_Name().copyFrom(source.get_usr_Name());
 
     }
 

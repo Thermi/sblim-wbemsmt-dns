@@ -56,7 +56,7 @@ public class DnsAddressMatchListWizardSummaryDataContainerImpl extends BaseDataC
                     "DnsAddressMatchListWizardSummaryDataContainer.Name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Name;
     }
@@ -74,7 +74,7 @@ public class DnsAddressMatchListWizardSummaryDataContainerImpl extends BaseDataC
                     "DnsAddressMatchListWizardSummaryDataContainer.AddressList");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_AddressList = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_AddressList;
     }
@@ -136,8 +136,8 @@ public class DnsAddressMatchListWizardSummaryDataContainerImpl extends BaseDataC
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsAddressMatchListWizardSummaryDataContainerImpl source = (DnsAddressMatchListWizardSummaryDataContainerImpl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
-        get_AddressList().setValue(source.get_AddressList().getValue());
+        get_Name().copyFrom(source.get_Name());
+        get_AddressList().copyFrom(source.get_AddressList());
 
     }
 

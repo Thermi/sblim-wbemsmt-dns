@@ -335,14 +335,14 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsForwardZoneWizardPage1DataContainerImpl source = (DnsForwardZoneWizardPage1DataContainerImpl) sourceContainer;
 
-        get_Forward().setValue(source.get_Forward().getValue());
-        get_Forwarders().setValue(source.get_Forwarders().getValue());
-        get_usr_RemoveForwarder().setValue(source.get_usr_RemoveForwarder().getValue());
-        get_usr_NewForwarder().setValue(source.get_usr_NewForwarder().getValue());
-        get_usr_AddForwarder().setValue(source.get_usr_AddForwarder().getValue());
-        get_usr_NewForwarderType().setValue(source.get_usr_NewForwarderType().getValue());
-        get_usr_Name().setValue(source.get_usr_Name().getValue());
-        get_usr_UseGlobalForwarders().setValue(source.get_usr_UseGlobalForwarders().getValue());
+        get_Forward().copyFrom(source.get_Forward());
+        get_Forwarders().copyFrom(source.get_Forwarders());
+        get_usr_RemoveForwarder().copyFrom(source.get_usr_RemoveForwarder());
+        get_usr_NewForwarder().copyFrom(source.get_usr_NewForwarder());
+        get_usr_AddForwarder().copyFrom(source.get_usr_AddForwarder());
+        get_usr_NewForwarderType().copyFrom(source.get_usr_NewForwarderType());
+        get_usr_Name().copyFrom(source.get_usr_Name());
+        get_usr_UseGlobalForwarders().copyFrom(source.get_usr_UseGlobalForwarders());
 
     }
 

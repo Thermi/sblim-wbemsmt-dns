@@ -337,15 +337,14 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsReverseZoneWizardPage1DataContainerImpl source = (DnsReverseZoneWizardPage1DataContainerImpl) sourceContainer;
 
-        get_usr_IpAddress().setValue(source.get_usr_IpAddress().getValue());
-        get_usr_ResourceRecordUsed().setValue(source.get_usr_ResourceRecordUsed().getValue());
-        get_usr_RemoveResourceRecord().setValue(source.get_usr_RemoveResourceRecord().getValue());
-        get_usr_ResourceRecordNotUsed().setValue(source.get_usr_ResourceRecordNotUsed().getValue());
-        get_usr_AddResourceRecord().setValue(source.get_usr_AddResourceRecord().getValue());
-        get_usr_AddAllResourceRecords().setValue(source.get_usr_AddAllResourceRecords().getValue());
-        get_usr_RemoveAllResourceRecords().setValue(
-                source.get_usr_RemoveAllResourceRecords().getValue());
-        get_usr_IpPresets().setValue(source.get_usr_IpPresets().getValue());
+        get_usr_IpAddress().copyFrom(source.get_usr_IpAddress());
+        get_usr_ResourceRecordUsed().copyFrom(source.get_usr_ResourceRecordUsed());
+        get_usr_RemoveResourceRecord().copyFrom(source.get_usr_RemoveResourceRecord());
+        get_usr_ResourceRecordNotUsed().copyFrom(source.get_usr_ResourceRecordNotUsed());
+        get_usr_AddResourceRecord().copyFrom(source.get_usr_AddResourceRecord());
+        get_usr_AddAllResourceRecords().copyFrom(source.get_usr_AddAllResourceRecords());
+        get_usr_RemoveAllResourceRecords().copyFrom(source.get_usr_RemoveAllResourceRecords());
+        get_usr_IpPresets().copyFrom(source.get_usr_IpPresets());
 
     }
 

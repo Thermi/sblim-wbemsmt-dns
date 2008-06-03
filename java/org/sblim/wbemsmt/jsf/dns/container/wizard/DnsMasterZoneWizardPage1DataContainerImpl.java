@@ -214,10 +214,10 @@ public class DnsMasterZoneWizardPage1DataContainerImpl extends
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsMasterZoneWizardPage1DataContainerImpl source = (DnsMasterZoneWizardPage1DataContainerImpl) sourceContainer;
 
-        get_usr_Name().setValue(source.get_usr_Name().getValue());
-        get_usr_Server().setValue(source.get_usr_Server().getValue());
-        get_usr_IpAdress().setValue(source.get_usr_IpAdress().getValue());
-        get_usr_Contact().setValue(source.get_usr_Contact().getValue());
+        get_usr_Name().copyFrom(source.get_usr_Name());
+        get_usr_Server().copyFrom(source.get_usr_Server());
+        get_usr_IpAdress().copyFrom(source.get_usr_IpAdress());
+        get_usr_Contact().copyFrom(source.get_usr_Contact());
 
     }
 

@@ -116,7 +116,7 @@ public class DnsZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBa
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsZoneDataContainerImpl source = (DnsZoneDataContainerImpl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
+        get_Name().copyFrom(source.get_Name());
 
     }
 

@@ -64,7 +64,7 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends BaseDataContai
                     "DnsReverseZoneWizardSummaryDataContainer.name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Name;
     }
@@ -82,7 +82,7 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends BaseDataContai
                     "DnsReverseZoneWizardSummaryDataContainer.ResourceRecordFile");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_ResourceRecordFile = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_ResourceRecordFile;
     }
@@ -218,8 +218,8 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends BaseDataContai
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsReverseZoneWizardSummaryDataContainerImpl source = (DnsReverseZoneWizardSummaryDataContainerImpl) sourceContainer;
 
-        get_usr_Name().setValue(source.get_usr_Name().getValue());
-        get_ResourceRecordFile().setValue(source.get_ResourceRecordFile().getValue());
+        get_usr_Name().copyFrom(source.get_usr_Name());
+        get_ResourceRecordFile().copyFrom(source.get_ResourceRecordFile());
 
         List targetListForResourceRecords = (List) getResourceRecords();
         List sourceListForResourceRecords = (List) source.getResourceRecords();

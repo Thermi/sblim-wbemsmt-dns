@@ -919,21 +919,20 @@ public class DnsZoneTracingContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edi
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsZoneTracingContainerImpl source = (DnsZoneTracingContainerImpl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
-        get_ResourceRecordFile().setValue(source.get_ResourceRecordFile().getValue());
-        get_Contact().setValue(source.get_Contact().getValue());
-        get_Expire().setValue(source.get_Expire().getValue());
-        get_Server().setValue(source.get_Server().getValue());
-        get_SerialNumber().setValue(source.get_SerialNumber().getValue());
-        get_Retry().setValue(source.get_Retry().getValue());
-        get_Forward().setValue(source.get_Forward().getValue());
-        get_Forwarders().setValue(source.get_Forwarders().getValue());
-        get_usr_MasterAddresses().setValue(source.get_usr_MasterAddresses().getValue());
-        get_TTL().setValue(source.get_TTL().getValue());
-        get_TTLUnit().setValue(source.get_TTLUnit().getValue());
-        get_NegativeCaching_TTL().setValue(source.get_NegativeCaching_TTL().getValue());
-        get_usr_NegativeCaching_TTLUnit().setValue(
-                source.get_usr_NegativeCaching_TTLUnit().getValue());
+        get_Name().copyFrom(source.get_Name());
+        get_ResourceRecordFile().copyFrom(source.get_ResourceRecordFile());
+        get_Contact().copyFrom(source.get_Contact());
+        get_Expire().copyFrom(source.get_Expire());
+        get_Server().copyFrom(source.get_Server());
+        get_SerialNumber().copyFrom(source.get_SerialNumber());
+        get_Retry().copyFrom(source.get_Retry());
+        get_Forward().copyFrom(source.get_Forward());
+        get_Forwarders().copyFrom(source.get_Forwarders());
+        get_usr_MasterAddresses().copyFrom(source.get_usr_MasterAddresses());
+        get_TTL().copyFrom(source.get_TTL());
+        get_TTLUnit().copyFrom(source.get_TTLUnit());
+        get_NegativeCaching_TTL().copyFrom(source.get_NegativeCaching_TTL());
+        get_usr_NegativeCaching_TTLUnit().copyFrom(source.get_usr_NegativeCaching_TTLUnit());
 
         List targetListForResourceRecords = (List) getResourceRecords();
         List sourceListForResourceRecords = (List) source.getResourceRecords();

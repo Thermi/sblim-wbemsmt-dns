@@ -150,8 +150,8 @@ public class DnsSlaveZoneWizardSummaryDataContainerImpl extends
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsSlaveZoneWizardSummaryDataContainerImpl source = (DnsSlaveZoneWizardSummaryDataContainerImpl) sourceContainer;
 
-        get_usr_Name().setValue(source.get_usr_Name().getValue());
-        get_usr_IpAdressses().setValue(source.get_usr_IpAdressses().getValue());
+        get_usr_Name().copyFrom(source.get_usr_Name());
+        get_usr_IpAdressses().copyFrom(source.get_usr_IpAdressses());
 
     }
 

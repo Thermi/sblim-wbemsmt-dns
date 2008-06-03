@@ -185,8 +185,7 @@ public class Linux_DnsServiceConfiguration extends CIM_Configuration {
     public boolean set_ConfigurationFile(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_CONFIGURATIONFILE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_ConfigurationFile(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_ConfigurationFile(currentProperty, newValue));
             return true;
         }
         else {
@@ -268,8 +267,7 @@ public class Linux_DnsServiceConfiguration extends CIM_Configuration {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {

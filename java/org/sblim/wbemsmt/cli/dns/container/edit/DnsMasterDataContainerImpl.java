@@ -55,7 +55,7 @@ public class DnsMasterDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsMasterDataContainer.Name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Name;
     }
@@ -73,7 +73,7 @@ public class DnsMasterDataContainerImpl extends BaseDataContainer implements
                     "DnsMasterDataContainer.MasterElementType");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_MasterElementType = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_MasterElementType;
     }
@@ -91,7 +91,7 @@ public class DnsMasterDataContainerImpl extends BaseDataContainer implements
                     "DnsMasterDataContainer.MasterElement");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_MasterElement = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_MasterElement;
     }
@@ -159,9 +159,9 @@ public class DnsMasterDataContainerImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsMasterDataContainerImpl source = (DnsMasterDataContainerImpl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
-        get_MasterElementType().setValue(source.get_MasterElementType().getValue());
-        get_MasterElement().setValue(source.get_MasterElement().getValue());
+        get_Name().copyFrom(source.get_Name());
+        get_MasterElementType().copyFrom(source.get_MasterElementType());
+        get_MasterElement().copyFrom(source.get_MasterElement());
 
     }
 

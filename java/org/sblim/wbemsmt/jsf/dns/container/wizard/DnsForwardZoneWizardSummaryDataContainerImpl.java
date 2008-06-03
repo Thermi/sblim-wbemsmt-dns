@@ -186,9 +186,9 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsForwardZoneWizardSummaryDataContainerImpl source = (DnsForwardZoneWizardSummaryDataContainerImpl) sourceContainer;
 
-        get_usr_Name().setValue(source.get_usr_Name().getValue());
-        get_Forward().setValue(source.get_Forward().getValue());
-        get_Forwarders().setValue(source.get_Forwarders().getValue());
+        get_usr_Name().copyFrom(source.get_usr_Name());
+        get_Forward().copyFrom(source.get_Forward());
+        get_Forwarders().copyFrom(source.get_Forwarders());
 
     }
 

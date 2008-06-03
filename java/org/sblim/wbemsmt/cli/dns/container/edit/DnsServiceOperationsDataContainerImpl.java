@@ -59,7 +59,7 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
                     "DnsServiceOperationsDataContainer.RunAsRoot");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.BooleanStringConverter();
             ic_RunAsRoot = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_RunAsRoot;
     }
@@ -77,7 +77,7 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
                     "DnsServiceOperationsDataContainer.restart");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Restart = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Restart;
     }
@@ -95,7 +95,7 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
                     "DnsServiceOperationsDataContainer.start");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_invoke_Start = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_invoke_Start;
     }
@@ -113,7 +113,7 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
                     "DnsServiceOperationsDataContainer.stop");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_invoke_Stop = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_invoke_Stop;
     }
@@ -131,7 +131,7 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
                     "DnsServiceOperationsDataContainer.Status");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Status = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Status;
     }
@@ -196,11 +196,11 @@ public class DnsServiceOperationsDataContainerImpl extends BaseDataContainer imp
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsServiceOperationsDataContainerImpl source = (DnsServiceOperationsDataContainerImpl) sourceContainer;
 
-        get_RunAsRoot().setValue(source.get_RunAsRoot().getValue());
-        get_usr_Restart().setValue(source.get_usr_Restart().getValue());
-        get_invoke_Start().setValue(source.get_invoke_Start().getValue());
-        get_invoke_Stop().setValue(source.get_invoke_Stop().getValue());
-        get_Status().setValue(source.get_Status().getValue());
+        get_RunAsRoot().copyFrom(source.get_RunAsRoot());
+        get_usr_Restart().copyFrom(source.get_usr_Restart());
+        get_invoke_Start().copyFrom(source.get_invoke_Start());
+        get_invoke_Stop().copyFrom(source.get_invoke_Stop());
+        get_Status().copyFrom(source.get_Status());
 
     }
 

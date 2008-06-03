@@ -58,7 +58,7 @@ public class DnsForwarderDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsForwarderDataContainer.Forward");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt8StringArrayConverter();
             ic_Forward = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_Forward;
     }
@@ -76,7 +76,7 @@ public class DnsForwarderDataContainerImpl extends BaseDataContainer implements
                     "DnsForwarderDataContainer.Forwarders");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
             ic_Forwarders = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_Forwarders;
     }
@@ -94,7 +94,7 @@ public class DnsForwarderDataContainerImpl extends BaseDataContainer implements
                     "DnsForwarderDataContainer.removeForwarder");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_RemoveForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_RemoveForwarder;
     }
@@ -112,7 +112,7 @@ public class DnsForwarderDataContainerImpl extends BaseDataContainer implements
                     "DnsForwarderDataContainer.newForwarder");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_NewForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_NewForwarder;
     }
@@ -130,7 +130,7 @@ public class DnsForwarderDataContainerImpl extends BaseDataContainer implements
                     "DnsForwarderDataContainer.addForwarder");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_AddForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AddForwarder;
     }
@@ -148,7 +148,7 @@ public class DnsForwarderDataContainerImpl extends BaseDataContainer implements
                     "DnsForwarderDataContainer.newForwarderType");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_NewForwarderType = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_NewForwarderType;
     }
@@ -224,12 +224,12 @@ public class DnsForwarderDataContainerImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsForwarderDataContainerImpl source = (DnsForwarderDataContainerImpl) sourceContainer;
 
-        get_Forward().setValue(source.get_Forward().getValue());
-        get_Forwarders().setValue(source.get_Forwarders().getValue());
-        get_usr_RemoveForwarder().setValue(source.get_usr_RemoveForwarder().getValue());
-        get_usr_NewForwarder().setValue(source.get_usr_NewForwarder().getValue());
-        get_usr_AddForwarder().setValue(source.get_usr_AddForwarder().getValue());
-        get_usr_NewForwarderType().setValue(source.get_usr_NewForwarderType().getValue());
+        get_Forward().copyFrom(source.get_Forward());
+        get_Forwarders().copyFrom(source.get_Forwarders());
+        get_usr_RemoveForwarder().copyFrom(source.get_usr_RemoveForwarder());
+        get_usr_NewForwarder().copyFrom(source.get_usr_NewForwarder());
+        get_usr_AddForwarder().copyFrom(source.get_usr_AddForwarder());
+        get_usr_NewForwarderType().copyFrom(source.get_usr_NewForwarderType());
 
     }
 

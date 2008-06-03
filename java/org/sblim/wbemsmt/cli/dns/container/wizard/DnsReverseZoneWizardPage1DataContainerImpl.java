@@ -62,7 +62,7 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends BaseDataContaine
                     "DnsReverseZoneWizardPage1DataContainer.ipAddress");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_IpAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_IpAddress;
     }
@@ -80,7 +80,7 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends BaseDataContaine
                     "DnsReverseZoneWizardPage1DataContainer.resourceRecordUsed");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
             ic_usr_ResourceRecordUsed = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_ResourceRecordUsed;
     }
@@ -98,7 +98,7 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends BaseDataContaine
                     "DnsReverseZoneWizardPage1DataContainer.removeResourceRecord");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_RemoveResourceRecord = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_RemoveResourceRecord;
     }
@@ -116,7 +116,7 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends BaseDataContaine
                     "DnsReverseZoneWizardPage1DataContainer.resourceRecordNotUsed");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
             ic_usr_ResourceRecordNotUsed = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_ResourceRecordNotUsed;
     }
@@ -134,7 +134,7 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends BaseDataContaine
                     "DnsReverseZoneWizardPage1DataContainer.addResourceRecord");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_AddResourceRecord = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AddResourceRecord;
     }
@@ -152,7 +152,7 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends BaseDataContaine
                     "DnsReverseZoneWizardPage1DataContainer.addAllResourceRecords");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_AddAllResourceRecords = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AddAllResourceRecords;
     }
@@ -170,7 +170,7 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends BaseDataContaine
                     "DnsReverseZoneWizardPage1DataContainer.removeAllResourceRecords");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_RemoveAllResourceRecords = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_RemoveAllResourceRecords;
     }
@@ -188,7 +188,7 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends BaseDataContaine
                     "DnsReverseZoneWizardPage1DataContainer.ipPresets");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_IpPresets = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_IpPresets;
     }
@@ -266,15 +266,14 @@ public class DnsReverseZoneWizardPage1DataContainerImpl extends BaseDataContaine
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsReverseZoneWizardPage1DataContainerImpl source = (DnsReverseZoneWizardPage1DataContainerImpl) sourceContainer;
 
-        get_usr_IpAddress().setValue(source.get_usr_IpAddress().getValue());
-        get_usr_ResourceRecordUsed().setValue(source.get_usr_ResourceRecordUsed().getValue());
-        get_usr_RemoveResourceRecord().setValue(source.get_usr_RemoveResourceRecord().getValue());
-        get_usr_ResourceRecordNotUsed().setValue(source.get_usr_ResourceRecordNotUsed().getValue());
-        get_usr_AddResourceRecord().setValue(source.get_usr_AddResourceRecord().getValue());
-        get_usr_AddAllResourceRecords().setValue(source.get_usr_AddAllResourceRecords().getValue());
-        get_usr_RemoveAllResourceRecords().setValue(
-                source.get_usr_RemoveAllResourceRecords().getValue());
-        get_usr_IpPresets().setValue(source.get_usr_IpPresets().getValue());
+        get_usr_IpAddress().copyFrom(source.get_usr_IpAddress());
+        get_usr_ResourceRecordUsed().copyFrom(source.get_usr_ResourceRecordUsed());
+        get_usr_RemoveResourceRecord().copyFrom(source.get_usr_RemoveResourceRecord());
+        get_usr_ResourceRecordNotUsed().copyFrom(source.get_usr_ResourceRecordNotUsed());
+        get_usr_AddResourceRecord().copyFrom(source.get_usr_AddResourceRecord());
+        get_usr_AddAllResourceRecords().copyFrom(source.get_usr_AddAllResourceRecords());
+        get_usr_RemoveAllResourceRecords().copyFrom(source.get_usr_RemoveAllResourceRecords());
+        get_usr_IpPresets().copyFrom(source.get_usr_IpPresets());
 
     }
 

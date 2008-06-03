@@ -110,7 +110,7 @@ public class Linux_DnsResourceRecord extends CIM_SettingData {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@6f906f90
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@2b402b4
         public static javax.cim.UnsignedInteger8 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_Unknown.equals(value)) {
@@ -395,8 +395,7 @@ public class Linux_DnsResourceRecord extends CIM_SettingData {
     public boolean set_Family(javax.cim.UnsignedInteger8 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_FAMILY.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Family(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Family(currentProperty, newValue));
             return true;
         }
         else {
@@ -478,8 +477,7 @@ public class Linux_DnsResourceRecord extends CIM_SettingData {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {
@@ -561,8 +559,7 @@ public class Linux_DnsResourceRecord extends CIM_SettingData {
     public boolean set_TTL(Integer newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_TTL.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_TTL(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_TTL(currentProperty, newValue));
             return true;
         }
         else {
@@ -643,8 +640,7 @@ public class Linux_DnsResourceRecord extends CIM_SettingData {
     public boolean set_key_Type(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_TYPE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Type(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Type(currentProperty, newValue));
             return true;
         }
         else {
@@ -726,8 +722,7 @@ public class Linux_DnsResourceRecord extends CIM_SettingData {
     public boolean set_key_Value(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_VALUE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Value(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Value(currentProperty, newValue));
             return true;
         }
         else {
@@ -809,8 +804,7 @@ public class Linux_DnsResourceRecord extends CIM_SettingData {
     public boolean set_key_ZoneName(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_ZONENAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_ZoneName(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_ZoneName(currentProperty, newValue));
             return true;
         }
         else {

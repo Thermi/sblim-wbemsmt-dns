@@ -61,7 +61,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsSoaContainer.Server");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Server = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Server;
     }
@@ -78,7 +78,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsSoaContainer.Contact");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Contact = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Contact;
     }
@@ -95,7 +95,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsSoaContainer.SerialNumber");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_SerialNumber = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_SerialNumber;
     }
@@ -112,7 +112,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsSoaContainer.Refresh");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt32StringConverter();
             ic_Refresh = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Refresh;
     }
@@ -129,7 +129,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsSoaContainer.Retry");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt32StringConverter();
             ic_Retry = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Retry;
     }
@@ -146,7 +146,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsSoaContainer.Expire");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt32StringConverter();
             ic_Expire = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Expire;
     }
@@ -163,7 +163,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsSoaContainer.NegativeCachingTTL");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_NegativeCachingTTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_NegativeCachingTTL;
     }
@@ -180,7 +180,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsSoaContainer.TTLUnit");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_TTLUnit;
     }
@@ -197,7 +197,7 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsSoaContainer.setSerialNumber");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_SetSerialNumber = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_SetSerialNumber;
     }
@@ -295,15 +295,15 @@ public class DnsSoaContainerImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsSoaContainerImpl source = (DnsSoaContainerImpl) sourceContainer;
 
-        get_Server().setValue(source.get_Server().getValue());
-        get_Contact().setValue(source.get_Contact().getValue());
-        get_SerialNumber().setValue(source.get_SerialNumber().getValue());
-        get_Refresh().setValue(source.get_Refresh().getValue());
-        get_Retry().setValue(source.get_Retry().getValue());
-        get_Expire().setValue(source.get_Expire().getValue());
-        get_NegativeCachingTTL().setValue(source.get_NegativeCachingTTL().getValue());
-        get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
-        get_usr_SetSerialNumber().setValue(source.get_usr_SetSerialNumber().getValue());
+        get_Server().copyFrom(source.get_Server());
+        get_Contact().copyFrom(source.get_Contact());
+        get_SerialNumber().copyFrom(source.get_SerialNumber());
+        get_Refresh().copyFrom(source.get_Refresh());
+        get_Retry().copyFrom(source.get_Retry());
+        get_Expire().copyFrom(source.get_Expire());
+        get_NegativeCachingTTL().copyFrom(source.get_NegativeCachingTTL());
+        get_usr_TTLUnit().copyFrom(source.get_usr_TTLUnit());
+        get_usr_SetSerialNumber().copyFrom(source.get_usr_SetSerialNumber());
 
     }
 

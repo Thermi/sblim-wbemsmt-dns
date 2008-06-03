@@ -60,7 +60,7 @@ public class DnsAddMasterAddressDataContainerImpl extends BaseDataContainer impl
                     "DnsAddMasterAddressDataContainer.masters");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
             ic_Masters = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_Masters;
     }
@@ -78,7 +78,7 @@ public class DnsAddMasterAddressDataContainerImpl extends BaseDataContainer impl
                     "DnsAddMasterAddressDataContainer.removeMasterEntry");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_RemoveMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_RemoveMasterEntry;
     }
@@ -96,7 +96,7 @@ public class DnsAddMasterAddressDataContainerImpl extends BaseDataContainer impl
                     "DnsAddMasterAddressDataContainer.newMasterEntry");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_NewMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_NewMasterEntry;
     }
@@ -114,7 +114,7 @@ public class DnsAddMasterAddressDataContainerImpl extends BaseDataContainer impl
                     "DnsAddMasterAddressDataContainer.addNewMasterEntry");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_AddNewMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AddNewMasterEntry;
     }
@@ -132,7 +132,7 @@ public class DnsAddMasterAddressDataContainerImpl extends BaseDataContainer impl
                     "DnsAddMasterAddressDataContainer.addPredefinedMaster");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_AddPredefinedMaster = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AddPredefinedMaster;
     }
@@ -150,7 +150,7 @@ public class DnsAddMasterAddressDataContainerImpl extends BaseDataContainer impl
                     "DnsAddMasterAddressDataContainer.predefinedMasters");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
             ic_usr_PredefinedMasters = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_PredefinedMasters;
     }
@@ -221,12 +221,12 @@ public class DnsAddMasterAddressDataContainerImpl extends BaseDataContainer impl
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsAddMasterAddressDataContainerImpl source = (DnsAddMasterAddressDataContainerImpl) sourceContainer;
 
-        get_Masters().setValue(source.get_Masters().getValue());
-        get_usr_RemoveMasterEntry().setValue(source.get_usr_RemoveMasterEntry().getValue());
-        get_usr_NewMasterEntry().setValue(source.get_usr_NewMasterEntry().getValue());
-        get_usr_AddNewMasterEntry().setValue(source.get_usr_AddNewMasterEntry().getValue());
-        get_usr_AddPredefinedMaster().setValue(source.get_usr_AddPredefinedMaster().getValue());
-        get_usr_PredefinedMasters().setValue(source.get_usr_PredefinedMasters().getValue());
+        get_Masters().copyFrom(source.get_Masters());
+        get_usr_RemoveMasterEntry().copyFrom(source.get_usr_RemoveMasterEntry());
+        get_usr_NewMasterEntry().copyFrom(source.get_usr_NewMasterEntry());
+        get_usr_AddNewMasterEntry().copyFrom(source.get_usr_AddNewMasterEntry());
+        get_usr_AddPredefinedMaster().copyFrom(source.get_usr_AddPredefinedMaster());
+        get_usr_PredefinedMasters().copyFrom(source.get_usr_PredefinedMasters());
 
     }
 

@@ -127,6 +127,12 @@ public class EditDnsServiceAllowRecursion extends CimCommand {
     public static final OptionDefinition KEY_GLOBAL_privatekeyfile = new OptionDefinition(null,
             "privatekeyfile", null, "privatekeyfile.argValue", false, false,
             "privatekeyfile.argDescription");
+    /**
+     * used for selection:  --httpProtocolType, default: http
+     */
+    public static final OptionDefinition KEY_GLOBAL_httpProtocolType = new OptionDefinition(null,
+            "httpProtocolType", "http", "httpProtocolType.argValue", false, false,
+            "httpProtocolType.argDescription");
 
     // Global Common Options
     /**
@@ -153,7 +159,8 @@ public class EditDnsServiceAllowRecursion extends CimCommand {
 
     private static final OptionDefinition[] GLOBAL_WBEMSMT_COMMUNICATION_OPTIONS = new OptionDefinition[] {
             KEY_GLOBAL_hostname, KEY_GLOBAL_port, KEY_GLOBAL_namespace, KEY_GLOBAL_user,
-            KEY_GLOBAL_password, KEY_GLOBAL_publickeyfile, KEY_GLOBAL_privatekeyfile, };
+            KEY_GLOBAL_password, KEY_GLOBAL_publickeyfile, KEY_GLOBAL_privatekeyfile,
+            KEY_GLOBAL_httpProtocolType, };
 
     private static final OptionDefinition[] GLOBAL_WBEMSMT_COMMON_OPTIONS = new OptionDefinition[] {
             KEY_GLOBAL_locale, KEY_GLOBAL_QUESTION_MARK_, KEY_GLOBAL_help, };
@@ -334,8 +341,8 @@ public class EditDnsServiceAllowRecursion extends CimCommand {
 
     protected CimClientOptionValues getCimClientOptions() {
 
-        return new CimClientOptionValues(KEY_GLOBAL_hostname, KEY_GLOBAL_port,
-                KEY_GLOBAL_namespace, KEY_GLOBAL_user, KEY_GLOBAL_password,
+        return new CimClientOptionValues(KEY_GLOBAL_httpProtocolType, KEY_GLOBAL_hostname,
+                KEY_GLOBAL_port, KEY_GLOBAL_namespace, KEY_GLOBAL_user, KEY_GLOBAL_password,
                 KEY_GLOBAL_publickeyfile, KEY_GLOBAL_privatekeyfile);
     }
 

@@ -155,8 +155,8 @@ public class DnsResourceRecordWizardPage2TypeMxDataContainerImpl extends
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsResourceRecordWizardPage2TypeMxDataContainerImpl source = (DnsResourceRecordWizardPage2TypeMxDataContainerImpl) sourceContainer;
 
-        get_usr_Value().setValue(source.get_usr_Value().getValue());
-        get_usr_Priority().setValue(source.get_usr_Priority().getValue());
+        get_usr_Value().copyFrom(source.get_usr_Value());
+        get_usr_Priority().copyFrom(source.get_usr_Priority());
 
     }
 

@@ -213,10 +213,10 @@ public class DnsConfigurationDataContainerImpl extends org.sblim.wbemsmt.tools.j
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsConfigurationDataContainerImpl source = (DnsConfigurationDataContainerImpl) sourceContainer;
 
-        get_ConfigurationFile().setValue(source.get_ConfigurationFile().getValue());
-        get_ConfigurationDirectory().setValue(source.get_ConfigurationDirectory().getValue());
-        get_PortNumber().setValue(source.get_PortNumber().getValue());
-        get_usr_RemoveDirectory().setValue(source.get_usr_RemoveDirectory().getValue());
+        get_ConfigurationFile().copyFrom(source.get_ConfigurationFile());
+        get_ConfigurationDirectory().copyFrom(source.get_ConfigurationDirectory());
+        get_PortNumber().copyFrom(source.get_PortNumber());
+        get_usr_RemoveDirectory().copyFrom(source.get_usr_RemoveDirectory());
 
     }
 

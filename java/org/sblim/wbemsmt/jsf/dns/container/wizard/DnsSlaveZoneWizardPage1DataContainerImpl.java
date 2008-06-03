@@ -306,13 +306,13 @@ public class DnsSlaveZoneWizardPage1DataContainerImpl extends
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsSlaveZoneWizardPage1DataContainerImpl source = (DnsSlaveZoneWizardPage1DataContainerImpl) sourceContainer;
 
-        get_Masters().setValue(source.get_Masters().getValue());
-        get_usr_RemoveMasterEntry().setValue(source.get_usr_RemoveMasterEntry().getValue());
-        get_usr_NewMasterEntry().setValue(source.get_usr_NewMasterEntry().getValue());
-        get_usr_AddNewMasterEntry().setValue(source.get_usr_AddNewMasterEntry().getValue());
-        get_usr_AddPredefinedMaster().setValue(source.get_usr_AddPredefinedMaster().getValue());
-        get_usr_PredefinedMasters().setValue(source.get_usr_PredefinedMasters().getValue());
-        get_usr_Name().setValue(source.get_usr_Name().getValue());
+        get_Masters().copyFrom(source.get_Masters());
+        get_usr_RemoveMasterEntry().copyFrom(source.get_usr_RemoveMasterEntry());
+        get_usr_NewMasterEntry().copyFrom(source.get_usr_NewMasterEntry());
+        get_usr_AddNewMasterEntry().copyFrom(source.get_usr_AddNewMasterEntry());
+        get_usr_AddPredefinedMaster().copyFrom(source.get_usr_AddPredefinedMaster());
+        get_usr_PredefinedMasters().copyFrom(source.get_usr_PredefinedMasters());
+        get_usr_Name().copyFrom(source.get_usr_Name());
 
     }
 

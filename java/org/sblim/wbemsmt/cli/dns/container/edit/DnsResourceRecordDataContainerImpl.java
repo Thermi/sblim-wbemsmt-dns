@@ -61,7 +61,7 @@ public class DnsResourceRecordDataContainerImpl extends BaseDataContainer implem
             String label = getAdapter().getBundle().getString("DnsResourceRecordDataContainer.TTL");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_TTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_TTL;
     }
@@ -79,7 +79,7 @@ public class DnsResourceRecordDataContainerImpl extends BaseDataContainer implem
                     "DnsResourceRecordDataContainer.TTLUnit");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_TTLUnit;
     }
@@ -97,7 +97,7 @@ public class DnsResourceRecordDataContainerImpl extends BaseDataContainer implem
                     "DnsResourceRecordDataContainer.removeTTL");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_RemoveTTL;
     }
@@ -115,7 +115,7 @@ public class DnsResourceRecordDataContainerImpl extends BaseDataContainer implem
                     .getString("DnsResourceRecordDataContainer.Name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Name;
     }
@@ -133,7 +133,7 @@ public class DnsResourceRecordDataContainerImpl extends BaseDataContainer implem
                     .getString("DnsResourceRecordDataContainer.Type");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_Type = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Type;
     }
@@ -151,7 +151,7 @@ public class DnsResourceRecordDataContainerImpl extends BaseDataContainer implem
                     "DnsResourceRecordDataContainer.Family");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt8StringArrayConverter();
             ic_Family = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_Family;
     }
@@ -169,7 +169,7 @@ public class DnsResourceRecordDataContainerImpl extends BaseDataContainer implem
                     "DnsResourceRecordDataContainer.Value");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Value = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Value;
     }
@@ -187,7 +187,7 @@ public class DnsResourceRecordDataContainerImpl extends BaseDataContainer implem
                     "DnsResourceRecordDataContainer.Priority");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Priority = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Priority;
     }
@@ -280,14 +280,14 @@ public class DnsResourceRecordDataContainerImpl extends BaseDataContainer implem
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsResourceRecordDataContainerImpl source = (DnsResourceRecordDataContainerImpl) sourceContainer;
 
-        get_TTL().setValue(source.get_TTL().getValue());
-        get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
-        get_usr_RemoveTTL().setValue(source.get_usr_RemoveTTL().getValue());
-        get_Name().setValue(source.get_Name().getValue());
-        get_Type().setValue(source.get_Type().getValue());
-        get_Family().setValue(source.get_Family().getValue());
-        get_Value().setValue(source.get_Value().getValue());
-        get_Priority().setValue(source.get_Priority().getValue());
+        get_TTL().copyFrom(source.get_TTL());
+        get_usr_TTLUnit().copyFrom(source.get_usr_TTLUnit());
+        get_usr_RemoveTTL().copyFrom(source.get_usr_RemoveTTL());
+        get_Name().copyFrom(source.get_Name());
+        get_Type().copyFrom(source.get_Type());
+        get_Family().copyFrom(source.get_Family());
+        get_Value().copyFrom(source.get_Value());
+        get_Priority().copyFrom(source.get_Priority());
 
     }
 

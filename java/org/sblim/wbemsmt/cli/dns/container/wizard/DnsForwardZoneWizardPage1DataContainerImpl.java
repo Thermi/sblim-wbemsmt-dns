@@ -62,7 +62,7 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends BaseDataContaine
                     "DnsForwardZoneWizardPage1DataContainer.Forward");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt8StringArrayConverter();
             ic_Forward = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_Forward;
     }
@@ -80,7 +80,7 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends BaseDataContaine
                     "DnsForwardZoneWizardPage1DataContainer.Forwarders");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
             ic_Forwarders = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_Forwarders;
     }
@@ -98,7 +98,7 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends BaseDataContaine
                     "DnsForwardZoneWizardPage1DataContainer.removeForwarder");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_RemoveForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_RemoveForwarder;
     }
@@ -116,7 +116,7 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends BaseDataContaine
                     "DnsForwardZoneWizardPage1DataContainer.newForwarder");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_NewForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_NewForwarder;
     }
@@ -134,7 +134,7 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends BaseDataContaine
                     "DnsForwardZoneWizardPage1DataContainer.addForwarder");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_AddForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AddForwarder;
     }
@@ -152,7 +152,7 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends BaseDataContaine
                     "DnsForwardZoneWizardPage1DataContainer.newForwarderType");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_NewForwarderType = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_NewForwarderType;
     }
@@ -170,7 +170,7 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends BaseDataContaine
                     "DnsForwardZoneWizardPage1DataContainer.Name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Name;
     }
@@ -188,7 +188,7 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends BaseDataContaine
                     "DnsForwardZoneWizardPage1DataContainer.useGlobalForwarders");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_UseGlobalForwarders = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_UseGlobalForwarders;
     }
@@ -271,14 +271,14 @@ public class DnsForwardZoneWizardPage1DataContainerImpl extends BaseDataContaine
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsForwardZoneWizardPage1DataContainerImpl source = (DnsForwardZoneWizardPage1DataContainerImpl) sourceContainer;
 
-        get_Forward().setValue(source.get_Forward().getValue());
-        get_Forwarders().setValue(source.get_Forwarders().getValue());
-        get_usr_RemoveForwarder().setValue(source.get_usr_RemoveForwarder().getValue());
-        get_usr_NewForwarder().setValue(source.get_usr_NewForwarder().getValue());
-        get_usr_AddForwarder().setValue(source.get_usr_AddForwarder().getValue());
-        get_usr_NewForwarderType().setValue(source.get_usr_NewForwarderType().getValue());
-        get_usr_Name().setValue(source.get_usr_Name().getValue());
-        get_usr_UseGlobalForwarders().setValue(source.get_usr_UseGlobalForwarders().getValue());
+        get_Forward().copyFrom(source.get_Forward());
+        get_Forwarders().copyFrom(source.get_Forwarders());
+        get_usr_RemoveForwarder().copyFrom(source.get_usr_RemoveForwarder());
+        get_usr_NewForwarder().copyFrom(source.get_usr_NewForwarder());
+        get_usr_AddForwarder().copyFrom(source.get_usr_AddForwarder());
+        get_usr_NewForwarderType().copyFrom(source.get_usr_NewForwarderType());
+        get_usr_Name().copyFrom(source.get_usr_Name());
+        get_usr_UseGlobalForwarders().copyFrom(source.get_usr_UseGlobalForwarders());
 
     }
 

@@ -151,6 +151,9 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.dns
 
 ###############################################################################
 %changelog
+* Tue Jun 03 2008 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.5-CVS
+    o 1977422 wbemsmt-tasks: add httpProtocolType as global cli arg
+
 * Sat May 17 2008 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.5-1
     o 1965984 wbemsmt-dns: migrate to jsr48
     

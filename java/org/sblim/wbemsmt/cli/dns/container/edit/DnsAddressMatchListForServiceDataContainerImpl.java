@@ -63,7 +63,7 @@ public class DnsAddressMatchListForServiceDataContainerImpl extends BaseDataCont
                     "DnsAddressMatchListForServiceDataContainer.AddressList");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
             ic_AddressList = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_AddressList;
     }
@@ -81,7 +81,7 @@ public class DnsAddressMatchListForServiceDataContainerImpl extends BaseDataCont
                     "DnsAddressMatchListForServiceDataContainer.removeAddress");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_RemoveAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_RemoveAddress;
     }
@@ -99,7 +99,7 @@ public class DnsAddressMatchListForServiceDataContainerImpl extends BaseDataCont
                     "DnsAddressMatchListForServiceDataContainer.userAddresses");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
             ic_usr_UserAddresses = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_UserAddresses;
     }
@@ -117,7 +117,7 @@ public class DnsAddressMatchListForServiceDataContainerImpl extends BaseDataCont
                     "DnsAddressMatchListForServiceDataContainer.newAddress");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_NewAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_NewAddress;
     }
@@ -135,7 +135,7 @@ public class DnsAddressMatchListForServiceDataContainerImpl extends BaseDataCont
                     "DnsAddressMatchListForServiceDataContainer.addPredefinedAddress");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_AddPredefinedAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AddPredefinedAddress;
     }
@@ -153,7 +153,7 @@ public class DnsAddressMatchListForServiceDataContainerImpl extends BaseDataCont
                     "DnsAddressMatchListForServiceDataContainer.addNewAddress");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_AddNewAddress = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AddNewAddress;
     }
@@ -171,7 +171,7 @@ public class DnsAddressMatchListForServiceDataContainerImpl extends BaseDataCont
                     "DnsAddressMatchListForServiceDataContainer.addressUp");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_AddressUp = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AddressUp;
     }
@@ -189,7 +189,7 @@ public class DnsAddressMatchListForServiceDataContainerImpl extends BaseDataCont
                     "DnsAddressMatchListForServiceDataContainer.addressDown");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_AddressDown = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AddressDown;
     }
@@ -207,7 +207,7 @@ public class DnsAddressMatchListForServiceDataContainerImpl extends BaseDataCont
                     "DnsAddressMatchListForServiceDataContainer.Name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Name;
     }
@@ -286,15 +286,15 @@ public class DnsAddressMatchListForServiceDataContainerImpl extends BaseDataCont
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsAddressMatchListForServiceDataContainerImpl source = (DnsAddressMatchListForServiceDataContainerImpl) sourceContainer;
 
-        get_AddressList().setValue(source.get_AddressList().getValue());
-        get_usr_RemoveAddress().setValue(source.get_usr_RemoveAddress().getValue());
-        get_usr_UserAddresses().setValue(source.get_usr_UserAddresses().getValue());
-        get_usr_NewAddress().setValue(source.get_usr_NewAddress().getValue());
-        get_usr_AddPredefinedAddress().setValue(source.get_usr_AddPredefinedAddress().getValue());
-        get_usr_AddNewAddress().setValue(source.get_usr_AddNewAddress().getValue());
-        get_usr_AddressUp().setValue(source.get_usr_AddressUp().getValue());
-        get_usr_AddressDown().setValue(source.get_usr_AddressDown().getValue());
-        get_Name().setValue(source.get_Name().getValue());
+        get_AddressList().copyFrom(source.get_AddressList());
+        get_usr_RemoveAddress().copyFrom(source.get_usr_RemoveAddress());
+        get_usr_UserAddresses().copyFrom(source.get_usr_UserAddresses());
+        get_usr_NewAddress().copyFrom(source.get_usr_NewAddress());
+        get_usr_AddPredefinedAddress().copyFrom(source.get_usr_AddPredefinedAddress());
+        get_usr_AddNewAddress().copyFrom(source.get_usr_AddNewAddress());
+        get_usr_AddressUp().copyFrom(source.get_usr_AddressUp());
+        get_usr_AddressDown().copyFrom(source.get_usr_AddressDown());
+        get_Name().copyFrom(source.get_Name());
 
     }
 

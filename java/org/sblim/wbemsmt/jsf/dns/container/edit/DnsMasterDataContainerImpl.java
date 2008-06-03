@@ -175,9 +175,9 @@ public class DnsMasterDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Edit
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsMasterDataContainerImpl source = (DnsMasterDataContainerImpl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
-        get_MasterElementType().setValue(source.get_MasterElementType().getValue());
-        get_MasterElement().setValue(source.get_MasterElement().getValue());
+        get_Name().copyFrom(source.get_Name());
+        get_MasterElementType().copyFrom(source.get_MasterElementType());
+        get_MasterElement().copyFrom(source.get_MasterElement());
 
     }
 

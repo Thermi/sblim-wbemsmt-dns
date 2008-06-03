@@ -174,9 +174,9 @@ public class DnsTTLDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBas
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsTTLDataContainerImpl source = (DnsTTLDataContainerImpl) sourceContainer;
 
-        get_TTL().setValue(source.get_TTL().getValue());
-        get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
-        get_usr_RemoveTTL().setValue(source.get_usr_RemoveTTL().getValue());
+        get_TTL().copyFrom(source.get_TTL());
+        get_usr_TTLUnit().copyFrom(source.get_usr_TTLUnit());
+        get_usr_RemoveTTL().copyFrom(source.get_usr_RemoveTTL());
 
     }
 

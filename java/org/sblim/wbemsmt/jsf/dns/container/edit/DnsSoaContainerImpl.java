@@ -350,15 +350,15 @@ public class DnsSoaContainerImpl extends org.sblim.wbemsmt.tools.jsf.EditBasePan
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsSoaContainerImpl source = (DnsSoaContainerImpl) sourceContainer;
 
-        get_Server().setValue(source.get_Server().getValue());
-        get_Contact().setValue(source.get_Contact().getValue());
-        get_SerialNumber().setValue(source.get_SerialNumber().getValue());
-        get_Refresh().setValue(source.get_Refresh().getValue());
-        get_Retry().setValue(source.get_Retry().getValue());
-        get_Expire().setValue(source.get_Expire().getValue());
-        get_NegativeCachingTTL().setValue(source.get_NegativeCachingTTL().getValue());
-        get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
-        get_usr_SetSerialNumber().setValue(source.get_usr_SetSerialNumber().getValue());
+        get_Server().copyFrom(source.get_Server());
+        get_Contact().copyFrom(source.get_Contact());
+        get_SerialNumber().copyFrom(source.get_SerialNumber());
+        get_Refresh().copyFrom(source.get_Refresh());
+        get_Retry().copyFrom(source.get_Retry());
+        get_Expire().copyFrom(source.get_Expire());
+        get_NegativeCachingTTL().copyFrom(source.get_NegativeCachingTTL());
+        get_usr_TTLUnit().copyFrom(source.get_usr_TTLUnit());
+        get_usr_SetSerialNumber().copyFrom(source.get_usr_SetSerialNumber());
 
     }
 

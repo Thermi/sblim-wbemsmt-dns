@@ -61,7 +61,7 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("WelcomeDataContainer.welcomeText");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_WelcomeText = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_WelcomeText;
     }
@@ -78,7 +78,7 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("WelcomeDataContainer.dnsPicture");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.cli.NotSupportedConverter();
             ic_usr_DnsPicture = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_DnsPicture;
     }
@@ -95,7 +95,7 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("WelcomeDataContainer.memo");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.cli.MemoDataConverter();
             ic_usr_Memo = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Memo;
     }
@@ -113,7 +113,7 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
                     "WelcomeDataContainer.linkCreateMasterzone");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.cli.NotSupportedConverter();
             ic_usr_LinkCreateMasterzone = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_LinkCreateMasterzone;
     }
@@ -131,7 +131,7 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
                     "WelcomeDataContainer.linkCreateSlavezone");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.cli.NotSupportedConverter();
             ic_usr_LinkCreateSlavezone = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_LinkCreateSlavezone;
     }
@@ -149,7 +149,7 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
                     "WelcomeDataContainer.linkCreateForwardzone");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.cli.NotSupportedConverter();
             ic_usr_LinkCreateForwardzone = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_LinkCreateForwardzone;
     }
@@ -167,7 +167,7 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
                     "WelcomeDataContainer.linkCreateAddressmatchlist");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.cli.NotSupportedConverter();
             ic_usr_LinkCreateAddressmatchlist = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_LinkCreateAddressmatchlist;
     }
@@ -185,7 +185,7 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
                     "WelcomeDataContainer.linkCreateMasters");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.cli.NotSupportedConverter();
             ic_usr_LinkCreateMasters = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_LinkCreateMasters;
     }
@@ -202,7 +202,7 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("WelcomeDataContainer.actions");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Actions = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Actions;
     }
@@ -281,16 +281,15 @@ public class WelcomeDataContainerImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         WelcomeDataContainerImpl source = (WelcomeDataContainerImpl) sourceContainer;
 
-        get_usr_WelcomeText().setValue(source.get_usr_WelcomeText().getValue());
-        get_usr_DnsPicture().setValue(source.get_usr_DnsPicture().getValue());
-        get_usr_Memo().setValue(source.get_usr_Memo().getValue());
-        get_usr_LinkCreateMasterzone().setValue(source.get_usr_LinkCreateMasterzone().getValue());
-        get_usr_LinkCreateSlavezone().setValue(source.get_usr_LinkCreateSlavezone().getValue());
-        get_usr_LinkCreateForwardzone().setValue(source.get_usr_LinkCreateForwardzone().getValue());
-        get_usr_LinkCreateAddressmatchlist().setValue(
-                source.get_usr_LinkCreateAddressmatchlist().getValue());
-        get_usr_LinkCreateMasters().setValue(source.get_usr_LinkCreateMasters().getValue());
-        get_usr_Actions().setValue(source.get_usr_Actions().getValue());
+        get_usr_WelcomeText().copyFrom(source.get_usr_WelcomeText());
+        get_usr_DnsPicture().copyFrom(source.get_usr_DnsPicture());
+        get_usr_Memo().copyFrom(source.get_usr_Memo());
+        get_usr_LinkCreateMasterzone().copyFrom(source.get_usr_LinkCreateMasterzone());
+        get_usr_LinkCreateSlavezone().copyFrom(source.get_usr_LinkCreateSlavezone());
+        get_usr_LinkCreateForwardzone().copyFrom(source.get_usr_LinkCreateForwardzone());
+        get_usr_LinkCreateAddressmatchlist().copyFrom(source.get_usr_LinkCreateAddressmatchlist());
+        get_usr_LinkCreateMasters().copyFrom(source.get_usr_LinkCreateMasters());
+        get_usr_Actions().copyFrom(source.get_usr_Actions());
 
     }
 

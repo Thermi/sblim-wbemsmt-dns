@@ -57,7 +57,7 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends BaseDataContai
                     "DnsForwardZoneWizardSummaryDataContainer.Name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Name;
     }
@@ -75,7 +75,7 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends BaseDataContai
                     "DnsForwardZoneWizardSummaryDataContainer.Forward");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Forward = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_Forward;
     }
@@ -93,7 +93,7 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends BaseDataContai
                     "DnsForwardZoneWizardSummaryDataContainer.Forwarders");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_Forwarders = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_Forwarders;
     }
@@ -161,9 +161,9 @@ public class DnsForwardZoneWizardSummaryDataContainerImpl extends BaseDataContai
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsForwardZoneWizardSummaryDataContainerImpl source = (DnsForwardZoneWizardSummaryDataContainerImpl) sourceContainer;
 
-        get_usr_Name().setValue(source.get_usr_Name().getValue());
-        get_Forward().setValue(source.get_Forward().getValue());
-        get_Forwarders().setValue(source.get_Forwarders().getValue());
+        get_usr_Name().copyFrom(source.get_usr_Name());
+        get_Forward().copyFrom(source.get_Forward());
+        get_Forwarders().copyFrom(source.get_Forwarders());
 
     }
 

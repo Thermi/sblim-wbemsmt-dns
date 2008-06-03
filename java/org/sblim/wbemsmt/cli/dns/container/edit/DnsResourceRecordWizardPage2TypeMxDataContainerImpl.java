@@ -57,7 +57,7 @@ public class DnsResourceRecordWizardPage2TypeMxDataContainerImpl extends BaseDat
                     "DnsResourceRecordWizardPage2TypeMxDataContainer.Value");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Value = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_usr_Value;
     }
@@ -75,7 +75,7 @@ public class DnsResourceRecordWizardPage2TypeMxDataContainerImpl extends BaseDat
                     "DnsResourceRecordWizardPage2TypeMxDataContainer.Priority");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_Priority = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_Priority;
     }
@@ -137,8 +137,8 @@ public class DnsResourceRecordWizardPage2TypeMxDataContainerImpl extends BaseDat
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsResourceRecordWizardPage2TypeMxDataContainerImpl source = (DnsResourceRecordWizardPage2TypeMxDataContainerImpl) sourceContainer;
 
-        get_usr_Value().setValue(source.get_usr_Value().getValue());
-        get_usr_Priority().setValue(source.get_usr_Priority().getValue());
+        get_usr_Value().copyFrom(source.get_usr_Value());
+        get_usr_Priority().copyFrom(source.get_usr_Priority());
 
     }
 

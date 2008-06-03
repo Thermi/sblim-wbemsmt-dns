@@ -377,8 +377,8 @@ public class DnsReverseZoneWizardSummaryDataContainerImpl extends
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsReverseZoneWizardSummaryDataContainerImpl source = (DnsReverseZoneWizardSummaryDataContainerImpl) sourceContainer;
 
-        get_usr_Name().setValue(source.get_usr_Name().getValue());
-        get_ResourceRecordFile().setValue(source.get_ResourceRecordFile().getValue());
+        get_usr_Name().copyFrom(source.get_usr_Name());
+        get_ResourceRecordFile().copyFrom(source.get_ResourceRecordFile());
 
         List targetListForResourceRecords = (List) getResourceRecords();
         List sourceListForResourceRecords = (List) source.getResourceRecords();

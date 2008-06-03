@@ -58,7 +58,7 @@ public class DnsConfigurationDataContainerImpl extends BaseDataContainer impleme
                     "DnsConfigurationDataContainer.ConfigurationFile");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_ConfigurationFile = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_ConfigurationFile;
     }
@@ -76,7 +76,7 @@ public class DnsConfigurationDataContainerImpl extends BaseDataContainer impleme
                     "DnsConfigurationDataContainer.ConfigurationDirectory");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_ConfigurationDirectory = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_ConfigurationDirectory;
     }
@@ -94,7 +94,7 @@ public class DnsConfigurationDataContainerImpl extends BaseDataContainer impleme
                     "DnsConfigurationDataContainer.PortNumber");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.UnsignedInt32StringConverter();
             ic_PortNumber = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_PortNumber;
     }
@@ -112,7 +112,7 @@ public class DnsConfigurationDataContainerImpl extends BaseDataContainer impleme
                     "DnsConfigurationDataContainer.removeDirectory");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_RemoveDirectory = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_RemoveDirectory;
     }
@@ -181,10 +181,10 @@ public class DnsConfigurationDataContainerImpl extends BaseDataContainer impleme
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsConfigurationDataContainerImpl source = (DnsConfigurationDataContainerImpl) sourceContainer;
 
-        get_ConfigurationFile().setValue(source.get_ConfigurationFile().getValue());
-        get_ConfigurationDirectory().setValue(source.get_ConfigurationDirectory().getValue());
-        get_PortNumber().setValue(source.get_PortNumber().getValue());
-        get_usr_RemoveDirectory().setValue(source.get_usr_RemoveDirectory().getValue());
+        get_ConfigurationFile().copyFrom(source.get_ConfigurationFile());
+        get_ConfigurationDirectory().copyFrom(source.get_ConfigurationDirectory());
+        get_PortNumber().copyFrom(source.get_PortNumber());
+        get_usr_RemoveDirectory().copyFrom(source.get_usr_RemoveDirectory());
 
     }
 

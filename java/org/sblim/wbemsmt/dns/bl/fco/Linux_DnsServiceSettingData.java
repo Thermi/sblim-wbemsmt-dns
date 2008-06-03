@@ -110,7 +110,7 @@ public class Linux_DnsServiceSettingData extends CIM_SettingData {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@762c762c
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@14dc14dc
         public static javax.cim.UnsignedInteger8 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_Unknown.equals(value)) {
@@ -279,7 +279,7 @@ public class Linux_DnsServiceSettingData extends CIM_SettingData {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@38043804
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@56b256b2
         public static javax.cim.UnsignedInteger8 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_Unknown.equals(value)) {
@@ -496,8 +496,7 @@ public class Linux_DnsServiceSettingData extends CIM_SettingData {
     public boolean set_ConfigurationDirectory(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_CONFIGURATIONDIRECTORY.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_ConfigurationDirectory(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_ConfigurationDirectory(currentProperty, newValue));
             return true;
         }
         else {
@@ -579,8 +578,7 @@ public class Linux_DnsServiceSettingData extends CIM_SettingData {
     public boolean set_Forward(javax.cim.UnsignedInteger8 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_FORWARD.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_Forward(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_Forward(currentProperty, newValue));
             return true;
         }
         else {
@@ -662,8 +660,7 @@ public class Linux_DnsServiceSettingData extends CIM_SettingData {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {
@@ -745,8 +742,7 @@ public class Linux_DnsServiceSettingData extends CIM_SettingData {
     public boolean set_XferFormat(javax.cim.UnsignedInteger8 newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_XFERFORMAT.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_XferFormat(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_XferFormat(currentProperty, newValue));
             return true;
         }
         else {

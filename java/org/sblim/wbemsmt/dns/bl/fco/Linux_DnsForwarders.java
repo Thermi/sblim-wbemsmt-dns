@@ -104,7 +104,7 @@ public class Linux_DnsForwarders extends CIM_SettingData {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@2eb42eb4
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@7ba67ba6
         public static javax.cim.UnsignedInteger8 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_Unknown.equals(value)) {
@@ -375,8 +375,7 @@ public class Linux_DnsForwarders extends CIM_SettingData {
     public boolean set_ForwardersElementType(javax.cim.UnsignedInteger8[] newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_FORWARDERSELEMENTTYPE.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_ForwardersElementType(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_ForwardersElementType(currentProperty, newValue));
             return true;
         }
         else {
@@ -458,8 +457,7 @@ public class Linux_DnsForwarders extends CIM_SettingData {
     public boolean set_ForwardersElement(String[] newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_FORWARDERSELEMENT.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_ForwardersElement(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_ForwardersElement(currentProperty, newValue));
             return true;
         }
         else {
@@ -541,8 +539,7 @@ public class Linux_DnsForwarders extends CIM_SettingData {
     public boolean set_key_Name(String newValue) {
         CIMProperty currentProperty = getProperty(PROPERTY_NAME.NAME);
         if (currentProperty != null) {
-            currentProperty = setPropertyValue_key_Name(currentProperty, newValue);
-            this.instance = this.instance.deriveInstance(new CIMProperty[] { currentProperty });
+            setProperty(setPropertyValue_key_Name(currentProperty, newValue));
             return true;
         }
         else {

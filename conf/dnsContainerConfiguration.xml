@@ -1147,6 +1147,7 @@
             <cmd:option long="locale" required="false" usedForSelection="false" duplicateOK="false" short="L" comment="" defaultValue="en" scope="GLOBAL_WBEMSMT_COMMON"/>
             <cmd:option required="false" usedForSelection="false" duplicateOK="false" short="?" comment="" scope="GLOBAL_WBEMSMT_COMMON" hasArgument="false"/>
             <cmd:option long="help" required="false" usedForSelection="false" duplicateOK="false" short="h" comment="" scope="GLOBAL_WBEMSMT_COMMON" hasArgument="false"/>
+            <cmd:option long="httpProtocolType" required="false" scope="GLOBAL_WBEMSMT_COMMUNICATION" usedForSelection="true" duplicateOK="false" comment="" defaultValue="http" hasArgument="true"/>
         </cmd:commands>
     </pl:presentationLayer>
     <plugins:plugins>

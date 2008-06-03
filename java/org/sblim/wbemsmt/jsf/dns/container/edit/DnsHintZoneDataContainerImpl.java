@@ -236,11 +236,11 @@ public class DnsHintZoneDataContainerImpl extends org.sblim.wbemsmt.tools.jsf.Ed
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsHintZoneDataContainerImpl source = (DnsHintZoneDataContainerImpl) sourceContainer;
 
-        get_Name().setValue(source.get_Name().getValue());
-        get_TTL().setValue(source.get_TTL().getValue());
-        get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
-        get_usr_RemoveTTL().setValue(source.get_usr_RemoveTTL().getValue());
-        get_ZoneFile().setValue(source.get_ZoneFile().getValue());
+        get_Name().copyFrom(source.get_Name());
+        get_TTL().copyFrom(source.get_TTL());
+        get_usr_TTLUnit().copyFrom(source.get_usr_TTLUnit());
+        get_usr_RemoveTTL().copyFrom(source.get_usr_RemoveTTL());
+        get_ZoneFile().copyFrom(source.get_ZoneFile());
 
     }
 

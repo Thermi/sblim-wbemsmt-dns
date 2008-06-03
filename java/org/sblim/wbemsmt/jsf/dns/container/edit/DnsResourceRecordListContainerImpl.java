@@ -502,8 +502,8 @@ public class DnsResourceRecordListContainerImpl extends org.sblim.wbemsmt.tools.
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsResourceRecordListContainerImpl source = (DnsResourceRecordListContainerImpl) sourceContainer;
 
-        get_usr_SelectAll().setValue(source.get_usr_SelectAll().getValue());
-        get_usr_Delete().setValue(source.get_usr_Delete().getValue());
+        get_usr_SelectAll().copyFrom(source.get_usr_SelectAll());
+        get_usr_Delete().copyFrom(source.get_usr_Delete());
 
         List targetListForResourceRecords = (List) getResourceRecords();
         List sourceListForResourceRecords = (List) source.getResourceRecords();

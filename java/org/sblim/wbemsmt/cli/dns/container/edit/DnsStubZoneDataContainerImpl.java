@@ -70,7 +70,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.Forward");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt8StringArrayConverter();
             ic_Forward = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_Forward;
     }
@@ -88,7 +88,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
                     .getString("DnsStubZoneDataContainer.Forwarders");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
             ic_Forwarders = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_Forwarders;
     }
@@ -106,7 +106,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
                     "DnsStubZoneDataContainer.removeForwarder");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_RemoveForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_RemoveForwarder;
     }
@@ -124,7 +124,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
                     "DnsStubZoneDataContainer.newForwarder");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_NewForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_NewForwarder;
     }
@@ -142,7 +142,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
                     "DnsStubZoneDataContainer.addForwarder");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_AddForwarder = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AddForwarder;
     }
@@ -160,7 +160,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
                     "DnsStubZoneDataContainer.newForwarderType");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_NewForwarderType = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_NewForwarderType;
     }
@@ -177,7 +177,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.Name");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_Name = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_Name;
     }
@@ -194,7 +194,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.masters");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
             ic_Masters = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_Masters;
     }
@@ -212,7 +212,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
                     "DnsStubZoneDataContainer.removeMasterEntry");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_RemoveMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_RemoveMasterEntry;
     }
@@ -230,7 +230,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
                     "DnsStubZoneDataContainer.newMasterEntry");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_NewMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_NewMasterEntry;
     }
@@ -248,7 +248,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
                     "DnsStubZoneDataContainer.addNewMasterEntry");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_AddNewMasterEntry = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AddNewMasterEntry;
     }
@@ -266,7 +266,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
                     "DnsStubZoneDataContainer.addPredefinedMaster");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_AddPredefinedMaster = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_AddPredefinedMaster;
     }
@@ -284,7 +284,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
                     "DnsStubZoneDataContainer.predefinedMasters");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.multiplevalue.UnsignedInt16StringArrayConverter();
             ic_usr_PredefinedMasters = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_PredefinedMasters;
     }
@@ -301,7 +301,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.TTL");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_TTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this, label,
-                    "", converter);
+                    null, converter);
         }
         return ic_TTL;
     }
@@ -318,7 +318,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.TTLUnit");
             org.sblim.wbemsmt.tools.converter.StringArrayConverter converter = new org.sblim.wbemsmt.tools.converter.UnsignedInt16StringArrayConverter();
             ic_usr_TTLUnit = new org.sblim.wbemsmt.tools.input.test.LabeledTestStringArrayComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_TTLUnit;
     }
@@ -335,7 +335,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.removeTTL");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_RemoveTTL = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_RemoveTTL;
     }
@@ -352,7 +352,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
             String label = getAdapter().getBundle().getString("DnsStubZoneDataContainer.ZoneFile");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_ZoneFile = new org.sblim.wbemsmt.tools.input.test.LabeledTestInputComponent(this,
-                    label, "", converter);
+                    label, null, converter);
         }
         return ic_ZoneFile;
     }
@@ -370,7 +370,7 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
                     "DnsStubZoneDataContainer.useGlobalForwarders");
             org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
             ic_usr_UseGlobalForwarders = new org.sblim.wbemsmt.tools.input.test.LabeledTestActionComponent(
-                    this, label, "", converter);
+                    this, label, null, converter);
         }
         return ic_usr_UseGlobalForwarders;
     }
@@ -493,24 +493,24 @@ public class DnsStubZoneDataContainerImpl extends BaseDataContainer implements
     public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
         DnsStubZoneDataContainerImpl source = (DnsStubZoneDataContainerImpl) sourceContainer;
 
-        get_Forward().setValue(source.get_Forward().getValue());
-        get_Forwarders().setValue(source.get_Forwarders().getValue());
-        get_usr_RemoveForwarder().setValue(source.get_usr_RemoveForwarder().getValue());
-        get_usr_NewForwarder().setValue(source.get_usr_NewForwarder().getValue());
-        get_usr_AddForwarder().setValue(source.get_usr_AddForwarder().getValue());
-        get_usr_NewForwarderType().setValue(source.get_usr_NewForwarderType().getValue());
-        get_Name().setValue(source.get_Name().getValue());
-        get_Masters().setValue(source.get_Masters().getValue());
-        get_usr_RemoveMasterEntry().setValue(source.get_usr_RemoveMasterEntry().getValue());
-        get_usr_NewMasterEntry().setValue(source.get_usr_NewMasterEntry().getValue());
-        get_usr_AddNewMasterEntry().setValue(source.get_usr_AddNewMasterEntry().getValue());
-        get_usr_AddPredefinedMaster().setValue(source.get_usr_AddPredefinedMaster().getValue());
-        get_usr_PredefinedMasters().setValue(source.get_usr_PredefinedMasters().getValue());
-        get_TTL().setValue(source.get_TTL().getValue());
-        get_usr_TTLUnit().setValue(source.get_usr_TTLUnit().getValue());
-        get_usr_RemoveTTL().setValue(source.get_usr_RemoveTTL().getValue());
-        get_ZoneFile().setValue(source.get_ZoneFile().getValue());
-        get_usr_UseGlobalForwarders().setValue(source.get_usr_UseGlobalForwarders().getValue());
+        get_Forward().copyFrom(source.get_Forward());
+        get_Forwarders().copyFrom(source.get_Forwarders());
+        get_usr_RemoveForwarder().copyFrom(source.get_usr_RemoveForwarder());
+        get_usr_NewForwarder().copyFrom(source.get_usr_NewForwarder());
+        get_usr_AddForwarder().copyFrom(source.get_usr_AddForwarder());
+        get_usr_NewForwarderType().copyFrom(source.get_usr_NewForwarderType());
+        get_Name().copyFrom(source.get_Name());
+        get_Masters().copyFrom(source.get_Masters());
+        get_usr_RemoveMasterEntry().copyFrom(source.get_usr_RemoveMasterEntry());
+        get_usr_NewMasterEntry().copyFrom(source.get_usr_NewMasterEntry());
+        get_usr_AddNewMasterEntry().copyFrom(source.get_usr_AddNewMasterEntry());
+        get_usr_AddPredefinedMaster().copyFrom(source.get_usr_AddPredefinedMaster());
+        get_usr_PredefinedMasters().copyFrom(source.get_usr_PredefinedMasters());
+        get_TTL().copyFrom(source.get_TTL());
+        get_usr_TTLUnit().copyFrom(source.get_usr_TTLUnit());
+        get_usr_RemoveTTL().copyFrom(source.get_usr_RemoveTTL());
+        get_ZoneFile().copyFrom(source.get_ZoneFile());
+        get_usr_UseGlobalForwarders().copyFrom(source.get_usr_UseGlobalForwarders());
 
     }
 
