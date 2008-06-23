@@ -110,7 +110,7 @@ public class Linux_DnsServiceSettingData extends CIM_SettingData {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@14dc14dc
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@b1a4e2
         public static javax.cim.UnsignedInteger8 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_Unknown.equals(value)) {
@@ -279,7 +279,7 @@ public class Linux_DnsServiceSettingData extends CIM_SettingData {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@56b256b2
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@1c783c5
         public static javax.cim.UnsignedInteger8 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_Unknown.equals(value)) {

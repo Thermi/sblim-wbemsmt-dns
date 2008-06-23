@@ -20,16 +20,16 @@
 package org.sblim.wbemsmt.dns.listener;
 
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.bl.adapter.Message;
-import org.sblim.wbemsmt.bl.adapter.MessageUtil;
-import org.sblim.wbemsmt.bl.adapter.TaskLauncherTreeNodeSelectorForCreate;
+import org.sblim.wbemsmt.bl.messages.Message;
+import org.sblim.wbemsmt.bl.messages.MessageUtil;
+import org.sblim.wbemsmt.bl.tree.CIMInstanceNode;
 import org.sblim.wbemsmt.bl.tree.CurrentTaskLauncherTreeNodeSelector;
 import org.sblim.wbemsmt.bl.tree.ITaskLauncherTreeNode;
+import org.sblim.wbemsmt.bl.tree.TaskLauncherTreeNodeSelectorForCreate;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsMasterZone;
 import org.sblim.wbemsmt.exception.WbemsmtException;
-import org.sblim.wbemsmt.tasklauncher.CIMInstanceNode;
 
 /**
  * @author Bauschert

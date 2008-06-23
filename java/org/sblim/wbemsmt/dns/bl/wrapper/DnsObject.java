@@ -21,7 +21,7 @@ package org.sblim.wbemsmt.dns.bl.wrapper;
 
 import java.util.logging.Logger;
 
-import org.sblim.wbemsmt.bl.WbemsmtBusinessObject;
+import org.sblim.wbemsmt.bl.wrapper.WbemsmtBusinessObject;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 
 public abstract class DnsObject extends WbemsmtBusinessObject{

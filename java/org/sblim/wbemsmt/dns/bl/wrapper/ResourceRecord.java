@@ -28,8 +28,8 @@ import javax.cim.UnsignedInteger8;
 
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
-import org.sblim.wbemsmt.bl.adapter.Message;
-import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.bl.messages.Message;
+import org.sblim.wbemsmt.bl.messages.MessageList;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer;

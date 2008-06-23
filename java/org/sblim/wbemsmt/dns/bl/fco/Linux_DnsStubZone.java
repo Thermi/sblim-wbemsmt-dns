@@ -85,7 +85,7 @@ public class Linux_DnsStubZone extends Linux_DnsZone {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@6a366a36
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@4cd580
         public static javax.cim.UnsignedInteger8 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_Unknown.equals(value)) {

@@ -20,7 +20,7 @@
 package org.sblim.wbemsmt.dns.bl.wrapper.wizard;
 
 
-import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.bl.messages.MessageList;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardPage1DataContainer;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsMasterZoneWizardSummaryDataContainer;

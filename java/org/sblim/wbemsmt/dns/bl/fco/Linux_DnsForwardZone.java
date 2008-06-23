@@ -85,7 +85,7 @@ public class Linux_DnsForwardZone extends Linux_DnsZone {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@62c862c8
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@92b1a1
         public static javax.cim.UnsignedInteger8 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_Unknown.equals(value)) {

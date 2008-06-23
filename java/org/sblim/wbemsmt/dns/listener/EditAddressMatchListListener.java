@@ -40,7 +40,7 @@ public class EditAddressMatchListListener extends TaskLauncherContextMenuEventLi
 
     public String processEvent(TaskLauncherTreeNodeEvent event) throws WbemsmtException {
 
-        if (event.type == TaskLauncherTreeNodeEvent.TYPE_CLICKED) {
+        if (event.getType() == TaskLauncherTreeNodeEvent.TYPE_CLICKED) {
             String listenerClass = null;
             try {
 

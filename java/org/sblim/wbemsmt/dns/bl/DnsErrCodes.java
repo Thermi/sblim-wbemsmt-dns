@@ -19,10 +19,10 @@
   */
 package org.sblim.wbemsmt.dns.bl;
 
-import org.sblim.wbemsmt.bl.ErrCodes;
-import org.sblim.wbemsmt.bl.MessageNumber;
-import org.sblim.wbemsmt.bl.adapter.Message;
-import org.sblim.wbemsmt.bl.adapter.MessageDefinition;
+import org.sblim.wbemsmt.bl.messages.ErrCodes;
+import org.sblim.wbemsmt.bl.messages.Message;
+import org.sblim.wbemsmt.bl.messages.MessageDefinition;
+import org.sblim.wbemsmt.bl.messages.MessageNumber;
 
 /**
  * @author Bauschert

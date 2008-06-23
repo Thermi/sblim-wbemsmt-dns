@@ -1,5 +1,6 @@
-Changes on top of 0.5.5-1
+Changes on top of 0.5.5-CVS
 ==============================================================================
+- 1992943 wbemsmt-client: code cleanup
 - 1977422 wbemsmt-tasks: add httpProtocolType as global cli arg
 - 1965984 wbemsmt-dns: migrate to jsr48
 

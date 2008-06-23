@@ -151,7 +151,8 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.dns
 
 ###############################################################################
 %changelog
-* Tue Jun 03 2008 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.5-CVS
+* Mon Jun 23 2008 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.5-CVS	
+	o 1992943 wbemsmt-client: code cleanup
     o 1977422 wbemsmt-tasks: add httpProtocolType as global cli arg
 
 * Sat May 17 2008 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.5-1

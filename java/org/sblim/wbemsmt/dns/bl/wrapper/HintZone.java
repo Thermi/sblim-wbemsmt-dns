@@ -22,7 +22,7 @@ package org.sblim.wbemsmt.dns.bl.wrapper;
 import javax.wbem.client.WBEMClient;
 
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
-import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.bl.messages.MessageList;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsHintZoneDataContainer;
 import org.sblim.wbemsmt.dns.bl.container.edit.DnsResourceRecordDataContainer;

@@ -110,7 +110,7 @@ public class Linux_DnsResourceRecord extends CIM_SettingData {
          * @param value the value to find the ValueMapEntry for
          * @return the ValueMap entry or null if not found
          */
-        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@2b402b4
+        //org.sblim.wbemsmt.dcg.generator.DCGContextUtil$Wrapper@1d8d39f
         public static javax.cim.UnsignedInteger8 getValueMapEntry(String value) {
 
             if (VALUE_ENTRY_Unknown.equals(value)) {

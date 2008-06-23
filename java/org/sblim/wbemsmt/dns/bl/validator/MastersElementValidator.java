@@ -23,9 +23,9 @@
 package org.sblim.wbemsmt.dns.bl.validator;
 
 import org.apache.commons.lang.StringUtils;
-import org.sblim.wbemsmt.bl.MessageNumber;
-import org.sblim.wbemsmt.bl.adapter.Message;
-import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.bl.messages.Message;
+import org.sblim.wbemsmt.bl.messages.MessageList;
+import org.sblim.wbemsmt.bl.messages.MessageNumber;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
 import org.sblim.wbemsmt.dns.bl.wrapper.Masters;

@@ -19,7 +19,7 @@
   */
 package org.sblim.wbemsmt.dns.bl.adapter;
 
-import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.bl.messages.MessageList;
 import org.sblim.wbemsmt.dns.bl.container.edit.*;
 import org.sblim.wbemsmt.dns.bl.container.wizard.DnsResourceRecordForReverseZoneWizardDataContainer;
 import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsResourceRecord;

@@ -20,8 +20,8 @@
 package org.sblim.wbemsmt.dns.bl.validator;
 
 import org.sblim.wbemsmt.bl.adapter.AbstractBaseCimAdapter;
-import org.sblim.wbemsmt.bl.adapter.Message;
-import org.sblim.wbemsmt.bl.adapter.MessageList;
+import org.sblim.wbemsmt.bl.messages.Message;
+import org.sblim.wbemsmt.bl.messages.MessageList;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.filter.DnsZoneNameFilter;
 import org.sblim.wbemsmt.exception.WbemsmtException;

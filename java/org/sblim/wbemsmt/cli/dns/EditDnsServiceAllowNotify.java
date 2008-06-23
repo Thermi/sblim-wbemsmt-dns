@@ -25,7 +25,7 @@ package org.sblim.wbemsmt.cli.dns;
 
 import org.apache.commons.cli.*;
 import org.sblim.wbemsmt.bl.adapter.*;
-import org.sblim.wbemsmt.bl.*;
+import org.sblim.wbemsmt.bl.messages.*;
 import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.tools.cli.*;
 
