@@ -151,7 +151,7 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.dns
 
 ###############################################################################
 %changelog
-* Wed Jun 16 2008 Jeremy Bongio <jbongio@us.ibm.com> 0.5.6-1
+* Wed Jun 17 2009 Jeremy Bongio <jbongio@us.ibm.com> 0.5.6-1
   - Maintenance release
 
 * Mon Jun 23 2008 Michael Bauschert <michael.bauschert@de.ibm.com> 0.5.5-CVS	
