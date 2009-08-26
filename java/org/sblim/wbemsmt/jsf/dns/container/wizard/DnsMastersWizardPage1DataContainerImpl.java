@@ -1,319 +1,347 @@
 /** 
- * DnsMastersWizardPage1DataContainerImpl.java
- *
- * 
- * © Copyright IBM Corp. 2006,2007
- *
- * THIS FILE IS PROVIDED UNDER THE TER	MS OF THE COMMON PUBLIC LICENSE
- * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
- * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
- *
- * You can obtain a current copy of the Common Public License from
- * http://www.opensource.org/licenses/cpl1.0.php
- *
- * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
- * @template: org/sblim/wbemsmt/dcg/templates/jsf/containerImpl.vm
- *
- * Contributors: 
- *   michael.bauschert@de.ibm.com
- * 
- * Description: Page 1 of AddressMatchList-Wizard
- * 
- * generated Class
- */
+  * DnsMastersWizardPage1DataContainerImpl.java
+  *
+  * 
+  * Â© Copyright IBM Corp.  2009,2006,2007
+  *
+  * THIS FILE IS PROVIDED UNDER THE TER	MS OF THE ECLIPSE PUBLIC LICENSE
+  * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
+  * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
+  *
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
+  *
+  * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
+  * @template: org/sblim/wbemsmt/dcg/templates/jsf/containerImpl.vm
+  *
+  * Contributors: 
+  *   Prashanth Karnam<prkarnam@in.ibm.com>
+  * 
+  * Description: Page 1 of AddressMatchList-Wizard
+  * 
+  * generated Class
+  */
 
 package org.sblim.wbemsmt.jsf.dns.container.wizard;
 
 import org.sblim.wbemsmt.exception.*;
 import java.util.*;
+import org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf;
+
+
+
 
 import org.sblim.wbemsmt.bl.adapter.DataContainer;
 import org.sblim.wbemsmt.bl.adapter.DataContainerUtil;
 
-public class DnsMastersWizardPage1DataContainerImpl extends
-        org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements
-        org.sblim.wbemsmt.dns.bl.container.wizard.DnsMastersWizardPage1DataContainer {
-    private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_Masters;
-    private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_RemoveMasterEntry;
-    private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_NewMasterEntry;
-    private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_AddNewMasterEntry;
-    private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_AddPredefinedMaster;
-    private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_PredefinedMasters;
-    private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
+public class DnsMastersWizardPage1DataContainerImpl extends org.sblim.wbemsmt.tools.wizard.jsf.WizardBasePanel implements org.sblim.wbemsmt.dns.bl.container.wizard.DnsMastersWizardPage1DataContainer
+	{
+			private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_Masters;
 
-    DnsMastersWizardPage1DataContainerImplLayouter layouter = null;
+    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_RemoveMasterEntry;
 
-    public DnsMastersWizardPage1DataContainerImplLayouter getLayouter() {
-        return layouter;
-    }
+    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_NewMasterEntry;
 
-    public DnsMastersWizardPage1DataContainerImpl(
-            org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter, String bindingPrefix)
-            throws WbemsmtException {
+    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_AddNewMasterEntry;
 
-        super(adapter, bindingPrefix, "DnsMastersWizardPage1DataContainer.caption",
-                "DnsMastersWizardPage1DataContainer.subTitle", false);
+    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_usr_AddPredefinedMaster;
 
-        layouter = new DnsMastersWizardPage1DataContainerImplLayouter();
-        //layout is done in the edit-method of the Editbean
-        //layouter.layout(getPanelForCustomLayout(),this,bundle);
+    		private org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf ic_usr_PredefinedMasters;
 
-        setFooter(getPanelForCustomLayout(), "DnsMastersWizardPage1DataContainer.footerText");
-        adapter.initContainer(this);
-    }
+    		private org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf ic_Name;
 
-    /**
-     * 
-     * DataType UNSIGNED_INT16
-     * UIType LIST_WITH_MULTISELECT
-     * ReadOnly false
-     */
+    	
+		
+			DnsMastersWizardPage1DataContainerImplLayouter layouter = null;
+		
+		public DnsMastersWizardPage1DataContainerImplLayouter getLayouter()
+		{
+			return layouter;
+		}	
+	
+	public DnsMastersWizardPage1DataContainerImpl(org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter adapter,String expressionPrefix) throws WbemsmtException  {
 
-    public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_Masters() {
-        if (ic_Masters == null) {
-            String label = bundle.getString("DnsMastersWizardPage1DataContainer.masters");
-            String binding = bindingPrefix + "_Masters.item";
-            logger.fine("Using binding " + binding);
-            org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
-            org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.multiplevalue.UnsignedInt16StringConverter();
-            boolean readOnly = false;
-            ic_Masters = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,
-                    label, binding, converter, readOnly);
-            ;
-        }
+			
+				super(adapter,expressionPrefix, "DnsMastersWizardPage1DataContainer.caption","DnsMastersWizardPage1DataContainer.subTitle",false);
+				
+				
+		
+				
+    			
+    				layouter = new DnsMastersWizardPage1DataContainerImplLayouter();
+			//layout is done in the edit-method of the Editbean
+			//layouter.layout(getPanelForCustomLayout(),this,bundle);
+				
+		setFooter(getPanelForCustomLayout(),"DnsMastersWizardPage1DataContainer.footerText");
+		adapter.initContainer(this);
+	}
+	
 
-        return ic_Masters;
-    }
+			/**
+		* 
+		* DataType UNSIGNED_INT16
+		* UIType LIST_WITH_MULTISELECT
+		* ReadOnly false
+		*/
 
-    /**
-     * 
-     * DataType ACTION
-     * UIType BUTTON
-     * ReadOnly false
-     */
+		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_Masters() {
+    		if (ic_Masters == null)
+    		{
+				String label = bundle.getString("DnsMastersWizardPage1DataContainer.masters");
+				String binding = expressionPrefix + "_Masters.item";
+				logger.fine("Using binding " + binding);
+				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.multiplevalue.UnsignedInt16StringConverter();
+				boolean readOnly = false;
+    			ic_Masters = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
+				;
+    		}
+			
+						
+    		return ic_Masters;
+    	}
+			/**
+		* 
+		* DataType ACTION
+		* UIType BUTTON
+		* ReadOnly false
+		*/
 
-    public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveMasterEntry() {
-        if (ic_usr_RemoveMasterEntry == null) {
-            String label = bundle.getString("DnsMastersWizardPage1DataContainer.removeMasterEntry");
-            String binding = bindingPrefix + "_usr_RemoveMasterEntry.item";
-            logger.fine("Using binding " + binding);
-            org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
-            org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-            boolean readOnly = false;
-            ic_usr_RemoveMasterEntry = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(
-                    parent, label, binding, converter, readOnly);
-            ;
-        }
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_RemoveMasterEntry() {
+    		if (ic_usr_RemoveMasterEntry == null)
+    		{
+				String label = bundle.getString("DnsMastersWizardPage1DataContainer.removeMasterEntry");
+				String binding = expressionPrefix + "_usr_RemoveMasterEntry.item";
+				logger.fine("Using binding " + binding);
+				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+				boolean readOnly = false;
+    			ic_usr_RemoveMasterEntry = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
+    		}
+			
+						
+    		return ic_usr_RemoveMasterEntry;
+    	}
+			/**
+		* 
+		* DataType STRING
+		* UIType TEXTFIELD
+		* ReadOnly false
+		*/
 
-        return ic_usr_RemoveMasterEntry;
-    }
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_NewMasterEntry() {
+    		if (ic_usr_NewMasterEntry == null)
+    		{
+				String label = bundle.getString("DnsMastersWizardPage1DataContainer.newMasterEntry");
+				String binding = expressionPrefix + "_usr_NewMasterEntry.item";
+				logger.fine("Using binding " + binding);
+				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+				boolean readOnly = false;
+    			ic_usr_NewMasterEntry = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+				;
+    		}
+			
+						
+    		return ic_usr_NewMasterEntry;
+    	}
+			/**
+		* 
+		* DataType ACTION
+		* UIType BUTTON
+		* ReadOnly false
+		*/
 
-    /**
-     * 
-     * DataType STRING
-     * UIType TEXTFIELD
-     * ReadOnly false
-     */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddNewMasterEntry() {
+    		if (ic_usr_AddNewMasterEntry == null)
+    		{
+				String label = bundle.getString("DnsMastersWizardPage1DataContainer.addNewMasterEntry");
+				String binding = expressionPrefix + "_usr_AddNewMasterEntry.item";
+				logger.fine("Using binding " + binding);
+				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+				boolean readOnly = false;
+    			ic_usr_AddNewMasterEntry = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
+    		}
+			
+						
+    		return ic_usr_AddNewMasterEntry;
+    	}
+			/**
+		* 
+		* DataType ACTION
+		* UIType BUTTON
+		* ReadOnly false
+		*/
 
-    public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_NewMasterEntry() {
-        if (ic_usr_NewMasterEntry == null) {
-            String label = bundle.getString("DnsMastersWizardPage1DataContainer.newMasterEntry");
-            String binding = bindingPrefix + "_usr_NewMasterEntry.item";
-            logger.fine("Using binding " + binding);
-            org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
-            org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-            boolean readOnly = false;
-            ic_usr_NewMasterEntry = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(
-                    parent, label, binding, converter, readOnly);
-            ;
-        }
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddPredefinedMaster() {
+    		if (ic_usr_AddPredefinedMaster == null)
+    		{
+				String label = bundle.getString("DnsMastersWizardPage1DataContainer.addPredefinedMaster");
+				String binding = expressionPrefix + "_usr_AddPredefinedMaster.item";
+				logger.fine("Using binding " + binding);
+				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+				boolean readOnly = false;
+    			ic_usr_AddPredefinedMaster = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(parent,label,binding,converter, readOnly);
+				;
+    		}
+			
+						
+    		return ic_usr_AddPredefinedMaster;
+    	}
+			/**
+		* 
+		* DataType UNSIGNED_INT16
+		* UIType LIST_WITH_MULTISELECT
+		* ReadOnly false
+		*/
 
-        return ic_usr_NewMasterEntry;
-    }
+		public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_PredefinedMasters() {
+    		if (ic_usr_PredefinedMasters == null)
+    		{
+				String label = bundle.getString("DnsMastersWizardPage1DataContainer.predefinedMasters");
+				String binding = expressionPrefix + "_usr_PredefinedMasters.item";
+				logger.fine("Using binding " + binding);
+				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.multiplevalue.UnsignedInt16StringConverter();
+				boolean readOnly = false;
+    			ic_usr_PredefinedMasters = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(parent,label,binding,converter, readOnly);
+				;
+    		}
+			
+						
+    		return ic_usr_PredefinedMasters;
+    	}
+			/**
+		* 
+		* DataType STRING
+		* UIType TEXTFIELD
+		* ReadOnly false
+		*/
 
-    /**
-     * 
-     * DataType ACTION
-     * UIType BUTTON
-     * ReadOnly false
-     */
+		public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name() {
+    		if (ic_Name == null)
+    		{
+				String label = bundle.getString("DnsMastersWizardPage1DataContainer.Name");
+				String binding = expressionPrefix + "_Name.item";
+				logger.fine("Using binding " + binding);
+				org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
+				org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
+				boolean readOnly = false;
+    			ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,label,binding,converter, readOnly);
+								ic_Name.setRequired(true);
+				;
+    		}
+			
+						
+    		return ic_Name;
+    	}
+		
+	
+		
+	public void reload()
+	{
+		super.reload();
+	    		if (ic_Masters != null)
+    		{
+				ic_Masters.setLabelText(bundle.getString("DnsMastersWizardPage1DataContainer.masters"));
+    		}
+	    		if (ic_usr_RemoveMasterEntry != null)
+    		{
+				ic_usr_RemoveMasterEntry.setLabelText(bundle.getString("DnsMastersWizardPage1DataContainer.removeMasterEntry"));
+    		}
+	    		if (ic_usr_NewMasterEntry != null)
+    		{
+				ic_usr_NewMasterEntry.setLabelText(bundle.getString("DnsMastersWizardPage1DataContainer.newMasterEntry"));
+    		}
+	    		if (ic_usr_AddNewMasterEntry != null)
+    		{
+				ic_usr_AddNewMasterEntry.setLabelText(bundle.getString("DnsMastersWizardPage1DataContainer.addNewMasterEntry"));
+    		}
+	    		if (ic_usr_AddPredefinedMaster != null)
+    		{
+				ic_usr_AddPredefinedMaster.setLabelText(bundle.getString("DnsMastersWizardPage1DataContainer.addPredefinedMaster"));
+    		}
+	    		if (ic_usr_PredefinedMasters != null)
+    		{
+				ic_usr_PredefinedMasters.setLabelText(bundle.getString("DnsMastersWizardPage1DataContainer.predefinedMasters"));
+    		}
+	    		if (ic_Name != null)
+    		{
+				ic_Name.setLabelText(bundle.getString("DnsMastersWizardPage1DataContainer.Name"));
+    		}
+		}
 
-    public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddNewMasterEntry() {
-        if (ic_usr_AddNewMasterEntry == null) {
-            String label = bundle.getString("DnsMastersWizardPage1DataContainer.addNewMasterEntry");
-            String binding = bindingPrefix + "_usr_AddNewMasterEntry.item";
-            logger.fine("Using binding " + binding);
-            org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
-            org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-            boolean readOnly = false;
-            ic_usr_AddNewMasterEntry = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(
-                    parent, label, binding, converter, readOnly);
-            ;
-        }
+	public String[] getResourceBundleNames() {
+		return new String[]{"messages","messagesDns"};
+	}
 
-        return ic_usr_AddNewMasterEntry;
-    }
+	public void countAndCreateChildren() throws WbemsmtException {
+	
+    		}
 
-    /**
-     * 
-     * DataType ACTION
-     * UIType BUTTON
-     * ReadOnly false
-     */
 
-    public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_usr_AddPredefinedMaster() {
-        if (ic_usr_AddPredefinedMaster == null) {
-            String label = bundle
-                    .getString("DnsMastersWizardPage1DataContainer.addPredefinedMaster");
-            String binding = bindingPrefix + "_usr_AddPredefinedMaster.item";
-            logger.fine("Using binding " + binding);
-            org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
-            org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-            boolean readOnly = false;
-            ic_usr_AddPredefinedMaster = new org.sblim.wbemsmt.tools.input.jsf.JSFButtonComponent(
-                    parent, label, binding, converter, readOnly);
-            ;
-        }
+	/**
+	 * count and create childrens
+	 * @throws WbemsmtException
+	 */
+	public void updateControls() throws WbemsmtException {
+			   countAndCreateChildren();
+			   adapter.updateControls(this);
+		
+			   		}
 
-        return ic_usr_AddPredefinedMaster;
-    }
+	
+ 
+	/**
+	 * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
+	 * @return
+	 */
+	public List<LabeledBaseInputComponentIf> getFields()
+	{
+		List<LabeledBaseInputComponentIf> fields = new ArrayList<LabeledBaseInputComponentIf>();
+    				fields.add(get_Masters());
+    				fields.add(get_usr_RemoveMasterEntry());
+    				fields.add(get_usr_NewMasterEntry());
+    				fields.add(get_usr_AddNewMasterEntry());
+    				fields.add(get_usr_AddPredefinedMaster());
+    				fields.add(get_usr_PredefinedMasters());
+    				fields.add(get_Name());
+    			return fields;
+	}
 
-    /**
-     * 
-     * DataType UNSIGNED_INT16
-     * UIType LIST_WITH_MULTISELECT
-     * ReadOnly false
-     */
+	/**
+	 * Return a list of all associated childContainers. A childContainer is a DataContainer
+	 * @return
+	 */
+	public List<DataContainer> getChildContainers()
+	{
+		List<DataContainer> childs = new ArrayList<DataContainer>();
+    	    			return childs;
+	
+	}
+	
+	public void copyFrom(DataContainer sourceContainer) throws WbemsmtException
+	{
+	    		       DnsMastersWizardPage1DataContainerImpl source = (DnsMastersWizardPage1DataContainerImpl)sourceContainer;
+		    		    
+    	    		   get_Masters().copyFrom(source.get_Masters());
+		        		   get_usr_RemoveMasterEntry().copyFrom(source.get_usr_RemoveMasterEntry());
+		        		   get_usr_NewMasterEntry().copyFrom(source.get_usr_NewMasterEntry());
+		        		   get_usr_AddNewMasterEntry().copyFrom(source.get_usr_AddNewMasterEntry());
+		        		   get_usr_AddPredefinedMaster().copyFrom(source.get_usr_AddPredefinedMaster());
+		        		   get_usr_PredefinedMasters().copyFrom(source.get_usr_PredefinedMasters());
+		        		   get_Name().copyFrom(source.get_Name());
+		    		
+    	    		}
+	
+	public boolean isModified()
+	{
+    	return DataContainerUtil.isModified(this);
+	}		
 
-    public org.sblim.wbemsmt.tools.input.LabeledStringArrayInputComponentIf get_usr_PredefinedMasters() {
-        if (ic_usr_PredefinedMasters == null) {
-            String label = bundle.getString("DnsMastersWizardPage1DataContainer.predefinedMasters");
-            String binding = bindingPrefix + "_usr_PredefinedMasters.item";
-            logger.fine("Using binding " + binding);
-            org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
-            org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.multiplevalue.UnsignedInt16StringConverter();
-            boolean readOnly = false;
-            ic_usr_PredefinedMasters = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFMultiListComponent(
-                    parent, label, binding, converter, readOnly);
-            ;
-        }
-
-        return ic_usr_PredefinedMasters;
-    }
-
-    /**
-     * 
-     * DataType STRING
-     * UIType TEXTFIELD
-     * ReadOnly false
-     */
-
-    public org.sblim.wbemsmt.tools.input.LabeledBaseInputComponentIf get_Name() {
-        if (ic_Name == null) {
-            String label = bundle.getString("DnsMastersWizardPage1DataContainer.Name");
-            String binding = bindingPrefix + "_Name.item";
-            logger.fine("Using binding " + binding);
-            org.sblim.wbemsmt.bl.adapter.DataContainer parent = this;
-            org.sblim.wbemsmt.tools.converter.Converter converter = new org.sblim.wbemsmt.tools.converter.test.DummyConverter();
-            boolean readOnly = false;
-            ic_Name = new org.sblim.wbemsmt.tools.input.jsf.LabeledJSFInputFieldComponent(parent,
-                    label, binding, converter, readOnly);
-            ic_Name.setRequired(true);
-            ;
-        }
-
-        return ic_Name;
-    }
-
-    public void reload() {
-        super.reload();
-        if (ic_Masters != null) {
-            ic_Masters.setLabelText(bundle.getString("DnsMastersWizardPage1DataContainer.masters"));
-        }
-        if (ic_usr_RemoveMasterEntry != null) {
-            ic_usr_RemoveMasterEntry.setLabelText(bundle
-                    .getString("DnsMastersWizardPage1DataContainer.removeMasterEntry"));
-        }
-        if (ic_usr_NewMasterEntry != null) {
-            ic_usr_NewMasterEntry.setLabelText(bundle
-                    .getString("DnsMastersWizardPage1DataContainer.newMasterEntry"));
-        }
-        if (ic_usr_AddNewMasterEntry != null) {
-            ic_usr_AddNewMasterEntry.setLabelText(bundle
-                    .getString("DnsMastersWizardPage1DataContainer.addNewMasterEntry"));
-        }
-        if (ic_usr_AddPredefinedMaster != null) {
-            ic_usr_AddPredefinedMaster.setLabelText(bundle
-                    .getString("DnsMastersWizardPage1DataContainer.addPredefinedMaster"));
-        }
-        if (ic_usr_PredefinedMasters != null) {
-            ic_usr_PredefinedMasters.setLabelText(bundle
-                    .getString("DnsMastersWizardPage1DataContainer.predefinedMasters"));
-        }
-        if (ic_Name != null) {
-            ic_Name.setLabelText(bundle.getString("DnsMastersWizardPage1DataContainer.Name"));
-        }
-    }
-
-    public String[] getResourceBundleNames() {
-        return new String[] { "messages", "messagesDns" };
-    }
-
-    public void countAndCreateChildren() throws WbemsmtException {
-
-    }
-
-    /**
-     * count and create childrens
-     * @throws WbemsmtException
-     */
-    public void updateControls() throws WbemsmtException {
-        countAndCreateChildren();
-        adapter.updateControls(this);
-
-    }
-
-    /**
-     * Return a list of all Fields. A Field is a LabeledBaseInputComponentIf
-     * @return
-     */
-    public List getFields() {
-        List fields = new ArrayList();
-        fields.add(get_Masters());
-        fields.add(get_usr_RemoveMasterEntry());
-        fields.add(get_usr_NewMasterEntry());
-        fields.add(get_usr_AddNewMasterEntry());
-        fields.add(get_usr_AddPredefinedMaster());
-        fields.add(get_usr_PredefinedMasters());
-        fields.add(get_Name());
-        return fields;
-    }
-
-    /**
-     * Return a list of all associated childContainers. A childContainer is a DataContainer
-     * @return
-     */
-    public List getChildContainers() {
-        List childs = new ArrayList();
-        return childs;
-
-    }
-
-    public void copyFrom(DataContainer sourceContainer) throws WbemsmtException {
-        DnsMastersWizardPage1DataContainerImpl source = (DnsMastersWizardPage1DataContainerImpl) sourceContainer;
-
-        get_Masters().copyFrom(source.get_Masters());
-        get_usr_RemoveMasterEntry().copyFrom(source.get_usr_RemoveMasterEntry());
-        get_usr_NewMasterEntry().copyFrom(source.get_usr_NewMasterEntry());
-        get_usr_AddNewMasterEntry().copyFrom(source.get_usr_AddNewMasterEntry());
-        get_usr_AddPredefinedMaster().copyFrom(source.get_usr_AddPredefinedMaster());
-        get_usr_PredefinedMasters().copyFrom(source.get_usr_PredefinedMasters());
-        get_Name().copyFrom(source.get_Name());
-
-    }
-
-    public boolean isModified() {
-        return DataContainerUtil.isModified(this);
-    }
-
+	
 }

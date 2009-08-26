@@ -1,14 +1,14 @@
  /** 
   * Masters.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -93,8 +93,8 @@ public class Masters extends DnsBusinessObject {
 			updateName(NameFactory.createName(Linux_DnsMastersForService.class, fco.get_key_Name()));
 			String serviceName = adapter.getDnsService().getFco().get_Name();
 			String mastersName = fco.get_key_Name();
-			List list = Linux_DnsMastersForServiceHelper.enumerateInstances(adapter.getCimClient(),adapter.getNamespace(),false);
-			for (Iterator iter = list.iterator(); iter.hasNext();) {
+			List<Linux_DnsMastersForService> list = Linux_DnsMastersForServiceHelper.enumerateInstances(adapter.getCimClient(),adapter.getNamespace(),false);
+			for (Iterator<Linux_DnsMastersForService> iter = list.iterator(); iter.hasNext();) {
 				Linux_DnsMastersForService mastersForService = (Linux_DnsMastersForService) iter.next();
 				Object serviceName2 = mastersForService.get_GroupComponent_Linux_DnsService(adapter.getCimClient()).get_key_Name();
 				Object mastersName2 = mastersForService.get_PartComponent_Linux_DnsMasters(adapter.getCimClient()).get_key_Name();

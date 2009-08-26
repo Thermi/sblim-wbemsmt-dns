@@ -1,12 +1,12 @@
 /* --------------------------------------------------------------------------*/
 (C) Copyright IBM Corp. 2006
 
-THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
 ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
 CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
 
-You can obtain a current copy of the Common Public License from
-http://www.opensource.org/licenses/cpl1.0.php
+You can obtain a current copy of the Eclipse Public License from
+http://www.opensource.org/licenses/eclipse-1.0.php
 
 Author:       Wolfgang Taphorn <taphorn(at)de.ibm.com>
 Date  :	      11/27/2006
@@ -48,9 +48,9 @@ In order to build, install and operate this package you will need a Java SDK
 or Run Time Environment depending on whether you build binaries from sources
 or use the pre-built binaries (JAR file). The following Java JDKs are supported:
 
-Sun Java SDK/JRE: version 1.5.0 or higher
+Sun Java SDK/JRE: version 1.6.0 or higher
 
-IBM Java SDK/JRE: version 1.5.0 or higher
+IBM Java SDK/JRE: version 1.6.0 or higher
 
 GNU Compile For Java: version 4.1.1 20061116 or higher
 
@@ -122,7 +122,7 @@ The installation can be processed in two ways.
 The first possible installation flavour would be to use the RPM package. This
 is of course our recommended way. Simply put the RPM package onto your system,
 resolve the 'Run-time Dependencies' and then perform the following command:
-> rpm -i sblim-wbemsmt-dns-<version>.1jpp.noarch.rpm
+> rpm -i sblim-wbemsmt-dhcp-<version>.1jpp.noarch.rpm
 
 The second way is a manual installation. This means the Binary TAR ball should
 be taken and extracted. Copy the JAR files into the 'WEB-INF/lib' directory of
@@ -142,7 +142,7 @@ Tomcat's configuration) is enabled for inbound connections and that the
 standard WBEM/CIM port, 5988, is enabled for outbound connections
 
 start Tomcat:
-> service tomcat5 start
+> service tomcat6 start
 
 The EUI (End User Interface) can be accessed by typing the following URL into 
 a web browser: http://hostname:port/sblim-wbemsmt-webapp where hostname needs 
@@ -155,18 +155,19 @@ name of the host which on which the server package was installed. Typically
 the Port and Namepaces fields do not need to be changed. The User and the 
 Password fields need to contain the OpenPegasus CIM user name and its password.
 
+<-- Needs to be updated with DHCP info
 The application will initially take some time to populate the tree on the
-browser with all the defined zones and AddressmMatchLists. Existing Zones and AddressMatchLists
-can be modified by selecting them, and editing the
-properties. Zones and AddressMatchLists can be created (or deleted) by
-selecting the Zones or AddressMatchLists and then selecting the create
+browser with all the defined shares, printers and users. Existing samba shares,
+printers and the users can be modified by selecting them, and editing the
+properties. Samba shares, printers, and users can be created (or deleted) by
+selecting the Shares, Printers and Users nodes and then selecting the create
 (or delete) action at the top and then selecting the update node. 
-
+-->
 
 Advanced Feature
 ------------------------------------------------------------------------------
 To enable the application to be able to multiple hosts in parallel, please 
-refere to the 'MultipleHostsSupport' documentation file.
+refer to the 'MultipleHostsSupport' documentation file.
 
 In case you encounter problems please refer to the TroubleShooting file. 
 

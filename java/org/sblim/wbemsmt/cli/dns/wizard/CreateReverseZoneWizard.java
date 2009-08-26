@@ -1,25 +1,12 @@
-/** 
- * CreateReverseZoneWizard.java
- *
+/**
+ * CreateReverseZoneWizard.java Â© Copyright IBM Corp.  2009,2006,2007 THIS FILE IS PROVIDED UNDER THE TER
+ * MS OF THE ECLIPSE PUBLIC LICENSE ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
+ * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT. You can obtain a current copy of the Common
+ * Public License from http://www.opensource.org/licenses/eclipse-1.0.php
  * 
- * © Copyright IBM Corp. 2006,2007
- *
- * THIS FILE IS PROVIDED UNDER THE TER	MS OF THE COMMON PUBLIC LICENSE
- * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
- * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
- *
- * You can obtain a current copy of the Common Public License from
- * http://www.opensource.org/licenses/cpl1.0.php
- *
  * @author: org.sblim.wbemsmt.dcg.generator.cmd.CMDPresentationLayerGenerator
- * @template: org/sblim/wbemsmt/dcg/templates/cmd/wizardClass.vm
- *
- * Contributors: 
- *   michael.bauschert@de.ibm.com
- * 
- * Description: Wizard for ReverseZones
- * 
- * generated Class
+ * @template: org/sblim/wbemsmt/dcg/templates/cmd/wizardClass.vm Contributors: Prashanth
+ *            Karnam<prkarnam@in.ibm.com> Description: Wizard for ReverseZones generated Class
  */
 
 package org.sblim.wbemsmt.cli.dns.wizard;
@@ -45,13 +32,13 @@ public class CreateReverseZoneWizard extends CliWizardBase implements IPageWizar
                 "messagesDns" }, Locale.getDefault()));
         this.container = new org.sblim.wbemsmt.dns.wizard.CreateReverseZoneWizardContainer(adapter,
                 new org.sblim.wbemsmt.dns.wizard.CreateReverseZoneWizardContainerPanels() {
-                    public Object getMain() throws WbemsmtException {
+                    public DataContainer getMain() throws WbemsmtException {
                         DataContainer dc = new org.sblim.wbemsmt.cli.dns.container.wizard.DnsReverseZoneWizardPage1DataContainerImpl(
                                 adapter);
                         return dc;
                     }
 
-                    public Object getSummary() throws WbemsmtException {
+                    public DataContainer getSummary() throws WbemsmtException {
                         DataContainer dc = new org.sblim.wbemsmt.cli.dns.container.wizard.DnsReverseZoneWizardSummaryDataContainerImpl(
                                 adapter);
                         return dc;

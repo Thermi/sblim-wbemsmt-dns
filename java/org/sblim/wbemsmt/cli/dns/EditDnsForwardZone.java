@@ -1,24 +1,12 @@
-/** 
- * EditDnsForwardZone.java
+/**
+ * EditDnsForwardZone.java Â© Copyright IBM Corp.  2009,2006,2007 THIS FILE IS PROVIDED UNDER THE TER MS
+ * OF THE ECLIPSE PUBLIC LICENSE ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
+ * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT. You can obtain a current copy of the Common
+ * Public License from http://www.opensource.org/licenses/eclipse-1.0.php
  * 
- * © Copyright IBM Corp. 2006,2007
- *
- * THIS FILE IS PROVIDED UNDER THE TER	MS OF THE COMMON PUBLIC LICENSE
- * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
- * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
- *
- * You can obtain a current copy of the Common Public License from
- * http://www.opensource.org/licenses/cpl1.0.php
- *
  * @author: org.sblim.wbemsmt.dcg.generator.cmd.CMDPresentationLayerGenerator
- * @template: org/sblim/wbemsmt/dcg/templates/cmd/editCommand.vm
- *
- * Contributors: 
- *   michael.bauschert@de.ibm.com
- * 
- * Description: Class for editing objects
- * 
- * generated Class
+ * @template: org/sblim/wbemsmt/dcg/templates/cmd/editCommand.vm Contributors: Prashanth
+ *            Karnam<prkarnam@in.ibm.com> Description: Class for editing objects generated Class
  */
 
 package org.sblim.wbemsmt.cli.dns;

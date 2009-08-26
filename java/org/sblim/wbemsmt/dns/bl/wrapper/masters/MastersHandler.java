@@ -118,8 +118,8 @@ public class MastersHandler {
         	}
         }		
         
-        List ipList = new ArrayList();
-        List typeList = new ArrayList();
+        List<String> ipList = new ArrayList<String>();
+        List<UnsignedInteger8> typeList = new ArrayList<UnsignedInteger8>();
         
         for (int i=0; i < usedItems.size(); i++)
         {
@@ -165,7 +165,7 @@ public class MastersHandler {
 
 	public void updateIpAddressList(LabeledStringArrayInputComponentIf predefinedMasterAddresses, LabeledStringArrayInputComponentIf usedMasterAddresses) throws WbemsmtException {
 		getUsedItems().reloadListValues();
-        List listForUI = new ArrayList();
+        List<String> listForUI = new ArrayList<String>();
         for (int i=0; i < getUsedItems().size(); i++)
         {
         	MasterItem ip = getUsedItems().getMasterItem(i);
@@ -177,7 +177,7 @@ public class MastersHandler {
         if (predefinedMasterAddresses != null)
         {
         	getPredefinedItems().reloadListValues();
-        	listForUI = new ArrayList();
+        	listForUI = new ArrayList<String>();
         	for (int i=0; i < getPredefinedItems().size(); i++)
         	{
         		MasterItem ip = getPredefinedItems().getMasterItem(i);
@@ -256,7 +256,7 @@ public class MastersHandler {
         else if (adapter.getUpdateTrigger() == container.get_usr_AddPredefinedMaster())
         {
 
-        	List indexList = (List) container.get_usr_PredefinedMasters().getConvertedControlValue();
+        	List<?> indexList = (List<?>) container.get_usr_PredefinedMasters().getConvertedControlValue();
         	
         	for (int i = indexList.size() - 1; i >= 0; i--) {
         		UnsignedInteger16 index = (UnsignedInteger16)indexList.get(i);
@@ -278,11 +278,11 @@ public class MastersHandler {
         		updateIpAddressList(container);
         	}
         	//reset the values
-        	container.get_usr_PredefinedMasters().setControlValue(new ArrayList());
+        	container.get_usr_PredefinedMasters().setControlValue(new ArrayList<Object>());
         }
         else if (adapter.getUpdateTrigger() == container.get_usr_RemoveMasterEntry())
         {
-        	List indexList = (List) container.get_Masters().getConvertedControlValue();
+        	List<?> indexList = (List<?>) container.get_Masters().getConvertedControlValue();
         	for (int i = indexList.size() - 1; i >= 0; i--) {
         		UnsignedInteger16 index = (UnsignedInteger16) indexList.get(i);
         		MasterItem ipAddressToRemove = usedItems.getMasterItem(index.intValue());

@@ -1,25 +1,12 @@
-/** 
- * EditServiceListenerEditBeanTabAcl.java
- *
+/**
+ * EditServiceListenerEditBeanTabAcl.java Â© Copyright IBM Corp.  2009,2006,2007 THIS FILE IS PROVIDED
+ * UNDER THE TER MS OF THE ECLIPSE PUBLIC LICENSE ("AGREEMENT"). ANY USE, REPRODUCTION OR
+ * DISTRIBUTION OF THIS FILE CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT. You can obtain a
+ * current copy of the Eclipse Public License from http://www.opensource.org/licenses/eclipse-1.0.php
  * 
- * © Copyright IBM Corp. 2006,2007
- *
- * THIS FILE IS PROVIDED UNDER THE TER	MS OF THE COMMON PUBLIC LICENSE
- * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
- * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
- *
- * You can obtain a current copy of the Common Public License from
- * http://www.opensource.org/licenses/cpl1.0.php
- *
  * @author: org.sblim.wbemsmt.dcg.generator.jsf.JSFPresentationLayerGenerator
- * @template: org/sblim/wbemsmt/dcg/templates/jsf/editBean.vm
- *
- * Contributors: 
- *   michael.bauschert@de.ibm.com
- * 
- * Description: 
- * 
- * generated Class
+ * @template: org/sblim/wbemsmt/dcg/templates/jsf/editBean.vm Contributors: Prashanth
+ *            Karnam<prkarnam@in.ibm.com> Description: generated Class
  */
 
 package org.sblim.wbemsmt.jsf.dns.listener;
@@ -32,7 +19,7 @@ import javax.faces.context.FacesContext;
 import org.sblim.wbemsmt.bl.tree.*;
 import org.sblim.wbemsmt.exception.*;
 import org.sblim.wbemsmt.tools.jsf.*;
-import org.sblim.wbemsmt.tools.resources.*; //import org.sblim.wbemsmt.tools.input.jsf.*;
+import org.sblim.wbemsmt.tools.resources.*; // import org.sblim.wbemsmt.tools.input.jsf.*;
 import org.sblim.wbemsmt.bl.adapter.*;
 import org.sblim.wbemsmt.bl.messages.*;
 
@@ -171,7 +158,7 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 
     public void edit(ITaskLauncherTreeNode treeNode) throws WbemsmtException {
 
-        String bindingPrefix = null;
+        String expressionPrefix = null;
         HtmlPanelGrid childEditFields = null;
         Div div = null;
         panel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication().createComponent(
@@ -203,11 +190,11 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 
         //ADD THE FIELDS FOR CONTAINER DnsAllowNotifyForServiceDataContainer in EditPanel ${editPanel.getId()}
 
-        bindingPrefix = "objectActionController.editBeans['TabAcl'].containers[0].";
+        expressionPrefix = "objectActionController.editBeans['TabAcl'].containers[0].";
 
         //create cotainner
         currentEditContainer1 = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsAllowNotifyForServiceDataContainerImpl(
-                adapter1, bindingPrefix);
+                adapter1, expressionPrefix);
         currentEditContainer1.getPanelForCustomLayout().setStyleClass("mainTable");
         containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication()
                 .createComponent(HtmlPanelGrid.COMPONENT_TYPE);
@@ -260,11 +247,11 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 
         //ADD THE FIELDS FOR CONTAINER DnsAllowQueryForServiceDataContainer in EditPanel ${editPanel.getId()}
 
-        bindingPrefix = "objectActionController.editBeans['TabAcl'].containers[1].";
+        expressionPrefix = "objectActionController.editBeans['TabAcl'].containers[1].";
 
         //create cotainner
         currentEditContainer2 = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsAllowQueryForServiceDataContainerImpl(
-                adapter2, bindingPrefix);
+                adapter2, expressionPrefix);
         currentEditContainer2.getPanelForCustomLayout().setStyleClass("mainTable");
         containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication()
                 .createComponent(HtmlPanelGrid.COMPONENT_TYPE);
@@ -317,11 +304,11 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 
         //ADD THE FIELDS FOR CONTAINER DnsAllowTransferForServiceDataContainer in EditPanel ${editPanel.getId()}
 
-        bindingPrefix = "objectActionController.editBeans['TabAcl'].containers[2].";
+        expressionPrefix = "objectActionController.editBeans['TabAcl'].containers[2].";
 
         //create cotainner
         currentEditContainer3 = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsAllowTransferForServiceDataContainerImpl(
-                adapter3, bindingPrefix);
+                adapter3, expressionPrefix);
         currentEditContainer3.getPanelForCustomLayout().setStyleClass("mainTable");
         containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication()
                 .createComponent(HtmlPanelGrid.COMPONENT_TYPE);
@@ -374,11 +361,11 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 
         //ADD THE FIELDS FOR CONTAINER DnsAllowRecursionForServiceDataContainer in EditPanel ${editPanel.getId()}
 
-        bindingPrefix = "objectActionController.editBeans['TabAcl'].containers[3].";
+        expressionPrefix = "objectActionController.editBeans['TabAcl'].containers[3].";
 
         //create cotainner
         currentEditContainer4 = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsAllowRecursionForServiceDataContainerImpl(
-                adapter4, bindingPrefix);
+                adapter4, expressionPrefix);
         currentEditContainer4.getPanelForCustomLayout().setStyleClass("mainTable");
         containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication()
                 .createComponent(HtmlPanelGrid.COMPONENT_TYPE);
@@ -431,11 +418,11 @@ public class EditServiceListenerEditBeanTabAcl extends EditBean {
 
         //ADD THE FIELDS FOR CONTAINER DnsBlackholeForServiceDataContainer in EditPanel ${editPanel.getId()}
 
-        bindingPrefix = "objectActionController.editBeans['TabAcl'].containers[4].";
+        expressionPrefix = "objectActionController.editBeans['TabAcl'].containers[4].";
 
         //create cotainner
         currentEditContainer5 = new org.sblim.wbemsmt.jsf.dns.container.edit.DnsBlackholeForServiceDataContainerImpl(
-                adapter5, bindingPrefix);
+                adapter5, expressionPrefix);
         currentEditContainer5.getPanelForCustomLayout().setStyleClass("mainTable");
         containerPanel = (HtmlPanelGrid) FacesContext.getCurrentInstance().getApplication()
                 .createComponent(HtmlPanelGrid.COMPONENT_TYPE);

@@ -3,9 +3,7 @@
 	<tlc:contextmenu>
 		<tlc:menuitem>
 			<tlc:description>tree.menu.createAdressMatchList</tlc:description>
-			<tlc:eventListener>
-				<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateAddressMatchListListener</tlc:classname>
-			</tlc:eventListener>
+
 		</tlc:menuitem>
 		<tlc:menuitem>
 			<tlc:description>tree.menu.createMasters</tlc:description>
@@ -291,6 +289,10 @@
 							</tlc:filter>
 						</tlc:cimclass>
 					</tlc:treenode>
+								<tlc:eventListener>
+				<tlc:classname>org.sblim.wbemsmt.dns.listener.CreateAddressMatchListListener</tlc:classname>
+			</tlc:eventListener>
+			
 				</tlc:instanceSubnodes>
 				<tlc:instanceNamingKey>Name</tlc:instanceNamingKey>
 			</tlc:cimclass>

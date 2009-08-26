@@ -1,14 +1,14 @@
  /** 
   * ResourceRecordList.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -28,7 +28,7 @@ import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
 import org.sblim.wbemsmt.bl.wrapper.ObjectList;
 import org.sblim.wbemsmt.dns.bl.wrapper.ResourceRecord;
 import org.sblim.wbemsmt.exception.WbemsmtException;
-import org.sblim.wbemsmt.schema.cim29.CIM_ManagedElement;
+import org.sblim.wbemsmt.schema.cim221.CIM_ManagedElement;
 
 
 /**
@@ -73,9 +73,9 @@ public class ResourceRecordList extends ObjectList  {
 	
 	public ResourceRecordList getResourceRecordsForWizard(boolean used) throws WbemsmtException
 	{
-		List allRecords = getList();
+		List<?> allRecords = getList();
 		ResourceRecordList result = new ResourceRecordList();
-		for (Iterator iter = allRecords.iterator(); iter.hasNext();) {
+		for (Iterator<?> iter = allRecords.iterator(); iter.hasNext();) {
 			ResourceRecord rr = (ResourceRecord) iter.next();
 			if (!rr.isDeleted() && rr.isUsedInWizard() == used)
 			{
@@ -138,9 +138,9 @@ public class ResourceRecordList extends ObjectList  {
 	}
 
 	public ResourceRecordList getResourceRecordsDeleted(boolean deleted) throws WbemsmtException {
-		List allRecords = getList();
+		List<?> allRecords = getList();
 		ResourceRecordList result = new ResourceRecordList();
-		for (Iterator iter = allRecords.iterator(); iter.hasNext();) {
+		for (Iterator<?> iter = allRecords.iterator(); iter.hasNext();) {
 			ResourceRecord rr = (ResourceRecord) iter.next();
 			if (rr.isDeleted() == deleted)
 			{

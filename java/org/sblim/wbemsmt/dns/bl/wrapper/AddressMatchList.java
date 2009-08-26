@@ -1,14 +1,14 @@
  /** 
   * MasterZone.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.cim.CIMObjectPath;
 import javax.wbem.client.WBEMClient;
 
 import org.sblim.wbemsmt.bl.adapter.CimObjectKey;
@@ -57,8 +58,8 @@ public class AddressMatchList extends DnsBusinessObject {
 		aclHandler = new AclHandler(adapter, new AssociatedObjectsLoader()
 		 {
 
-			public List load(int index) {
-				List result = new ArrayList();
+			public List<CIMObjectPath> load(int index) {
+				List<CIMObjectPath> result = new ArrayList<CIMObjectPath>();
 				result.add(fco.getCimObjectPath());
 				return result;
 			}
@@ -81,8 +82,8 @@ public class AddressMatchList extends DnsBusinessObject {
 		aclHandler = new AclHandler(adapter, new AssociatedObjectsLoader()
 		 {
 
-			public List load(int index) {
-				List result = new ArrayList();
+			public List<CIMObjectPath> load(int index) {
+				List<CIMObjectPath> result = new ArrayList<CIMObjectPath>();
 				result.add(fco.getCimObjectPath());
 				return result;
 			}
@@ -128,8 +129,8 @@ public class AddressMatchList extends DnsBusinessObject {
 			String serviceName = adapter.getDnsService().getFco().get_Name();
 			updateName(NameFactory.createName(Linux_DnsAddressMatchListsForService.class, fco.get_key_Name()));
 			String matchListName = fco.get_key_Name();
-			List list = Linux_DnsAddressMatchListsForServiceHelper.enumerateInstances(adapter.getCimClient(),adapter.getNamespace(),false);
-			for (Iterator iter = list.iterator(); iter.hasNext();) {
+			List<Linux_DnsAddressMatchListsForService> list = Linux_DnsAddressMatchListsForServiceHelper.enumerateInstances(adapter.getCimClient(),adapter.getNamespace(),false);
+			for (Iterator<Linux_DnsAddressMatchListsForService> iter = list.iterator(); iter.hasNext();) {
 				Linux_DnsAddressMatchListsForService acl = (Linux_DnsAddressMatchListsForService) iter.next();
 				Object serviceName2 = acl.get_GroupComponent_Linux_DnsService(adapter.getCimClient()).get_key_Name();
 				Object matchListName2 = acl.get_PartComponent_Linux_DnsAddressMatchList(adapter.getCimClient()).get_key_Name();

@@ -1,14 +1,14 @@
  /** 
   * DnsDataLoader.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -47,7 +47,7 @@ public abstract class DnsDataLoader implements CliDataLoader {
 			//using the same filter like the tree for getting the reverse zones
 			DnsZoneNameFilter filter = new DnsZoneNameFilter(true);
 			
-			List instances = Linux_DnsZoneHelper.enumerateInstanceNames(adapter.getCimClient(), adapter.getNamespace(), true);
+			List<CIMObjectPath> instances = Linux_DnsZoneHelper.enumerateInstanceNames(adapter.getCimClient(), adapter.getNamespace(), true);
 
 			//throws WbemsmtException if no matchin path element was found
 			CIMObjectPath path = adapter.getFcoHelper().getPath(instances,
@@ -76,32 +76,32 @@ public abstract class DnsDataLoader implements CliDataLoader {
 	}
 
 	protected void selectMasterZone(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, String zoneName) throws WbemsmtException {
-		Class zoneClass = Linux_DnsMasterZone.class;
+		Class<?> zoneClass = Linux_DnsMasterZone.class;
 		selectZone(zoneClass, zoneName, adapter, bundle);
 	}
 	protected void selectSlaveZone(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, String zoneName) throws WbemsmtException {
-		Class zoneClass = Linux_DnsSlaveZone.class;
+		Class<?> zoneClass = Linux_DnsSlaveZone.class;
 		selectZone(zoneClass, zoneName, adapter, bundle);
 	}
 	protected void selectStubZone(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, String zoneName) throws WbemsmtException {
-		Class zoneClass = Linux_DnsStubZone.class;
+		Class<?> zoneClass = Linux_DnsStubZone.class;
 		selectZone(zoneClass, zoneName, adapter, bundle);
 	}
 	protected void selectHintZone(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, String zoneName) throws WbemsmtException {
-		Class zoneClass = Linux_DnsHintZone.class;
+		Class<?> zoneClass = Linux_DnsHintZone.class;
 		selectZone(zoneClass, zoneName, adapter, bundle);
 	}
 	protected void selectForwardZone(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, String zoneName) throws WbemsmtException {
-		Class zoneClass = Linux_DnsForwardZone.class;
+		Class<?> zoneClass = Linux_DnsForwardZone.class;
 		selectZone(zoneClass, zoneName, adapter, bundle);
 	}
 	protected void selectReverseZone(WbemSmtResourceBundle bundle, AbstractBaseCimAdapter adapter, String zoneName) throws WbemsmtException {
 		//if a reverse zone can be from other type first check the type and the determine the zoneClass
-		Class zoneClass = Linux_DnsMasterZone.class;
+		Class<?> zoneClass = Linux_DnsMasterZone.class;
 		selectZone(zoneClass, zoneName, adapter, bundle);
 	}
 	
-	private void selectZone(Class zoneClass, String zoneName, AbstractBaseCimAdapter adapter, WbemSmtResourceBundle bundle) throws WbemsmtException {
+	private void selectZone(Class<?> zoneClass, String zoneName, AbstractBaseCimAdapter adapter, WbemSmtResourceBundle bundle) throws WbemsmtException {
 		try {
 			CimObjectKey keyService = getServiceKey(adapter, getServiceName());
 			CIMObjectPath pathZone = adapter.getFcoHelper().getPath(zoneClass,adapter.getNamespace(),"Name",zoneName,adapter.getCimClient());
@@ -185,7 +185,7 @@ public abstract class DnsDataLoader implements CliDataLoader {
 				recordValue = recordPrio + " " + recordValue;
 			}
 			
-			List records = zone.getLinux_DnsZone().getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZoneNames(adapter.getCimClient());
+			List<CIMObjectPath> records = zone.getLinux_DnsZone().getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZoneNames(adapter.getCimClient());
 			CIMObjectPath pathRecord = adapter.getFcoHelper().getPath(records,
 					new String[]{Linux_DnsResourceRecord.PROPERTY_ZONENAME.NAME,Linux_DnsResourceRecord.PROPERTY_NAME.NAME,Linux_DnsResourceRecord.PROPERTY_VALUE.NAME,Linux_DnsResourceRecord.PROPERTY_TYPE.NAME},
 					new Object[]{zoneName,recordName,recordValue,recordType});

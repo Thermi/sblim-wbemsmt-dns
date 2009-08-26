@@ -1,14 +1,14 @@
  /** 
   * ReverseZoneWizard.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -41,7 +41,7 @@ import org.sblim.wbemsmt.util.StringTokenizer;
 
 public class ReverseZoneWizard extends DnsWizard {
 
-	List createdRecords = new ArrayList();
+	List<Linux_DnsResourceRecord> createdRecords = new ArrayList<Linux_DnsResourceRecord>();
 	private DnsReverseZoneWizardPage1DataContainer page1;
 	private String zoneName;
 	private String zoneFilename;
@@ -103,7 +103,7 @@ public class ReverseZoneWizard extends DnsWizard {
         
         if (adapter.getUpdateTrigger() == container.get_usr_AddResourceRecord())
         {
-        	List indexList = (List) container.get_usr_ResourceRecordNotUsed().getConvertedControlValue();
+        	List<?> indexList = (List<?>) container.get_usr_ResourceRecordNotUsed().getConvertedControlValue();
         	for (int i = indexList.size()-1; i >= 0; i--) {
         		UnsignedInteger16 idx = (UnsignedInteger16) indexList.get(i);
         		if (idx != null)
@@ -115,11 +115,11 @@ public class ReverseZoneWizard extends DnsWizard {
         			}
         		}
         	}
-        	container.get_usr_ResourceRecordNotUsed().setControlValue(new ArrayList());
+        	container.get_usr_ResourceRecordNotUsed().setControlValue(new ArrayList<Object>());
         }
         else if (adapter.getUpdateTrigger() == container.get_usr_RemoveResourceRecord())
         {
-        	List indexList = (List) container.get_usr_ResourceRecordUsed().getConvertedControlValue();
+        	List<?> indexList = (List<?>) container.get_usr_ResourceRecordUsed().getConvertedControlValue();
         	for (int i = indexList.size()-1; i >= 0; i--) {
         		UnsignedInteger16 idx = (UnsignedInteger16) indexList.get(i);
         		if (idx != null)
@@ -131,7 +131,7 @@ public class ReverseZoneWizard extends DnsWizard {
         			}
         		}
         	}
-        	container.get_usr_ResourceRecordUsed().setControlValue(new ArrayList());
+        	container.get_usr_ResourceRecordUsed().setControlValue(new ArrayList<Object>());
         }
         else if (adapter.getUpdateTrigger() == container.get_usr_AddAllResourceRecords())
         {
@@ -263,7 +263,7 @@ public class ReverseZoneWizard extends DnsWizard {
 			super.createAclAssociations(zone,adapter.getDnsService().getFco());			
 		}
 		
-		for (Iterator iter = createdRecords.iterator(); iter.hasNext();) {
+		for (Iterator<?> iter = createdRecords.iterator(); iter.hasNext();) {
 			Linux_DnsResourceRecord record = (Linux_DnsResourceRecord) iter.next();
 			record.set_key_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
 			record = (Linux_DnsResourceRecord) adapter.getFcoHelper().create(record,adapter.getCimClient());
@@ -285,7 +285,7 @@ public class ReverseZoneWizard extends DnsWizard {
 	}
 	
 
-	public List getCreatedRecords() {
+	public List<Linux_DnsResourceRecord> getCreatedRecords() {
 		return createdRecords;
 	}
 

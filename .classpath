@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="java"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="var" path="JAR_REPO/commons-cli/commons-cli/current/commons-cli.jar"/>
 	<classpathentry kind="var" path="JAR_REPO/commons-lang/commons-lang/current/commons-lang.jar"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/wbemsmt-commons"/>
@@ -10,5 +9,8 @@
 	<classpathentry kind="var" path="JAR_REPO/myfaces/myfaces-api/current/myfaces-api.jar"/>
 	<classpathentry kind="var" path="JAR_REPO/myfaces/tomahawk/current/tomahawk.jar" sourcepath="/SOURCES/tomahawk-1.1.3"/>
 	<classpathentry kind="var" path="JAR_REPO/sblim/sblim-cim-client/current/sblim-cim-client.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/wbemsmt-jar-repository/javax/servlet/servlet-api/current/servlet-api.jar"/>
+	<classpathentry kind="lib" path="/wbemsmt-jar-repository/jsp-api/jsp-api/current/jsp-api.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

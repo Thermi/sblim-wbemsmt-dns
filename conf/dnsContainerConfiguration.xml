@@ -1,23 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!--
-   /**
+<!--/**
+ *  Generated-File by XMLBeans
+ *
+ * © Copyright IBM Corp.  2009,2005
+ *
+ * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
+ * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
+ * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
+ *
+ * You can obtain a current copy of the Eclipse Public License from
+ * http://www.opensource.org/licenses/eclipse-1.0.php
+ *
+ * Author:     org.sblim.wbemsmt.dcg.util.DCGModelUtil
+ *
+ * Contributors: 
+ */-->
+<!--/**
 	*  sambaContainerConfiguration.xml
 	*
-	* (C) Copyright IBM Corp. 2008
+	* (C) Copyright IBM Corp.  2009,2008
 	*
-	* THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+	* THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
 	* ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
 	* CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
 	*
-	* You can obtain a current copy of the Common Public License from
-	* http://www.opensource.org/licenses/cpl1.0.php
+	* You can obtain a current copy of the Eclipse Public License from
+	* http://www.opensource.org/licenses/eclipse-1.0.php
 	*
 	* Author:      Michael Bauschert <Michael.Bauschert@de.ibm.com>
 	*
 	* Contributors: 
-	*/
--->
+	*/-->
 <cc:clientConfig version="VERSION_2_5" xsi:schemaLocation="http://sblim.org/wbemsmt/clientconfig ../../wbemsmt-tools/tools-dcg/conf/clientConfig.xsd" xmlns:cmd="http://sblim.org/wbemsmt/cmd" xmlns:cc="http://sblim.org/wbemsmt/clientconfig" xmlns:cd="http://sblim.org/wbemsmt/dcg" xmlns:pkg="http://sblim.org/wbemsmt/pkg" xmlns:pl="http://sblim.org/wbemsmt/pl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:plugins="http://sblim.org/wbemsmt/plugins">
     <cc:environment application="dns" documentationDirectory="../wbemsmt-dns/doc/" helpDirectory="../wbemsmt-dns/help">
         <cc:adapterPackage id="dns" name="org.sblim.wbemsmt.dns.bl.adapter" dir="..\wbemsmt-dns\java"/>
@@ -29,8 +42,8 @@
     <cd:container-definitions>
         <cd:environment>
             <cd:mofinput description="Cim Schema" generate="false">
-                <cd:fcoPackage id="cimschema" name="org.sblim.wbemsmt.schema.cim29" dir="../wbemsmt-commons/commons-cim-schema"/>
-                <cd:moffile location="../wbemsmt-commons-cim-schema/cim_2_09/supported"/>
+                <cd:fcoPackage id="cimschema" name="org.sblim.wbemsmt.schema.cim221" dir="../wbemsmt-commons/commons-cim-schema"/>
+                <cd:moffile location="../wbemsmt-commons-cim-schema/cim_2_21/supported/"/>
             </cd:mofinput>
             <cd:mofinput description="DNS Implementation Classes" generate="true">
                 <cd:fcoPackage id="org.sblim.wbemsmt.dns.bl.fco" name="org.sblim.wbemsmt.dns.bl.fco" dir="../wbemsmt-dns/java"/>

@@ -1,14 +1,14 @@
  /** 
   * DnsCimAdapter.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -136,11 +136,11 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
             
             initDnsService();
             
-            List list = Linux_DnsMasterZoneHelper.enumerateInstances(cimClient,getNamespace(),true);
+            List<Linux_DnsMasterZone> list = Linux_DnsMasterZoneHelper.enumerateInstances(cimClient,getNamespace(),true);
             
             ReverseZoneList reverseZoneList = new ReverseZoneList();
             
-            for (Iterator iter = list.iterator(); iter.hasNext();) {
+            for (Iterator<Linux_DnsMasterZone> iter = list.iterator(); iter.hasNext();) {
             	Linux_DnsMasterZone zone = (Linux_DnsMasterZone) iter.next();
             	MasterZone wrapper = new MasterZone(zone,this);
 
@@ -151,38 +151,38 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
             	else {
             		dnsService.getMasterZoneList().addMasterZone(wrapper);
             	}
-            	List associatedRecords = zone.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(cimClient);
+            	List<Linux_DnsResourceRecord> associatedRecords = zone.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(cimClient);
             	addResourceRecords(wrapper, associatedRecords);
             }
             
-            list = Linux_DnsSlaveZoneHelper.enumerateInstances(cimClient,getNamespace(), true);
-            for (Iterator iter = list.iterator(); iter.hasNext();) {
+            List<Linux_DnsSlaveZone> listslv = Linux_DnsSlaveZoneHelper.enumerateInstances(cimClient,getNamespace(), true);
+            for (Iterator<Linux_DnsSlaveZone> iter = listslv.iterator(); iter.hasNext();) {
             	Linux_DnsSlaveZone zone = (Linux_DnsSlaveZone) iter.next();
             	SlaveZone wrapper = new SlaveZone(zone,this);
             	dnsService.getSlaveZoneList().addSlaveZone(wrapper);
-            	List associatedRecords = zone.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(cimClient);
+            	List<Linux_DnsResourceRecord> associatedRecords = zone.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(cimClient);
             	addResourceRecords(wrapper, associatedRecords);
             }
 
-            list = Linux_DnsStubZoneHelper.enumerateInstances(cimClient,getNamespace(),true);
-            for (Iterator iter = list.iterator(); iter.hasNext();) {
+            List<Linux_DnsStubZone> liststb = Linux_DnsStubZoneHelper.enumerateInstances(cimClient,getNamespace(),true);
+            for (Iterator<Linux_DnsStubZone> iter = liststb.iterator(); iter.hasNext();) {
             	Linux_DnsStubZone zone = (Linux_DnsStubZone) iter.next();
             	StubZone wrapper = new StubZone(zone,this);
             	dnsService.getStubZoneList().addStubZone(wrapper);
-            	List associatedRecords = zone.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(cimClient);
+            	List<Linux_DnsResourceRecord> associatedRecords = zone.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(cimClient);
             	addResourceRecords(wrapper, associatedRecords);
             }
 
-            list = Linux_DnsHintZoneHelper.enumerateInstances(cimClient,getNamespace(),true);
-            for (Iterator iter = list.iterator(); iter.hasNext();) {
+            List<Linux_DnsHintZone> listhnt = Linux_DnsHintZoneHelper.enumerateInstances(cimClient,getNamespace(),true);
+            for (Iterator<Linux_DnsHintZone> iter = listhnt.iterator(); iter.hasNext();) {
             	Linux_DnsHintZone zone = (Linux_DnsHintZone) iter.next();
             	HintZone wrapper = new HintZone(zone,this);
             	dnsService.getHintZoneList().addHintZone(wrapper);
-            	List associatedRecords = zone.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(cimClient);
+            	List<Linux_DnsResourceRecord> associatedRecords = zone.getAssociated_Linux_DnsResourceRecord_Linux_DnsResourceRecordsForZones(cimClient);
             	addResourceRecords(wrapper, associatedRecords);
             }
-            list = Linux_DnsForwardZoneHelper.enumerateInstances(cimClient,getNamespace(),true);
-            for (Iterator iter = list.iterator(); iter.hasNext();) {
+            List<Linux_DnsForwardZone> listfrd = Linux_DnsForwardZoneHelper.enumerateInstances(cimClient,getNamespace(),true);
+            for (Iterator<Linux_DnsForwardZone> iter = listfrd.iterator(); iter.hasNext();) {
             	Linux_DnsForwardZone zone = (Linux_DnsForwardZone) iter.next();
             	ForwardZone wrapper = new ForwardZone(zone,this);
             	dnsService.getForwardZoneList().addForwardZone(wrapper);
@@ -309,7 +309,7 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 	}
 
 	private void initDnsService() throws WbemsmtException {
-		List serviceList = Linux_DnsServiceHelper.enumerateInstances(cimClient,getNamespace(), true);
+		List<Linux_DnsService> serviceList =  Linux_DnsServiceHelper.enumerateInstances(cimClient,getNamespace(), true);
         if (serviceList.size() != 1)
         {
         	throw new WbemsmtException(WbemsmtException.ERR_LOADING_MODEL,"Expected one Linux_DnsService and Linux_DnsServiceHelper.enumerateInstances returns " + serviceList.size());
@@ -915,8 +915,8 @@ public class DnsCimAdapter extends AbstractBaseCimAdapter {
 	}
 
 	public Zone getZone(String serviceName, String zoneName) throws WbemsmtException {
-		List list = Linux_DnsZoneHelper.enumerateInstances(getCimClient(),getNamespace(), true);
-        for (Iterator iter = list.iterator(); iter.hasNext();) 
+		List<Linux_DnsZone> listzone = Linux_DnsZoneHelper.enumerateInstances(getCimClient(),getNamespace(), true);
+        for (Iterator<Linux_DnsZone> iter = listzone.iterator(); iter.hasNext();) 
         {
         	Linux_DnsZone zoneFco =  (Linux_DnsZone) iter.next();
         	CIMObjectPath path = zoneFco.getCimObjectPath();

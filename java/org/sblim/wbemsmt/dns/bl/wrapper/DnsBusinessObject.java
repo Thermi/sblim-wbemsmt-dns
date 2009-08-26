@@ -1,14 +1,14 @@
  /** 
   * DnsBusinessObject.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -69,7 +69,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 		super(adapter);
 	}
 	
-	final static Map MULTIPLIERS = new HashMap();
+	final static Map<String,Integer> MULTIPLIERS = new HashMap<String,Integer>();
 	static
 	{
 		MULTIPLIERS.put("S",new Integer(1));
@@ -78,7 +78,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 		MULTIPLIERS.put("D",new Integer(60*60*24));
 	}
 
-	final static Map ALLOWED_DECIMALS = new HashMap();
+	final static Map<String,Integer> ALLOWED_DECIMALS = new HashMap<String,Integer>();
 	static
 	{
 		ALLOWED_DECIMALS.put("S",new Integer(0));
@@ -143,7 +143,8 @@ public abstract class DnsBusinessObject extends DnsObject {
         }
         else if (adapter.getUpdateTrigger() == container.get_usr_RemoveForwarder())
         {
-        	List indexList = (List) container.get_Forwarders().getConvertedControlValue();
+        	List<Object> indexList =  new ArrayList<Object>();
+        	indexList.add(container.get_Forwarders().getConvertedControlValue());
         	for (int i = indexList.size() - 1; i >= 0; i--) {
         		UnsignedInteger16 index = (UnsignedInteger16) indexList.get(i);
         		forwarderList.getForwarderOnClient(index.intValue()).setExistsOnClient(false);
@@ -363,8 +364,8 @@ public abstract class DnsBusinessObject extends DnsObject {
 		
 		if (forwarderExists)
         {
-        	List ipList = new ArrayList();
-        	List typeList = new ArrayList();
+        	List<String> ipList = new ArrayList<String>();
+        	List<UnsignedInteger8> typeList = new ArrayList<UnsignedInteger8>();
         	
         	for (int i=0; i < forwarderList.size(); i++)
         	{
@@ -415,8 +416,8 @@ public abstract class DnsBusinessObject extends DnsObject {
 
         			if (DnsCimAdapter.DUMMY_MODE)
         			{
-        				List list = Linux_DnsForwardersForZoneHelper.enumerateInstances(adapter.getCimClient(),adapter.getNamespace(),false);
-        				for (Iterator iter = list.iterator(); iter.hasNext();) {
+        				List<Linux_DnsForwardersForZone> list = Linux_DnsForwardersForZoneHelper.enumerateInstances(adapter.getCimClient(),adapter.getNamespace(),false);
+        				for (Iterator<?> iter = list.iterator(); iter.hasNext();) {
         					Linux_DnsForwardersForZone forwardresForZoneAssoc = (Linux_DnsForwardersForZone) iter.next();
         					if (forwardresForZoneAssoc.get_GroupComponent_Linux_DnsZone(adapter.getCimClient()).get_key_Name().equals(zone.get_key_Name()))
         					{
@@ -462,7 +463,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 		if (query) createAcl(zone, Linux_DnsAllowQueryForZone.class);
 	}
 
-	private void createAcl(Linux_DnsZone zone, Class associationClass) throws WbemsmtException {
+	private void createAcl(Linux_DnsZone zone, Class<?> associationClass) throws WbemsmtException {
 		Linux_DnsAddressMatchList matchList = new Linux_DnsAddressMatchList(adapter.getCimClient(),adapter.getNamespace());
         matchList.set_key_Name(NameFactory.createName(associationClass,zone.get_key_Name()));
         matchList.set_key_InstanceID(DnsCimAdapter.DEFAULT_INSTANCE_ID);
@@ -527,16 +528,18 @@ public abstract class DnsBusinessObject extends DnsObject {
 		if (DnsCimAdapter.DUMMY_MODE)
 		{
 			try {
-				List list =  zone.getAssociations_Linux_DnsAllowNotifyForZone(adapter.getCimClient(),false,false,null,null);
-				for (Iterator iter = list.iterator(); iter.hasNext();) {
+				
+				List<?> list = new ArrayList<Linux_DnsAllowNotifyForZone>();
+				list =  zone.getAssociations_Linux_DnsAllowNotifyForZone(adapter.getCimClient(),false,false,null,null);
+				for (Iterator<?> iter = list.iterator(); iter.hasNext();) {
 					Linux_DnsAllowNotifyForZone acl = (Linux_DnsAllowNotifyForZone) iter.next();
 					Linux_DnsAddressMatchList aml = acl.get_PartComponent_Linux_DnsAddressMatchList(adapter.getCimClient());
 					adapter.getFcoHelper().delete(acl,adapter.getCimClient());
 					adapter.getFcoHelper().delete(aml,adapter.getCimClient());
 				}
-
+								
 				list = zone.getAssociations_Linux_DnsAllowTransferForZone(adapter.getCimClient(),false,false,null,null);
-				for (Iterator iter = list.iterator(); iter.hasNext();) {
+				for (Iterator<?> iter = list.iterator(); iter.hasNext();) {
 					Linux_DnsAllowTransferForZone acl = (Linux_DnsAllowTransferForZone) iter.next();
 					Linux_DnsAddressMatchList aml = acl.get_PartComponent_Linux_DnsAddressMatchList(adapter.getCimClient());
 					adapter.getFcoHelper().delete(acl,adapter.getCimClient());
@@ -544,7 +547,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 				}
 
 				list = zone.getAssociations_Linux_DnsAllowQueryForZone(adapter.getCimClient(),false,false,null,null);
-				for (Iterator iter = list.iterator(); iter.hasNext();) {
+				for (Iterator<?> iter = list.iterator(); iter.hasNext();) {
 					Linux_DnsAllowQueryForZone acl = (Linux_DnsAllowQueryForZone) iter.next();
 					Linux_DnsAddressMatchList aml = acl.get_PartComponent_Linux_DnsAddressMatchList(adapter.getCimClient());
 					adapter.getFcoHelper().delete(acl,adapter.getCimClient());
@@ -552,7 +555,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 				}
 
 				list = zone.getAssociations_Linux_DnsAllowUpdateForZone(adapter.getCimClient(),false,false,null,null);
-				for (Iterator iter = list.iterator(); iter.hasNext();) {
+				for (Iterator<?> iter = list.iterator(); iter.hasNext();) {
 					Linux_DnsAllowUpdateForZone acl = (Linux_DnsAllowUpdateForZone) iter.next();
 					Linux_DnsAddressMatchList aml = acl.get_PartComponent_Linux_DnsAddressMatchList(adapter.getCimClient());
 					adapter.getFcoHelper().delete(acl,adapter.getCimClient());
@@ -560,7 +563,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 				}
 				
 				list = zone.getAssociations_Linux_DnsResourceRecordsForZone(adapter.getCimClient(),false,false,null,null);
-				for (Iterator iter = list.iterator(); iter.hasNext();) {
+				for (Iterator<?> iter = list.iterator(); iter.hasNext();) {
 					Linux_DnsResourceRecordsForZone recordAssoc = (Linux_DnsResourceRecordsForZone) iter.next();
 					Linux_DnsResourceRecord rr = recordAssoc.get_PartComponent_Linux_DnsResourceRecord(adapter.getCimClient());
 					adapter.getFcoHelper().delete(recordAssoc,adapter.getCimClient());
@@ -568,7 +571,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 				}
 
 				list = zone.getAssociations_Linux_DnsMastersForZone(adapter.getCimClient(),false,false,null,null);
-				for (Iterator iter = list.iterator(); iter.hasNext();) {
+				for (Iterator<?> iter = list.iterator(); iter.hasNext();) {
 					Linux_DnsMastersForZone mastersForSlaveAssoc = (Linux_DnsMastersForZone) iter.next();
 					Linux_DnsMasters ip = mastersForSlaveAssoc.get_PartComponent_Linux_DnsMasters(adapter.getCimClient());
 					adapter.getFcoHelper().delete(mastersForSlaveAssoc,adapter.getCimClient());
@@ -576,7 +579,7 @@ public abstract class DnsBusinessObject extends DnsObject {
 				}
 
 				list = zone.getAssociations_Linux_DnsForwardersForZone(adapter.getCimClient(),false,false,null,null);
-				for (Iterator iter = list.iterator(); iter.hasNext();) {
+				for (Iterator<?> iter = list.iterator(); iter.hasNext();) {
 					Linux_DnsForwardersForZone forwardresForZoneAssoc = (Linux_DnsForwardersForZone) iter.next();
 					Linux_DnsForwarders forwarders = forwardresForZoneAssoc.get_PartComponent_Linux_DnsForwarders(adapter.getCimClient());
 					adapter.getFcoHelper().delete(forwardresForZoneAssoc,adapter.getCimClient());

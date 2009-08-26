@@ -10,7 +10,7 @@
 Name:           %{name}
 Version:        %{version}
 Release:        %{release}
-License:        Common Public License
+License:        Eclipse Public License
 Url:            http://sblim.sourceforge.net/
 Group:          Systems Management/Web Application
 Vendor:         IBM
@@ -21,24 +21,35 @@ BuildArch:      noarch
 
 BuildRequires: jpackage-utils >= 0:1.5.32
 BuildRequires: ant >= 0:1.6
-BuildRequires: sblim-cim-client >= 1.3
-BuildRequires: sblim-wbemsmt-commons => 0.5.0
-BuildRequires: jakarta-commons-lang >= 2.0
-#BuildRequires: jakarta-commons-cli >= 1.0
-#BuildRequires:  myfaces >= 1.1.5
-#BuildRequires:  tomahawk >= 1.1.3
-#BuildRequires:  xbeans >= 2.2.0
+BuildRequires: sblim-wbemsmt-commons => 1.0
+#BuildRequires: sblim-cim-client >= 2.1.0
+#BuildRequires: servlet-api >= 2.5
+#BuildRequires: jsp-api >= 2.1
+#BuildRequires: jakarta-commons-lang >= 2.4
+#BuildRequires: jakarta-commons-collections >= 3.2.1
+#BuildRequires: jakarta-commons-cli >= 1.1
+#BuildRequires:  myfaces >= 1.2.6
+#BuildRequires:  myfaces-impl >= 1.2.6
+#BuildRequires:  tomahawk >= 1.1.8
+#BuildRequires:  xmlBeans >= 2.2.0
+#BuildRequires:  jsr173-1.0-api >= 1.0
 
 ###############################################################################
 
 Requires: jpackage-utils >= 0:1.5.32
-Requires: sblim-cim-client >= 1.3
-Requires: sblim-wbemsmt-commons => 0.5.0
-Requires: sblim-wbemsmt-webapp => 0.5.0
-Requires: jakarta-commons-lang >= 2.0
-#Requires: jakarta-commons-cli >= 1.0
-#Requires:  myfaces >= 1.1.5
-#Requires:  tomahawk >= 1.1.3
+Requires: sblim-wbemsmt-commons => 1.0
+Requires: sblim-wbemsmt-webapp => 1.0
+#BuildRequires: sblim-cim-client >= 2.1.0
+#BuildRequires: servlet-api >= 2.5
+#BuildRequires: jsp-api >= 2.1
+#BuildRequires: jakarta-commons-lang >= 2.4
+#BuildRequires: jakarta-commons-collections >= 3.2.1
+#BuildRequires: jakarta-commons-cli >= 1.1
+#BuildRequires:  myfaces >= 1.2.6
+#BuildRequires:  myfaces-impl >= 1.2.6
+#BuildRequires:  tomahawk >= 1.1.8
+#BuildRequires:  xmlBeans >= 2.2.0
+#BuildRequires:  jsr173-1.0-api >= 1.0
 
 ###############################################################################
 
@@ -59,6 +70,7 @@ for the DNS task.
 %build
 CLASSPATH=$(build-classpath sblim-cim-client)
 CLASSPATH=$(build-classpath commons-cli commons-lang):$CLASSPATH
+CLASSPATH=$(build-classpath jsp-api servlet-api):$CLASSPATH
 CLASSPATH=$(build-classpath myfaces-api myfaces-impl tomahawk xbean):$CLASSPATH
 CLASSPATH=$(build-classpath sblim-wbemsmt/sblim-wbemsmt-commons sblim-wbemsmt/sblim-wbemsmt-commons-launcher-config):$CLASSPATH
 export CLASSPATH
@@ -74,7 +86,7 @@ install -d $RPM_BUILD_ROOT%{_bindir}/
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/sblim-wbemsmt/tasklauncher.d
 install -d $RPM_BUILD_ROOT%{_javadir}/sblim-wbemsmt
 install -d $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
-install -d $RPM_BUILD_ROOT%{_localstatedir}/lib/%{name}/help
+install -d $RPM_BUILD_ROOT%{_localstatedir}/lib/sblim-wbemsmt/help
 
 # Installation of documentation files
 install COPYING   $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}/COPYING
@@ -96,27 +108,21 @@ install target/package/%{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/sblim-w
 )
 
 # Moving help files to the webapp directory
-mv target/package/help/* $RPM_BUILD_ROOT%{_localstatedir}/lib/%{name}/help
+mv target/package/help/* $RPM_BUILD_ROOT%{_localstatedir}/lib/sblim-wbemsmt/help
 
 ###############################################################################
-
 %post
+
 unset JAVA_HOME
 [ -z "$JAVA_HOME" ] && [ -r %{_sysconfdir}/java/java.conf ] && \
     . %{_sysconfdir}/java/java.conf
 [ -z "$JAVA_HOME" ] && JAVA_HOME=%{_jvmdir}/java
 
 unset WBEMSMT_WEBAPP_HOME
-[ -r %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-webapp.conf ] && . %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-webapp.conf
+#[ -r %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-webapp.conf ] && . %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-webapp.conf
 [ -z "$WBEMSMT_WEBAPP_HOME" ] && WBEMSMT_WEBAPP_HOME=%{_localstatedir}/lib/sblim-wbemsmt-webapp/webapps/sblim-wbemsmt-webapp
 
-unset WBEMSMT_HELPDIR
-[ -r %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-commons.conf ] && . %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-commons.conf
-[ -z "$WBEMSMT_HELPDIR" ] && WBEMSMT_HELPDIR=/var/lib/sblim-wbemsmt/help
-ln -sf %{_localstatedir}/lib/%{name}/help/plugins/org.sblim.wbemsmt.help.dns $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.dns
-
 build-jar-repository $WBEMSMT_WEBAPP_HOME/WEB-INF/lib sblim-wbemsmt/%{name}
-
 
 ###############################################################################
 
@@ -125,12 +131,6 @@ unset WBEMSMT_WEBAPP_HOME
 [ -r %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-webapp.conf ] && . %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-webapp.conf
 [ -z "$WBEMSMT_WEBAPP_HOME" ] && WBEMSMT_WEBAPP_HOME=%{_localstatedir}/lib/sblim-wbemsmt-webapp/webapps/sblim-wbemsmt-webapp
 rm -f $WBEMSMT_WEBAPP_HOME/WEB-INF/lib/\[sblim-wbemsmt\]\[%{name}.jar\]*.jar
-
-unset WBEMSMT_HELPDIR
-[ -r %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-commons.conf ] && . %{_sysconfdir}/sblim-wbemsmt/sblim-wbemsmt-commons.conf
-[ -z "$WBEMSMT_HELPDIR" ] && WBEMSMT_HELPDIR=/var/lib/sblim-wbemsmt/help
-unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.dns
-
 
 ###############################################################################
 
@@ -143,7 +143,7 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.dns
 %doc %{_docdir}/%{name}-%{version}/NEWS
 %doc %{_docdir}/%{name}-%{version}/TroubleShooting
 %doc %{_docdir}/%{name}-%{version}/MultipleHostsSupport
-%{_localstatedir}/lib/%{name}/help/*
+%{_localstatedir}/lib/sblim-wbemsmt/help/plugins/org.sblim.wbemsmt.help.dns/*
 %{_javadir}/sblim-wbemsmt/%{name}.jar
 %{_javadir}/sblim-wbemsmt/%{name}-%{version}.jar
 %{_bindir}/sblim-wbemsmt-dns-cli.sh
@@ -151,6 +151,11 @@ unlink $WBEMSMT_HELPDIR/plugins/org.sblim.wbemsmt.help.dns
 
 ###############################################################################
 %changelog
+
+* Wed Aug 26 2009 Jeremy Bongio <jbongio@us.ibm.com> 1.0-1
+  - Updated libraries and java version to 1.6.
+  - Maintenance release
+
 * Wed Jun 17 2009 Jeremy Bongio <jbongio@us.ibm.com> 0.5.6-1
   - Maintenance release
 

@@ -1,14 +1,14 @@
  /** 
   * ReverseZoneNameValidator.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -60,12 +60,12 @@ public class ResourceRecordListValidator  extends Validator {
 
 	public void validateElement(MessageList result) throws WbemsmtException {
 
-	    List addFields = new ArrayList();
+	    List<LabeledBaseInputComponentIf> addFields = new ArrayList<LabeledBaseInputComponentIf>();
         ResourceRecordList resourceRecords2;
            
         resourceRecords2 = dnsCimAdapter.getSelectedZone().getResourceRecords();
         
-        Map keys = new HashMap();
+        Map<String,List<LabeledBaseInputComponentIf>> keys = new HashMap<String,List<LabeledBaseInputComponentIf>>();
         
         int size;
         size = resourceRecords2.size();
@@ -110,7 +110,7 @@ public class ResourceRecordListValidator  extends Validator {
         		String type = ResourceRecord.getTypeOfIndex((UnsignedInteger16)typeField.getConvertedControlValue());
         		String value = (String)valueField.getConvertedControlValue();
    
-        		List fields = new ArrayList();
+        		List<LabeledBaseInputComponentIf> fields = new ArrayList<LabeledBaseInputComponentIf>();
         		fields.add(nameField);
         		fields.add(valueField);
         		fields.add(typeField);
@@ -118,7 +118,7 @@ public class ResourceRecordListValidator  extends Validator {
         		String key = name + type + value;
         		if (keys.containsKey(key))
         		{
-        			List fieldsFromMap = (List) keys.get(key);
+        			List<LabeledBaseInputComponentIf> fieldsFromMap = (List<LabeledBaseInputComponentIf>) keys.get(key);
         			fields.addAll(fieldsFromMap);
         			
         			String msg = adapter.getBundle().getString(DnsErrCodes.MSG_RECORD_EXISTS_MORE_THAN_ONCE,"record.exist.more.than.one.time",new Object[]{nameField.getLabelText(),typeField.getLabelText(), valueField.getLabelText(),name,type,value});

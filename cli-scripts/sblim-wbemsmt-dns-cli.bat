@@ -3,12 +3,12 @@
 @REM
 @REM (C) Copyright IBM Corp. 2006
 @REM
-@REM THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+@REM THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
 @REM ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
 @REM CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
 @REM
-@REM You can obtain a current copy of the Common Public License from
-@REM http://www.opensource.org/licenses/cpl1.0.php
+@REM You can obtain a current copy of the Eclipse Public License from
+@REM http://www.opensource.org/licenses/eclipse-1.0.php
 @REM
 @REM Author:       Michael.Bauschert@de.ibm.com
 @REM

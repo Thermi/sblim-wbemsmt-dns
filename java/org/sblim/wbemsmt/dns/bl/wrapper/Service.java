@@ -1,14 +1,14 @@
  /** 
   * Service.java
   *
-  * © Copyright IBM Corp. 2005
+  * © Copyright IBM Corp.  2009,2005
   *
-  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
+  * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
   * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
   * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
   *
-  * You can obtain a current copy of the Common Public License from
-  * http://www.opensource.org/licenses/cpl1.0.php
+  * You can obtain a current copy of the Eclipse Public License from
+  * http://www.opensource.org/licenses/eclipse-1.0.php
   *
   * @author: Michael Bauschert <Michael.Bauschert@de.ibm.com>
   *
@@ -22,6 +22,7 @@ package org.sblim.wbemsmt.dns.bl.wrapper;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.cim.CIMObjectPath;
 import javax.cim.UnsignedInteger32;
 import javax.wbem.client.WBEMClient;
 
@@ -30,14 +31,35 @@ import org.sblim.wbemsmt.bl.messages.Message;
 import org.sblim.wbemsmt.bl.messages.MessageList;
 import org.sblim.wbemsmt.dns.bl.DnsErrCodes;
 import org.sblim.wbemsmt.dns.bl.adapter.DnsCimAdapter;
-import org.sblim.wbemsmt.dns.bl.container.edit.*;
-import org.sblim.wbemsmt.dns.bl.fco.*;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowNotifyForServiceDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowQueryForServiceDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowRecursionForServiceDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsAllowTransferForServiceDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsBlackholeForServiceDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsConfigurationDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsForwardersForServiceDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceOperationsDataContainer;
+import org.sblim.wbemsmt.dns.bl.container.edit.DnsServiceTracingDataContainer;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsAddressMatchList;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsForwarders;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsService;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsServiceConfiguration;
+import org.sblim.wbemsmt.dns.bl.fco.Linux_DnsServiceSettingData;
 import org.sblim.wbemsmt.dns.bl.wrapper.acl.AclHandler;
 import org.sblim.wbemsmt.dns.bl.wrapper.acl.AssociatedObjectsLoader;
-import org.sblim.wbemsmt.dns.bl.wrapper.list.*;
+import org.sblim.wbemsmt.dns.bl.wrapper.list.AddressMatchListList;
+import org.sblim.wbemsmt.dns.bl.wrapper.list.ForwardZoneList;
+import org.sblim.wbemsmt.dns.bl.wrapper.list.ForwarderList;
+import org.sblim.wbemsmt.dns.bl.wrapper.list.HintZoneList;
+import org.sblim.wbemsmt.dns.bl.wrapper.list.MasterZoneList;
+import org.sblim.wbemsmt.dns.bl.wrapper.list.MastersList;
+import org.sblim.wbemsmt.dns.bl.wrapper.list.ReverseZoneList;
+import org.sblim.wbemsmt.dns.bl.wrapper.list.SlaveZoneList;
+import org.sblim.wbemsmt.dns.bl.wrapper.list.StubZoneList;
 import org.sblim.wbemsmt.exception.WbemsmtException;
-import org.sblim.wbemsmt.schema.cim29.CIM_Service.StartServiceResult;
-import org.sblim.wbemsmt.schema.cim29.CIM_Service.StopServiceResult;
+import org.sblim.wbemsmt.schema.cim221.CIM_Service;
+import org.sblim.wbemsmt.schema.cim221.CIM_Service.StartServiceResult;
+import org.sblim.wbemsmt.schema.cim221.CIM_Service.StopServiceResult;
 
 public class Service extends DnsBusinessObject {
 
@@ -87,7 +109,7 @@ public class Service extends DnsBusinessObject {
 		this.fco = service;
 		aclHandler = new AclHandler(adapter, new AssociatedObjectsLoader()
 		{
-			public List load(int index) throws WbemsmtException {
+			public List<CIMObjectPath> load(int index) throws WbemsmtException {
 				switch (index) {
                 case AclHandler.IDX_NOTIFY:
                 	return fco.getAssociated_Linux_DnsAddressMatchList_Linux_DnsAllowNotifyForServiceNames(adapter.getCimClient());
@@ -112,7 +134,7 @@ public class Service extends DnsBusinessObject {
 		if (setting == null)
         {
         	WBEMClient cc = adapter.getCimClient();
-        	List list = getConfiguration().getAssociated_Linux_DnsServiceSettingData_Linux_DnsServiceSettingDataForServiceConfigurationNames(cc);
+        	List<CIMObjectPath> list = getConfiguration().getAssociated_Linux_DnsServiceSettingData_Linux_DnsServiceSettingDataForServiceConfigurationNames(cc);
         	setting = (Linux_DnsServiceSettingData)getFirstChild(Linux_DnsServiceSettingData.class,list,false,false, cc, adapter.getNamespace());
         }
         return setting;
@@ -124,7 +146,7 @@ public class Service extends DnsBusinessObject {
 		if (configuration == null)
         {
         	WBEMClient cc = adapter.getCimClient();
-        	List list = fco.getAssociated_Linux_DnsServiceConfiguration_Linux_DnsServiceConfigurationForServiceNames(cc);
+        	List<CIMObjectPath> list = fco.getAssociated_Linux_DnsServiceConfiguration_Linux_DnsServiceConfigurationForServiceNames(cc);
         	configuration = (Linux_DnsServiceConfiguration)getFirstChild(Linux_DnsServiceConfiguration.class,list,false,false, cc, adapter.getNamespace());
         }
         return configuration;
@@ -224,8 +246,8 @@ public class Service extends DnsBusinessObject {
 		this.stubZoneList = stubZoneList;
 	}
 
-	public List getZoneList() throws WbemsmtException {
-		List allZones = new ArrayList();
+	public List<Object> getZoneList() throws WbemsmtException {
+		List<Object> allZones = new ArrayList<Object>();
 		allZones.addAll(getMasterZoneList().getList());
 		allZones.addAll(getSlaveZoneList().getList());
 		allZones.addAll(getStubZoneList().getList());
@@ -390,26 +412,26 @@ public class Service extends DnsBusinessObject {
                 UnsignedInteger32 rc = new UnsignedInteger32(0);
                 if (adapter.getUpdateTrigger() == container.get_invoke_Start())
                 {
-                    StartServiceResult result = fco.invoke_StartService(cc);
+                    CIM_Service.StartServiceResult result = fco.invoke_StartService(cc);
                 	rc = result.getResultObject();
                 	evaluateRC(container,rc,true);
                 }
                 else if (adapter.getUpdateTrigger() == container.get_invoke_Stop())
                 {
-                    StopServiceResult result = fco.invoke_StopService(cc);
+                	CIM_Service.StopServiceResult result = fco.invoke_StopService(cc);
                     rc = result.getResultObject();
                 	evaluateRC(container,rc,false);
                 }
                 else if (adapter.getUpdateTrigger() == container.get_usr_Restart())
                 {
-                    StopServiceResult result = fco.invoke_StopService(cc);
+                	CIM_Service.StopServiceResult result = fco.invoke_StopService(cc);
                     rc = result.getResultObject();
                 	if (!evaluateRC(container,rc,false))
                 	{
                 		return;
                 	}
                 	
-                    StartServiceResult result1 = fco.invoke_StartService(cc);
+                	CIM_Service.StartServiceResult result1 = fco.invoke_StartService(cc);
                     rc = result1.getResultObject();
                 	evaluateRC(container,rc,true);
                 }
