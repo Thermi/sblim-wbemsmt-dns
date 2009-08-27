@@ -1,12 +1,12 @@
 /* --------------------------------------------------------------------------*/
 (C) Copyright IBM Corp. 2006
 
-THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
+THIS FILE IS PROVIDED UNDER THE TERMS OF THE COMMON PUBLIC LICENSE
 ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
 CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
 
-You can obtain a current copy of the Eclipse Public License from
-http://www.opensource.org/licenses/eclipse-1.0.php
+You can obtain a current copy of the Common Public License from
+http://www.opensource.org/licenses/cpl1.0.php
 
 Author:       Wolfgang Taphorn <taphorn(at)de.ibm.com>
 Date  :	      11/27/2006
@@ -42,6 +42,7 @@ The source package contains the following parts:
  ./conf              Contains the configuration files for generator tools
 
 
+
 General Requirements
 --------------------
 In order to build, install and operate this package you will need a Java SDK 
@@ -52,38 +53,44 @@ Sun Java SDK/JRE: version 1.6.0 or higher
 
 IBM Java SDK/JRE: version 1.6.0 or higher
 
-GNU Compile For Java: version 4.1.1 20061116 or higher
-
 
 Build-time Prerequisites
-------------------------------------------------------------------------------
-
-Build tooling:
-  - Apache Ant from http://ant.apache.org
-
-The Binaries of the CVS Modules:
-  - wbemsmt-commons
-  - wbemsmt-webapp
-or the Releases of the packages
-  - sblim-wbemsmt-commons
-  - sblim-wbemsmt-webapp
-
+------------------------
 Third-Party Libraries (and their dependent jar-Files):
-  - sblim-cim-client 1.3.3 from http://www.sblim.org/
-  - Apache MyFaces 1.1.5 from http://myfaces.apache.org/
-  - Apache Tomahawk 1.1.3 from http://myfaces.apache.org/
-  - Jakarta-Commons Lang from http://jakarta.apache.org/commons/lang/
-  - Jakarta-Commons CLI from http://jakarta.apache.org/commons/cli/
-  - XMLBeans 2.2.0 from http://xmlbeans.apache.org/
+ - sblim-cim-client 2.1.1 or later from http://www.sblim.org/
+ - MyFaces 1.2.6 and Tomahawk 1.1.3 or later from http://myfaces.apache.org/
+ - XMLBeans 2.4.0 from http://xmlbeans.apache.org/
+ - Jakarta-Commons Lang 2.4 from http://jakarta.apache.org/commons/lang/
+ - Jakarta-Commons Cli 1.1 from http://jakarta.apache.org/commons/cli/
+ - tomcat-6.0.18 servlet-api from http://www.apache.org/
+ - tomcat-6.0.18 jsp-api from http://www.apache.org/
+ - apache-log4j 1.2.15 from http://www.apache.org/
+
+
+Run-time Prerequisites
+----------------------
+ - the above build-time preqrequisites
+ - Apache Tomcat 6.0.18 or later from http://tomcat.apache.org/ and all its prerequisites
+ - xerces-j2 >= 2.7.1
+ - xalan-j2 >= 2.7.1
+ - jakarta-commons-beanutils >= 1.8.0
+ - jakarta-commons-cli >= 1.1
+ - jakarta-commons-codec >= 1.3
+ - jakarta-commons-digester >= 1.8
+ - jakarta-commons-el >= 1.0
+ - jakarta-commons-fileupload >= 1.2.1
+ - jakarta-commons-lang >= 2.4
+ - jakarta-commons-logging >= 1.1.1
+ - tomcat6 >= 6.0.18
 
 
 Run-time Preequisites
 ---------------------
 To be able to run the task, the following AND their run-time dependencies
-need to be installed properly into a Tomcat5 server:
-  - sblim-wbemsmt-webapp 
-  - sblim-wbemsmt-commons
 
+need to be installed properly into a Tomcat6 server:
+  - sblim-wbemsmt-webapp 1.0
+  - sblim-wbemsmt-commons 1.0
 
 
 Building this package
@@ -96,8 +103,9 @@ The output of the RPM build process are RPM packages that are based on the
 JPackage (http://www.jpackage.org) approach.
 
 To be able to perform the build, set the CLASSPATH to include the JAR files
-of the packages described in the 'Build-time Prerequisites. Afterwards
-a Source and a Binary TAR ball can easily be built by performing the following
+of the packages described in the 'Build-time Prerequisites. This can be 
+accomplished with the build-jar-repository command as well. Afterwards a 
+Source and a Binary TAR ball can easily be built by performing the following
 command:
 > ant build-release
 The output will be placed in the './target/release' directory.
@@ -105,6 +113,7 @@ The output will be placed in the './target/release' directory.
 The Source TAR ball can also be created without setting the CLASSPATH by 
 simply performing:
 > ant package-src-tar
+
 
 With the Source TAR ball, RPM packages can be build. Since the TAR ball already
 includes the RPM spec file the execution of
@@ -117,16 +126,20 @@ installed as RPM packages.
 
 Installation
 ------------------------------------------------------------------------------
-The installation can be processed in two ways. 
 
-The first possible installation flavour would be to use the RPM package. This
-is of course our recommended way. Simply put the RPM package onto your system,
-resolve the 'Run-time Dependencies' and then perform the following command:
-> rpm -i sblim-wbemsmt-dhcp-<version>.1jpp.noarch.rpm
+The installation can be processed in three ways. 
 
-The second way is a manual installation. This means the Binary TAR ball should
+The preferred installation method is to run the wbemsmt setup script available
+from sourceforge. 
+
+The second possible installation method would be to use the RPM package. 
+Simply put the RPM package onto your system, resolve the 'Run-time Dependencies' 
+and then perform the following command:
+> rpm -i sblim-wbemsmt-dns-<version>.1jpp.noarch.rpm
+
+The third way is a manual installation. This means the Binary TAR ball should
 be taken and extracted. Copy the JAR files into the 'WEB-INF/lib' directory of
-the 'sblim-wbemsmt-webapp' in your tomcat installation directory and 
+the 'sblim-wbemsmt-dns' in your tomcat installation directory and 
 additionally copy the content of the 'etc' directory into the '/etc' directory.
 If you like to run the Command Line Interface script, then you should copy
 the script to a location which is included into your '$PATH' environment 
@@ -142,7 +155,7 @@ Tomcat's configuration) is enabled for inbound connections and that the
 standard WBEM/CIM port, 5988, is enabled for outbound connections
 
 start Tomcat:
-> service tomcat6 start
+> /opt/apache-tomcat-6.0.18/bin/catalina.sh run
 
 The EUI (End User Interface) can be accessed by typing the following URL into 
 a web browser: http://hostname:port/sblim-wbemsmt-webapp where hostname needs 
@@ -155,7 +168,7 @@ name of the host which on which the server package was installed. Typically
 the Port and Namepaces fields do not need to be changed. The User and the 
 Password fields need to contain the OpenPegasus CIM user name and its password.
 
-<-- Needs to be updated with DHCP info
+<-- Needs to be updated with DNS info
 The application will initially take some time to populate the tree on the
 browser with all the defined shares, printers and users. Existing samba shares,
 printers and the users can be modified by selecting them, and editing the
@@ -183,6 +196,8 @@ For manual un-installations, just remove the files you have copied into the
 webapp environment and also remove the copied content of the 'etc' directory.
 
 Afterwards please restart the tomcat server to unload the task.
+
+The wbemsmt setup script may also be used to uninstall specific tasks.
 
 
 Contacting the WBEMSMT Project
